@@ -1,0 +1,39 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Provide details of convictions that were obtained after December 2013
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <h1 class="govuk-heading-l">Provide details of convictions that were obtained after December 2013</h1>
+
+        <p>You have added 1 conviction</p>
+        <ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-4">
+            <li class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-4">
+                10/3/2016 - Conspiracy within the meaning of section 1 or 1A of the Criminal Law Act 1977
+                <div class="govuk-!-margin-top-1">
+                    <a class="govuk-list" href="#">Remove</a>
+                </div>
+            </li>
+        </ul>
+
+
+        <a href="conviction-add" class="govuk-button">Add another conviction</a>
+        
+        <div>
+            <a href="due-diligence" class="govuk-!-font-size-19">I'm finished adding convictions</a>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

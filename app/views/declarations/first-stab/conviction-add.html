@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Which conviction was it?
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <h1 class="govuk-heading-l">Which conviction was it?</h1>
+
+       <div class="govuk-form-group">
+          <label class="govuk-label" for="conviction">
+            Search conviction
+          </label>
+           
+           <span id="conviction-hint" class="govuk-hint">For example, conspiracy</span>
+          
+          <input class="govuk-input" id="conviction" name="conviction" type="text"  aria-describedby="conviction-hint">
+        </div>
+        
+        <div id="list-of-convictions" aria-hidden="true">
+            <ul class="govuk-list">
+                <li class="govuk-section-break govuk-section-break--visible">
+                    <a href="conviction-date" class="govuk-!-padding-2 govuk-!-margin-top-2 govuk-!-margin-bottom-2">conspiracy within the meaning of section 1 or 1A of the Criminal Law Act 1977</a></li>
+                <li class="govuk-section-break govuk-section-break--visible">
+                    <a href="#" class="govuk-!-padding-2 govuk-!-margin-top-2 govuk-!-margin-bottom-2">conspiracy within the meaning of article 9 or 9A of the Criminal Attempts and Conspiracy (Northern Ireland) Order 1983 where that conspiracy relates to participation in a criminal organisation as defined in Article 2 of Council Framework Decision 2008/842/JHA on the fight against organised crime</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+</div>
+
+{% endblock %}

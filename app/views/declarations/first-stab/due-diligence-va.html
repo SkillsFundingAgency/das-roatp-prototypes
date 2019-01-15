@@ -1,0 +1,49 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Is your organisation or any partner organisations in company voluntary arrangement?
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <form method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="due-diligence-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  <h1 class="govuk-fieldset__heading govuk-!-font-size-36">
+                    Is your organisation or any partner organisations in company voluntary arrangement?
+                  </h1>
+                </legend>
+
+                <div class="govuk-radios govuk-radios--inline">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="due-diligence-1" name="due-diligence" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="due-diligence-1">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="due-diligence-2" name="due-diligence" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="due-diligence-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+           
+            <input class="govuk-button" type="submit" value="Continue" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

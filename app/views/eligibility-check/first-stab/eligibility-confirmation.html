@@ -1,0 +1,90 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <form method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="checkbox-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    To support this application, I can provide:
+                  </h1>
+                </legend>
+                <span id="checkbox-hint" class="govuk-hint">
+                  Select all that apply.
+                </span>
+                <div class="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-1" name="checkbox" type="checkbox" value="ukprn">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-1">
+                      a valid <a href="#">UK provider reference number (UKPRN)</a>
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-2" name="checkbox" type="checkbox" value="icorn">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-2">
+                        a valid <a href="#">Information Commissioner's Office registration number</a> for education and training
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-3" name="checkbox" type="checkbox" value="address">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-3">
+                        a registered UK business address
+                    </label>
+                  </div>
+                  
+                  {% if type == 'main' %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-4" name="checkbox" type="checkbox" value="active">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-4">
+                        been actively trading for at least 12 months and have financial information to support this
+                    </label>
+                  </div>
+                    
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-5" name="checkbox" type="checkbox" value="ability">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-5">
+                        the ability to train apprentices in the first 12 months of joining the register
+                    </label>
+                  </div>
+                    
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-6" name="checkbox" type="checkbox" value="management">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-6">
+                        a management structure that has experience of developing and delivering training
+
+                    </label>
+                  </div>
+                  {% endif %}
+
+                </div>
+              </fieldset>
+            </div>
+            <input class="govuk-button" type="submit" value="Continue" />
+       </form>
+     
+    </div>
+<!--
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s">
+            Related content
+        </h2>
+        <ul class="govuk-list">
+            <li><a href="#">What you need to know about being an apprenticeship training provider</a></li>  
+        </ul>
+      </div>
+-->
+</div>
+
+{% endblock %}

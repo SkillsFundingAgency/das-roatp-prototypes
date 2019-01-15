@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm that you have read the guidance for training providers
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+       <form method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="checkbox-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  <h1 class="govuk-fieldset__heading">
+                    Confirm that you have read the guidance for training providers
+                  </h1>
+                </legend>
+                <div class="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="checkbox-1" name="checkbox" type="checkbox" value="confirm">
+                    <label class="govuk-label govuk-checkboxes__label" for="checkbox-1">
+                      I confirm that I have read <a href="#">becoming an apprenticeship training provider</a>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+           
+            <input class="govuk-button" type="submit" value="Continue" />
+       </form>
+     
+    </div>
+
+</div>
+
+{% endblock %}

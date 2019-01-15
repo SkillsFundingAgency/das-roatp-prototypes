@@ -1,40 +1,37 @@
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Were any of the convictions handed in or after January 2014?
-{% endblock %}
-
-{% block beforeContent %}
-    <a href="#" class="govuk-back-link">Back</a>
+  Are you an organisation who will directly deliver apprenticeship training for employers?
 {% endblock %}
 
 {% block content %}
-
-
-
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
        <form method="post">
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" aria-describedby="convictions-hint">
+              <fieldset class="govuk-fieldset" aria-describedby="yesno-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                   <h1 class="govuk-fieldset__heading">
-                    Were any of the convictions obtained after December 2013?
+                    Are you an organisation who will directly deliver apprenticeship training for employers?
                   </h1>
                 </legend>
+                <p>
+                    The include those who use the apprenticeship service to pay for training or those who do not pay the apprenticeship levy.
+                </p>
 
                 <div class="govuk-radios govuk-radios--inline">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="convictions-1" name="convictions" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="convictions-1">
+                    <input class="govuk-radios__input" id="yesno-1" name="yesno" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="yesno-1">
                       Yes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="convictions-2" name="convictions" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="convictions-2">
+                    <input class="govuk-radios__input" id="yesno-2" name="yesno" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="yesno-2">
                       No
                     </label>
                   </div>

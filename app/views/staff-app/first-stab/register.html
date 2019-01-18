@@ -1,0 +1,29 @@
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  Find an apprenticeship training provider
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-panel govuk-panel--highlight">
+    <h1 class="govuk-heading-xl">Find an apprenticeship training provider</h1>
+    
+    <form method="post" action="list">
+        <div class="govuk-form-group">
+            <label for="findProvider" class="govuk-label govuk-!-font-size-24">Enter company name or UKPRN </label>
+            <input type="search" id="findProvider" class="govuk-input govuk-!-width-full govuk-!-font-size-36 govuk-!-padding-2" />
+        </div>
+        <input type="submit" class="govuk-button govuk-!-font-weight-bold govuk-!-font-size-24 govuk-!-margin-bottom-1" value="Next" />
+    </form>
+</div>
+
+<p class="govuk-body-l govuk-!-margin-top-9">Alternatively, <a href="#">add a new training provider</a></p>
+
+
+{% endblock %}

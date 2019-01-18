@@ -26,9 +26,14 @@ router.post("/declarations/*", function(req,res){
 });
 
 
-router.get("/eligibility-check/first-stab/eligibility-confirmation/:type", function(req,res){ 
-    res.render("eligibility-check/first-stab/eligibility-confirmation", {type: req.params.type});
+router.get("/eligibility-check/first-stab/eligibility-confirmation", function(req,res){ 
+    res.render("eligibility-check/first-stab/eligibility-confirmation", {type: req.session.application_type});
 });
+
+router.get("/eligibility-check/first-stab/application-type", function(req,res){ 
+    res.render("eligibility-check/first-stab/application-type", {type: req.session.application_type});
+});
+
 
 router.post("/eligibility-check/*", function(req,res){  
     
@@ -48,23 +53,76 @@ router.post("/eligibility-check/*", function(req,res){
             isSupportingTrainer(req,res);
             break;
             
-        case "main":
-            if (req.body.checkbox.length == 6){
-                res.redirect("/eligibility-check/first-stab/eligibility-confirmation-2");
-            } else {
+        case "eligibility-confirmation":
+            
+            console.log(req.body.checkbox);
+            if (req.body.checkbox == "_unchecked"){
                 res.redirect("/eligibility-check/first-stab/eligibility-failed");
+            } else {
+                res.redirect("/eligibility-check/first-stab/win-1");
             }
             break;
             
-        case "employer":
-        case "supporting":
-            if (req.body.checkbox.length == 3){
-                res.redirect("/eligibility-check/first-stab/eligibility-confirmation-2");
-                
+            
+         case "win-1":
+            if(req.body.yesno == 'yes'){
+                res.redirect("win-2");
             } else {
-                res.redirect("/eligibility-check/first-stab/eligibility-failed");
+                res.redirect("win-3");
             }
             break;
+            
+        case "win-2":
+            if(req.body.yesno == 'yes'){
+                res.send('show list of documents needed')
+            } else {
+                res.redirect("win-3");
+            }
+            break;
+            
+        case "win-3":
+            if(req.body.yesno == 'yes'){
+                res.redirect("win-4");
+            } else {
+                res.redirect("win-7");
+            }
+            break;
+            
+        case "win-4":
+            if(req.body.yesno == 'yes'){
+                res.redirect("win-5");
+            } else {
+                res.redirect("win-6");
+            }
+            break;
+            
+            
+        case "win-5":
+            if(req.body.yesno == 'yes'){
+                res.send('show list of documents needed')
+            } else {
+                res.redirect("win-6");
+            }
+            break;
+            
+            
+        case "win-6":
+            if(req.body.yesno == 'yes'){
+                res.send('show list of documents needed')
+            } else {
+                res.send('show list of documents needed')
+            }
+            break;
+            
+            
+        case "win-7":
+            if(req.body.yesno == 'yes'){
+                res.send('show list of documents needed')
+            } else {
+                res.redirect("win-7");
+            }
+            break;
+            
 
         default:
             break;
@@ -74,25 +132,28 @@ router.post("/eligibility-check/*", function(req,res){
 });
 
 function isMainTrainer(req,res){
+    req.session.application_type = "main";
     if(req.body.yesno == 'yes'){
-        res.redirect(version + "/eligibility-confirmation/main");
+        res.redirect("application-type");
     } else {
-        res.redirect(version + "/q2");
+        res.redirect("q2");
     }
 }
 
 
 function isEmployerTrainer(req,res){
+    req.session.application_type = "employer";
     if(req.body.yesno == 'yes'){
-        res.redirect("eligibility-confirmation/employer");
+        res.redirect("application-type");
     } else {
         res.redirect("q3");
     }
 }
 
 function isSupportingTrainer(req,res){
+    req.session.application_type = "supporting";
     if(req.body.yesno == 'yes'){
-        res.redirect("eligibility-confirmation/supporting");
+        res.redirect("application-type");
     } else {
         res.send("WTF...");
     }
@@ -113,9 +174,9 @@ function convictionsHanded(req,res){
 
 function hasConviction(req,res){
     if(req.body.convictions == 'yes'){
-        res.redirect(version + "/convictions-handed");
+        res.redirect("convictions-handed");
     } else {
-        res.redirect(version + "/due-diligence");
+        res.redirect("due-diligence");
     }
 }
 

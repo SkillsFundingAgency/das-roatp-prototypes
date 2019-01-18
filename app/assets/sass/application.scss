@@ -16,6 +16,10 @@ $govuk-global-styles: true;
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 
+.block {
+    display: block;
+}
+
 #list-of-convictions {
     display: none;
 }
@@ -23,3 +27,47 @@ $govuk-global-styles: true;
 #list-of-convictions a {
     display: block;
 }
+
+
+.govuk-panel--highlight {
+    background-color: govuk-colour("blue");
+}
+
+.govuk-panel--highlight h1 {
+    color: govuk-colour("white")
+}
+
+.govuk-panel--highlight form {
+    text-align: left;
+    
+}
+
+.govuk-panel--highlight label {
+    color: govuk-colour("white");
+}
+
+.govuk-panel--highlight .govuk-input {
+    height: auto;
+}
+
+.govuk-panel--highlight .govuk-button {
+    background-color: govuk-colour("white");
+    color: govuk-colour("blue");
+}
+
+.selected-item {
+    background-color: govuk-colour("blue");
+    color: govuk-colour("white");
+}
+
+.selected-item a {
+    color: govuk-colour("white");
+    text-decoration: none;
+}
+
+#organisationDetails {
+    border-left: 1px solid $govuk-border-colour;
+}
+
+
+

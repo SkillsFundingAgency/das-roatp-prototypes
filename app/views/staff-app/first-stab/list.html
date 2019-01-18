@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  Register of Training Providers
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">Your search 'ABC' returned 3 results</h1>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+        <ul class="govuk-list">
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-2 selected-item">
+                <a href="#">ABC Awards</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-2 govuk-!-padding-2">
+                <a href="#">Babcock Assessments Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-2">
+                <a href="#">Babcock Assessments Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="organisationDetails" class="govuk-grid-column-two-thirds">
+        <p class="govuk-!-padding-bottom-9">Org details</p>
+        <p class="govuk-!-padding-bottom-9">&nbsp;</p>
+        <p class="govuk-!-padding-bottom-9">&nbsp;</p>
+    </div>
+
+</div>
+
+{% endblock %}

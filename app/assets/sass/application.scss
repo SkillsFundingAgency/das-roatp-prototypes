@@ -37,7 +37,7 @@ $govuk-global-styles: true;
     color: govuk-colour("white")
 }
 
-.govuk-panel--highlight form {
+.govuk-panel--highlight {
     text-align: left;
     
 }
@@ -47,7 +47,8 @@ $govuk-global-styles: true;
 }
 
 .govuk-panel--highlight .govuk-input {
-    height: auto;
+    height: 59px;
+    border: none;
 }
 
 .govuk-panel--highlight .govuk-button {
@@ -67,6 +68,26 @@ $govuk-global-styles: true;
 
 #organisationDetails {
     border-left: 1px solid $govuk-border-colour;
+}
+
+#searchControls {
+    position: relative;
+}
+
+.btn-search {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 59px;
+    height: 59px;
+    background-color: govuk-colour("black");
+    background-image: url(/public/images/search-button.png);
+    background-color: govuk-colour("black");
+    color: govuk-colour("white");
+    border: none;
+    text-indent: -10000px;
+    background-size: 80.5px auto;
+    background-position: 115% 50%;
 }
 
 

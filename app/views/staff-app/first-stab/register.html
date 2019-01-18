@@ -12,14 +12,15 @@
 {% block content %}
 
 <div class="govuk-panel govuk-panel--highlight">
-    <h1 class="govuk-heading-xl">Find an apprenticeship training provider</h1>
+    <h1 class="govuk-heading-xl govuk-!-width-two-thirds">Find an apprenticeship training provider</h1>
     
     <form method="post" action="list">
-        <div class="govuk-form-group">
+        <div id="searchControls" class="govuk-form-group govuk-!-margin-bottom-1">
             <label for="findProvider" class="govuk-label govuk-!-font-size-24">Enter company name or UKPRN </label>
             <input type="search" id="findProvider" class="govuk-input govuk-!-width-full govuk-!-font-size-36 govuk-!-padding-2" />
+            <input type="submit" class="btn-search" value="Search" />
         </div>
-        <input type="submit" class="govuk-button govuk-!-font-weight-bold govuk-!-font-size-24 govuk-!-margin-bottom-1" value="Next" />
+        
     </form>
 </div>
 

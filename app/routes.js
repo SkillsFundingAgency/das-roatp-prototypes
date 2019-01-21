@@ -5,6 +5,22 @@ const router = express.Router()
 
 var version = "first-stab";
 
+router.post("/staff-app/first-stab/add-new", function(req, res){
+    var orgNumber = req.body.orgNumber;
+    if( orgNumber == '000000'){
+        res.redirect("not-found");
+    }
+    
+    if( orgNumber == '123123'){
+        res.redirect("confirm");
+    }
+    
+    if( orgNumber == '123456'){
+        res.redirect("confirm-2");
+    }
+})
+
+
 router.post("/declarations/*", function(req,res){  
     
     var page = getLastURLSegment(req.url);

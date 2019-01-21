@@ -1,3 +1,4 @@
+{% set title="Manage the register of apprenticeship training providers" %}
 
 {% extends "layout.html" %}
 
@@ -6,15 +7,19 @@
 {% endblock %}
 
 {% block pageTitle %}
-  Register of Training Providers
+  {{ title }}
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-       <h1 class="govuk-heading-xl">Manage apprenticeship training providers</h1>
-       <p>Use this service to...</p>
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <p>Use this service to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>manage training providers</li>
+            <li>view and download reports</li>
+        </ul>
        <a href="dfe-sign-in" class="govuk-button">DfE Sign-in</a>
     </div>
 </div>

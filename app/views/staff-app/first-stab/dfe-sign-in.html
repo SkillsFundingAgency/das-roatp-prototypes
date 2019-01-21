@@ -1,3 +1,6 @@
+{% set title="DfE Sign-in" %}
+
+
 {% extends "layout.html" %}
 
 {% block header %}
@@ -5,7 +8,7 @@
 {% endblock %}
 
 {% block pageTitle %}
-    DfE Sign-in
+    {{ title }}
 {% endblock %}
 
 {% block content %}
@@ -13,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        DfE Sign-in
+        {{ title }}
       </h1>
         
         <p class="govuk-!-width-two-thirds">DfE Sign-in is the new way to sign-in to access some specific education sector services.</p>

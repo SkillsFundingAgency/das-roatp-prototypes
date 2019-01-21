@@ -1,0 +1,119 @@
+{% set title="Enter training provider details" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="confirm-2" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post">
+           
+        <div class="govuk-form-group">
+            <label for="tradingName" class="govuk-label">Organisation's legal name</label>
+            <input id="tradingName" name="orgNumber" type="text" class="govuk-input govuk-!-width-two-thirds" aria-describedby="tradingNameHint" />
+        </div>
+           
+        <div class="govuk-form-group">
+            <label for="tradingName" class="govuk-label">Trading name</label>
+            <span id="tradingNameHint" class="govuk-hint">Optional, if different from legal name</span>
+            <input id="tradingName" name="orgNumber" type="text" class="govuk-input govuk-!-width-two-thirds" aria-describedby="tradingNameHint" />
+        </div>
+           
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <span class="govuk-fieldset__heading govuk-!-font-weight-regular">
+                Type of organisation
+              </span>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-1" name="orgType" type="radio" value="Awarding organisations">
+                <label class="govuk-label govuk-radios__label" for="orgType-1">
+                  Awarding organisations
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-2" name="orgType" type="radio" value="Assessment Organisations">
+                <label class="govuk-label govuk-radios__label" for="orgType-2">
+                  Assessment Organisations
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-3" name="orgType" type="radio" value="Trade Body">
+                <label class="govuk-label govuk-radios__label" for="orgType-3">
+                  Trade Body
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="Professional Body">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  Professional Body
+                </label>
+              </div>
+                
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="HEI">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  HEI
+                </label>
+              </div>
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="NSA or SSC">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  NSA or SSC
+                </label>
+              </div>
+                
+               <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="Training Provider">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  Training Provider
+                </label>
+              </div> 
+               <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="Public Sector">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  Public Sector
+                </label>
+              </div> 
+               <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="College">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  College
+                </label>
+              </div> 
+               <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="orgType-4" name="orgType" type="radio" value="Academy or Free School
+">
+                <label class="govuk-label govuk-radios__label" for="orgType-4">
+                  Academy or Free School
+
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <input type="submit" class="govuk-button" value="Continue" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

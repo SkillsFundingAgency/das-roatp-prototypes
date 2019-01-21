@@ -1,0 +1,34 @@
+{% set title="Enter company registration number or charity number" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="register" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post">
+        <div class="govuk-form-group">
+            <label for="orgNumber" class="govuk-label">Company registration or charity number</label>
+            <input id="orgNumber" name="orgNumber" type="text" class="govuk-input govuk-!-width-two-thirds" />
+        </div> 
+        <input type="submit" class="govuk-button" value="Continue" />
+        <a class="block govuk-!-font-size-19" href="org-details-data-entry-manual">Enter training provider details manually</a>
+       </form>
+    </div>
+</div>
+
+{% endblock %}

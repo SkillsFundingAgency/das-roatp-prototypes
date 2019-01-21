@@ -1,3 +1,4 @@
+{% set title="Your search 'ABC' returned 3 results" %}
 
 {% extends "layout.html" %}
 
@@ -6,15 +7,15 @@
 {% endblock %}
 
 {% block pageTitle %}
-  Register of Training Providers
+  {{ title }}
 {% endblock %}
 
 {% block beforeContent %}
-    <a href="#" class="govuk-back-link">Back</a>
+    <a href="register" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl govuk-!-width-two-thirds">Your search 'ABC' returned 3 results</h1>
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
         <ul class="govuk-list">

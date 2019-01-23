@@ -5,6 +5,10 @@ const router = express.Router()
 
 var version = "first-stab";
 
+router.post("/staff-app/first-stab/dfe-sign-in", function(req, res){
+    res.redirect("register");
+});
+
 router.post("/staff-app/first-stab/add-new", function(req, res){
     var orgNumber = req.body.orgNumber;
     if( orgNumber == '000000'){

@@ -99,3 +99,7 @@ $govuk-global-styles: true;
     border-left: 4px solid govuk-colour("blue")
 }
 
+.govuk-radios__conditional--error {
+    border-color: $govuk-error-colour
+}
+

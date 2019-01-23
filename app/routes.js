@@ -39,6 +39,20 @@ router.get("/staff-app/first-stab/list", function(req, res){
 })
 
 
+var date = new Date();
+var arrDate = [ date.getDate(), date.getMonth(), date.getFullYear() ];
+
+router.get("/staff-app/first-stab/change-status", function(req, res){
+    res.render("staff-app/first-stab/change-status", {showError: false, today: arrDate});
+})
+
+
+router.post("/staff-app/first-stab/change-status", function(req, res){    
+    res.render("staff-app/first-stab/change-status", {showError: true, today: arrDate});
+})
+
+
+
 router.post("/declarations/*", function(req,res){  
     
     var page = getLastURLSegment(req.url);

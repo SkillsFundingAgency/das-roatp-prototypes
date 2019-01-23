@@ -5,7 +5,7 @@ const router = express.Router()
 
 var version = "first-stab";
 
-router.post("/staff-app/first-stab/dfe-sign-in", function(req, res){
+router.post("/staff-app/first-stab/esfa-sign-in", function(req, res){
     res.redirect("register");
 });
 

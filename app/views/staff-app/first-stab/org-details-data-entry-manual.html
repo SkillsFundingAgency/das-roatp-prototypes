@@ -23,6 +23,18 @@
        <h1 class="govuk-heading-xl">{{ title }}</h1>
        <form method="post">
            
+           
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="applicationRoute">
+            Application route
+          </label>
+          <select class="govuk-select govuk-!-width-one-third" id="applicationRoute" name="applicationRoute">
+            <option value="main">Main</option>
+            <option value="employer">Employer</option>
+            <option value="supporting">Supporting</option>
+          </select>
+        </div>
+           
         <div class="govuk-form-group">
             <label for="legalName" class="govuk-label">Legal name</label>
             <input id="legalName" name="legalName" type="text" class="govuk-input" />
@@ -70,21 +82,12 @@
         </div>
         
 
-         <div class="govuk-form-group">
-              <label class="govuk-label" for="applicationRoute">
-                Application route
-              </label>
-              <select class="govuk-select govuk-!-width-one-third" id="applicationRoute" name="applicationRoute">
-                <option value="main">Main</option>
-                <option value="employer">Employer</option>
-                <option value="supporting">Supporting</option>
-              </select>
-            </div>
+
            
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
-                  Contracted to deliver non-levy
+                  Parent company guarantee
                 </legend>
                 <div class="govuk-radios govuk-radios--inline">
                   <div class="govuk-radios__item">
@@ -107,7 +110,7 @@
          <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
-                  Contracted to deliver non-levy
+                  No finiancial track record
                 </legend>
                 <div class="govuk-radios govuk-radios--inline">
                   <div class="govuk-radios__item">

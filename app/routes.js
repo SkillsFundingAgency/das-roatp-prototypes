@@ -20,6 +20,20 @@ router.post("/staff-app/first-stab/add-new", function(req, res){
     }
 })
 
+router.post("/staff-app/first-stab/register", function(req, res){
+    var searchStr = req.body.search;
+    if(searchStr == ''){
+        res.render("staff-app/first-stab/register", {showError: true});
+    } else {
+        req.session.searchStr = searchStr;
+        res.redirect("/staff-app/first-stab/list");
+    }
+})
+
+router.get("/staff-app/first-stab/list", function(req, res){
+    res.render("staff-app/first-stab/list", {searchStr: req.session.searchStr});
+})
+
 
 router.post("/declarations/*", function(req,res){  
     

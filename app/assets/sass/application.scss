@@ -91,5 +91,11 @@ $govuk-global-styles: true;
     cursor: pointer;
 }
 
+#searchResultsList li {
+    border-left: 4px solid transparent
+}
 
+#searchResultsList li:hover {
+    border-left: 4px solid govuk-colour("blue")
+}
 

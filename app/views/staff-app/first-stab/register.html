@@ -11,20 +11,35 @@
 
 {% block content %}
 
+{% if showError == true %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#search">Enter organisation name or UKPRN</a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endif %}
+
 <div class="govuk-panel govuk-panel--highlight">
     <h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
     
-    <form method="post" action="list">
+    <form method="post">
         <div id="searchControls" class="govuk-form-group govuk-!-margin-bottom-1">
-            <label for="findProvider" class="govuk-label govuk-!-font-size-24">Enter an organisation name or UKRPN</label>
-            <input type="search" id="findProvider" class="govuk-input govuk-!-width-full govuk-!-font-size-36 govuk-!-padding-2" />
+            <label for="search" class="govuk-label govuk-!-font-size-24">Enter an organisation name or UKRPN</label>
+            <input autocomplete="off" type="search" id="search" class="govuk-input govuk-!-width-full govuk-!-font-size-36 govuk-!-padding-2" name="search" />
             <input type="submit" class="btn-search" value="Search" />
         </div>
         
     </form>
 </div>
 
-<a class="block govuk-link govuk-body-l govuk-!-margin-top-9" href="add-new">Add a new training provider</a>
+<a class="block govuk-link govuk-body-l govuk-!-margin-top-9" href="org-details-data-entry-manual">Add a new training provider</a>
 
 
 {% endblock %}

@@ -1,4 +1,8 @@
-{% set title="Your search 'ABC' returned 3 results" %}
+{% if searchStr == "000000" %}
+{% set title %}Your search did not return any results{% endset %}
+{% else %}
+{% set title %}Your search 'ABC' returned 3 resultss{% endset %}
+{% endif %}
 
 {% extends "layout.html" %}
 
@@ -16,32 +20,226 @@
 
 {% block content %}
 <h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+
+{% if searchStr == "000000" %}
+<a href="register" class="govuk-button">Start again</a>
+{% else %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
+    <div id="searchResultsList" class="govuk-grid-column-one-third">
         <ul class="govuk-list">
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-2 selected-item">
-                <a href="#">ABC Awards</a>
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1 selected-item">
+                <a href="#" class="govuk-!-font-weight-bold">ABC Awards</a>
                 <span class="block">UKPRN 10022660</span>
             </li>
             
-            <li class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-2 govuk-!-padding-2">
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
                 <a href="#">Babcock Assessments Ltd</a>
                 <span class="block">UKPRN 10022660</span>
             </li>
             
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-2">
-                <a href="#">Babcock Assessments Ltd</a>
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+                <a href="#">Baloon trainers Ltd</a>
                 <span class="block">UKPRN 10022660</span>
             </li>
         </ul>
     </div>
     
     <div id="organisationDetails" class="govuk-grid-column-two-thirds">
-        <p class="govuk-!-padding-bottom-9">Org details</p>
-        <p class="govuk-!-padding-bottom-9">&nbsp;</p>
-        <p class="govuk-!-padding-bottom-9">&nbsp;</p>
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Status"
+          },
+          value: {
+            html: "<span class='govuk-tag'>Active</span>
+                    <span class='block'>updated on 10/1/2019</span>
+                    "
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "status"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Legal name"
+          },
+          value: {
+            html: "ABC Awards"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "legal name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Trading name"
+          },
+          value: {
+            html: "ABC Awards"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "trading name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Organisation type"
+          },
+          value: {
+            html: "Charity"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "organisation type"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Companies house number"
+          },
+          value: {
+            html: "1893839"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "companies house number"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Charity number"
+          },
+          value: {
+            html: "1928390"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "charity number"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "UKPRN"
+          },
+          value: {
+            html: "1002266"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "UKPRN"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Application route"
+          },
+          value: {
+            html: "Employer"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "application route"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Parent company guarantee"
+          },
+          value: {
+            text: "?"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "parent company guarantee"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "No finiancial track record"
+          },
+          value: {
+            text: "?"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "no financial track record"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contracted to deliver non-levy"
+          },
+          value: {
+            text: "?"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "contracted to deliver non-levy"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
     </div>
 
 </div>
-
+{% endif %}
 {% endblock %}

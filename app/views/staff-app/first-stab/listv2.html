@@ -1,0 +1,93 @@
+{% if searchStr == "000000" %}
+{% set title %}Your search did not return any results{% endset %}
+{% else %}
+{% set title %}Your search 'ABC' returned 3 results{% endset %}
+{% endif %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="register" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+
+{% if searchStr == "000000" %}
+<a href="register" class="govuk-button">Start again</a>
+{% else %}
+<div class="govuk-grid-row">
+    <div id="searchResultsList" class="govuk-grid-column-one-third">
+        <ul class="govuk-list">
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1 selected-item">
+                <a href="#" class="govuk-!-font-weight-bold">ABC Awards</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+                <a href="#">Babcock Assessments Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+                <a href="#">Baloon trainers Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="organisationDetails" class="govuk-body govuk-grid-column-two-thirds">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half govuk-!-font-size-27 govuk-!-font-weight-bold">
+                Employer route
+            </div>
+            <div class="govuk-grid-column-one-half">
+                <span class="govuk-tag govuk-!-font-size-19">Active</span>
+                <span class="block">updated on 10/1/2019</span>
+            </div>
+        </div>
+        <a href="#">Change route or status</a>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half govuk-!-font-size-27 govuk-!-font-weight-bold">
+                ABC Awards
+                <span class="govuk-hint">Legal and trading name</span>
+            </div>
+            
+        </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third govuk-!-font-size-19 govuk-!-font-weight-bold">
+                Charity
+                <span class="govuk-hint">1928390</span>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-font-size-19 govuk-!-font-weight-bold">
+                1893839
+                <span class="govuk-hint">Company number</span>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-font-size-19 govuk-!-font-weight-bold">
+                1002266
+                <span class="govuk-hint">UKPRN</span>
+            </div>
+        </div>
+        <a href="#">Edit organisation details</a>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>Parent company guarantee is available</li>
+            <li>No finiancial track record</li>
+            <li>Not contracted to deliver non-levy</li>
+        </ul>
+
+    </div>
+
+</div>
+{% endif %}
+{% endblock %}

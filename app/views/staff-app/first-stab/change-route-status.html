@@ -1,0 +1,163 @@
+{% set title="Change route or status for ABC Awards" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="listv2" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+{% if showError == true %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#inactiveReason">Reason must be provided</a>
+      </li>
+      <li>
+        <a href="#date-day">Effecitve date must be in future</a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+{% endif %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Application routes
+              </h2>
+                
+            </legend>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input checked class="govuk-radios__input" id="route-1" name="route" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="route-1">
+                  Main route
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="route-2">
+                  Employer route
+                </label>
+              </div>
+                
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="scotland" aria-describedby="route-2-hint">
+                <label class="govuk-label govuk-radios__label" for="route-2">
+                  Supporting route
+                </label>
+                <span id="route-2-hint" class="govuk-hint govuk-radios__hint">This route will prompt to change organisation type.</span>
+              </div>
+              
+
+            </div>
+          </fieldset>
+        </div>
+           
+           <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" />
+           
+           
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Change status
+              </h2>
+            </legend>
+            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+              <div class="govuk-radios__item">
+                <input checked class="govuk-radios__input" id="status-1" name="status" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="status-1">
+                  Active
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="status-2" name="status" type="radio" value="scotland" data-aria-controls="conditional-how-contacted-conditional-1">
+                  
+                <label class="govuk-label govuk-radios__label" for="status-2">
+                  Inactive
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-1">
+                <div class="govuk-form-group ">
+                  <label class="govuk-label" for="inactiveReason">
+                    Enter reason
+                  </label>
+                    {% if showError == true %}
+                    <span id="reason-error" class="govuk-error-message">
+                      Reason must be provided
+                    </span>
+                    {% endif %}
+                  <textarea id="inactiveReason" class="govuk-textarea {% if showError == true %}govuk-textarea--error{% endif %}"></textarea>
+                </div>
+                 <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="date-hint" role="group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
+                        Enter the effective date of status
+                    </legend>
+                      {% if showError == true %}
+                    <span id="date-error" class="govuk-error-message">
+                      Date must be in the future
+                    </span>
+                      {% endif %}
+                    <div class="govuk-date-input" id="date">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if showError == true %}govuk-input--error{% endif %}" id="date-day" name="date-day" type="number" pattern="[0-9]*" value="{{ today[0] }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-month" >
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if showError == true %}govuk-input--error{% endif %}" id="date-month" name="date-month" type="number" pattern="[0-9]*" value="{{ today[1]+1 }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if showError == true %}govuk-input--error{% endif %}" id="date-year" name="date-year" type="number" pattern="[0-9]*" value="{{ today[2] }}">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+              </div>
+              
+
+            </div>
+          </fieldset>
+        </div>
+        <input type="submit" class="govuk-button" value="Change" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

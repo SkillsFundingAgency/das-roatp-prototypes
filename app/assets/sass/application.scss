@@ -103,3 +103,7 @@ $govuk-global-styles: true;
     border-color: $govuk-error-colour
 }
 
+.govuk-panel a {
+    color: govuk-colour("white");
+}
+

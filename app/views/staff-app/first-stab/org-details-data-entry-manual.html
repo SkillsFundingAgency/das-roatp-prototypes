@@ -1,4 +1,4 @@
-{% set title="Enter training provider details" %}
+{% set title="Enter organisation details" %}
 
 {% extends "layout.html" %}
 
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <a href="register" class="govuk-back-link">Back</a>
+    <a href="org-details-select-route" class="govuk-back-link">Back</a>
 {% endblock %}
 
 
@@ -22,19 +22,10 @@
     <div class="govuk-grid-column-two-thirds">
        <h1 class="govuk-heading-xl">{{ title }}</h1>
        <form method="post">
-           
-           
         <div class="govuk-form-group">
-          <label class="govuk-label" for="applicationRoute">
-            Application route
-          </label>
-          <select class="govuk-select govuk-!-width-one-third" id="applicationRoute" name="applicationRoute">
-            <option value="main">Main</option>
-            <option value="employer">Employer</option>
-            <option value="supporting">Supporting</option>
-          </select>
+            <label for="ukprn" class="govuk-label">UKPRN</label>
+            <input id="ukprn" name="ukprn" type="text" class="govuk-input govuk-!-width-one-third" />
         </div>
-           
         <div class="govuk-form-group">
             <label for="legalName" class="govuk-label">Legal name</label>
             <input id="legalName" name="legalName" type="text" class="govuk-input" />
@@ -43,30 +34,30 @@
             <label for="tradingName" class="govuk-label">Trading name</label>
             <input id="tradingName" name="tradingName" type="text" class="govuk-input" />
         </div>
-           <div class="govuk-form-group">
-              <label class="govuk-label" for="orgType">
-                Organisation type
-              </label>
-              <select class="govuk-select" id="orgType" name="orgType">
-                <option value="academy">Academy</option>
-                <option value="public" selected>Central government department, executive agency or Non-Departmental Public Body</option>
-                <option value="delivery-orgs">Delivery organisation connected to an Apprenticeship Training Agency (ATA)</option>
-                <option value="employer-training-apprentices">Employer training apprentices within their Connected Companies</option>
-                <option value="employer-training-own-staff">Employer training their own staff and those within other organisations</option>
-                <option value="further-education-institutions">Further Education Institution</option>
-                <option value="GFE">General Further Education College</option>
-                <option value="GTA">Group Training Association (GTA)</option>
-                <option value="HEI">Higher Education Institution (HEI)</option>
-                <option value="independent-training-provider">Independent Training Provider</option>
-                <option value="la">Local Authority, including LEA schools</option>
-                <option value="mat">Multi-Academy Trust</option>
-                <option value="nationalCollege">National College</option>
-                <option value="nhs">NHS Trust or Fire Authority</option>
-                <option value="police">Police Constabulary or Police and Crime Commissioner</option>
-                <option value="6th-form">Sixth Form College</option>
-                <option value="none">None of the above</option>
-              </select>
-            </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="orgType">
+            Organisation type
+          </label>
+          <select class="govuk-select" id="orgType" name="orgType">
+            <option value="academy">Academy</option>
+            <option value="public" selected>Central government department, executive agency or Non-Departmental Public Body</option>
+            <option value="delivery-orgs">Delivery organisation connected to an Apprenticeship Training Agency (ATA)</option>
+            <option value="employer-training-apprentices">Employer training apprentices within their Connected Companies</option>
+            <option value="employer-training-own-staff">Employer training their own staff and those within other organisations</option>
+            <option value="further-education-institutions">Further Education Institution</option>
+            <option value="GFE">General Further Education College</option>
+            <option value="GTA">Group Training Association (GTA)</option>
+            <option value="HEI">Higher Education Institution (HEI)</option>
+            <option value="independent-training-provider">Independent Training Provider</option>
+            <option value="la">Local Authority, including LEA schools</option>
+            <option value="mat">Multi-Academy Trust</option>
+            <option value="nationalCollege">National College</option>
+            <option value="nhs">NHS Trust or Fire Authority</option>
+            <option value="police">Police Constabulary or Police and Crime Commissioner</option>
+            <option value="6th-form">Sixth Form College</option>
+            <option value="none">None of the above</option>
+          </select>
+        </div>
         <div class="govuk-form-group">
             <label for="companyNumber" class="govuk-label">Companies house number</label>
             <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" />
@@ -75,87 +66,8 @@
             <label for="charityNumber" class="govuk-label">Charity number</label>
             <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" />
         </div>
-           
-        <div class="govuk-form-group">
-            <label for="ukprn" class="govuk-label">UKPRN</label>
-            <input id="ukprn" name="ukprn" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
-        
 
-
-           
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
-                  Parent company guarantee
-                </legend>
-                <div class="govuk-radios govuk-radios--inline">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="parentCompanyGuarantee-1" name="parentCompanyGuarantee" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="parentCompanyGuarantee-1">
-                      Yes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="parentCompanyGuarantee-2" name="parentCompanyGuarantee" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="parentCompanyGuarantee-2">
-                      No
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-        </div>
-           
-
-         <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
-                  No finiancial track record
-                </legend>
-                <div class="govuk-radios govuk-radios--inline">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="noFinancialTrackRecord-1" name="noFinancialTrackRecord" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="noFinancialTrackRecord-1">
-                      Yes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="noFinancialTrackRecord-2" name="noFinancialTrackRecord" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="noFinancialTrackRecord-2">
-                      No
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-        </div>
-           
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-font-weight-regular">
-                  Contracted to deliver non-levy
-                </legend>
-                <div class="govuk-radios govuk-radios--inline">
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="contractedToDeliveryNonLevy-1" name="contractedToDeliveryNonLevy" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="contractedToDeliveryNonLevy-1">
-                      Yes
-                    </label>
-                  </div>
-                  <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="contractedToDeliveryNonLevy-2" name="contractedToDeliveryNonLevy" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="contractedToDeliveryNonLevy-2">
-                      No
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-        </div>
-           
-        
-           
-        
-
-        <input type="submit" class="govuk-button" value="Continue" />
+        <input type="submit" class="govuk-button" value="Add organisation" />
        </form>
     </div>
 </div>

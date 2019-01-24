@@ -24,19 +24,34 @@ router.post("/staff-app/first-stab/add-new", function(req, res){
     }
 })
 
+router.get("/staff-app/first-stab/register", function(req, res){
+    var showMessage = req.query.added == 1 ? true : false;
+    res.render("staff-app/first-stab/register", {showMessage: showMessage});
+});
+
 router.post("/staff-app/first-stab/register", function(req, res){
     var searchStr = req.body.search;
     if(searchStr == ''){
         res.render("staff-app/first-stab/register", {showError: true});
     } else {
         req.session.searchStr = searchStr;
-        res.redirect("/staff-app/first-stab/list");
+        res.redirect("/staff-app/first-stab/listv2");
     }
 })
 
-router.get("/staff-app/first-stab/list", function(req, res){
-    res.render("staff-app/first-stab/list", {searchStr: req.session.searchStr});
+router.get("/staff-app/first-stab/listv2", function(req, res){
+    res.render("staff-app/first-stab/listv2", {searchStr: req.session.searchStr});
 })
+
+router.post("/staff-app/first-stab/org-details-select-route", function(req, res){
+    res.redirect("/staff-app/first-stab/org-details-data-entry-manual");
+})
+
+router.post("/staff-app/first-stab/org-details-data-entry-manual", function(req, res){
+    res.redirect("/staff-app/first-stab/register?added=1");
+})
+
+
 
 
 var date = new Date();

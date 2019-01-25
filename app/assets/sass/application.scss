@@ -107,3 +107,13 @@ $govuk-global-styles: true;
     color: govuk-colour("white");
 }
 
+.widgets {
+    text-align: center;
+}
+
+.widgets a {
+    color: govuk-colour("white") !important;
+    display: block;
+    background-color: govuk-colour("blue");
+}
+

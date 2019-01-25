@@ -6,10 +6,11 @@
   {% include "includes/header-staff-app-signedin.html" %}
 {% endblock %}
 
-{% block beforeContent %}
-    <a href="listv2" class="govuk-back-link">Back</a>
-{% endblock %}
 
+{% block beforeContent %}
+    {% set backLink="listv2" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
 
 {% block pageTitle %}
   {{ title }}

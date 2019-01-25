@@ -20,6 +20,10 @@ $govuk-global-styles: true;
     display: block;
 }
 
+.r-align {
+    text-align: right;
+}
+
 #list-of-convictions {
     display: none;
 }
@@ -30,11 +34,11 @@ $govuk-global-styles: true;
 
 
 .govuk-panel--highlight {
-    background-color: govuk-colour("blue");
+//    background-color: govuk-colour("grey-4");
 }
 
 .govuk-panel--highlight h1 {
-    color: govuk-colour("white")
+//    color: govuk-colour("white")
 }
 
 .govuk-panel--highlight {
@@ -43,13 +47,10 @@ $govuk-global-styles: true;
 }
 
 .govuk-panel--highlight label {
-    color: govuk-colour("white");
+//    color: govuk-colour("white");
 }
 
-.govuk-panel--highlight .govuk-input {
-    height: 59px;
-    border: none;
-}
+
 
 .govuk-panel--highlight .govuk-button {
     background-color: govuk-colour("white");
@@ -74,15 +75,19 @@ $govuk-global-styles: true;
     position: relative;
 }
 
+#searchControls .govuk-input {
+    height: 59px;
+//    border: none;
+}
+
 .btn-search {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 59px;
     height: 59px;
-    background-color: govuk-colour("black");
+    background-color: govuk-colour("blue");
     background-image: url(/public/images/search-button.png);
-    background-color: govuk-colour("black");
     color: govuk-colour("white");
     border: none;
     text-indent: -10000px;
@@ -115,5 +120,6 @@ $govuk-global-styles: true;
     color: govuk-colour("white") !important;
     display: block;
     background-color: govuk-colour("blue");
+    text-decoration: none;
 }
 

@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <a href="org-details-select-route" class="govuk-back-link">Back</a>
+    {% set backLink="org-details-select-route" %}
+    {% include "includes/before-content.html" %}
 {% endblock %}
-
 
 {% block pageTitle %}
   
@@ -31,12 +31,20 @@
             <input id="legalName" name="legalName" type="text" class="govuk-input" />
         </div>
         <div class="govuk-form-group">
-            <label for="tradingName" class="govuk-label">Trading name</label>
+            <label for="tradingName" class="govuk-label">Trading name, if applicable</label>
             <input id="tradingName" name="tradingName" type="text" class="govuk-input" />
         </div>
         <div class="govuk-form-group">
+            <label for="companyNumber" class="govuk-label">Company number, if applicable</label>
+            <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="charityNumber" class="govuk-label">Charity registration number, if applicable</label>
+            <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group">
           <label class="govuk-label" for="orgType">
-            Organisation type
+            Type of organisation
           </label>
           <select class="govuk-select" id="orgType" name="orgType">
             <option value="academy">Academy</option>
@@ -58,14 +66,7 @@
             <option value="none">None of the above</option>
           </select>
         </div>
-        <div class="govuk-form-group">
-            <label for="companyNumber" class="govuk-label">Companies house number</label>
-            <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
-        <div class="govuk-form-group">
-            <label for="charityNumber" class="govuk-label">Charity number</label>
-            <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
+
 
         <input type="submit" class="govuk-button" value="Add organisation" />
        </form>

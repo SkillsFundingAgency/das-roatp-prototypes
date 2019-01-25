@@ -1,7 +1,7 @@
 {% if searchStr == "000000" %}
-{% set title %}Your search did not return any results{% endset %}
+{% set title %}No results found for 'XXX'{% endset %}
 {% else %}
-{% set title %}Your search 'ABC' returned 3 results{% endset %}
+{% set title %}3 results found for 'XXX'{% endset %}
 {% endif %}
 
 {% extends "layout.html" %}
@@ -15,7 +15,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <a href="register" class="govuk-back-link">Back</a>
+    {% set backLink="register" %}
+    {% include "includes/before-content.html" %}
 {% endblock %}
 
 {% block content %}

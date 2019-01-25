@@ -1,0 +1,8 @@
+    {% if hideBackButton == true %}
+        <div class="r-align govuk-!-padding-top-3"><a href="index" class="govuk-link govuk-link--no-visited-state">Sign out</a></div>
+    {% else %}
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half"><a href="{{ backLink }}" class="govuk-back-link">Back</a></div>
+            <div class="govuk-grid-column-one-half r-align govuk-!-padding-top-3"><a href="index" class="govuk-link  govuk-link--no-visited-state">Sign out</a></div>
+        </div>
+{% endif %}

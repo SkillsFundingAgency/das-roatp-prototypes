@@ -123,3 +123,18 @@ $govuk-global-styles: true;
     text-decoration: none;
 }
 
+.button-with-icon {
+    background-repeat: no-repeat;
+    background-size: 60.5px auto;
+    background-position: 50% 20%;
+    padding-top: 75px !important;
+}
+
+.button-with-icon--add {
+    background-image: url(/public/images/add-icon.png);
+}
+
+.button-with-icon--download {
+    background-image: url(/public/images/download-icon.png);
+}
+

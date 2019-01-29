@@ -1,4 +1,4 @@
-{% set title="Change route or status for ABC Awards" %}
+{% set title="Change details for ABC Awards" %}
 
 {% extends "layout.html" %}
 
@@ -36,39 +36,58 @@
 </div>
 {% endif %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
        <form method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Application routes
+                Type of provider
               </h2>
                 
             </legend>
 
-            <div class="govuk-radios">
+            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
               <div class="govuk-radios__item">
-                <input checked class="govuk-radios__input" id="route-1" name="route" type="radio" value="england">
+                <input checked class="govuk-radios__input" id="route-1" name="route" type="radio" value="main">
                 <label class="govuk-label govuk-radios__label" for="route-1">
-                  Main route
+                  Main provider
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="scotland">
+                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="employer" data-aria-controls="route-2-conditional">
                 <label class="govuk-label govuk-radios__label" for="route-2">
-                  Employer route
+                  Employer provider
                 </label>
               </div>
                 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="scotland" aria-describedby="route-2-hint">
-                <label class="govuk-label govuk-radios__label" for="route-2">
-                  Supporting route
-                </label>
-                <span id="route-2-hint" class="govuk-hint govuk-radios__hint">This route will prompt to change organisation type.</span>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="route-2-conditional">
+                
+                <div class="govuk-form-group govuk-!-width-two-thirds">
+                  <label class="govuk-label" for="orgType">
+                    Type of organisation
+                  </label>
+                  <span class="govuk-hint">The current organisation type is not valid for this type of provider</span>
+                  <select class="govuk-select" id="orgType" name="orgType">
+                    <option value="e1">Employer training apprentices in own organisation</option>
+                    <option value="e2" selected>Employer training apprentices within their connected companies
+</option>
+                    <option value="e3">Employer training apprentices in own organisation and those in their connected companies</option>
+                  </select>
+                </div>
+
               </div>
+                
+                
+
+                <div class="govuk-radios__item">
+                <input  class="govuk-radios__input" id="route-3" name="route" type="radio" value="restricted">
+                <label class="govuk-label govuk-radios__label" for="route-3">
+                  Supporting provider
+                </label>
+              </div>
+                
               
 
             </div>
@@ -82,7 +101,7 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading">
-                Change status
+                Status
               </h2>
             </legend>
             <div class="govuk-radios govuk-radios--conditional" data-module="radios">
@@ -95,7 +114,7 @@
               <div class="govuk-radios__item">
                 <input  class="govuk-radios__input" id="status-2" name="status" type="radio" value="restricted"  data-aria-controls="conditional-how-contacted-conditional-2">
                 <label class="govuk-label govuk-radios__label" for="status-2">
-                  Active, not recruiting
+                  Active - but not recruiting
                 </label>
               </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
@@ -148,7 +167,7 @@
                   Inactive
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-1">
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-two-thirds" id="conditional-how-contacted-conditional-1">
                 <div class="govuk-form-group ">
                   <label class="govuk-label" for="inactiveReason">
                     Enter reason
@@ -205,6 +224,8 @@
             </div>
           </fieldset>
         </div>
+                   <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible" />
+
         <input type="submit" class="govuk-button" value="Change" />
        </form>
     </div>

@@ -22,7 +22,7 @@
 <h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
 
 {% if searchStr == "000000" %}
-<a href="register" class="govuk-button">Start again</a>
+<a href="register" class="govuk-button">Search again</a>
 {% else %}
 <div class="govuk-grid-row">
     <div id="searchResultsList" class="govuk-grid-column-one-third">
@@ -68,7 +68,7 @@
         },
                 {
           key: {
-            text: "Application route"
+            text: "Type of provider"
           },
           value: {
             html: "Employer"
@@ -79,6 +79,23 @@
                 href: "#",
                 text: "Change",
                 visuallyHiddenText: "application route"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "UKPRN"
+          },
+          value: {
+            html: "1002266"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "UKPRN"
               }
             ]
           }
@@ -119,24 +136,7 @@
         },
         {
           key: {
-            text: "Organisation type"
-          },
-          value: {
-            html: "Charity"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "organisation type"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Companies house number"
+            text: "Company number"
           },
           value: {
             html: "1893839"
@@ -153,7 +153,7 @@
         },
         {
           key: {
-            text: "Charity number"
+            text: "Charity registration number"
           },
           value: {
             html: "1928390"
@@ -170,21 +170,22 @@
         },
         {
           key: {
-            text: "UKPRN"
+            text: "Type of organisation"
           },
           value: {
-            html: "1002266"
+            html: "Charity"
           },
           actions: {
             items: [
               {
                 href: "#",
                 text: "Change",
-                visuallyHiddenText: "UKPRN"
+                visuallyHiddenText: "organisation type"
               }
             ]
           }
         },
+        
 
         {
           key: {
@@ -205,7 +206,7 @@
         },
         {
           key: {
-            text: "Finiancial track record"
+            text: "Finiancial record"
           },
           value: {
             text: "Yes"
@@ -216,23 +217,6 @@
                 href: "#",
                 text: "Change",
                 visuallyHiddenText: "no financial track record"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Contracted to deliver non-levy"
-          },
-          value: {
-            text: "No"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "contracted to deliver non-levy"
               }
             ]
           }

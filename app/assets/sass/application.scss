@@ -138,3 +138,11 @@ $govuk-global-styles: true;
     background-image: url(/public/images/download-icon.png);
 }
 
+a.govuk-header__link--service-name {
+    padding-right: govuk-spacing(6);
+}
+
+#registerDetails {
+    background-color: govuk-colour("grey-4");
+}
+

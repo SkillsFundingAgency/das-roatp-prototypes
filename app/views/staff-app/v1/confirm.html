@@ -1,0 +1,33 @@
+{% set title="The charity number '123123' has returned the following result" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="add-new" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <ul class="govuk-list">
+        <li class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-5 govuk-!-margin-bottom-5">
+            <a href="org-details-data-entry" class="govuk-link govuk-!-font-size-27">Oxford Citizens Advice Bureau</a>   
+            <span class="block">95 St Aldates, Oxford, OX1 1DA</span>
+        </li> 
+       </ul>       
+       <a class="block govuk-!-font-size-19" href="#">Start again</a>
+    </div>
+</div>
+
+{% endblock %}

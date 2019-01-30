@@ -1,0 +1,97 @@
+{% set title="Change status for ABC Awards" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% set backLink="listv2" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <form method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+              <div class="govuk-radios__item">
+                <input checked class="govuk-radios__input" id="status-1" name="status" type="radio" value="active">
+                <label class="govuk-label govuk-radios__label" for="status-1">
+                  Active
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input  class="govuk-radios__input" id="status-2" name="status" type="radio" value="restricted"  data-aria-controls="conditional-how-contacted-conditional-2">
+                <label class="govuk-label govuk-radios__label" for="status-2">
+                  Active - not starting new apprentices
+                </label>
+              </div>
+                
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="status-3" name="status" type="radio" value="inactive" data-aria-controls="conditional-how-contacted-conditional-1">
+                  
+                <label class="govuk-label govuk-radios__label" for="status-3">
+                  Inactive
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden govuk-!-width-two-thirds" id="conditional-how-contacted-conditional-1">
+<!--
+                <div class="govuk-form-group ">
+                  <label class="govuk-label" for="inactiveReason">
+                    Enter reason
+                  </label>
+                    {% if showError == true %}
+                    <span id="reason-error" class="govuk-error-message">
+                      Reason must be provided
+                    </span>
+                    {% endif %}
+                  <textarea id="inactiveReason" class="govuk-textarea {% if showError == true %}govuk-textarea--error{% endif %}"></textarea>
+                </div>
+-->
+                  
+                  <div class="govuk-form-group">
+                      <label class="govuk-label" for="reason">
+                        What's the reason?
+                      </label>
+                      <select class="govuk-select" id="reason" name="reason">
+                        <option value="breach">Breach</option>
+                        <option value="change_of_trading_status">Change of trading status</option>
+                        <option value="high_risk_policy">High risk policy</option>
+                        <option value="inadequate_financial_health">Inadequate financial health</option>
+                        <option value="inadequate_ofsted_grade">Inadequate Ofsted grade</option>
+                        <option value="internal_error">Internal error</option>
+                        <option value="merger">Merger</option>
+                        <option value="minimum_standards_not_met">Minimum standards not met</option>
+                        <option value="provider_error">Provider error</option>
+                        <option value="provider_request">Provider request</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+              </div>
+              
+
+            </div>
+          </fieldset>
+        </div>
+
+        <input type="submit" class="govuk-button" value="Change" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

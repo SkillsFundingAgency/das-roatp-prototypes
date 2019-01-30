@@ -5,11 +5,13 @@ const router = express.Router()
 
 var version = "first-stab";
 
-router.post("/staff-app/first-stab/esfa-sign-in", function(req, res){
+
+
+router.post("/staff-app/" + version + "/esfa-sign-in", function(req, res){
     res.redirect("register");
 });
 
-router.post("/staff-app/first-stab/add-new", function(req, res){
+router.post("/staff-app/" + version + "/add-new", function(req, res){
     var orgNumber = req.body.orgNumber;
     if( orgNumber == '000000'){
         res.redirect("not-found");
@@ -24,31 +26,31 @@ router.post("/staff-app/first-stab/add-new", function(req, res){
     }
 })
 
-router.get("/staff-app/first-stab/register", function(req, res){
+router.get("/staff-app/" + version + "/register", function(req, res){
     var showMessage = req.query.added == 1 ? true : false;
-    res.render("staff-app/first-stab/register", {showMessage: showMessage});
+    res.render("staff-app/" + version + "/register", {showMessage: showMessage});
 });
 
-router.post("/staff-app/first-stab/register", function(req, res){
+router.post("/staff-app/" + version + "/register", function(req, res){
     var searchStr = req.body.search;
     if(searchStr == ''){
-        res.render("staff-app/first-stab/register", {showError: true});
+        res.render("staff-app/" + version + "/register", {showError: true});
     } else {
         req.session.searchStr = searchStr;
-        res.redirect("/staff-app/first-stab/listv2");
+        res.redirect("/staff-app/" + version + "/listv2");
     }
 })
 
-router.get("/staff-app/first-stab/listv2", function(req, res){
-    res.render("staff-app/first-stab/listv2", {searchStr: req.session.searchStr});
+router.get("/staff-app/" + version + "/listv2", function(req, res){
+    res.render("staff-app/" + version + "/listv2", {searchStr: req.session.searchStr});
 })
 
-router.post("/staff-app/first-stab/org-details-select-route", function(req, res){
-    res.redirect("/staff-app/first-stab/org-details-data-entry-manual");
+router.post("/staff-app/" + version + "/org-details-select-route", function(req, res){
+    res.redirect("/staff-app/" + version + "/org-details-data-entry-manual");
 })
 
-router.post("/staff-app/first-stab/org-details-data-entry-manual", function(req, res){
-    res.redirect("/staff-app/first-stab/register?added=1");
+router.post("/staff-app/" + version + "/org-details-data-entry-manual", function(req, res){
+    res.redirect("/staff-app/" + version + "/register?added=1");
 })
 
 
@@ -57,13 +59,13 @@ router.post("/staff-app/first-stab/org-details-data-entry-manual", function(req,
 var date = new Date();
 var arrDate = [ date.getDate(), date.getMonth(), date.getFullYear() ];
 
-router.get("/staff-app/first-stab/change-status", function(req, res){
-    res.render("staff-app/first-stab/change-status", {showError: false, today: arrDate});
+router.get("/staff-app/" + version + "/change-status", function(req, res){
+    res.render("staff-app/" + version + "/change-status", {showError: false, today: arrDate});
 })
 
 
-router.post("/staff-app/first-stab/change-status", function(req, res){    
-    res.render("staff-app/first-stab/change-status", {showError: true, today: arrDate});
+router.post("/staff-app/" + version + "/change-status", function(req, res){    
+    res.render("staff-app/" + version + "/change-status", {showError: true, today: arrDate});
 })
 
 
@@ -89,12 +91,12 @@ router.post("/declarations/*", function(req,res){
 });
 
 
-router.get("/eligibility-check/first-stab/eligibility-confirmation", function(req,res){ 
-    res.render("eligibility-check/first-stab/eligibility-confirmation", {type: req.session.application_type});
+router.get("/eligibility-check/" + version + "/eligibility-confirmation", function(req,res){ 
+    res.render("eligibility-check/" + version + "/eligibility-confirmation", {type: req.session.application_type});
 });
 
-router.get("/eligibility-check/first-stab/application-type", function(req,res){ 
-    res.render("eligibility-check/first-stab/application-type", {type: req.session.application_type});
+router.get("/eligibility-check/" + version + "/application-type", function(req,res){ 
+    res.render("eligibility-check/" + version + "/application-type", {type: req.session.application_type});
 });
 
 
@@ -120,9 +122,9 @@ router.post("/eligibility-check/*", function(req,res){
             
             console.log(req.body.checkbox);
             if (req.body.checkbox == "_unchecked"){
-                res.redirect("/eligibility-check/first-stab/eligibility-failed");
+                res.redirect("/eligibility-check/" + version + "/eligibility-failed");
             } else {
-                res.redirect("/eligibility-check/first-stab/win-1");
+                res.redirect("/eligibility-check/" + version + "/win-1");
             }
             break;
             

@@ -1,0 +1,66 @@
+{% set title="What is the new training provider?" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% set backLink="register" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+
+{% block pageTitle %}
+  
+  {{ title }}
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <form method="post">
+           
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="route-1" name="route" type="radio" value="main">
+                <label class="govuk-label govuk-radios__label" for="route-1">
+                  Main provider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="route-2" name="route" type="radio" value="employer">
+                <label class="govuk-label govuk-radios__label" for="route-2">
+                  Employer provider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="route-3" name="route" type="radio" value="supporting">
+                <label class="govuk-label govuk-radios__label" for="route-3">
+                  Supporting provider
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+
+        <input type="submit" class="govuk-button" value="Continue" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

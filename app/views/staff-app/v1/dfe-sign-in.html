@@ -1,0 +1,58 @@
+{% set title="DfE Sign-in" %}
+
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-dfe-signin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+        
+        <p class="govuk-!-width-two-thirds">DfE Sign-in is the new way to sign-in to access some specific education sector services.</p>
+
+        <h2 class="govuk-heading-m">Sign-in</h2>
+          <form method="post">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email">
+                Email address
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="password">
+                Password
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="password" name="password" type="password">
+              <a class="block govuk-!-margin-top-1" href="#">I have forgotten password</a>
+            </div>
+
+            <input type="submit" class="govuk-button" value="Sign in" />
+          </form>
+        
+            <div class="govuk-inset-text">
+                <p>By continuing you accept the <a href="#">terms and conditions</a>.</p>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Having problems?</span></summary>
+                <div class="govuk-details__text">
+                    <p>If you are using DfE Sign-in for the first time you can use your Secure Access login details to create a DfE Sign-in account. Once you have created your account you will no longer use your Secure Access details to login.
+                        If you are still having problems, read our <a href="https://help.signin.education.gov.uk/contact">FAQs</a>.</p>
+                </div>
+            </details>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% if searchStr == "000000" %}
+{% set title %}No results found for '{{searchStr}}'{% endset %}
+{% else %}
+{% set title %}3 results found for '{{searchStr}}'{% endset %}
+{% endif %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% set backLink="register" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+
+{% if searchStr == "000000" %}
+<a href="register" class="govuk-button">Search again</a>
+{% else %}
+<div class="govuk-grid-row">
+    <div id="searchResultsList" class="govuk-grid-column-one-third">
+        <ul class="govuk-list">
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1 selected-item">
+                <a href="#" class="govuk-!-font-weight-bold_">ABC Awards</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+                <a href="#">Babcock Assessments Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+                <a href="#">Baloon trainers Ltd</a>
+                <span class="block">UKPRN 10022660</span>
+            </li>
+        </ul>
+    </div>
+    <div class="govuk-grid-column-two-thirds" id="organisationDetails" >
+        <div class="govuk-grid-row" >
+            <div class="govuk-body govuk-grid-column-one-half">
+                    <ul class="govuk-list">
+                        <li class="govuk-!-font-size-27 govuk-!-margin-bottom-4">
+                            ABC Awards
+                            <span class="govuk-hint">Legal and trading name</span>
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Employer training apprentices within their Connected Companies
+                            <span class="govuk-hint">Type of organisation</span>
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            UKPRN: 1002266
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Company number: 1893839
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Charity registration number: 1928390
+                        </li>
+                    </ul>
+                
+                    <p class="govuk-!-margin-bottom-0">
+                        Additional information:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                        <li>Parent company guarantee</li>
+                        <li>No financial track record</li>
+                    </ul>
+
+            </div>
+            <div  class="govuk-body govuk-grid-column-one-half">
+                <div class="govuk-!-padding-3" id="registerDetails">
+                    <div>
+                        <span class="govuk-tag govuk-!-font-size-19">Active</span>
+                        <span class="block">updated on 10/1/2019</span>
+                    </div>
+                    <div class="govuk-!-margin-top-4 govuk-!-font-weight-bold">
+                        ABC Awards is main provider
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l" />
+        <ul class="govuk-list">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-status">Change provider status</a></li>
+            
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-provider">Change provider type</a></li>
+            
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-organisation-details">Update organisation details</a></li>
+            
+            
+            
+        </ul>
+    </div>
+
+
+
+</div>
+{% endif %}
+{% endblock %}

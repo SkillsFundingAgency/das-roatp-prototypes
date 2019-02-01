@@ -1,7 +1,7 @@
 {% if searchStr == "000000" %}
 {% set title %}No results found for '{{searchStr}}'{% endset %}
 {% else %}
-{% set title %}3 results found for '{{searchStr}}'{% endset %}
+{% set title %}13 results found for '{{searchStr}}'{% endset %}
 {% endif %}
 
 {% extends "layout.html" %}
@@ -30,21 +30,33 @@
 <div class="govuk-grid-row">
     <div id="searchResultsList" class="govuk-grid-column-one-third">
         <ul class="govuk-list">
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
                 <a href="listv2" class="govuk-!-font-weight-bold_">ABC Assessments</a>
                 <span class="block">UKPRN 1002266</span>
             </li>
             
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1 selected-item">
-                <a href="#">ABC Awards (Inactive)</a>
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
+                <a href="#">ABC Awards (Removed)</a>
                 <span class="block">UKPRN 8839011</span>
             </li>
             
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Secretaries Ltd</a>
+                <span class="block">UKPRN 938033</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
                 <a href="#">ABC Training Ltd</a>
                 <span class="block">UKPRN 7738821</span>
             </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Transport Ltd</a>
+                <span class="block">UKPRN 0927403</span>
+            </li>
         </ul>
+        
+        <a class="govuk-link govuk-link--no-visited-state" href="#">See more</a>
     </div>
     <div class="govuk-grid-column-two-thirds" id="organisationDetails" >
         <div class="govuk-grid-row" >
@@ -85,13 +97,15 @@
             <div  class="govuk-body govuk-grid-column-one-half">
                 <div class="govuk-!-padding-3" id="registerDetails">
                     <div>
-                        <span class="govuk-tag govuk-tag--attention govuk-!-font-size-19">Inactive</span>
+                        <span class="govuk-tag govuk-tag--attention govuk-!-font-size-19">Removed</span>
                         <span class="block govuk-!-margin-top-1">Reason: High risk policy</span>
-                        <span class="block">updated on 10/1/2019</span>
+                        <span class="block">Updated: 1 Feb 2019</span>
                     </div>
+<!--
                     <div class="govuk-!-margin-top-4 govuk-!-font-weight-bold">
-                        ABC Awards is main provider
+                        Main provider
                     </div>
+-->
                 </div>
             </div>
             

@@ -97,11 +97,14 @@ $govuk-global-styles: true;
 }
 
 #searchResultsList li {
-    border-left: 4px solid transparent
+    margin-left: -10px;
 }
 
-#searchResultsList li:hover {
-    border-left: 4px solid govuk-colour("blue")
+
+.eofNote {
+    border: 3px solid $govuk-border-colour;
+    border-left: 0;
+    border-right: 0;
 }
 
 .govuk-radios__conditional--error {

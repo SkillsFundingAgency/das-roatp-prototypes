@@ -1,7 +1,7 @@
 {% if searchStr == "000000" %}
 {% set title %}No results found for '{{searchStr}}'{% endset %}
 {% else %}
-{% set title %}3 results found for '{{searchStr}}'{% endset %}
+{% set title %}13 results found for '{{searchStr}}'{% endset %}
 {% endif %}
 
 {% extends "layout.html" %}
@@ -22,6 +22,8 @@
 {% block content %}
 <h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
 
+
+
 {% if searchStr == "000000" %}
 <a href="register" class="govuk-button">Search again</a>
 <hr class="govuk-section-break" />
@@ -29,22 +31,36 @@
 {% else %}
 <div class="govuk-grid-row">
     <div id="searchResultsList" class="govuk-grid-column-one-third">
+        
         <ul class="govuk-list">
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1 selected-item">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
                 <a href="#" class="govuk-!-font-weight-bold_">ABC Assessments</a>
                 <span class="block">UKPRN 1002266</span>
             </li>
             
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
                 <a href="listv2-2">ABC Awards (Inactive)</a>
                 <span class="block">UKPRN 8839011</span>
             </li>
             
-            <li class="govuk-section-break govuk-!-margin-bottom-2 govuk-!-padding-1">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Secretaries Ltd</a>
+                <span class="block">UKPRN 938033</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
                 <a href="#">ABC Training Ltd</a>
                 <span class="block">UKPRN 7738821</span>
             </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Transport Ltd</a>
+                <span class="block">UKPRN 0927403</span>
+            </li>
         </ul>
+        
+        <p class="govuk-!-margin-bottom-5 eofNote govuk-!-padding-top-2 govuk-!-padding-bottom-2">This list is limited to 5 organisations.  <a href="register" class="govuk-link govuk-link--no-visited-state">Refine search</a></p>
+        
     </div>
     <div class="govuk-grid-column-two-thirds" id="organisationDetails" >
         <div class="govuk-grid-row" >

@@ -43,6 +43,11 @@ router.get("/listv2", function(req, res){
     res.render("staff-app/" + version + "/listv2", {searchStr: req.session.searchStr});
 })
 
+router.get("/listv2-2", function(req, res){
+    res.render("staff-app/" + version + "/listv2-2", {searchStr: req.session.searchStr});
+})
+
+
 router.post("/org-details-select-route", function(req, res){
     res.redirect("org-details-data-entry-manual");
 })

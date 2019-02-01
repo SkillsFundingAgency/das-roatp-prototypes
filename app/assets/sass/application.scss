@@ -71,6 +71,10 @@ $govuk-global-styles: true;
     border-left: 1px solid $govuk-border-colour;
 }
 
+.clearLeftBorder {
+    border-left: 0 !important;
+}
+
 #searchControls {
     position: relative;
 }

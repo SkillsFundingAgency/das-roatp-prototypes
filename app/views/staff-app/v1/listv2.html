@@ -20,7 +20,13 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">
+    {% if searchStr == '1234567' %}
+        ABC Assessments
+    {% else %}
+        {{ title }}
+    {% endif %}
+</h1>
 
 
 
@@ -30,12 +36,14 @@
 <a class="govuk-link govuk-body-m" href="org-details-select-route">Add a new training provider</a>
 {% else %}
 <div class="govuk-grid-row">
+    {% if searchStr == '1234567' %}
+    {% else %}
     <div id="searchResultsList" class="govuk-grid-column-one-third">
         
         <ul class="govuk-list">
             <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
                 <a href="#" class="govuk-!-font-weight-bold_">ABC Assessments</a>
-                <span class="block">UKPRN 1002266</span>
+                <span class="block">UKPRN 1234567</span>
             </li>
             
             <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
@@ -58,11 +66,11 @@
                 <span class="block">UKPRN 0927403</span>
             </li>
         </ul>
-        
+    
         <a class="govuk-link govuk-link--no-visited-state" href="#">See more</a>
-        
     </div>
-    <div class="govuk-grid-column-two-thirds" id="organisationDetails" >
+    {% endif %}
+    <div class="govuk-grid-column-two-thirds {% if searchStr == '1234567' %} clearLeftBorder {% endif %}" id="organisationDetails" >
         <div class="govuk-grid-row" >
             <div class="govuk-body govuk-grid-column-one-half">
                     <ul class="govuk-list">
@@ -77,7 +85,7 @@
                         </li>
                         
                         <li class="govuk-!-margin-bottom-4">
-                            UKPRN: 1002266
+                            UKPRN: 1234567
                         </li>
                         
                         <li class="govuk-!-margin-bottom-4">

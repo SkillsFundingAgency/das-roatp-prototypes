@@ -1,0 +1,29 @@
+{% set title="Sign in with DfE account to continue with the application" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <p>If you don't have a DfE account, you'll need to <a href="#">create a new account</a>.</p>
+       <a href="esfa-sign-in" class="govuk-button">Sign in with DfE account</a>
+  
+    </div>
+      
+</div>
+
+{% endblock %}

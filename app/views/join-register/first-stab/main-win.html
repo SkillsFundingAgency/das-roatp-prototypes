@@ -1,0 +1,68 @@
+{% set title="Application for main provider" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{title}}</h1>
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <ul class="govuk-list">
+            <li><a href="#">Declarations</a></li>
+            <li><a href="#">COA</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl" />
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m">You'll need</h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>valid UKPRN</li>
+            <li>registered business address</li>
+            <li>management hierarchy for apprenticeships</li>
+            <li>ICO registration certificate</li>
+            <li>financial statements</li>
+            <li>sample of your employees' relevant experience and expertise</li>
+            <li>policy for professional development for employees</li>
+            <li>policy or practice for engaging with employers</li>
+            <li>policy, process and procedure for complaints </li>
+            <li>template ‘contract for services with employers’ for delivery - template ‘contract for services with employers’ for delivery of apprenticeship training</li>
+            <li>commitment statement template</li>
+            <li>process for performing initial assessment of prior learning</li>
+            <li>process for delivering English and maths</li>
+        </ul>
+        
+        <p>
+            Additionally, we may ask you for these documents based on the answers you provide
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>process for evaluating quality of training and outcomes </li>
+            <li>policy for continuity of apprenticeship training</li>
+            <li>policy for equality and diversity</li>
+            <li>policy for safeguarding</li>
+            <li>policy that complies with Prevent</li>
+            <li>policy for health and safety</li>
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}

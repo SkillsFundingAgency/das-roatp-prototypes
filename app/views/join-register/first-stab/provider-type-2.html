@@ -1,0 +1,74 @@
+{% set title="Which type of provider are you?" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="post" action="main-prerequisites">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  <h1 class="govuk-fieldset__heading">
+                    {{title}}
+                  </h1>
+                </legend>
+                <div class="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="provider-type-supporting" name="provider-type" type="radio" value="supporting">
+                    <label class="govuk-label govuk-radios__label" for="provider-type-supporting">
+                      Supporting provider
+                    </label>
+                    <span class="govuk-hint govuk-radios__hint">
+                        Enter into subcontracts with other providers
+                    </span>
+                  </div>
+                    
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="provider-type-employer" name="provider-type" type="radio" value="employer">
+                    <label class="govuk-label govuk-radios__label" for="provider-type-employer">
+                      Employer provider
+                    </label>
+                    <span class="govuk-hint govuk-radios__hint">
+                        Everything that a supporting provider can do as well as train your own employees and/or employees of connected companies
+                    </span>
+                  </div>
+                    
+                    
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="provider-type-main" name="provider-type" type="radio" value="main">
+                    <label class="govuk-label govuk-radios__label" for="provider-type-main">
+                      Main provider
+                    </label>
+                    <span class="govuk-hint govuk-radios__hint">Everything that a employer provider can do as well as deliver training for employers who use the apprenticeship service to pay for training.</span>
+                  </div>
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="provider-type-dont-know" name="provider-type" type="radio" value="unsure">
+                    <label class="govuk-label govuk-radios__label" for="provider-type-dont-know">
+                      I'm not sure
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            
+            <input type="submit" value="Continue" class="govuk-button" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

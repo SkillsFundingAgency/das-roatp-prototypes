@@ -1,4 +1,4 @@
-{% set title="GOV.UK content page" %}
+{% set title="Sign in with DfE account to continue with the application" %}
 
 {% extends "layout.html" %}
 
@@ -6,6 +6,9 @@
   {% include "includes/header-join-register.html" %}
 {% endblock %}
 
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
 
 {% block pageTitle %}
   {{ title }}
@@ -16,8 +19,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
        <h1 class="govuk-heading-xl">{{ title }}</h1>
-       <p>Details..</p>
-       <a href="start-page" class="govuk-button govuk-button--start">Start now</a>
+       <p>If you don't have a DfE account, you'll need to <a href="new-user">sign up for a new account</a>.</p>
+       <a href="dfe-sign-in" class="govuk-button">Sign in with DfE account</a>
   
     </div>
       

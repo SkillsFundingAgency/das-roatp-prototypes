@@ -69,6 +69,24 @@ router.post("/staff-app/" + version + "/change-status", function(req, res){
 })
 
 
+router.get("/join-register/first-stab/dfe-sign-in", function(req,res){  
+    res.render("dfe-sign-in");
+});
+
+router.post("/join-register/first-stab/dfe-sign-in", function(req,res){  
+    res.redirect("provider-type");
+});
+
+router.post("/join-register/first-stab/new-user", function(req,res){  
+    res.redirect("enter-code");
+});
+
+router.post("/join-register/first-stab/enter-code", function(req,res){  
+    res.redirect("dfe-sign-in");
+});
+
+
+
 
 router.post("/declarations/*", function(req,res){  
     

@@ -1,4 +1,4 @@
-{% set title="Sign in with DfE account to continue with the application" %}
+{% set title="Apply to join the register of apprenticeship training providers" %}
 
 {% extends "layout.html" %}
 
@@ -19,9 +19,24 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
        <h1 class="govuk-heading-xl">{{ title }}</h1>
-       <p>If you don't have a DfE account, you'll need to <a href="new-user">sign up for a new account</a>.</p>
-       <a href="dfe-sign-in" class="govuk-button">Sign in with DfE account</a>
-  
+       <p>Use this service to:</p>
+        
+       <ul class="govuk-list govuk-list--bullet">
+        <li>become an apprenticeship training provider </li> 
+        <li>receive government funding to train apprentices</li> 
+       </ul>
+
+    
+        <a href="signin-check" class="govuk-button govuk-button--start">Start now</a>
+        
+        <hr class="govuk-section-break govuk-section-break--l" />
+        
+        <h2 class="govuk-heading-m">Before you start</h2>
+        <p>All providers must have minimum Ofsted grade of 3 for apprenticeship or overall effectiveness under Further Education and Skills in the last 3 years.</p>
+        
+        <p>Main and employer providers must be actively trading for at least 12 months.</p>
+        
+        <p>Supporting providers must be actively trading for at least 3 months.</p>
     </div>
       
 </div>

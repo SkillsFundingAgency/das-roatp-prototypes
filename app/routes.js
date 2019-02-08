@@ -77,14 +77,23 @@ router.post("/join-register/first-stab/dfe-sign-in", function(req,res){
     res.redirect("provider-type");
 });
 
-router.post("/join-register/first-stab/new-user", function(req,res){  
-    res.redirect("enter-code");
+router.post("/join-register/first-stab/new-user", function(req,res){ 
+    req.session.signup_email = req.body.email;
+    res.redirect("confirm-details-message");
 });
 
-router.post("/join-register/first-stab/enter-code", function(req,res){  
-    res.redirect("dfe-sign-in");
+router.get("/join-register/first-stab/confirm-details-message", function(req,res){  
+    res.render("join-register/first-stab/confirm-details-message", {email: req.session.signup_email});
 });
 
+router.post("/join-register/first-stab/signin-check", function(req,res){ 
+    if(req.body.q == 'no'){
+        res.redirect("new-user");
+    } else {
+        res.redirect("dfe-sign-in");
+    }
+    
+});
 
 
 

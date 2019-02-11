@@ -1,20 +1,25 @@
+{% set title="Which conviction was it?" %}
 
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which conviction was it?
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
 {% endblock %}
 
 {% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
     <a href="#" class="govuk-back-link">Back</a>
 {% endblock %}
-
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       <h1 class="govuk-heading-l">Which conviction was it?</h1>
+       <h1 class="govuk-heading-l">{{ title }}</h1>
 
        <div class="govuk-form-group">
           <label class="govuk-label" for="conviction">

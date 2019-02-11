@@ -1,20 +1,27 @@
+{% set title="Provide details of convictions that were obtained after December 2013" %}
 
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Provide details of convictions that were obtained after December 2013
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
 {% endblock %}
 
 {% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
     <a href="#" class="govuk-back-link">Back</a>
 {% endblock %}
-
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-       <h1 class="govuk-heading-l">Provide details of convictions that were obtained after December 2013</h1>
+       <h1 class="govuk-heading-l">
+            {{ title }}
+        </h1>
 
         <p>For each conviction, we're going to ask you the following:</p>
         <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-9">

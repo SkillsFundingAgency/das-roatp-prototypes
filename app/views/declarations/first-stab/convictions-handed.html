@@ -1,18 +1,21 @@
+{% set title="Were any of the convictions obtained after December 2013?" %}
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Were any of the convictions handed in or after January 2014?
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
 {% endblock %}
 
 {% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
     <a href="#" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
-
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -21,7 +24,8 @@
               <fieldset class="govuk-fieldset" aria-describedby="convictions-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                   <h1 class="govuk-fieldset__heading">
-                    Were any of the convictions obtained after December 2013?
+                    
+                      {{ title }}
                   </h1>
                 </legend>
 

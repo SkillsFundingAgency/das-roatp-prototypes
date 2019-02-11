@@ -1,14 +1,19 @@
+{% set title="Is your organisation or any partner organisations in company voluntary arrangement?" %}
 
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Is your organisation or any partner organisations in company voluntary arrangement?
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
 {% endblock %}
 
 {% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
     <a href="#" class="govuk-back-link">Back</a>
 {% endblock %}
-
 
 {% block content %}
 
@@ -20,7 +25,7 @@
               <fieldset class="govuk-fieldset" aria-describedby="due-diligence-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                   <h1 class="govuk-fieldset__heading">
-                    Is your organisation or any partner organisations in company voluntary arrangement?
+                    {{ title }}
                   </h1>
                 </legend>
 

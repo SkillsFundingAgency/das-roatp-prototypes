@@ -1,4 +1,4 @@
-{% set title="Enter your details" %}
+{% set title="Create an account" %}
 
 {% extends "layout.html" %}
 
@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
     {% include "includes/alpha-banner.html" %}
-    <a href="start-page" class="govuk-back-link">Back</a>
+    <a href="signin-check" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block pageTitle %}
@@ -33,12 +33,12 @@
             
             
             <div class="govuk-form-group">
-                <label for="email" class="govuk-label">Email</label>
-                <span id="email-hint" class="govuk-hint">We'll send you a security code by email</span>
+                <label for="email" class="govuk-label">Email address</label>
+                <span id="email-hint" class="govuk-hint">We will send you a link and verification code to create your account</span>
                 <input id="email" name="email" type="text" class="govuk-input govuk-!-width-two-thirds" aria-describedby="email-hint" />
             </div>
             
-            <input type="submit" value="Sign up" class="govuk-button" />
+            <input type="submit" value="Continue" class="govuk-button" />
         </form>
     </div>
 </div>

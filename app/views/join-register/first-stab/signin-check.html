@@ -1,4 +1,4 @@
-{% set title="Do you have a DfE Signin account?" %}
+{% set title="Do you have a DfE sign-in account?" %}
 
 {% extends "layout.html" %}
 
@@ -8,7 +8,7 @@
 
 {% block beforeContent %}
     {% include "includes/alpha-banner.html" %}
-    <a href="index" class="govuk-back-link">Back</a>
+    <a href="start-page" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block pageTitle %}
@@ -28,7 +28,7 @@
                   </h1>
                 </legend>
 
-                <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios govuk-radios--inline_">
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="q-1" name="q" type="radio" value="yes">
                     <label class="govuk-label govuk-radios__label" for="q-1">
@@ -38,7 +38,7 @@
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="q-2" name="q" type="radio" value="no">
                     <label class="govuk-label govuk-radios__label" for="q-2">
-                      No
+                      No - I need to create one
                     </label>
                   </div>
                 </div>

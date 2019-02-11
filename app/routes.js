@@ -95,6 +95,18 @@ router.post("/join-register/first-stab/signin-check", function(req,res){
     
 });
 
+router.post("/join-register/first-stab/provider-type", function(req,res){ 
+    res.redirect("main-prerequisites");
+});
+
+router.post("/join-register/first-stab/main-prerequisites", function(req,res){ 
+    if (Array.isArray(req.body.requisites)){
+        res.redirect("main-win");
+    } else {
+        res.redirect("main-prerequisites-fail");
+    }
+});
+
 
 
 router.post("/declarations/*", function(req,res){  

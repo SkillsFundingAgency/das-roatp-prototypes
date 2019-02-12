@@ -3,8 +3,5 @@
    "greenButtonCaption": "Continue",
    "title": "Page title",
    "hintText": "",
-   "content1": "<ul>
-<li>zed</li>
-<li>priya</li>
-</ul>"
+   "content1": "<ul><li>zed</li><li>priya</li></ul>"
 }

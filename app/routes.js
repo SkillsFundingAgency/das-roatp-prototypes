@@ -1,9 +1,45 @@
 const express = require('express')
 const router = express.Router()
 
+var fs = require("fs");
+
 // Add your routes here - above the module.exports line
 
 var version = "first-stab";
+
+var userJourney = JSON.parse(fs.readFileSync("./app/pages.json"));
+
+
+router.get("/zframework/*", function(req, res){
+    if(req.session.nextStopInJourney == undefined){
+        page = "index";
+    } else {
+        page = req.session.nextStopInJourney;
+    }
+
+    var oPage = userJourney[page];
+    
+    var content = fs.readFileSync("./app/content/"+page+".json");
+    parsedContent = JSON.parse(content);
+    
+
+    res.render("zframework/"+oPage.template, {pageName: page, pageContent: parsedContent});
+});
+
+router.post("/zframework/*", function(req, res){
+   req.session.nextStopInJourney = userJourney[req.body.pageName].nextPage
+   res.redirect(req.session.nextStopInJourney);
+});
+
+router.get("/zframework", function(req, res){
+    var content = fs.readFileSync("./app/content/index.json");
+    parsedContent = JSON.parse(content);
+    res.render("zframework/index", {pageContent: parsedContent});
+});
+
+
+
+
 
 
 

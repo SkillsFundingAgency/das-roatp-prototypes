@@ -1,0 +1,34 @@
+{% set title="We've sent you an email" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{{ pageContent.title }}</h1>
+        {{ pageContent.content1 | safe }}
+        
+        <form method="post">
+            <input type="hidden" name="pageName" value="{{ pageName }}" />
+            {% if pageContent.greenButtonCaption != "" %}
+               <input type="submit" class="govuk-button" value="{{ pageContent.greenButtonCaption }}" />
+            {% endif %}
+        </form>
+        
+    </div>
+</div>
+
+{% endblock %}

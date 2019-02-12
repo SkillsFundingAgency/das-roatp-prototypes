@@ -1,0 +1,13 @@
+{
+    "index": {
+        "template": "info",
+        "prevPage": "start-page",
+        "nextPage": "somePage"
+    },
+
+    "somePage": {
+        "template": "yesno",
+        "prevPage": "index",
+        "nextPage": "somePage"
+    }
+}

@@ -6,8 +6,14 @@
     },
 
     "somePage": {
-        "template": "yesno",
+        "template": "info",
         "prevPage": "index",
-        "nextPage": "somePage"
+        "nextPage": "WhatEverPage"
+    },
+
+    "WhateverPage": {
+        "template": "yesno",
+        "prevPage": "somePage",
+        "nextPage": ""
     }
 }

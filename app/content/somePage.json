@@ -3,5 +3,5 @@
    "greenButtonCaption": "Continue",
    "title": "Page title",
    "hintText": "",
-   "content1": "<p>Testing 123</p>"
+   "content1": "<ul><li>item 1<li><ul>"
 }

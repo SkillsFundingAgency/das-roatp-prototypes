@@ -1,0 +1,139 @@
+{% if searchStr == "000000" %}
+{% set title %}No results found for '{{searchStr}}'{% endset %}
+{% else %}
+{% set title %}13 results found for '{{searchStr}}'{% endset %}
+{% endif %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% set backLink="register" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">
+    {% if searchStr == '1234567' %}
+        ABC Assessments
+    {% else %}
+        {{ title }}
+    {% endif %}
+</h1>
+
+
+
+{% if searchStr == "000000" %}
+<a href="register" class="govuk-button">Search again</a>
+<hr class="govuk-section-break" />
+<a class="govuk-link govuk-body-m" href="org-details-select-route">Add a new training provider</a>
+{% else %}
+<div class="govuk-grid-row">
+    {% if searchStr == '1234567' %}
+    {% else %}
+    <div id="searchResultsList" class="govuk-grid-column-one-third">
+        
+        <ul class="govuk-list">
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
+                <a href="#" class="govuk-!-font-weight-bold_">ABC Assessments</a>
+                <span class="block">UKPRN 1234567</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="listv2-2">ABC Awards (Removed)</a>
+                <span class="block">UKPRN 8839011</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Secretaries Ltd</a>
+                <span class="block">UKPRN 938033</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Training Ltd</a>
+                <span class="block">UKPRN 7738821</span>
+            </li>
+            
+            <li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+                <a href="#">ABC Transport Ltd</a>
+                <span class="block">UKPRN 0927403</span>
+            </li>
+        </ul>
+    
+        <a class="govuk-link govuk-link--no-visited-state" href="#">See more</a>
+    </div>
+    {% endif %}
+    <div class="govuk-grid-column-two-thirds {% if searchStr == '1234567' %} clearLeftBorder {% endif %}" id="organisationDetails" >
+        <div class="govuk-grid-row" >
+            <div class="govuk-body govuk-grid-column-one-half">
+                    <ul class="govuk-list">
+                        <li class="govuk-!-font-size-27 govuk-!-margin-bottom-4">
+                            ABC Assessments
+                            <span class="govuk-hint">Legal and trading name</span>
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Employer training apprentices within their Connected Companies
+                            <span class="govuk-hint">Type of organisation</span>
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            UKPRN: 1234567
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Company number: 1893839
+                        </li>
+                        
+                        <li class="govuk-!-margin-bottom-4">
+                            Charity registration number: 1928390
+                        </li>
+                    </ul>
+                
+                    <p class="govuk-!-margin-bottom-0">
+                        Additional information:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                        <li>parent company guarantee</li>
+                        <li>no financial track record</li>
+                    </ul>
+
+            </div>
+            <div  class="govuk-body govuk-grid-column-one-half">
+                <div class="govuk-!-padding-3" id="registerDetails">
+                    <div>
+                        <span class="govuk-tag govuk-!-font-size-19">Active</span>
+                        <span class="block">Updated: 10 Jan 2019</span>
+                    </div>
+                    <div class="govuk-!-margin-top-4 govuk-!-font-weight-bold">
+                        Main provider
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l" />
+        <ul class="govuk-list">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-status">Change status</a></li>
+            
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-provider">Change provider type</a></li>
+            
+            <li><a class="govuk-link govuk-link--no-visited-state" href="change-organisation-details">Update organisation details</a></li>
+            
+            
+            
+        </ul>
+    </div>
+
+
+
+</div>
+{% endif %}
+{% endblock %}

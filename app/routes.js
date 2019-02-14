@@ -21,7 +21,6 @@ router.get("/zframework/*", function(req, res){
     
     var content = fs.readFileSync("./app/content/"+page+".json");
     parsedContent = JSON.parse(content);
-    
 
     res.render("zframework/"+oPage.template, {pageName: page, pageContent: parsedContent});
 });

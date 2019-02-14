@@ -1,0 +1,122 @@
+{% set title="Enter organisation details" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% set backLink="listv2" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+{% if showError == true %}
+<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+  <h2 class="govuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="govuk-error-summary__body">
+    <ul class="govuk-list govuk-error-summary__list">
+      <li>
+        <a href="#legalName">Enter legal name</a>
+      </li>
+      <li>
+        <a href="#tradingName">Enter trading name</a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post">
+        <div class="govuk-form-group">
+            <label for="ukprn" class="govuk-label">UKPRN</label>
+            <input id="ukprn" name="ukprn" type="text" value="1002266" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group {% if showError == true %}govuk-form-group--error{% endif %}">
+            <label for="legalName" class="govuk-label">Legal name</label>
+            {% if showError == true %}
+            <span id="tradingName-error" class="govuk-error-message">
+                Enter legal name
+            </span>
+            {% endif %}
+            <input id="legalName" name="legalName" type="text" class="govuk-input" value="ABC Assessments" />
+        </div>
+        <div class="govuk-form-group {% if showError == true %}govuk-form-group--error{% endif %}">
+            <label for="tradingName" class="govuk-label">Trading name, if applicable</label>
+            {% if showError == true %}
+            <span id="tradingName-error" class="govuk-error-message">
+                Enter trading name
+            </span>
+            {% endif %}
+            <input id="tradingName" name="tradingName" type="text" class="govuk-input" value="ABC Assessments" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="companyNumber" class="govuk-label">Company number, if applicable</label>
+            <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" value="1893839" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="charityNumber" class="govuk-label">Charity registration number, if applicable</label>
+            <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" value="1928390" />
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="orgType">
+            Type of organisation
+          </label>
+          <select class="govuk-select" id="orgType" name="orgType">
+            <option value="academy">Academy</option>
+            <option value="public" selected>Central government department, executive agency or Non-Departmental Public Body</option>
+            <option value="delivery-orgs">Delivery organisation connected to an Apprenticeship Training Agency (ATA)</option>
+            <option value="employer-training-apprentices">Employer training apprentices within their Connected Companies</option>
+            <option selected value="employer-training-own-staff">Employer training their own staff and those within other organisations</option>
+            <option value="further-education-institutions">Further Education Institution</option>
+            <option value="GFE">General Further Education College</option>
+            <option value="GTA">Group Training Association (GTA)</option>
+            <option value="HEI">Higher Education Institution (HEI)</option>
+            <option value="independent-training-provider">Independent Training Provider</option>
+            <option value="la">Local Authority, including LEA schools</option>
+            <option value="mat">Multi-Academy Trust</option>
+            <option value="nationalCollege">National College</option>
+            <option value="nhs">NHS Trust or Fire Authority</option>
+            <option value="police">Police Constabulary or Police and Crime Commissioner</option>
+            <option value="6th-form">Sixth Form College</option>
+            <option value="none">None of the above</option>
+          </select>
+        </div>
+           
+        <div class="govuk-form-group">
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="additionalInfo-1" name="additionalInfo" type="checkbox" value="parent_company_guarantee" aria-describedby="additionalInfo-1-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="additionalInfo-1">
+                  Parent company guarantee
+                </label>
+              </div>   
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="additionalInfo-2" name="additionalInfo" type="checkbox" value="parent_company_guarantee" aria-describedby="additionalInfo-2-item-hint">
+                <label class="govuk-label govuk-checkboxes__label" for="additionalInfo-2">
+                  No financial track record
+                </label>
+              </div> 
+            </div>
+        </div>
+
+
+        <input type="submit" class="govuk-button" value="Update" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -8,12 +8,12 @@
     "somePage": {
         "template": "info",
         "prevPage": "index",
-        "nextPage": "WhatEverPage"
+        "nextPage": "WhateverPage"
     },
 
     "WhateverPage": {
         "template": "yesno",
         "prevPage": "somePage",
-        "nextPage": ""
+        "nextPage": "x"
     }
 }

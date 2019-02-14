@@ -24,6 +24,10 @@ $govuk-global-styles: true;
     text-align: right;
 }
 
+.well {
+    background-color: govuk-colour("grey-4");
+}
+
 #list-of-convictions {
     display: none;
 }
@@ -155,6 +159,10 @@ a.govuk-header__link--service-name {
 
 .govuk-tag--attention {
     background-color: govuk-colour("red")
+}
+
+#noteToUser {
+
 }
 
 

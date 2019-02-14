@@ -1,0 +1,76 @@
+{% set title="Enter organisation details" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% set backLink="org-details-select-route" %}
+    {% include "includes/before-content.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post">
+        <div class="govuk-form-group">
+            <label for="ukprn" class="govuk-label">UKPRN</label>
+            <input id="ukprn" name="ukprn" type="text" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="legalName" class="govuk-label">Legal name</label>
+            <input id="legalName" name="legalName" type="text" class="govuk-input" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="tradingName" class="govuk-label">Trading name, if applicable</label>
+            <input id="tradingName" name="tradingName" type="text" class="govuk-input" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="companyNumber" class="govuk-label">Company number, if applicable</label>
+            <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group">
+            <label for="charityNumber" class="govuk-label">Charity registration number, if applicable</label>
+            <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" />
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="orgType">
+            Type of organisation
+          </label>
+          <select class="govuk-select" id="orgType" name="orgType">
+            <option value="academy">Academy</option>
+            <option value="public" selected>Central government department, executive agency or Non-Departmental Public Body</option>
+            <option value="delivery-orgs">Delivery organisation connected to an Apprenticeship Training Agency (ATA)</option>
+            <option value="employer-training-apprentices">Employer training apprentices within their Connected Companies</option>
+            <option value="employer-training-own-staff">Employer training their own staff and those within other organisations</option>
+            <option value="further-education-institutions">Further Education Institution</option>
+            <option value="GFE">General Further Education College</option>
+            <option value="GTA">Group Training Association (GTA)</option>
+            <option value="HEI">Higher Education Institution (HEI)</option>
+            <option value="independent-training-provider">Independent Training Provider</option>
+            <option value="la">Local Authority, including LEA schools</option>
+            <option value="mat">Multi-Academy Trust</option>
+            <option value="nationalCollege">National College</option>
+            <option value="nhs">NHS Trust or Fire Authority</option>
+            <option value="police">Police Constabulary or Police and Crime Commissioner</option>
+            <option value="6th-form">Sixth Form College</option>
+            <option value="none">None of the above</option>
+          </select>
+        </div>
+
+
+        <input type="submit" class="govuk-button" value="Add" />
+       </form>
+    </div>
+</div>
+
+{% endblock %}

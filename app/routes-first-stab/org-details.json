@@ -1,0 +1,19 @@
+{
+    "index": {
+        "template": "info",
+        "prevPage": "",
+        "nextPage": ["p2"]
+    },
+
+    "p2": {
+        "template": "info",
+        "prevPage": "index",
+        "nextPage": ["p3"]
+    },
+
+    "p3": {
+        "template": "info",
+        "prevPage": "p2",
+        "nextPage": ["p4"]
+    }
+}

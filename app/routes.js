@@ -7,38 +7,44 @@ var fs = require("fs");
 
 var version = "first-stab";
 
-var userJourney = JSON.parse(fs.readFileSync("./app/pages.json"));
 
 
-router.get("/zframework/*", function(req, res){
-    if(req.session.nextStopInJourney == undefined){
-        page = "index";
-    } else {
-        page = req.session.nextStopInJourney;
-    }
-
+router.get("/z/:section/:version/:page", function(req, res){
+    var section = req.params.section;
+    var userJourney = loadRoutesFromJSON(section, req.params.version );
+    var page = req.params.page;
     var oPage = userJourney[page];
+    var content = fs.readFileSync("./app/content-"+version+"/"+page+".json");
     
-    var content = fs.readFileSync("./app/content/"+page+".json");
     parsedContent = JSON.parse(content);
 
-    res.render("zframework/"+oPage.template, {pageName: page, pageContent: parsedContent});
+    res.render("zframework/"+oPage.template, {pageSettings: oPage, pageName: page, pageContent: parsedContent});
 });
 
-router.post("/zframework/*", function(req, res){
-   req.session.nextStopInJourney = userJourney[req.body.pageName].nextPage
-   res.redirect(req.session.nextStopInJourney);
+ 
+router.post("/z/:section/:version/:page", function(req, res){
+    var userJourney = loadRoutesFromJSON(req.params.section, req.params.version );
+    var arrNextPages = userJourney[req.body.pageName].nextPage;
+    
+    var nextPage;
+    
+    if(arrNextPages.length > 1){
+    } else {
+        nextPage = userJourney[req.body.pageName].nextPage[0];
+    }
+    
+    res.redirect(nextPage);
 });
 
-router.get("/zframework", function(req, res){
-    var content = fs.readFileSync("./app/content/index.json");
-    parsedContent = JSON.parse(content);
-    res.render("zframework/index", {pageContent: parsedContent});
-});
+
+function loadRoutesFromJSON(section, version){
+    return JSON.parse(fs.readFileSync("./app/routes-"+version+"/"+section+".json"))
+}
 
 
 
 
+// ------ //
 
 
 

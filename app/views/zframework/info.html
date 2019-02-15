@@ -8,10 +8,13 @@
 
 {% block beforeContent %}
     {% include "includes/alpha-banner.html" %}
+    {% if pageSettings.prevPage != "" %}
+    <a href="{{ pageSettings.prevPage }}" class="govuk-back-link">{{ pageContent.backButtonCaption }}</a>
+    {% endif %}
 {% endblock %}
 
 {% block pageTitle %}
-  {{ title }}
+  {{ pageContent.title }}
 {% endblock %}
 
 {% block content %}

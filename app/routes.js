@@ -10,11 +10,11 @@ var version = "first-stab";
 
 
 router.get("/z/:section/:version/:page", function(req, res){
-    var section = req.params.section;
-    var userJourney = loadRoutesFromJSON(section, req.params.version );
-    var page = req.params.page;
-    var oPage = userJourney[page];
-    var content = fs.readFileSync("./app/content-"+version+"/"+page+".json");
+    var section = req.params.section,
+        userJourney = loadRoutesFromJSON(section, req.params.version ),
+        page = req.params.page,
+        oPage = userJourney[page],
+        content = fs.readFileSync("./app/content-"+version+"/"+page+".json");
     
     parsedContent = JSON.parse(content);
 
@@ -24,8 +24,8 @@ router.get("/z/:section/:version/:page", function(req, res){
  
 router.post("/z/:section/:version/:page", function(req, res){
     var userJourney = loadRoutesFromJSON(req.params.section, req.params.version );
+        
     var arrNextPages = userJourney[req.body.pageName].nextPage;
-    
     var nextPage;
     
     if(arrNextPages.length > 1){
@@ -137,7 +137,11 @@ router.post("/join-register/first-stab/signin-check", function(req,res){
 });
 
 router.post("/join-register/first-stab/provider-type", function(req,res){ 
-    res.redirect("main-prerequisites");
+    req.session.providerType = req.body.q;
+    res.redirect("/z/org-details/first-stab/index");
+    
+    // temp redirect
+    //res.redirect("main-prerequisites");
 });
 
 router.post("/join-register/first-stab/main-prerequisites", function(req,res){ 

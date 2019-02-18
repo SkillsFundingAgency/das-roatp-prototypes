@@ -1,7 +1,7 @@
 {
    "backButtonCaption": "Back",
-   "greenButtonCaption": "Continue",
-   "title": "Confirm details",
+   "greenButtonCaption": "Confirm",
+   "title": "Confirm organsation name and address",
    "hintText": "",
-   "content1": ""
+   "content1": "<p>ABC Assessments - Cheylesmore House, 5 Quinton Rd, Coventry CV1 2WT</p>"
 }

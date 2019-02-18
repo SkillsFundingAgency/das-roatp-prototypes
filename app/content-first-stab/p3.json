@@ -1,7 +1,8 @@
 {
    "backButtonCaption": "Back",
    "greenButtonCaption": "Continue",
-   "title": "Enter charity number",
+   "title": "What type of organisation are you?",
    "hintText": "",
-   "content1": ""
+   "content1": "",
+   "radioItems": ["Academy", "Central government department, executive agency or non-departmental public body", "Delivery organisation connected to an apprenticeship training agency (ATA)"]
 }

@@ -3,5 +3,6 @@
    "greenButtonCaption": "Continue",
    "title": "Enter UKPRN",
    "hintText": "",
-   "content1": ""
+   "content1": "",
+   "label": "UKPRN"
 }

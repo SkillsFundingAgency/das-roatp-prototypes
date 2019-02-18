@@ -1,6 +1,6 @@
 {
     "index": {
-        "template": "info",
+        "template": "textbox",
         "prevPage": "",
         "nextPage": ["p2"]
     },
@@ -12,8 +12,8 @@
     },
 
     "p3": {
-        "template": "info",
+        "template": "radios",
         "prevPage": "p2",
-        "nextPage": ["p4"]
+        "nextPage": [""]
     }
 }

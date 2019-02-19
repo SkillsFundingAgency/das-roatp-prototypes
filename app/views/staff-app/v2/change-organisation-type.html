@@ -1,4 +1,4 @@
-{% set title="Enter organisation details" %}
+{% set title="Change type of organisation for ABC Assessments" %}
 
 {% extends "layout.html" %}
 
@@ -7,12 +7,11 @@
 {% endblock %}
 
 {% block beforeContent %}
-    {% set backLink="org-details-select-route" %}
-    {% include "includes/before-content.html" %}
+    <a href="list" class="govuk-back-link">Back</a>
 {% endblock %}
 
+
 {% block pageTitle %}
-  
   {{ title }}
 {% endblock %}
 
@@ -21,17 +20,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
        <h1 class="govuk-heading-xl">{{ title }}</h1>
-       <form method="post">
-        <div class="govuk-form-group">
-            <label for="legalName" class="govuk-label">Legal name</label>
-            <input id="legalName" name="legalName" type="text" class="govuk-input" />
-        </div>
-        <div class="govuk-form-group">
-            <label for="ukprn" class="govuk-label">UKPRN</label>
-            <input id="ukprn" name="ukprn" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
-           
-        <div class="govuk-form-group">
+       <form method="post" action="list">
+                <div class="govuk-form-group">
           <label class="govuk-label" for="orgType">
             Type of organisation
           </label>
@@ -55,25 +45,8 @@
             <option value="none">None of the above</option>
           </select>
         </div>
-           
-        
-        <div class="govuk-form-group">
-            <label for="companyNumber" class="govuk-label">Company number, if applicable</label>
-            <input id="companyNumber" name="companyNumber" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
-        <div class="govuk-form-group">
-            <label for="charityNumber" class="govuk-label">Charity registration number, if applicable</label>
-            <input id="charityNumber" name="charityNumber" type="text" class="govuk-input govuk-!-width-one-third" />
-        </div>
-           
-        <div class="govuk-form-group">
-            <label for="tradingName" class="govuk-label">Trading name, if applicable</label>
-            <input id="tradingName" name="tradingName" type="text" class="govuk-input" />
-        </div>
+        <input type="submit" class="govuk-button" value="Change" />
 
-
-
-        <input type="submit" class="govuk-button" value="Add" />
        </form>
     </div>
 </div>

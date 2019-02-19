@@ -58,6 +58,10 @@ router.post("/org-details-select-route", function(req, res){
 })
 
 router.post("/org-details-data-entry-manual", function(req, res){
+    res.redirect("preview");
+})
+
+router.post("/preview", function(req, res){
     res.redirect("register?added=1");
 })
 

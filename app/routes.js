@@ -24,13 +24,29 @@ router.get("/z/:section/:version/:page", function(req, res){
  
 router.post("/z/:section/:version/:page", function(req, res){
     var userJourney = loadRoutesFromJSON(req.params.section, req.params.version );
+    var page = req.body.pageName;
+    var postedPage = userJourney[req.body.page];
+    
+    switch (postedPage.template) {
+        case 'textbox':
+//            if(req.body.textInput == '') {
+//                console.log('throw error')
+//            }
+//            else {
+//                
+//            }
+            break;
+            
+        default:
+            console.log('skip...')
+    }
         
-    var arrNextPages = userJourney[req.body.pageName].nextPage;
+    var arrNextPages = postedPage.nextPage;
     var nextPage;
     
     if(arrNextPages.length > 1){
     } else {
-        nextPage = userJourney[req.body.pageName].nextPage[0];
+        nextPage = arrNextPages[0];
     }
     
     res.redirect(nextPage);

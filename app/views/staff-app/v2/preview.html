@@ -1,0 +1,100 @@
+{% set title="Confirm details" %}
+
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="org-details-data-entry-manual" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+
+{% if searchStr == "000000" %}
+<a href="register" class="govuk-button">Search again</a>
+<hr class="govuk-section-break" />
+<a class="govuk-link govuk-body-m" href="org-details-select-route">Add a new training provider</a>
+{% else %}
+<div class="govuk-body govuk-grid-row">
+    
+    <div class="govuk-grid-column-two-thirds">
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Legal name"
+          },
+          value: {
+            html: "ACME solutions"
+          }
+        },
+        
+        {
+          key: {
+            text: "UKPRN"
+          },
+          value: {
+            html: "1002266"
+          }
+        },
+
+        {
+          key: {
+            text: "Type of provider"
+          },
+          value: {
+            html: "Main"
+          }
+        },
+        {
+          key: {
+            text: "Type of organisation"
+          },
+          value: {
+            html: "Higher Education Institution (HEI)"
+          }
+        },
+        {
+          key: {
+            text: "Company number"
+          },
+          value: {
+            html: "1893839"
+          }
+        },
+        {
+          key: {
+            text: "Charity registration number"
+          },
+          value: {
+            html: "<span class='govuk-hint'>Not applicable</span>"
+          }
+        },
+        {
+          key: {
+            text: "Trading name"
+          },
+          value: {
+            html: "<span class='govuk-hint'>Not applicable</span>"
+          }
+        }
+      ]
+    }) }}
+        <form method="post">
+            <input type="submit" class="govuk-button" value="Confirm add" />
+        </form>
+<!--        <a href="org-details-data-entry-manual" class="govuk-link">Change</a>-->
+    </div>
+    
+
+</div>
+{% endif %}
+{% endblock %}

@@ -66,6 +66,42 @@
       rows: [
         {
           key: {
+            text: "Legal name"
+          },
+          value: {
+            html: "ABC Awards"
+          },
+          actions: {
+            items: [
+              {
+                href: "change-legal-name",
+                text: "Change",
+                visuallyHiddenText: "legal name"
+              }
+            ]
+          }
+        },
+    
+        {
+          key: {
+            text: "UKPRN"
+          },
+          value: {
+            html: "1002266"
+          },
+          actions: {
+            items: [
+              {
+                href: "change-ukprn",
+                text: "Change",
+                visuallyHiddenText: "UKPRN"
+              }
+            ]
+          }
+        },
+        
+        {
+          key: {
             text: "Status"
           },
           value: {
@@ -84,58 +120,7 @@
             ]
           }
         },
-        {
-          key: {
-            text: "UKPRN"
-          },
-          value: {
-            html: "1002266"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "UKPRN"
-              }
-            ]
-          }
-        },
-        
-        {
-          key: {
-            text: "Legal name"
-          },
-          value: {
-            html: "ABC Awards"
-          },
-          actions: {
-            items: [
-              {
-                href: "change-legal-name",
-                text: "Change",
-                visuallyHiddenText: "legal name"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Trading name"
-          },
-          value: {
-            html: "ABC Awards"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "trading name"
-              }
-            ]
-          }
-        },
+
         {
           key: {
             text: "Type of provider"
@@ -153,6 +138,9 @@
             ]
           }
         },
+
+
+
         {
           key: {
             text: "Type of organisation"
@@ -205,7 +193,23 @@
           }
         },
         
-        
+        {
+          key: {
+            text: "Trading name"
+          },
+          value: {
+            text: "Not applicable"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "trading name"
+              }
+            ]
+          }
+        },
 
         {
           key: {
@@ -237,24 +241,6 @@
                 href: "#",
                 text: "Change",
                 visuallyHiddenText: "financial track record"
-              }
-            ]
-          }
-        }
-        ,
-        {
-          key: {
-            text: "Contracted to deliver Non-levy"
-          },
-          value: {
-            text: "No"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "contracted to deliver Non-levy"
               }
             ]
           }

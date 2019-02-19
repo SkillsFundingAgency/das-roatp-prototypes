@@ -56,7 +56,7 @@
             </li>
         </ul>
         <div class="well govuk-!-font-size-16 govuk-!-padding-2">
-            Search results are limited to first 5.
+            Result limited to 5.
             <a class="govuk-link govuk-link--no-visited-state" href="register?searchStr={{ searchStr }}">Refine search</a>
         </div>
     </div>
@@ -64,43 +64,6 @@
     <div id="organisationDetails" class="govuk-grid-column-two-thirds">
     {{ govukSummaryList({
       rows: [
-        {
-          key: {
-            text: "Status"
-          },
-          value: {
-            html: "<span class='govuk-tag govuk-!-margin-bottom-1'>Active</span>
-                    <span class='block'>Updated: 11 Jan 2019</span>
-                    "
-          },
-          actions: {
-            items: [
-              {
-                href: "change-status",
-                text: "Change",
-                visuallyHiddenText: "status"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "UKPRN"
-          },
-          value: {
-            html: "1002266"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "UKPRN"
-              }
-            ]
-          }
-        },
-        
         {
           key: {
             text: "Legal name"
@@ -118,19 +81,40 @@
             ]
           }
         },
+        
         {
           key: {
-            text: "Trading name"
+            text: "UKPRN"
           },
           value: {
-            html: "ABC Assessments"
+            html: "1002266"
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-ukprn",
                 text: "Change",
-                visuallyHiddenText: "trading name"
+                visuallyHiddenText: "UKPRN"
+              }
+            ]
+          }
+        },
+        
+        {
+          key: {
+            text: "Status"
+          },
+          value: {
+            html: "<span class='govuk-tag govuk-!-margin-bottom-1'>Active</span>
+                    <span class='block'>Updated: 11 Jan 2019</span>
+                    "
+          },
+          actions: {
+            items: [
+              {
+                href: "change-status",
+                text: "Change",
+                visuallyHiddenText: "status"
               }
             ]
           }
@@ -162,7 +146,7 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-organisation-type",
                 text: "Change",
                 visuallyHiddenText: "organisation type"
               }
@@ -179,7 +163,7 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-company-number",
                 text: "Change",
                 visuallyHiddenText: "companies house number"
               }
@@ -196,16 +180,30 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-charity-number",
                 text: "Change",
                 visuallyHiddenText: "charity number"
               }
             ]
           }
         },
-        
-        
-
+        {
+          key: {
+            text: "Trading name"
+          },
+          value: {
+            html: "ABC Assessments Ninjas"
+          },
+          actions: {
+            items: [
+              {
+                href: "change-trading-name",
+                text: "Change",
+                visuallyHiddenText: "trading name"
+              }
+            ]
+          }
+        },
         {
           key: {
             text: "Parent company guarantee"
@@ -216,7 +214,7 @@
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-parent-guarantee",
                 text: "Change",
                 visuallyHiddenText: "parent company guarantee"
               }
@@ -228,31 +226,14 @@
             text: "Financial track record"
           },
           value: {
-            text: "Yes"
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "financial track record"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Contracted to deliver Non-levy"
-          },
-          value: {
             text: "No"
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "change-financial-track-record",
                 text: "Change",
-                visuallyHiddenText: "contracted to deliver Non-levy"
+                visuallyHiddenText: "financial track record"
               }
             ]
           }

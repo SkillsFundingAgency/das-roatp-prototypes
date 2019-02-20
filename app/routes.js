@@ -155,7 +155,7 @@ router.post("/join-register/first-stab/signin-check", function(req,res){
 
 router.post("/join-register/first-stab/provider-type", function(req,res){ 
     req.session.providerType = req.body.q;
-    res.redirect("/z/org-details/first-stab/index");
+    res.redirect("/z/org-details/first-stab/org-1");
     
     // temp redirect
     //res.redirect("main-prerequisites");

@@ -1,25 +1,25 @@
 {
-    "index": {
+    "org-1": {
         "template": "yesno",
         "prevPage": "/join-register/first-stab/provider-type",
-        "nextPage": ["p4"]
+        "nextPage": ["org-4"]
     },
     
-    "p4": {
+    "org-4": {
         "template": "textbox",
-        "prevPage": "index",
-        "nextPage": ["p2"]
+        "prevPage": "org-1",
+        "nextPage": ["org-2"]
     },
 
-    "p2": {
+    "org-2": {
         "template": "info",
-        "prevPage": "p4",
-        "nextPage": ["p3"]
+        "prevPage": "org-4",
+        "nextPage": ["org-3"]
     },
 
-    "p3": {
+    "org-3": {
         "template": "radios",
-        "prevPage": "p2",
-        "nextPage": [""]
+        "prevPage": "org-2",
+        "nextPage": ["/z/financial-health/first-stab/fha-1"]
     }
 }

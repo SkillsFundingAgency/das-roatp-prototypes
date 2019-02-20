@@ -1,13 +1,19 @@
 {
     "index": {
+        "template": "yesno",
+        "prevPage": "/join-register/first-stab/provider-type",
+        "nextPage": ["p4"]
+    },
+    
+    "p4": {
         "template": "textbox",
-        "prevPage": "",
+        "prevPage": "index",
         "nextPage": ["p2"]
     },
 
     "p2": {
         "template": "info",
-        "prevPage": "index",
+        "prevPage": "p4",
         "nextPage": ["p3"]
     },
 

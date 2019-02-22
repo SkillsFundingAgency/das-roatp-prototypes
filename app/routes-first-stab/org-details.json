@@ -20,6 +20,24 @@
     "org-3": {
         "template": "radios",
         "prevPage": "org-2",
+        "nextPage": ["org-5"]
+    },
+    
+    "org-5": {
+        "template": "yesno",
+        "prevPage": "org-3",
+        "nextPage": ["org-6"]
+    },
+    
+    "org-6": {
+        "template": "textbox",
+        "prevPage": "org-5",
+        "nextPage": ["org-7"]
+    },
+    
+    "org-7": {
+        "template": "info",
+        "prevPage": "org-6",
         "nextPage": ["/z/financial-health/first-stab/fha-1"]
     }
 }

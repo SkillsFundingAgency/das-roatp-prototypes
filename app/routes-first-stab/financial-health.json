@@ -2,6 +2,18 @@
     "fha-1": {
         "template": "yesno",
         "prevPage": "/z/org-details/first-stab/org-3",
+        "nextPage": ["fha-2"]
+    },
+    
+    "fha-2": {
+        "template": "info",
+        "prevPage": "fha-1",
         "nextPage": [""]
+    },
+    
+    "fha-3": {
+        "template": "file-upload",
+        "prevPage": "fha-2",
+        "nextPage": ["fha-2"]
     }
 }

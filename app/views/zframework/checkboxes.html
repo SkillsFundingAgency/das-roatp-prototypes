@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+    {% if pageSettings.prevPage != "" %}
+    <a href="{{ pageSettings.prevPage }}" class="govuk-back-link">{{ pageContent.backButtonCaption }}</a>
+    {% endif %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ pageContent.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+            <input type="hidden" name="pageName" value="{{ pageName }}" />
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="q-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  <h1 class="govuk-fieldset__heading">
+                    {{ pageContent.title }}
+                  </h1>
+                </legend>
+                {% if pageContent.hintText != "" %}
+                <span id="changed-name-hint" class="govuk-hint">
+                  {{ pageContent.hintText }}
+                </span>
+                {% endif %}
+                <div class="govuk-checkboxes">
+                    {% for item in pageContent.radioItems %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="q-{{ loop.index }}" name="q" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="q-{{ loop.index }}">
+                      {{ item  | safe}}
+                    </label>
+                  </div>
+                    {% endfor %}
+                  </div>
+              </fieldset>
+            </div>
+            
+            <input type="submit" value="{{ pageContent.greenButtonCaption }}" class="govuk-button" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

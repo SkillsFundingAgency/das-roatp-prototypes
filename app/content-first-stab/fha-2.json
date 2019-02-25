@@ -1,8 +1,8 @@
 {
    "backButtonCaption": "Back",
    "greenButtonCaption": "",
-   "title": "You'll need to send us your accounts to date and financial projection",
+   "title": "You'll need to send 12 months full financial statements",
    "hintText": "",
-   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload accounts to date</a></li><li><a href=''>upload financial projection</li></ul><a href='/z/declaration/first-stab/declaration-1'>I'll upload later</a>",
+   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload 12 months full financial statements</a></li></ul><a href='/z/declaration/first-stab/declaration-1'>Upload later</a>",
    "label": "UKPRN"
 }

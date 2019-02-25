@@ -4,5 +4,9 @@
    "title": "What type of organisation are you?",
    "hintText": "",
    "content1": "",
-   "radioItems": ["Academy", "Central government department, executive agency or non-departmental public body", "Delivery organisation connected to an apprenticeship training agency (ATA)"]
+   "radioItems": ["Employer training apprentices in own organisation",
+                  "Employer training apprentices within their connected companies",
+                  "Employer training apprentices in own organisation and those in their connected companies"]
 }
+
+

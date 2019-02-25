@@ -2,11 +2,11 @@
     "declaration-1": {
         "template": "checkboxes",
         "prevPage": "/z/financial-health/first-stab/fha-2",
-        "nextPage": [""]
+        "nextPage": ""
     },
     "declaration-2": {
         "template": "info",
         "prevPage": "",
-        "nextPage": [""]
+        "nextPage": ""
     }
 }

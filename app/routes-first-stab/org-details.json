@@ -2,42 +2,85 @@
     "org-1": {
         "template": "yesno",
         "prevPage": "/join-register/first-stab/provider-type",
-        "nextPage": ["org-4"]
+        "nextPageLogic": "orgLogic1"
+    },
+    
+    "org-1a": {
+        "template": "yesno",
+        "prevPage": "/join-register/first-stab/provider-type",
+        "nextPageLogic": "orgLogic2"
     },
     
     "org-4": {
         "template": "textbox",
         "prevPage": "org-1",
-        "nextPage": ["org-2"]
+        "nextPageLogic": "orgLogic8"
     },
 
     "org-2": {
         "template": "info",
         "prevPage": "org-4",
-        "nextPage": ["org-3"]
+        "nextPageLogic": "orgLogic5"
     },
 
     "org-3": {
         "template": "radios",
         "prevPage": "org-2",
-        "nextPage": ["org-5"]
+        "nextPageLogic": "orgLogic3"
+    },
+    
+    "org-3a": {
+        "template": "radios",
+        "prevPage": "org-2",
+        "nextPageLogic": "orgLogic3"
     },
     
     "org-5": {
         "template": "yesno",
         "prevPage": "org-3",
-        "nextPage": ["org-6"]
+        "nextPageLogic": "orgLogic4"
     },
     
     "org-6": {
         "template": "textbox",
         "prevPage": "org-5",
-        "nextPage": ["org-7"]
+        "nextPage": "org-7"
     },
     
     "org-7": {
         "template": "info",
         "prevPage": "org-6",
-        "nextPage": ["/z/financial-health/first-stab/fha-1"]
+        "nextPageLogic": "orgLogic6"
+    },
+    
+    "org-8": {
+        "template": "info",
+        "prevPage": "org-1",
+        "nextPage": ""
+    },
+    
+    "org-9": {
+        "template": "info",
+        "prevPage": "org-1a",
+        "nextPage": ""
+    },
+    
+    "org-10": {
+        "template": "radios",
+        "prevPage": "org-2",
+        "nextPage": "org-11"
+    },
+    
+    "org-11": {
+        "template": "textbox",
+        "prevPage": "org-10",
+        "nextPage": "org-12"
+    },
+    
+    "org-12": {
+        "template": "date",
+        "prevPage": "org-11",
+        "nextPageLogic": "orgLogic7"
     }
+    
 }

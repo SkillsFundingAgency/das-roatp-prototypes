@@ -36,7 +36,7 @@
                 <div class="govuk-radios">
                   {% for item in pageContent.radioItems %}
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="q-{{ loop.index }}" name="q" type="radio" value="yes">
+                    <input class="govuk-radios__input" id="q-{{ loop.index }}" name="q" type="radio" value="{{ loop.index }}">
                     <label class="govuk-label govuk-radios__label" for="q-{{ loop.index }}">
                       {{ item }}
                     </label>

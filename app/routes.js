@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-
 var fs = require("fs");
 
 // Add your routes here - above the module.exports line
 
 var version = "first-stab";
+
 
 
 
@@ -27,36 +27,160 @@ router.post("/z/:section/:version/:page", function(req, res){
     var page = req.body.pageName;
     var postedPage = userJourney[page];
     
-    
-    switch (postedPage.template) {
-        case 'textbox':
-//            if(req.body.textInput == '') {
-//                console.log('throw error')
-//            }
-//            else {
-//                
-//            }
-            break;
-            
-        default:
-            console.log('skip...')
-    }
-        
-    var arrNextPages = postedPage.nextPage;
     var nextPage;
     
-    if(arrNextPages.length > 1){
+    if( postedPage.nextPageLogic == undefined ){
+        nextPage = postedPage.nextPage;
+        res.redirect(nextPage);
     } else {
-        nextPage = arrNextPages[0];
+        // call skiplogic
+        console.log(postedPage.nextPageLogic);
+        nextPage = skipLogicFunctions[postedPage.nextPageLogic](req);
+        res.redirect(nextPage);
     }
     
-    res.redirect(nextPage);
+    
+});
+
+router.post("/join-register/first-stab/provider-type", function(req,res){ 
+    req.session.providerType = req.body.q;
+    
+    if (req.session.providerType == 'supporting'){
+        res.redirect("/z/org-details/first-stab/org-1a");
+        return;
+    }
+    res.redirect("/z/org-details/first-stab/org-1");
 });
 
 
 function loadRoutesFromJSON(section, version){
     return JSON.parse(fs.readFileSync("./app/routes-"+version+"/"+section+".json"))
 }
+
+function orgLogic1(){
+    res.redirect("/");
+}
+
+var skipLogicFunctions = {
+    orgLogic1: function (req) { 
+      if(req.body.q == "no"){
+         return 'org-8'; 
+      } else {
+         return 'org-4';
+      }
+    },
+    
+    orgLogic2: function (req) { 
+      if(req.body.q == "no"){
+         return 'org-9'; 
+      } else {
+         return 'org-4';
+      }
+    },
+    
+    orgLogic3: function (req) { 
+    
+      req.session.skipFinancialSection = false;
+        
+      if(req.body.q == 1 ||
+         req.body.q == 2 ||
+         req.body.q == 7 ||
+         req.body.q == 9 ||
+         req.body.q == 11 ||
+         req.body.q == 13 ||
+         req.body.q == 14 ||
+         req.body.q == 15 ||
+         req.body.q == 16) {
+          req.session.skipFinancialSection = true;
+      }
+        
+      if(req.session.userType == "company"){
+         return 'org-5'; 
+      } else {
+          
+          if(req.session.skipFinancialSection){
+             return '/z/declaration/first-stab/declaration-1'
+             }
+          
+         return '/z/financial-health/first-stab/fha-1';
+      }
+    },
+    
+    orgLogic4: function (req) { 
+      if(req.body.q == "no"){
+          if(req.session.skipFinancialSection){
+             return '/z/declaration/first-stab/declaration-1'
+          }
+          
+         return '/z/financial-health/first-stab/fha-1';
+      } else {
+         return 'org-6';
+      }
+    },
+    
+    orgLogic5: function (req) { 
+      
+      if( req.session.userType == "charity" || req.session.userType == "company" ){
+          if(req.session.providerType == "employer"){
+             return 'org-3';
+          } else {
+             return 'org-3a';
+          }
+      } else {
+          return 'org-10';
+      }
+         
+      
+      
+    },
+    
+    orgLogic6: function (req) { 
+      if(req.session.skipFinancialSection){
+             return '/z/declaration/first-stab/declaration-1'
+          }
+          
+         return '/z/financial-health/first-stab/fha-1';
+        
+    },
+    
+    orgLogic7: function (req) { 
+      
+      if(req.session.providerType == "employer"){
+         return 'org-3';
+      } else {
+         return 'org-3a';
+      }
+    },
+    
+    orgLogic8: function (req) { 
+        
+        if(req.body.textInput == '111'){
+            req.session.userType = 'company';
+        } else if(req.body.textInput == '222'){
+            req.session.userType = 'charity';
+        } else {
+            req.session.userType = 'soletrader';
+        }
+          return 'org-2';
+    }, 
+    
+    fhaLogic1: function (req) { 
+        if(req.body.q == "no"){
+            if( req.session.providerType == 'supporting'){
+                return 'fha-2c'
+            } else {
+                return 'fha-2b'
+            }
+                
+        } else {
+            if (req.session.userType == 'company' || req.session.userType == 'charity' ){
+                return 'fha-2a'
+            } else {
+                return 'fha-2'
+            }
+        }
+    }
+};
 
 
 
@@ -153,13 +277,6 @@ router.post("/join-register/first-stab/signin-check", function(req,res){
     
 });
 
-router.post("/join-register/first-stab/provider-type", function(req,res){ 
-    req.session.providerType = req.body.q;
-    res.redirect("/z/org-details/first-stab/org-1");
-    
-    // temp redirect
-    //res.redirect("main-prerequisites");
-});
 
 router.post("/join-register/first-stab/main-prerequisites", function(req,res){ 
     if (Array.isArray(req.body.requisites)){

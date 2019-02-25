@@ -19,17 +19,23 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">{{ pageContent.title }}</h1>
         <form method="post">
             <input type="hidden" name="pageName" value="{{ pageName }}" />
             <div class="govuk-form-group">
-              <label class="govuk-label" for="textInput">{{ pageContent.label }}</label>
+              <fieldset class="govuk-fieldset" aria-describedby="textInput-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  <h1 class="govuk-fieldset__heading">
+                    {{ pageContent.title }}
+                  </h1>
+                </legend>
+              <label class="govuk-label govuk-visually-hidden" for="textInput">{{ pageContent.label }}</label>
               {% if pageContent.hintText != "" %}
                 <span id="textInput-hint" class="govuk-hint">
                   {{ pageContent.hintText }}
                 </span>
               {% endif %}
               <input class="govuk-input" type="text" name="textInput" id="textInput" />
+              </fieldset>
             </div>
             
             <input type="submit" value="{{ pageContent.greenButtonCaption }}" class="govuk-button" />

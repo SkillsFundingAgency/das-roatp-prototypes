@@ -1,0 +1,8 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "",
+   "title": "You'll need to send 12 months full financial statements",
+   "hintText": "",
+   "content1": "<p>The financial statements must be filed with the companies house or charity commission.</p><ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload 12 months full financial statements</a></li></ul><a href='/z/declaration/first-stab/declaration-1'>Upload later</a>",
+   "label": "UKPRN"
+}

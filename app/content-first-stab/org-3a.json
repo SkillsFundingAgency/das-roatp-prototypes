@@ -1,0 +1,29 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Continue",
+   "title": "What type of organisation are you?",
+   "hintText": "",
+   "content1": "",
+   "radioItems": ["Academy", 
+                  "Central government department, executive agency or non-departmental public body", 
+                  "Delivery organisation connected to an apprenticeship training agency (ATA)", 
+                  "Employer training apprentices within their Connected Companies",
+                 "Employer training their own staff and those within other organisations",
+                  "Further Education Institution",
+                    "General Further Education College (GFE)",
+                    "Group Training Association (GTA)",
+                    "Higher Education Institution (HEI)",
+                    "Independent Training Provider",
+                    "Local Authority, including LEA schools",
+                    "Multi-Academy Trust",
+                    "National College",
+                    "NHS Trust or Fire Authority",
+                    "Police Constabulary or Police and Crime Commissioner",
+                    "Sixth Form College"
+                 ]
+}
+
+
+
+
+

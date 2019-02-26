@@ -1,8 +1,8 @@
 {
    "backButtonCaption": "Back",
-   "greenButtonCaption": "Continue",
-   "title": "Have you been trading over 3 months?",
-   "hintText": "",
+   "greenButtonCaption": "Save and continue",
+   "title": "Have you been trading for more than 3 months?",
+   "hintText": "This includes buying, selling, advertising, renting a property and employing someone.",
    "content1": "",
    "label": "UKPRN"
 }

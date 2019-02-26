@@ -1,7 +1,7 @@
 {
    "backButtonCaption": "Back",
-   "greenButtonCaption": "Continue",
-   "title": "Enter parent company's company number",
+   "greenButtonCaption": "Save and continue",
+   "title": "What is their company number?",
    "hintText": "",
    "content1": "",
    "label": "Company number"

@@ -1,8 +1,8 @@
 {
    "backButtonCaption": "Back",
-   "greenButtonCaption": "Continue",
-   "title": "Enter UKPRN",
-   "hintText": "",
+   "greenButtonCaption": "Save and continue",
+   "title": "What is your UKPRN?",
+   "hintText": "This is your 8-digit unique number from UK Register of Learning Providers (UKRLP).",
    "content1": "",
    "label": "UKPRN"
 }

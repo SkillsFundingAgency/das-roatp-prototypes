@@ -1,7 +1,7 @@
 {
    "backButtonCaption": "Back",
-   "greenButtonCaption": "Continue",
-   "title": "What type of organisation are you?",
+   "greenButtonCaption": "Save and continue",
+   "title": "What is your organisation?",
    "hintText": "",
    "content1": "",
    "radioItems": ["Academy", 

@@ -31,6 +31,19 @@
             {% endif %}
         </form>
         
+        {% if pageContent.progressiveDisclosure %}
+        <details class="govuk-details govuk-!-margin-top-9">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              {{ pageContent.progressiveDisclosure.title  }}
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            {{ pageContent.progressiveDisclosure.content | safe }}
+          </div>
+        </details>
+        {% endif %}
+        
     </div>
 </div>
 

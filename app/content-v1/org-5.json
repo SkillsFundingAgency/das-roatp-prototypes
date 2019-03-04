@@ -1,0 +1,9 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Does your organisation have an ultimate parent company?",
+   "hintText": "",
+   "content1": "",
+   "label": "UKPRN",
+   "radioItems": ["Yes", "No"]
+}

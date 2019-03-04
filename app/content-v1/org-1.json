@@ -1,0 +1,9 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Have you been trading for more than 12 months?",
+   "hintText": "This includes buying, selling, advertising, renting a property and employing someone.",
+   "content1": "",
+   "label": "UKPRN",
+   "radioItems": ["Yes", "No"]
+}

@@ -270,10 +270,11 @@ if (typeof (routes) !== 'function') {
   app.use('/', routes)
 }
 
-const staff_routes_v1 = require('./app/routes-v1.js')
-const staff_routes_v2 = require('./app/routes-v2.js')
-app.use('/staff-app/v1/', staff_routes_v1)
-app.use('/staff-app/v2/', staff_routes_v2)
+const routes_v1 = require('./app/routes-v1.js')
+const routes_v2 = require('./app/routes-v2.js')
+app.use('/staff-app/v1/', routes_v1)
+app.use('/staff-app/v2/', routes_v2)
+app.use('/join-register/v1/', routes_v1)
 
 
 

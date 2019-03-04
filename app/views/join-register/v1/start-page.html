@@ -1,0 +1,55 @@
+{% set title="Apply to join the register of apprenticeship training providers" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <p>Use this service to:</p>
+        
+       <ul class="govuk-list govuk-list--bullet">
+        <li>become an apprenticeship training provider </li> 
+        <li>get government funding to train apprentices</li> 
+       </ul>
+
+    
+        <a href="signin-check" class="govuk-button govuk-button--start">Start now</a>
+        
+        <hr class="govuk-section-break govuk-section-break--m" />
+                
+        <p>Before you start, all providers must have a:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="#">UK provider reference number</a></li>
+            <li><a href="#">Information Commissioner's Office registration number</a></li>
+            <li>UK business address</li>
+            <li>minimum Ofsted grade of 3 for apprenticeship or overall effectiveness under Further Education and Skills in the last 3 years</li>
+        </ul>
+        
+        <p>Main and employer providers must be:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+            <li>actively trading for at least 12 months</li>
+            <li>ready to train apprentices within the first 12 months of joining the register</li>
+        </ul>
+        
+        <p>Supporting providers must be actively trading for at least 3 months. </p>
+    </div>
+      
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Confirm and continue",
+   "title": "Confirm details",
+   "hintText": "",
+   "content1": "<p>ABC Assessments - Cheylesmore House, 5 Quinton Rd, Coventry CV1 2WT</p>",
+   "progressiveDisclosure":{
+       "title":"What if these details are wrong?",
+       "content":"<p><a target='_blank' href='https://www.ukrlp.co.uk/'>Contact UKRLP</a> to make any changes.</p><p>Once these changes have been updated on UKRLP, sign back in to continue this application using the link on the <a href='https://www.gov.uk/guidance/register-of-apprenticeship-training-providers' target='_blank'>Register of apprenticeship training provider GOV.UK page</a>.</p>"
+   }
+}
+
+
+

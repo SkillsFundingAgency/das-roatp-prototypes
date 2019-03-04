@@ -1,0 +1,23 @@
+{% set title="Based on what you've told us, you cannot continue with the application" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+    <a href="#" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl govuk-!-width-two-thirds">{{ title }}</h1>
+<p><a href="main-prerequisites">Change answer</a></p>
+
+{% endblock %}

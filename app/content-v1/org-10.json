@@ -1,0 +1,13 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Which one of these is your organisation?",
+   "hintText": "",
+   "content1": "",
+   "radioItems": ["Sole trader", 
+                  "Partnership", 
+                    "Public sector body"
+                 ]
+}
+
+

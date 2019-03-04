@@ -1,0 +1,9 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Do you have financial statements covering the last 12-month period?",
+   "hintText": "",
+   "content1": "",
+   "label": "UKPRN",
+   "radioItems": ["Yes", "No"]
+}

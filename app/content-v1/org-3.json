@@ -1,0 +1,12 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "What is your organisation?",
+   "hintText": "",
+   "content1": "",
+   "radioItems": ["Employer training apprentices in own organisation",
+                  "Employer training apprentices within their connected companies",
+                  "Employer training apprentices in own organisation and those in their connected companies"]
+}
+
+

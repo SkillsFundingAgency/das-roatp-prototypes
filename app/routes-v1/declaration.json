@@ -1,0 +1,31 @@
+{
+    "declaration-3": {
+        "template": "radios",
+        "prevPage": "/z/financial-health/v1/fha-2",
+        "nextPageLogic": "declarationLogic1"
+    },
+    
+    "declaration-4": {
+        "template": "radios",
+        "prevPage": "declaration-3",
+        "nextPageLogic": "declarationLogic2"
+    },
+    
+    "declaration-5": {
+        "template": "info",
+        "prevPage": "declaration-3",
+        "nextPage": "declaration-4"
+    },
+    
+    "declaration-1": {
+        "template": "checkboxes",
+        "prevPage": "declaration-4",
+        "nextPage": ""
+    },
+    
+    "declaration-2": {
+        "template": "info",
+        "prevPage": "",
+        "nextPage": ""
+    }
+}

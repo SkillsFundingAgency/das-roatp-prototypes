@@ -1,0 +1,78 @@
+{% set title %}You are applying to join as a {{ providerType | lower }} provider {% endset %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l govuk-!-width-two-thirds">{{title}}</h1>
+
+<p>You must complete all the sections</p>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              <a href="provider-type" class="block">Provider type</a>
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{providerType}}
+            </dd>
+          </div>
+
+
+            
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="{{ nextPage }}">Organisation details</a>
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
+                {% if progress.orgDetails == true %}
+              <span class="govuk-tag">IN PROGRESS</span>
+                {% endif %} 
+                
+                {% if progress.orgDetails == 'Completed' %}
+              <span class="govuk-tag">COMPLETED</span>
+                {% endif %} 
+            </dd>
+          </div>
+            
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Financial health
+              <span class="govuk-hint">You need to complete organisation details</span>
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              <a href="/z/declaration/v1/declaration-3">Declarations</a>
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
+                
+            </dd>
+          </div>
+            
+
+            
+        </dl>
+        
+
+
+    </div>
+</div>
+
+{% endblock %}

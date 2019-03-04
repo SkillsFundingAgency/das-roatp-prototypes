@@ -1,0 +1,37 @@
+{% set title="We've sent you an email" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-join-register.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "includes/alpha-banner.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+        <p>We've sent an email to {{ email }}.</p>
+        <p>Click the link and use the verification code to create your account.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              If you haven't received an email
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Check your junk folder. If it’s not there, you'll need to <a href="#">start again</a>.
+          </div>
+        </details>
+    </div>
+</div>
+
+{% endblock %}

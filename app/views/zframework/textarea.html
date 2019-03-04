@@ -28,13 +28,18 @@
                     {{ pageContent.title }}
                   </h1>
                 </legend>
+                  {% if pageContent.content1 != "" %}
+                  <span>
+                      {{ pageContent.content1 | safe }}
+                  </span>
+                  {% endif %}
               <label class="govuk-label govuk-visually-hidden" for="textInput">{{ pageContent.label }}</label>
               {% if pageContent.hintText != "" %}
                 <span id="textInput-hint" class="govuk-hint">
                   {{ pageContent.hintText }}
                 </span>
               {% endif %}
-                  <textarea name="textInput" id="textInput" class="govuk-textarea"></textarea>
+                  <textarea name="textInput" id="textInput" class="govuk-textarea" rows="7"></textarea>
               </fieldset>
             </div>
             

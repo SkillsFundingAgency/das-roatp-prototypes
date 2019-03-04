@@ -12,7 +12,7 @@
     },
     
     "declaration-5": {
-        "template": "info",
+        "template": "textarea",
         "prevPage": "declaration-3",
         "nextPage": "declaration-4"
     },

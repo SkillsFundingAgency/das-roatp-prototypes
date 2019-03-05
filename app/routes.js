@@ -128,6 +128,15 @@ var skipLogicFunctions = {
       
     },
     
+    orgLogic6: function (req) { 
+      if(req.session.skipFinancialSection){
+             return '/z/declaration/first-stab/declaration-1'
+          }
+          
+         return '/z/financial-health/first-stab/fha-1';
+        
+    },
+    
     orgLogic7: function (req, version) { 
       
       if(req.session.providerType == "employer"){

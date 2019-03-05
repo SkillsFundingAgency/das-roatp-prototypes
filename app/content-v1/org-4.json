@@ -4,5 +4,9 @@
    "title": "What is your UKPRN?",
    "hintText": "This is your 8-digit unique number from UK Register of Learning Providers (UKRLP).",
    "content1": "",
-   "label": "UKPRN"
+   "label": "UKPRN",
+   "progressiveDisclosure":{
+       "title":"I don't have one",
+       "content":"To get a UKPRN, you'll need to <a href='https://www.ukrlp.co.uk/' target='_blank'>register with UKRLP</a>."
+   }
 }

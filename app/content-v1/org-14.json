@@ -4,5 +4,9 @@
    "title": "What is your ICO registration number?",
    "hintText": "",
    "content1": "",
-   "label": "ICO registration number"
+   "label": "ICO registration number",
+   "progressiveDisclosure":{
+       "title":"I don't have one",
+       "content":"To get a ICO registration number, you'll need to <a href='https://www.ukrlp.co.uk/' target='_blank'>register to the ICO Data protection public register</a>."
+   }
 }

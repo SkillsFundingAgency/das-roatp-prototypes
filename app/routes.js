@@ -98,6 +98,32 @@ var skipLogicFunctions = {
       if(req.session.userType == "company"){
          return 'org-5'; 
       } else {
+         return '/z/financial-health/first-stab/fha-1';
+      }
+    },
+    
+    orgLogic3v1: function (req, version) { 
+    
+      req.session.skipFinancialSection = false;
+    
+      if(req.session.providerType != "employer"){
+         if(req.body.q == 1 ||
+             req.body.q == 2 ||
+             req.body.q == 7 ||
+             req.body.q == 9 ||
+             req.body.q == 11 ||
+             req.body.q == 13 ||
+             req.body.q == 14 ||
+             req.body.q == 15 ||
+             req.body.q == 16) {
+              req.session.skipFinancialSection = true;
+          }
+         }
+      
+        
+      if(req.session.userType == "company"){
+         return 'org-5'; 
+      } else {
          return '/join-register/'+version+'/landing';
       }
     },

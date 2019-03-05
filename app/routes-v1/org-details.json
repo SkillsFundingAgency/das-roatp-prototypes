@@ -32,13 +32,13 @@
     "org-3": {
         "template": "radios",
         "prevPage": "org-2",
-        "nextPageLogic": "orgLogic3"
+        "nextPageLogic": "orgLogic3v1"
     },
     
     "org-3a": {
         "template": "radios",
         "prevPage": "org-2",
-        "nextPageLogic": "orgLogic3"
+        "nextPageLogic": "orgLogic3v1"
     },
     
     "org-5": {

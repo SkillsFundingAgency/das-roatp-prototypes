@@ -12,7 +12,7 @@
     },
     
     "org-4": {
-        "template": "textbox",
+        "template": "multiInput",
         "prevPage": "org-1",
         "nextPageLogic": "orgLogic8"
     },
@@ -24,7 +24,7 @@
     },
     
     "org-14": {
-        "template": "textbox",
+        "template": "multiInput",
         "prevPage": "org-2",
         "nextPageLogic": "orgLogic5"
     },
@@ -66,7 +66,7 @@
     },
     
     "org-6": {
-        "template": "textbox",
+        "template": "multiInput",
         "prevPage": "org-5",
         "nextPage": "org-7"
     },
@@ -96,13 +96,13 @@
     },
     
     "org-11": {
-        "template": "textbox",
+        "template": "multiInput",
         "prevPage": "org-10",
         "nextPage": "org-12"
     },
     
     "org-13": {
-        "template": "textarea",
+        "template": "multiInput",
         "prevPage": "org-10",
         "nextPage": "org-12"
     },

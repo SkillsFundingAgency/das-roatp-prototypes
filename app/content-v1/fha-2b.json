@@ -3,6 +3,5 @@
    "greenButtonCaption": "",
    "title": "You'll need to:",
    "hintText": "",
-   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload financial statements</a></li><li><a href=''>upload management accounts</a> from end of financial statement period to date</li></ul><a href='/join-register/v1/landing'>Upload later</a>",
-   "label": "UKPRN"
+   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload financial statements</a></li><li><a href=''>upload management accounts</a> from end of financial statement period to date</li></ul><a href='/join-register/v1/landing'>Upload later</a>"
 }

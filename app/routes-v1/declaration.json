@@ -12,7 +12,7 @@
     },
     
     "declaration-5": {
-        "template": "textarea",
+        "template": "multiInput",
         "prevPage": "declaration-3",
         "nextPage": "declaration-4"
     },

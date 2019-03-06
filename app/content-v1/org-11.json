@@ -4,5 +4,7 @@
    "title": "Who owns the sole trader business?",
    "hintText": "",
    "content1": "",
-   "label": "Name"
+   "formItems": [
+                {"id": "textInput", "type":"textbox", "label":"Name"}
+                ]
 }

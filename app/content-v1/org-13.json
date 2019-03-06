@@ -4,5 +4,7 @@
    "title": "Who are the nominated partners?",
    "hintText": "Enter one name per line",
    "content1": "",
-   "label": "Name"
+   "formItems": [
+                {"id": "textInput", "type":"textarea", "label":"Partners' names"}
+                ]
 }

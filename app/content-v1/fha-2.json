@@ -3,6 +3,5 @@
    "greenButtonCaption": "",
    "title": "You'll need to:",
    "hintText": "",
-   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload 12 months full financial statements</a></li></ul><a href='/join-register/v1/landing'>Upload later</a>",
-   "label": "UKPRN"
+   "content1": "<ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'><li><a href='fha-3'>upload 12 months full financial statements</a></li></ul><a href='/join-register/v1/landing'>Upload later</a>"
 }

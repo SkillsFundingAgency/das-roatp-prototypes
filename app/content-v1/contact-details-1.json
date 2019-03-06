@@ -3,7 +3,6 @@
    "greenButtonCaption": "Save and continue",
    "title": "Enter details of accountable officer for apprenticeships",
    "content1": "",
-   "label": "UKPRN",
    "formItems": [
                 {"id": "fullName", "type":"textbox", "label":"Full name"},
                 {"id": "businessAddress", "type":"textarea", "label":"Business address"},

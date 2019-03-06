@@ -2,9 +2,10 @@
    "backButtonCaption": "Back",
    "greenButtonCaption": "Save and continue",
    "title": "What is your UKPRN?",
-   "hintText": "",
    "content1": "<p>This is your 8-digit unique number from UK Register of Learning Providers (UKRLP).</p>",
-   "label": "UKPRN",
+   "formItems": [
+                {"id": "textInput", "type":"textbox", "label":"UKPRN"}
+                ],
    "progressiveDisclosure":{
        "title":"I don't have one",
        "content":"To get a UKPRN, you'll need to <a href='https://www.ukrlp.co.uk/' target='_blank'>register with UKRLP</a>."

@@ -4,5 +4,7 @@
    "title": "What is their company number?",
    "hintText": "",
    "content1": "",
-   "label": "Company number"
+   "formItems": [
+                {"id": "textInput", "type":"textbox", "label":"Company number"}
+                ]
 }

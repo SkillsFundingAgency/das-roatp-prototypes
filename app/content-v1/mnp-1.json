@@ -1,0 +1,8 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Do you have a:",
+   "hintText": "",
+   "content1": "<ul class='govuk-list govuk-list--bullet'><li>plan for continuity of apprenticeship training</li><li>policy for safeguarding and Prevent</li><li>policy for equality and diversity</li><li>policy for health and safety</li></ul>",
+   "radioItems": ["Yes", "No"]
+}

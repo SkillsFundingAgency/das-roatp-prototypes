@@ -1,0 +1,13 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "What has been the typical duration of the training delivered to your learners?",
+   "hintText": "",
+   "content1": "",
+   "radioItems": ["no training delivered", 
+                  "less than 1 month", 
+                  "1 to 5 months",
+                  "6 to 12 months",
+                  "over 12 months"
+                 ]
+}

@@ -271,6 +271,14 @@ var skipLogicFunctions = {
         }
         
         return 'declaration-5'
+    },
+    
+    mnpLogic3: function(req, version){
+      if(req.session.providerType.toLowerCase() == "supporting"){
+         return 'mnp-4a';
+      } else {
+         return 'mnp-4';
+      }
     }
 };
 

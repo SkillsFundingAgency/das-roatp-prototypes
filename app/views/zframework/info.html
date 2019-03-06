@@ -45,6 +45,12 @@
         {% endif %}
         
     </div>
+    <div id="right-pane" class="govuk-grid-column-one-third">
+        {% if pageContent.relatedContent %}
+            <h2 class="govuk-heading-s">Related content</h2>
+            {{ pageContent.relatedContent | safe }}
+        {% endif %}
+    </div>
 </div>
 
 {% endblock %}

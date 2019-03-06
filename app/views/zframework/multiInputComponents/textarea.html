@@ -1,0 +1,16 @@
+<div class="govuk-form-group">
+    
+  {% if pageContent.content1 != "" %}
+    <div class="govuk-body" id="questionDetails">
+  {{ pageContent.content1 | safe }}
+    </div>
+  {% endif %}
+
+  <label class="govuk-label" for="{{ item.id }}">{{ item.label }}</label>
+  {% if pageContent.hintText != "" %}
+    <span id="{{ item.id }}-hint" class="govuk-hint">
+      {{ pageContent.hintText }}
+    </span>
+  {% endif %}
+  <textarea name="{{ item.id }}" id="{{ item.id }}" class="govuk-textarea"></textarea>
+</div>

@@ -2,8 +2,8 @@
    "backButtonCaption": "Back",
    "greenButtonCaption": "Save and continue",
    "title": "What is your ICO registration number?",
-   "hintText": "This is your data protection registration number from the ICO. Every organisation who processes personal information must have one.",
-   "content1": "",
+   "hintText": "",
+   "content1": "<p>This is your data protection registration number from the ICO. Every organisation who processes personal information must have one.</p>",
    "label": "ICO registration number",
    "progressiveDisclosure":{
        "title":"I don't have one",

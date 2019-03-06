@@ -1,0 +1,11 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Enter details of course officer",
+   "content1": "",
+   "label": "UKPRN",
+   "formItems": [
+                {"id": "fullName", "type":"textbox", "label":"Full name"},
+                {"id": "businessEmail", "type":"textbox", "label":"Business e-mail"}
+                ]
+}

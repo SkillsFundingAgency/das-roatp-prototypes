@@ -1,0 +1,25 @@
+{
+    "contact-details-1": {
+        "template": "multiInput",
+        "prevPage": "/join-register/v1/landing",
+        "nextPage": "contact-details-2"
+    },
+    
+    "contact-details-2": {
+        "template": "multiInput",
+        "prevPage": "contact-details-1",
+        "nextPage": "contact-details-3"
+    },
+    
+    "contact-details-3": {
+        "template": "multiInput",
+        "prevPage": "contact-details-2",
+        "nextPage": "contact-details-4"
+    },
+    
+    "contact-details-4": {
+        "template": "multiInput",
+        "prevPage": "contact-details-3",
+        "nextPage": "/join-register/v1/landing"
+    }
+}

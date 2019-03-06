@@ -1,7 +1,7 @@
 {
     "declaration-3": {
         "template": "radios",
-        "prevPage": "/z/financial-health/v1/fha-2",
+        "prevPage": "/join-register/v1/landing",
         "nextPageLogic": "declarationLogic1"
     },
     

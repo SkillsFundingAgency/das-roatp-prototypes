@@ -1,7 +1,7 @@
 {
     "fha-1": {
         "template": "radios",
-        "prevPage": "/z/org-details/first-stab/org-3",
+        "prevPage": "/join-register/v1/landing",
         "nextPageLogic": "fhaLogic1"
     },
     

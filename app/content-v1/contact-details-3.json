@@ -1,0 +1,12 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Enter details of management contact within organisation",
+   "content1": "",
+   "label": "UKPRN",
+   "formItems": [
+                {"id": "fullName", "type":"textbox", "label":"Full name"},
+                {"id": "businessEmail", "type":"textbox", "label":"Business e-mail"},
+                {"id": "trainingLocation", "type":"textarea", "label":"Main address for training location"}
+                ]
+}

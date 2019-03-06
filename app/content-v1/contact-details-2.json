@@ -1,0 +1,13 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Enter details of primary contact for application",
+   "content1": "",
+   "label": "UKPRN",
+   "formItems": [
+                {"id": "fullName", "type":"textbox", "label":"Full name"},
+                {"id": "businessAddress", "type":"textarea", "label":"Business address"},
+                {"id": "businessEmail", "type":"textbox", "label":"Business e-mail"},
+                {"id": "contactNumber", "type":"textbox", "label":"Contact number"}
+                ]
+}

@@ -51,8 +51,20 @@
             
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              
+              
+              {% if skipFHA != false %}  
               Financial health
-              <span class="govuk-hint">You need to complete organisation details</span>
+                <span class="govuk-hint">
+                  {% if skipFHA == true %}
+                    Your organisation does not need to provide financial details
+                  {% else %}
+                    You must complete the organisation details beforehand
+                  {% endif %}
+                </span>
+                {% else %}
+                    <a href="#">Financial health</a>
+                {% endif %}
             </dt>
             <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
             </dd>

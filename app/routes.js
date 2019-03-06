@@ -45,7 +45,7 @@ var ver = "first-stab";
 router.post("/join-register/" + ver + "/provider-type", function(req,res){ 
     req.session.providerType = req.body.q;
     
-    if (req.session.providerType == 'supporting'){
+    if (req.session.providerType.toLowerCase() == 'supporting'){
         res.redirect("/z/org-details/" + ver + "/org-1a");
         return;
     }
@@ -76,11 +76,13 @@ var skipLogicFunctions = {
       }
     },
     
+
+    
     orgLogic3: function (req, version) { 
     
       req.session.skipFinancialSection = false;
     
-      if(req.session.providerType != "employer"){
+      if(req.session.providerType.toLowerCase() != "employer"){
          if(req.body.q == 1 ||
              req.body.q == 2 ||
              req.body.q == 7 ||
@@ -102,6 +104,72 @@ var skipLogicFunctions = {
       }
     },
     
+    orgLogic3v1: function (req, version) { 
+    
+      req.session.skipFinancialSection = undefined;
+    
+      if(req.session.providerType.toLowerCase() != "employer"){
+          
+         if(
+             req.body.q == 3 ||
+             req.body.q == 4 ||
+             req.body.q == 19 ||
+             req.body.q == 20 ||
+             req.body.q == 21 ||
+             req.body.q == 23 ){
+                req.session.skipFinancialSection = false;
+            }
+          
+         if(
+             req.body.q == 8 ||
+             req.body.q == 13 ||
+             req.body.q == 14 ||
+             req.body.q == 15 ||
+             req.body.q == 16 ||
+             req.body.q == 17) {
+              req.session.skipFinancialSection = true;
+          }
+          
+          if(
+             req.body.q == 2 ||
+             req.body.q == 5) {
+              return 'org-15';
+          }
+          
+          if(req.body.q == 7) {
+              return 'org-16';
+          }
+          
+          if(
+             req.body.q == 6 ||
+             req.body.q == 10 ||
+             req.body.q == 11) {
+              return 'org-17';
+          }
+       }
+      
+      if(req.session.userType == "company"){
+         return 'org-5'; 
+      } else {
+         return '/join-register/'+version+'/landing';
+      }
+    },
+    
+    orgLogic15: function (req, version) { 
+        req.session.skipFinancialSection = undefined;
+        
+        if(req.body.q == "yes" || req.body.q == "1")
+           req.session.skipFinancialSection = true;
+        else
+           req.session.skipFinancialSection = false;
+        
+        if(req.session.userType == "company"){
+             return 'org-5'; 
+          } else {
+             return '/join-register/'+version+'/landing';
+          }
+    },
+    
     orgLogic4: function (req, version) { 
       if(req.body.q == "no" || req.body.q == "2"){
          return '/z/financial-health/first-stab/fha-1';
@@ -121,7 +189,7 @@ var skipLogicFunctions = {
     orgLogic5: function (req, version) { 
       
       if( req.session.userType == "charity" || req.session.userType == "company" ){
-          if(req.session.providerType == "employer"){
+          if(req.session.providerType.toLowerCase() == "employer"){
              return 'org-3';
           } else {
              return 'org-3a';
@@ -145,7 +213,7 @@ var skipLogicFunctions = {
     
     orgLogic7: function (req, version) { 
       
-      if(req.session.providerType == "employer"){
+      if(req.session.providerType.toLowerCase() == "employer"){
          return 'org-3';
       } else {
          return 'org-3a';
@@ -166,7 +234,7 @@ var skipLogicFunctions = {
     
     fhaLogic1: function (req, version) { 
         if(req.body.q == "no" || req.body.q == "2"){
-            if( req.session.providerType == 'supporting'){
+            if( req.session.providerType.toLowerCase() == 'supporting'){
                 return 'fha-2c'
             } else {
                 return 'fha-2b'

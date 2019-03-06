@@ -1,0 +1,9 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Is your organisation registered with ESFA?",
+   "hintText": "",
+   "content1": "",
+   "label": "UKPRN",
+   "radioItems": ["Yes", "No"]
+}

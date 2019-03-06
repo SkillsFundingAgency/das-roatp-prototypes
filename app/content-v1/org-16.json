@@ -1,0 +1,9 @@
+{
+   "backButtonCaption": "Back",
+   "greenButtonCaption": "Save and continue",
+   "title": "Is your organisation monitored and supported by Office for Students (OfS)?",
+   "hintText": "",
+   "content1": "",
+   "label": "UKPRN",
+   "radioItems": ["Yes", "No"]
+}

@@ -128,7 +128,7 @@ router.get("/landing", function(req,res){
                             fha: req.session.fhaStarted,
                             declaration: req.session.declarationStarted}
     
-    res.render("join-register/" + ver + "/landing", {providerType: providerType, nextPage: nextPage, progress: progress});
+    res.render("join-register/" + ver + "/landing", {providerType: providerType, nextPage: nextPage, progress: progress, skipFHA: req.session.skipFinancialSection});
 });
 
 

@@ -39,9 +39,9 @@
               <a href="{{ nextPage }}">Organisation details</a>
             </dt>
             <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
-                {% if progress.orgDetails == true %}
+                {% if progress.orgDetails == true %}{% endif %} 
               <span class="govuk-tag">IN PROGRESS</span>
-                {% endif %} 
+                
                 
                 {% if progress.orgDetails == 'Completed' %}
               <span class="govuk-tag">COMPLETED</span>
@@ -82,7 +82,7 @@
               <a href="/z/contact-details/v1/contact-details-1">Contact details</a>
             </dt>
             <dd class="govuk-summary-list__value govuk-!-font-weight-regular">
-                
+                <span class="govuk-tag">COMPLETED</span>
             </dd>
           </div>
           <div class="govuk-summary-list__row">

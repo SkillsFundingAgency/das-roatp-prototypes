@@ -38,6 +38,12 @@
     "org-3a": {
         "template": "radios",
         "prevPage": "org-2",
+        "nextPage": "org-3b"
+    },
+    
+    "org-3b": {
+        "template": "radios",
+        "prevPage": "org-2",
         "nextPageLogic": "orgLogic3v1"
     },
     

@@ -5,29 +5,10 @@
    "hintText": "",
    "content1": "",
    "radioItems": [
-                    "group: Education",
-                    "Academy",
-                    "College",
-                    "Further education institution (FEI)",
-                    "Free school",
-                    "General further education (GFE)",
-                    "Higher education institution (HEI)",
-                    "Local education authority (LEA) school",
-                    "Multi-Academy",
-                    "National college",
-                    "Sixth form",
-                    "group: Public sector bodies",
-                    "Fire Authority",
-                    "Government department",
-                    "Local Authority",
-                    "NHS Trust",
-                    "Police",
-                    "group: Training organisation/agency",
-                    "Apprenticeship training agency (ATA)",
-                    "Group training association (GTA)",
-                    "Independent training provider (ITP)",
-                    "group: Employers",
-                    "Training apprentices in other organisations"
+                    "Education",
+                    "Public sector bodies",
+                    "Training organisation/agency",
+                    "Employers"
                  ]
 }
 

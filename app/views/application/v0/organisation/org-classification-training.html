@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-peopleincontrol"
+    href: "org-classification"
   }) }}
 {% endblock %}
 
@@ -22,38 +22,30 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="org-classification-a" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification",
-        name: "org-classification",
+        idPrefix: "org-classification-training",
+        name: "org-classification-training",
         fieldset: {
           legend: {
-            text: "What is your organisation?",
+            text: "What type of training organisation or agency is your organisation?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "education",
-            text: "An educational institute",
-            checked: checked("org-classification", "education")
+            value: "ata",
+            text: "Apprenticeship Training Agency"
           },
           {
-            value: "employer",
-            text: "An employer training apprentices in other organisations",
-            checked: checked("org-classification", "employer")
+            value: "itp",
+            text: "Independent Training Providers"
           },
           {
-            value: "psb",
-            text: "A public sector body",
-            checked: checked("org-classification", "psb")
-          },
-          {
-            value: "training",
-            text: "A training organisation or agency",
-            checked: checked("org-classification", "training")
+            value: "gta",
+            text: "Group Training Association"
           }
         ]
       }) }}
@@ -65,7 +57,7 @@
 
       {{ govukButton({
         text: "Save and sign out",
-        href: "signout-a",
+        href: "signout",
         classes: "govuk-button--secondary"
       }) }}
 

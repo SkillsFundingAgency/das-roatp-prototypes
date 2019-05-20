@@ -26,7 +26,7 @@
 
     <p class="govuk-hint">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
 
-    <form action="org-trading-a" method="post" class="form">
+    <form action="/application/v0/organisation/org-trading" method="post" class="form">
 
       {{ govukDateInput({
         id: "org-trading",
@@ -41,19 +41,22 @@
         hint: {
           text: "For example, 24 11 2007"
         },
+        errorMessage: {
+          text: "Enter the date your organisation started trading"
+        },
         items: [
           {
-            classes: "govuk-input--width-2",
+            classes: "govuk-input--width-2 govuk-input--error",
             name: "day",
             value: data['org-trading-day']
           },
           {
-            classes: "govuk-input--width-2",
+            classes: "govuk-input--width-2 govuk-input--error",
             name: "month",
             value: data['org-trading-month']
           },
           {
-            classes: "govuk-input--width-4",
+            classes: "govuk-input--width-4 govuk-input--error",
             name: "year",
             value: data['org-trading-year']
           }
@@ -67,7 +70,7 @@
 
       {{ govukButton({
         text: "Save and sign out",
-        href: "signout-a",
+        href: "signout",
         classes: "govuk-button--secondary"
       }) }}
 

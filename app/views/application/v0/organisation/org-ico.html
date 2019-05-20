@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-ico"
+    href: "select-route"
   }) }}
 {% endblock %}
 
@@ -22,38 +22,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="org-ukprn-a" method="post" class="form">
 
-      <h1 class="govuk-heading-l">Enter your organisation's UK provider reference number (UKPRN)</h1>
 
-      <p class="govuk-hint">This is your 8-digit number from the UK Register of Learning Providers.</p>
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">Enter your organisation's Information Commissioner's Office (ICO) registration number</h1>
+
+      <p class="govuk-hint">This is your 8-digit registration number from the ICO data protection public register. Anyone who uses personal information must have one.</p>
 
       {{ govukInput({
         label: {
-          text: "UKPRN"
+          text: "ICO registration number"
         },
         classes: "govuk-input--width-10",
-        id: "org-ukprn",
-        name: "org-ukprn",
-        hint: {
-          text: "For example, 11110001"
-        },
-        errorMessage: {
-          text: "Enter a valid UKPRN"
-        }
+        id: "org-ico",
+        name: "org-ico",
+        value: data['org-ico']
       }) }}
 
       <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-              I do not have a UKPRN
+            I do not have an ICO registration number
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>To get a UKPRN, you’ll need to <a href="https://www.ukrlp.co.uk/" target="_blank">register with the UK Register of Learning Providers (opens in a new window or tab)</a>.</p>
+          <p>To get an ICO registration number, you’ll need to <a href="https://www.google.com/url?q=https://ico.org.uk/for-organisations/data-protection-fee/&sa=D&ust=1556873162712000&usg=AFQjCNHtqPQYYH-QH97zXJ5WpLmAyKbD5w" target="_blank">register with ICO (opens in a new window or tab)</a>.</p>
         </div>
       </details>
-      
+
       {{ govukButton({
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
@@ -61,7 +58,7 @@
 
       {{ govukButton({
         text: "Save and sign out",
-        href: "signout-a",
+        href: "signout",
         classes: "govuk-button--secondary"
       }) }}
 

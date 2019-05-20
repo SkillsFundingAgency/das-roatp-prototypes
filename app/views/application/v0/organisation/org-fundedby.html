@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-confirm-pscs-company"
+    href: "org-classification-education"
   }) }}
 {% endblock %}
 
@@ -22,46 +22,40 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="org-convictions-company-a" method="post" class="form">
+      <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "org-convictions-company",
-          name: "org-convictions-company",
+          idPrefix: "org-fundedby",
+          name: "org-fundedby",
           fieldset: {
             legend: {
-              text: "Do any of your persons of significant control have criminal convications against them?",
+              text: "Is your organisation " + data['org-fundedby'] + "?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: ""
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("org-convictions-company", "yes")
+              checked: checked("org-fundedby", "yes")
             },
             {
               value: "no",
               text: "No",
-              checked: checked("org-convictions-company", "no")
+                checked: checked("org-fundedby", "no")
             }
-          ],
-          errorMessage: {
-            text: "Select if a person of significant control has criminal convictions."
-          }
+          ]
         }) }}
 
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
         }) }}
-
+  
         {{ govukButton({
           text: "Save and sign out",
-          href: "signout-a",
+          href: "signout",
           classes: "govuk-button--secondary"
         }) }}
 

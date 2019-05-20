@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "dec-company"
   }) }}
 {% endblock %}
 
@@ -22,32 +22,43 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="org-classification-training-a" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-training",
-        name: "org-classification-training",
+        idPrefix: "org-classification",
+        name: "org-classification",
         fieldset: {
           legend: {
-            text: "What type of training organisation or agency is your organisation?",
+            text: "Select your type of organisation",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "ata",
-            text: "Apprenticeship Training Agency"
+            value: "education",
+            text: "Education",
+            checked: checked("org-classification", "education")
           },
           {
-            value: "itp",
-            text: "Independent Training Providers"
+            value: "employer",
+            text: "Employer training in other organisations",
+            checked: checked("org-classification", "employer")
           },
           {
-            value: "gta",
-            text: "Group Training Association"
+            value: "psb",
+            text: "Public Sector Body",
+            checked: checked("org-classification", "psb")
+          },
+          {
+            value: "training",
+            text: "Training Organisation/Agency",
+            checked: checked("org-classification", "training")
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Select your type of organisation."
+        }
       }) }}
 
       {{ govukButton({
@@ -57,7 +68,7 @@
 
       {{ govukButton({
         text: "Save and sign out",
-        href: "signout-a",
+        href: "signout",
         classes: "govuk-button--secondary"
       }) }}
 

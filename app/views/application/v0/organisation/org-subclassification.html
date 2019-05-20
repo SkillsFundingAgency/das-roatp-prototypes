@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "dec-company"
+    href: "org-peopleincontrol"
   }) }}
 {% endblock %}
 
@@ -22,43 +22,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="org-classification-a" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification",
-        name: "org-classification",
+        idPrefix: "org-subclassification",
+        name: "org-subclassification",
         fieldset: {
           legend: {
-            text: "Select your type of organisation",
+            text: "Where will you be training apprentices?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "education",
-            text: "Education",
-            checked: checked("org-classification", "education")
+            value: "own-org",
+            text: "In your own organisation",
+            checked: checked("org-subclassification", "own-org")
           },
           {
-            value: "employer",
-            text: "Employer training in other organisations",
-            checked: checked("org-classification", "employer")
+            value: "connected-org",
+            text: "In a connected organisation",
+            checked: checked("org-subclassification", "connected-org")
           },
           {
-            value: "psb",
-            text: "Public Sector Body",
-            checked: checked("org-classification", "psb")
-          },
-          {
-            value: "training",
-            text: "Training Organisation/Agency",
-            checked: checked("org-classification", "training")
+            value: "both",
+            text: "In both your own and connected organisations",
+            checked: checked("org-subclassification", both)
           }
-        ],
-        errorMessage: {
-          text: "Select your type of organisation."
-        }
+        ]
       }) }}
 
       {{ govukButton({
@@ -68,7 +60,7 @@
 
       {{ govukButton({
         text: "Save and sign out",
-        href: "signout-a",
+        href: "signout",
         classes: "govuk-button--secondary"
       }) }}
 

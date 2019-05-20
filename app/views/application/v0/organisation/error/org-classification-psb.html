@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="" method="post" class="form">
+    <form action="/application/v0/organisation/org-classification-psb" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "org-classification-psb",
@@ -63,7 +63,10 @@
             value: "ndpb",
             text: "Non-departmental public body (NDPB)"
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Select your type of public sector body."
+        }
       }) }}
 
       {{ govukButton({

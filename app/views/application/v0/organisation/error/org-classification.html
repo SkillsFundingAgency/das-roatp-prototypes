@@ -22,14 +22,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="" method="post" class="form">
+    <form action="/application/v0/organisation/org-classification" method="post" class="form">
+
+      {% if (data['org-selectedroute'] == "employer") %}
 
       {{ govukRadios({
         idPrefix: "org-classification",
         name: "org-classification",
         fieldset: {
           legend: {
-            text: "Select your type of organisation",
+            text: "What is your organisation?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -37,22 +39,56 @@
         items: [
           {
             value: "education",
-            text: "Education",
+            text: "An educational institute",
+            checked: checked("org-classification", "education")
+          },
+          {
+            value: "psb",
+            text: "A public sector body",
+            checked: checked("org-classification", "psb")
+          },
+          {
+            value: "none",
+            text: "None of the above",
+            checked: checked("org-classification", "none")
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of organisation."
+        }
+      }) }}
+
+      {% else %}
+
+      {{ govukRadios({
+        idPrefix: "org-classification",
+        name: "org-classification",
+        fieldset: {
+          legend: {
+            text: "What is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "education",
+            text: "An educational institute",
             checked: checked("org-classification", "education")
           },
           {
             value: "employer",
-            text: "Employer training in other organisations",
+            text: "An employer training apprentices in other organisations",
             checked: checked("org-classification", "employer")
           },
           {
             value: "psb",
-            text: "Public Sector Body",
+            text: "A public sector body",
             checked: checked("org-classification", "psb")
           },
           {
             value: "training",
-            text: "Training Organisation/Agency",
+            text: "A training organisation or agency",
             checked: checked("org-classification", "training")
           }
         ],
@@ -60,6 +96,8 @@
           text: "Select your type of organisation."
         }
       }) }}
+
+      {% endif %}
 
       {{ govukButton({
         text: "Save and continue",

@@ -26,7 +26,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_details'] = 'next'
 			res.redirect('/application/v0/organisation/org-ico')
 		} else {
-			res.redirect('/application/v0/organisation/select-route-error')
+			res.redirect('/application/v0/organisation/error/select-route')
 		}
 		
 	})
@@ -107,9 +107,11 @@ module.exports = function (router) {
 			} else if (org_orgtype === 'psb') {
 				req.session.data['tl_org_classification'] = 'inprogress'
 				res.redirect('/application/v0/organisation/org-classification-psb')
-			} else {
+			} else if (org_orgtype === 'none') {
 				req.session.data['tl_org_classification'] = 'inprogress'
 				res.redirect('/application/v0/organisation/org-subclassification')
+			} else {
+				res.redirect('/application/v0/organisation/error/org-classification')
 			}
 
 		} else {
@@ -144,7 +146,7 @@ module.exports = function (router) {
 
 		let org_orgtype_edu = req.session.data['org-classification-education']
 		let org_route = req.session.data['org-selectedroute']
-		req.session.data['fha-exempt'] = 'yes'
+		//req.session.data['fha-exempt'] = 'yes'
 
 		if (org_orgtype_edu === 'national-college') {
 			req.session.data['org-fundedby'] = 'receiving funding from ESFA'
@@ -163,7 +165,7 @@ module.exports = function (router) {
 		} else if (org_orgtype_edu === 'fei') {
 			req.session.data['org-fundedby'] = 'already registered with ESFA'
 		} else {
-			req.session.data['fha-exempt'] = 'no'
+			res.redirect('/application/v0/organisation/error/org-classification-education')
 		}
 
 		if (org_route === 'employer') {
@@ -181,10 +183,15 @@ module.exports = function (router) {
 		let org_route = req.session.data['org-selectedroute']
 		req.session.data['fha-exempt'] = 'yes'
 
-		if (org_route === 'employer') {
-			res.redirect('/application/v0/organisation/org-subclassification')
+		if (org_orgtype_psb) {
+			if (org_route === 'employer') {
+				res.redirect('/application/v0/organisation/org-subclassification')
+			} else {
+				req.session.data['tl_org_classification'] = 'completed'
+				res.redirect('/application/v0/task-list')
+			}
 		} else {
-			res.redirect('/application/v0/task-list')
+			res.redirect('/application/v0/organisation/error/org-classification-psb')
 		}
 
 	})
@@ -196,10 +203,15 @@ module.exports = function (router) {
 		let org_route = req.session.data['org-selectedroute']
 		req.session.data['fha-exempt'] = 'no'
 
-		if (org_route === 'employer') {
-			res.redirect('/application/v0/organisation/org-subclassification')
+		if (org_orgtype_training) {
+			if (org_route === 'employer') {
+				res.redirect('/application/v0/organisation/org-subclassification')
+			} else {
+				req.session.data['tl_org_classification'] = 'completed'
+				res.redirect('/application/v0/task-list')
+			}
 		} else {
-			res.redirect('/application/v0/task-list')
+			res.redirect('/application/v0/organisation/error/org-classification-training')
 		}
 
 	})
@@ -218,6 +230,7 @@ module.exports = function (router) {
 			res.redirect('/application/v0/organisation/error/org-fundedby')
 		}
 
+		req.session.data['tl_org_classification'] = 'completed'
 		res.redirect('/application/v0/task-list')
 
 	})

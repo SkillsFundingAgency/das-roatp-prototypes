@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="select-route-a" method="post" class="form">
+    <form action="/application/v0/organisation/select-route" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "org-selectedroute",
@@ -40,18 +40,28 @@
         items: [
           {
             value: "main",
-            text: "Main provider route",
-              checked: checked("org-selectedroute", "main")
+            text: "Main provider",
+            checked: checked("org-selectedroute", "main"),
+            hint: {
+              text: "You can train apprentices for other organisations, your own employees, employees of connected companies or act as a subcontractor for other main and employer providers."
+            }
           },
           {
             value: "employer",
-            text: "Employer provider route",
-              checked: checked("org-selectedroute", "employer")
+            text: "Employer provider",
+            checked: checked("org-selectedroute", "employer"),
+            hint: {
+              text: "You can train your own employees, employees of connected companies or act as a subcontractor for other employer or main providers."
+            }
           },
           {
             value: "supporting",
-            text: "Supporting provider route",
-              checked: checked("org-selectedroute", "supporting")
+            text: "Supporting provider",
+            checked: checked("org-selectedroute", "supporting"),
+            hint: {
+              text: "You’ll act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If you're new, this will be limited to £100,000 in your first year on the register.
+              "
+            }
           }
         ],
         errorMessage: {

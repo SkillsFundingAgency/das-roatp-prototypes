@@ -1,0 +1,24 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v0
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Check your eligibility</h1>
+
+      <p class="govuk-body">We're going to ask you some questions to find out if your organisation can apply to become an apprenticeship training provider.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/eligibility/v0/ukprn",
+        classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

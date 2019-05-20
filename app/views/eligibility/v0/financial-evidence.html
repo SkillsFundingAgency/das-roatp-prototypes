@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v0
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "ukaddress"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="financial-evidence-answer" method="post" class="form">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "financial-evidence",
+          name: "financial-evidence",
+          fieldset: {
+            legend: {
+              text: "Do you have financial evidence to show that your organisation has been trading for 12 months?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Trading includes buying, selling, advertising, renting a property and employing someone. For supporting providers, you only need evidence for 3 months of trading."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

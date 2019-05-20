@@ -1,0 +1,54 @@
+{% set title="Change type of organisation for ABC Assessments" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="list" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">{{ title }}</h1>
+       <form method="post" action="list">
+                <div class="govuk-form-group">
+          <label class="govuk-label" for="orgType">
+            Type of organisation
+          </label>
+          <select class="govuk-select" id="orgType" name="orgType">
+            <option value="academy">Academy</option>
+            <option value="public" selected>Central government department, executive agency or Non-Departmental Public Body</option>
+            <option value="delivery-orgs">Delivery organisation connected to an Apprenticeship Training Agency (ATA)</option>
+            <option value="employer-training-apprentices">Employer training apprentices within their Connected Companies</option>
+            <option value="employer-training-own-staff">Employer training their own staff and those within other organisations</option>
+            <option value="further-education-institutions">Further Education Institution</option>
+            <option value="GFE">General Further Education College</option>
+            <option value="GTA">Group Training Association (GTA)</option>
+            <option value="HEI">Higher Education Institution (HEI)</option>
+            <option value="independent-training-provider">Independent Training Provider</option>
+            <option value="la">Local Authority, including LEA schools</option>
+            <option value="mat">Multi-Academy Trust</option>
+            <option value="nationalCollege">National College</option>
+            <option value="nhs">NHS Trust or Fire Authority</option>
+            <option value="police">Police Constabulary or Police and Crime Commissioner</option>
+            <option value="6th-form">Sixth Form College</option>
+            <option value="none">None of the above</option>
+          </select>
+        </div>
+        <input type="submit" class="govuk-button" value="Change" />
+
+       </form>
+    </div>
+</div>
+
+{% endblock %}

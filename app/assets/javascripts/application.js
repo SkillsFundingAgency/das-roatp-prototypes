@@ -6,15 +6,5 @@ if (window.console && window.console.info) {
 }
 
 $(document).ready(function () {
-    
-    $('input#conviction').on('keyup', function(){
-        if ($(this).val().length > 2){
-            $('#list-of-convictions').show();
-        } else {
-            $('#list-of-convictions').hide();
-        }
-    })
-
-    
   window.GOVUKFrontend.initAll()
 })

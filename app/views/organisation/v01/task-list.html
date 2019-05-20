@@ -1,0 +1,207 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Select route - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Your organisation
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="select-route" aria-describedby="select-route-status">
+                Your provider route
+              </a>
+              {% if data['tl_selectroute'] == "completed" %}
+              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+              {% endif %}
+            </li>            
+            <li class="app-task-list__item">
+              {% if data['tl_selectroute'] == "completed" %}
+                <a class="app-task-list__task-name" href="org-ico" aria-describedby="org-details-status">About your organisation</a>
+              {% else %}
+                About your organisation
+              {% endif %}
+              {% if data['tl_org_details'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="org-details-status">In progress</strong>
+              {% elseif data['tl_org_details'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
+              {% elseif data['tl_org_details'] == "next" %}
+                <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+              {% endif %}
+            </li>
+            
+            <li class="app-task-list__item">
+              {% if data['tl_org_details'] == "completed" %}
+                <a class="app-task-list__task-name" href="org-confirm-pscs-company" aria-describedby="org-details-status">People in control</a>
+              {% else %}
+                People in control
+              {% endif %}
+              {% if data['tl_org_people'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="org-people-status">In progress</strong>
+              {% elseif data['tl_org_people'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-people-status">Completed</strong>
+              {% elseif data['tl_org_people'] == "next" %}
+                <strong class="govuk-tag app-task-list__task-next" id="org-people-status">Next</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if data['tl_org_compliance'] == "completed" %}
+                <a class="app-task-list__task-name" href="org-classification" aria-describedby="org-classification-completed">Organisation type</a>
+              {% else %}
+                Organisation type
+              {% endif %}
+              {% if data['tl_org_classification'] == "inprogress" %}
+              <strong class="govuk-tag app-task-list__task-inprogress" id="org-classification-status">In progress</strong>
+            {% elseif data['tl_org_classification'] == "completed" %}
+              <strong class="govuk-tag app-task-list__task-completed" id="org-classification-status">Completed</strong>
+            {% elseif data['tl_org_classification'] == "next" %}
+              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+            {% endif %}
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Your Profile
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              &nbsp;
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Financial Health Assessment
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              &nbsp;
+              <!--Exempt from a financial health assessment
+              <strong class="govuk-tag app-task-list__task-notrequired" id="org-details-notrequired">Not required</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Declarations
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if data['tl_org_people'] == "completed" %}
+                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Criminal checks</a>
+              {% else %}
+                Criminal checks
+              {% endif %}
+              {% if data['tl_org_convictions'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="org-convictions-status">In progress</strong>
+              {% elseif data['tl_org_convictions'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-convictions-status">Completed</strong>
+              {% elseif data['tl_org_convictions'] == "next" %}
+                <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+              {% endif %}
+            </li>
+
+            <li class="app-task-list__item">
+              {% if data['tl_org_convictions'] == "completed" %}
+                <a class="app-task-list__task-name" href="org-duediligence-creditordebt" aria-describedby="org-tl_org_compliance-status">Compliance checks</a>
+              {% else %}
+                Compliance checks
+              {% endif %}
+              {% if data['tl_org_compliance'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="org-tl_org_compliance-status">In progress</strong>
+              {% elseif data['tl_org_compliance'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-tl_org_compliance-status">Completed</strong>
+              {% elseif data['tl_org_compliance'] == "next" %}
+                <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> Readiness to engage
+          </h2>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">6. </span> Leadership and management
+          </h2>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">7. </span> People and planning
+          </h2>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">8. </span> Apprenticeship welfare
+          </h2>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">9. </span> Application declaration
+          </h2>
+        </li>
+      </ol>
+
+    </div>
+
+    <!--div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div-->
+
+  </div>
+
+{% endblock %}

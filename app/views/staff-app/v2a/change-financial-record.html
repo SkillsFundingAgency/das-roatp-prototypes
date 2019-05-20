@@ -1,0 +1,64 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="list" method="post" class="form">
+				
+					{{ govukRadios({
+						classes: "govuk-radios",
+						idPrefix: "staff-changefinancialrecord",
+						name: "staff-changefinancialrecord",
+						fieldset: {
+							legend: {
+								text: "Change financial track record for ABC Assessments",
+								isPageHeading: true,
+								classes: "govuk-fieldset__legend--xl"
+							}
+						},
+						items: [
+						{
+							value: "yes",
+							text: "Yes",
+							checked: false
+						},
+						{
+							value: "no",
+							text: "No",
+							checked: true
+						}
+						]
+					}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

@@ -1,0 +1,66 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="add-details" method="post" class="form">
+				
+					{{ govukRadios({
+						classes: "govuk-radios",
+						idPrefix: "staff-add-route",
+						name: "staff-add-route",
+						fieldset: {
+							legend: {
+								text: "What is the new training provider?",
+								isPageHeading: true,
+								classes: "govuk-fieldset__legend--xl"
+							}
+						},
+						items: [
+							{
+								value: "main",
+								text: "Main provider"
+							},
+							{
+								value: "employer",
+								text: "Employer provider"
+							},
+							{
+								value: "supporting",
+								text: "Supporting provider"
+							}
+						]
+					}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

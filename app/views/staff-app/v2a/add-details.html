@@ -1,0 +1,162 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">Enter details</h1>
+
+			<form action="add-confirm" method="post" class="form">
+
+					{{ govukInput({
+						label: {
+							text: "Legal name"
+						},
+						id: "staff-details-legalname",
+						name: "staff-details-legalname"
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "UKPRN"
+						},
+						classes: "govuk-input--width-10",
+						id: "staff-details-ukprn",
+						name: "staff-details-ukprn"
+					}) }}
+
+					{{ govukSelect({
+						id: "staff-details-orgtype",
+						name: "staff-details-orgtype",
+						label: {
+							text: "Type of organisation"
+						},
+						items: [
+							{
+								value: "academy",
+								text: "Academy"
+							},
+							{
+								value: "public",
+								text: "Central government department, executive agency or Non-Departmental Public Body"
+							},
+							{
+								value: "delivery-orgs",
+								text: "Delivery organisation connected to an Apprenticeship Training Agency (ATA)"
+							},
+							{
+								value: "employer-training-apprentices",
+								text: "Employer training apprentices within their Connected Companies"
+							},
+							{
+								value: "employer-training-own-staff",
+								text: "Employer training their own staff and those within other organisations"
+							},
+							{
+								value: "fei",
+								text: "Further Education Institution"
+							},
+							{
+								value: "gfe",
+								text: "General Further Education College"
+							},
+							{
+								value: "gta",
+								text: "Group Training Association (GTA)"
+							},
+							{
+								value: "hei",
+								text: "Higher Education Institution (HEI)"
+							},
+							{
+								value: "independent-training-provider",
+								text: "Independent Training Provider"
+							},
+							{
+								value: "lea",
+								text: "Local Authority, including LEA schools"
+							},
+							{
+								value: "multi-academy",
+								text: "Multi-Academy Trust"
+							},
+							{
+								value: "national-college",
+								text: "National College"
+							},
+							{
+								value: "nhs",
+								text: "NHS Trust or Fire Authority"
+							},
+							{
+								value: "police",
+								text: "Police Constabulary or Police and Crime Commissioner"
+							},
+							{
+								value: "sixth-form",
+								text: "Sixth Form College"
+							},
+							{
+								value: "none",
+								text: "None of the above"
+							}
+						]
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "Company number (if applicable)"
+						},
+						classes: "govuk-input--width-10",
+						id: "staff-details-companynumber",
+						name: "staff-details-companynumber"
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "Charity registrating number (if applicable)"
+						},
+						classes: "govuk-input--width-10",
+						id: "staff-details-charitynumber",
+						name: "staff-details-charitynumber"
+					}) }}
+
+					{{ govukInput({
+						label: {
+							text: "Trading name (if applicable)"
+						},
+						id: "staff-details-tradingname",
+						name: "staff-details-tradingname"
+					}) }}
+
+				{{ govukButton({
+					text: "Add"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

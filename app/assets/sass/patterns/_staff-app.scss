@@ -1,0 +1,13 @@
+.selected-item {
+    background-color: govuk-colour("blue");
+    color: govuk-colour("white");
+}
+
+.selected-item a {
+    color: govuk-colour("white");
+    text-decoration: none;
+}
+
+.well {
+    background-color: govuk-colour("grey-4");
+}

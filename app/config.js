@@ -4,10 +4,14 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'Manage the register of apprenticeship training providers',
-
+  //serviceName: 'Apply to join the Register of Apprenticeship Training Providers',
+  //serviceName: 'Apply to become an Apprenticeship Training Provider',
+  serviceNameStaffapp: 'ESFA Admin Services',
+  //serviceName: 'Apply to become a training provider for apprenticeships',
+  serviceName: 'Apply to the register of apprenticeship training providers',
+  
   // Default port that prototype runs on
-  port: '3000',
+  port: '1337',
 
   // Enable or disable password protection on production
   useAuth: 'true',

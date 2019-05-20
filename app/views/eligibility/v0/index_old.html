@@ -1,0 +1,91 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  RoATP Prototypes
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "new-application",
+        name: "new-application",
+        fieldset: {
+          legend: {
+            text: "Are you starting a new application?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No – I already started one"
+          }
+        ]
+      }) }}
+
+
+      <p>OR</p>
+
+      {% from "radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "sign-in",
+        name: "sign-in",
+        fieldset: {
+          legend: {
+            text: "Are you starting a new application?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: ""
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "I have already started an application."
+            }
+          }
+        ]
+      }) }}
+
+      {% from "button/macro.njk" import govukButton %}
+      {{ govukButton({
+        text: "Continue",
+        href: "/eligibility-v1/before-you-start"
+      }) }}
+    </div>
+</div>
+
+{% endblock %}

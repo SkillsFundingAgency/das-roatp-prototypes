@@ -1,0 +1,104 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">Confirm details</h1>
+
+			<form action="register" method="post" class="form">
+
+				{{ govukSummaryList({
+					rows: [
+						{
+							key: {
+								text: "Legal name"
+							},
+							value: {
+								text: "ACME Solutions"
+							}
+						},
+						{
+							key: {
+								text: "UKPRN"
+							},
+							value: {
+								text: "10022668"
+							}
+						},
+						{
+							key: {
+								text: "Type of provider"
+							},
+							value: {
+								text: "Main"
+							}
+						},
+						{
+							key: {
+								text: "Type of organisation"
+							},
+							value: {
+								text: "Higher Education Institute (HEI)"
+							}
+						},
+						{
+							key: {
+								text: "Company number"
+							},
+							value: {
+								text: "1893839"
+							}
+						},
+						{
+							key: {
+								text: "Charity registration number"
+							},
+							value: {
+								text: "Not applicable"
+							}
+						},
+						{
+							key: {
+								text: "Trading name"
+							},
+							value: {
+								text: "Not applicable"
+							}
+						}
+					]
+				}) }}
+
+				<input type="hidden" name="added" value="true">
+
+				{{ govukButton({
+					text: "Confirm and add"
+				}) }}
+			
+				</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

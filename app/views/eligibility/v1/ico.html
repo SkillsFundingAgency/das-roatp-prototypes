@@ -1,0 +1,62 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v1
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "ukprn"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="ico-answer" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "ico",
+          name: "ico",
+          fieldset: {
+            legend: {
+              text: data['q-ico'],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "The Data Protection Act 1998 requires anyone who uses personal information to have one. "
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("ico", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("ico", "no")
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

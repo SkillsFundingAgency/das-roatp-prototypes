@@ -1,0 +1,57 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v0
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "ofsted"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="ofsted-grade-answer" method="post" class="form">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "ofsted-grade",
+          name: "ofsted-grade",
+          fieldset: {
+            legend: {
+              text: "Did your organisation achieve an Ofsted rating of 'Requires improvement' or better?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+              text: "This rating must relate to either apprenticeships or overall effectiveness in further education and skills."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v1
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "experience"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Your organisation is not eligible to apply</h1>
+
+      <p class="govuk-body">It must have someone who’s responsible for the delivery and development of apprenticeship training with at least {% if data['main-supporting'] == "main" %} 9 {% elseif data['main-supporting'] == "employer" %} 9 {% else %} 3 {% endif %} months experience.</p>
+
+      {% include "includes/eligibility-requirements.html" %}
+        
+      <p class="govuk-body"><a href="https://www.gov.uk/">Return to GOV.UK</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

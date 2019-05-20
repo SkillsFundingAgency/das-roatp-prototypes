@@ -1,0 +1,149 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v1a
+{% endblock %}
+
+{% block beforeContent %}
+        
+  {% if data['ofsted'] == "yes" %}
+    {% set eligiblebacklink = "ofsted-grade" %}
+  {% else %} 
+    {% set eligiblebacklink = "ofsted" %}
+  {% endif %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: eligiblebacklink
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  {% set eligible = "yes" %}
+  {% set eligiblecount = 0 %}
+  
+  {% if data['england-wales'] == 'no' %}
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('england-wales')</script>
+  {% endif %}
+  {% if data['experience'] == 'no' %} 
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('experience')</script>
+  {% endif %}
+  {% if data['train-within'] == 'no' %} 
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('train-within')</script>
+  {% endif %}
+  {% if data['financial-evidence'] == 'no' %} 
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('financial-evidence')</script>
+  {% endif %}
+  {% if data['ukprn'] == 'no' %} 
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('ukprn')</script>
+  {% endif %}
+  {% if data['ico'] == 'no' %} 
+    {% set eligible = "no" %}
+    {% set eligiblecount = eligiblecount + 1 %}
+    <script>console.log('ico')</script>
+  {% endif %}
+  {% if (data['ofsted-grade'] == 'inadequate') and (data['ofsted'] == 'yes') %} 
+    {% set eligible = "no" %}
+    <script>console.log('ofsted-grade')</script>
+  {% endif %}
+
+  {% if eligible == 'no' %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Your organisation is not eligible to apply</h1>
+
+        {% if eligiblecount > 1 %}
+        
+          <p class="govuk-body">To be eligible, it must:</p>
+          <ul class="govuk-body">
+            {% if data['england-wales'] == 'no' %}
+              <li>train apprentices in the UK</li>
+            {% endif %}
+            {% if data['experience'] == 'no' %}
+              <li>have a person responsible for apprenticeship training with at least {% if data['main-supporting'] == "main" %} 9 {% elseif data['main-supporting'] == "employer" %} 9 {% else %} 3 {% endif %} months experience</li>
+            {% endif %}
+            {% if data['train-within'] == 'no' %} 
+              <li>start training apprentices within the first 12 months of becoming an apprenticeship training provider</li>
+            {% endif %}
+            {% if data['financial-evidence'] == 'no' %}
+              <li>have been trading for at least {% if data['main-supporting'] == "main" %}12{% elseif data['main-supporting'] == "employer" %}12{% else %}3{% endif %} months</li>
+            {% endif %}
+            {% if data['ukprn'] == 'no' %}
+              <li>have a <a href="https://www.ukrlp.co.uk/">UKPRN</a></li>
+            {% endif %}
+            {% if data['ico'] == 'no' %} 
+              <li>have an <a href="https://ico.org.uk/for-organisations/data-protection-fee/">ICO registration number</a></li>
+            {% endif %}
+          </ul>
+
+        {% elseif eligiblecount == 1 %}
+          <p>To be eligible, it must
+        {% if data['england-wales'] == 'no' %}
+            train apprentices in the UK.
+          {% endif %}
+          {% if data['experience'] == 'no' %}
+            have a person responsible for apprenticeship training with at least {% if data['main-supporting'] == "main" %} 9 {% elseif data['main-supporting'] == "employer" %} 9 {% else %} 3 {% endif %} months experience.
+          {% endif %}
+          {% if data['train-within'] == 'no' %} 
+            start training apprentices within the first 12 months of becoming an apprenticeship training provider.
+          {% endif %}
+          {% if data['financial-evidence'] == 'no' %}
+            have been trading for at least {% if data['main-supporting'] == "main" %}12{% elseif data['main-supporting'] == "employer" %}12{% else %}3{% endif %} months.
+          {% endif %}
+          {% if data['ukprn'] == 'no' %}
+            have a <a href="https://www.ukrlp.co.uk/">UKPRN</a>.
+          {% endif %}
+          {% if data['ico'] == 'no' %} 
+            have an <a href="https://ico.org.uk/for-organisations/data-protection-fee/">ICO registration number</a>.
+          {% endif %}
+          </p>
+        {% endif %}
+
+        {% if (data['ofsted-grade'] == 'inadequate') and (data['ofsted'] == 'yes') %} 
+          <p>If it has had an Ofsted inspection, It must have been graded ‘requires improvement’ or better for either apprenticeships or overall effectiveness in further education and skills.</p>
+        {% endif %}
+          
+        <p class="govuk-body"><a href="#">Return to GOV.UK</a></p>
+
+      </div>
+    </div>
+  
+  {% else %} 
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Your organisation is eligible to apply</h1>
+        <p class="govuk-body">Based on your answers, your organisation is eligible to apply.</p>
+
+        {{ govukButton({
+          text: "Start now",
+          classes: "govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"
+        }) }}
+
+      </div>
+    </div>
+  
+  {% endif %}
+
+
+{% endblock %}

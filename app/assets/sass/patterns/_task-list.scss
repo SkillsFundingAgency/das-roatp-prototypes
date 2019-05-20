@@ -54,7 +54,10 @@
   }
 }
 
-.app-task-list__task-completed {
+.app-task-list__task-completed,
+.app-task-list__task-inprogress,
+.app-task-list__task-next,
+.app-task-list__task-notrequired {
   margin-top: govuk-spacing(2);
   margin-bottom: govuk-spacing(1);
 
@@ -63,4 +66,17 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+}
+
+.app-task-list__task-inprogress {
+  background-color: #00823B;
+}
+
+.app-task-list__task-notrequired {
+  background-color: #6F777B;
+}
+
+.app-task-list__task-next {
+  background-color: #FFBF47;
+  color: #000;
 }

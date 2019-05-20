@@ -1,0 +1,53 @@
+{% set title="Change parent company guarantee for ABC Assessments" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+  {% include "includes/header-staff-app-signedin.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+    <a href="list" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <form method="post" action="list">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="radio-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                {{ title }}
+              </h1>
+            </legend>
+
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input checked class="govuk-radios__input" id="radio-1" name="radio" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="radio-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="radio-2" name="radio" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="radio-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <input type="submit" class="govuk-button" value="Change" />
+
+       </form>
+    </div>
+</div>
+
+{% endblock %}

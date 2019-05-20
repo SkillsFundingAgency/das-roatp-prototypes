@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v0
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Your organisation is not eligible to apply</h1>
+
+      <p class="govuk-body">To be eligible to apply, your organisation must:</p>
+      <ul class="govuk-body">
+          <li>have a UKPRN</li>
+          <li>have an ICO registration number</li>
+          <li>have a UK business address</li>
+          <li>have financial evidence to show that your organisation has been trading for 12 months or 3 months for supporting providers</li>
+          <li>train apprentices within the first 12 months of joining the register of apprenticeship training providers</li>
+          <li>If you’ve had an Ofsted inspection, it must be a grade 3 (requires improvement) or better for either apprenticeships or overall effectiveness in further education and skills.</li>
+      </ul>
+
+        
+      <p class="govuk-body"><a href="#">Return to GOV.UK</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

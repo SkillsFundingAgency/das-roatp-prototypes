@@ -1,0 +1,12 @@
+<!-- This include is utilised in /eligibility/v1 -->
+	<p class="govuk-body">To be eligible to apply, your organisation must fulfil the following criteria:</p>
+	<ul class="govuk-body">
+		<li>only train apprentices in England or Wales</li>
+		<li>have a person responsible for apprenticeship training with at least {% if data['main-supporting'] == "main" %} 9 {% elseif data['main-supporting'] == "employer" %} 9 {% else %} 3 {% endif %} months experience</li>
+		<li>start training apprentices within the first 12 months of becoming an apprenticeship training provider</li>
+		<li>have financial evidence to show that your organisation has been trading for {% if data['main-supporting'] == "main" %}12{% elseif data['main-supporting'] == "employer" %}12{% else %}3{% endif %} months</li>
+		<li>have a <a href="https://www.ukrlp.co.uk/">UKPRN</a></li>
+		<li>have an <a href="https://ico.org.uk/for-organisations/data-protection-fee/">ICO registration number</a></li>
+		<li>have a UK business address</li>
+		<li>have achieved a rating of ‘requires improvement’ or better for either apprenticeships or overall effectiveness in further education and skills.</li>
+	</ul>

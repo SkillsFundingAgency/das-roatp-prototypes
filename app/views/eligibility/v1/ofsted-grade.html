@@ -1,0 +1,74 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligibility Checker v1
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "ofsted"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="ofsted-grade-answer" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "ofsted-grade",
+          name: "ofsted-grade",
+          fieldset: {
+            legend: {
+              text: data['q-ofsted-grade'],
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+              text: "This rating must relate to either apprenticeships or overall effectiveness in further education and skills."
+          },
+          items: [
+            {
+              value: "outstanding",
+              text: "Outstanding",
+            	checked: checked("ofsted-grade", "outstanding")
+            },
+            {
+              value: "good",
+              text: "Good",
+            	checked: checked("ofsted-grade", "good")
+            },
+            {
+              value: "requires-improvement",
+              text: "Requires improvement",
+            	checked: checked("ofsted-grade", "requires-improvement")
+            },
+            {
+              value: "inadequate",
+              text: "Inadequate",
+            	checked: checked("ofsted-grade", "inadequate")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

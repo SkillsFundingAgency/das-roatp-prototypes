@@ -14,19 +14,27 @@ module.exports = function (router) {
 		let selected_route = req.session.data['org-selectedroute']
 
 		if (selected_route === 'main') {
+
 			req.session.data['tl_selectroute'] = 'completed'
 			req.session.data['tl_org_details'] = 'next'
 			res.redirect('/application/v0/organisation/org-ico')
+
 		} else if (selected_route === 'employer') {
+
 			req.session.data['tl_selectroute'] = 'completed'
 			req.session.data['tl_org_details'] = 'next'
 			res.redirect('/application/v0/organisation/org-ico')
+
 		} else if (selected_route === 'supporting') {
+
 			req.session.data['tl_selectroute'] = 'completed'
 			req.session.data['tl_org_details'] = 'next'
 			res.redirect('/application/v0/organisation/org-ico')
+
 		} else {
+
 			res.redirect('/application/v0/organisation/error/select-route')
+			
 		}
 		
 	})
@@ -67,9 +75,17 @@ module.exports = function (router) {
 	// Confirm company details
 	router.post('/application/v0/organisation/org-confirmorgdetails', function (req, res) {
 
+		res.redirect('/application/v0/organisation/org-website')
+
+	})
+
+	// Website
+	router.post('/application/v0/organisation/org-website', function (req, res) {
+
 		res.redirect('/application/v0/organisation/org-trading')
 
 	})
+
 
 	// Started trading date
 	router.post('/application/v0/organisation/org-trading', function (req, res) {

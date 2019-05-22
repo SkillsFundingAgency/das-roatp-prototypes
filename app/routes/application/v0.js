@@ -1,5 +1,16 @@
 // Routes for Application v0
 
+var months = [
+	'Jan', 'Feb', 'Mar', 'Apr', 'May',
+	'Jun', 'Jul', 'Aug', 'Sep',
+	'Oct', 'Nov', 'Dec'
+	];
+
+
+function monthNumToName(monthnum) {
+	return months[monthnum - 1] || '';
+}
+
 module.exports = function (router) {
 
 	// Sign in
@@ -111,17 +122,59 @@ module.exports = function (router) {
 		if (req.session.data['org-trading-day'] == "" || req.session.data['org-trading-month'] == "" || req.session.data['org-trading-year'] == "") {
 			res.redirect('/application/v0/organisation/error/org-trading')
 		} else {
+
 			req.session.data['tl_org_details'] = 'completed'
 			req.session.data['tl_org_people'] = 'next'
-			res.redirect('/application/v0/organisation/org-peopleincontrol')
+
+			if (req.session.data['org-ukprn'] === "11110004") { 
+				res.redirect('/application/v0/organisation/org-trustees-declare')
+			} else {
+				res.redirect('/application/v0/organisation/org-peopleincontrol')
+			}
+			
 		}
 	})
+
 	
 	// Confirm people in control
 	router.post('/application/v0/organisation/org-peopleincontrol', function (req, res) {
-		req.session.data['tl_org_people'] = 'completed'
-		req.session.data['tl_org_classification'] = 'next'
-		res.redirect('/application/v0/organisation/org-classification')
+
+		if (req.session.data['org-ukprn'] === "11110003") {
+			res.redirect('/application/v0/organisation/org-trustees-declare')
+		} else {
+			req.session.data['tl_org_people'] = 'completed'
+			req.session.data['tl_org_classification'] = 'next'
+			res.redirect('/application/v0/organisation/org-classification')
+		}
+	})
+
+	
+	// Declare trustees
+	router.post('/application/v0/organisation/org-trustees-declare', function (req, res) {
+
+		var newTrustee = {
+			'name': req.session.data['org-trustee-name'],
+			'dob_month': monthNumToName(req.session.data['org-trustee-dob-month']),
+			'dob_year': req.session.data['org-trustee-dob-year']
+		}
+
+		req.session.data['org-trustee-name'] = null
+		req.session.data['org-trustee-dob-month'] = null
+		req.session.data['org-trustee-dob-year'] = null
+
+		if (!req.session.data['org-trustees']) {
+			req.session.data['org-trustees'] = []
+		}
+		req.session.data['org-trustees'].push(newTrustee)
+
+		res.redirect('/application/v0/organisation/org-trustees-confirm')
+		
+	})
+
+	
+	// Confirm trustees
+	router.post('/application/v0/organisation/org-trustees-confirm', function (req, res) {
+		res.redirect('/application/v0/organisation/org-trustees-confirm')
 	})
 
 

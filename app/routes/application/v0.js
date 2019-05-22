@@ -62,10 +62,12 @@ module.exports = function (router) {
 		} else if (org_ukprn === '11110001') { // Company - Active with no website
 			res.redirect('/application/v0/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110002') { // Company - Inactive
-			res.redirect('/application/v0/organisation/org-shutter-inactivecompany')
+			res.redirect('/application/v0/organisation/shutter/org-inactivecompany')
 		} else if (org_ukprn === '11110003') { // Company - Also a charity
 			res.redirect('/application/v0/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '11110004') { // Not a company
+		} else if (org_ukprn === '11110004') { // Charity only, not a company
+			res.redirect('/application/v0/organisation/org-confirmorgdetails')
+		} else if (org_ukprn === '11110005') { // Not a company
 			res.redirect('/application/v0/organisation/org-legalstatus')
 		} else {
 			res.redirect('/application/v0/organisation/error/org-ukprn')
@@ -75,7 +77,21 @@ module.exports = function (router) {
 	// Confirm company details
 	router.post('/application/v0/organisation/org-confirmorgdetails', function (req, res) {
 
-		res.redirect('/application/v0/organisation/org-website')
+		res.redirect('/application/v0/organisation/org-parentcompany')
+
+	})
+
+	// Parent company
+	router.post('/application/v0/organisation/org-parentcompany', function (req, res) {
+
+		let org_parentcompany = req.session.data['org-parentcompany']
+
+		if (req.session.data['org-ukprn'] == "11110001"){
+			// Org has no website in UKRLP
+			res.redirect('/application/v0/organisation/org-website')
+		} else {
+			res.redirect('/application/v0/organisation/org-trading')
+		}
 
 	})
 

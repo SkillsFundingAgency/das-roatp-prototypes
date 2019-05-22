@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-parentcompany"
+    href: "org-confirmorgdetails"
   }) }}
 {% endblock %}
 
@@ -24,14 +24,14 @@
 
     <form action="" method="post" class="form">
 
-      {% set websiteHtml %}
+      {% set companynumberHtml %}
         {{ govukInput({
-          id: "org-website-address",
-          name: "org-website-address",
+          id: "org-parentcompany-companynumber",
+          name: "org-parentcompany-companynumber",
           type: "text",
-          classes: "govuk-!-width-two-thirds",
+          classes: "govuk-!-width-one-third",
           label: {
-            text: "Website address"
+            text: "Enter company number"
           },
           attributes: {
             spellcheck: "false"
@@ -40,21 +40,24 @@
       {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "org-website-conditional",
-        name: "org-website",
+        idPrefix: "org-parentcompany-conditional",
+        name: "org-parentcompany",
         fieldset: {
           legend: {
-            text: "Does your organisation have a website?",
+            text: "Does your company have a UK parent company?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
+        },
+        hint: {
+          text: "This is when another company owns at least 75% of the shares in your company."
         },
         items: [
           {
             value: "yes",
             text: "Yes",
             conditional: {
-              html: websiteHtml
+              html: companynumberHtml
             }
           },
           {

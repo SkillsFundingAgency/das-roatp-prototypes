@@ -24,39 +24,52 @@
 
       <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Confirm your organisation details</h1>
+        <h1 class="govuk-heading-l">Confirm your organisation's details</h1>
 
-        <p class="gov-body">These are the details we found on UKRLP.</p>
+        <p class="gov-body">These are the details we found on UKRLP for {{ data['org-ukprn'] }}.</p>
 
-        {{ govukSummaryList({
-          classes: 'govuk-!-margin-bottom-9',
-          rows: [
-            {
-              key: {
-                text: "Legal name"
-              },
-              value: {
-                text: "Your Company Name Ltd"
-              }
-            },
-            {
-              key: {
-                text: "Business address"
-              },
-              value: {
-                html: "1 Romford Road<br>Wellington<br>Telford<br>CV66 6BB"
-              }
-            },
-            {
-              key: {
-                text: "Website"
-              },
-              value: {
-                html: 'yourcompanyname.co.uk'
-              }
-            }
-          ]
-        }) }}
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Your Company Name Ltd
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] != "11110001") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trading name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Your Trading Name
+            </dd>
+          </div>
+          {% endif %}
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 Romford Road<br>Wellington<br>Telford<br>CV66 6BB
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] != "11110001") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="govuk-summary-list__value">
+              yourcompanyname.co.uk
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
         
         <details class="govuk-details">
           <summary class="govuk-details__summary">
@@ -65,7 +78,7 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-            <p>Contact UKRLP to <a href="https://www.ukrlp.co.uk/" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            <p>Contact UKRLP helpdesk on 0345 202 1600 or <a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
             <p>After your changes have been confirmed, sign back in to continue with this application.</p>
           </div>
         </details>

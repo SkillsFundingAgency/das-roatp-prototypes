@@ -14,28 +14,27 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "list"
+    href: "detail"
   }) }}
 {% endblock %}
 
 {% block content %}
-
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
             
 			<h1 class="govuk-heading-xl">Change trading name for ABC Assessments</h1>
 
-			<form action="list" method="post" class="form">
+			<form action="detail" method="post" class="form">
 
 				{{ govukInput({
 					label: {
-						text: "Legal name"
+						text: "Trading name"
 					},
 					classes: "govuk-!-width-two-thirds",
 					id: "staff-changetradingname",
-                    name: "staff-changetradingname",
-                    value: "ABC Assessments Limited"
+					name: "staff-changetradingname",
+					value: "ABC Assessments"
 				}) }}
 
 				{{ govukButton({

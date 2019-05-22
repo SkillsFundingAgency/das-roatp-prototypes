@@ -14,32 +14,30 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "detail"
+    href: "add-ukprn-outage"
   }) }}
 {% endblock %}
 
 {% block content %}
 
-
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
             
-			<h1 class="govuk-heading-xl">Change company number for ABC Assessments</h1>
+			<h1 class="govuk-heading-xl">What is the organisation’s legal name?</h1>
 
-			<form action="detail" method="post" class="form">
+			<form action="add-ukprn-tradingname" method="post" class="form">
 
-				{{ govukInput({
-					label: {
-						text: "Company number"
-					},
-					classes: "govuk-!-width-one-third",
-					id: "staff-change-companynumber",
-                    name: "staff-change-companynumber",
-                    value: "1893839"
-				}) }}
+					{{ govukInput({
+						label: {
+							text: "Legal name"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "staff-add-orgname",
+						name: "staff-add-orgname"
+					}) }}
 
 				{{ govukButton({
-					text: "Change"
+					text: "Continue"
 				}) }}
 
 			</form>

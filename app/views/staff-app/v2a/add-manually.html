@@ -14,25 +14,64 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "detail"
+    href: "add-ukprn-outage"
   }) }}
 {% endblock %}
 
 {% block content %}
 
-
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
             
-			<h1 class="govuk-heading-xl">Change type of organisation for ABC Assessments</h1>
+			<h1 class="govuk-heading-xl">Enter details for '11110003'</h1>
 
-			<form action="detail" method="post" class="form">
+			<form action="add-manually-a" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Legal name"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-add-orgname",
+					name: "staff-add-orgname",
+					value: data['staff-add-orgname']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Trading name, if applicable"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-add-tradingname",
+					name: "staff-add-tradingname",
+					value: data['staff-add-tradingname']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Company number, if applicable"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-add-companynumber",
+					name: "staff-add-companynumber",
+					value: data['staff-add-companynumber']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Charity registration number, if applicable"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-add-charitynumber",
+					name: "staff-add-charitynumber",
+					value: data['staff-add-charitynumber']
+				}) }}
 
 				{{ govukSelect({
-					id: "staff-change-orgtype",
-					name: "staff-change-orgtype",
+					id: "staff-add-orgtype",
+					name: "staff-add-orgtype",
 					label: {
-						text: "Select a type of organisation"
+						text: "Type of organisation"
 					},
 					items: [
 						{
@@ -107,7 +146,7 @@
 				}) }}
 
 				{{ govukButton({
-					text: "Change"
+					text: "Continue"
 				}) }}
 
 			</form>

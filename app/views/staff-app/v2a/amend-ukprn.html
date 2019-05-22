@@ -14,7 +14,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "detail"
+    href: "add-confirm"
   }) }}
 {% endblock %}
 
@@ -24,18 +24,18 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
             
-			<h1 class="govuk-heading-xl">Change company number for ABC Assessments</h1>
+			<h1 class="govuk-heading-xl">Change UKPRN for {{ data['staff-add-orgname'] }}</h1>
 
-			<form action="detail" method="post" class="form">
+			<form action="add-confirm" method="post" class="form">
 
 				{{ govukInput({
 					label: {
-						text: "Company number"
+						text: "UKPRN"
 					},
 					classes: "govuk-!-width-one-third",
-					id: "staff-change-companynumber",
-                    name: "staff-change-companynumber",
-                    value: "1893839"
+					id: "staff-add-ukprn",
+          name: "staff-add-ukprn",
+          value: data['staff-add-ukprn']
 				}) }}
 
 				{{ govukButton({

@@ -12,47 +12,53 @@
 {% endblock %}
 
 {% block beforeContent %}
+
   {{ govukBackLink({
     text: "Back",
-    href: "detail"
-  }) }}
+    href: "register"
+	}) }}
+	
 {% endblock %}
 
 {% block content %}
 
-
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<form action="detail" method="post" class="form">
+			<form action="add-fromukrlp-orgtype" method="post" class="form">
 				
 					{{ govukRadios({
 						classes: "govuk-radios",
-						idPrefix: "staff-changefinancialrecord",
-						name: "staff-changefinancialrecord",
+						idPrefix: "staff-add-route",
+						name: "staff-add-route",
 						fieldset: {
 							legend: {
-								text: "Change financial track record for ABC Assessments",
+								text: "Choose a provider route for " + data['staff-add-orgname'],
 								isPageHeading: true,
 								classes: "govuk-fieldset__legend--xl"
 							}
 						},
 						items: [
-						{
-							value: "yes",
-							text: "Yes",
-							checked: false
-						},
-						{
-							value: "no",
-							text: "No",
-							checked: true
-						}
+							{
+								value: "Main provider",
+								text: "Main provider",
+								checked: checked("staff-add-route", "Main provider")
+							},
+							{
+								value: "Employer provider",
+								text: "Employer provider",
+								checked: checked("staff-add-route", "Employer provider")
+							},
+							{
+								value: "Supporting provider",
+								text: "Supporting provider",
+								checked: checked("staff-add-route", "Supporting provider")
+							}
 						]
 					}) }}
 
 				{{ govukButton({
-					text: "Change"
+					text: "Continue"
 				}) }}
 
 			</form>

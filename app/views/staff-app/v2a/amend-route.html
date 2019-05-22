@@ -14,7 +14,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "detail"
+    href: "add-confirm"
   }) }}
 {% endblock %}
 
@@ -24,30 +24,35 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<form action="detail" method="post" class="form">
+			<form action="add-confirm" method="post" class="form">
 				
 				{{ govukRadios({
 					classes: "govuk-radios",
-					idPrefix: "staff-changeparentguarantess",
-					name: "staff-changeparentguarantess",
+					idPrefix: "staff-add-route",
+					name: "staff-add-route",
 					fieldset: {
 						legend: {
-							text: "Change parent company guarantee for ABC Assessments",
+							text: "Change provider type for ABC Assessments",
 							isPageHeading: true,
 							classes: "govuk-fieldset__legend--xl"
 						}
 					},
 					items: [
 					{
-						value: "yes",
-						text: "Yes",
-						checked: true
+						value: "Main provider",
+						text: "Main provider",
+						checked: checked("staff-add-route", "Main provider")
 					},
 					{
-						value: "no",
-						text: "No",
-						checked: false
-					}
+						value: "Employer provider",
+						text: "Employer provider",
+						checked: checked("staff-add-route", "Employer provider")
+					},
+						{
+							value: "Supporting provider",
+							text: "Supporting provider",
+							checked: checked("staff-add-route", "Supporting provider")
+						}
 					]
 				}) }}
 

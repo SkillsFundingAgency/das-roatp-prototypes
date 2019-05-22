@@ -12,9 +12,16 @@
 {% endblock %}
 
 {% block beforeContent %}
+
+	{% if data['staff-search'] == "1234567" %}
+		{% set detailsbacklink = "register" %}
+	{% else %}
+		{% set detailsbacklink = "search-results" %}
+	{% endif %}
+
   {{ govukBackLink({
     text: "Back",
-    href: "register"
+    href: detailsbacklink
   }) }}
 {% endblock %}
 
@@ -23,43 +30,9 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
-			<h1 class="govuk-heading-xl">13 results found for '{{ data['staff-search'] }}'</h1>
+			<h1 class="govuk-heading-xl">Details for ABC Assessments</h1>
 		</div>
-		<div class="govuk-grid-column-one-third">
-			
-			<ul class="govuk-list">
-					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
-							<a href="#" class="govuk-!-font-weight-bold_">ABC Assessments</a><br>
-							<span class="block">UKPRN 1234567</span>
-					</li>
-					
-					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
-							<a href="list-2">ABC Awards (Removed)</a><br>
-							<span class="block">UKPRN 8839011</span>
-					</li>
-					
-					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
-							<a href="#">ABC Secretaries Ltd</a><br>
-							<span class="block">UKPRN 938033</span>
-					</li>
-					
-					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
-							<a href="#">ABC Training Ltd</a><br>
-							<span class="block">UKPRN 7738821</span>
-					</li>
-					
-					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
-							<a href="#">ABC Transport Ltd</a><br>
-							<span class="block">UKPRN 0927403</span>
-					</li>
-			</ul>
-			<div class="well govuk-body govuk-!-font-size-16 govuk-!-padding-2">
-					Results limited to 5<br>
-					<a class="block govuk-link govuk-link--no-visited-state" href="register?searchStr={{ searchStr }}">Refine search</a>
-			</div>
-
-		</div>
-		<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-grid-column-full">
 
 			{{ govukSummaryList({
 				classes: "searchlist",
@@ -103,7 +76,7 @@
 							text: "Status"
 						},
 						value: {
-							html: '<strong class="govuk-tag">Active</strong><br>Updated: 11 Jan 2019'
+							html: '<strong class="govuk-tag">Active</strong> Updated: 11 Jan 2019'
 						},
 						actions: {
 							items: [

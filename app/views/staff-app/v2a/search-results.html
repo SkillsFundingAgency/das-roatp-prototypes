@@ -22,10 +22,72 @@
 
 
 	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-full">
-			<h1 class="govuk-heading-xl">13 results found for '{{ data['staff-search'] }}'</h1>
+		<div class="govuk-grid-column-two-thirds">
+
+			<h1 class="govuk-heading-xl">5 results found for '{{ data['staff-search'] }}'</h1>
+
+			{{ govukTable({
+				head: [
+					{ text: "Organisation name" },
+					{ text: "UKPRN" },
+					{ text: "Status" },
+					{ text: "" }
+				],
+				rows: [
+					[
+						{ text: "ABC Assessments" },
+						{ text: "1234567" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Awards (Removed)" },
+						{ text: "8839011" },
+						{ html: '<strong class="govuk-tag" style="background-color: #b10e1e;">Removed</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABS Secretaries Ltd" },
+						{ text: "9380331" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Training Ltd" },
+						{ text: "7738821"
+						},
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Transport Ltd" },
+						{ text: "0927403" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					]
+				]
+			}) }}
+
+			<p class="govuk-body">The search results are limited to 5.<br><a href="register">Refine search</a></p>
 		</div>
-		<div class="govuk-grid-column-one-third">
+
+
+		<!--div class="govuk-grid-column-one-third">
 			
 			<ul class="govuk-list">
 					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
@@ -86,7 +148,7 @@
 							text: "UKPRN"
 						},
 						value: {
-							text: "1234567"
+							text: "1002266"
 						},
 						actions: {
 							items: [
@@ -237,7 +299,7 @@
 				]
 			}) }}
 
-		</div>
+		</div-->
 	</div>
       
 {% endblock %}

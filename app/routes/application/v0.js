@@ -85,6 +85,30 @@ module.exports = function (router) {
 		}
 	})
 
+	
+
+	// Legal status
+	router.post('/application/v0/organisation/org-legalstatus', function (req, res) {
+
+		let org_legalstatus = req.session.data['org-legalstatus']
+		if (org_legalstatus === 'sole') { 
+			res.redirect('/application/v0/organisation/org-legalstatus-sole')
+		} else {
+			res.redirect('/application/v0/organisation/org-legalstatus-partnership')
+		}
+
+	})
+
+	// Sole trader details
+	router.post('/application/v0/organisation/org-legalstatus-sole', function (req, res) {
+		
+		// Do we need to ask if they have a website?
+		//res.redirect('/application/v0/organisation/org-website')
+
+	})
+
+	
+
 	// Confirm company details
 	router.post('/application/v0/organisation/org-confirmorgdetails', function (req, res) {
 

@@ -18,11 +18,22 @@
 {% endblock %}
 
 {% block content %}
+<script>
+  var months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'Jun', 'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+    ];
+  var dt = new Date();
+  dt.setDate( dt.getDate() - 365 );
+  var datetext = dt.getDate() + " " + months[dt.getMonth()] + " " + dt.getFullYear();
+  document.getElementById('displaydate')[0].innerHTML = datetext;
+</script>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">When did your organisation start trading?</h1>
+    <h1 class="govuk-heading-l">Has YOUR COMPANY NAME LTD been trading since {{ date }}<span id="displaydate">..</span>?</h1>
 
     <p class="govuk-hint">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
 
@@ -74,5 +85,6 @@
     </form>
   </div>
 </div>
+
 
 {% endblock %}

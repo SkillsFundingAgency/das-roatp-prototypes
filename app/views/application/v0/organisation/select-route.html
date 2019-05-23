@@ -43,7 +43,7 @@
             text: "Main provider",
             checked: checked("org-selectedroute", "main"),
             hint: {
-              text: "You can train apprentices for other organisations, your own employees, employees of connected companies or act as a subcontractor for other main and employer providers."
+              text: "Your organisation can train apprentices for other organisations, its own employees, employees of connected organisations or act as a subcontractor for other main and employer providers."
             }
           },
           {
@@ -51,7 +51,7 @@
             text: "Employer provider",
             checked: checked("org-selectedroute", "employer"),
             hint: {
-              text: "You can train your own employees, employees of connected companies or act as a subcontractor for other employer or main providers."
+              text: "Your organisation can train its own employees, employees of connected organisations or act as a subcontractor for other employer or main providers."
             }
           },
           {
@@ -59,15 +59,21 @@
             text: "Supporting provider",
             checked: checked("org-selectedroute", "supporting"),
             hint: {
-              text: "You’ll act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If you're new, this will be limited to £100,000 in your first year on the register.
-              "
+              text: "Your organisation will act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If your organisation is new on the register, this will be limited to £100,000 in its first year."
             }
           }
         ]
       }) }}
 
       {{ govukButton({
-        text: "Save and continue"
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and sign out",
+        href: "signout",
+        classes: "govuk-button--secondary"
       }) }}
 
     </form>

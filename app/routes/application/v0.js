@@ -174,7 +174,9 @@ module.exports = function (router) {
 	
 	// Confirm trustees
 	router.post('/application/v0/organisation/org-trustees-confirm', function (req, res) {
-		res.redirect('/application/v0/organisation/org-trustees-confirm')
+		req.session.data['tl_org_people'] = 'completed'
+		req.session.data['tl_org_classification'] = 'next'
+		res.redirect('/application/v0/organisation/org-classification')
 	})
 
 

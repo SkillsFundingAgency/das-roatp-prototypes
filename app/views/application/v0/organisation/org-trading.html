@@ -18,17 +18,6 @@
 {% endblock %}
 
 {% block content %}
-<script>
-  var months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May',
-    'Jun', 'Jul', 'Aug', 'Sep',
-    'Oct', 'Nov', 'Dec'
-    ];
-  var dt = new Date();
-  dt.setDate( dt.getDate() - 365 );
-  var datetext = dt.getDate() + " " + months[dt.getMonth()] + " " + dt.getFullYear();
-  document.getElementById('displaydate')[0].innerHTML = datetext;
-</script>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -38,35 +27,18 @@
     <p class="govuk-hint">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
 
     <form action="" method="post" class="form">
-
-      {{ govukDateInput({
-        id: "org-trading",
-        namePrefix: "org-trading",
-        fieldset: {
-          legend: {
-            text: "Enter date",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--s"
-          }
-        }, 
-        hint: {
-          text: "For example, 24 11 2007"
-        },
+    
+      {{ govukRadios({
+        idPrefix: "org-trading",
+        name: "org-trading",
         items: [
           {
-            classes: "govuk-input--width-2",
-            name: "day",
-            value: data['org-trading-day']
+            value: "yes",
+            text: "Yes"
           },
           {
-            classes: "govuk-input--width-2",
-            name: "month",
-            value: data['org-trading-month']
-          },
-          {
-            classes: "govuk-input--width-4",
-            name: "year",
-            value: data['org-trading-year']
+            value: "no",
+            text: "No"
           }
         ]
       }) }}
@@ -86,5 +58,16 @@
   </div>
 </div>
 
+<script>
+  var months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'Jun', 'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+    ];
+  var dt = new Date();
+  dt.setDate( dt.getDate() - 365 );
+  var datetext = dt.getDate() + " " + months[dt.getMonth()] + " " + dt.getFullYear();
+  document.getElementById("displaydate").innerHTML = datetext;
+</script>
 
 {% endblock %}

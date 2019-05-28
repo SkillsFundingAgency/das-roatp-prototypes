@@ -1,0 +1,158 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "add-ukprn-outage"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">Enter details for '11110003'</h1>
+
+			<form action="add-manually-a" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Legal name"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-add-orgname",
+					name: "staff-add-orgname",
+					value: data['staff-add-orgname']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Trading name, if applicable"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-add-tradingname",
+					name: "staff-add-tradingname",
+					value: data['staff-add-tradingname']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Company number, if applicable"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-add-companynumber",
+					name: "staff-add-companynumber",
+					value: data['staff-add-companynumber']
+				}) }}
+
+				{{ govukInput({
+					label: {
+						text: "Charity registration number, if applicable"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-add-charitynumber",
+					name: "staff-add-charitynumber",
+					value: data['staff-add-charitynumber']
+				}) }}
+
+				{{ govukSelect({
+					id: "staff-add-orgtype",
+					name: "staff-add-orgtype",
+					label: {
+						text: "Type of organisation"
+					},
+					items: [
+						{
+							value: "Academy",
+							text: "Academy"
+						},
+						{
+							value: "Central government department, executive agency, or Non-Departmental Public Body",
+							text: "Central government department, executive agency, or Non-Departmental Public Body"
+						},
+						{
+							value: "Delivery organisation connected to an Apprenticeship Training Agency (ATA)",
+							text: "Delivery organisation connected to an Apprenticeship Training Agency (ATA)"
+						},
+						{
+							value: "Employer training apprentices within their Connected Companies",
+							text: "Employer training apprentices within their Connected Companies"
+						},
+						{
+							value: "Employer training their own staff and those within other organisations",
+							text: "Employer training their own staff and those within other organisations"
+						},
+						{
+							value: "Further Education Institution",
+							text: "Further Education Institution"
+						},
+						{
+							value: "General Further Education College",
+							text: "General Further Education College"
+						},
+						{
+							value: "Group Training Association (GTA)",
+							text: "Group Training Association (GTA)"
+						},
+						{
+							value: "Higher Education Institution (HEI)",
+							text: "Higher Education Institution (HEI)"
+						},
+						{
+							value: "Independent Training Provider",
+							text: "Independent Training Provider"
+						},
+						{
+							value: "Local Authority, including LEA schools",
+							text: "Local Authority, including LEA schools"
+						},
+						{
+							value: "Multi-Academy Trust",
+							text: "Multi-Academy Trust"
+						},
+						{
+							value: "National College",
+							text: "National College"
+						},
+						{
+							value: "NHS Trust or Fire Authority",
+							text: "NHS Trust or Fire Authority"
+						},
+						{
+							value: "Police Constabulary or Police and Crime Commissioner",
+							text: "Police Constabulary or Police and Crime Commissioner"
+						},
+						{
+							value: "Sixth Form College",
+							text: "Sixth Form College"
+						},
+						{
+							value: "None of the above",
+							text: "None of the above"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

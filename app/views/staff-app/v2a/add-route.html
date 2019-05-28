@@ -11,20 +11,31 @@
   ESFA Staff App
 {% endblock %}
 
+{{ data['staff-add-charitynumber'] == "" }}
+{{ data['staff-add-companynumber'] == "" }}
+{{ data['staff-add-hascharitynumber'] == "" }}
+{{ data['staff-add-hascompanynumber'] == "" }}
+{{ data['staff-add-hastradingname'] == "" }}
+{{ data['staff-add-orgname'] == "" }}
+{{ data['staff-add-route'] == "" }}
+{{ data['staff-add-tradingname'] == "" }}
+{{ data['staff-add-ukprn'] == "" }}
+
 {% block beforeContent %}
+
   {{ govukBackLink({
     text: "Back",
-    href: "list"
-  }) }}
+    href: "register"
+	}) }}
+	
 {% endblock %}
 
 {% block content %}
 
-
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<form action="add-details" method="post" class="form">
+			<form action="add-ukprn-legalname" method="post" class="form">
 				
 					{{ govukRadios({
 						classes: "govuk-radios",
@@ -32,29 +43,29 @@
 						name: "staff-add-route",
 						fieldset: {
 							legend: {
-								text: "What is the new training provider?",
+								text: "Choose a provider route for your organisation",
 								isPageHeading: true,
 								classes: "govuk-fieldset__legend--xl"
 							}
 						},
 						items: [
 							{
-								value: "main",
+								value: "Main provider",
 								text: "Main provider"
 							},
 							{
-								value: "employer",
+								value: "Employer provider",
 								text: "Employer provider"
 							},
 							{
-								value: "supporting",
+								value: "Supporting provider",
 								text: "Supporting provider"
 							}
 						]
 					}) }}
 
 				{{ govukButton({
-					text: "Change"
+					text: "Continue"
 				}) }}
 
 			</form>

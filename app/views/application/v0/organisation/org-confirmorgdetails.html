@@ -1,0 +1,101 @@
+{% extends "layout_application.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-ukprn"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Confirm your organisation's details</h1>
+
+        <p class="gov-body">These are the details we found on UKRLP for {{ data['org-ukprn'] }}.</p>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              YOUR COMPANY NAME LTD
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] != "11110001") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trading name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Your Trading Name
+            </dd>
+          </div>
+          {% endif %}
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 Romford Road<br>Wellington<br>Telford<br>CV66 6BB
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] != "11110001") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="govuk-summary-list__value">
+              yourcompanyname.co.uk
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if these details are wrong?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Contact UKRLP helpdesk on 0345 202 1600 or <a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
+            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+  
+        {{ govukButton({
+          text: "Confirm and sign out",
+          href: "signout",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

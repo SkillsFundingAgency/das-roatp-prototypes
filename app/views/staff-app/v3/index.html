@@ -1,0 +1,30 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">ESFA Admin Services</h1>
+       <p>Use this service to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>evaluate applications</li>
+            <li>manage existing accounts</li>
+            <li>view and download reports</li>
+            <li>issue certificates</li>
+        </ul>
+       <a href="v3/esfa-sign-in" class="govuk-button govuk-button--start">Start now</a>
+    </div>
+</div>
+
+{% endblock %}

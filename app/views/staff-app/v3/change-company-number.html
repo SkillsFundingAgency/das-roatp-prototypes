@@ -1,0 +1,51 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "detail"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">Change company number for ABC Assessments</h1>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Company number"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-change-companynumber",
+                    name: "staff-change-companynumber",
+                    value: "1893839"
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

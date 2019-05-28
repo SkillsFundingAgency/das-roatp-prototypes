@@ -13,6 +13,7 @@ require('./routes/organisation/v0.js')(router);
 // Staff App
 require('./routes/staff-app/v2.js')(router);
 require('./routes/staff-app/v2a.js')(router);
+require('./routes/staff-app/v3.js')(router);
 
 // Eligibility Checker
 require('./routes/eligibility/bravo.js')(router); // Bravo

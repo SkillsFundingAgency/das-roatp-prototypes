@@ -1,0 +1,82 @@
+
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+		serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+		text: "Back",
+		href: "add-confirm"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="add-confirm" method="post" class="form">
+
+				{% set numberHtml %}
+					{{ govukInput({
+						id: "staff-add-charitynumber",
+						name: "staff-add-charitynumber",
+						type: "text",
+						classes: "govuk-!-width-two-thirds",
+						value: data['staff-add-charitynumber'],
+						label: {
+							text: "Enter charity number"
+						},
+						attributes: {
+							spellcheck: "false"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "staff-add-charitynumber-conditional",
+					name: "staff-add-hascharitynumber",
+					fieldset: {
+						legend: {
+							text: "Does the organisation have a charity number?",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+						{
+							value: "yes",
+							text: "Yes",
+							checked: checked("staff-add-hascharitynumber", "yes"),
+							conditional: {
+								html: numberHtml
+							}
+						},
+						{
+							value: "no",
+							checked: checked("staff-add-hascharitynumber", "no"),
+							text: "No"
+						}
+					]
+				}) }}
+				
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+	  
+{% endblock %}
+	  

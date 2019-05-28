@@ -1,0 +1,82 @@
+{% set serviceName = "ESFA admin services" %}
+
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "add-confirm"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="add-confirm" method="post" class="form">
+
+				{% set tradingHtml %}
+					{{ govukInput({
+						id: "staff-add-tradingname",
+						name: "staff-add-tradingname",
+						type: "text",
+						classes: "govuk-!-width-two-thirds",
+						value: data['staff-add-tradingname'],
+						label: {
+							text: "Trading name"
+						},
+						attributes: {
+							spellcheck: "false"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "staff-add-tradingname-conditional",
+					name: "staff-add-hastradingname",
+					fieldset: {
+						legend: {
+							text: "Does the organisation have a trading name?",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+						{
+							value: "yes",
+							text: "Yes",
+							checked: checked("staff-add-hastradingname", "yes"),
+							conditional: {
+								html: tradingHtml
+							}
+						},
+						{
+							value: "no",
+							checked: checked("staff-add-hastradingname", "no"),
+							text: "No"
+						}
+					]
+				}) }}
+				
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

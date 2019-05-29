@@ -101,12 +101,40 @@ module.exports = function (router) {
 
 	// Sole trader details
 	router.post('/application/v0/organisation/org-legalstatus-sole', function (req, res) {
+
+		req.session.data['org-legalstatus-sole-dob-monthname'] = monthNumToName(req.session.data['org-legalstatus-sole-dob-month'])
 		
-		// Do we need to ask if they have a website?
-		//res.redirect('/application/v0/organisation/org-website')
+		res.redirect('/application/v0/organisation/org-legalstatus-sole-confirm')
 
 	})
 
+	// Sole trader details confirmation
+	router.post('/application/v0/organisation/org-legalstatus-sole-confirm', function (req, res) {
+		res.redirect('/application/v0/organisation/org-website')
+	})
+
+
+	// Partnership details 
+	/*router.post('/application/v0/organisation/org-trustees-declare', function (req, res) {
+
+		var newTrustee = {
+			'name': req.session.data['org-trustee-name'],
+			'dob_month': monthNumToName(req.session.data['org-trustee-dob-month']),
+			'dob_year': req.session.data['org-trustee-dob-year']
+		}
+
+		req.session.data['org-trustee-name'] = null
+		req.session.data['org-trustee-dob-month'] = null
+		req.session.data['org-trustee-dob-year'] = null
+
+		if (!req.session.data['org-trustees']) {
+			req.session.data['org-trustees'] = []
+		}
+		req.session.data['org-trustees'].push(newTrustee)
+
+		res.redirect('/application/v0/organisation/org-trustees-confirm')
+		
+	})*/
 	
 
 	// Confirm company details

@@ -115,26 +115,48 @@ module.exports = function (router) {
 
 
 	// Partnership details 
-	/*router.post('/application/v0/organisation/org-trustees-declare', function (req, res) {
+	router.post('/application/v0/organisation/org-legalstatus-partnership', function (req, res) {
 
-		var newTrustee = {
-			'name': req.session.data['org-trustee-name'],
-			'dob_month': monthNumToName(req.session.data['org-trustee-dob-month']),
-			'dob_year': req.session.data['org-trustee-dob-year']
+		var newPartner = {
+			'name': req.session.data['org-partnership-name'],
+			'dob_month': monthNumToName(req.session.data['org-partnership-dob-month']),
+			'dob_year': req.session.data['org-partnership-dob-year']
 		}
 
-		req.session.data['org-trustee-name'] = null
-		req.session.data['org-trustee-dob-month'] = null
-		req.session.data['org-trustee-dob-year'] = null
+		req.session.data['org-partnership-name'] = null
+		req.session.data['org-partnership-dob-month'] = null
+		req.session.data['org-partnership-dob-year'] = null
 
-		if (!req.session.data['org-trustees']) {
-			req.session.data['org-trustees'] = []
+		if (!req.session.data['org-partners']) {
+			req.session.data['org-partners'] = []
+			var firstPartner = true;
+		} else {
+			var firstPartner = false;
 		}
-		req.session.data['org-trustees'].push(newTrustee)
-
-		res.redirect('/application/v0/organisation/org-trustees-confirm')
+		req.session.data['org-partners'].push(newPartner)
 		
-	})*/
+		if (firstPartner) {
+			res.redirect('/application/v0/organisation/org-legalstatus-partnership-choice')
+		} else {
+			res.redirect('/application/v0/organisation/org-legalstatus-partnership-confirm')
+		}
+		
+	})
+	
+
+	// Add partner choice
+	router.post('/application/v0/organisation/org-legalstatus-partnership-choice', function (req, res) {
+
+		res.redirect('/application/v0/organisation/org-legalstatus-partnership')
+
+	})
+
+	// Confirm partner details
+	router.post('/application/v0/organisation/org-legalstatus-partnership-confirm', function (req, res) {
+
+		res.redirect('/application/v0/organisation/org-website')
+
+	})
 	
 
 	// Confirm company details

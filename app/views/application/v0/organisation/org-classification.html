@@ -13,8 +13,9 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-peopleincontrol"
+    href: "org-xxx" 
   }) }}
+  <!-- Dynamic back link required -->
 {% endblock %}
 
 {% block content %}
@@ -24,74 +25,59 @@
 
     <form action="" method="post" class="form">
 
-      {% if (data['org-selectedroute'] == "employer") %}
-
       {{ govukRadios({
         idPrefix: "org-classification",
         name: "org-classification",
         fieldset: {
           legend: {
-            text: "What is your organisation?",
+            text: "What is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "education",
-            text: "An educational institute",
-            checked: checked("org-classification", "education")
+            value: "public-service-mutual",
+            text: "A public service mutual",
+            hint: {
+              text: "An organisation that has left the public sector but still delivers public services."
+            },
+            checked: checked("org-classification", "public-service-mutual")
           },
           {
-            value: "psb",
-            text: "A public sector body",
-            checked: checked("org-classification", "psb")
+            value: "sheltered-workshop",
+            text: "A sheltered workshop",
+            hint: {
+              text: "An organisation that provides employment opportunities for individuals who are developmentally, physically, or mentally impaired."
+            },
+            checked: checked("org-classification", "sheltered-workshop")
+          },
+          {
+            value: "sme",
+            text: "A small or medium enterprise (SME)",
+            hint: {
+              html: 'As defined by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en">European Commission</a>.'
+            },
+            checked: checked("org-classification", "sme")
+          },
+          {
+            value: "third-sector",
+            text: "Third sector",
+            hint: {
+              text: "A voluntary or community organisation. For example, a charity."
+            },
+            checked: checked("org-classification", "third-sector")
           },
           {
             value: "none",
             text: "None of the above",
+            hint: {
+              text: ""
+            },
             checked: checked("org-classification", "none")
           }
         ]
       }) }}
-
-      {% else %}
-
-      {{ govukRadios({
-        idPrefix: "org-classification",
-        name: "org-classification",
-        fieldset: {
-          legend: {
-            text: "What is your organisation?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "education",
-            text: "An educational institute",
-            checked: checked("org-classification", "education")
-          },
-          {
-            value: "employer",
-            text: "An employer training apprentices in other organisations",
-            checked: checked("org-classification", "employer")
-          },
-          {
-            value: "psb",
-            text: "A public sector body",
-            checked: checked("org-classification", "psb")
-          },
-          {
-            value: "training",
-            text: "A training organisation or agency",
-            checked: checked("org-classification", "training")
-          }
-        ]
-      }) }}
-
-      {% endif %}
 
       {{ govukButton({
         text: "Save and continue",

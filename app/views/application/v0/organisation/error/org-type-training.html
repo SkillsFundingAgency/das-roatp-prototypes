@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -22,48 +22,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="" method="post" class="form">
+    <form action="/application/v0/organisation/org-type-training" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-psb",
-        name: "org-classification-psb",
+        idPrefix: "org-type-training",
+        name: "org-type-training",
         fieldset: {
           legend: {
-            text: "What type of public sector body is your organisation?",
+            text: "What type of training organisation or agency is your organisation?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "nhs",
-            text: "NHS Trust"
+            value: "ata",
+            text: "Apprenticeship Training Agency"
           },
           {
-            value: "police",
-            text: "Police"
+            value: "itp",
+            text: "Independent Training Providers"
           },
           {
-            value: "fire-auth",
-            text: "Fire Authority"
-          },
-          {
-            value: "gov-dept",
-            text: "Government department"
-          },
-          {
-            value: "local-auth",
-            text: "Local authority"
-          },
-          {
-            value: "executive-agency",
-            text: "Executive agency"
-          },
-          {
-            value: "ndpb",
-            text: "Non-departmental public body (NDPB)"
+            value: "gta",
+            text: "Group Training Association"
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Select your type of training organisation or agency."
+        }
       }) }}
 
       {{ govukButton({

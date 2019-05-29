@@ -24,14 +24,14 @@
 
     <form action="" method="post" class="form">
 
-      {% set companynumberHtml %}
+      {% set companydetailsHtml %}
         {{ govukInput({
           id: "org-parentcompany-companynumber",
           name: "org-parentcompany-companynumber",
           type: "text",
           classes: "govuk-!-width-one-third",
           label: {
-            text: "Enter company number"
+            text: "Company number"
           },
           attributes: {
             spellcheck: "false"
@@ -57,7 +57,7 @@
             value: "yes",
             text: "Yes",
             conditional: {
-              html: companynumberHtml
+              html: companydetailsHtml
             }
           },
           {

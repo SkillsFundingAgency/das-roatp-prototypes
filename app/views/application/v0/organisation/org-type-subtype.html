@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-peopleincontrol"
   }) }}
 {% endblock %}
 
@@ -22,51 +22,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/application/v0/organisation/org-classification-psb" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-psb",
-        name: "org-classification-psb",
+        idPrefix: "org-type-subtype",
+        name: "org-type-subtype",
         fieldset: {
           legend: {
-            text: "What type of public sector body is your organisation?",
+            text: "How will YOUR COMPANY NAME LTD train its apprentices?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "nhs",
-            text: "NHS Trust"
+            value: "own-org",
+            text: "In your own organisation",
+            checked: checked("org-type-subtype", "own-org")
           },
           {
-            value: "police",
-            text: "Police"
+            value: "connected-org",
+            text: "In a connected organisation",
+            checked: checked("org-type-subtype", "connected-org")
           },
           {
-            value: "fire-auth",
-            text: "Fire Authority"
-          },
-          {
-            value: "gov-dept",
-            text: "Government department"
-          },
-          {
-            value: "local-auth",
-            text: "Local authority"
-          },
-          {
-            value: "executive-agency",
-            text: "Executive agency"
-          },
-          {
-            value: "ndpb",
-            text: "Non-departmental public body (NDPB)"
+            value: "both",
+            text: "In both your own and connected organisations",
+            checked: checked("org-type-subtype", both)
           }
-        ],
-        errorMessage: {
-          text: "Select your type of public sector body."
-        }
+        ]
       }) }}
 
       {{ govukButton({

@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -25,11 +25,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-training",
-        name: "org-classification-training",
+        idPrefix: "org-type-training",
+        name: "org-type-training",
         fieldset: {
           legend: {
-            text: "What type of training organisation or agency is your organisation?",
+            text: "What training organisation or agency is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }

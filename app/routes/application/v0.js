@@ -162,11 +162,17 @@ module.exports = function (router) {
 	// Confirm company details
 	router.post('/application/v0/organisation/org-confirmorgdetails', function (req, res) {
 
-		res.redirect('/application/v0/organisation/org-parentcompany')
+		//res.redirect('/application/v0/organisation/org-parentcompany')
+		if (req.session.data['org-ukprn'] == "11110001"){
+			// Org has no website in UKRLP
+			res.redirect('/application/v0/organisation/org-website')
+		} else {
+			res.redirect('/application/v0/organisation/org-trading')
+		}
 
 	})
 
-	// Parent company
+	/* Parent company
 	router.post('/application/v0/organisation/org-parentcompany', function (req, res) {
 
 		let org_parentcompany = req.session.data['org-parentcompany']
@@ -196,7 +202,7 @@ module.exports = function (router) {
 			res.redirect('/application/v0/organisation/org-trading')
 		}
 
-	})
+	}) */
 
 	// Website
 	router.post('/application/v0/organisation/org-website', function (req, res) {

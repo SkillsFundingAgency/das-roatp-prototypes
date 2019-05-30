@@ -53,13 +53,15 @@
           {
             value: "yes",
             text: "Yes",
+            checked: checked("org-website", "yes"),
             conditional: {
               html: websiteHtml
             }
           },
           {
             value: "no",
-            text: "No"
+            text: "No",
+            checked: checked("org-website", "no")
           }
         ]
       }) }}

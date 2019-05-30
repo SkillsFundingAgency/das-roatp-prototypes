@@ -80,6 +80,8 @@ module.exports = function (router) {
 			res.redirect('/application/v0/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110005') { // Not a company
 			res.redirect('/application/v0/organisation/org-legalstatus')
+		} else if (org_ukprn === '11110006') { // Organisation with a parent company
+			res.redirect('/application/v0/organisation/org-confirmorgdetails')
 		} else {
 			res.redirect('/application/v0/organisation/error/org-ukprn')
 		}

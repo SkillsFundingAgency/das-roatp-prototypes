@@ -14,12 +14,23 @@
 {% block content %}
 
 
-	{% if showMessage == true %}
+	{% if showAdded == true %}
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-full govuk-!-margin-bottom-9">
 
 				{{ govukPanel({
 					titleText: data['staff-add-orgname'] + " has been added"
+				}) }}
+		
+			</div>
+		</div>
+	{% endif %}
+	{% if showUploaded == true %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full govuk-!-margin-bottom-9">
+
+				{{ govukPanel({
+					titleText: "File uploaded"
 				}) }}
 		
 			</div>
@@ -61,7 +72,7 @@ hint: {
 				<li><a href="add-ukprn">Add a new training provider</a></li>
 				<li><a href="#">Download list of training providers</a></li>
 				<li><a href="#">Download FAT file</a></li>
-				<li><a href="upload">Upload last application success dates</a></li>
+				<li><a href="upload">Upload a 'application determined date’ file</a></li>
 			</ul>
 
 		</div>

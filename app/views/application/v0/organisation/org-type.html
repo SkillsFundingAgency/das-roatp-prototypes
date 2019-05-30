@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "dec-company"
+    href: "org-peopleincontrol"
   }) }}
 {% endblock %}
 
@@ -22,16 +22,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/application/v0/organisation/org-classification" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {% if (data['org-selectedroute'] == "employer") %}
 
       {{ govukRadios({
-        idPrefix: "org-classification",
-        name: "org-classification",
+        idPrefix: "org-type",
+        name: "org-type",
         fieldset: {
           legend: {
-            text: "What is your organisation?",
+            text: "What type of organisation is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -40,32 +40,29 @@
           {
             value: "education",
             text: "An educational institute",
-            checked: checked("org-classification", "education")
+            checked: checked("org-type", "education")
           },
           {
             value: "psb",
             text: "A public sector body",
-            checked: checked("org-classification", "psb")
+            checked: checked("org-type", "psb")
           },
           {
             value: "none",
             text: "None of the above",
-            checked: checked("org-classification", "none")
+            checked: checked("org-type", "none")
           }
-        ],
-        errorMessage: {
-          text: "Select your type of organisation."
-        }
+        ]
       }) }}
 
       {% else %}
 
       {{ govukRadios({
-        idPrefix: "org-classification",
-        name: "org-classification",
+        idPrefix: "org-type",
+        name: "org-type",
         fieldset: {
           legend: {
-            text: "What is your organisation?",
+            text: "What type of organisation is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -74,27 +71,24 @@
           {
             value: "education",
             text: "An educational institute",
-            checked: checked("org-classification", "education")
+            checked: checked("org-type", "education")
           },
           {
             value: "employer",
             text: "An employer training apprentices in other organisations",
-            checked: checked("org-classification", "employer")
+            checked: checked("org-type", "employer")
           },
           {
             value: "psb",
             text: "A public sector body",
-            checked: checked("org-classification", "psb")
+            checked: checked("org-type", "psb")
           },
           {
             value: "training",
             text: "A training organisation or agency",
-            checked: checked("org-classification", "training")
+            checked: checked("org-type", "training")
           }
-        ],
-        errorMessage: {
-          text: "Select your type of organisation."
-        }
+        ]
       }) }}
 
       {% endif %}

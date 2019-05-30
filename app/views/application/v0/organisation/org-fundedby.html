@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification-education"
+    href: "org-type-education"
   }) }}
 {% endblock %}
 
@@ -29,7 +29,7 @@
           name: "org-fundedby",
           fieldset: {
             legend: {
-              text: "Is your organisation " + data['org-fundedby'] + "?",
+              text: "Is YOUR COMPANY NAME LTD " + data['org-fundedbytext'] + "?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

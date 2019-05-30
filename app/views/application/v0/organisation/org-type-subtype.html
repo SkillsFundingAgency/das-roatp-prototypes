@@ -25,11 +25,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-subclassification",
-        name: "org-subclassification",
+        idPrefix: "org-type-subtype",
+        name: "org-type-subtype",
         fieldset: {
           legend: {
-            text: "Where will you be training apprentices?",
+            text: "How will YOUR COMPANY NAME LTD train its apprentices?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -38,17 +38,17 @@
           {
             value: "own-org",
             text: "In your own organisation",
-            checked: checked("org-subclassification", "own-org")
+            checked: checked("org-type-subtype", "own-org")
           },
           {
             value: "connected-org",
             text: "In a connected organisation",
-            checked: checked("org-subclassification", "connected-org")
+            checked: checked("org-type-subtype", "connected-org")
           },
           {
             value: "both",
             text: "In both your own and connected organisations",
-            checked: checked("org-subclassification", both)
+            checked: checked("org-type-subtype", both)
           }
         ]
       }) }}

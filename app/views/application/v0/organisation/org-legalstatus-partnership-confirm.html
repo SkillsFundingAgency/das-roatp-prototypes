@@ -24,7 +24,7 @@
 
       <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD's trustees</h1>
+        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD's partners</h1>
         
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -35,16 +35,16 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-          {% for trustee in data['org-trustees'] %}
+          {% for partner in data['org-partners'] %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">{{ trustee.name }}</td>
-              <td class="govuk-table__cell">{{ trustee.dob_month }} {{ trustee.dob_year }}</td>
+              <td class="govuk-table__cell" scope="row">{{ partner.name }}</td>
+              <td class="govuk-table__cell">{{ partner.dob_month }} {{ partner.dob_year }}</td>
             </tr>
           {% endfor %}
           </tbody>
         </table>
 
-        <p class="govuk_body"><a href="org-trustees-declare">Add another trustee</a></p>
+        <p class="govuk_body"><a href="org-legalstatus-partnership-choice">Add another partner</a></p>
 
         {{ govukButton({
           text: "Confirm and continue",

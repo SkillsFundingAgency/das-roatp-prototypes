@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -25,11 +25,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-education",
-        name: "org-classification-education",
+        idPrefix: "org-type-education",
+        name: "org-type-education",
         fieldset: {
           legend: {
-            text: "What type of educational institute is your organisation?",
+            text: "What educational institute is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -38,42 +38,42 @@
           {
             value: "national-college",
             text: "National College",
-            checked: checked("org-classification-education", "national-college")
+            checked: checked("org-type-education", "national-college")
           },
           {
             value: "academy",
             text: "Academy",
-            checked: checked("org-classification-education", "academy")
+            checked: checked("org-type-education", "academy")
           },
           {
             value: "multi-academy",
             text: "Multi-Academy",
-            checked: checked("org-classification-education", "multi-academy")
+            checked: checked("org-type-education", "multi-academy")
           },
           {
             value: "school",
             text: "School",
-            checked: checked("org-classification-education", "school")
+            checked: checked("org-type-education", "school")
           },
           {
             value: "sixth-form",
             text: "Sixth Form College",
-            checked: checked("org-classification-education", "sixth-form")
+            checked: checked("org-type-education", "sixth-form")
           },
           {
             value: "hei",
             text: "Higher Education Institute ",
-            checked: checked("org-classification-education", "hei")
+            checked: checked("org-type-education", "hei")
           },
           {
             value: "gfe",
             text: "General Further Education College",
-            checked: checked("org-classification-education", "gfe")
+            checked: checked("org-type-education", "gfe")
           },
           {
             value: "fei",
             text: "Further Education Institute",
-            checked: checked("org-classification-education", "fei")
+            checked: checked("org-type-education", "fei")
           }
         ]
       }) }}

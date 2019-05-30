@@ -13,83 +13,66 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-ukprn"
+    href: "org-parentcompany"
   }) }}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form action="" method="post" class="form">
+    <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Confirm your organisation's details</h1>
+        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD parent company's details</h1>
 
-        <p class="gov-body">These are the details we found on UKRLP for {{ data['org-ukprn'] }}.</p>
+        <p class="gov-body">These are the details we found on Companies House for company number {{ data['org-parentcompany-companynumber'] }}.</p>
 
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Legal name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              YOUR COMPANY NAME LTD
-            </dd>
-          </div>
-
-          {% if (data['org-ukprn'] != "11110001") %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Trading name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Your Trading Name
-            </dd>
-          </div>
-          {% endif %}
-          
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Business address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              1 Romford Road<br>Wellington<br>Telford<br>CV66 6BB
-            </dd>
-          </div>
-
-          {% if (data['org-ukprn'] != "11110001") %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Website
-            </dt>
-            <dd class="govuk-summary-list__value">
-              yourcompanyname.co.uk
-            </dd>
-          </div>
-          {% endif %}
-
-          {% if (data['org-ukprn'] == "11110006") %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Parent company number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              04572014
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Parent company name
+              Company name
             </dt>
             <dd class="govuk-summary-list__value">
               PARENT COMPANY LTD
             </dd>
           </div>
-          {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['org-parentcompany-companynumber'] }}
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered office address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              32 Romford Road<br>Wellington<br>Telford<br>CV66 6BB
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Active
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Private limited company
+            </dd>
+          </div>
 
         </dl>
-        
+
         <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
@@ -97,7 +80,7 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-            <p>Contact UKRLP helpdesk on 0345 202 1600 or <a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
+            <p>Contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
             <p>After your changes have been confirmed, sign back in to continue with this application.</p>
           </div>
         </details>
@@ -113,8 +96,8 @@
           classes: "govuk-button--secondary"
         }) }}
 
-      </form>
-    </div>
+    </form>
   </div>
+</div>
 
 {% endblock %}

@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -22,11 +22,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="" method="post" class="form">
+    <form action="/application/v0/organisation/org-type-psb" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-psb",
-        name: "org-classification-psb",
+        idPrefix: "org-type-psb",
+        name: "org-type-psb",
         fieldset: {
           legend: {
             text: "What type of public sector body is your organisation?",
@@ -63,7 +63,10 @@
             value: "ndpb",
             text: "Non-departmental public body (NDPB)"
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Select your type of public sector body."
+        }
       }) }}
 
       {{ govukButton({

@@ -70,15 +70,15 @@
 
             <li class="app-task-list__item">
               {% if data['tl_org_people'] == "completed" %}
-                <a class="app-task-list__task-name" href="organisation/org-classification" aria-describedby="org-classification-completed">Organisation classification</a>
+                <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Organisation type</a>
               {% else %}
-                Organisation classification
+                Organisation type
               {% endif %}
-              {% if data['tl_org_classification'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="org-classification-status">In progress</strong>
-              {% elseif data['tl_org_classification'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="org-classification-status">Completed</strong>
-              {% elseif data['tl_org_classification'] == "next" %}
+              {% if data['tl_org_type'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="org-type-status">In progress</strong>
+              {% elseif data['tl_org_type'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-type-status">Completed</strong>
+              {% elseif data['tl_org_type'] == "next" %}
                 <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
             </li>

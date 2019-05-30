@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-confirmorgdetails"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -24,45 +24,44 @@
 
     <form action="" method="post" class="form">
 
-      {% set companydetailsHtml %}
-        {{ govukInput({
-          id: "org-parentcompany-companynumber",
-          name: "org-parentcompany-companynumber",
-          type: "text",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Company number"
-          },
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-      {% endset -%}
-
       {{ govukRadios({
-        idPrefix: "org-parentcompany-conditional",
-        name: "org-parentcompany",
+        idPrefix: "org-type-psb",
+        name: "org-type-psb",
         fieldset: {
           legend: {
-            text: "Does your company have a UK parent company?",
+            text: "What public sector body is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: "This is when another company owns at least 75% of the shares in your company."
-        },
         items: [
           {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: companydetailsHtml
-            }
+            value: "nhs",
+            text: "NHS Trust"
           },
           {
-            value: "no",
-            text: "No"
+            value: "police",
+            text: "Police"
+          },
+          {
+            value: "fire-auth",
+            text: "Fire Authority"
+          },
+          {
+            value: "gov-dept",
+            text: "Government department"
+          },
+          {
+            value: "local-auth",
+            text: "Local authority"
+          },
+          {
+            value: "executive-agency",
+            text: "Executive agency"
+          },
+          {
+            value: "ndpb",
+            text: "Non-departmental public body (NDPB)"
           }
         ]
       }) }}

@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-parentcompany"
   }) }}
 {% endblock %}
 
@@ -22,51 +22,31 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/application/v0/organisation/org-classification-psb" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-psb",
-        name: "org-classification-psb",
+        idPrefix: "org-partnership-choice",
+        name: "org-partnership-choice",
         fieldset: {
           legend: {
-            text: "What type of public sector body is your organisation?",
+            text: "What is " + data['org-partners'][0]['name'] + "'s partner",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "This includes changing your last name or spelling your name differently."
+        },
         items: [
           {
-            value: "nhs",
-            text: "NHS Trust"
+            value: "individual",
+            text: "An individual"
           },
           {
-            value: "police",
-            text: "Police"
-          },
-          {
-            value: "fire-auth",
-            text: "Fire Authority"
-          },
-          {
-            value: "gov-dept",
-            text: "Government department"
-          },
-          {
-            value: "local-auth",
-            text: "Local authority"
-          },
-          {
-            value: "executive-agency",
-            text: "Executive agency"
-          },
-          {
-            value: "ndpb",
-            text: "Non-departmental public body (NDPB)"
+            value: "organisation",
+            text: "An organisation"
           }
-        ],
-        errorMessage: {
-          text: "Select your type of public sector body."
-        }
+        ]
       }) }}
 
       {{ govukButton({

@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-classification"
+    href: "org-type"
   }) }}
 {% endblock %}
 
@@ -22,14 +22,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/application/v0/organisation/org-classification-training" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-classification-training",
-        name: "org-classification-training",
+        idPrefix: "org-type-training",
+        name: "org-type-training",
         fieldset: {
           legend: {
-            text: "What type of training organisation or agency is your organisation?",
+            text: "What training organisation or agency is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -47,10 +47,7 @@
             value: "gta",
             text: "Group Training Association"
           }
-        ],
-        errorMessage: {
-          text: "Select your type of training organisation or agency."
-        }
+        ]
       }) }}
 
       {{ govukButton({

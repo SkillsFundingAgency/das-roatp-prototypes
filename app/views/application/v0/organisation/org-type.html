@@ -4,6 +4,12 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['org-ukprn'] == "11110004" %}
+  {% set backlink_type = "org-trustees-confirm" %}
+{% else %}
+  {% set backlink_type = "org-peopleincontrol" %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -13,7 +19,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-peopleincontrol"
+    href: backlink_type
   }) }}
 {% endblock %}
 

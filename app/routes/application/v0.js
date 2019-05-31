@@ -213,7 +213,7 @@ module.exports = function (router) {
 
 	})
 
-
+	/*
 	// Started trading date
 	router.post('/application/v0/organisation/org-trading', function (req, res) {
 
@@ -233,7 +233,27 @@ module.exports = function (router) {
 			}
 			
 		}
+	}) */
+	
+	router.post('/application/v0/organisation/org-trading', function (req, res) {
+
+		if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
+			res.redirect('/application/v0/organisation/shutter/org-trading')
+		} else {
+
+			req.session.data['tl_org_details'] = 'completed'
+			req.session.data['tl_org_people'] = 'next'
+
+			if (req.session.data['org-ukprn'] === "11110004") { 
+				res.redirect('/application/v0/organisation/org-trustees-declare')
+			} else {
+				res.redirect('/application/v0/organisation/org-peopleincontrol')
+			}
+
+		}
+
 	})
+
 
 	
 	// Confirm people in control

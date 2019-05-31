@@ -4,6 +4,22 @@
   Select route - RoATP Organisation Prototype
 {% endblock %}
 
+
+
+{% if data['org-ukprn'] == "11110001" %}
+  {% set backlink_trading = "org-website" %}
+{% else %}
+  {% if data['org-legalstatus'] == "sole" %}
+    {% set backlink_trading = "org-website" %}
+  {% else %}
+    {% if data['org-legalstatus'] == "partnership" %}
+      {% set backlink_trading = "org-website" %}
+    {% else %}
+      {% set backlink_trading = "org-confirmorgdetails" %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -13,7 +29,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-confirmorgdetails"
+    href: backlink_trading
   }) }}
 {% endblock %}
 

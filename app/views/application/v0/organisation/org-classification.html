@@ -4,7 +4,21 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['org-type'] == "employer" %}
+  {% set backlink_classification = "org-type" %}
+{% endif %}
+{% if data['org-type'] == "education" %}
+  {% set backlink_classification = "org-fundedby" %}
+{% endif %}
+{% if data['org-type'] == "psb" %}
+  {% set backlink_classification = "org-type-psb" %}
+{% endif %}
+{% if data['org-type'] == "training" %}
+  {% set backlink_classification = "org-type-training" %}
+{% endif %}
+
 {% block beforeContent %}
+
   {{ govukPhaseBanner({
     tag: {
       text: "beta"
@@ -13,9 +27,9 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-xxx" 
+    href: backlink_classification 
   }) }}
-  <!-- Dynamic back link required -->
+  
 {% endblock %}
 
 {% block content %}

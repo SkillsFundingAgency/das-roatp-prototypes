@@ -4,6 +4,16 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['org-legalstatus'] == "sole" %}
+  {% set backlink_type = "org-legalstatus-sole-confirm" %}
+{% else %}
+  {% if data['org-legalstatus'] == "partnership" %}
+    {% set backlink_type = "org-legalstatus-partnership-confirm" %}
+  {% else %}
+    {% set backlink_type = "org-peopleincontrol" %}
+  {% endif %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -13,7 +23,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-parentcompany"
+    href: backlink_type
   }) }}
 {% endblock %}
 
@@ -33,6 +43,7 @@
           label: {
             text: "Enter main website"
           },
+          value: data['org-website-address'],
           attributes: {
             spellcheck: "false"
           }

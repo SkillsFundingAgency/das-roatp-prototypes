@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-trustees-dob3"
+    href: "org-trustees-declare"
   }) }}
 {% endblock %}
 
@@ -26,27 +26,25 @@
         
         <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD's trustees</h1>
         
-        {{ govukTable({
-          firstCellIsHeader: false,
-          head: [
-            { text: "Name" },
-            { text: "Date of birth" }
-          ],
-          rows: [
-            [
-              { text: "Kent Brockman" },
-              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] }
-            ],
-            [
-              { text: "Nick Riviera" },
-              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] }
-            ],
-            [
-              { text: "Julius Hibbert" },
-              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] }
-            ]
-          ]
-        }) }}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Name</th>
+              <th class="govuk-table__header" scope="col">Date of birth</th>
+              <th class="govuk-table__header" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for trustee in data['org-trustees'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">{{ trustee.name }}</td>
+              <td class="govuk-table__cell">{{ trustee.dob_month }} {{ trustee.dob_year }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+        <p class="govuk_body"><a href="org-trustees-declare">Add another trustee</a></p>
 
         {{ govukButton({
           text: "Confirm and continue",

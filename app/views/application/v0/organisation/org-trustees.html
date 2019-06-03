@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-trustees-dob3"
+    href: "org-trading"
   }) }}
 {% endblock %}
 
@@ -24,29 +24,39 @@
 
       <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD's trustees</h1>
+        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD’s trustees</h1>
+
+        <p class="govuk-hint">These are the details we found on the Charities Commission.</p>
         
         {{ govukTable({
           firstCellIsHeader: false,
           head: [
-            { text: "Name" },
-            { text: "Date of birth" }
+            { text: "Name" }
           ],
           rows: [
             [
-              { text: "Kent Brockman" },
-              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] }
+              { text: "Kent Brockman" }
             ],
             [
-              { text: "Nick Riviera" },
-              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] }
+              { text: "Nick Riviera" }
             ],
             [
-              { text: "Julius Hibbert" },
-              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] }
+              { text: "Julius Hibbert" }
             ]
           ]
         }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if these details are wrong?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Contact the Charities Commission to <a href="https://www.gov.uk/change-your-charitys-details" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Confirm and continue",

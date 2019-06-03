@@ -118,21 +118,96 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              Upload financial information
-              <!--Exempt from a financial health assessment
-              <strong class="govuk-tag app-task-list__task-notrequired" id="org-details-notrequired">Not required</strong>-->
+              {% if (data['tl_org_type'] == "completed") and (data['tl_fin_upload'] != 'exempt') %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-details-status">Upload financial information</a>
+              {% else %}
+                Upload financial information
+              {% endif %}
+              {% if data['tl_fin_upload'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
+              {% elseif data['tl_fin_upload'] == "exempt" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="org-details-notrequired">Not required</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Criminal checks
+            <span class="app-task-list__section-number">3. </span> Policies and processes
+          </h2>
+
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="profile-ofsted-completed">Upload equality and diversity policy</a>
+              {% else %}
+                Upload equality and diversity policy
+              {% endif %}
+              {% if data['tl_pol_upload'] == "completed" %}
+              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
+              {% endif %}
+            </li>  
+          </ul>
+
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Delivery model
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['xxx'] == "completed" %}
-                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Employees</a>
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Sector information</a>
+              {% else %}
+                Sector information
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Employees experience and qualifications</a>
+              {% else %}
+                Employees experience and qualifications
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Planning</a>
+              {% else %}
+                Planning
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> Management
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                &nbsp;
+            </li>  
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">6. </span> Readiness to deliver
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                &nbsp;
+            </li>  
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">7. </span> Criminal checks
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Employees</a>
               {% else %}
                 Employees
               {% endif %}
@@ -146,10 +221,10 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if data['tl_org_convictions'] == "completed" %}
-                <a class="app-task-list__task-name" href="dec-creditordebt" aria-describedby="org-tl_org_compliance-status">The organisation</a>
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-tl_org_compliance-status">Your organisation</a>
               {% else %}
-                The organisation
+                Your organisation
               {% endif %}
               {% if data['tl_org_compliance'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-tl_org_compliance-status">In progress</strong>
@@ -164,77 +239,12 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Apprenticeship welfare
-          </h2>
-
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              {% if data['tl_wel_information'] == "completed" %}
-                <a class="app-task-list__task-name" href="profile-ofsted" aria-describedby="profile-ofsted-completed">Information XXX</a>
-              {% else %}
-                Information XXX
-              {% endif %}
-              {% if data['tl_wel_information'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% elseif data['tl_wel_information'] == "next" %}
-              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}
-            </li>  
-            <li class="app-task-list__item">
-                Training as a sub-contractor
-              {% if data['tl_profile_ofsted'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% endif %}
-            </li>  
-          </ul>
-
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">5. </span> Delivery model
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              {% if data['xxx'] == "completed" %}
-                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Sector information</a>
-              {% else %}
-                Sector information
-              {% endif %}
-            </li>
-            <li class="app-task-list__item">
-              {% if data['xxx'] == "completed" %}
-                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Planning</a>
-              {% else %}
-                Planning
-              {% endif %}
-            </li>
-            <li class="app-task-list__item">
-              {% if data['xxx'] == "completed" %}
-                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Employees experience and qualifications</a>
-              {% else %}
-                Employees experience and qualifications
-              {% endif %}
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">6. </span> Management
-          </h2>
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> Readinness to deliver
-          </h2>
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">8. </span> Finish
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['xxx'] == "completed" %}
-                <a class="app-task-list__task-name" href="org-convictions-company" aria-describedby="org-convictions-status">Check answers and send application</a>
+              {% if (data['tl_org_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Check answers and send application</a>
               {% else %}
                 Check answers and send application
               {% endif %}

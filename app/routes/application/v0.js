@@ -234,7 +234,7 @@ module.exports = function (router) {
 			
 		}
 	}) */
-	
+
 	router.post('/application/v0/organisation/org-trading', function (req, res) {
 
 		if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
@@ -245,7 +245,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_people'] = 'next'
 
 			if (req.session.data['org-ukprn'] === "11110004") { 
-				res.redirect('/application/v0/organisation/org-trustees-declare')
+				res.redirect('/application/v0/organisation/org-trustees')
 			} else {
 				res.redirect('/application/v0/organisation/org-peopleincontrol')
 			}
@@ -260,7 +260,7 @@ module.exports = function (router) {
 	router.post('/application/v0/organisation/org-peopleincontrol', function (req, res) {
 
 		if (req.session.data['org-ukprn'] === "11110003") {
-			res.redirect('/application/v0/organisation/org-trustees-declare')
+			res.redirect('/application/v0/organisation/org-trustees')
 		} else {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
@@ -268,8 +268,25 @@ module.exports = function (router) {
 		}
 	})
 
+	// Trustees from API
+	router.post('/application/v0/organisation/org-trustees', function (req, res) {
+		res.redirect('/application/v0/organisation/org-trustees-dob1')
+	})
+	router.post('/application/v0/organisation/org-trustees-dob1', function (req, res) {
+		req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
+		res.redirect('/application/v0/organisation/org-trustees-dob2')
+	})
+	router.post('/application/v0/organisation/org-trustees-dob2', function (req, res) {
+		req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
+		res.redirect('/application/v0/organisation/org-trustees-dob3')
+	})
+	router.post('/application/v0/organisation/org-trustees-dob3', function (req, res) {
+		req.session.data['org-trustee-dob3-monthname'] = monthNumToName(req.session.data['org-trustee-dob3-month'])
+		res.redirect('/application/v0/organisation/org-trustees-confirm')
+	})
+
 	
-	// Declare trustees
+	// Declare trustees - Manual Entry
 	router.post('/application/v0/organisation/org-trustees-declare', function (req, res) {
 
 		var newTrustee = {
@@ -292,7 +309,7 @@ module.exports = function (router) {
 	})
 
 	
-	// Confirm trustees
+	// Confirm trustees - Manual entry
 	router.post('/application/v0/organisation/org-trustees-confirm', function (req, res) {
 		req.session.data['tl_org_people'] = 'completed'
 		req.session.data['tl_org_type'] = 'next'
@@ -450,48 +467,17 @@ module.exports = function (router) {
 	router.post('/application/v0/organisation/org-classification', function (req, res) {
 
 		req.session.data['tl_org_type'] = 'completed'
+		if ( req.session.data['fha-exempt'] === 'yes'){
+			req.session.data['tl_fin_upload'] = 'exempt'
+			req.session.data['tl_pol_upload'] = 'next'
+		} else {
+			req.session.data['tl_fin_upload'] = 'next'
+		}
 		res.redirect('/application/v0/task-list')
 
 	})
 
 
-	// Criminal Convictions - Company
-	router.post('/application/v0/organisation/org-convictions-company', function (req, res) {
-
-		let org_convict_company = req.session.data['org-convictions-company']
-
-		if (org_convict_company === 'no') {
-			req.session.data['tl_org_convictions'] = 'completed'
-			req.session.data['tl_org_compliance'] = 'next'
-			res.redirect('/application/v0/organisation/org-duediligence-creditordebt')
-		} else if (org_convict_company === 'yes') {
-			req.session.data['tl_org_convictions'] = 'inprogress'
-			res.redirect('/application/v0/organisation/org-duediligence-creditordebt')
-		} else {
-			res.redirect('/application/v0/organisation/error/org-convictions-company')
-		}
-	})
-
-
-	// Org in debt with creditors?
-	router.post('/application/v0/organisation/org-duediligence-creditordebt', function (req, res) {
-
-		let org_duediligence_creditordebt = req.session.data['org-duediligence-creditordebt']
-		req.session.data['tl_org_compliance'] = 'inprogress'
-
-		res.redirect('/application/v0/organisation/org-duediligence-last3years')
-
-	})
-
-	// Apply to organisation 2 (safegurding and whistleblowing)
-	router.post('/application/v0/organisation/org-duediligence-organisation-2', function (req, res) {
-
-		req.session.data['tl_org_compliance'] = 'completed'
-		req.session.data['tl_org_type'] = 'next'
-
-		res.redirect('/application/v0/organisation/org-type')
-
-	})
 	// Sign out
 	router.get('/application/v0/signout', function (req, res) {
 

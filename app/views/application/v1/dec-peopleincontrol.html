@@ -1,0 +1,68 @@
+{% extends "layout_application.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-convictions-last3years"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">In the last 3 years, have any of the following applied to your ‘people in control’?</h1>
+  
+      <p class="govuk-body">Tell us if your ‘people in control’:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>failed to repay at least £50,000 to the ESFA or any other public body</li>
+        <li>failed to follow the conditions of funding under the ESFA funding agreement or sub-contract</li>
+      </ul>
+
+      <form action="dec-peopleincontrol-2" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "dec-peopleincontrol",
+          name: "dec-peopleincontrol",
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-peopleincontrol", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-peopleincontrol", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+  
+        {{ govukButton({
+          text: "Save and sign out",
+          href: "signout-a",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

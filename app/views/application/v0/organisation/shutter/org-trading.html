@@ -21,8 +21,16 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">YOUR COMPANY NAME LTD is not eligible to apply to the register of apprenticeship training providers</h1>
-      <p class="govuk-body">To apply as a {% if data['org-selectedroute'] == "supporting" %}supporting{% else %}main or an employer{% endif %} provider, your organisation must have been trading for at least {% if data['org-selectedroute'] == "supporting" %}3{% else %}12{% endif %} months.</p>
+      <h1 class="govuk-heading-l">YOUR COMPANY NAME LTD is not eligible to join the register of apprenticeship training providers</h1>
+      <p class="govuk-body">To apply as 
+        {% if data['org-selectedroute'] == "supporting" %}
+          a supporting
+        {% elseif data['org-selectedroute'] == "main" %}
+          a main
+        {% else %}
+          an employer
+        {% endif %}
+        provider, your organisation must have been trading for at least {% if data['org-selectedroute'] == "supporting" %}3{% else %}12{% endif %} months.</p>
       <p class="govuk-body">You can try again once your organisation has enough trading history.</p>
       <p><a class ="govuk-link" href="#">Back to GOV.UK</a></p>
     </div>

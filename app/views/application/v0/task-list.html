@@ -55,9 +55,9 @@
             
             <li class="app-task-list__item">
               {% if data['tl_org_details'] == "completed" %}
-                <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">People in control</a>
+                <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Who's in control</a>
               {% else %}
-                People in control
+                Who's in control
               {% endif %}
               {% if data['tl_org_people'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-people-status">In progress</strong>
@@ -70,9 +70,9 @@
 
             <li class="app-task-list__item">
               {% if data['tl_org_people'] == "completed" %}
-                <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Organisation type</a>
+                <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Classifying your organisation</a>
               {% else %}
-                Organisation type
+                Classifying your organisation
               {% endif %}
               {% if data['tl_org_type'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-type-status">In progress</strong>
@@ -119,9 +119,9 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_type'] == "completed") and (data['tl_fin_upload'] != 'exempt') %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="org-details-status">Upload financial information</a>
+                <a class="app-task-list__task-name" href="#" aria-describedby="org-details-status">Upload financial evidence</a>
               {% else %}
-                Upload financial information
+                Upload financial evidence
               {% endif %}
               {% if data['tl_fin_upload'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>

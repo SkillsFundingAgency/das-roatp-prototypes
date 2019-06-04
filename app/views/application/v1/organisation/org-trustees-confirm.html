@@ -1,0 +1,66 @@
+{% extends "layout_application.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trustees-dob3"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Confirm YOUR COMPANY NAME LTD's trustees</h1>
+        
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            { text: "Name" },
+            { text: "Date of birth" }
+          ],
+          rows: [
+            [
+              { text: "Kent Brockman" },
+              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] }
+            ],
+            [
+              { text: "Nick Riviera" },
+              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] }
+            ],
+            [
+              { text: "Julius Hibbert" },
+              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] }
+            ]
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+  
+        {{ govukButton({
+          text: "Confirm and sign out",
+          href: "signout",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -25,20 +25,17 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
+			<h1 class="govuk-heading-xl">What is the application determined date for this organisation?</h1>
+
+			<p class="govuk-body">This is the date of when feedback was given to the training provider.</p>
+
 			<form action="add-fromukrlp-determined-a" method="post" class="form">
 
 				{{ govukDateInput({
 					id: "staff-add-determined",
 					namePrefix: "staff-add-determined",
-					fieldset: {
-						legend: {
-						text: "What is the organisation's application determined date?",
-						isPageHeading: true,
-						classes: "govuk-fieldset__legend--xl"
-						}
-					}, 
 					hint: {
-						text: "This is the date of when feedback was given to the training provider."
+						text: "For example, 24 04 2019"
 					}
 				}) }}
 

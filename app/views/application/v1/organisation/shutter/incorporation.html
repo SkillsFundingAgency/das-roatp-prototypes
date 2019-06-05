@@ -1,0 +1,39 @@
+{% extends "layout_application.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "../org-ukprn"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">YOUR COMPANY NAME LTD is not eligible to join the register of apprenticeship training providers</h1>
+      <p class="govuk-body">To apply as 
+        {% if data['org-selectedroute'] == "supporting" %}
+          a supporting
+        {% elseif data['org-selectedroute'] == "main" %}
+          a main
+        {% else %}
+          an employer
+        {% endif %}
+        provider, your organisation must have been incorporated for at least {% if data['org-selectedroute'] == "supporting" %}3{% else %}12{% endif %} months.</p>
+      <p class="govuk-body">You can try again once your organisation has enough trading history.</p>
+      <p><a class ="govuk-link" href="#">Back to GOV.UK</a></p>
+    </div>
+  </div>
+
+{% endblock %}

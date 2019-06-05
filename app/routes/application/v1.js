@@ -82,6 +82,8 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/org-legalstatus')
 		} else if (org_ukprn === '11110006') { // Organisation with a parent company
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
+		} else if (org_ukprn === '11110007') { // Incorporation date less than 12 months ago (3 months for supporting)
+			res.redirect('/application/v1/organisation/shutter/incorporation')
 		} else {
 			res.redirect('/application/v1/organisation/error/org-ukprn')
 		}
@@ -246,6 +248,8 @@ module.exports = function (router) {
 
 			if (req.session.data['org-ukprn'] === "11110004") { 
 				res.redirect('/application/v1/organisation/org-trustees')
+			} else if (req.session.data['org-ukprn'] === "11110005") { 
+				res.redirect('/application/v1/organisation/org-type')
 			} else {
 				res.redirect('/application/v1/organisation/org-peopleincontrol')
 			}

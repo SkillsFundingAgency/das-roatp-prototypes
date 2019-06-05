@@ -24,12 +24,22 @@
 
     <form action="/application/v1/organisation/org-type-psb" method="post" class="form">
 
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of public sector body",
+            href: "#org-type-psb-error"
+          }
+        ]
+      }) }}
+
       {{ govukRadios({
         idPrefix: "org-type-psb",
         name: "org-type-psb",
         fieldset: {
           legend: {
-            text: "What type of public sector body is your organisation?",
+            text: "What type of public sector body is YOUR COMPANY NAME LTD?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -65,7 +75,7 @@
           }
         ],
         errorMessage: {
-          text: "Select your type of public sector body."
+          text: "Select your type of public sector body"
         }
       }) }}
 

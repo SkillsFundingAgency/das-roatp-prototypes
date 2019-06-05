@@ -30,20 +30,33 @@
           firstCellIsHeader: false,
           head: [
             { text: "Name" },
-            { text: "Date of birth" }
+            { text: "Date of birth" },
+            { text: "" }
           ],
           rows: [
             [
               { text: "Kent Brockman" },
-              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] }
+              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] },
+              {
+                html: '<a href="org-trustees-dob1">Change</a>',
+                format: "numeric"
+              }
             ],
             [
               { text: "Nick Riviera" },
-              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] }
+              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] },
+              {
+                html: '<a href="org-trustees-dob2">Change</a>',
+                format: "numeric"
+              }
             ],
             [
               { text: "Julius Hibbert" },
-              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] }
+              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] },
+              {
+                html: '<a href="org-trustees-dob3">Change</a>',
+                format: "numeric"
+              }
             ]
           ]
         }) }}

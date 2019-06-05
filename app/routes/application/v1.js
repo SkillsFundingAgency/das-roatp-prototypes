@@ -291,7 +291,11 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/error/org-trustees-dob1')
 		} else {
 			req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
-			res.redirect('/application/v1/organisation/org-trustees-dob2')
+			if (req.session.data['org-trustee-dob3-month'] != '' && req.session.data['org-trustee-dob3-year'] != ''){
+				res.redirect('/application/v1/organisation/org-trustees-confirm')
+			} else {
+				res.redirect('/application/v1/organisation/org-trustees-dob2')
+			}
 		}
 	})
 
@@ -301,7 +305,11 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/error/org-trustees-dob2')
 		} else {
 			req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
-			res.redirect('/application/v1/organisation/org-trustees-dob3')
+			if (req.session.data['org-trustee-dob3-month'] != '' && req.session.data['org-trustee-dob3-year'] != ''){
+				res.redirect('/application/v1/organisation/org-trustees-confirm')
+			} else {
+				res.redirect('/application/v1/organisation/org-trustees-dob3')
+			}
 		}
 
 	})

@@ -24,6 +24,16 @@
 
     <form action="/application/v1/organisation/org-ukprn" method="post" class="form">
 
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter a valid UKPRN",
+              href: "#org-ukprn-error"
+            }
+          ]
+        }) }}
+
       <h1 class="govuk-heading-l">Enter your organisation's UK provider reference number (UKPRN)</h1>
 
       <p class="govuk-hint">This is your 8-digit number from the UK Register of Learning Providers.</p>

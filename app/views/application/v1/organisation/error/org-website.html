@@ -32,7 +32,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="" method="post" class="form">
+    <form action="/application/v1/organisation/org-website" method="post" class="form">
+
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select if your company has a website",
+              href: "#org-website-error"
+            }
+          ]
+        }) }}
 
       {% set websiteHtml %}
         {{ govukInput({
@@ -74,7 +84,10 @@
             text: "No",
             checked: checked("org-website", "no")
           }
-        ]
+        ],
+        errorMessage: {
+          text: "Select if your company has a website"
+        }
       }) }}
 
       {{ govukButton({

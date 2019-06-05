@@ -4,8 +4,10 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
-{% if data['org-ukprn'] == "11110004" %}
+{% if data['org-ukprn'] == "11110004" %} <!-- Charity without company number -->
   {% set backlink_type = "org-trustees-confirm" %}
+{% elseif data['org-ukprn'] == "11110005" %} <!-- Sole trader or partnership -->
+  {% set backlink_type = "org-trading" %}
 {% else %}
   {% set backlink_type = "org-peopleincontrol" %}
 {% endif %}

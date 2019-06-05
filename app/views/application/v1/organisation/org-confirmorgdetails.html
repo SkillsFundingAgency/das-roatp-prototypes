@@ -98,6 +98,9 @@
           </summary>
           <div class="govuk-details__text">
             <p>Contact UKRLP helpdesk on 0345 202 1600 or <a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
+            {% if (data['org-ukprn'] == "11110006") %}
+            <p>For parent company details, you can contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            {% endif %}
             <p>After your changes have been confirmed, sign back in to continue with this application.</p>
           </div>
         </details>

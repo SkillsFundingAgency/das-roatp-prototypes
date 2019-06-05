@@ -6,7 +6,6 @@ var months = [
 	'Oct', 'Nov', 'Dec'
 	];
 
-
 function monthNumToName(monthnum) {
 	return months[monthnum - 1] || '';
 }
@@ -242,22 +241,27 @@ module.exports = function (router) {
 	}) */
 
 	router.post('/application/v1/organisation/org-trading', function (req, res) {
+		
+		if (req.session.data['org-trading']) {
 
-		if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
-			res.redirect('/application/v1/organisation/shutter/org-trading')
-		} else {
-
-			req.session.data['tl_org_details'] = 'completed'
-			req.session.data['tl_org_people'] = 'next'
-
-			if (req.session.data['org-ukprn'] === "11110004") { 
-				res.redirect('/application/v1/organisation/org-trustees')
-			} else if (req.session.data['org-ukprn'] === "11110005") { 
-				res.redirect('/application/v1/organisation/org-type')
+			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
+				res.redirect('/application/v1/organisation/shutter/org-trading')
 			} else {
-				res.redirect('/application/v1/organisation/org-peopleincontrol')
-			}
 
+				req.session.data['tl_org_details'] = 'completed'
+				req.session.data['tl_org_people'] = 'next'
+
+				if (req.session.data['org-ukprn'] === "11110004") { 
+					res.redirect('/application/v1/organisation/org-trustees')
+				} else if (req.session.data['org-ukprn'] === "11110005") { 
+					res.redirect('/application/v1/organisation/org-type')
+				} else {
+					res.redirect('/application/v1/organisation/org-peopleincontrol')
+				}
+
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/org-trading')
 		}
 
 	})
@@ -280,17 +284,36 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/org-trustees', function (req, res) {
 		res.redirect('/application/v1/organisation/org-trustees-dob1')
 	})
+
 	router.post('/application/v1/organisation/org-trustees-dob1', function (req, res) {
-		req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
-		res.redirect('/application/v1/organisation/org-trustees-dob2')
+		
+		if (req.session.data['org-trustee-dob1-month'] == '' || req.session.data['org-trustee-dob1-year'] == '') {
+			res.redirect('/application/v1/organisation/error/org-trustees-dob1')
+		} else {
+			req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
+			res.redirect('/application/v1/organisation/org-trustees-dob2')
+		}
 	})
+
 	router.post('/application/v1/organisation/org-trustees-dob2', function (req, res) {
-		req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
-		res.redirect('/application/v1/organisation/org-trustees-dob3')
+		
+		if (req.session.data['org-trustee-dob2-month'] == '' || req.session.data['org-trustee-dob2-year'] == '') {
+			res.redirect('/application/v1/organisation/error/org-trustees-dob2')
+		} else {
+			req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
+			res.redirect('/application/v1/organisation/org-trustees-dob3')
+		}
+
 	})
 	router.post('/application/v1/organisation/org-trustees-dob3', function (req, res) {
-		req.session.data['org-trustee-dob3-monthname'] = monthNumToName(req.session.data['org-trustee-dob3-month'])
-		res.redirect('/application/v1/organisation/org-trustees-confirm')
+		
+		if (req.session.data['org-trustee-dob3-month'] == '' || req.session.data['org-trustee-dob3-year'] == '') {
+			res.redirect('/application/v1/organisation/error/org-trustees-dob3')
+		} else {
+			req.session.data['org-trustee-dob3-monthname'] = monthNumToName(req.session.data['org-trustee-dob3-month'])
+			res.redirect('/application/v1/organisation/org-trustees-confirm')
+		}
+
 	})
 
 	
@@ -473,15 +496,21 @@ module.exports = function (router) {
 
 	// Organisation classification
 	router.post('/application/v1/organisation/org-classification', function (req, res) {
+		
+		if (req.session.data['org-classification']) {
 
-		req.session.data['tl_org_type'] = 'completed'
-		if ( req.session.data['fha-exempt'] === 'yes'){
-			req.session.data['tl_fin_upload'] = 'exempt'
-			req.session.data['tl_pol_upload'] = 'next'
+			req.session.data['tl_org_type'] = 'completed'
+			if ( req.session.data['fha-exempt'] === 'yes'){
+				req.session.data['tl_fin_upload'] = 'exempt'
+				req.session.data['tl_pol_upload'] = 'next'
+			} else {
+				req.session.data['tl_fin_upload'] = 'next'
+			}
+			res.redirect('/application/v1/task-list')
+
 		} else {
-			req.session.data['tl_fin_upload'] = 'next'
+			res.redirect('/application/v1/organisation/error/org-classification')
 		}
-		res.redirect('/application/v1/task-list')
 
 	})
 

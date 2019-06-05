@@ -22,6 +22,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Enter the date your organisation started trading",
+          href: "#org-trading-error"
+        }
+      ]
+    }) }}
+
     <h1 class="govuk-heading-l">When did your organisation start trading?</h1>
 
     <p class="govuk-hint">Trading includes buying, selling, advertising, renting a property or employing someone.</p>

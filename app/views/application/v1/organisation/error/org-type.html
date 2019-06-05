@@ -24,6 +24,16 @@
 
     <form action="/application/v1/organisation/org-type" method="post" class="form">
 
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of organisation.",
+            href: "#org-type-error"
+          }
+        ]
+      }) }}
+
       {% if (data['org-selectedroute'] == "employer") %}
 
       {{ govukRadios({

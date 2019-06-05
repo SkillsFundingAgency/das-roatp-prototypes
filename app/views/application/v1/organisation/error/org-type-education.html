@@ -24,6 +24,16 @@
 
     <form action="/application/v1/organisation/org-type-education" method="post" class="form">
 
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of educational institute.",
+            href: "#org-type-education-error"
+          }
+        ]
+      }) }}
+
       {{ govukRadios({
         idPrefix: "org-type-education",
         name: "org-type-education",

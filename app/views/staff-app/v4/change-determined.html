@@ -1,0 +1,79 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+<!-- Need to look at back link when coming from confirm page... -->
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "detail"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="detail" method="post" class="form">
+
+				<div class="govuk-form-group">
+					<fieldset class="govuk-fieldset" aria-describedby="staff-add-determined-hint" role="group">
+						<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+							<h1 class="govuk-fieldset__heading">
+								What is the organisation's application determined date?
+							</h1>
+						</legend>
+						<span id="staff-add-determined-hint" class="govuk-hint">
+							This is the date that...
+						</span>
+						<div class="govuk-date-input" id="staff-add-determined">
+							<div class="govuk-date-input__item">
+								<div class="govuk-form-group">
+									<label class="govuk-label govuk-date-input__label" for="staff-add-determined-day">
+										Day
+									</label>
+									<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="staff-add-determined-day" name="staff-add-determined-day" type="number" pattern="[0-9]*" value="03">
+								</div>
+							</div>
+							<div class="govuk-date-input__item">
+								<div class="govuk-form-group">
+									<label class="govuk-label govuk-date-input__label" for="staff-add-determined-month">
+										Month
+									</label>
+									<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="staff-add-determined-month" name="staff-add-determined-month" type="number" pattern="[0-9]*" value="06">
+								</div>
+							</div>
+							<div class="govuk-date-input__item">
+								<div class="govuk-form-group">
+									<label class="govuk-label govuk-date-input__label" for="staff-add-determined-year">
+										Year
+									</label>
+									<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="staff-add-determined-year" name="staff-add-determined-year" type="number" pattern="[0-9]*" value="2019">
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

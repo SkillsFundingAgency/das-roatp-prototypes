@@ -1,5 +1,16 @@
 // Routes for Staff App v4
 
+var months = [
+	'Jan', 'Feb', 'Mar', 'Apr', 'May',
+	'Jun', 'Jul', 'Aug', 'Sep',
+	'Oct', 'Nov', 'Dec'
+	];
+
+function monthNumToName(monthnum) {
+	return months[monthnum - 1] || '';
+}
+
+
 module.exports = function (router) {
 
 	// Training Provider Added
@@ -48,7 +59,11 @@ module.exports = function (router) {
 			// UKPRN is deactivated/unknown
 			res.redirect('/staff-app/v4/add-ukprn-deactivated')
 
-		} else if (staff_ukprn === '11110003') {
+		} else {
+
+			res.redirect('/staff-app/v4/add-ukprn')
+
+		} /*else if (staff_ukprn === '11110003') {
 		
 			// UKRLP provides non-200 response
 			// Existing manual entry form
@@ -60,7 +75,7 @@ module.exports = function (router) {
 			// New multi-page journey
 			res.redirect('/staff-app/v4/add-ukprn-outage')
 
-		}
+		}*/
 	})
 
 	// UKRLP unavailable
@@ -100,5 +115,12 @@ module.exports = function (router) {
 		}
 
 		res.redirect('/staff-app/v4/add-confirm')
+	})
+
+	router.post('/staff-app/v4/add-fromukrlp-determined-a', function (req, res) {
+
+		req.session.data['staff-add-determined-monthname'] = monthNumToName(req.session.data['staff-add-determined-month']);
+		res.redirect('/staff-app/v4/add-confirm')
+
 	})
 }

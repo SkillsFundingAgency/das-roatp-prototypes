@@ -210,8 +210,12 @@ module.exports = function (router) {
 
 	// Website
 	router.post('/application/v1/organisation/org-website', function (req, res) {
-
-		res.redirect('/application/v1/organisation/org-trading')
+		
+		if (req.session.data['org-website']) {
+			res.redirect('/application/v1/organisation/org-trading')
+		} else {
+			res.redirect('/application/v1/organisation/error/org-website')
+		}
 
 	})
 

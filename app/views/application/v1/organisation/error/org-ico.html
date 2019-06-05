@@ -24,6 +24,16 @@
     
     <form action="/application/v1/organisation/org-ico" method="post" class="form">
 
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter a valid ICO registration number",
+              href: "#org-ico-error"
+            }
+          ]
+        }) }}
+
         <h1 class="govuk-heading-l">Enter your organisation's Information Commissioner's Office (ICO) registration number</h1>
   
         <p class="govuk-hint">This is your 8-digit registration number from the ICO data protection public register. Anyone who uses personal information must have one.</p>

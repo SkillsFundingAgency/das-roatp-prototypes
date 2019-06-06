@@ -93,11 +93,14 @@ module.exports = function (router) {
 	// Legal status
 	router.post('/application/v1/organisation/org-legalstatus', function (req, res) {
 
-		let org_legalstatus = req.session.data['org-legalstatus']
-		if (org_legalstatus === 'sole') { 
-			res.redirect('/application/v1/organisation/org-legalstatus-sole')
+		if (req.session.data['org-legalstatus']) {
+			if (req.session.data['org-legalstatus'] === 'sole') { 
+				res.redirect('/application/v1/organisation/org-legalstatus-sole')
+			} else {
+				res.redirect('/application/v1/organisation/org-legalstatus-partnership')
+			}
 		} else {
-			res.redirect('/application/v1/organisation/org-legalstatus-partnership')
+			res.redirect('/application/v1/organisation/error/org-legalstatus')
 		}
 
 	})
@@ -105,9 +108,12 @@ module.exports = function (router) {
 	// Sole trader details
 	router.post('/application/v1/organisation/org-legalstatus-sole', function (req, res) {
 
-		req.session.data['org-legalstatus-sole-dob-monthname'] = monthNumToName(req.session.data['org-legalstatus-sole-dob-month'])
-		
-		res.redirect('/application/v1/organisation/org-legalstatus-sole-confirm')
+		if (req.session.data['org-soletrader-name'] && req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
+			req.session.data['org-soletrader-dob-monthname'] = monthNumToName(req.session.data['org-soletrader-dob-month'])
+			res.redirect('/application/v1/organisation/org-legalstatus-sole-confirm')
+		} else {
+			res.redirect('/application/v1/organisation/error/org-legalstatus-sole')
+		}
 
 	})
 

@@ -36,10 +36,12 @@
           </thead>
           <tbody class="govuk-table__body">
           {% for partner in data['org-partners'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">{{ partner.name }}</td>
-              <td class="govuk-table__cell">{{ partner.dob_month }} {{ partner.dob_year }}</td>
-            </tr>
+            {% if (partner.name != '') %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">{{ partner.name }}</td>
+                <td class="govuk-table__cell">{{ partner.dob_month }} {{ partner.dob_year }}</td>
+              </tr>
+            {% endif %}
           {% endfor %}
           </tbody>
         </table>

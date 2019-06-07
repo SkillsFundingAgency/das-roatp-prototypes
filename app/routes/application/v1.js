@@ -562,12 +562,40 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/pro-postgrad', function (req, res) {
 		if (req.session.data['pro-postgrad']) {
 			if (req.session.data['pro-postgrad'] == "yes") {
-				res.redirect('/application/v1/organisation/pro-postgrad')
+				// NEXT SECTION
 			} else {
 				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
 			}
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-postgrad')
+		}
+	})
+
+
+	// Profile - Ofsted inspection for apprentices
+	router.post('/application/v1/organisation/pro-ofsted-apprentice', function (req, res) {
+		if (req.session.data['pro-ofsted-apprentice']) {
+			if (req.session.data['pro-ofsted-apprentice'] == "yes") {
+				//res.redirect('/application/v1/organisation/pro-postgrad')
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-grade')
+			} else {
+				res.redirect('/application/v1/organisation/pro-funded')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice')
+		}
+	})
+
+	// Profile - Grade fo Ofsted inspection for apprentices
+	router.post('/application/v1/organisation/pro-ofsted-apprentice-grade', function (req, res) {
+		if (req.session.data['pro-ofsted-apprentice-grade']) {
+			if (req.session.data['pro-ofsted-apprentice-grade'] == "requires-improvement") {
+				// NEXT SECTION
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-date')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-grade')
 		}
 	})
 

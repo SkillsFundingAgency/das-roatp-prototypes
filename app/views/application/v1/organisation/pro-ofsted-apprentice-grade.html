@@ -24,16 +24,12 @@
 
     <form action="" method="post" class="form">
 
+      <h1 class="govuk-heading-l">What Ofsted grade did YOUR COMPANY NAME LTD get?</h1>
+      <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s latest full Ofsted inspection report.</p>
+
       {{ govukRadios({
         idPrefix: "pro-ofsted-apprentice-grade",
         name: "pro-ofsted-apprentice-grade",
-        fieldset: {
-          legend: {
-            text: "Had an Ofsted grade did you get?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "oustanding",

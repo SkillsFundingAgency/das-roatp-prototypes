@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-confirmorgdetails"
+    href: backlink_type
   }) }}
 {% endblock %}
 
@@ -24,45 +24,29 @@
 
     <form action="" method="post" class="form">
 
-      {% set companydetailsHtml %}
-        {{ govukInput({
-          id: "org-parentcompany-companynumber",
-          name: "org-parentcompany-companynumber",
-          type: "text",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Company number"
-          },
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-      {% endset -%}
-
       {{ govukRadios({
-        idPrefix: "org-parentcompany-conditional",
-        name: "org-parentcompany",
+        idPrefix: "pro-ofsted-overall-grademaintained",
+        name: "pro-ofsted-overall-grademaintained",
         fieldset: {
           legend: {
-            text: "Does your company have a UK parent company?",
+            text: "Grade maintained?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
-        },
-        hint: {
-          text: "This is when another company owns at least 75% of the shares in your company."
         },
         items: [
           {
             value: "yes",
             text: "Yes",
+            checked: checked("pro-ofsted-overall-grademaintained", "yes"),
             conditional: {
-              html: companydetailsHtml
+              html: websiteHtml
             }
           },
           {
             value: "no",
-            text: "No"
+            text: "No",
+            checked: checked("pro-ofsted-overall-grademaintained", "no")
           }
         ]
       }) }}

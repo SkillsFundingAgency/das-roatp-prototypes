@@ -13,9 +13,31 @@ function monthNumToName(monthnum) {
 module.exports = function (router) {
 
 	// Sign in
-	router.post('/application/v1/signin-a', function (req, res) {
+	router.post('/application/v1/signin', function (req, res) {
+
 		req.session.data['signedin'] = 'yes'
+
+		// Jump to: Your organisation > Organisation profile
+		// As a: Main provider, not funded by OFS
+		if (req.session.data['signin-email'] == "main@company.com") {
+			req.session.data['fha-exempt'] = "no"
+			req.session.data['org-classification'] = "public-service-mutual"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = ">23"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "11110001"
+			req.session.data['org-website'] = "no"
+			req.session.data['org-website-address'] = ""
+			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "next"
+		}
+
 		res.redirect('/application/v1/task-list')
+
 	})
 
 	// Section complete - Select route
@@ -180,38 +202,6 @@ module.exports = function (router) {
 		}
 
 	})
-
-	/* Parent company
-	router.post('/application/v1/organisation/org-parentcompany', function (req, res) {
-
-		let org_parentcompany = req.session.data['org-parentcompany']
-
-		if (org_parentcompany == "no") {
-
-			if (req.session.data['org-ukprn'] == "11110001"){
-				// Org has no website in UKRLP
-				res.redirect('/application/v1/organisation/org-website')
-			} else {
-				res.redirect('/application/v1/organisation/org-trading')
-			}
-
-		} else {
-			res.redirect('/application/v1/organisation/org-parentcompany-confirm')
-		}
-
-	})
-
-	// Parent company confirmation
-	router.post('/application/v1/organisation/org-parentcompany-confirm', function (req, res) {
-
-		if (req.session.data['org-ukprn'] == "11110001"){
-			// Org has no website in UKRLP
-			res.redirect('/application/v1/organisation/org-website')
-		} else {
-			res.redirect('/application/v1/organisation/org-trading')
-		}
-
-	}) */
 
 	// Website
 	router.post('/application/v1/organisation/org-website', function (req, res) {
@@ -512,7 +502,13 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/org-classification', function (req, res) {
 		
 		if (req.session.data['org-classification']) {
+			req.session.data['tl_org_profile'] = 'inprogress'
+			res.redirect('/application/v1/organisation/pro-itt')
 
+/*******
+ * Change routing for org profile here...
+ */
+/*
 			req.session.data['tl_org_type'] = 'completed'
 			if ( req.session.data['fha-exempt'] === 'yes'){
 				req.session.data['tl_fin_upload'] = 'exempt'
@@ -521,11 +517,40 @@ module.exports = function (router) {
 				req.session.data['tl_fin_upload'] = 'next'
 			}
 			res.redirect('/application/v1/task-list')
-
+*/
 		} else {
 			res.redirect('/application/v1/organisation/error/org-classification')
 		}
 
+	})
+
+
+	// Profile - ITT accreditation
+	router.post('/application/v1/organisation/pro-itt', function (req, res) {
+		if (req.session.data['pro-itt']) {
+			req.session.data['tl_org_profile'] = 'inprogress'
+			if (req.session.data['pro-itt'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-postgrad')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-itt')
+		}
+	})
+
+
+	// Profile - Post-grad teaching apprenticeship only
+	router.post('/application/v1/organisation/pro-postgrad', function (req, res) {
+		if (req.session.data['pro-postgrad']) {
+			if (req.session.data['pro-postgrad'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-postgrad')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-postgrad')
+		}
 	})
 
 

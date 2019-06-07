@@ -405,24 +405,23 @@ module.exports = function (router) {
 
 		let org_orgtype_edu = req.session.data['org-type-education']
 		let org_route = req.session.data['org-selectedroute']
-		//req.session.data['fha-exempt'] = 'yes'
 
-		if (org_orgtype_edu === 'national-college') {
+		if (
+			org_orgtype_edu === 'national-college' || 
+			org_orgtype_edu === 'sixth-form' || 
+			org_orgtype_edu === 'gfe')
+		{
 			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
-		} else if (org_orgtype_edu === 'academy') {
+		} else if (
+			org_orgtype_edu === 'academy' ||
+			org_orgtype_edu === 'multi-academy' ||
+			org_orgtype_edu === 'fei')
+		{
 			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
-		} else if (org_orgtype_edu === 'multi-academy') {
-			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
-		} else if (org_orgtype_edu === 'school') {
-			req.session.data['org-fundedbytext'] = 'a Local Education Authority school'
-		} else if (org_orgtype_edu === 'sixth-form') {
-			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
 		} else if (org_orgtype_edu === 'hei') {
-			req.session.data['org-fundedbytext'] = 'registered and funded by the Office for Students'
-		} else if (org_orgtype_edu === 'gfe') {
-			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
-		} else if (org_orgtype_edu === 'fei') {
-			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
+			req.session.data['org-fundedbytext'] = 'monitored and supported by the Office for Students'
+		} else if (org_orgtype_edu === 'school') {
+			res.redirect('/application/v1/organisation/org-type-education-school')
 		} else {
 			res.redirect('/application/v1/organisation/error/org-type-education')
 		}
@@ -434,6 +433,25 @@ module.exports = function (router) {
 		}
 
 	})
+
+
+	// Organisation type = Education - School type
+	router.post('/application/v1/organisation/org-type-education-school', function (req, res) {
+
+		let org_orgtype_edu = req.session.data['org-type-education']
+
+		if (req.session.data['org-type-education']) {
+			if (org_orgtype_edu === 'free-school') {
+				req.session.data['org-fundedbytext'] = 'already registered with ESFA'
+				res.redirect('/application/v1/organisation/org-fundedby')
+			} else {
+				res.redirect('/application/v1/organisation/org-classification')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/org-type-education-school')
+		}
+	})
+
 
 	// Organisation type = Public Sector Body
 	router.post('/application/v1/organisation/org-type-psb', function (req, res) {

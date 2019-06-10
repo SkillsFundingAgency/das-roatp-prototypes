@@ -562,7 +562,8 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/pro-postgrad', function (req, res) {
 		if (req.session.data['pro-postgrad']) {
 			if (req.session.data['pro-postgrad'] == "yes") {
-				// NEXT SECTION
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
 			} else {
 				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
 			}

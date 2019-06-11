@@ -25,11 +25,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-apprentice-date",
-        name: "pro-ofsted-apprentice-date",
+        idPrefix: "pro-ofsted-apprentice-shortinspection",
+        name: "pro-ofsted-apprentice-shortinspection",
         fieldset: {
           legend: {
-            text: "Did YOUR COMPANY NAME LTD get a grade of " + data['pro-ofsted-apprentice-grade'] + " within the last 3 years?",
+            text: "Did YOUR COMPANY NAME LTD have a short inspection within the last 3 years?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -38,7 +38,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprentice-date", "yes"),
+            checked: checked("pro-ofsted-apprentice-shortinspection", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -46,7 +46,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-apprentice-date", "no")
+            checked: checked("pro-ofsted-apprentice-shortinspection", "no")
           }
         ]
       }) }}

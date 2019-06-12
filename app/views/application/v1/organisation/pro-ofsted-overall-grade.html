@@ -24,29 +24,32 @@
 
     <form action="" method="post" class="form">
 
+      <h1 class="govuk-heading-l">What Ofsted grade did YOUR COMPANY NAME LTD get?</h1>
+      <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s latest Ofsted report and apprenticeship allocations since the date of inspection.</p>
+
       {{ govukRadios({
         idPrefix: "pro-ofsted-overall-grade",
         name: "pro-ofsted-overall-grade",
-        fieldset: {
-          legend: {
-            text: "Did you receive grade 1 or 2?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
-            value: "yes",
-            text: "Yes",
-            checked: checked("pro-ofsted-overall-grade", "yes"),
-            conditional: {
-              html: websiteHtml
-            }
+            value: "outstanding",
+            text: "Outstanding",
+            checked: checked("pro-ofsted-overall-grade", "outstanding")
           },
           {
-            value: "no",
-            text: "No",
-            checked: checked("pro-ofsted-overall-grade", "no")
+            value: "good",
+            text: "Good",
+            checked: checked("pro-ofsted-overall-grade", "good")
+          },
+          {
+            value: "requires-improvement",
+            text: "Requirements improvement",
+            checked: checked("pro-ofsted-overall-grade", "requires-improvement")
+          },
+          {
+            value: "inadequate",
+            text: "Inadequate",
+            checked: checked("pro-ofsted-overall-grade", "inadequate")
           }
         ]
       }) }}

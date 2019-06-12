@@ -25,8 +25,8 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-overall-monitoring",
-        name: "pro-ofsted-overall-monitoring",
+        idPrefix: "pro-ofsted-overall-shortinspection",
+        name: "pro-ofsted-overall-shortinspection",
         fieldset: {
           legend: {
             text: "Monitoring visit <3 years?",
@@ -38,7 +38,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-overall-monitoring", "yes"),
+            checked: checked("pro-ofsted-overall-shortinspection", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -46,7 +46,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-overall-monitoring", "no")
+            checked: checked("pro-ofsted-overall-shortinspection", "no")
           }
         ]
       }) }}

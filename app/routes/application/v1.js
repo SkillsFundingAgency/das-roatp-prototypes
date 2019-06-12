@@ -521,7 +521,13 @@ module.exports = function (router) {
 		
 		if (req.session.data['org-classification']) {
 			req.session.data['tl_org_profile'] = 'inprogress'
-			res.redirect('/application/v1/organisation/pro-itt')
+			req.session.data['tl_org_type'] = 'completed'
+			if (req.session.data['org-selectedroute'] == 'supporting') {
+				res.redirect('/application/v1/organisation/pro-subcontractor')
+			} else {
+				req.session.data['tl_org_profile'] = 'inprogress'
+				res.redirect('/application/v1/organisation/pro-itt')
+			}
 
 /*******
  * Change routing for org profile here...
@@ -782,6 +788,16 @@ module.exports = function (router) {
 	})
 
 
+	// -----------------------
+	// Profile - Subcontractor
+	router.post('/application/v1/organisation/pro-subcontractor', function (req, res) {
+		// if yes limit = £500k
+		// if no limit = £100k
+		req.session.data['tl_org_profile'] = 'completed'
+		res.redirect('/application/v1/task-list')
+	})
+
+	// --------
 	// Sign out
 	router.get('/application/v1/signout', function (req, res) {
 

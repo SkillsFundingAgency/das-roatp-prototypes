@@ -85,7 +85,11 @@
 
             <li class="app-task-list__item">
               {% if data['tl_org_type'] == "completed" %}
-                <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Organisation profile</a>
+                {% if data['org-selectedroute'] == "supporting" %}
+                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Organisation profile</a>
+                {% else %}
+                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Organisation profile</a>
+                {% endif %}
               {% else %}
                 Organisation profile
               {% endif %}

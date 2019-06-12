@@ -613,11 +613,13 @@ module.exports = function (router) {
 				} else { 
 					// Grade is outstanding or good
 					// Short inspeciton question
-					res.redirect('/application/v1/organisation/pro-ofsted-apprentice-shortinspection')
+					res.redirect('/application/v1/organisation/pro-ofsted-apprentice-fundingmaintained')
 				}
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/v1/task-list')
+				/*req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')*/
 			}
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-date')
@@ -667,7 +669,7 @@ module.exports = function (router) {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/v1/task-list')
 			} else {
-				res.redirect('/application/v1/organisation/shutter/pro-ofsted-overall')
+				res.redirect('/application/v1/organisation/pro-ofsted-overall')
 			}
 			req.session.data['tl_org_profile'] = 'completed'
 			res.redirect('/application/v1/task-list')

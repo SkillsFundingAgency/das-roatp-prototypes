@@ -1,0 +1,16 @@
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "/application/v1/task-list",
+        text: "Application overview"
+      },
+      {
+        href: "signout",
+        text: "Sign out"
+      }
+    ]
+  }) }}

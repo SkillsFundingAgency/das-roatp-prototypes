@@ -1,0 +1,72 @@
+{% extends "layout_application_v1.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_type
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">What Ofsted grade did YOUR COMPANY NAME LTD get?</h1>
+      <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s latest full Ofsted inspection report.</p>
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-apprentice-grade",
+        name: "pro-ofsted-apprentice-grade",
+        items: [
+          {
+            value: "oustanding",
+            text: "Outstanding",
+            checked: checked("pro-ofsted-apprentice-grade", "oustanding")
+          },
+          {
+            value: "good",
+            text: "Good",
+            checked: checked("pro-ofsted-apprentice-grade", "good")
+          },
+          {
+            value: "requires-improvement",
+            text: "Requirements improvement",
+            checked: checked("pro-ofsted-apprentice-grade", "requires-improvement")
+          },
+          {
+            value: "inadequate",
+            text: "Inadequate",
+            checked: checked("pro-ofsted-apprentice-grade", "inadequate")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and sign out",
+        href: "signout",
+        classes: "govuk-button--secondary"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

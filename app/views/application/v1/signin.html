@@ -19,15 +19,16 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Sign in using the Apprenticeship Service</h1>
 
-    <form action="signin-a" method="post" class="form">
+    <form action="" method="post" class="form">
 
       {{ govukInput({
         label: {
           text: "Email address"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "email-address",
-        name: "email-address"
+        id: "signin-email",
+        name: "signin-email",
+        type: "email"
       }) }}
 
       {{ govukInput({
@@ -35,8 +36,9 @@
           text: "Password"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "password",
-        name: "password"
+        id: "signin-password",
+        name: "signin-password",
+        type: "password"
       }) }}
 
       {{ govukButton({

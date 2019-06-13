@@ -1,4 +1,4 @@
-{% extends "layout_application.html" %}
+{% extends "layout_application_v1.html" %}
 
 {% block pageTitle %}
   Organisation - RoATP Organisation Prototype
@@ -70,7 +70,7 @@
             value: "sme",
             text: "A small or medium enterprise (SME)",
             hint: {
-              html: 'As defined by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en">European Commission</a>.'
+              html: 'As defined by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en" target="_blank">European Commission (opens in a new window or tab)</a>.'
             },
             checked: checked("org-classification", "sme")
           },

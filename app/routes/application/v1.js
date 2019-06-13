@@ -13,9 +13,31 @@ function monthNumToName(monthnum) {
 module.exports = function (router) {
 
 	// Sign in
-	router.post('/application/v1/signin-a', function (req, res) {
+	router.post('/application/v1/signin', function (req, res) {
+
 		req.session.data['signedin'] = 'yes'
+
+		// Jump to: Your organisation > Organisation profile
+		// As a: Main provider, not funded by OFS
+		if (req.session.data['signin-email'] == "main@company.com") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "public-service-mutual"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = ">23"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "11110001"
+			req.session.data['org-website'] = "no"
+			req.session.data['org-website-address'] = ""
+			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "next"
+		}
+
 		res.redirect('/application/v1/task-list')
+
 	})
 
 	// Section complete - Select route
@@ -180,38 +202,6 @@ module.exports = function (router) {
 		}
 
 	})
-
-	/* Parent company
-	router.post('/application/v1/organisation/org-parentcompany', function (req, res) {
-
-		let org_parentcompany = req.session.data['org-parentcompany']
-
-		if (org_parentcompany == "no") {
-
-			if (req.session.data['org-ukprn'] == "11110001"){
-				// Org has no website in UKRLP
-				res.redirect('/application/v1/organisation/org-website')
-			} else {
-				res.redirect('/application/v1/organisation/org-trading')
-			}
-
-		} else {
-			res.redirect('/application/v1/organisation/org-parentcompany-confirm')
-		}
-
-	})
-
-	// Parent company confirmation
-	router.post('/application/v1/organisation/org-parentcompany-confirm', function (req, res) {
-
-		if (req.session.data['org-ukprn'] == "11110001"){
-			// Org has no website in UKRLP
-			res.redirect('/application/v1/organisation/org-website')
-		} else {
-			res.redirect('/application/v1/organisation/org-trading')
-		}
-
-	}) */
 
 	// Website
 	router.post('/application/v1/organisation/org-website', function (req, res) {
@@ -391,15 +381,15 @@ module.exports = function (router) {
 			} else if (org_orgtype === 'employer') {
 				req.session.data['tl_org_type'] = 'inprogress'
 				req.session.data['tl_profile_ofsted'] = 'next'
-				req.session.data['fha-exempt'] = 'no'
+				req.session.data['exempt_fha'] = 'no'
 				res.redirect('/application/v1/organisation/org-classification')
 			} else if (org_orgtype === 'psb') {
 				req.session.data['tl_org_type'] = 'inprogress'
-				req.session.data['fha-exempt'] = 'yes'
+				req.session.data['exempt_fha'] = 'yes'
 				res.redirect('/application/v1/organisation/org-type-psb')
 			} else if (org_orgtype === 'training') {
 				req.session.data['tl_org_type'] = 'inprogress'
-				req.session.data['fha-exempt'] = 'no'
+				req.session.data['exempt_fha'] = 'no'
 				res.redirect('/application/v1/organisation/org-type-training')
 			} else {
 				res.redirect('/application/v1/organisation/error/org-type')
@@ -415,24 +405,23 @@ module.exports = function (router) {
 
 		let org_orgtype_edu = req.session.data['org-type-education']
 		let org_route = req.session.data['org-selectedroute']
-		//req.session.data['fha-exempt'] = 'yes'
 
-		if (org_orgtype_edu === 'national-college') {
+		if (
+			org_orgtype_edu === 'national-college' || 
+			org_orgtype_edu === 'sixth-form' || 
+			org_orgtype_edu === 'gfe')
+		{
 			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
-		} else if (org_orgtype_edu === 'academy') {
+		} else if (
+			org_orgtype_edu === 'academy' ||
+			org_orgtype_edu === 'multi-academy' ||
+			org_orgtype_edu === 'fei')
+		{
 			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
-		} else if (org_orgtype_edu === 'multi-academy') {
-			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
-		} else if (org_orgtype_edu === 'school') {
-			req.session.data['org-fundedbytext'] = 'a Local Education Authority school'
-		} else if (org_orgtype_edu === 'sixth-form') {
-			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
 		} else if (org_orgtype_edu === 'hei') {
-			req.session.data['org-fundedbytext'] = 'registered and funded by the Office for Students'
-		} else if (org_orgtype_edu === 'gfe') {
-			req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
-		} else if (org_orgtype_edu === 'fei') {
-			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
+			req.session.data['org-fundedbytext'] = 'monitored and supported by the Office for Students'
+		} else if (org_orgtype_edu === 'school') {
+			res.redirect('/application/v1/organisation/org-type-education-school')
 		} else {
 			res.redirect('/application/v1/organisation/error/org-type-education')
 		}
@@ -445,12 +434,31 @@ module.exports = function (router) {
 
 	})
 
+
+	// Organisation type = Education - School type
+	router.post('/application/v1/organisation/org-type-education-school', function (req, res) {
+
+		let org_orgtype_edu = req.session.data['org-type-education']
+
+		if (req.session.data['org-type-education']) {
+			if (org_orgtype_edu === 'free-school') {
+				req.session.data['org-fundedbytext'] = 'already registered with ESFA'
+				res.redirect('/application/v1/organisation/org-fundedby')
+			} else {
+				res.redirect('/application/v1/organisation/org-classification')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/org-type-education-school')
+		}
+	})
+
+
 	// Organisation type = Public Sector Body
 	router.post('/application/v1/organisation/org-type-psb', function (req, res) {
 
 		let org_orgtype_psb = req.session.data['org-type-psb']
 		let org_route = req.session.data['org-selectedroute']
-		req.session.data['fha-exempt'] = 'yes'
+		req.session.data['exempt_fha'] = 'yes'
 
 		if (org_orgtype_psb) {
 			if (org_route === 'employer') {
@@ -469,7 +477,7 @@ module.exports = function (router) {
 
 		let org_orgtype_training = req.session.data['org-type-training']
 		let org_route = req.session.data['org-selectedroute']
-		req.session.data['fha-exempt'] = 'no'
+		req.session.data['exempt_fha'] = 'no'
 
 		if (org_orgtype_training) {
 			if (org_route === 'employer') {
@@ -490,9 +498,9 @@ module.exports = function (router) {
 		req.session.data['tl_org_type'] = 'completed'
 
 		if (org_fundedby === 'yes') {
-			req.session.data['fha-exempt'] = 'yes'
+			req.session.data['exempt_fha'] = 'yes'
 		} else if (org_fundedby === 'no') {
-			req.session.data['fha-exempt'] = 'no'
+			req.session.data['exempt_fha'] = 'no'
 		} else {
 			res.redirect('/application/v1/organisation/error/org-fundedby')
 		}
@@ -512,16 +520,28 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/org-classification', function (req, res) {
 		
 		if (req.session.data['org-classification']) {
-
+			req.session.data['tl_org_profile'] = 'inprogress'
 			req.session.data['tl_org_type'] = 'completed'
-			if ( req.session.data['fha-exempt'] === 'yes'){
+			if (req.session.data['org-selectedroute'] == 'supporting') {
+				res.redirect('/application/v1/organisation/pro-subcontractor')
+			} else {
+				req.session.data['tl_org_profile'] = 'inprogress'
+				res.redirect('/application/v1/organisation/pro-itt')
+			}
+
+/*******
+ * Change routing for org profile here...
+ */
+/*
+			req.session.data['tl_org_type'] = 'completed'
+			if ( req.session.data['exempt_fha'] === 'yes'){
 				req.session.data['tl_fin_upload'] = 'exempt'
 				req.session.data['tl_pol_upload'] = 'next'
 			} else {
 				req.session.data['tl_fin_upload'] = 'next'
 			}
 			res.redirect('/application/v1/task-list')
-
+*/
 		} else {
 			res.redirect('/application/v1/organisation/error/org-classification')
 		}
@@ -529,6 +549,255 @@ module.exports = function (router) {
 	})
 
 
+	// Profile - ITT accreditation
+	router.post('/application/v1/organisation/pro-itt', function (req, res) {
+		if (req.session.data['pro-itt']) {
+			req.session.data['tl_org_profile'] = 'inprogress'
+			if (req.session.data['pro-itt'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-postgrad')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-itt')
+		}
+	})
+
+
+	// Profile - Post-grad teaching apprenticeship only
+	router.post('/application/v1/organisation/pro-postgrad', function (req, res) {
+		if (req.session.data['pro-postgrad']) {
+			if (req.session.data['pro-postgrad'] == "yes") {
+				req.session.data['tl_org_profile'] = 'completed'
+				/***** EXEMPT FROM L&M and AW *****/
+				req.session.data['exempt_lm'] = 'yes'
+				req.session.data['exempt_aw'] = 'yes'
+				res.redirect('/application/v1/task-list')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-postgrad')
+		}
+	})
+
+
+	// Profile - Ofsted inspection for apprentices
+	router.post('/application/v1/organisation/pro-ofsted-apprentice', function (req, res) {
+		if (req.session.data['pro-ofsted-apprentice']) {
+			if (req.session.data['pro-ofsted-apprentice'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-grade')
+			} else {
+				res.redirect('/application/v1/organisation/pro-funded')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice')
+		}
+	})
+
+	// Profile - Grade of Ofsted inspection for apprentices
+	router.post('/application/v1/organisation/pro-ofsted-apprentice-grade', function (req, res) {
+		if (req.session.data['pro-ofsted-apprentice-grade']) {
+			if (req.session.data['pro-ofsted-apprentice-grade'] == "requires-improvement") {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-date')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-grade')
+		}
+	})
+
+
+	// Profile - Grade of Ofsted inspection for apprentices <3 years
+	router.post('/application/v1/organisation/pro-ofsted-apprentice-date', function (req, res) {
+		
+		if (req.session.data['pro-ofsted-apprentice-date']) {
+			if (req.session.data['pro-ofsted-apprentice-date'] == "yes") {
+				if (req.session.data['pro-ofsted-apprentice-grade'] == "inadequate") {
+					// INELIGIBLE TO APPLY > SHUTTER PAGE
+					res.redirect('/application/v1/organisation/shutter/pro-ofsted-apprentice-date')
+				} else { 
+					// Grade is outstanding or good
+					// Short inspeciton question
+					res.redirect('/application/v1/organisation/pro-ofsted-apprentice-fundingmaintained')
+				}
+			} else {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+				/*req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')*/
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-date')
+		}
+
+	})
+
+
+	// Profile - Short inspection <3 years
+	router.post('/application/v1/organisation/pro-ofsted-apprentice-shortinspection', function (req, res) {
+
+		if (req.session.data['pro-ofsted-apprentice-shortinspection']) {
+			if (req.session.data['pro-ofsted-apprentice-shortinspection'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-fundingmaintained')
+			} else {
+				// Complete all sections
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-shortinspection')
+		}
+
+	})
+
+
+	// Profile - Ofsted inspection for apprentices outstanding/good - maintained funding
+	router.post('/application/v1/organisation/pro-ofsted-apprentice-fundingmaintained', function (req, res) {
+
+		if (req.session.data['pro-ofsted-apprentice-fundingmaintained']) {
+			if (req.session.data['pro-ofsted-apprentice-fundingmaintained'] == "yes") {
+				/***** EXEMPT FROM L&M and AW *****/
+				req.session.data['exempt_lm'] = 'yes'
+				req.session.data['exempt_aw'] = 'yes'
+			}
+			req.session.data['tl_org_profile'] = 'completed'
+			res.redirect('/application/v1/task-list')
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-fundingmaintained')
+		}
+	})
+
+
+	// Profile - Funded by OFS?
+	router.post('/application/v1/organisation/pro-funded', function (req, res) {
+
+		if (req.session.data['pro-funded']) {
+			if (req.session.data['pro-funded'] == "yes") {
+				// EXEMPT FROM AW and CCLM1-6
+				req.session.data['exempt_lm'] = 'partial'
+				req.session.data['exempt_aw'] = 'yes'
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall')
+			}
+			req.session.data['tl_org_profile'] = 'completed'
+			res.redirect('/application/v1/task-list')
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-funded')
+		}
+		
+	})
+
+
+	// Profile - Overall Ofsted inspection
+	router.post('/application/v1/organisation/pro-ofsted-overall', function (req, res) {
+		if (req.session.data['pro-ofsted-overall']) {
+			if (req.session.data['pro-ofsted-overall'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall-grade')
+			} else {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall')
+		}
+	})
+
+
+	// Profile - Grade of overall Ofsted inspection
+	router.post('/application/v1/organisation/pro-ofsted-overall-grade', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-grade']) {
+			if (req.session.data['pro-ofsted-overall-grade'] == "outstanding" || req.session.data['pro-ofsted-overall-grade'] == "good") {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall-fundingmaintained')
+			} else {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall-grade')
+		}
+	})
+
+
+	// Profile - Overall Ofsted inspection - Maintained funding?
+	router.post('/application/v1/organisation/pro-ofsted-overall-fundingmaintained', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-fundingmaintained']) {
+			if (req.session.data['pro-ofsted-overall-fundingmaintained'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall-date')
+			} else {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall-fundingmaintained')
+		}
+	})
+
+
+	// Profile - Grade less than 3 years ago
+	router.post('/application/v1/organisation/pro-ofsted-overall-date', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-date']) {
+			if (req.session.data['pro-ofsted-overall-date'] == "yes") {
+				/***** EXEMPT FROM AW and CCLM1-6 *****/
+				req.session.data['exempt_lm'] = 'partial'
+				req.session.data['exempt_aw'] = 'yes'
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall-shortinspection')
+			}
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall-date')
+		}
+	})
+
+
+	// Profile - Overall short insapection
+	router.post('/application/v1/organisation/pro-ofsted-overall-shortinspection', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-shortinspection']) {
+			if (req.session.data['pro-ofsted-overall-shortinspection'] == "yes") {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall-grademaintained')
+			} else {
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			}
+
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall-shortinspection')
+		}
+	})
+
+
+	// Profile - Overall grade maintained
+	router.post('/application/v1/organisation/pro-ofsted-overall-grademaintained', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-grademaintained']) {
+			if (req.session.data['pro-ofsted-overall-grademaintained'] == "yes") {
+				/***** EXEMPT FROM AW and CCLM1-6 *****/
+				req.session.data['exempt_lm'] = 'partial'
+				req.session.data['exempt_aw'] = 'yes'
+			}
+			req.session.data['tl_org_profile'] = 'completed'
+			res.redirect('/application/v1/task-list')
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-ofsted-overall-grademaintained')
+		}
+	})
+
+
+	// -----------------------
+	// Profile - Subcontractor
+	router.post('/application/v1/organisation/pro-subcontractor', function (req, res) {
+		// if yes limit = £500k
+		// if no limit = £100k
+		req.session.data['tl_org_profile'] = 'completed'
+		res.redirect('/application/v1/task-list')
+	})
+
+	// --------
 	// Sign out
 	router.get('/application/v1/signout', function (req, res) {
 

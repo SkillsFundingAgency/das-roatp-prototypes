@@ -137,14 +137,14 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org'] == "completed") and (data['tl_fin_upload'] != 'exempt') %}
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_fha'] != 'yes') %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="org-details-status">Upload financial evidence</a>
               {% else %}
                 Upload financial evidence
               {% endif %}
               {% if data['tl_fin_upload'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% elseif data['tl_fin_upload'] == "exempt" %}
+              {% elseif data['exempt_fha'] == "yes" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="org-details-notrequired">Not required</strong>
               {% endif %}
             </li>
@@ -158,7 +158,7 @@
 
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="profile-ofsted-completed">Upload equality and diversity policy</a>
               {% else %}
                 Upload equality and diversity policy
@@ -176,21 +176,21 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Sector information</a>
               {% else %}
                 Sector information
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Employees experience and qualifications</a>
               {% else %}
                 Employees experience and qualifications
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Planning</a>
               {% else %}
                 Planning

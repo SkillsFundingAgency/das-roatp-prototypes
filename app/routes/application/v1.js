@@ -54,37 +54,43 @@ module.exports = function (router) {
 			req.session.data['tl_org_profile'] = "next"
 		}
 
-		res.redirect('/application/v1/task-list')
+		res.redirect('/application/v1/coa')
 
 	})
+
+	
+	// Acceptance of CoA
+	router.post('/application/v1/coa', function (req, res) {
+		res.redirect('/application/v1/organisation/org-ukprn')
+	})
+
+	// Confirm company details
+	router.post('/application/v1/organisation/org-confirmorgdetails', function (req, res) {
+		
+		res.redirect('/application/v1/task-list')
+
+		//res.redirect('/application/v1/organisation/org-parentcompany')
+		/*if (req.session.data['org-ukprn'] == "11110001"){
+			// Org has no website in UKRLP
+			res.redirect('/application/v1/organisation/org-website')
+		} else {
+			res.redirect('/application/v1/organisation/org-trading')
+		}*/
+
+	})
+
 
 	// Section complete - Select route
 	router.post('/application/v1/organisation/select-route', function (req, res) {
 
 		let selected_route = req.session.data['org-selectedroute']
 
-		if (selected_route === 'main') {
-
+		if (selected_route != '') {
 			req.session.data['tl_selectroute'] = 'completed'
 			req.session.data['tl_org_details'] = 'next'
 			res.redirect('/application/v1/organisation/org-ico')
-
-		} else if (selected_route === 'employer') {
-
-			req.session.data['tl_selectroute'] = 'completed'
-			req.session.data['tl_org_details'] = 'next'
-			res.redirect('/application/v1/organisation/org-ico')
-
-		} else if (selected_route === 'supporting') {
-
-			req.session.data['tl_selectroute'] = 'completed'
-			req.session.data['tl_org_details'] = 'next'
-			res.redirect('/application/v1/organisation/org-ico')
-
 		} else {
-
 			res.redirect('/application/v1/organisation/error/select-route')
-			
 		}
 		
 	})
@@ -96,7 +102,12 @@ module.exports = function (router) {
 		let org_ico = req.session.data['org-ico']
 
 		if (org_ico === '12345678') {
-			res.redirect('/application/v1/organisation/org-ukprn')
+			if (req.session.data['org-ukprn'] == "11110001"){
+				// Org has no website in UKRLP
+				res.redirect('/application/v1/organisation/org-website')
+			} else {
+				res.redirect('/application/v1/organisation/org-trading')
+			}
 		} else {
 			res.redirect('/application/v1/organisation/error/org-ico')
 		}
@@ -207,19 +218,6 @@ module.exports = function (router) {
 
 	})
 	
-
-	// Confirm company details
-	router.post('/application/v1/organisation/org-confirmorgdetails', function (req, res) {
-
-		//res.redirect('/application/v1/organisation/org-parentcompany')
-		if (req.session.data['org-ukprn'] == "11110001"){
-			// Org has no website in UKRLP
-			res.redirect('/application/v1/organisation/org-website')
-		} else {
-			res.redirect('/application/v1/organisation/org-trading')
-		}
-
-	})
 
 	// Website
 	router.post('/application/v1/organisation/org-website', function (req, res) {

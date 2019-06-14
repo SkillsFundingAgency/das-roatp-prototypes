@@ -36,6 +36,24 @@ module.exports = function (router) {
 			req.session.data['tl_org_profile'] = "next"
 		}
 
+		if (req.session.data['signin-email'] == "main@hei.profile") {
+			req.session.data['exempt_fha'] = "yes"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "education"
+			req.session.data['org-type-education'] = "hei"
+			req.session.data['org-fundedby'] = "yes"
+			req.session.data['org-fundedbytext'] = "monitored and supported by the Office for Students"
+			req.session.data['org-ukprn'] = "11110000"
+			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "next"
+		}
+
 		res.redirect('/application/v1/task-list')
 
 	})
@@ -588,12 +606,45 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-apprentice'] == "yes") {
 				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-grade')
 			} else {
-				res.redirect('/application/v1/organisation/pro-funded')
+				if (req.session.data['org-type-education'] == "hei" && req.session.data['org-fundedby'] == "yes"){
+					// EXEMPT FROM AW and CCLM1-6
+					req.session.data['exempt_lm'] = 'partial'
+					req.session.data['exempt_aw'] = 'yes'
+					req.session.data['tl_org_profile'] = 'completed'
+					res.redirect('/application/v1/task-list')
+				} else {
+					res.redirect('/application/v1/organisation/pro-ofsted-overall')
+				}
+				//res.redirect('/application/v1/organisation/pro-funded')
 			}
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice')
 		}
 	})
+
+	// Profile - Funded by OFS?
+	/*
+	router.post('/application/v1/organisation/pro-funded', function (req, res) {
+
+		if (req.session.data['pro-funded']) {
+			if (req.session.data['pro-funded'] == "yes") {
+				// EXEMPT FROM AW and CCLM1-6
+				req.session.data['exempt_lm'] = 'partial'
+				req.session.data['exempt_aw'] = 'yes'
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/v1/task-list')
+			} else {
+				res.redirect('/application/v1/organisation/pro-ofsted-overall')
+			}
+			req.session.data['tl_org_profile'] = 'completed'
+			res.redirect('/application/v1/task-list')
+		} else {
+			res.redirect('/application/v1/organisation/error/pro-funded')
+		}
+		
+	})
+	*/
+
 
 	// Profile - Grade of Ofsted inspection for apprentices
 	router.post('/application/v1/organisation/pro-ofsted-apprentice-grade', function (req, res) {
@@ -626,8 +677,6 @@ module.exports = function (router) {
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/v1/task-list')
-				/*req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/v1/task-list')*/
 			}
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-date')
@@ -668,28 +717,6 @@ module.exports = function (router) {
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-fundingmaintained')
 		}
-	})
-
-
-	// Profile - Funded by OFS?
-	router.post('/application/v1/organisation/pro-funded', function (req, res) {
-
-		if (req.session.data['pro-funded']) {
-			if (req.session.data['pro-funded'] == "yes") {
-				// EXEMPT FROM AW and CCLM1-6
-				req.session.data['exempt_lm'] = 'partial'
-				req.session.data['exempt_aw'] = 'yes'
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/v1/task-list')
-			} else {
-				res.redirect('/application/v1/organisation/pro-ofsted-overall')
-			}
-			req.session.data['tl_org_profile'] = 'completed'
-			res.redirect('/application/v1/task-list')
-		} else {
-			res.redirect('/application/v1/organisation/error/pro-funded')
-		}
-		
 	})
 
 

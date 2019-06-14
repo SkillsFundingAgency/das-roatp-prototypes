@@ -675,8 +675,9 @@ module.exports = function (router) {
 					res.redirect('/application/v1/organisation/pro-ofsted-apprentice-fundingmaintained')
 				}
 			} else {
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/v1/task-list')
+				res.redirect('/application/v1/organisation/pro-ofsted-apprentice-shortinspection')
+				//req.session.data['tl_org_profile'] = 'completed'
+				//res.redirect('/application/v1/task-list')
 			}
 		} else {
 			res.redirect('/application/v1/organisation/error/pro-ofsted-apprentice-date')

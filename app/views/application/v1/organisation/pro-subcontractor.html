@@ -24,16 +24,12 @@
 
     <form action="" method="post" class="form">
 
+      <h1 class="govuk-heading-l">In the last 12 months, has YOUR COMPANY NAME LTD delivered apprenticeship training as a subcontractor?</h1>
+      <p class="govuk-body">To confirm your answer, we’ll review your lead provider’s subcontractor declaration. </p>
+
       {{ govukRadios({
         idPrefix: "pro-subcontractor",
         name: "pro-subcontractor",
-        fieldset: {
-          legend: {
-            text: "Will your organisation be acting as a subcontractor to deliver apprenticeships?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "yes",
@@ -46,10 +42,24 @@
           {
             value: "no",
             text: "No",
+            hint: {
+              text: "Your organisation’s training will be limited to £100,000 in its first year."
+            },
             checked: checked("pro-subcontractor", "no")
           }
         ]
       }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+             What is a lead provider?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>A lead provider is a college, training organisation or employer that has a direct contractual relationship with ESFA.</p>
+        </div>
+      </details>
 
       {{ govukButton({
         text: "Save and continue",

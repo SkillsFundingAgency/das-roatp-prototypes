@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: "pro-ofsted-apprentice-grade"
   }) }}
 {% endblock %}
 
@@ -29,7 +29,7 @@
         name: "pro-ofsted-apprentice-date",
         fieldset: {
           legend: {
-            text: "Did your organisation get a grade of " + data['pro-ofsted-apprentice-grade'] + " within the last 3 years?",
+            text: "Did your organisation get this grade within the last 3 years?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }

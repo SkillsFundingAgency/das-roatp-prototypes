@@ -4,6 +4,12 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['pro-itt'] == "yes" %}
+  {% set backlink_ofsted_apprentice = "pro-postgrad" %}
+{% else %}
+  {% set backlink_ofsted_apprentice = "pro-itt" %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {

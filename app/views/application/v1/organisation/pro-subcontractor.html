@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: "org-classification"
   }) }}
 {% endblock %}
 
@@ -42,9 +42,6 @@
           {
             value: "no",
             text: "No",
-            hint: {
-              text: "Your organisation’s training will be limited to £100,000 in its first year."
-            },
             checked: checked("pro-subcontractor", "no")
           }
         ]

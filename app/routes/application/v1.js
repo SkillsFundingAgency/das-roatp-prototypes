@@ -34,6 +34,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_people'] = "completed"
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_org_profile'] = "next"
+			res.redirect('/application/v1/task-list')
 		}
 
 		if (req.session.data['signin-email'] == "main@hei.profile") {
@@ -52,6 +53,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_people'] = "completed"
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_org_profile'] = "next"
+			res.redirect('/application/v1/task-list')
 		}
 
 		res.redirect('/application/v1/coa')

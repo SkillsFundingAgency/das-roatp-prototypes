@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% if data['org-legalstatus'] == "sole" %}
-  {% set backlink_type = "org-legalstatus-sole-confirm" %}
+  {% set backlink_website = "org-legalstatus-sole-confirm" %}
 {% else %}
   {% if data['org-legalstatus'] == "partnership" %}
-    {% set backlink_type = "org-legalstatus-partnership-confirm" %}
+    {% set backlink_website = "org-legalstatus-partnership-confirm" %}
   {% else %}
-    {% set backlink_type = "org-confirmorgdetails" %}
+    {% set backlink_website = "org-confirmorgdetails" %}
   {% endif %}
 {% endif %}
 
@@ -23,7 +23,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: backlink_website
   }) }}
 {% endblock %}
 

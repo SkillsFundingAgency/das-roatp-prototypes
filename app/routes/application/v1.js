@@ -130,8 +130,10 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110004') { // Charity only, not a company
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '11110005') { // Not a company
-			res.redirect('/application/v1/organisation/org-legalstatus')
+		} else if (org_ukprn === '11110005') { // Not a company (sole trader or partnership)
+			//res.redirect('/application/v1/organisation/org-legalstatus')
+			res.redirect('/application/v1/organisation/org-confirmorgdetails')
+			//res.redirect('/application/v1/task-list')
 		} else if (org_ukprn === '11110006') { // Organisation with a parent company
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110007') { // Incorporation date less than 12 months ago (3 months for supporting)
@@ -172,7 +174,7 @@ module.exports = function (router) {
 
 	// Sole trader details confirmation
 	router.post('/application/v1/organisation/org-legalstatus-sole-confirm', function (req, res) {
-		res.redirect('/application/v1/organisation/org-website')
+		res.redirect('/application/v1/organisation/org-type')
 	})
 
 
@@ -216,7 +218,8 @@ module.exports = function (router) {
 	// Confirm partner details
 	router.post('/application/v1/organisation/org-legalstatus-partnership-confirm', function (req, res) {
 
-		res.redirect('/application/v1/organisation/org-website')
+		//res.redirect('/application/v1/organisation/org-website')
+		res.redirect('/application/v1/organisation/org-type')
 
 	})
 	
@@ -267,8 +270,9 @@ module.exports = function (router) {
 
 				if (req.session.data['org-ukprn'] === "11110004") { 
 					res.redirect('/application/v1/organisation/org-trustees')
-				} else if (req.session.data['org-ukprn'] === "11110005") { 
-					res.redirect('/application/v1/organisation/org-type')
+				} else if (req.session.data['org-ukprn'] === "11110005") {
+					res.redirect('/application/v1/organisation/org-legalstatus')
+					//res.redirect('/application/v1/organisation/org-type')
 				} else {
 					res.redirect('/application/v1/organisation/org-peopleincontrol')
 				}

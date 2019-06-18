@@ -9,7 +9,11 @@
 {% elseif data['org-ukprn'] == "11110003" %} <!-- Charity with a company number -->
   {% set backlink_type = "org-trustees-confirm" %}
 {% elseif data['org-ukprn'] == "11110005" %} <!-- Sole trader or partnership -->
-  {% set backlink_type = "org-trading" %}
+  {% if data['org-legalstatus'] == "sole" %}
+    {% set backlink_type = "org-legalstatus-sole-confirm" %}
+  {% else %}
+    {% set backlink_type = "org-legalstatus-partnership-confirm" %}
+  {% endif %}
 {% else %}
   {% set backlink_type = "org-peopleincontrol" %}
 {% endif %}

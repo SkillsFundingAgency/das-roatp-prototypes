@@ -6,6 +6,8 @@
 
 {% if data['org-ukprn'] == "11110004" %} <!-- Charity without company number -->
   {% set backlink_type = "org-trustees-confirm" %}
+{% elseif data['org-ukprn'] == "11110003" %} <!-- Charity with a company number -->
+  {% set backlink_type = "org-trustees-confirm" %}
 {% elseif data['org-ukprn'] == "11110005" %} <!-- Sole trader or partnership -->
   {% set backlink_type = "org-trading" %}
 {% else %}

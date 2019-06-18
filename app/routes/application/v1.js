@@ -130,8 +130,10 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110004') { // Charity only, not a company
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '11110005') { // Not a company
-			res.redirect('/application/v1/organisation/org-legalstatus')
+		} else if (org_ukprn === '11110005') { // Not a company (sole trader or partnership)
+			//res.redirect('/application/v1/organisation/org-legalstatus')
+			res.redirect('/application/v1/organisation/org-confirmorgdetails')
+			//res.redirect('/application/v1/task-list')
 		} else if (org_ukprn === '11110006') { // Organisation with a parent company
 			res.redirect('/application/v1/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '11110007') { // Incorporation date less than 12 months ago (3 months for supporting)
@@ -172,7 +174,7 @@ module.exports = function (router) {
 
 	// Sole trader details confirmation
 	router.post('/application/v1/organisation/org-legalstatus-sole-confirm', function (req, res) {
-		res.redirect('/application/v1/organisation/org-website')
+		res.redirect('/application/v1/organisation/org-type')
 	})
 
 
@@ -216,7 +218,8 @@ module.exports = function (router) {
 	// Confirm partner details
 	router.post('/application/v1/organisation/org-legalstatus-partnership-confirm', function (req, res) {
 
-		res.redirect('/application/v1/organisation/org-website')
+		//res.redirect('/application/v1/organisation/org-website')
+		res.redirect('/application/v1/organisation/org-type')
 
 	})
 	
@@ -267,8 +270,9 @@ module.exports = function (router) {
 
 				if (req.session.data['org-ukprn'] === "11110004") { 
 					res.redirect('/application/v1/organisation/org-trustees')
-				} else if (req.session.data['org-ukprn'] === "11110005") { 
-					res.redirect('/application/v1/organisation/org-type')
+				} else if (req.session.data['org-ukprn'] === "11110005") {
+					res.redirect('/application/v1/organisation/org-legalstatus')
+					//res.redirect('/application/v1/organisation/org-type')
 				} else {
 					res.redirect('/application/v1/organisation/org-peopleincontrol')
 				}
@@ -305,11 +309,7 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/error/org-trustees-dob1')
 		} else {
 			req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
-			if (req.session.data['org-trustee-dob3-month'] != '' && req.session.data['org-trustee-dob3-year'] != ''){
-				res.redirect('/application/v1/organisation/org-trustees-confirm')
-			} else {
-				res.redirect('/application/v1/organisation/org-trustees-dob2')
-			}
+			res.redirect('/application/v1/organisation/org-trustees-dob2')
 		}
 	})
 
@@ -319,11 +319,7 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/error/org-trustees-dob2')
 		} else {
 			req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
-			if (req.session.data['org-trustee-dob3-month'] != '' && req.session.data['org-trustee-dob3-year'] != ''){
-				res.redirect('/application/v1/organisation/org-trustees-confirm')
-			} else {
-				res.redirect('/application/v1/organisation/org-trustees-dob3')
-			}
+			res.redirect('/application/v1/organisation/org-trustees-dob3')
 		}
 
 	})
@@ -452,10 +448,10 @@ module.exports = function (router) {
 	// Organisation type = Education - School type
 	router.post('/application/v1/organisation/org-type-education-school', function (req, res) {
 
-		let org_orgtype_edu = req.session.data['org-type-education']
+		let org_orgtype_edu_school = req.session.data['org-type-education-school']
 
 		if (req.session.data['org-type-education']) {
-			if (org_orgtype_edu === 'free-school') {
+			if (org_orgtype_edu_school === 'free-school') {
 				req.session.data['org-fundedbytext'] = 'already registered with ESFA'
 				res.redirect('/application/v1/organisation/org-fundedby')
 			} else {

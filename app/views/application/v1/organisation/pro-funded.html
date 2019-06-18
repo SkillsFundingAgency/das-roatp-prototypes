@@ -4,6 +4,12 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['org-type-education'] == "school" %}
+  {% set backlink_fundedby = "org-type-education-school" %}
+{% else %}
+  {% set backlink_fundedby = "org-type-education" %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -13,7 +19,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: backlink_fundedby
   }) }}
 {% endblock %}
 

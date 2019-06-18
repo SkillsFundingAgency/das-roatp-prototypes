@@ -8,7 +8,13 @@
   {% set backlink_classification = "org-type" %}
 {% endif %}
 {% if data['org-type'] == "education" %}
-  {% set backlink_classification = "org-fundedby" %}
+  {% if data['org-type-education-school'] == "lea-school" %}
+    {% set backlink_classification = "org-type-education-school" %}
+  {% elseif data['org-type-education-school'] == "other-school" %}
+    {% set backlink_classification = "org-type-education-school" %}
+  {% else %}
+    {% set backlink_classification = "org-fundedby" %}
+  {% endif %}
 {% endif %}
 {% if data['org-type'] == "psb" %}
   {% set backlink_classification = "org-type-psb" %}

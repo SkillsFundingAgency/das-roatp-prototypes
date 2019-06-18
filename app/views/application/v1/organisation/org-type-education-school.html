@@ -25,8 +25,8 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-type-education",
-        name: "org-type-education",
+        idPrefix: "org-type-education-school",
+        name: "org-type-education-school",
         fieldset: {
           legend: {
             text: "What type of school is your organisation?",
@@ -38,17 +38,17 @@
           {
             value: "free-school",
             text: "Free school",
-            checked: checked("org-type-education", "free-school")
+            checked: checked("org-type-education-school", "free-school")
           },
           {
             value: "lea-school",
             text: "Local Education Authority (LEA) school",
-            checked: checked("org-type-education", "lea-school")
+            checked: checked("org-type-education-school", "lea-school")
           },
           {
             value: "other-school",
             text: "None of the above",
-            checked: checked("org-type-education", "other-school")
+            checked: checked("org-type-education-school", "other-school")
           }
         ]
       }) }}

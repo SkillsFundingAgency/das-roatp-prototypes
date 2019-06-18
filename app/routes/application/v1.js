@@ -448,10 +448,10 @@ module.exports = function (router) {
 	// Organisation type = Education - School type
 	router.post('/application/v1/organisation/org-type-education-school', function (req, res) {
 
-		let org_orgtype_edu = req.session.data['org-type-education']
+		let org_orgtype_edu_school = req.session.data['org-type-education-school']
 
 		if (req.session.data['org-type-education']) {
-			if (org_orgtype_edu === 'free-school') {
+			if (org_orgtype_edu_school === 'free-school') {
 				req.session.data['org-fundedbytext'] = 'already registered with ESFA'
 				res.redirect('/application/v1/organisation/org-fundedby')
 			} else {

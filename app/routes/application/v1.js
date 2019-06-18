@@ -443,12 +443,8 @@ module.exports = function (router) {
 		} else {
 			res.redirect('/application/v1/organisation/error/org-type-education')
 		}
-
-		if (org_route === 'employer') {
-			res.redirect('/application/v1/organisation/org-type-subtype')
-		} else {
-			res.redirect('/application/v1/organisation/org-fundedby')
-		}
+		
+		res.redirect('/application/v1/organisation/org-fundedby')
 
 	})
 
@@ -513,6 +509,7 @@ module.exports = function (router) {
 	router.post('/application/v1/organisation/org-fundedby', function (req, res) {
 
 		let org_fundedby = req.session.data['org-fundedby']
+		let org_route = req.session.data['org-selectedroute']
 		req.session.data['tl_org_type'] = 'completed'
 
 		if (org_fundedby === 'yes') {
@@ -523,7 +520,11 @@ module.exports = function (router) {
 			res.redirect('/application/v1/organisation/error/org-fundedby')
 		}
 
-		res.redirect('/application/v1/organisation/org-classification')
+		if (org_route === 'employer') {
+			res.redirect('/application/v1/organisation/org-type-subtype')
+		} else {
+			res.redirect('/application/v1/organisation/org-classification')
+		}
 
 	})
 

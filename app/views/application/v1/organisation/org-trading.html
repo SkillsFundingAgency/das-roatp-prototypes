@@ -15,7 +15,7 @@
     {% if data['org-legalstatus'] == "partnership" %}
       {% set backlink_trading = "org-website" %}
     {% else %}
-      {% set backlink_trading = "org-confirmorgdetails" %}
+      {% set backlink_trading = "org-ico" %}
     {% endif %}
   {% endif %}
 {% endif %}
@@ -29,7 +29,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-ico"
+    href: backlink_trading
   }) }}
 {% endblock %}
 

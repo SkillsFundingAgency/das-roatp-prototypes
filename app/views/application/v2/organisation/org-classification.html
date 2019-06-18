@@ -50,7 +50,7 @@
         name: "org-classification",
         fieldset: {
           legend: {
-            text: "What is your organisation?",
+            text: "How would you describe your organisation?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -58,42 +58,39 @@
         items: [
           {
             value: "public-service-mutual",
-            text: "A public service mutual",
+            text: "It's a public service mutual",
             hint: {
-              text: "An organisation that has left the public sector but still delivers public services."
+              text: "An organisation that’s left the public sector but still delivers public services."
             },
             checked: checked("org-classification", "public-service-mutual")
           },
           {
             value: "sheltered-workshop",
-            text: "A sheltered workshop",
+            text: "It's a sheltered workshop",
             hint: {
-              text: "An organisation that provides employment opportunities for individuals who are developmentally, physically, or mentally impaired."
+              text: "An organisation that provides employment opportunities for people who are developmentally, physically, or mentally impaired."
             },
             checked: checked("org-classification", "sheltered-workshop")
           },
           {
             value: "sme",
-            text: "A small or medium enterprise (SME)",
+            text: "It’s a small or medium enterprise (SME)",
             hint: {
-              html: 'As defined by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en" target="_blank">European Commission (opens in a new window or tab)</a>.'
+              html: 'As explained by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en" target="_blank">European Commission (opens in a new window or tab)</a>.'
             },
             checked: checked("org-classification", "sme")
           },
           {
             value: "third-sector",
-            text: "Third sector",
+            text: "It’s a third sector organisation",
             hint: {
-              text: "A voluntary or community organisation. For example, a charity."
+              text: "An organisation that does voluntary or community work. For example, a charity."
             },
             checked: checked("org-classification", "third-sector")
           },
           {
             value: "none",
-            text: "None of the above",
-            hint: {
-              text: ""
-            },
+            text: "It’s none of the above",
             checked: checked("org-classification", "none")
           }
         ]

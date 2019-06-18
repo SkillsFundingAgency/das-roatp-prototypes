@@ -1,0 +1,89 @@
+{% extends "layout_application_v2.html" %}
+
+{% block pageTitle %}
+  Service Start Page - RoATP Organisation Prototype
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Section</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Subsection</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <p>Use this service to join the register of apprenticeship training providers so that you can train apprentices in the UK.</p>
+      <p>You do not have to complete your application in one go. You can save your details and finish it later.</p>
+      <p>You’ll need to allow at least 12 weeks for Education and Skills Funding Agency (ESFA) to process your application.</p>
+
+      <a href="/application/v2/signin" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p>To join the register of apprenticeship training providers, your organisation will need to have:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+				<li>a <a href="https://www.ukrlp.co.uk/">UK provider reference number (opens in a new window or tab)</a></li>
+				<li>an <a href="https://ico.org.uk/registration/new">Information Commissioner's Office (ICO) registration number (opens in a new window or tab)</a></li>
+				<li>a UK business address</li>
+				<li>an individual or team that has experience in developing and delivering training</li>
+			</ul>
+
+      <p>If your organisation is applying to the main or employer provider route, it must have been trading for at least 12 months.</p>
+      <p>If your organisation is applying to the supporting provider route, it must have been trading for at least 3 months.</p>
+      <p>If your organisation has had an Ofsted inspection, it must have been in further education and skills for apprenticeships. Your organisation must not have been graded ‘inadequate’ in the last 3 years.</p>
+      <p>If your organisation does not have a grade for apprenticeships, we will accept one for overall effectiveness.</p>
+
+    </div>
+
+    <!--div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Related link
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div-->
+  </div>
+{% endblock %}

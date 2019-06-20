@@ -38,6 +38,17 @@
             </dd>
           </div>
 
+          {% if (data['org-ukprn'] != "11110004") and (data['org-ukprn'] != "11110005") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01234567
+            </dd>
+          </div>
+          {% endif %}
+
           {% if (data['org-ukprn'] != "11110001") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

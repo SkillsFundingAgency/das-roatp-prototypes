@@ -24,14 +24,13 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="" method="post" class="form">
-        
+
         <h1 class="govuk-heading-l">Confirm who’s in control</h1>
 
         <p>These are the details we found on Companies House.</p>
-        
 
         {{ govukTable({
-          caption: "Officers",
+          caption: "Company directors",
           firstCellIsHeader: false,
           head: [
             { text: "Name" },
@@ -58,7 +57,7 @@
         }) }}
 
         {{ govukTable({
-          caption: "Persons with significant control",
+          caption: "Persons with Significant Control (PSC’s)",
           firstCellIsHeader: false,
           head: [
             { text: "Name" },
@@ -91,12 +90,6 @@
         {{ govukButton({
           text: "Confirm and continue",
           classes: "govuk-!-margin-right-1"
-        }) }}
-  
-        {{ govukButton({
-          text: "Confirm and sign out",
-          href: "signout",
-          classes: "govuk-button--secondary"
         }) }}
 
       </form>

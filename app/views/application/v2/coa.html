@@ -12,18 +12,11 @@
     html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
   }) }}
 
-<div class="govuk-phase-banner" style="background: #f8f8f8; border-bottom: none; padding-right: 1em; text-align: right;">
-  <p class="govuk-phase-banner__content" style="display: block; text-align: right;">
-    <span class="">
-       <a href="#">Save and sign out</a>
-    </span>
-  </p>
-</div>
-
   {{ govukBackLink({
     text: "Back",
     href: "../task-list"
   }) }}
+  <a href="#" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Sign out</a>
 {% endblock %}
 
 {% block content %}

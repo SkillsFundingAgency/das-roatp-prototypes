@@ -14,45 +14,87 @@
       </h1>
 
       <h2 class="govuk-heading-m">RoATP Application Journey</h2>
-          <p class="govuk-body">Scenarios set with UKPRN:</p>
-          <ul class="govuk-body">
+          
+      <p class="govuk-body">
+        <strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em;">WIP</strong><br>
+        <a href="/application/v2">Application journey v2</a>
+        <span class="govuk-caption-m">Added on: 18/06/2019</span>
+      </p>
+          
+      <p class="govuk-body" style="margin-bottom: 0;">Scenarios set with UKPRN: 
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
             <li>11110000: Happy path - all org details from UKRLP</li>
             <li>11110001: Organisation has no website or trading name</li>
             <li>11110002: Inactive organisation</li>
             <li>11110003: Charity with a company number</li>
             <li>11110004: Charity without a company number</li>
-            <li>11110005: Not a company (e.g. Sole trader or partnership)</li>
+            <li>11110005: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+            <li>11110006: Organisation with a parent company</li>
+            <li style="margin-bottom: 0;">11110007: Incorporation date less than 12 months ago (3 months for supporting)</li>
+          </ul>
+        </div>
+      </p>
+
+      <!--details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+              Scenarios set with UKPRN
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list">
+            <li>11110000: Happy path - all org details from UKRLP</li>
+            <li>11110001: Organisation has no website or trading name</li>
+            <li>11110002: Inactive organisation</li>
+            <li>11110003: Charity with a company number</li>
+            <li>11110004: Charity without a company number</li>
+            <li>11110005: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
             <li>11110006: Organisation with a parent company</li>
             <li>11110007: Incorporation date less than 12 months ago (3 months for supporting)</li>
           </ul>
-      <ul class="govuk-list govuk-list--bullet">
-        <li class="govuk-!-margin-bottom-4">
-          <a href="/application/v1">Application journey v1</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong>
-          <span class="govuk-caption-m">Added on: 04/06/2019</span>
-        </li>
-        <li class="govuk-!-margin-bottom-4">
-          <a href="/application/v0">Application journey v0</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-          <span class="govuk-caption-m">Added on: 17/05/2019</span>
-        </li>
-        <li class="govuk-!-margin-bottom-4">
-          <a href="/organisation/v0">
-            Organisation section v0<br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-          </a>
-          <span class="govuk-caption-m">
-            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-org_v0" target="_blank">7th - 10th May 2019</a><br>
-            Last updated: 07/05/2019
-          </span>
-        </li>
-      </ul>
+        </div>
+      </details-->
+
+      <p class="govuk-body" style="margin-bottom: 0;">Archived versions of RoATP Application Journey
+        <div class="govuk-details__text">
+          
+          <ul class="govuk-list govuk-list--bullet">
+            <li class="govuk-!-margin-bottom-4">
+              <a href="/application/v1">Application journey v1</a><br>
+              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong>
+              <span class="govuk-caption-m">Added on: 04/06/2019</span>
+            </li>
+            <li class="govuk-!-margin-bottom-4">
+              <a href="/application/v0">Application journey v0</a><br>
+              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
+              <span class="govuk-caption-m">
+                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v0" target="_blank">5th - 7th Jun 2019</a><br>
+                Added on: 17/05/2019
+              </span>
+            </li>
+            <li class="govuk-!-margin-bottom-4">
+              <a href="/organisation/v0">
+                Organisation section v0<br>
+              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
+              </a>
+              <span class="govuk-caption-m">
+                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-org_v0" target="_blank">7th - 10th May 2019</a><br>
+                Last updated: 07/05/2019
+              </span>
+            </li>
+          </ul>
+
+        </div>
+      </p>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-m">Staff App</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li class="govuk-!-margin-bottom-4">
           <a href="/staff-app/v4">v4</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none;font-size: 0.75em;">WIP</strong>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">Tested</strong>
           <span class="govuk-caption-m">Added on: 05/06/2019</span>
           <ul>
             <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-481" target="_blank">APR-481</a> - Add/update the 'Application determined date' for a new or existing providers</li>
@@ -102,6 +144,8 @@
         </li>
       </ul>
 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
       <h2 class="govuk-heading-m">RoATP Digital Eligibility Checker</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li class="govuk-!-margin-bottom-4">
@@ -129,6 +173,8 @@
           <span class="govuk-caption-m">Last updated: 03/04/2019</span>
         </li>
       </ul>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-m">RoATP Bravo Eligibility Checker</h2>
       <ul class="govuk-list govuk-list--bullet">

@@ -11,9 +11,9 @@
   ESFA Staff App
 {% endblock %}
 
-{% if (data['staff-add-ukprn'] === "11110003") %}
+{% if (data['staff-add-ukprn'] === "12340003") %}
 	{% set confirmbacklink = "add-manually" %}
-{% elseif (data['staff-add-ukprn'] === "11110001") %}
+{% elseif (data['staff-add-ukprn'] === "12340001") %}
 	{% set confirmbacklink = "add-fromukrlp-determined" %}
 {% else %}
 	{% set confirmbacklink = "change-charity-number" %}
@@ -55,7 +55,7 @@
 					</dd>
 				</div>
 				
-				{% if (data['staff-add-ukprn'] != "11110001") %}
+				{% if (data['staff-add-ukprn'] != "12340001") %}
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">
 						Type of provider
@@ -79,7 +79,7 @@
 						{{ data['staff-add-orgname'] }}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						{% if (data['staff-add-ukprn'] != "11110001") %}
+						{% if (data['staff-add-ukprn'] != "12340001") %}
 						<a class="govuk-link" href="amend-ukprn-orgname">
 							Change<span class="govuk-visually-hidden"> legal name</span>
 						</a>
@@ -99,7 +99,7 @@
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						{% if (data['staff-add-ukprn'] != "11110001") %}
+						{% if (data['staff-add-ukprn'] != "12340001") %}
 						<a class="govuk-link" href="amend-ukprn-tradingname">
 							Change<span class="govuk-visually-hidden"> trading name</span>
 						</a>
@@ -119,7 +119,7 @@
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						{% if (data['staff-add-ukprn'] != "11110001") %}
+						{% if (data['staff-add-ukprn'] != "12340001") %}
 						<a class="govuk-link" href="amend-ukprn-companynumber">
 							Change<span class="govuk-visually-hidden"> company number</span>
 						</a>
@@ -139,7 +139,7 @@
 						{% endif %}
 					</dd>
 					<dd class="govuk-summary-list__actions">
-						{% if (data['staff-add-ukprn'] != "11110001") %}
+						{% if (data['staff-add-ukprn'] != "12340001") %}
 						<a class="govuk-link" href="amend-ukprn-charitynumber">
 							Change<span class="govuk-visually-hidden"> charity registration number</span>
 						</a>
@@ -147,7 +147,7 @@
 					</dd>
 				</div>
 				
-				{% if (data['staff-add-ukprn'] == "11110001") %}
+				{% if (data['staff-add-ukprn'] == "12340001") %}
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">
 						Type of provider

@@ -31,6 +31,7 @@
         
 
         {{ govukTable({
+          caption: "Officers",
           firstCellIsHeader: false,
           head: [
             { text: "Name" },
@@ -38,16 +39,39 @@
           ],
           rows: [
             [
-              { text: "Margaret Hamilton" },
-              { text: "Aug 1956" }
+              { text: "ANDREWS, Steve" },
+              { text: "Feb 1955" }
             ],
             [
-              { text: "Grace Hopper" },
-              { text: "Dec 1968" }
+              { text: "ANDREWS, Penelope" },
+              { text: "May 1963" }
             ],
             [
-              { text: "Katie Bouman" },
-              { text: "Jun 1990" }
+              { text: "SANDELL, David" },
+              { text: "May 1957" }
+            ],
+            [
+              { text: "SANDELL, Kay Helen" },
+              { text: "March 1960" }
+            ]
+          ]
+        }) }}
+
+        {{ govukTable({
+          caption: "Persons with significant control",
+          firstCellIsHeader: false,
+          head: [
+            { text: "Name" },
+            { text: "Date of birth"}
+          ],
+          rows: [
+            [
+              { text: "Mr David Sandell" },
+              { text: "May 1957" }
+            ],
+            [
+              { text: "Mr Steve Andrews" },
+              { text: "February 1955" }
             ]
           ]
         }) }}

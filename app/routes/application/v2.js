@@ -153,8 +153,12 @@ module.exports = function (router) {
 		if (req.session.data['org-legalstatus']) {
 			if (req.session.data['org-legalstatus'] === 'sole') { 
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole')
-			} else {
+			} 
+			if (req.session.data['org-legalstatus'] === 'partnership') {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership')
+			}
+			if (req.session.data['org-legalstatus'] === 'publicbody') {
+				res.redirect('/application/' + v + '/organisation/org-type')
 			}
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-legalstatus')

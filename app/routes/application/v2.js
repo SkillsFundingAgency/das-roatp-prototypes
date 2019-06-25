@@ -21,7 +21,7 @@ module.exports = function (router) {
 
 		// Jump to: Your organisation > Organisation profile
 		// As a: Main provider, not funded by OFS
-		if (req.session.data['signin-email'] == "main@company.com") {
+		if (req.session.data['signin-email'] == "main@company.profile") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "public-service-mutual"
 			req.session.data['org-ico'] = "12345678"
@@ -739,11 +739,14 @@ module.exports = function (router) {
 	})
 
 
-	// Profile - Grade of overall Ofsted inspection
+	// Profile - Overall Effectiveness Grade of Ofsted inspection
 	router.post('/application/' + v + '/organisation/pro-ofsted-overall-grade', function (req, res) {
 		if (req.session.data['pro-ofsted-overall-grade']) {
 			if (req.session.data['pro-ofsted-overall-grade'] == "outstanding" || req.session.data['pro-ofsted-overall-grade'] == "good") {
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
+			} else if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
+				//res.redirect('/application/' + v + '/organisation/shutter/xxx')
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/' + v + '/task-list')
@@ -754,35 +757,43 @@ module.exports = function (router) {
 	})
 
 
+	// Profile - Overall Effectiveness Grade less than 3 years ago
+	router.post('/application/' + v + '/organisation/pro-ofsted-overall-date', function (req, res) {
+		if (req.session.data['pro-ofsted-overall-date']) {
+			if (req.session.data['pro-ofsted-overall-date'] == "yes") {
+				if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+					res.redirect('/application/' + v + '/organisation/shutter/pro-ofsted-overall-inadequate')
+				} else {
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
+				}
+			} else {
+				if (req.session.data['pro-ofsted-overall-grade'] == "good") {
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
+				} else {
+					req.session.data['tl_org_profile'] = 'completed'
+					res.redirect('/application/' + v + '/task-list')
+				}
+			}
+		} else {
+			res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-date')
+		}
+	})
+
+
 	// Profile - Overall Ofsted inspection - Maintained funding?
 	router.post('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained', function (req, res) {
 		if (req.session.data['pro-ofsted-overall-fundingmaintained']) {
 			if (req.session.data['pro-ofsted-overall-fundingmaintained'] == "yes") {
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
+				/***** EXEMPT FROM AW and CCLM1-6 *****/
+				req.session.data['exempt_lm'] = 'partial'
+				req.session.data['exempt_aw'] = 'yes'
+				req.session.data['tl_org_profile'] = 'completed'
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/' + v + '/task-list')
 			}
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-fundingmaintained')
-		}
-	})
-
-
-	// Profile - Grade less than 3 years ago
-	router.post('/application/' + v + '/organisation/pro-ofsted-overall-date', function (req, res) {
-		if (req.session.data['pro-ofsted-overall-date']) {
-			if (req.session.data['pro-ofsted-overall-date'] == "yes") {
-				/***** EXEMPT FROM AW and CCLM1-6 *****/
-				req.session.data['exempt_lm'] = 'partial'
-				req.session.data['exempt_aw'] = 'yes'
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
-			} else {
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
-			}
-		} else {
-			res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-date')
 		}
 	})
 

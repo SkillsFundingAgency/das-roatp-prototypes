@@ -104,16 +104,12 @@ module.exports = function (router) {
 		req.session.data['tl_org_details'] = 'inprogress'
 
 		let org_ico = req.session.data['org-ico']
-
-		if (org_ico === '12345678') {
-			if (req.session.data['org-ukprn'] == "12340001"){
-				// Org has no website in UKRLP
-				res.redirect('/application/' + v + '/organisation/org-website')
-			} else {
-				res.redirect('/application/' + v + '/organisation/org-trading')
-			}
+		
+		if (req.session.data['org-ukprn'] == "12340001"){
+			// Org has no website in UKRLP
+			res.redirect('/application/' + v + '/organisation/org-website')
 		} else {
-			res.redirect('/application/' + v + '/organisation/error/org-ico')
+			res.redirect('/application/' + v + '/organisation/org-trading')
 		}
 	})
 

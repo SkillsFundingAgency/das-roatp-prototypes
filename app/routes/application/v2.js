@@ -79,6 +79,8 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '12340103') { // Company - Inactive
 			res.redirect('/application/' + v + '/organisation/shutter/org-inactivecompany')
+		} else if (org_ukprn === '12340106') { // Company - Active with no directors
+			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '12340201') { // Company - Also a charity
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '12340202') { // Charity only, not a company
@@ -275,6 +277,9 @@ module.exports = function (router) {
 				} else if (req.session.data['org-ukprn'] === "12340301") {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
 					//res.redirect('/application/' + v + '/organisation/org-type')
+				} else if (req.session.data['org-ukprn'] === "12340106") {
+					res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing')
+					//res.redirect('/application/' + v + '/organisation/org-type')
 				} else {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
 				}
@@ -285,7 +290,36 @@ module.exports = function (router) {
 		}
 
 	})
+	
+	// Missing people in control
+	router.post('/application/' + v + '/organisation/org-peopleincontrol-missing', function (req, res) {
 
+		var newMissing = {
+			'name': req.session.data['org-personincontrol-name'],
+			'dob_month': monthNumToName(req.session.data['org-personincontrol-dob-month']),
+			'dob_year': req.session.data['org-personincontrol-dob-year']
+		}
+
+		req.session.data['org-personincontrol-name'] = null
+		req.session.data['org-personincontrol-dob-month'] = null
+		req.session.data['org-personincontrol-dob-year'] = null
+
+		if (!req.session.data['org-personincontrol-missing']) {
+			req.session.data['org-personincontrol-missing'] = []
+		}
+		req.session.data['org-personincontrol-missing'].push(newMissing)
+		
+		res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm')
+		
+	})
+
+
+	// Confirm missing people in control
+	router.post('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm', function (req, res) {
+		req.session.data['tl_org_people'] = 'completed'
+		req.session.data['tl_org_type'] = 'next'
+		res.redirect('/application/' + v + '/organisation/org-type')
+	})
 
 	
 	// Confirm people in control

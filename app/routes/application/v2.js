@@ -28,7 +28,7 @@ module.exports = function (router) {
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = ">23"
 			req.session.data['org-type'] = "employer"
-			req.session.data['org-ukprn'] = "12340001"
+			req.session.data['org-ukprn'] = "12340102"
 			req.session.data['org-website'] = "no"
 			req.session.data['org-website-address'] = ""
 			req.session.data['tl_selectroute'] = "completed"
@@ -49,7 +49,7 @@ module.exports = function (router) {
 			req.session.data['org-type-education'] = "hei"
 			req.session.data['org-fundedby'] = "yes"
 			req.session.data['org-fundedbytext'] = "monitored and supported by the Office for Students"
-			req.session.data['org-ukprn'] = "12340000"
+			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['tl_selectroute'] = "completed"
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_people'] = "completed"
@@ -73,23 +73,23 @@ module.exports = function (router) {
 
 		let org_ukprn = req.session.data['org-ukprn']
 
-		if (org_ukprn === '12340000') { // Company - Happy Path
+		if (org_ukprn === '12340101') { // Company - Happy Path
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '12340001') { // Company - Active with no website
+		} else if (org_ukprn === '12340102') { // Company - Active with no website
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '12340002') { // Company - Inactive
+		} else if (org_ukprn === '12340103') { // Company - Inactive
 			res.redirect('/application/' + v + '/organisation/shutter/org-inactivecompany')
-		} else if (org_ukprn === '12340003') { // Company - Also a charity
+		} else if (org_ukprn === '12340201') { // Company - Also a charity
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '12340004') { // Charity only, not a company
+		} else if (org_ukprn === '12340202') { // Charity only, not a company
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '12340005') { // Not a company (sole trader or partnership)
+		} else if (org_ukprn === '12340301') { // Not a company (sole trader or partnership)
 			//res.redirect('/application/' + v + '/organisation/org-legalstatus')
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 			//res.redirect('/application/' + v + '/task-list')
-		} else if (org_ukprn === '12340006') { // Organisation with a parent company
+		} else if (org_ukprn === '12340104') { // Organisation with a parent company
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
-		} else if (org_ukprn === '12340007') { // Incorporation date less than 12 months ago (3 months for supporting)
+		} else if (org_ukprn === '12340105') { // Incorporation date less than 12 months ago (3 months for supporting)
 			res.redirect('/application/' + v + '/organisation/shutter/incorporation')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-ukprn')
@@ -103,7 +103,7 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list')
 
 		//res.redirect('/application/' + v + '/organisation/org-parentcompany')
-		/*if (req.session.data['org-ukprn'] == "12340001"){
+		/*if (req.session.data['org-ukprn'] == "12340102"){
 			// Org has no website in UKRLP
 			res.redirect('/application/' + v + '/organisation/org-website')
 		} else {
@@ -134,7 +134,7 @@ module.exports = function (router) {
 
 		let org_ico = req.session.data['org-ico']
 		
-		if (req.session.data['org-ukprn'] == "12340001"){
+		if (req.session.data['org-ukprn'] == "12340102"){
 			// Org has no website in UKRLP
 			res.redirect('/application/' + v + '/organisation/org-website')
 		} else {
@@ -250,7 +250,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_details'] = 'completed'
 			req.session.data['tl_org_people'] = 'next'
 
-			if (req.session.data['org-ukprn'] === "12340004") { 
+			if (req.session.data['org-ukprn'] === "12340202") { 
 				res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 			} else {
 				res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
@@ -270,9 +270,9 @@ module.exports = function (router) {
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
 
-				if (req.session.data['org-ukprn'] === "12340004") { 
+				if (req.session.data['org-ukprn'] === "12340202") { 
 					res.redirect('/application/' + v + '/organisation/org-trustees')
-				} else if (req.session.data['org-ukprn'] === "12340005") {
+				} else if (req.session.data['org-ukprn'] === "12340301") {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
 					//res.redirect('/application/' + v + '/organisation/org-type')
 				} else {
@@ -291,7 +291,7 @@ module.exports = function (router) {
 	// Confirm people in control
 	router.post('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {
 
-		if (req.session.data['org-ukprn'] === "12340003") {
+		if (req.session.data['org-ukprn'] === "12340201") {
 			res.redirect('/application/' + v + '/organisation/org-trustees')
 		} else {
 			req.session.data['tl_org_people'] = 'completed'

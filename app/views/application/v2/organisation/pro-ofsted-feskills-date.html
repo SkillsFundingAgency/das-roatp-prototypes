@@ -4,12 +4,6 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
-{% if data['pro-itt'] == "yes" %}
-  {% set backlink_ofsted_apprentice = "pro-postgrad" %}
-{% else %}
-  {% set backlink_ofsted_apprentice = "pro-itt" %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -19,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_ofsted_apprentice
+    href: "pro-ofsted-feskills-grade"
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -32,11 +26,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-apprentice",
-        name: "pro-ofsted-apprentice",
+        idPrefix: "pro-ofsted-feskills-date",
+        name: "pro-ofsted-feskills-date",
         fieldset: {
           legend: {
-            text: "Has your organisation had a full Ofsted inspection in further education and skills for apprenticeships?",
+            text: "Did your organisation get this grade within the last 3 years?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -45,7 +39,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprentice", "yes"),
+            checked: checked("pro-ofsted-feskills-date", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -53,7 +47,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-apprentice", "no")
+            checked: checked("pro-ofsted-feskills-date", "no")
           }
         ]
       }) }}

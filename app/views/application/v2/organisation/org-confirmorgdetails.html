@@ -39,7 +39,7 @@
             </dd>
           </div>
 
-          {% if (data['org-ukprn'] != "12340004") and (data['org-ukprn'] != "12340005") %}
+          {% if (data['org-ukprn'] != "12340201") and (data['org-ukprn'] != "12340202") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Company number
@@ -50,7 +50,7 @@
           </div>
           {% endif %}
 
-          {% if (data['org-ukprn'] != "12340001") %}
+          {% if (data['org-ukprn'] != "12340102") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Trading name
@@ -70,7 +70,7 @@
             </dd>
           </div>
 
-          {% if (data['org-ukprn'] != "12340001") %}
+          {% if (data['org-ukprn'] != "12340102") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Website
@@ -81,7 +81,7 @@
           </div>
           {% endif %}
 
-          {% if (data['org-ukprn'] == "12340006") %}
+          {% if (data['org-ukprn'] == "12340104") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Parent company legal name
@@ -110,7 +110,7 @@
           </summary>
           <div class="govuk-details__text">
             <p>Contact UKRLP helpdesk on 0345 202 1600 or <a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
-            {% if (data['org-ukprn'] == "12340006") %}
+            {% if (data['org-ukprn'] == "12340104") %}
             <p>For parent company details, you can contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
             {% endif %}
             <p>After your changes have been confirmed, sign back in to continue with this application.</p>

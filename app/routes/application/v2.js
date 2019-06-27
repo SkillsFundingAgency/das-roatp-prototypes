@@ -102,7 +102,7 @@ module.exports = function (router) {
 	// Confirm company details
 	router.post('/application/' + v + '/organisation/org-confirmorgdetails', function (req, res) {
 		
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/organisation/org-parentcompany')
 
 		//res.redirect('/application/' + v + '/organisation/org-parentcompany')
 		/*if (req.session.data['org-ukprn'] == "12340102"){
@@ -156,6 +156,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership')
 			}
 			if (req.session.data['org-legalstatus'] === 'publicbody') {
+				/******* ASK FOR DIRECTORS!!! ********/
 				res.redirect('/application/' + v + '/organisation/org-type')
 			}
 		} else {
@@ -276,10 +277,8 @@ module.exports = function (router) {
 					res.redirect('/application/' + v + '/organisation/org-trustees')
 				} else if (req.session.data['org-ukprn'] === "12340301") {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
-					//res.redirect('/application/' + v + '/organisation/org-type')
 				} else if (req.session.data['org-ukprn'] === "12340106") {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing')
-					//res.redirect('/application/' + v + '/organisation/org-type')
 				} else {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
 				}
@@ -399,6 +398,24 @@ module.exports = function (router) {
 		req.session.data['tl_org_people'] = 'completed'
 		req.session.data['tl_org_type'] = 'next'
 		res.redirect('/application/' + v + '/organisation/org-type')
+	})
+
+
+	// Have a parent company?
+	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
+
+		if (req.session.data['org-parentcompany'] === 'yes'){
+			res.redirect('/application/' + v + '/organisation/org-parentcompany-confirm')
+		} else {
+			res.redirect('/application/' + v + '/task-list')
+		}
+
+	})
+
+
+	// Parent company confirmation
+	router.post('/application/' + v + '/organisation/org-parentcompany-confirm', function (req, res) {
+		res.redirect('/application/' + v + '/task-list')
 	})
 
 

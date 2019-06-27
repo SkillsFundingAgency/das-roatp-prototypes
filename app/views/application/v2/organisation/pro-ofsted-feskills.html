@@ -4,6 +4,12 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
+{% if data['pro-itt'] == "yes" %}
+  {% set backlink_ofsted_apprentice = "pro-postgrad" %}
+{% else %}
+  {% set backlink_ofsted_apprentice = "pro-itt" %}
+{% endif %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -13,7 +19,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "pro-ofsted-apprentice-date"
+    href: backlink_ofsted_apprentice
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -25,23 +31,21 @@
 
     <form action="" method="post" class="form">
 
-      <h1 class="govuk-heading-l">Has your organisation maintained funding from the agency since?</h1>
-      <p class="govuk-body">This only includes funding received from:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>ESFA</li>
-        <li>Skills Funding Agency (SFA)</li>
-        <li>Education Funding Agency (EFA)</li>
-      </ul>
-
-
       {{ govukRadios({
-        idPrefix: "pro-ofsted-apprentice-fundingmaintained",
-        name: "pro-ofsted-apprentice-fundingmaintained",
+        idPrefix: "pro-ofsted-feskills",
+        name: "pro-ofsted-feskills",
+        fieldset: {
+          legend: {
+            text: "Has your organisation had a full Ofsted inspection in further education and skills for apprenticeships?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprentice-fundingmaintained", "yes"),
+            checked: checked("pro-ofsted-feskills", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -49,7 +53,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-apprentice-fundingmaintained", "no")
+            checked: checked("pro-ofsted-feskills", "no")
           }
         ]
       }) }}

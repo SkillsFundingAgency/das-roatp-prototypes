@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: "pro-ofsted-feskills-date"
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -25,21 +25,23 @@
 
     <form action="" method="post" class="form">
 
+      <h1 class="govuk-heading-l">Has your organisation maintained funding from the agency since?</h1>
+      <p class="govuk-body">This only includes funding received from:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>ESFA</li>
+        <li>Skills Funding Agency (SFA)</li>
+        <li>Education Funding Agency (EFA)</li>
+      </ul>
+
+
       {{ govukRadios({
-        idPrefix: "pro-ofsted-apprentice-shortinspection",
-        name: "pro-ofsted-apprentice-shortinspection",
-        fieldset: {
-          legend: {
-            text: "Did your organisation have a short inspection within the last 3 years?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
+        idPrefix: "pro-ofsted-feskills-fundingmaintained",
+        name: "pro-ofsted-feskills-fundingmaintained",
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprentice-shortinspection", "yes"),
+            checked: checked("pro-ofsted-feskills-fundingmaintained", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -47,7 +49,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-apprentice-shortinspection", "no")
+            checked: checked("pro-ofsted-feskills-fundingmaintained", "no")
           }
         ]
       }) }}

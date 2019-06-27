@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "pro-ofsted-apprentice"
+    href: "pro-ofsted-feskills"
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -29,28 +29,28 @@
       <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s latest full Ofsted inspection report.</p>
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-apprentice-grade",
-        name: "pro-ofsted-apprentice-grade",
+        idPrefix: "pro-ofsted-feskills-grade",
+        name: "pro-ofsted-feskills-grade",
         items: [
           {
             value: "oustanding",
             text: "Outstanding",
-            checked: checked("pro-ofsted-apprentice-grade", "oustanding")
+            checked: checked("pro-ofsted-feskills-grade", "oustanding")
           },
           {
             value: "good",
             text: "Good",
-            checked: checked("pro-ofsted-apprentice-grade", "good")
+            checked: checked("pro-ofsted-feskills-grade", "good")
           },
           {
             value: "requires-improvement",
             text: "Requirements improvement",
-            checked: checked("pro-ofsted-apprentice-grade", "requires-improvement")
+            checked: checked("pro-ofsted-feskills-grade", "requires-improvement")
           },
           {
             value: "inadequate",
             text: "Inadequate",
-            checked: checked("pro-ofsted-apprentice-grade", "inadequate")
+            checked: checked("pro-ofsted-feskills-grade", "inadequate")
           }
         ]
       }) }}

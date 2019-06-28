@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: "pro-ofsted-feskills"
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -26,11 +26,11 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills-shortinspection",
-        name: "pro-ofsted-feskills-shortinspection",
+        idPrefix: "pro-ofsted-apprenticeships",
+        name: "pro-ofsted-apprenticeships",
         fieldset: {
           legend: {
-            text: "Did your organisation have a short inspection within the last 3 years?",
+            text: "Was your organisation awarded a grade for  apprenticeships in this Ofsted inspection?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -39,7 +39,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills-shortinspection", "yes"),
+            checked: checked("pro-ofsted-apprenticeships", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -47,7 +47,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-feskills-shortinspection", "no")
+            checked: checked("pro-ofsted-apprenticeships", "no")
           }
         ]
       }) }}

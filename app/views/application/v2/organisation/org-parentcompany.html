@@ -1,4 +1,4 @@
-{% extends "layout_application_v2.html" %}
+{% extends "layout_application.html" %}
 
 {% block pageTitle %}
   Organisation - RoATP Organisation Prototype
@@ -13,9 +13,8 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_type
+    href: "org-confirmorgdetails"
   }) }}
-  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
 
 {% block content %}
@@ -25,29 +24,45 @@
 
     <form action="" method="post" class="form">
 
+      {% set companydetailsHtml %}
+        {{ govukInput({
+          id: "org-parentcompany-companynumber",
+          name: "org-parentcompany-companynumber",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Company number"
+          },
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills-shortinspection",
-        name: "pro-ofsted-feskills-shortinspection",
+        idPrefix: "org-parentcompany-conditional",
+        name: "org-parentcompany",
         fieldset: {
           legend: {
-            text: "Did your organisation have a short inspection within the last 3 years?",
+            text: "Does your company have a UK parent company?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
+        },
+        hint: {
+          text: "This is when another company owns at least 75% of the shares in your company."
         },
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills-shortinspection", "yes"),
             conditional: {
-              html: websiteHtml
+              html: companydetailsHtml
             }
           },
           {
             value: "no",
-            text: "No",
-            checked: checked("pro-ofsted-feskills-shortinspection", "no")
+            text: "No"
           }
         ]
       }) }}
@@ -55,6 +70,12 @@
       {{ govukButton({
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and sign out",
+        href: "signout",
+        classes: "govuk-button--secondary"
       }) }}
 
     </form>

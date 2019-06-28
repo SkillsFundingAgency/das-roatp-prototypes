@@ -25,32 +25,29 @@
 
     <form action="" method="post" class="form">
 
-      <h1 class="govuk-heading-l">What Ofsted grade did your organisation get?</h1>
-      <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s latest full Ofsted inspection report.</p>
-
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills-grade",
-        name: "pro-ofsted-feskills-grade",
+        idPrefix: "pro-ofsted-overall",
+        name: "pro-ofsted-overall",
+        fieldset: {
+          legend: {
+            text: "Was your organisation awarded a grade for  apprenticeships in this Ofsted inspection?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
         items: [
           {
-            value: "oustanding",
-            text: "Outstanding",
-            checked: checked("pro-ofsted-feskills-grade", "oustanding")
+            value: "yes",
+            text: "Yes",
+            checked: checked("pro-ofsted-overall", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
           },
           {
-            value: "good",
-            text: "Good",
-            checked: checked("pro-ofsted-feskills-grade", "good")
-          },
-          {
-            value: "requires-improvement",
-            text: "Requirements improvement",
-            checked: checked("pro-ofsted-feskills-grade", "requires-improvement")
-          },
-          {
-            value: "inadequate",
-            text: "Inadequate",
-            checked: checked("pro-ofsted-feskills-grade", "inadequate")
+            value: "no",
+            text: "No",
+            checked: checked("pro-ofsted-overall", "no")
           }
         ]
       }) }}

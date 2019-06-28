@@ -4,12 +4,6 @@
   Organisation - RoATP Organisation Prototype
 {% endblock %}
 
-{% if data['pro-ofsted-feskills'] == "yes" %}
-  {% set backlink_ofsted_overall = "pro-ofsted-apprenticeships-grade" %}
-{% else %}
-  {% set backlink_ofsted_overall = "pro-ofsted-apprenticeships" %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
@@ -19,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_ofsted_overall
+    href: "pro-ofsted-apprenticeships"
   }) }}
   <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
 {% endblock %}
@@ -31,32 +25,32 @@
 
     <form action="" method="post" class="form">
 
-      <h1 class="govuk-heading-l">What grade did your organisation get for overall effectiveness in this Ofsted inspection?</h1>
+      <h1 class="govuk-heading-l">What grade did your organisation get?</h1>
       <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s Ofsted inspection report.</p>
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-overall-grade",
-        name: "pro-ofsted-overall-grade",
+        idPrefix: "pro-ofsted-apprenticeships-grade",
+        name: "pro-ofsted-apprenticeships-grade",
         items: [
           {
-            value: "outstanding",
+            value: "oustanding",
             text: "Outstanding",
-            checked: checked("pro-ofsted-overall-grade", "outstanding")
+            checked: checked("pro-ofsted-apprenticeships-grade", "oustanding")
           },
           {
             value: "good",
             text: "Good",
-            checked: checked("pro-ofsted-overall-grade", "good")
+            checked: checked("pro-ofsted-apprenticeships-grade", "good")
           },
           {
             value: "requires-improvement",
             text: "Requirements improvement",
-            checked: checked("pro-ofsted-overall-grade", "requires-improvement")
+            checked: checked("pro-ofsted-apprenticeships-grade", "requires-improvement")
           },
           {
             value: "inadequate",
             text: "Inadequate",
-            checked: checked("pro-ofsted-overall-grade", "inadequate")
+            checked: checked("pro-ofsted-apprenticeships-grade", "inadequate")
           }
         ]
       }) }}

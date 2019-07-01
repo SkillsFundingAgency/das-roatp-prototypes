@@ -666,7 +666,7 @@ module.exports = function (router) {
 				req.session.data['exempt_aw'] = 'yes'
 				res.redirect('/application/' + v + '/task-list')
 			} else {
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills')
 			}
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/pro-postgrad')
@@ -879,10 +879,11 @@ module.exports = function (router) {
 				req.session.data['exempt_lm'] = 'partial'
 				req.session.data['exempt_aw'] = 'yes'
 				req.session.data['tl_org_profile'] = 'completed'
+				// DESTINATION REQD
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
 			}
+			res.redirect('/application/' + v + '/task-list')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-fundingmaintained')
 		}

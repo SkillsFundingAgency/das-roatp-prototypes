@@ -19,6 +19,30 @@ module.exports = function (router) {
 
 		req.session.data['signedin'] = 'yes'
 
+		// Jump to: Financial evidence
+		// As a: Main provider, not funded by OFS, no Ofsted
+		if (req.session.data['signin-email'] == "main@financial.upload") {
+			req.session.data['exempt_aw'] = "yes"
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['exempt_lm'] = "yes"
+			req.session.data['org-classification'] = "public-service-mutual"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = ">23"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340102"
+			req.session.data['org-website'] = "no"
+			req.session.data['org-website-address'] = ""
+			req.session.data['pro-itt'] = "yes"
+			req.session.data['pro-postgrad'] = "yes"
+			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// Jump to: Your organisation > Organisation profile
 		// As a: Main provider, not funded by OFS
 		if (req.session.data['signin-email'] == "main@company.profile") {
@@ -896,7 +920,6 @@ module.exports = function (router) {
 		}
 	})
 
-
 	// -----------------------
 	// Profile - Subcontractor
 	router.post('/application/' + v + '/organisation/pro-subcontractor', function (req, res) {
@@ -906,8 +929,42 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list')
 	})
 
-	// --------
-	// Sign out
+/**************************
+ *** Financial Evidence ***
+ **************************/
+
+	// Full financial statements for the last year?
+	router.post('/application/' + v + '/financial/full-accounts', function (req, res) {
+		req.session.data['tl_fin_upload'] = 'inprogress'
+		res.redirect('/application/' + v + '/financial/upload-financial')
+	})
+
+	// Upload financial statements
+	router.post('/application/' + v + '/financial/upload-financial', function (req, res) {
+		if (req.session.data['fin-fullaccounts'] == "yes"){
+			req.session.data['tl_fin_upload'] = 'completed'
+			res.redirect('/application/' + v + '/task-list')
+		} else {
+			/*if (req.session.data['org-selectedroute'] == "supporting") {
+				res.redirect('/application/' + v + '/financial/upload-supporting-management')
+			} else {*/
+				res.redirect('/application/' + v + '/financial/upload-management')
+			//}
+		}
+	})
+
+	// Upload management accounts
+	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
+		req.session.data['tl_fin_upload'] = 'completed'
+		res.redirect('/application/' + v + '/task-list')
+	})
+
+
+	
+
+/****************
+ *** Sign out ***
+ ****************/
 	router.get('/application/' + v + '/signout', function (req, res) {
 
 		req.session.data['signedin'] = 'no'

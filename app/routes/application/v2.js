@@ -684,11 +684,9 @@ module.exports = function (router) {
 					// EXEMPT FROM AW and CCLM1-6
 					req.session.data['exempt_lm'] = 'partial'
 					req.session.data['exempt_aw'] = 'yes'
-					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list')
-				} else {
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
 				}
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
 			}
 		}
 	})

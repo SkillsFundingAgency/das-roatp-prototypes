@@ -47,6 +47,63 @@
             }
           ]
         }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            {{ govukTable({
+              caption: "Company directors",
+              firstCellIsHeader: false,
+              head: [
+                { text: "Name" },
+                { text: "Date of birth"}
+              ],
+              rows: [
+                [
+                  { text: "BOUVIER, Jacqueline" },
+                  { text: "Feb 1955" }
+                ],
+                [
+                  { text: "POWELL, Herbert" },
+                  { text: "May 1963" }
+                ],
+                [
+                  { text: "POWERS, Ruth" },
+                  { text: "May 1957" }
+                ],
+                [
+                  { text: "VAN HOUTEN, Kirk" },
+                  { text: "March 1960" }
+                ]
+              ]
+            }) }}
+
+            {{ govukTable({
+              caption: "People with significant control (PSC’s)",
+              firstCellIsHeader: false,
+              head: [
+                { text: "Name" },
+                { text: "Date of birth"}
+              ],
+              rows: [
+                [
+                  { text: "Ms Jacqueline Bouvier" },
+                  { text: "May 1957" }
+                ],
+                [
+                  { text: "Mr Herbert Powell" },
+                  { text: "February 1955" }
+                ]
+              ]
+            }) }}
+
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Save and continue",

@@ -183,6 +183,22 @@
                 <strong class="govuk-tag app-task-list__task-inprogress" id="dec-people">In progress</strong>
               {% endif %}
             </li>
+
+            {% if (data['org-parentcompany'] == "yes") %}
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/XXX" aria-describedby="dec-parent">Your parent company</a>
+              {% else %}
+                Your parent company
+              {% endif %}
+              {% if data['tl_dec_parent'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="dec-parent">Completed</strong>
+              {% elseif data['tl_dec_parent'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="dec-parent">In progress</strong>
+              {% endif %}
+            </li>
+            {% endif %}
+
           </ul>
         </li>
 

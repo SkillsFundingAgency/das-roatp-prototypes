@@ -19,6 +19,33 @@ module.exports = function (router) {
 
 		req.session.data['signedin'] = 'yes'
 
+		// 'Your organisation' complete
+		// Organisation has a parent company
+		// ITT and Postgrad, no Ofsted inspections
+		if (req.session.data['signin-email'] == "main-parentcompany@organisation.complete") {
+			req.session.data['exempt_aw'] = "yes"
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['exempt_lm'] = "yes"
+			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany-companynumber'] = "12232323"
+			req.session.data['org-classification'] = "public-service-mutual"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = ">23"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340102"
+			req.session.data['org-website'] = "no"
+			req.session.data['org-website-address'] = ""
+			req.session.data['pro-itt'] = "yes"
+			req.session.data['pro-postgrad'] = "yes"
+			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// Jump to: Financial evidence
 		// As a: Main provider, not funded by OFS, no Ofsted
 		if (req.session.data['signin-email'] == "main@financial.upload") {

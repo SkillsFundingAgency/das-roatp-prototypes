@@ -812,22 +812,6 @@ module.exports = function (router) {
 		}
 	})
 
-
-	// Profile - Overall Ofsted inspection
-	/*router.post('/application/' + v + '/organisation/pro-ofsted-overall', function (req, res) {
-		if (req.session.data['pro-ofsted-overall']) {
-			if (req.session.data['pro-ofsted-overall'] == "yes") {
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
-			} else {
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
-			}
-		} else {
-			res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall')
-		}
-	})*/
-
-
 	// Profile - Overall Effectiveness Grade of Ofsted inspection
 	router.post('/application/' + v + '/organisation/pro-ofsted-overall-grade', function (req, res) {
 		if (req.session.data['pro-ofsted-overall-grade']) {
@@ -835,7 +819,6 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
 			} else if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
-				//res.redirect('/application/' + v + '/organisation/shutter/xxx')
 			} else {
 				req.session.data['tl_org_profile'] = 'completed'
 				res.redirect('/application/' + v + '/task-list')
@@ -928,6 +911,7 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list')
 	})
 
+
 /**************************
  *** Financial Evidence ***
  **************************/
@@ -955,6 +939,83 @@ module.exports = function (router) {
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'completed'
+		res.redirect('/application/' + v + '/task-list')
+	})
+
+
+/************************************
+ *** Criminal & compliance checks ***
+ ************************************/
+
+	// Organisation - Debt?
+	router.post('/application/' + v + '/declarations/org-debt', function (req, res) {
+		req.session.data['tl_dec_organisation'] = 'inprogress'
+		res.redirect('/application/' + v + '/declarations/org-repay-funding')
+	})
+
+	// Organisation - Failed to repay funding?
+	router.post('/application/' + v + '/declarations/org-repay-funding', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-contract-terminated')
+	})
+
+	// Organisation - Contract terminated by a public body?
+	router.post('/application/' + v + '/declarations/org-contract-terminated', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-withdrawn-contract')
+	})
+
+	// Organisation - Withdrawn from a contract
+	router.post('/application/' + v + '/declarations/org-withdrawn-contract', function (req, res) {
+		req.session.data['tl_dec_organisation'] = 'completed'
+		res.redirect('/application/' + v + '/declarations/org-education-register')
+	})
+
+	// Organisation - Removed from education register
+	router.post('/application/' + v + '/declarations/org-education-register', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-professional-register')
+	})
+
+	// Organisation - Removed from professional register
+	router.post('/application/' + v + '/declarations/org-professional-register', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-investigated')
+	})
+
+	// Organisation - Investigated?
+	router.post('/application/' + v + '/declarations/org-investigated', function (req, res) {
+		//res.redirect('/application/' + v + '/declarations/org-investigated')
+		res.redirect('/application/' + v + '/declarations/people-repay-funding') // TEMP LINK!
+	})
+
+
+
+	// Who’s in control - failed to repay funding
+	router.post('/application/' + v + '/declarations/people-repay-funding', function (req, res) {
+		req.session.data['tl_dec_people'] = 'inprogress'
+		res.redirect('/application/' + v + '/declarations/people-fraud')
+	})
+
+	// Who’s in control - fraud or irregularities
+	router.post('/application/' + v + '/declarations/people-fraud', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-contract-terminated')
+	})
+
+	// Who’s in control - Contract terminated by a public body?
+	router.post('/application/' + v + '/declarations/people-contract-terminated', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-withdrawn-contract')
+	})
+
+	// Who’s in control - Withdrawn from a contract
+	router.post('/application/' + v + '/declarations/people-withdrawn-contract', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-tax-payments')
+	})
+
+	// Who’s in control - Breached tax payments or social security contributions
+	router.post('/application/' + v + '/declarations/people-tax-payments', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-charity-register')
+	})
+
+	// Who’s in control - Charity register
+	router.post('/application/' + v + '/declarations/people-charity-register', function (req, res) {
+		req.session.data['tl_dec_people'] = 'completed'
 		res.redirect('/application/' + v + '/task-list')
 	})
 

@@ -59,19 +59,15 @@
               Company status
             </dt>
             <dd class="govuk-summary-list__value">
-              Active
+              Inactive
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Company type
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Private limited company
-            </dd>
-          </div>
-
         </dl>
+        
+        {{ govukWarningText({
+          text: "Your organisation’s UK parent company is inactive on Companies House. You can continue your application but may fail this question.",
+          iconFallbackText: "Warning"
+        }) }}
 
         <details class="govuk-details">
           <summary class="govuk-details__summary">

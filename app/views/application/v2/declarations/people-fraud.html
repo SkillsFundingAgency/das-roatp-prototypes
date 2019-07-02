@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-convictions-creditordebt"
+    href: "people-repay-funding"
   }) }}
 {% endblock %}
 
@@ -22,31 +22,28 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="dec-creditordebt-a" method="post" class="form">
+      <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "dec-creditordebt",
-          name: "dec-creditordebt",
+          idPrefix: "dec-people-fraud",
+          name: "dec-people-fraud",
           fieldset: {
             legend: {
-              text: "Is your organisation in debt with any creditors?",
+              text: "Has anyone who’s in control of your organisation been investigated for fraud or irregularities in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: ""
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-creditordebt", "yes")
+              checked: checked("dec-people-fraud", "yes")
             },
             {
               value: "no",
               text: "No",
-                checked: checked("dec-creditordebt", "no")
+                checked: checked("dec-people-fraud", "no")
             }
           ]
         }) }}
@@ -54,12 +51,6 @@
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
-        }) }}
-  
-        {{ govukButton({
-          text: "Save and sign out",
-          href: "signout-a",
-          classes: "govuk-button--secondary"
         }) }}
 
       </form>

@@ -38,11 +38,7 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-  {% if data['signedin'] == "yes" %}
-    {% include "includes/headerbar-signedin.html" %}
-  {% else %}
-    {% include "includes/headerbar.html" %}
-  {% endif %}
+  {% include "includes/headerbar.html" %}
 
 {% endblock %}
 

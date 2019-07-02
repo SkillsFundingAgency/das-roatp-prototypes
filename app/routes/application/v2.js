@@ -1042,6 +1042,14 @@ module.exports = function (router) {
 
 	// Who’s in control - Charity register
 	router.post('/application/' + v + '/declarations/people-charity-register', function (req, res) {
+		//req.session.data['tl_dec_people'] = 'completed'
+		//res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/declarations/people-convictions')
+	})
+
+	// Who’s in control - Criminal convictions
+	router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
+		// Will need to go in to a loop if answered yes
 		req.session.data['tl_dec_people'] = 'completed'
 		res.redirect('/application/' + v + '/task-list')
 	})

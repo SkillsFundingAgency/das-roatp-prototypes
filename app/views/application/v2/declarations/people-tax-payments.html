@@ -47,6 +47,19 @@
             }
           ]
         }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Save and continue",

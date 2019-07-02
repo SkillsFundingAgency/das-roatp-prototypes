@@ -55,11 +55,19 @@
           ]
         }) }}
         
-        {{ govukDetails({
-          summaryText: "Who's in control?",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales risus placerat, molestie est vitae, tristique tortor. Aliquam vehicula magna sapien, nec convallis mauris tincidunt ut."
-        }) }}
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
 
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+        
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"

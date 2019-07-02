@@ -156,83 +156,92 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Policies and processes
-          </h2>
-
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-                [...]
-            </li>  
-          </ul>
-
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Delivery model
+            <span class="app-task-list__section-number">3. </span> Criminal and compliance checks
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-                [...]
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">5. </span> Management
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-                [...]
-            </li>  
-          </ul>
-        </li>
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">6. </span> Readiness to deliver
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-                [...]
-            </li>  
-          </ul>
-        </li>
-
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> Criminal checks
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              [...]
-              <!--
-              {% if (data['tl_org_type'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Employees</a>
-              {% else %}
-                Employees
-              {% endif %}
-              {% if data['tl_org_convictions'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="org-convictions-status">In progress</strong>
-              {% elseif data['tl_org_convictions'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="org-convictions-status">Completed</strong>
-              {% elseif data['tl_org_convictions'] == "next" %}
-                <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}
-            </li>
-
-            <li class="app-task-list__item">
-              {% if (data['tl_org_type'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="org-tl_org_compliance-status">Your organisation</a>
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/org-debt" aria-describedby="dec-organisation">Your organisation</a>
               {% else %}
                 Your organisation
               {% endif %}
-              {% if data['tl_org_compliance'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="org-tl_org_compliance-status">In progress</strong>
-              {% elseif data['tl_org_compliance'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="org-tl_org_compliance-status">Completed</strong>
-              {% elseif data['tl_org_compliance'] == "next" %}
-                <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}-->
+              {% if data['tl_dec_organisation'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="dec-organisation">Completed</strong>
+              {% elseif data['tl_dec_organisation'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="dec-organisation">In progress</strong>
+              {% endif %}
             </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/people-repay-funding" aria-describedby="dec-people">Who’s in control of your organisation</a>
+              {% else %}
+                Who’s in control of your organisation
+              {% endif %}
+              {% if data['tl_dec_people'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="dec-people">Completed</strong>
+              {% elseif data['tl_dec_people'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="dec-people">In progress</strong>
+              {% endif %}
+            </li>
+
+            {% if (data['org-parentcompany'] == "yes") %}
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/XXX" aria-describedby="dec-parent">Your parent company</a>
+              {% else %}
+                Your parent company
+              {% endif %}
+              {% if data['tl_dec_parent'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="dec-parent">Completed</strong>
+              {% elseif data['tl_dec_parent'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="dec-parent">In progress</strong>
+              {% endif %}
+            </li>
+            {% endif %}
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Policies and processes
+          </h2>
+
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                [...]
+            </li>  
+          </ul>
+
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> Delivery model
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                [...]
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">6. </span> Management
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                [...]
+            </li>  
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">7. </span> Readiness to deliver
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+                [...]
+            </li>  
           </ul>
         </li>
 

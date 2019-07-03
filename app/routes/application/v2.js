@@ -769,8 +769,10 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grade', function (req, res) {
 		if (req.session.data['pro-ofsted-apprenticeships-grade']) {
 			if (req.session.data['pro-ofsted-apprenticeships-grade'] == "requires-improvement") {
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				//req.session.data['tl_org_profile'] = 'completed'
+				//res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
+				
 			} else {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date')
 			}

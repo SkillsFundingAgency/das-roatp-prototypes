@@ -1003,13 +1003,17 @@ module.exports = function (router) {
 
 	// Organisation - Removed from professional register
 	router.post('/application/' + v + '/declarations/org-professional-register', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/org-investigated')
+		res.redirect('/application/' + v + '/declarations/org-safeguarding')
 	})
 
-	// Organisation - Investigated?
-	router.post('/application/' + v + '/declarations/org-investigated', function (req, res) {
-		//res.redirect('/application/' + v + '/declarations/org-investigated')
-		res.redirect('/application/' + v + '/declarations/people-repay-funding') // TEMP LINK!
+	// Organisation - Safeguarding
+	router.post('/application/' + v + '/declarations/org-safeguarding', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-whistleblowing')
+	})
+
+	// Organisation - Whistleblowing
+	router.post('/application/' + v + '/declarations/org-whistleblowing', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-repay-funding')
 	})
 
 

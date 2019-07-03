@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-professional-register"
+    href: "org-safeguarding"
   }) }}
 {% endblock %}
 
@@ -25,32 +25,25 @@
       <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "dec-org-investigated",
-          name: "dec-org-investigated",
+          idPrefix: "dec-org-whistleblowing",
+          name: "dec-org-whistleblowing",
           fieldset: {
             legend: {
-              text: "Has your organisation been investigated?",
+              text: "Has your organisation been investigated due to whistleblowing issues in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            html: '<p class="govuk-body">Tell us if your organisation had:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>safeguarding issues resulting in further investigation</li>
-                <li>whistleblowing issues resulting in further investigation</li>
-              </ul>'
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-investigated", "yes")
+              checked: checked("dec-org-whistleblowing", "yes")
             },
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-investigated", "no")
+                checked: checked("dec-org-whistleblowing", "no")
             }
           ]
         }) }}

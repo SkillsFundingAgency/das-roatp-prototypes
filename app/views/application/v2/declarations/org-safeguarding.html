@@ -13,7 +13,7 @@
   }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-education-register"
+    href: "org-professional-register"
   }) }}
 {% endblock %}
 
@@ -25,28 +25,25 @@
       <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "dec-org-professionalregister",
-          name: "dec-org-professionalregister",
+          idPrefix: "dec-org-safeguarding",
+          name: "dec-org-safeguarding",
           fieldset: {
             legend: {
-              text: "Has your organisation been removed from any professional or trade registers in the last 3 years?",
+              text: "Has your organisation been investigated due to safeguarding issues in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: "This only includes professional or trade registers that are related to the sectors your organisation will deliver apprenticeship training in."
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-professionalregister", "yes")
+              checked: checked("dec-org-safeguarding", "yes")
             },
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-professionalregister", "no")
+                checked: checked("dec-org-safeguarding", "no")
             }
           ]
         }) }}

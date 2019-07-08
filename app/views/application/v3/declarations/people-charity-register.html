@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+        {% set detailHtml %}
+          {{ govukTextarea({
+            id: "dec-people-charityregister-detail",
+            name: "dec-people-charityregister-detail",
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You can include a brief summary of what measures have been put in place to manage this."
+            },
+            value: data['dec-people-charityregister-detail'],
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+        {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-people-charityregister",
           name: "dec-people-charityregister",
@@ -46,7 +63,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-people-charityregister", "yes")
+              checked: checked("dec-people-charityregister", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

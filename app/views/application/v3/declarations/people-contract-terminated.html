@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+        {% set detailHtml %}
+          {{ govukTextarea({
+            id: "dec-people-contractterminated-detail",
+            name: "dec-people-contractterminated-detail",
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You can include a brief summary of what measures have been put in place to manage this."
+            },
+            value: data['dec-people-contractterminated-detail'],
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+        {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-people-contractterminated",
           name: "dec-people-contractterminated",
@@ -38,7 +55,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-people-contractterminated", "yes")
+              checked: checked("dec-people-contractterminated", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

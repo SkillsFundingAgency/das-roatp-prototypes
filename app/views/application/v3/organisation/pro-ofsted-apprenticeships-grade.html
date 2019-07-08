@@ -1,0 +1,67 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "pro-ofsted-apprenticeships"
+  }) }}
+  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">What grade did your organisation get?</h1>
+      <p class="govuk-body">To confirm your answer, we’ll assess your organisation’s Ofsted inspection report.</p>
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-apprenticeships-grade",
+        name: "pro-ofsted-apprenticeships-grade",
+        items: [
+          {
+            value: "oustanding",
+            text: "Outstanding",
+            checked: checked("pro-ofsted-apprenticeships-grade", "oustanding")
+          },
+          {
+            value: "good",
+            text: "Good",
+            checked: checked("pro-ofsted-apprenticeships-grade", "good")
+          },
+          {
+            value: "requires-improvement",
+            text: "Requires improvement",
+            checked: checked("pro-ofsted-apprenticeships-grade", "requires-improvement")
+          },
+          {
+            value: "inadequate",
+            text: "Inadequate",
+            checked: checked("pro-ofsted-apprenticeships-grade", "inadequate")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

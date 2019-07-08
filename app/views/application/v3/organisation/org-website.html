@@ -1,0 +1,90 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% if data['org-legalstatus'] == "sole" %}
+  {% set backlink_website = "org-legalstatus-sole-confirm" %}
+{% else %}
+  {% if data['org-legalstatus'] == "partnership" %}
+    {% set backlink_website = "org-legalstatus-partnership-confirm" %}
+  {% else %}
+    {% set backlink_website = "org-confirmorgdetails" %}
+  {% endif %}
+{% endif %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_website
+  }) }}
+  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {% set websiteHtml %}
+        {{ govukInput({
+          id: "org-website-address",
+          name: "org-website-address",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Enter main website address"
+          },
+          value: data['org-website-address'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "org-website-conditional",
+        name: "org-website",
+        fieldset: {
+          legend: {
+            text: "Does your organisation have a website?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("org-website", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("org-website", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

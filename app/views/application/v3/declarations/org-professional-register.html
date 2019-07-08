@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-professionalregister-detail",
+          name: "dec-org-professionalregister-detail",
+          label: {
+            text: "Provide details"
+          },
+          hint: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit scelerisque lorem a ullamcorper. Vestibulum at nibh vel ante congue gravida."
+          },
+          value: data['dec-org-professionalregister-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-org-professionalregister",
           name: "dec-org-professionalregister",
@@ -41,7 +58,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-professionalregister", "yes")
+              checked: checked("dec-org-professionalregister", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

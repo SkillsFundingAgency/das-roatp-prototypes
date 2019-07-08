@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-debt-detail",
+          name: "dec-org-debt-detail",
+          label: {
+            text: "Provide details"
+          },
+          hint: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit scelerisque lorem a ullamcorper. Vestibulum at nibh vel ante congue gravida."
+          },
+          value: data['dec-org-debt-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-org-debt",
           name: "dec-org-debt",
@@ -41,7 +58,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-debt", "yes")
+              checked: checked("dec-org-debt", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

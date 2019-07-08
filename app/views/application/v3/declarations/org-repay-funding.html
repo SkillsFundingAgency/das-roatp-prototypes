@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-repayfunding-detail",
+          name: "dec-org-repayfunding-detail",
+          label: {
+            text: "Provide details"
+          },
+          hint: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit scelerisque lorem a ullamcorper. Vestibulum at nibh vel ante congue gravida."
+          },
+          value: data['dec-org-repayfunding-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-org-repayfunding",
           name: "dec-org-repayfunding",
@@ -45,7 +62,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-repayfunding", "yes")
+              checked: checked("dec-org-repayfunding", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

@@ -24,6 +24,23 @@
 
       <form action="" method="post" class="form">
 
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-withdrawncontract-detail",
+          name: "dec-org-withdrawncontract-detail",
+          label: {
+            text: "Provide details"
+          },
+          hint: {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit scelerisque lorem a ullamcorper. Vestibulum at nibh vel ante congue gravida."
+          },
+          value: data['dec-org-withdrawncontract-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
         {{ govukRadios({
           idPrefix: "dec-org-withdrawncontract",
           name: "dec-org-withdrawncontract",
@@ -38,7 +55,10 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-org-withdrawncontract", "yes")
+              checked: checked("dec-org-withdrawncontract", "yes"),
+              conditional: {
+                html: detailHtml
+              }
             },
             {
               value: "no",

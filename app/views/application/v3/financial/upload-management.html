@@ -1,0 +1,58 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "../task-list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s management accounts covering the last 12 months</h1>
+
+    <p class="gov-body">Management accounts must include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>balance sheet</li>
+      <li>cash flow</li>
+      <li>income statement</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "fin-management",
+        name: "fin-management",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukWarningText({
+        text: "Documents must not be shortened or changed. If they are, your application may be rejected. ",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

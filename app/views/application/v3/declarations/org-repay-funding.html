@@ -1,0 +1,67 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-debt"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "dec-org-repayfunding",
+          name: "dec-org-repayfunding",
+          fieldset: {
+            legend: {
+              text: "Has your organisation failed to repay funding in the last 3 years?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: '<p class="govuk-body">Tell us if your organisation has failed to repay at least £50,000:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>to the ESFA or any other public body</li>
+                <li>under a subcontract to deliver education and training services funded by the ESFA</li>
+              </ul>'
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-org-repayfunding", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-org-repayfunding", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

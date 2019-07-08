@@ -1,0 +1,27 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Sign in - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Confirm your email address</h1>
+
+    <p class="govuk-body">We've sent an email to <strong>{{ data['create-email'] }}</strong>.</p><p class="govuk-body">Use the <a href="createaccount-confirmemail">link in the email</a> to complete sign up.</p>
+
+  </div>
+</div>
+
+{% endblock %}

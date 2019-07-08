@@ -1,0 +1,109 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  Organisation - RoATP Organisation Prototype
+{% endblock %}
+
+{% if data['org-type'] == "employer" %}
+  {% set backlink_classification = "org-type" %}
+{% endif %}
+{% if data['org-type'] == "education" %}
+  {% if data['org-type-education-school'] == "lea-school" %}
+    {% set backlink_classification = "org-type-education-school" %}
+  {% elseif data['org-type-education-school'] == "other-school" %}
+    {% set backlink_classification = "org-type-education-school" %}
+  {% else %}
+    {% set backlink_classification = "org-fundedby" %}
+  {% endif %}
+{% endif %}
+{% if data['org-type'] == "psb" %}
+  {% set backlink_classification = "org-type-psb" %}
+{% endif %}
+{% if data['org-type'] == "training" %}
+  {% set backlink_classification = "org-type-training" %}
+{% endif %}
+
+{% block beforeContent %}
+
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_classification 
+  }) }}
+  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-classification",
+        name: "org-classification",
+        fieldset: {
+          legend: {
+            text: "How would you describe your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "public-service-mutual",
+            text: "A public service mutual",
+            hint: {
+              text: "An organisation that’s left the public sector but still delivers public services."
+            },
+            checked: checked("org-classification", "public-service-mutual")
+          },
+          {
+            value: "sheltered-workshop",
+            text: "A sheltered workshop",
+            hint: {
+              text: "An organisation that provides employment opportunities for people who are developmentally, physically, or mentally impaired."
+            },
+            checked: checked("org-classification", "sheltered-workshop")
+          },
+          {
+            value: "sme",
+            text: "A small or medium enterprise (SME)",
+            hint: {
+              html: 'As explained by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en" target="_blank">European Commission (opens in a new window or tab)</a>.'
+            },
+            checked: checked("org-classification", "sme")
+          },
+          {
+            value: "third-sector",
+            text: "A third sector organisation",
+            hint: {
+              text: "An organisation that does voluntary or community work. For example, a charity."
+            },
+            checked: checked("org-classification", "third-sector")
+          },
+          {
+            value: "none",
+            text: "None of the above",
+            checked: checked("org-classification", "none")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

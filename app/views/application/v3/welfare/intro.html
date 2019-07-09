@@ -1,0 +1,53 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "../task-list"
+  }) }}
+  <a href="#" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Sign out</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Apprenticeship welfare</h1>
+
+    <p class="govuk-body">In this section we’ll ask you to upload your organisation’s:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>continuity plan</li>
+      <li>equality and diversity policy</li>
+      <li>safeguarding policy</li>
+      <li>prevent duty policy (if needed)</li>
+      <li>health and safety policy</li>
+    </ul>
+
+    <p class="govuk-body">All policies must be specific to your organisation, apprentices and trainers. They must also be stamped and signed by a senior employee. For example, a director or CEO.</p>
+
+    <p class="govuk-body">We will not accept any uploads that are generic or taken from a third party.</p>
+
+    {{ govukButton({
+      text: "Continue with this section ",
+      classes: "govuk-!-margin-right-1"
+    }) }}
+
+    <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "safeguarding"
+  }) }}
+  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "wel-preventduty",
+          name: "wel-preventduty",
+          fieldset: {
+            legend: {
+              text: "Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: 'The <a href="#" target="_blank">Prevent duty (opens in a new window or tab)</a> is the duty under the Counter-Terrorism and Security Act 2015.'
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("wel-preventduty", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("wel-preventduty", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

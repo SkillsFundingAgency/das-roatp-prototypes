@@ -1,7 +1,7 @@
 {% extends "layout_application_v3.html" %}
 
 {% block pageTitle %}
-  Select route - RoATP Organisation Prototype
+  RoATP Application Prototype v3
 {% endblock %}
 
 {% block beforeContent %}
@@ -106,32 +106,6 @@
           </ul>
         </li>
 
-        <!--li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Your Profile
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              {% if data['tl_org_classification'] == "completed" %}
-                <a class="app-task-list__task-name" href="profile-ofsted" aria-describedby="profile-ofsted-completed">Ofsted inspection</a>
-              {% else %}
-                Ofsted inspection
-              {% endif %}
-              {% if data['tl_profile_ofsted'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% elseif data['tl_profile_ofsted'] == "next" %}
-              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}
-            </li>  
-            <li class="app-task-list__item">
-                Training as a sub-contractor
-              {% if data['tl_profile_ofsted'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% endif %}
-            </li>  
-          </ul>
-        </li-->
-
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span> Financial evidence
@@ -204,12 +178,16 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Policies and processes
+            <span class="app-task-list__section-number">4. </span> Apprenticeship welfare
           </h2>
 
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-                [...]
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_fha'] != 'yes') %}
+                <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">What you'll need</a>
+              {% else %}
+                What you'll need
+              {% endif %}
             </li>  
           </ul>
 

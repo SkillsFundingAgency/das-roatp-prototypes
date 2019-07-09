@@ -1,0 +1,62 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "intro"
+  }) }}
+  <a href="../signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s continuity plan for apprenticeship training</h1>
+
+    <p class="gov-body">This must include how your organisation will continue to deliver apprenticeship training in the case of a significant event and how it will manage:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>different methods of communication</li>
+      <li>transportation needs</li>
+      <li>different operating locations</li>
+      <li>a way to back-up relevant business systems</li>
+      <li>a way to back-up and restore data</li>
+      <li>a list of emergency contacts - ESFA must listed</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "wel-continuity",
+        name: "wel-continuity",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "What is a significant event?",
+        text: "A significant event is when something happens which impacts the delivery of apprenticeship training. This includes things like a training location being unavailable or loss of systems and data."
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

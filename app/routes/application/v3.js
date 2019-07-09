@@ -1061,6 +1061,70 @@ module.exports = function (router) {
 	})
 
 
+/******************************
+ *** Apprenticeship welfare ***
+ ******************************/
+
+	// What you'll need
+	router.post('/application/' + v + '/welfare/intro', function (req, res) {
+		req.session.data['tl_wel_intro'] = 'read'
+		res.redirect('/application/' + v + '/welfare/upload-continuity')
+	})
+
+	// Continuity plan upload
+	router.post('/application/' + v + '/welfare/upload-continuity', function (req, res) {
+		req.session.data['tl_wel_continuity'] = 'completed'
+		res.redirect('/application/' + v + '/welfare/upload-diversity')
+	})
+
+	// Equality and diversity policy upload
+	router.post('/application/' + v + '/welfare/upload-diversity', function (req, res) {
+		req.session.data['tl_wel_diversity'] = 'completed'
+		res.redirect('/application/' + v + '/welfare/upload-safeguarding')
+	})
+
+	// Safeguarding policy upload
+	router.post('/application/' + v + '/welfare/upload-safeguarding', function (req, res) {
+		req.session.data['tl_wel_safeguarding'] = 'inprogress'
+		res.redirect('/application/' + v + '/welfare/safeguarding')
+	})
+
+	// Who's responsible for safeguarding
+	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
+		req.session.data['tl_wel_safeguarding'] = 'completed'
+		res.redirect('/application/' + v + '/welfare/preventduty')
+	})
+
+	// Include responsibilities to Prevent duty
+	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
+		req.session.data['tl_wel_preventduty'] = 'inprogress'
+		res.redirect('/application/' + v + '/welfare/upload-preventduty')
+	})
+
+	// Prevent duty policy upload
+	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
+		req.session.data['tl_wel_preventduty'] = 'completed'
+		res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+	})
+
+	// Health and safety policy upload
+	router.post('/application/' + v + '/welfare/upload-healthandsafety', function (req, res) {
+		req.session.data['tl_wel_healthandsafety'] = 'inprogress'
+		res.redirect('/application/' + v + '/welfare/healthandsafety')
+	})
+
+	// Who's responsible for health and safety
+	router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
+		if (req.session.data['org-selectedroute'] == "supporting") {
+			res.redirect('/application/' + v + '/welfare/otherpolicies')
+		} else {
+			req.session.data['tl_wel_healthandsafety'] = 'completed'
+			res.redirect('/application/' + v + '/task-list')
+		}
+	})
+
+	
+
 	
 
 /****************

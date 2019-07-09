@@ -1,7 +1,7 @@
 {% extends "layout_application_v3.html" %}
 
 {% block pageTitle %}
-  Select route - RoATP Organisation Prototype
+  RoATP Application Prototype v3
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,8 +11,8 @@
     },
     html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
   }) }}
-{% endblock %}
   <a href="signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+{% endblock %}
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -106,32 +106,6 @@
           </ul>
         </li>
 
-        <!--li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Your Profile
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              {% if data['tl_org_classification'] == "completed" %}
-                <a class="app-task-list__task-name" href="profile-ofsted" aria-describedby="profile-ofsted-completed">Ofsted inspection</a>
-              {% else %}
-                Ofsted inspection
-              {% endif %}
-              {% if data['tl_profile_ofsted'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% elseif data['tl_profile_ofsted'] == "next" %}
-              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}
-            </li>  
-            <li class="app-task-list__item">
-                Training as a sub-contractor
-              {% if data['tl_profile_ofsted'] == "completed" %}
-              <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong>
-              {% endif %}
-            </li>  
-          </ul>
-        </li-->
-
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span> Financial evidence
@@ -204,13 +178,88 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Policies and processes
+            <span class="app-task-list__section-number">4. </span> Apprenticeship welfare
           </h2>
 
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-                [...]
-            </li>  
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">What you'll need</a>
+              {% else %}
+                What you'll need
+              {% endif %}
+              {% if data['tl_wel_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-intro">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/upload-continuity" aria-describedby="wel-continuity">Continuity plan</a>
+              {% else %}
+                Continuity plan
+              {% endif %}
+              {% if data['tl_wel_continuity'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-continuity">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/upload-diversity" aria-describedby="wel-diversity">Equality and diversity policy</a>
+              {% else %}
+                Equality and diversity policy
+              {% endif %}
+              {% if data['tl_wel_diversity'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-diversity">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/upload-safeguarding" aria-describedby="wel-safeguarding">Safeguarding policy</a>
+              {% else %}
+                Safeguarding policy
+              {% endif %}
+              {% if data['tl_wel_safeguarding'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-safeguarding">Completed</strong>
+              {% elseif data['tl_wel_safeguarding'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="wel-safeguarding">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/preventduty" aria-describedby="wel-preventduty">Prevent duty policy</a>
+              {% else %}
+                Prevent duty policy
+              {% endif %}
+              {% if data['tl_wel_preventduty'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-preventduty">Completed</strong>
+              {% elseif data['tl_wel_preventduty'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="wel-preventduty">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/upload-healthandsafety" aria-describedby="wel-health">Health and safety policy</a>
+              {% else %}
+                Health and safety policy
+              {% endif %}
+              {% if data['tl_wel_healthandsafety'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-healthandsafety">Completed</strong>
+              {% elseif data['tl_wel_healthandsafety'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="wel-healthandsafety">In progress</strong>
+              {% endif %}
+            </li>
+            {% if data['org-selectedroute'] == "supporting" %}
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Other providers policies</a>
+              {% else %}
+                Other providers policies
+              {% endif %}
+              {% if data['tl_wel_other'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-other">Completed</strong>
+              {% endif %}
+            </li>
+            {% endif %}
           </ul>
 
         </li>
@@ -236,7 +285,7 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> Readiness to deliver
+            <span class="app-task-list__section-number">7. </span> completediness to deliver
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

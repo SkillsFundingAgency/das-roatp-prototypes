@@ -1067,7 +1067,7 @@ module.exports = function (router) {
 
 	// What you'll need
 	router.post('/application/' + v + '/welfare/intro', function (req, res) {
-		req.session.data['tl_wel_intro'] = 'read'
+		req.session.data['tl_wel_intro'] = 'completed'
 		res.redirect('/application/' + v + '/welfare/upload-continuity')
 	})
 

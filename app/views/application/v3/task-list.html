@@ -188,12 +188,12 @@
               {% else %}
                 What you'll need
               {% endif %}
-              {% if data['tl_wel_intro'] == "read" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="wel-intro">Read</strong>
+              {% if data['tl_wel_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="wel-intro">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-continuity" aria-describedby="wel-continuity">Continuity plan</a>
               {% else %}
                 Continuity plan
@@ -203,7 +203,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-diversity" aria-describedby="wel-diversity">Equality and diversity policy</a>
               {% else %}
                 Equality and diversity policy
@@ -213,7 +213,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-safeguarding" aria-describedby="wel-safeguarding">Safeguarding policy</a>
               {% else %}
                 Safeguarding policy
@@ -225,7 +225,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/preventduty" aria-describedby="wel-preventduty">Prevent duty policy</a>
               {% else %}
                 Prevent duty policy
@@ -237,7 +237,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-healthandsafety" aria-describedby="wel-health">Health and safety policy</a>
               {% else %}
                 Health and safety policy
@@ -250,7 +250,7 @@
             </li>
             {% if data['org-selectedroute'] == "supporting" %}
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "read") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Other providers policies</a>
               {% else %}
                 Other providers policies
@@ -285,7 +285,7 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> Readiness to deliver
+            <span class="app-task-list__section-number">7. </span> completediness to deliver
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

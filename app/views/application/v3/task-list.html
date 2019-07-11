@@ -265,11 +265,66 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">5. </span> Delivery model
+            <span class="app-task-list__section-number">5. </span> Readiness to engage
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-                [...]
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/intro" aria-describedby="rte-intro">What you'll need</a>
+              {% else %}
+                What you'll need
+              {% endif %}
+              {% if data['tl_rte_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-intro">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/engaged" aria-describedby="rte-engagement">Employer engagement</a>
+              {% else %}
+                Employer engagement
+              {% endif %}
+              {% if data['tl_rte_engagament'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-engagement">Completed</strong>
+              {% elseif data['tl_rte_engagament'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-engagement">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/fat" aria-describedby="rte-promoting">Promoting apprenticeships</a>
+              {% else %}
+                Promoting apprenticeships
+              {% endif %}
+              {% if data['tl_rte_engagament'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-promoting">Completed</strong>
+              {% elseif data['tl_rte_engagament'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-promoting">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/upload-complaints" aria-describedby="rte-policies">Policies and templates</a>
+              {% else %}
+                Policies and templates
+              {% endif %}
+              {% if data['tl_rte_policies'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-policies">Completed</strong>
+              {% elseif data['tl_rte_policies'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-policies">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/use-subcontractors" aria-describedby="rte-subcontractors">Subcontractors</a>
+              {% else %}
+                Subcontractors
+              {% endif %}
+              {% if data['tl_rte_subcontractors'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-subcontractors">Completed</strong>
+              {% elseif data['tl_rte_subcontractors'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-subcontractors">In progress</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -285,7 +340,7 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> completediness to deliver
+            <span class="app-task-list__section-number">7. </span> Delivery model
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

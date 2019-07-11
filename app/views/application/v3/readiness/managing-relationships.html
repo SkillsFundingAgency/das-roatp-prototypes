@@ -1,0 +1,81 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "engaged"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v3.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+        {{ govukInput({
+          id: "rte-managingrelationships-detail",
+          name: "rte-managingrelationships-detail",
+          type: "email",
+          classes: "govuk-!-width-two-thirds",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "rte-managingrelationships-conditional",
+          name: "rte-managingrelationships",
+          fieldset: {
+            legend: {
+              text: "Does your organisation have anyone who’s responsible for managing relationships with employers?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This should be someone who has the overall responsibility, is able to act independently and make decisions."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: otherHtml
+              },
+              checked: checked("rte-managingrelationships", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("rte-managingrelationships", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

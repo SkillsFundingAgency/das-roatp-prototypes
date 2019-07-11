@@ -1,0 +1,63 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "intro"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v3.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "rte-engaged",
+          name: "rte-engaged",
+          fieldset: {
+            legend: {
+              text: "Has your organisation engaged with employers to deliver apprenticeship training to their employees?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("rte-engaged", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("rte-engaged", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

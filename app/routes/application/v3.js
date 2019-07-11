@@ -1123,7 +1123,84 @@ module.exports = function (router) {
 		}
 	})
 
-	
+
+/***************************
+ *** Readiness to engage ***
+ ***************************/
+
+	// What you'll need
+	router.post('/application/' + v + '/readiness/intro', function (req, res) {
+		req.session.data['tl_rte_intro'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/engaged')
+	})	
+
+	// Engaged with employers?
+	router.post('/application/' + v + '/readiness/engaged', function (req, res) {
+		req.session.data['tl_rte_engagement'] = 'inprogress'
+		res.redirect('/application/' + v + '/readiness/relationships')
+	})	
+
+	// Manage relationships with employers?
+	router.post('/application/' + v + '/readiness/relationships', function (req, res) {
+		res.redirect('/application/' + v + '/readiness/review')
+	})	
+
+	// Frequency of review?
+	router.post('/application/' + v + '/readiness/review', function (req, res) {
+		res.redirect('/application/' + v + '/readiness/managing-relationships')
+	})	
+
+	// Managing relationships?
+	router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
+		req.session.data['tl_rte_engagement'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/fat')
+	})	
+
+	// FAT
+	router.post('/application/' + v + '/readiness/fat', function (req, res) {
+		req.session.data['tl_rte_promoting'] = 'inprogress'
+		res.redirect('/application/' + v + '/readiness/promote')
+	})	
+
+	// Promote apprenticeships
+	router.post('/application/' + v + '/readiness/promote', function (req, res) {
+		req.session.data['tl_rte_promoting'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/upload-complaints')
+	})
+
+	// Upload complaints policy
+	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {
+		req.session.data['tl_rte_policies'] = 'inprogress'
+		res.redirect('/application/' + v + '/readiness/upload-contractforservices')
+	})
+
+	// Upload contract for services
+	router.post('/application/' + v + '/readiness/upload-contractforservices', function (req, res) {
+		res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
+	})
+
+	// Upload commitment statement
+	router.post('/application/' + v + '/readiness/upload-commitmentstatement', function (req, res) {
+		req.session.data['tl_rte_policies'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/use-subcontractors')
+	})
+
+	// Use subcontractors?
+	router.post('/application/' + v + '/readiness/use-subcontractors', function (req, res) {
+		req.session.data['tl_rte_subcontractors'] = 'inprogress'
+		if (req.session.data['rte-usesubcontractors'] == "yes") {
+			res.redirect('/application/' + v + '/readiness/manage-subcontractors')
+		} else {
+			req.session.data['tl_rte_subcontractors'] = 'completed'
+			res.redirect('/application/' + v + '/task-list')
+		}
+	})
+
+	// Manage subcontractors?
+	router.post('/application/' + v + '/readiness/manage-subcontractors', function (req, res) {
+		req.session.data['tl_rte_subcontractors'] = 'completed'
+		res.redirect('/application/' + v + '/task-list')
+	})
 
 	
 

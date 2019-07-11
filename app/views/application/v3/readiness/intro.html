@@ -1,0 +1,57 @@
+{% extends "layout_application_v3.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v3
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "../task-list"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v3.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">Readiness to engage</h1>
+
+      <p class="govuk-body">This section is to check if your organisation has sufficient processes in place to work with employers.</p>
+
+      <p class="govuk-body">We’ll ask you to upload your organisation’s:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>...</li>
+      </ul>
+
+      <p class="govuk-body">All policies must be specific to your organisation, apprentices and trainers. They must be stamped and signed by a senior employee. For example, a director or senior manager.</p>
+
+      <p class="govuk-body">We will not accept any uploads that are generic or taken from a third party.</p>
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

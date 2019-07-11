@@ -6,8 +6,7 @@
 
 {% if data['org-type'] == "employer" %}
   {% set backlink_classification = "org-type" %}
-{% endif %}
-{% if data['org-type'] == "education" %}
+{% elseif data['org-type'] == "education" %}
   {% if data['org-type-education-school'] == "lea-school" %}
     {% set backlink_classification = "org-type-education-school" %}
   {% elseif data['org-type-education-school'] == "other-school" %}
@@ -15,12 +14,10 @@
   {% else %}
     {% set backlink_classification = "org-fundedby" %}
   {% endif %}
-{% endif %}
-{% if data['org-type'] == "psb" %}
+{% elseif data['org-type'] == "psb" %}
   {% set backlink_classification = "org-type-psb" %}
-{% endif %}
-{% if data['org-type'] == "training" %}
-  {% set backlink_classification = "org-type-training" %}
+{% else %}
+  {% set backlink_classification = "org-type" %}
 {% endif %}
 
 {% block beforeContent %}
@@ -47,7 +44,7 @@
 
     <form action="" method="post" class="form">
 
-      {{ govukRadios({
+      {{ govukCheckboxes({
         idPrefix: "org-classification",
         name: "org-classification",
         fieldset: {

@@ -505,10 +505,20 @@ module.exports = function (router) {
 				req.session.data['tl_org_type'] = 'inprogress'
 				req.session.data['exempt_fha'] = 'yes'
 				res.redirect('/application/' + v + '/organisation/org-type-psb')
-			} else if (org_orgtype === 'training') {
+			} else if (org_orgtype === 'ata' || org_orgtype === 'itp' || org_orgtype === 'gta') {
 				req.session.data['tl_org_type'] = 'inprogress'
 				req.session.data['exempt_fha'] = 'no'
-				res.redirect('/application/' + v + '/organisation/org-type-training')
+
+				//if (req.session.data['org-type-training']) {
+				if (req.session.data['org-selectedroute'] === 'employer') {
+					res.redirect('/application/' + v + '/organisation/org-type-subtype')
+				} else {
+					res.redirect('/application/' + v + '/organisation/org-classification')
+				}
+				//} else {
+				//	res.redirect('/application/' + v + '/organisation/error/org-type-training')
+				//}
+
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/org-type')
 			}
@@ -537,7 +547,7 @@ module.exports = function (router) {
 		{
 			req.session.data['org-fundedbytext'] = 'already registered with ESFA'
 		} else if (org_orgtype_edu === 'hei') {
-			req.session.data['org-fundedbytext'] = 'monitored and supported by the Office for Students'
+			req.session.data['org-fundedbytext'] = 'funded by the Office for Students'
 		} else if (org_orgtype_edu === 'school') {
 			res.redirect('/application/' + v + '/organisation/org-type-education-school')
 		} else {
@@ -587,7 +597,7 @@ module.exports = function (router) {
 	})
 
 	// Organisation type = Training Org/Agency
-	router.post('/application/' + v + '/organisation/org-type-training', function (req, res) {
+	/*router.post('/application/' + v + '/organisation/org-type-training', function (req, res) {
 
 		let org_orgtype_training = req.session.data['org-type-training']
 		let org_route = req.session.data['org-selectedroute']
@@ -603,7 +613,7 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/error/org-type-training')
 		}
 
-	})
+	})*/
 
 	// Organisation type - Funded by
 	router.post('/application/' + v + '/organisation/org-fundedby', function (req, res) {

@@ -28,8 +28,8 @@
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-overall-shortinspection",
-        name: "pro-ofsted-overall-shortinspection",
+        idPrefix: "pro-ofsted-apprenticeships-shortinspection",
+        name: "pro-ofsted-apprenticeships-shortinspection",
         fieldset: {
           legend: {
             text: "Has your organisation had a short Ofsted inspection within the last 3 years?",
@@ -41,7 +41,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-overall-shortinspection", "yes"),
+            checked: checked("pro-ofsted-apprenticeships-shortinspection", "yes"),
             conditional: {
               html: websiteHtml
             }
@@ -49,7 +49,7 @@
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-overall-shortinspection", "no")
+            checked: checked("pro-ofsted-apprenticeships-shortinspection", "no")
           }
         ]
       }) }}

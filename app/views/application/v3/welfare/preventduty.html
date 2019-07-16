@@ -24,22 +24,24 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+        
+      <h1 class="govuk-heading-l">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</h1>
+
+      <p class="gov-body">The prevent duty is the duty under the Counter-Terrorism and Security Act 2015.</p>
+      <p class="gov-body">This means your safeguarding policy will include how your organisation will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have a legal responsibility to fulfill the prevent duty statement</li>
+        <li>protect apprentices and employees from radicalising influences</li>
+        <li>ensure apprentices and employees are resilient to extreme narratives</li>
+        <li>identify changes in behaviour of apprentices and employees</li>
+        <li>deal with any issues raised by apprentices or employees</li>
+      </ul>
 
       <form action="" method="post" class="form">
 
         {{ govukRadios({
           idPrefix: "wel-preventduty",
           name: "wel-preventduty",
-          fieldset: {
-            legend: {
-              text: "Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            html: 'The <a href="#" target="_blank">Prevent duty (opens in a new window or tab)</a> is the duty under the Counter-Terrorism and Security Act 2015.'
-          },
           items: [
             {
               value: "yes",
@@ -53,6 +55,8 @@
             }
           ]
         }) }}
+
+        <p class="gov-body">Find out more about <a href="#" target="_blank">the Prevent duty (opens in a new window or tab)</a>.</p>
 
         {{ govukButton({
           text: "Save and continue",

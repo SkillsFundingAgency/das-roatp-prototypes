@@ -1,0 +1,76 @@
+{% extends "layout_application_v4.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trustees-dob3"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v4.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Confirm your organisation's trustees</h1>
+        
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            { text: "Name" },
+            { text: "Date of birth" },
+            { text: "" }
+          ],
+          rows: [
+            [
+              { text: "Kent Brockman" },
+              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ],
+            [
+              { text: "Nick Riviera" },
+              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ],
+            [
+              { text: "Julius Hibbert" },
+              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

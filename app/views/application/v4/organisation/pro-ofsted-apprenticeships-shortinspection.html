@@ -1,0 +1,66 @@
+{% extends "layout_application_v4.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "pro-ofsted-apprenticeships-date"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v4.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-apprenticeships-shortinspection",
+        name: "pro-ofsted-apprenticeships-shortinspection",
+        fieldset: {
+          legend: {
+            text: "Has your organisation had a short Ofsted inspection within the last 3 years?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("pro-ofsted-apprenticeships-shortinspection", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("pro-ofsted-apprenticeships-shortinspection", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

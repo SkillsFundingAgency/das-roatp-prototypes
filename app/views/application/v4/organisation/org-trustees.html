@@ -1,0 +1,73 @@
+{% extends "layout_application_v4.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trading"
+  }) }}
+  
+  {% include "../../../includes/nav-application-v4.html" %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Confirm your organisation’s trustees</h1>
+
+        <p>These are the details we found on the Charities Commission.</p>
+        
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            { text: "Name" }
+          ],
+          rows: [
+            [
+              { text: "Kent Brockman" }
+            ],
+            [
+              { text: "Nick Riviera" }
+            ],
+            [
+              { text: "Julius Hibbert" }
+            ]
+          ]
+        }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if these details are wrong?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Contact the Charities Commission to <a href="https://www.gov.uk/change-your-charitys-details" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

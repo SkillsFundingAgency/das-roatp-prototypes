@@ -1,0 +1,131 @@
+{% extends "layout_application_v4.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "beta"
+    },
+    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+  }) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "dec-company"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v4/organisation/org-type" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of organisation",
+            href: "#org-type-error"
+          }
+        ]
+      }) }}
+
+      {% if (data['org-selectedroute'] == "employer") %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        fieldset: {
+          legend: {
+            text: "What type of organisation is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "education",
+            text: "An educational institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "psb",
+            text: "A public sector body",
+            checked: checked("org-type", "psb")
+          },
+          {
+            value: "none",
+            text: "None of the above",
+            checked: checked("org-type", "none")
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of organisation"
+        }
+      }) }}
+
+      {% else %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        fieldset: {
+          legend: {
+            text: "What type of organisation is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "education",
+            text: "An educational institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "employer",
+            text: "An employer training apprentices in other organisations",
+            checked: checked("org-type", "employer")
+          },
+          {
+            value: "psb",
+            text: "A public sector body",
+            checked: checked("org-type", "psb")
+          },
+          {
+            value: "ata",
+            text: "An Apprenticeship Training Agency",
+            checked: checked("org-type-training", "ata")
+          },
+          {
+            value: "itp",
+            text: "An Independent Training Providers",
+            checked: checked("org-type-training", "itp")
+          },
+          {
+            value: "gta",
+            text: "A Group Training Association",
+            checked: checked("org-type-training", "gta")
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of organisation"
+        }
+      }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

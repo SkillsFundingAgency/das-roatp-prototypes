@@ -678,10 +678,17 @@ module.exports = function (router) {
 						req.session.data['exempt_lm'] = 'partial'
 						req.session.data['exempt_aw'] = 'yes'
 					}
-					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list')
+					res.redirect('/application/' + v + '/organisation/pro-monitoring-visit')
+					//req.session.data['tl_org_profile'] = 'completed'
+					//res.redirect('/application/' + v + '/task-list')
 				}
 			}
+		})
+
+		// Profile - Monitoring visit
+		router.post('/application/' + v + '/organisation/pro-monitoring-visit', function (req, res) {
+			req.session.data['tl_org_profile'] = 'completed'
+			res.redirect('/application/' + v + '/task-list')
 		})
 
 		// Profile - Ofsted inspection for apprentices

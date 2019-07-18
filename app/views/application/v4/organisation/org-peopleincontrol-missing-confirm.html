@@ -27,7 +27,7 @@
 
       <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Confirm your organisation's partners</h1>
+        <h1 class="govuk-heading-l">Confirm who’s in control</h1>
         
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -43,13 +43,14 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" scope="row">{{ person.name }}</td>
                 <td class="govuk-table__cell">{{ person.dob_month }} {{ person.dob_year }}</td>
+                <td class="govuk-table__cell"><a href="#">Change</a></td>
               </tr>
             {% endif %}
           {% endfor %}
           </tbody>
         </table>
 
-        <p class="govuk_body"><a href="org-peopleincontrol-missing">Add another person in control</a></p>
+        <p class="govuk_body"><a href="org-peopleincontrol-missing">Add another person</a></p>
 
         {{ govukButton({
           text: "Confirm and continue",

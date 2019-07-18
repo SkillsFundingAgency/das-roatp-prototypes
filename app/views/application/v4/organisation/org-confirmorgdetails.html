@@ -37,22 +37,15 @@
               Legal name
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if (data['org-ukprn'] == "12340201") or (data['org-ukprn'] == "12340202") or (data['org-ukprn'] == "12340203") %}
+              YOUR CHARTITY NAME
+              {% else %}
               YOUR COMPANY NAME LTD
+              {% endif %}
             </dd>
           </div>
 
-          {% if (data['org-ukprn'] != "12340201") and (data['org-ukprn'] != "12340202") %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Company number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              05731809
-            </dd>
-          </div>
-          {% endif %}
-
-          {% if (data['org-ukprn'] != "12340102") %}
+          {% if (data['org-ukprn'] != "12340102") and (data['org-ukprn'] == "12340201") and (data['org-ukprn'] == "12340202") and (data['org-ukprn'] == "12340203") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Trading name
@@ -83,23 +76,37 @@
           </div>
           {% endif %}
 
-          {% if (data['org-ukprn'] == "12340104") %}
-          <!--div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Parent company legal name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              PARENT COMPANY LTD
-            </dd>
-          </div>
+          {% if (data['org-ukprn'] != "12340202") and (data['org-ukprn'] != "12340203") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Parent company number
+              Company number
             </dt>
             <dd class="govuk-summary-list__value">
-              04572014
+              05731809
             </dd>
-          </div-->
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] == "12340201") or (data['org-ukprn'] == "12340202") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Charity registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4627822
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] == "12340203") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Charity registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SC527492
+            </dd>
+          </div>
           {% endif %}
 
         </dl>

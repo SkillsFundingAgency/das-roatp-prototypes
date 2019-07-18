@@ -27,11 +27,13 @@
 
     <form action="" method="post" class="form">
 
-        <h1 class="govuk-heading-l">Enter details or person in control</h1>
+        <h1 class="govuk-heading-l">Who is in control of your organisation?</h1>
+
+        <p class="govuk-body">If there is more than one person who’s in control, you can add them later.</p>
 
         {{ govukInput({
           label: {
-            text: "Name of person in control"
+            text: "Full name"
           },
           classes: "govuk-input--width-20",
           id: "org-personincontrol-name",

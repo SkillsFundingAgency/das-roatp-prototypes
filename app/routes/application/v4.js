@@ -142,6 +142,8 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '12340202') { // Charity only, not a company
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+		} else if (org_ukprn === '12340203') { // Charity with no trustees listed
+			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
 		} else if (org_ukprn === '12340301') { // Not a company (sole trader or partnership)
 			//res.redirect('/application/' + v + '/organisation/org-legalstatus')
 			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
@@ -157,7 +159,13 @@ module.exports = function (router) {
 
 	// Confirm company details
 	router.post('/application/' + v + '/organisation/org-confirmorgdetails', function (req, res) {
-		res.redirect('/application/' + v + '/organisation/org-parentcompany')
+
+		let org_ukprn = req.session.data['org-ukprn']
+		if (org_ukprn === '12340202' || org_ukprn === '12340203' || org_ukprn === '12340301') {
+			res.redirect('/application/' + v + '/task-list')
+		} else {
+			res.redirect('/application/' + v + '/organisation/org-parentcompany')
+		}
 	})
 
 
@@ -307,6 +315,8 @@ module.exports = function (router) {
 
 				if (req.session.data['org-ukprn'] === "12340202") { 
 					res.redirect('/application/' + v + '/organisation/org-trustees')
+				} else if (req.session.data['org-ukprn'] === "12340203") {
+					res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 				} else if (req.session.data['org-ukprn'] === "12340301") {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
 				} else if (req.session.data['org-ukprn'] === "12340106") {
@@ -359,6 +369,8 @@ module.exports = function (router) {
 
 			if (req.session.data['org-ukprn'] === "12340201") {
 				res.redirect('/application/' + v + '/organisation/org-trustees')
+			} else if (req.session.data['org-ukprn'] === "12340203") {
+				res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 			} else {
 				req.session.data['tl_org_people'] = 'completed'
 				req.session.data['tl_org_type'] = 'next'
@@ -371,44 +383,17 @@ module.exports = function (router) {
 
 		// Trustees from API
 		router.post('/application/' + v + '/organisation/org-trustees', function (req, res) {
-			res.redirect('/application/' + v + '/organisation/org-trustees-dob1')
+			res.redirect('/application/' + v + '/organisation/org-trustees-dob')
 		})
 
-		// Trustee 1 date of birth
-		router.post('/application/' + v + '/organisation/org-trustees-dob1', function (req, res) {
-			
-			if (req.session.data['org-trustee-dob1-month'] == '' || req.session.data['org-trustee-dob1-year'] == '') {
-				res.redirect('/application/' + v + '/organisation/error/org-trustees-dob1')
-			} else {
-				req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
-				res.redirect('/application/' + v + '/organisation/org-trustees-dob2')
-			}
+		// Trustees from API - Enter dates of birth
+		router.post('/application/' + v + '/organisation/org-trustees-dob', function (req, res) {
+			req.session.data['org-trustee-dob1-monthname'] = monthNumToName(req.session.data['org-trustee-dob1-month'])
+			req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
+			req.session.data['org-trustee-dob3-monthname'] = monthNumToName(req.session.data['org-trustee-dob3-month'])
+			res.redirect('/application/' + v + '/organisation/org-trustees-confirm')
 		})
 
-		// Trustee 2 date of birth
-		router.post('/application/' + v + '/organisation/org-trustees-dob2', function (req, res) {
-			
-			if (req.session.data['org-trustee-dob2-month'] == '' || req.session.data['org-trustee-dob2-year'] == '') {
-				res.redirect('/application/' + v + '/organisation/error/org-trustees-dob2')
-			} else {
-				req.session.data['org-trustee-dob2-monthname'] = monthNumToName(req.session.data['org-trustee-dob2-month'])
-				res.redirect('/application/' + v + '/organisation/org-trustees-dob3')
-			}
-
-		})
-		
-		// Trustee 3 date of birth
-		router.post('/application/' + v + '/organisation/org-trustees-dob3', function (req, res) {
-			
-			if (req.session.data['org-trustee-dob3-month'] == '' || req.session.data['org-trustee-dob3-year'] == '') {
-				res.redirect('/application/' + v + '/organisation/error/org-trustees-dob3')
-			} else {
-				req.session.data['org-trustee-dob3-monthname'] = monthNumToName(req.session.data['org-trustee-dob3-month'])
-				res.redirect('/application/' + v + '/organisation/org-trustees-confirm')
-			}
-
-		})
-		
 		// Declare trustees - Manual Entry
 		router.post('/application/' + v + '/organisation/org-trustees-declare', function (req, res) {
 
@@ -427,12 +412,19 @@ module.exports = function (router) {
 			}
 			req.session.data['org-trustees'].push(newTrustee)
 
-			res.redirect('/application/' + v + '/organisation/org-trustees-confirm')
+			res.redirect('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare')
 			
 		})
 		
-		// Confirm trustees - Manual entry
+		// Confirm trustees - Info from API plus manual DoB entry
 		router.post('/application/' + v + '/organisation/org-trustees-confirm', function (req, res) {
+			req.session.data['tl_org_people'] = 'completed'
+			req.session.data['tl_org_type'] = 'next'
+			res.redirect('/application/' + v + '/organisation/org-type')
+		})
+		
+		// Confirm trustees - Manual entry
+		router.post('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
 			res.redirect('/application/' + v + '/organisation/org-type')

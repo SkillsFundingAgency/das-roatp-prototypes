@@ -40,7 +40,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if data['tl_selectroute'] == "completed" %}
+              {% if (data['tl_selectroute'] == "completed") or (data['tl_org_details'] != "") %}
                 <a class="app-task-list__task-name" href="organisation/org-ico" aria-describedby="org-details-status">Organisation information</a>
               {% else %}
                 Organisation information
@@ -55,7 +55,7 @@
             </li>
             
             <li class="app-task-list__item">
-              {% if data['tl_org_details'] == "completed" %}
+              {% if (data['tl_org_details'] == "completed") or (data['tl_org_people'] != "") %}
                 <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Who's in control</a>
               {% else %}
                 Who's in control
@@ -70,7 +70,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if data['tl_org_people'] == "completed" %}
+              {% if (data['tl_org_people'] == "completed") or (data['tl_org_type'] != "") %}
                 <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Classifying your organisation</a>
               {% else %}
                 Classifying your organisation
@@ -85,7 +85,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if data['tl_org_type'] == "completed" %}
+              {% if (data['tl_org_type'] == "completed") or (data['tl_org_profile'] != "") %}
                 {% if data['org-selectedroute'] == "supporting" %}
                   <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Organisation profile</a>
                 {% else %}

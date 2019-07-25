@@ -159,19 +159,8 @@ module.exports = function (router) {
 
 	// Confirm company details
 	router.post('/application/' + v + '/ukprn-confirmdetails', function (req, res) {
-
-		let org_ukprn = req.session.data['org-ukprn']
-		if (org_ukprn === '12340202' || org_ukprn === '12340203' || org_ukprn === '12340301') {
-			res.redirect('/application/' + v + '/task-list')
-		} else {
-			res.redirect('/application/' + v + '/organisation/org-parentcompany')
-		}
+		res.redirect('/application/' + v + '/select-route')
 	})
-
-
-/*************************
- *** Your organisation ***
- *************************/
 
 	// Select route
 	router.post('/application/' + v + '/select-route', function (req, res) {
@@ -186,6 +175,29 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/error/select-route')
 		}
 		
+	})
+
+
+/*************************
+ *** Your organisation ***
+ *************************/
+
+	/*** Parent company ***/
+
+	// Have a parent company?
+	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
+
+		if (req.session.data['org-parentcompany'] === 'yes'){
+			res.redirect('/application/' + v + '/organisation/org-parentcompany-confirm')
+		} else {
+			res.redirect('/application/' + v + '/organisation/org-ico')
+		}
+
+	})
+
+	// Parent company confirmation
+	router.post('/application/' + v + '/organisation/org-parentcompany-confirm', function (req, res) {
+		res.redirect('/application/' + v + '/organisation/org-ico')
 	})
   
 	// ICO number?
@@ -428,25 +440,6 @@ module.exports = function (router) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
 			res.redirect('/application/' + v + '/organisation/org-type')
-		})
-
-
-	/*** Parent company ***/
-
-		// Have a parent company?
-		router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
-
-			if (req.session.data['org-parentcompany'] === 'yes'){
-				res.redirect('/application/' + v + '/organisation/org-parentcompany-confirm')
-			} else {
-				res.redirect('/application/' + v + '/select-route')
-			}
-
-		})
-
-		// Parent company confirmation
-		router.post('/application/' + v + '/organisation/org-parentcompany-confirm', function (req, res) {
-			res.redirect('/application/' + v + '/select-route')
 		})
 
 

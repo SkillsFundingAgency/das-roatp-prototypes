@@ -5,19 +5,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "beta"
-    },
-    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
-  }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-confirmorgdetails"
+    href: "javascript:history.go(-1)"
   }) }}
-  
-  {% include "../../../includes/nav-application-v4.html" %}
-  
 {% endblock %}
 
 {% block content %}
@@ -27,45 +18,29 @@
 
     <form action="" method="post" class="form">
 
-      {% set companydetailsHtml %}
-        {{ govukInput({
-          id: "org-parentcompany-companynumber",
-          name: "org-parentcompany-companynumber",
-          type: "text",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Company number"
-          },
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-      {% endset -%}
-
       {{ govukRadios({
-        idPrefix: "org-parentcompany-conditional",
+        idPrefix: "org-parentcompany",
         name: "org-parentcompany",
         fieldset: {
           legend: {
-            text: "Does your organisation have a UK parent company?",
+            text: "Does your organisation have a UK ultimate parent company?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         hint: {
-          text: "This is when another company owns at least 75% of the shares in your organisation."
+          text: "This is the highest responsible entity within your organisation’s group."
         },
         items: [
           {
             value: "yes",
             text: "Yes",
-            conditional: {
-              html: companydetailsHtml
-            }
+            checked: checked("org-parentcompany", "yes")
           },
           {
             value: "no",
-            text: "No"
+            text: "No",
+            checked: checked("org-parentcompany", "no")
           }
         ]
       }) }}

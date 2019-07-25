@@ -5,19 +5,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "beta"
-    },
-    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
-  }) }}
   {{ govukBackLink({
     text: "Back",
-    href: "org-type"
+    href: "javascript:history.go(-1)"
   }) }}
-  
-  {% include "../../../includes/nav-application-v4.html" %}
-  
 {% endblock %}
 
 {% block content %}
@@ -40,7 +31,7 @@
         items: [
           {
             value: "national-college",
-            text: "National College",
+            text: "National college",
             checked: checked("org-type-education", "national-college")
           },
           {
@@ -50,7 +41,7 @@
           },
           {
             value: "multi-academy",
-            text: "Multi-Academy Trust",
+            text: "Multi-academy trust",
             checked: checked("org-type-education", "multi-academy")
           },
           {
@@ -60,22 +51,22 @@
           },
           {
             value: "sixth-form",
-            text: "Sixth Form College",
+            text: "Sixth form college",
             checked: checked("org-type-education", "sixth-form")
           },
           {
             value: "hei",
-            text: "Higher Education Institute ",
+            text: "Higher education institute",
             checked: checked("org-type-education", "hei")
           },
           {
             value: "gfe",
-            text: "General Further Education College",
+            text: "General further education college",
             checked: checked("org-type-education", "gfe")
           },
           {
             value: "fei",
-            text: "Further Education Institute",
+            text: "Further education institute",
             checked: checked("org-type-education", "fei")
           }
         ]

@@ -38,15 +38,12 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
-  <!--
+  
   {% if data['signedin'] == "yes" %}
-    {% include "includes/application-v2-headerbar-signedin.html" %}
+    {% include "includes/headerbar-signedin-v4.html" %}
   {% else %}
-    {% include "includes/headerbar.html" %}
+    {% include "includes/headerbar-v4.html" %}
   {% endif %}
-  -->
-
-    {% include "includes/headerbar.html" %}
 
 {% endblock %}
 

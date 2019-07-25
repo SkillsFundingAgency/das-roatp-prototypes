@@ -1,0 +1,110 @@
+
+  .roatp__navigation {
+    //@include govuk-responsive-margin(0, "bottom");
+    display: block;
+    margin: 0;
+    //margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    //text-align: right;
+  }
+
+  .js-enabled {
+    .roatp__menu-button {
+      display: block;
+      @include mq ($from: desktop) {
+        display: none;
+      }
+    }
+
+    .roatp__navigation {
+      display: none;
+      @include mq ($from: desktop) {
+        display: block;
+      }
+    }
+
+    .roatp__navigation--open {
+      display: block;
+    }
+  }
+
+
+  .roatp__navigation--end {
+    @include mq ($from: desktop) {
+      margin: 0;
+      padding: govuk-spacing(1) 0;
+      text-align: right;
+    }
+  }
+
+  .roatp__navigation-item {
+    //padding: govuk-spacing(10) 0;
+    //border-bottom: 1px solid $govuk-header-nav-item-border-color;
+
+    @include mq ($from: desktop) {
+      display: inline-block;
+      margin-right: govuk-spacing(3);
+      //padding: govuk-spacing(1) 0;
+      border: 0;
+    }
+
+    a {
+      @include govuk-font($size: 16, $weight: normal);
+      display: inline-block;
+      padding: 10px 0 8px;
+      text-decoration: underline;
+      white-space: nowrap;
+
+      &.govuk-header__link {
+        color: #1F5EA5;
+        &:focus {
+          color: $govuk-focus-text-colour;
+        }
+      }
+    }
+  }
+
+  .roatp__navigation-item--active {
+    a {
+      &:link,
+      &:hover,
+      &:visited {
+        //color: #1F5EA5;
+        //color: $govuk-header-link-active;
+        padding: 10px 0 5px;
+        border-bottom: 3px solid #1F5EA5;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      // When focussed, the text colour needs to be darker to ensure that colour
+      // contrast is still acceptable
+      &:focus {
+        color: $govuk-focus-text-colour;
+      }
+    }
+  }
+
+  .roatp__navigation-item--inactive {
+    span {
+        @include govuk-font($size: 16, $weight: normal);
+        color: #6f777b;
+        //color: $govuk-header-link-active;
+        //padding: 10px 0 5px;
+        //border-bottom: 3px solid #1F5EA5;
+        //font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+  }
+
+  .roatp__navigation-item:last-child {
+    margin-right: 0;
+    //float: right;
+  }
+  .roatp__navigation-signout {
+    float: right;
+  }

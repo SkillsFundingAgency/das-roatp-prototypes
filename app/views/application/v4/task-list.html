@@ -1,3 +1,5 @@
+
+{% set currentpage = "task-list" %}
 {% extends "layout_application_v4.html" %}
 
 {% block pageTitle %}
@@ -5,13 +7,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: {
-      text: "beta"
-    },
-    html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
-  }) }}
-  <a href="signoutandsave" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Save and sign out</a>
+  
 {% endblock %}
 {% block content %}
 
@@ -21,14 +17,37 @@
         Application overview
       </h1>
 
+      <!--p class="govuk-body">
+        Organisation UKPRN: {{ data['org-ukprn'] }}<br>
+        Organisation name: YOUR COMPANY NAME LTD<br>
+        Provider route: {{ data['org-selectedroute'] | capitalize }}
+      </p-->
+
       <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">0. </span> Application setup
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">UKPRN: {{ data['org-ukprn'] }}
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong></li>
+            <li class="app-task-list__item">Your company: YOUR COMPANY NAME LTD
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong></li>
+            <li class="app-task-list__item">Parent company: <a href="#">PARENT NAME LTD</a>
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong></li>
+            <li class="app-task-list__item"><a href="#">{{ data['org-selectedroute'] | capitalize }} provider route</a>
+                <strong class="govuk-tag app-task-list__task-completed" id="org-details-status">Completed</strong></li>
+          </ul>
+        </li>
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">1. </span> Your organisation
           </h2>
           <ul class="app-task-list__items">
 
-            <li class="app-task-list__item">
+            <!--li class="app-task-list__item">
               <a class="app-task-list__task-name" href="organisation/select-route" aria-describedby="select-route-status">
                 Provider route
               </a>
@@ -37,7 +56,7 @@
               {% else %}
               <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
-            </li>
+            </li-->
 
             <li class="app-task-list__item">
               {% if (data['tl_selectroute'] == "completed") or (data['tl_org_details'] != "") %}
@@ -390,25 +409,23 @@
 
     </div>
 
-    <!--div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-one-third">
 
       <aside class="app-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Application messages
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="#">
-                Related link
-              </a>
+              You have 0 messages
             </li>
             <li>
               <a href="#">
-                Related link
+                Send a new message
               </a>
             </li>
-            <li>
+            <!---li>
               <a href="#" class="govuk-!-font-weight-bold">
                 More <span class="govuk-visually-hidden">in Subsection</span>
               </a>
@@ -417,8 +434,34 @@
         </nav>
       </aside>
 
-    </div-->
+      <br><hr><br-->
+<!--
+      {% set pastDayHtml %}
+        {{ govukTable({
+          rows: [
+            [
+              {
+                text: "You have 0 messages"
+              }
+            ]
+          ]
+        }) }}
+      {% endset -%}
 
+      {{ govukTabs({
+        items: [
+          {
+            label: "Messages",
+            id: "messages",
+            panel: {
+              html: pastDayHtml
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+-->
   </div>
 
 {% endblock %}

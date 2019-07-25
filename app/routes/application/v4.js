@@ -122,34 +122,34 @@ module.exports = function (router) {
  ****************/
 
 	router.post('/application/' + v + '/coa', function (req, res) {
-		res.redirect('/application/' + v + '/organisation/org-ukprn')
+		res.redirect('/application/' + v + '/ukprn')
 	})
 
 	// UKPRN?
-	router.post('/application/' + v + '/organisation/org-ukprn', function (req, res) {
+	router.post('/application/' + v + '/ukprn', function (req, res) {
 
 		let org_ukprn = req.session.data['org-ukprn']
 
 		if (org_ukprn === '12340101') { // Company - Happy Path
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340102') { // Company - Active with no website
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340103') { // Company - Inactive
 			res.redirect('/application/' + v + '/organisation/shutter/org-inactivecompany')
 		} else if (org_ukprn === '12340106') { // Company - Active with no directors
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340201') { // Company - Also a charity
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340202') { // Charity only, not a company
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340203') { // Charity with no trustees listed
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340301') { // Not a company (sole trader or partnership)
 			//res.redirect('/application/' + v + '/organisation/org-legalstatus')
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 			//res.redirect('/application/' + v + '/task-list')
 		} else if (org_ukprn === '12340104') { // Organisation with a parent company
-			res.redirect('/application/' + v + '/organisation/org-confirmorgdetails')
+			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340105') { // Incorporation date less than 12 months ago (3 months for supporting)
 			res.redirect('/application/' + v + '/organisation/shutter/incorporation')
 		} else {
@@ -158,7 +158,7 @@ module.exports = function (router) {
 	})
 
 	// Confirm company details
-	router.post('/application/' + v + '/organisation/org-confirmorgdetails', function (req, res) {
+	router.post('/application/' + v + '/ukprn-confirmdetails', function (req, res) {
 
 		let org_ukprn = req.session.data['org-ukprn']
 		if (org_ukprn === '12340202' || org_ukprn === '12340203' || org_ukprn === '12340301') {
@@ -174,14 +174,14 @@ module.exports = function (router) {
  *************************/
 
 	// Select route
-	router.post('/application/' + v + '/organisation/select-route', function (req, res) {
+	router.post('/application/' + v + '/select-route', function (req, res) {
 
 		let selected_route = req.session.data['org-selectedroute']
 
 		if (selected_route != '') {
-			req.session.data['tl_selectroute'] = 'completed'
+			//req.session.data['tl_selectroute'] = 'completed'
 			req.session.data['tl_org_details'] = 'next'
-			res.redirect('/application/' + v + '/organisation/org-ico')
+			res.redirect('/application/' + v + '/task-list')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/select-route')
 		}
@@ -439,14 +439,14 @@ module.exports = function (router) {
 			if (req.session.data['org-parentcompany'] === 'yes'){
 				res.redirect('/application/' + v + '/organisation/org-parentcompany-confirm')
 			} else {
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/select-route')
 			}
 
 		})
 
 		// Parent company confirmation
 		router.post('/application/' + v + '/organisation/org-parentcompany-confirm', function (req, res) {
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/select-route')
 		})
 
 

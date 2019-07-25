@@ -4,18 +4,11 @@
   RoATP Application Prototype v4
 {% endblock %}
 
-{% if data['pro-itt'] == "yes" %}
-  {% set backlink_ofsted_apprentice = "pro-postgrad" %}
-{% else %}
-  {% set backlink_ofsted_apprentice = "pro-itt" %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_ofsted_apprentice
+    href: "javascript:history.go(-1)"
   }) }}
-  
 {% endblock %}
 
 {% block content %}

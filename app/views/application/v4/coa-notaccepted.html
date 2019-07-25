@@ -7,9 +7,8 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "coa"
+    href: "javascript:history.go(-1)"
   }) }}
-  <a href="#" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Sign out</a>
 {% endblock %}
 
 {% block content %}

@@ -4,22 +4,11 @@
   RoATP Application Prototype v4
 {% endblock %}
 
-{% if data['org-legalstatus'] == "sole" %}
-  {% set backlink_website = "org-legalstatus-sole-confirm" %}
-{% else %}
-  {% if data['org-legalstatus'] == "partnership" %}
-    {% set backlink_website = "org-legalstatus-partnership-confirm" %}
-  {% else %}
-    {% set backlink_website = "org-confirmorgdetails" %}
-  {% endif %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_website
+    href: "javascript:history.go(-1)"
   }) }}
-  
 {% endblock %}
 
 {% block content %}

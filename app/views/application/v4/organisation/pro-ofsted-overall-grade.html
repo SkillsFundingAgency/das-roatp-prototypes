@@ -4,18 +4,11 @@
   RoATP Application Prototype v4
 {% endblock %}
 
-{% if data['pro-ofsted-feskills'] == "yes" %}
-  {% set backlink_ofsted_overall = "pro-ofsted-apprenticeships-grade" %}
-{% else %}
-  {% set backlink_ofsted_overall = "pro-ofsted-apprenticeships" %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_ofsted_overall
+    href: "javascript:history.go(-1)"
   }) }}
-  
 {% endblock %}
 
 {% block content %}

@@ -4,18 +4,11 @@
   RoATP Application Prototype v4
 {% endblock %}
 
-{% if data['org-type-education'] == "school" %}
-  {% set backlink_fundedby = "org-type-education-school" %}
-{% else %}
-  {% set backlink_fundedby = "org-type-education" %}
-{% endif %}
-
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: backlink_fundedby
+    href: "javascript:history.go(-1)"
   }) }}
-  
 {% endblock %}
 
 {% block content %}

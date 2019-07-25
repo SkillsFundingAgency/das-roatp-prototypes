@@ -188,15 +188,15 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
 
 		if (req.session.data['org-parentcompany'] === 'yes'){
-			res.redirect('/application/' + v + '/organisation/org-parentcompany-confirm')
+			res.redirect('/application/' + v + '/organisation/org-parentcompany-details')
 		} else {
 			res.redirect('/application/' + v + '/organisation/org-ico')
 		}
 
 	})
 
-	// Parent company confirmation
-	router.post('/application/' + v + '/organisation/org-parentcompany-confirm', function (req, res) {
+	// Parent company details
+	router.post('/application/' + v + '/organisation/org-parentcompany-details', function (req, res) {
 		res.redirect('/application/' + v + '/organisation/org-ico')
 	})
   

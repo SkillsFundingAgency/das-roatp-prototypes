@@ -12,7 +12,8 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <!--div class="govuk-grid-column-two-thirds"-->
+    <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-xl">
         Application overview
       </h1>
@@ -43,12 +44,15 @@
 
             <li class="app-task-list__item">
               {% if (data['tl_selectroute'] == "completed") %}
-                <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
+                <a class="app-task-list__task-name" href="organisation/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
               {% if data['tl_org_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="org-intro">Completed</strong>
+              {% endif %}
+              {% if data['tl_org_intro'] == "next" %}
+              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
             </li>
 
@@ -68,7 +72,7 @@
             </li>
             
             <li class="app-task-list__item">
-              {% if (data['tl_org_intro'] == "completed") %}
+              {% if (data['tl_org_intro'] == "completed") and (data['tl_org_details'] == "completed") %}
                 <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
               {% else %}
                 Tell us who’s in control
@@ -83,7 +87,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['tl_org_intro'] == "completed") %}
+              {% if (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") %}
                 <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Describe your organisation</a>
               {% else %}
                 Describe your organisation
@@ -98,7 +102,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['tl_org_intro'] == "completed") %}
+              {% if (data['tl_org_intro'] == "completed") and (data['tl_org_type'] == "completed") %}
                 {% if data['org-selectedroute'] == "supporting" %}
                   <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Quality assurance</a>
                 {% else %}
@@ -127,16 +131,16 @@
 
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
+                <a class="app-task-list__task-name" href="financial/intro" aria-describedby="fin-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
-              {% if data['tl_org_intro'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="org-intro">Completed</strong>
+              {% if data['tl_fin_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="fin-intro">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['exempt_fha'] != 'yes') %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_intro'] == "completed") and (data['exempt_fha'] != 'yes') %}
                 <a class="app-task-list__task-name" href="financial/full-accounts" aria-describedby="fin-upload">Your organisation’s financial evidence</a>
               {% else %}
                 Your organisation’s financial evidence
@@ -149,20 +153,22 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="fin-upload-notrequired">Not required</strong>
               {% endif %}
             </li>
+            {% if (data['org-parentcompany'] == "yes") %}
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Your UK ultimate parent company’s financial evidence</a>
               {% else %}
                 Your UK ultimate parent company’s financial evidence
               {% endif %}
-              {% if data['tl_org_type'] == "inprogress" %}
+              {% if data['tl_fin_parent'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-type-status">In progress</strong>
-              {% elseif data['tl_org_type'] == "completed" %}
+              {% elseif data['tl_fin_parent'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="org-type-status">Completed</strong>
-              {% elseif data['tl_org_type'] == "next" %}
+              {% elseif data['tl_fin_parent'] == "next" %}
                 <strong class="govuk-tag app-task-list__task-next" id="org-type-status">Next</strong>
               {% endif %}
             </li>
+            {% endif %}
           </ul>
         </li>
 
@@ -182,7 +188,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="declarations/org-debt" aria-describedby="dec-organisation">Checks on your organisation</a>
               {% else %}
                 Checks on your organisation
@@ -194,7 +200,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="declarations/people-repay-funding" aria-describedby="dec-people">Checks on who’s in control of your organisation</a>
               {% else %}
                 Checks on who’s in control of your organisation
@@ -208,7 +214,7 @@
 
             {% if (data['org-parentcompany'] == "yes") %}
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="declarations/XXX" aria-describedby="dec-parent">Your parent company</a>
               {% else %}
                 Your parent company
@@ -397,12 +403,12 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="readiness/intro" aria-describedby="rte-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="#" aria-describedby="pp-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
               {% if data['tl_pp_intro'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="rte-intro">Completed</strong>
+                <strong class="govuk-tag app-task-list__task-completed" id="pp-intro">Completed</strong>
               {% endif %}
             </li>
           </ul>
@@ -415,12 +421,12 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="readiness/intro" aria-describedby="rte-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="#" aria-describedby="lm-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
               {% if data['tl_lm_intro'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="rte-intro">Completed</strong>
+                <strong class="govuk-tag app-task-list__task-completed" id="lm-intro">Completed</strong>
               {% endif %}
             </li> 
           </ul>

@@ -1,3 +1,31 @@
 .app-task-list__item {
     color: #6F777B;
 }
+
+// Get help
+
+    .govuk-details--gethelp .govuk-details__summary {
+        @include govuk-font($size: 16);
+        color: #0b0c0c;
+        padding-left: 18px;
+    }
+    
+    .govuk-details--gethelp .govuk-details__summary:before {
+        content: "";
+        position: absolute;
+    
+        top: 0;
+        bottom: 0;
+        left: 0;
+    
+        margin: auto;
+    
+        @include govuk-shape-arrow($direction: right, $base: 11px);
+    }
+
+    .govuk-details--gethelp[open] > .govuk-details__summary:before {
+        @include govuk-shape-arrow($direction: down, $base: 11px);
+    }
+
+
+

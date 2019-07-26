@@ -35,14 +35,12 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("rte-use
-  subcontractors", "yes")
+              checked: checked("rte-usesubcontractors", "yes")
             },
             {
               value: "no",
               text: "No",
-                checked: checked("rte-use
-    subcontractors", "no")
+                checked: checked("rte-usesubcontractors", "no")
             }
           ]
         }) }}
@@ -51,6 +49,8 @@
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
         }) }}
+      
+        {% include "includes/gethelp.html" %}
 
       </form>
     </div>

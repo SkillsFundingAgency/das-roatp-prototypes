@@ -1,0 +1,23 @@
+<details class="govuk-details govuk-details--gethelp" id="gethelp">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            Get help with this question
+        </span>
+    </summary>
+    <div class="govuk-details__text">
+        <h2 class="govuk-heading-m">Get help with this question</h2>
+        <p>Do not include any personal or financial information.</p>
+        {{ govukCharacterCount({
+            name: "with-hint",
+            id: "with-hint",
+            maxlength: 250,
+            label: {
+                text: "What do you need help with?"
+            }
+        }) }}
+        {{ govukButton({
+            text: "Send",
+            href: "#gethelp"
+        }) }}
+    </div>
+</details>

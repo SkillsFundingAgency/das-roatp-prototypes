@@ -1,0 +1,40 @@
+{% extends "layout_application_v4.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">Financial health assessment</h1>
+
+      <p class="govuk-body">This section is to understand if your organisation will be a risk when contracting with ESFA.</p>
+      <p class="govuk-body">We will use financial health as a way to measure your organisation’s financial status, in terms of its financial performance and its ability to meet ongoing financial commitments.</p>
+      <p class="govuk-body">Your organisation will receive a financial health grade as part of this assessment.</p>
+      <p class="govuk-body">Find out more in <a href="https://www.gov.uk/government/publications/esfa-financial-health-assessment" target="_blank">the ESFA’s financial health policy (opens in a new window or tab)</a>.</p>
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

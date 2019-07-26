@@ -168,8 +168,8 @@ module.exports = function (router) {
 		let selected_route = req.session.data['org-selectedroute']
 
 		if (selected_route != '') {
-			//req.session.data['tl_selectroute'] = 'completed'
-			req.session.data['tl_org_details'] = 'next'
+			req.session.data['tl_selectroute'] = 'completed'
+			req.session.data['tl_org_intro'] = 'next'
 			res.redirect('/application/' + v + '/task-list')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/select-route')
@@ -182,10 +182,18 @@ module.exports = function (router) {
  *** Your organisation ***
  *************************/
 
+	// Intro and what you'll need
+	router.post('/application/' + v + '/organisation/intro', function (req, res) {
+		req.session.data['tl_org_intro'] = 'completed'
+		req.session.data['tl_org_details'] = 'next'
+		res.redirect('/application/' + v + '/organisation/org-parentcompany')
+	})
+
 	/*** Parent company ***/
 
 	// Have a parent company?
 	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
+		req.session.data['tl_org_details'] = 'inprogress'
 
 		if (req.session.data['org-parentcompany'] === 'yes'){
 			res.redirect('/application/' + v + '/organisation/org-parentcompany-details')
@@ -202,7 +210,6 @@ module.exports = function (router) {
   
 	// ICO number?
 	router.post('/application/' + v + '/organisation/org-ico', function (req, res) {
-		req.session.data['tl_org_details'] = 'inprogress'
 
 		let org_ico = req.session.data['org-ico']
 		
@@ -600,12 +607,12 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-classification', function (req, res) {
 			
 			if (req.session.data['org-classification']) {
-				req.session.data['tl_org_profile'] = 'inprogress'
+				req.session.data['tl_org_profile'] = 'next'
 				req.session.data['tl_org_type'] = 'completed'
 				if (req.session.data['org-selectedroute'] == 'supporting') {
 					res.redirect('/application/' + v + '/organisation/pro-subcontractor')
 				} else {
-					req.session.data['tl_org_profile'] = 'inprogress'
+					req.session.data['tl_org_profile'] = 'next'
 					res.redirect('/application/' + v + '/organisation/pro-itt')
 				}
 			} else {
@@ -886,6 +893,12 @@ module.exports = function (router) {
  *** Financial Evidence ***
  **************************/
 
+	// Intro and what you'll need
+	router.post('/application/' + v + '/financial/intro', function (req, res) {
+		req.session.data['tl_fin_intro'] = 'completed'
+		res.redirect('/application/' + v + '/financial/full-accounts')
+	})
+
 	// Full financial statements for the last year?
 	router.post('/application/' + v + '/financial/full-accounts', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'inprogress'
@@ -916,6 +929,12 @@ module.exports = function (router) {
 /************************************
  *** Criminal & compliance checks ***
  ************************************/
+
+	// Intro and what you'll need
+	router.post('/application/' + v + '/declarations/intro', function (req, res) {
+		req.session.data['tl_dec_intro'] = 'completed'
+		res.redirect('/application/' + v + '/declarations/org-debt')
+	})
 
 	// Organisation - Debt?
 	router.post('/application/' + v + '/declarations/org-debt', function (req, res) {

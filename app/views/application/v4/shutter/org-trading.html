@@ -7,16 +7,15 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "../org-trading"
+    href: "javascript:history.go(-1)"
   }) }}
-  <a href="#" style="line-height: 1.25; margin-top: 15px; margin-bottom: 15px; float: right;">Sign out</a>
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Your organisation is not eligible to join the register of apprenticeship training providers</h1>
+      <h1 class="govuk-heading-l">Your organisation is not eligible to apply to join the register of apprenticeship training providers</h1>
       <p class="govuk-body">To apply as 
         {% if data['org-selectedroute'] == "supporting" %}
           a supporting

@@ -32,10 +32,28 @@
 
       <p class="govuk-body">Depending on your answers, we may ask further questions.</p>
 
-      {{ govukWarningText({
-        text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
-        iconFallbackText: "Warning"
-      }) }}
+      {% if data["org-selectedroute"] == "supporting" %}
+
+        {{ govukWarningText({
+          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 3 months and have an individual or team with at least 3 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% elseif data["org-selectedroute"] == "employer" %}
+
+        {{ govukWarningText({
+          text: "As an " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% else %}
+
+        {{ govukWarningText({
+          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% endif %}
 
       {{ govukButton({
         text: "Continue with this section",

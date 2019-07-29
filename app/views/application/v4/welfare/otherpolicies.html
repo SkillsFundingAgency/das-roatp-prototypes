@@ -23,13 +23,13 @@
           name: "wel-otherpolicies",
           fieldset: {
             legend: {
-              text: "Will your organisation follow other providers policies and plans when working with them?",
+              text: "Will your organisation follow the lead provider’s policies and plans?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "As a supporting provider, your organisation will be required to follow and comply with all policies and plans when working with either main or employer providers."
+            text: "If your organisation acts as a subcontract it may be asked by the lead provider to follow its policies and plans."
           },
           items: [
             {
@@ -43,6 +43,11 @@
                 checked: checked("wel-otherpolicies", "no")
             }
           ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a lead provider?",
+          text: "A lead provider is a college, training organisation or employer that has a direct contractual relationship with ESFA."
         }) }}
 
         {{ govukButton({

@@ -18,12 +18,25 @@
 
     <form action="" method="post" class="form">
 
+      {% set dateHtml %}
+        {{ govukDateInput({
+          id: "pro-ofsted-apprenticeships-shortinspection-date",
+          namePrefix: "pro-ofsted-apprenticeships-shortinspection-date",
+          fieldset: {
+            legend: {
+              text: "When was your short Ofsted inspection?",
+              isPageHeading: false
+            }
+          }
+        }) }}
+      {% endset -%}
+
       {{ govukRadios({
         idPrefix: "pro-ofsted-apprenticeships-shortinspection",
         name: "pro-ofsted-apprenticeships-shortinspection",
         fieldset: {
           legend: {
-            text: "Has your organisation had a short Ofsted inspection within the last 3 years?",
+            text: "Has your organisation had a short Ofsted inspection?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -34,7 +47,7 @@
             text: "Yes",
             checked: checked("pro-ofsted-apprenticeships-shortinspection", "yes"),
             conditional: {
-              html: websiteHtml
+              html: dateHtml
             }
           },
           {

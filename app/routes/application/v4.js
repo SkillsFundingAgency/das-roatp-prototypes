@@ -130,30 +130,35 @@ module.exports = function (router) {
 
 		let org_ukprn = req.session.data['org-ukprn']
 
+	// companies
 		if (org_ukprn === '12340101') { // Company - Happy Path
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340102') { // Company - Active with no website
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
-		} else if (org_ukprn === '12340103') { // Company - Inactive
-			res.redirect('/application/' + v + '/organisation/shutter/org-inactivecompany')
-		} else if (org_ukprn === '12340106') { // Company - Active with no directors
+		} else if (org_ukprn === '12340103') { // Company - Active with no directors
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
+	// charities
 		} else if (org_ukprn === '12340201') { // Company - Also a charity
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340202') { // Charity only, not a company
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
 		} else if (org_ukprn === '12340203') { // Charity with no trustees listed
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
+	// sole traders and partnerships
 		} else if (org_ukprn === '12340301') { // Not a company (sole trader or partnership)
-			//res.redirect('/application/' + v + '/organisation/org-legalstatus')
 			res.redirect('/application/' + v + '/ukprn-confirmdetails')
-			//res.redirect('/application/' + v + '/task-list')
-		} else if (org_ukprn === '12340104') { // Organisation with a parent company
-			res.redirect('/application/' + v + '/ukprn-confirmdetails')
-		} else if (org_ukprn === '12340105') { // Incorporation date less than 12 months ago (3 months for supporting)
-			res.redirect('/application/' + v + '/organisation/shutter/incorporation')
+	// ineligible
+		} else if (org_ukprn === '12340401') { // Company - Inactive
+			res.redirect('/application/' + v + '/shutter/ukprn-inactivecompany')
+		} else if (org_ukprn === '12340402') { // Company - Already on register
+			res.redirect('/application/' + v + '/shutter/ukprn-onregister')
+		} else if (org_ukprn === '12340403') { // Incorporation date less than 12 months ago (3 months for supporting)
+			res.redirect('/application/' + v + '/shutter/incorporation')
+		} else if (org_ukprn === '12340404') { // Removed from register
+			res.redirect('/application/' + v + '/shutter/removed')
+	// error page
 		} else {
-			res.redirect('/application/' + v + '/organisation/error/org-ukprn')
+			res.redirect('/application/' + v + '/error/ukprn')
 		}
 	})
 
@@ -326,7 +331,7 @@ module.exports = function (router) {
 		if (req.session.data['org-trading']) {
 
 			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
-				res.redirect('/application/' + v + '/organisation/shutter/org-trading')
+				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 
 				req.session.data['tl_org_details'] = 'completed'
@@ -338,7 +343,7 @@ module.exports = function (router) {
 					res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 				} else if (req.session.data['org-ukprn'] === "12340301") {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
-				} else if (req.session.data['org-ukprn'] === "12340106") {
+				} else if (req.session.data['org-ukprn'] === "12340103") {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing')
 				} else {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
@@ -724,7 +729,7 @@ module.exports = function (router) {
 				if (req.session.data['pro-ofsted-apprenticeships-date'] == "yes") {
 					if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
 						// INELIGIBLE TO APPLY > SHUTTER PAGE
-						res.redirect('/application/' + v + '/organisation/shutter/pro-ofsted-apprenticeships-date')
+						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-apprenticeships-date')
 					} else { 
 						// Grade is outstanding or good
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-fundingmaintained')
@@ -815,7 +820,7 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-overall-date']) {
 				if (req.session.data['pro-ofsted-overall-date'] == "yes") {
 					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-						res.redirect('/application/' + v + '/organisation/shutter/pro-ofsted-overall-inadequate')
+						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-overall-inadequate')
 					} else { // OUTSTANDING OR GOOD
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
 					}

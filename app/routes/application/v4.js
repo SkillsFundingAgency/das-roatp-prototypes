@@ -1165,14 +1165,14 @@ module.exports = function (router) {
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
 		req.session.data['tl_wel_safeguarding'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/preventduty')
+		res.redirect('/application/' + v + '/welfare/upload-preventduty')
 	})
 
 	// Include responsibilities to Prevent duty
-	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
+	/*router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
 		req.session.data['tl_wel_preventduty'] = 'inprogress'
 		res.redirect('/application/' + v + '/welfare/upload-preventduty')
-	})
+	})*/
 
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {

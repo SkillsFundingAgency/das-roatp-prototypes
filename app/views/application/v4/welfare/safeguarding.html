@@ -18,45 +18,17 @@
 
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
+        <h1 class="govuk-heading-l">Who’s responsible for safeguarding in your organisation?</h1>
+
+        <p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding issues.</p>
+
         {{ govukInput({
           label: {
             text: "Full name"
           },
-          id: "wel-safeguardingresponsible-detail",
-          name: "wel-safeguardingresponsible-detail",
-          value: data['wel-safeguardingresponsible-detail']
-        }) }}
-      {% endset -%}
-
-        {{ govukRadios({
-          idPrefix: "wel-safeguardingresponsible",
-          name: "wel-safeguardingresponsible",
-          fieldset: {
-            legend: {
-              text: "Does your organisation have anyone who’s responsible for safeguarding?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "This should be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding issues."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes",
-              checked: checked("wel-safeguardingresponsible", "yes"),
-              conditional: {
-                html: detailHtml
-              }
-            },
-            {
-              value: "no",
-              text: "No",
-                checked: checked("wel-safeguardingresponsible", "no")
-            }
-          ]
+          classes: "govuk-input--width-20",
+          id: "wel-safeguardingresponsible",
+          name: "wel-safeguardingresponsible"
         }) }}
 
         {{ govukButton({

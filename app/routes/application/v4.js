@@ -229,9 +229,16 @@ module.exports = function (router) {
 
 	// Intro and what you'll need
 	router.post('/application/' + v + '/organisation/intro', function (req, res) {
+
 		req.session.data['tl_org_intro'] = 'completed'
 		req.session.data['tl_org_details'] = 'next'
-		res.redirect('/application/' + v + '/organisation/org-parentcompany')
+
+		let org_ukprn = req.session.data['org-ukprn']
+		if (org_ukprn === '12340101' || org_ukprn === '12340102' || org_ukprn === '12340103' || org_ukprn === '12340201') { // Is company
+			res.redirect('/application/' + v + '/organisation/org-parentcompany')
+		} else {
+			res.redirect('/application/' + v + '/organisation/org-ico')
+		}
 	})
 
 	/*** Parent company ***/

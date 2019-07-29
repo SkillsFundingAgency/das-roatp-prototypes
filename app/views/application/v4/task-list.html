@@ -58,7 +58,11 @@
 
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="organisation/org-parentcompany" aria-describedby="org-details-status">Organisation information</a>
+                {% if (data['org-ukprn'] == "12340101") or (data['org-ukprn'] == "12340102") or (data['org-ukprn'] == "12340103") or (data['org-ukprn'] == "12340201")%}
+                  <a class="app-task-list__task-name" href="organisation/org-parentcompany" aria-describedby="org-details-status">Organisation information</a>
+                {% else %}
+                  <a class="app-task-list__task-name" href="organisation/org-ico" aria-describedby="org-details-status">Organisation information</a>
+                {% endif %}
               {% else %}
                 Organisation information
               {% endif %}

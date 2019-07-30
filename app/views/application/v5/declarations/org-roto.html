@@ -19,40 +19,28 @@
       <form action="" method="post" class="form">
 
       {% set detailHtml %}
-        {{ govukTextarea({
-          id: "dec-org-educationregister-detail",
-          name: "dec-org-educationregister-detail",
+        {{ govukCharacterCount({
+          name: "dec-org-roto-detail",
+          id: "dec-org-roto-detail",
+          maxlength: 2000,
           label: {
             text: "Give us more information"
           },
           hint: {
             text: "You can include a brief summary of what measures have been put in place to manage this."
-          },
-          value: data['dec-org-educationregister-detail'],
-          attributes: {
-            spellcheck: "false"
           }
         }) }}
       {% endset -%}
 
         {{ govukRadios({
-          idPrefix: "dec-org-educationregister",
-          name: "dec-org-educationregister",
+          idPrefix: "dec-org-roto",
+          name: "dec-org-roto",
           fieldset: {
             legend: {
-              text: "Has your organisation been removed from any education register in the last 3 years?",
+              text: "Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            html: '<p class="govuk-body">Tell us if your organisation was:</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>involuntary withdrawn of Initial Teacher Training accreditation</li>
-                <li>removed from the Register of Training Organisations (RoTO)</li>
-                <li>removed of funding by the Higher Education Funding Council for England (HEFCE)</li>
-                <li>removed of funding by the Office for Students (OfS)</li>
-              </ul>'
           },
           items: [
             {

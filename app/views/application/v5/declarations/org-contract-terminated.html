@@ -19,18 +19,15 @@
       <form action="" method="post" class="form">
 
       {% set detailHtml %}
-        {{ govukTextarea({
-          id: "dec-org-contractterminated-detail",
+        {{ govukCharacterCount({
           name: "dec-org-contractterminated-detail",
+          id: "dec-org-contractterminated-detail",
+          maxlength: 2000,
           label: {
             text: "Give us more information"
           },
           hint: {
-            text: "You can include a brief summary of what measures have been put in place to manage this."
-          },
-          value: data['dec-org-contractterminated-detail'],
-          attributes: {
-            spellcheck: "false"
+            text: "You’ll need to include a brief summary of who this was with and why."
           }
         }) }}
       {% endset -%}
@@ -40,7 +37,7 @@
           name: "dec-org-contractterminated",
           fieldset: {
             legend: {
-              text: "Has your organisation had a contract terminated by a public body in the last 3 years?",
+              text: "Has your organisation had a contract terminated early by a public body in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

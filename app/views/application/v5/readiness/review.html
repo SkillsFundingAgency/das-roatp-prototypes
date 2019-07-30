@@ -1,0 +1,76 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {% set otherHtml %}
+        {{ govukInput({
+          id: "rte-review-other",
+          name: "rte-review-other",
+          type: "email",
+          classes: "govuk-!-width-two-thirds",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "rte-review-conditional",
+          name: "rte-review",
+          fieldset: {
+            legend: {
+              text: "How frequently will your organisation review this?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "quarterly",
+              text: "Quarterly",
+              checked: checked("rte-review", "quarterly")
+            },
+            {
+              value: "annually",
+              text: "Annually",
+              checked: checked("rte-review", "annually")
+            },
+            {
+              value: "other",
+              text: "Other",
+              conditional: {
+                html: otherHtml
+              },
+              checked: checked("rte-review", "other")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

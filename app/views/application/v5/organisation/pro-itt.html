@@ -1,0 +1,59 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-itt",
+        name: "pro-itt",
+        fieldset: {
+          legend: {
+            text: "Is your organisation Initial Teacher Training (ITT) accredited?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("pro-itt", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("pro-itt", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

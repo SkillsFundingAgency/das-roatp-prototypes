@@ -1,0 +1,56 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-monitoring-visit",
+        name: "pro-monitoring-visit",
+        fieldset: {
+          legend: {
+            text: "Has your organisation had a monitoring visit for apprenticeships in further education and skills?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("pro-monitoring-visit", "yes")
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("pro-monitoring-visit", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

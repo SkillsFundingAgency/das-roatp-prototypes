@@ -1,0 +1,79 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-debt-detail",
+          name: "dec-org-debt-detail",
+          label: {
+            text: "Give us more information"
+          },
+          hint: {
+            text: "You can include a brief summary of what measures have been put in place to manage this."
+          },
+          value: data['dec-org-debt-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-debt",
+          name: "dec-org-debt",
+          fieldset: {
+            legend: {
+              text: "Does your organisation have any debt with creditors?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: ""
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-org-debt", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-org-debt", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

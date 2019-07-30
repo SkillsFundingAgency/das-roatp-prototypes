@@ -1,0 +1,85 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+      {% set detailHtml %}
+        {{ govukTextarea({
+          id: "dec-org-educationregister-detail",
+          name: "dec-org-educationregister-detail",
+          label: {
+            text: "Give us more information"
+          },
+          hint: {
+            text: "You can include a brief summary of what measures have been put in place to manage this."
+          },
+          value: data['dec-org-educationregister-detail'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-educationregister",
+          name: "dec-org-educationregister",
+          fieldset: {
+            legend: {
+              text: "Has your organisation been removed from any education register in the last 3 years?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: '<p class="govuk-body">Tell us if your organisation was:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>involuntary withdrawn of Initial Teacher Training accreditation</li>
+                <li>removed from the Register of Training Organisations (RoTO)</li>
+                <li>removed of funding by the Higher Education Funding Council for England (HEFCE)</li>
+                <li>removed of funding by the Office for Students (OfS)</li>
+              </ul>'
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-org-educationregister", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-org-educationregister", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -62,6 +62,29 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
+		if (req.session.data['signin-email'] == "skip@organisation") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "no"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340101"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "next"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_profile_ofsted'] = "next"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// 'Your organisation' complete
 		// Organisation has a parent company
 		// ITT and Postgrad, no Ofsted inspections

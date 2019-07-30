@@ -16,9 +16,9 @@
       <h2 class="govuk-heading-m">RoATP Application Journey</h2>
           
       <p class="govuk-body">
-        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em;">WIP</strong><br-->
-        <a href="/application/v4">Application journey v4</a><br>
-        <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong>
+        <strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em;">WIP</strong><br>
+        <a href="/application/v5">Application journey v5</a><br>
+        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong-->
         <span class="govuk-caption-m">Added on: 16/07/2019</span>
       </p>
           
@@ -82,6 +82,43 @@
         <div class="govuk-details__text">
           
           <ul class="govuk-list govuk-list--bullet">
+
+            <li class="govuk-!-margin-bottom-4">
+              <p class="govuk-body" style="margin-bottom: 0;">
+                <a href="/application/v4">Application journey v4</a><br>
+                <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong>
+                <span class="govuk-caption-m">Added on: 16/07/2019</span>
+              </p>
+              <details class="govuk-details" style="margin-bottom: 0;">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Scenarios set with UKPRN
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340101: Organisation with all possible details from UKRLP</li>
+                    <li>12340102: Organisation has no website or trading name on UKRLP</li>
+                    <li>12340103: Organisation has no directors listed</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340201: Charity with a company number</li>
+                    <li>12340202: Charity without a company number</li>
+                    <li>12340203: Charity (not a company) with no trustees listed</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340401: Organisation is inactive on UKRLP</li>
+                    <li>12340402: Organisation is already on the register</li>
+                    <li>12340403: Incorporation date less than 12 months ago (3 months for supporting)</li>
+                    <li>12340404: Organisation removed from the register</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
             <li class="govuk-!-margin-bottom-4">
               <p class="govuk-body" style="margin-bottom: 0;">
                 <a href="/application/v3">Application journey v3</a><br>

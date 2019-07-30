@@ -1,7 +1,7 @@
 {% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
-  RoATP Application Prototype v4
+  RoATP Application Prototype v5
 {% endblock %}
 
 {% block beforeContent %}
@@ -33,10 +33,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprenticeships-fundingmaintained", "yes"),
-            conditional: {
-              html: websiteHtml
-            }
+            checked: checked("pro-ofsted-apprenticeships-fundingmaintained", "yes")
           },
           {
             value: "no",

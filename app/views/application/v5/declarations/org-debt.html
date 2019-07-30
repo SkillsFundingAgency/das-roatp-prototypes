@@ -19,18 +19,20 @@
       <form action="" method="post" class="form">
 
       {% set detailHtml %}
-        {{ govukTextarea({
-          id: "dec-org-debt-detail",
+        {{ govukCharacterCount({
           name: "dec-org-debt-detail",
+          id: "dec-org-debt-detail",
+          maxlength: 2000,
           label: {
             text: "Give us more information"
           },
           hint: {
-            text: "You can include a brief summary of what measures have been put in place to manage this."
-          },
-          value: data['dec-org-debt-detail'],
-          attributes: {
-            spellcheck: "false"
+            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include: </p>
+              <ul class='govuk-!-margin-top-1'>
+                <li>a brief summary of the agreement</li>
+                <li>how your organisation will settle the debt</li>
+                <li>the date of when the debt will be fully paid off</li>
+              </ul>"
           }
         }) }}
       {% endset -%}
@@ -40,7 +42,7 @@
           name: "dec-org-debt",
           fieldset: {
             legend: {
-              text: "Does your organisation have any debt with creditors?",
+              text: "Does your organisation have any composition with creditors?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

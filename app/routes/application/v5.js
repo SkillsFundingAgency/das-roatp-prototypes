@@ -78,9 +78,8 @@ module.exports = function (router) {
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_intro'] = "completed"
 			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_profile'] = "next"
+			req.session.data['tl_org_profile'] = "completed"
 			req.session.data['tl_org_type'] = "completed"
-			req.session.data['tl_profile_ofsted'] = "next"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
 		}

@@ -1,4 +1,4 @@
-{% extends "layout_application_v4.html" %}
+{% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v4
@@ -18,28 +18,28 @@
 
     <form action="" method="post" class="form">
 
-      {% set ofstedHtml %}
-        {{ govukDateInput({
-          id: "pro-ofsted-feskills-date",
-          namePrefix: "pro-ofsted-feskills-date",
-          fieldset: {
-            legend: {
-              text: "When was your last Ofsted report published?",
-              isPageHeading: false
-            }
-          }, 
-          hint: {
-            text: "You can find this on the Ofsted website."
+      {% set websiteHtml %}
+        {{ govukInput({
+          id: "org-website-address",
+          name: "org-website-address",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Enter main website address"
+          },
+          value: data['org-website-address'],
+          attributes: {
+            spellcheck: "false"
           }
         }) }}
       {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills",
-        name: "pro-ofsted-feskills",
+        idPrefix: "org-website-conditional",
+        name: "org-website",
         fieldset: {
           legend: {
-            text: "Has your organisation had an Ofsted inspection in further education and skills?",
+            text: "Does your organisation have a website?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -48,15 +48,15 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills", "yes"),
+            checked: checked("org-website", "yes"),
             conditional: {
-              html: ofstedHtml
+              html: websiteHtml
             }
           },
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-feskills", "no")
+            checked: checked("org-website", "no")
           }
         ]
       }) }}

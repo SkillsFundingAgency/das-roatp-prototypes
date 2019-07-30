@@ -1,0 +1,64 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "wel-otherpolicies",
+          name: "wel-otherpolicies",
+          fieldset: {
+            legend: {
+              text: "Will your organisation follow the lead provider’s policies and plans?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your organisation acts as a subcontract it may be asked by the lead provider to follow its policies and plans."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("wel-otherpolicies", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("wel-otherpolicies", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a lead provider?",
+          text: "A lead provider is a college, training organisation or employer that has a direct contractual relationship with ESFA."
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

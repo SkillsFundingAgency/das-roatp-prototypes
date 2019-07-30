@@ -1,0 +1,96 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukTextarea({
+            id: "dec-people-convictions-detail",
+            name: "dec-people-convictions-detail",
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You can include a brief summary of what measures have been put in place to manage this."
+            },
+            value: data['dec-people-convictions-detail'],
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+        {% endset -%}
+        
+        {% if data['org-legalstatus'] == "sole" %}
+          <h1 class="govuk-heading-l">Do you have any criminal convictions?</h1>
+        {% elseif data['org-legalstatus'] == "partnership" %}
+          <h1 class="govuk-heading-l">Does your organisation or any of its partners have any criminal convictions?</h1>
+        {% else %}
+          <h1 class="govuk-heading-l">Does anyone who’s in control of your organisation have any criminal convictions?</h1>
+        {% endif %}
+
+        <p class="gov-body">This includes things like bribery, corruption, terrorism, convictions, sexual offences and money laundering.</p>
+
+        {{ govukRadios({
+          idPrefix: "dec-people-convictions",
+          name: "dec-people-convictions",
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-people-convictions", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-people-convictions", "no")
+            }
+          ]
+        }) }}
+
+        {% if data['org-ukprn'] != "12340301" %}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+
+        {% endif %}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

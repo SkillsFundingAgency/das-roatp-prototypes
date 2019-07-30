@@ -1,0 +1,61 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-subtype",
+        name: "org-type-subtype",
+        fieldset: {
+          legend: {
+            text: "How will your organisation train its apprentices?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "own-org",
+            text: "In your own organisation",
+            checked: checked("org-type-subtype", "own-org")
+          },
+          {
+            value: "connected-org",
+            text: "In a connected organisation",
+            checked: checked("org-type-subtype", "connected-org")
+          },
+          {
+            value: "both",
+            text: "In both your own and connected organisations",
+            checked: checked("org-type-subtype", both)
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

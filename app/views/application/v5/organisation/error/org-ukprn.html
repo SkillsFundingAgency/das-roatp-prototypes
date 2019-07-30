@@ -1,0 +1,67 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-ico"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v4/organisation/org-ukprn" method="post" class="form">
+
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter a valid UKPRN",
+              href: "#org-ukprn-error"
+            }
+          ]
+        }) }}
+
+      <h1 class="govuk-heading-l">Enter your organisation's UK provider reference number (UKPRN)</h1>
+
+      <p class="govuk-body">This is your 8-digit number from the UK Register of Learning Providers.</p>
+
+      {{ govukInput({
+        label: {
+          text: "UKPRN"
+        },
+        classes: "govuk-input--width-10",
+        id: "org-ukprn",
+        name: "org-ukprn",
+        errorMessage: {
+          text: "Enter a valid UKPRN"
+        }
+      }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+              I do not have a UKPRN
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>To get a UKPRN, you’ll need to <a href="https://www.ukrlp.co.uk/" target="_blank">register with the UK Register of Learning Providers (opens in a new window or tab)</a>.</p>
+        </div>
+      </details>
+      
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

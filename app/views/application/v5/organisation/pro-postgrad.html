@@ -1,4 +1,4 @@
-{% extends "layout_application_v4.html" %}
+{% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v4
@@ -18,28 +18,12 @@
 
     <form action="" method="post" class="form">
 
-      {% set ofstedHtml %}
-        {{ govukDateInput({
-          id: "pro-ofsted-feskills-date",
-          namePrefix: "pro-ofsted-feskills-date",
-          fieldset: {
-            legend: {
-              text: "When was your last Ofsted report published?",
-              isPageHeading: false
-            }
-          }, 
-          hint: {
-            text: "You can find this on the Ofsted website."
-          }
-        }) }}
-      {% endset -%}
-
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills",
-        name: "pro-ofsted-feskills",
+        idPrefix: "pro-postgrad",
+        name: "pro-postgrad",
         fieldset: {
           legend: {
-            text: "Has your organisation had an Ofsted inspection in further education and skills?",
+            text: "Is the post graduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -48,15 +32,15 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills", "yes"),
+            checked: checked("pro-postgrad", "yes"),
             conditional: {
-              html: ofstedHtml
+              html: websiteHtml
             }
           },
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-feskills", "no")
+            checked: checked("pro-postgrad", "no")
           }
         ]
       }) }}

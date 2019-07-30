@@ -1,0 +1,53 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v4
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+        
+      <h1 class="govuk-heading-l">Enter the details for your ultimate parent company that is in the UK</h1>
+      
+      {{ govukInput({
+        label: {
+          text: "Company number"
+        },
+        classes: "govuk-input--width-10",
+        id: "org-parentcompany-number",
+        name: "org-parentcompany-number",
+        value: data['org-parentcompany-number']
+      }) }}
+      
+      {{ govukInput({
+        label: {
+          text: "Company name"
+        },
+        id: "org-parentcompany-name",
+        name: "org-parentcompany-name",
+        value: data['org-parentcompany-name']
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

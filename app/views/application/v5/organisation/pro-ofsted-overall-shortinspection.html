@@ -1,4 +1,4 @@
-{% extends "layout_application_v4.html" %}
+{% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v4
@@ -18,16 +18,16 @@
 
     <form action="" method="post" class="form">
 
-      {% set ofstedHtml %}
+      {% set dateHtml %}
         {{ govukDateInput({
-          id: "pro-ofsted-feskills-date",
-          namePrefix: "pro-ofsted-feskills-date",
+          id: "pro-ofsted-overall-shortinspection-date",
+          namePrefix: "pro-ofsted-overall-shortinspection-date",
           fieldset: {
             legend: {
-              text: "When was your last Ofsted report published?",
+              text: "What was the publication date of your short Ofsted inspection letter?",
               isPageHeading: false
             }
-          }, 
+          },
           hint: {
             text: "You can find this on the Ofsted website."
           }
@@ -35,11 +35,11 @@
       {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "pro-ofsted-feskills",
-        name: "pro-ofsted-feskills",
+        idPrefix: "pro-ofsted-overall-shortinspection",
+        name: "pro-ofsted-overall-shortinspection",
         fieldset: {
           legend: {
-            text: "Has your organisation had an Ofsted inspection in further education and skills?",
+            text: "Has your organisation had a short Ofsted inspection?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -48,15 +48,15 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills", "yes"),
+            checked: checked("pro-ofsted-overall-shortinspection", "yes"),
             conditional: {
-              html: ofstedHtml
+              html: dateHtml
             }
           },
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-feskills", "no")
+            checked: checked("pro-ofsted-overall-shortinspection", "no")
           }
         ]
       }) }}

@@ -1128,8 +1128,13 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/declarations/people-fraud')
 	})
 
-	// Who’s in control - fraud or irregularities
+	// Who’s in control - fraud or irregularities last 3 years
 	router.post('/application/' + v + '/declarations/people-fraud', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-fraud-ongoing')
+	})
+
+	// Who’s in control - ongoing fraud or irregularities
+	router.post('/application/' + v + '/declarations/people-fraud-ongoing', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-contract-terminated')
 	})
 
@@ -1150,8 +1155,11 @@ module.exports = function (router) {
 
 	// Who’s in control - Charity register
 	router.post('/application/' + v + '/declarations/people-charity-register', function (req, res) {
-		//req.session.data['tl_dec_people'] = 'completed'
-		//res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/declarations/people-trustee-register')
+	})
+
+	// Who’s in control - Trustee register
+	router.post('/application/' + v + '/declarations/people-trustee-register', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-convictions')
 	})
 

@@ -27,13 +27,14 @@
             text: "Give us more information"
           },
           hint: {
-            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include: </p>
+            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
               <ul class='govuk-!-margin-top-1'>
                 <li>a brief summary of the agreement</li>
                 <li>how your organisation will settle the debt</li>
                 <li>the date of when the debt will be fully paid off</li>
               </ul>"
-          }
+          },
+          value: data['dec-org-debt-detail']
         }) }}
       {% endset -%}
 
@@ -46,9 +47,6 @@
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: ""
           },
           items: [
             {

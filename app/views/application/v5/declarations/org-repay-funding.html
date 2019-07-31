@@ -32,7 +32,8 @@
                 <li>a brief summary of why your organisation failed to repay funding</li>
                 <li>if any actions have been taken to resolve this</li>
               </ul>"
-          }
+          },
+          value: data['dec-org-repayfunding-detail']
         }) }}
       {% endset -%}
 
@@ -65,7 +66,7 @@
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-repayfunding", "no")
+              checked: checked("dec-org-repayfunding", "no")
             }
           ]
         }) }}

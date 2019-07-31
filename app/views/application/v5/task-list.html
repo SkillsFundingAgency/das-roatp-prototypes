@@ -132,18 +132,18 @@
             <span class="app-task-list__section-number">2. </span> Financial evidence
           </h2>
           <ul class="app-task-list__items">
-            {% if (data['exempt_fha'] == "no") %}
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_fha'] != 'yes') %}
                 <a class="app-task-list__task-name" href="financial/intro" aria-describedby="fin-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
               {% if data['tl_fin_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="fin-intro">Completed</strong>
+              {% elseif data['exempt_fha'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="fin-upload-notrequired">Not required</strong>
               {% endif %}
             </li>
-            {% endif %}
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_intro'] == "completed") and (data['exempt_fha'] != 'yes') %}
                 <a class="app-task-list__task-name" href="financial/full-accounts" aria-describedby="fin-upload">Your organisation’s financial evidence</a>

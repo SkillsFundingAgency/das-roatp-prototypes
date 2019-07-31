@@ -19,19 +19,17 @@
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
-          {{ govukTextarea({
+          {{ govukCharacterCount({
             id: "dec-people-repayfunding-detail",
             name: "dec-people-repayfunding-detail",
+            maxlength: 2000,
             label: {
               text: "Give us more information"
             },
             hint: {
               text: "You can include a brief summary of what measures have been put in place to manage this."
             },
-            value: data['dec-people-repayfunding-detail'],
-            attributes: {
-              spellcheck: "false"
-            }
+            value: data['dec-people-repayfunding-detail']
           }) }}
         {% endset -%}
 
@@ -40,16 +38,16 @@
           name: "dec-people-repayfunding",
           fieldset: {
             legend: {
-              text: "Has anyone who’s in control of your organisation failed to repay funding in the last 3 years?",
+              text: "Has anyone who’s in control of your organisation failed to pay back funds in the last 3 years?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            html: '<p class="govuk-body">Tell us if anyone who’s in control failed to:</p>
+            html: '<p class="govuk-body">Tell us if anyone who’s in control has failed to:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>repay at least £50,000 to the ESFA or any other public body</li>
-                <li>follow the conditions of funding under the ESFA funding agreement or sub-contract</li>
+                <li>repay £50,000 or more to ESFA or any other public body</li>
+                <li>follow the conditions of funding under ESFA funding agreements or sub-contracts</li>
               </ul>'
           },
           items: [
@@ -76,7 +74,7 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
             {% include "../../../includes/directors-pscs.html" %}
 
           </div>

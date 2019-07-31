@@ -28,10 +28,7 @@
           hint: {
             text: "You can include a brief summary of what measures have been put in place to manage this."
           },
-          value: data['dec-org-professionalregister-detail'],
-          attributes: {
-            spellcheck: "false"
-          }
+          value: data['dec-org-professionalregister-detail']
         }) }}
       {% endset -%}
 
@@ -60,7 +57,7 @@
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-professionalregister", "no")
+              checked: checked("dec-org-professionalregister", "no")
             }
           ]
         }) }}

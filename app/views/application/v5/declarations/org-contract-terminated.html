@@ -28,7 +28,8 @@
           },
           hint: {
             text: "You’ll need to include a brief summary of who this was with and why."
-          }
+          },
+          value: data['dec-org-contractterminated-detail']
         }) }}
       {% endset -%}
 
@@ -54,7 +55,7 @@
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-contractterminated", "no")
+              checked: checked("dec-org-contractterminated", "no")
             }
           ]
         }) }}

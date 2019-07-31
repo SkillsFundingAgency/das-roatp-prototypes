@@ -1,0 +1,49 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "add-ukprn-outage"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">What is the organisation’s legal name?</h1>
+
+			<form action="add-ukprn-tradingname" method="post" class="form">
+
+					{{ govukInput({
+						label: {
+							text: "Legal name"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "staff-add-orgname",
+						name: "staff-add-orgname"
+					}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

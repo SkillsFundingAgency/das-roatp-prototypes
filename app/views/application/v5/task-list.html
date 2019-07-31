@@ -244,13 +244,15 @@
 
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_aw'] != "yes") %}
                 <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
               {% if data['tl_wel_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-intro">Completed</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-intro-notrequired">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -261,6 +263,8 @@
               {% endif %}
               {% if data['tl_wel_continuity'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-continuity">Completed</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-continuity">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -271,6 +275,8 @@
               {% endif %}
               {% if data['tl_wel_diversity'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-diversity">Completed</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-diversity">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -283,6 +289,8 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-safeguarding">Completed</strong>
               {% elseif data['tl_wel_safeguarding'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="wel-safeguarding">In progress</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-safeguarding">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -295,6 +303,8 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-preventduty">Completed</strong>
               {% elseif data['tl_wel_preventduty'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="wel-preventduty">In progress</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-preventduty">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -307,6 +317,8 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-healthandsafety">Completed</strong>
               {% elseif data['tl_wel_healthandsafety'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="wel-healthandsafety">In progress</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-healthandsafety">Not required</strong>
               {% endif %}
             </li>
             {% if data['org-selectedroute'] == "supporting" %}
@@ -318,6 +330,8 @@
               {% endif %}
               {% if data['tl_wel_other'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-other">Completed</strong>
+              {% elseif data['exempt_aw'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="wel-other">Not required</strong>
               {% endif %}
             </li>
             {% endif %}
@@ -427,13 +441,15 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_lm'] != "yes") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="lm-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
               {% if data['tl_lm_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="lm-intro">Completed</strong>
+              {% elseif data['exempt_lm'] == "yes" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="lm-intro">Not required</strong>
               {% endif %}
             </li> 
           </ul>

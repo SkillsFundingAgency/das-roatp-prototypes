@@ -1,7 +1,7 @@
 {% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
-  RoATP Application Prototype v4
+  RoATP Application Prototype v5
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,19 +19,17 @@
       <form action="" method="post" class="form">
 
       {% set detailHtml %}
-        {{ govukTextarea({
-          id: "dec-org-whistleblowing-detail",
+        {{ govukCharacterCount({
           name: "dec-org-whistleblowing-detail",
+          id: "dec-org-whistleblowing-detail",
+          maxlength: 2000,
           label: {
             text: "Give us more information"
           },
           hint: {
             text: "You can include a brief summary of what measures have been put in place to manage this."
           },
-          value: data['dec-org-whistleblowing-detail'],
-          attributes: {
-            spellcheck: "false"
-          }
+          value: data['dec-org-whistleblowing-detail']
         }) }}
       {% endset -%}
 
@@ -57,7 +55,7 @@
             {
               value: "no",
               text: "No",
-                checked: checked("dec-org-whistleblowing", "no")
+              checked: checked("dec-org-whistleblowing", "no")
             }
           ]
         }) }}

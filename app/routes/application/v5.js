@@ -62,6 +62,28 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
+		if (req.session.data['signin-email'] == "skip@organisation") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "no"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340101"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// 'Your organisation' complete
 		// Organisation has a parent company
 		// ITT and Postgrad, no Ofsted inspections
@@ -1070,9 +1092,10 @@ module.exports = function (router) {
 	// Organisation - Withdrawn from a contract
 	router.post('/application/' + v + '/declarations/org-withdrawn-contract', function (req, res) {
 		req.session.data['tl_dec_organisation'] = 'completed'
-		res.redirect('/application/' + v + '/declarations/org-education-register')
+		//res.redirect('/application/' + v + '/declarations/org-education-register')
+		res.redirect('/application/' + v + '/declarations/org-roto')
 	})
-
+/*
 	// Organisation - Removed from education register
 	router.post('/application/' + v + '/declarations/org-education-register', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/org-professional-register')
@@ -1080,6 +1103,12 @@ module.exports = function (router) {
 
 	// Organisation - Removed from professional register
 	router.post('/application/' + v + '/declarations/org-professional-register', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-safeguarding')
+	})
+*/
+
+	// Organisation - Removed from Register of Training Organisations
+	router.post('/application/' + v + '/declarations/org-roto', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/org-safeguarding')
 	})
 
@@ -1099,8 +1128,13 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/declarations/people-fraud')
 	})
 
-	// Who’s in control - fraud or irregularities
+	// Who’s in control - fraud or irregularities last 3 years
 	router.post('/application/' + v + '/declarations/people-fraud', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-fraud-ongoing')
+	})
+
+	// Who’s in control - ongoing fraud or irregularities
+	router.post('/application/' + v + '/declarations/people-fraud-ongoing', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-contract-terminated')
 	})
 
@@ -1121,8 +1155,11 @@ module.exports = function (router) {
 
 	// Who’s in control - Charity register
 	router.post('/application/' + v + '/declarations/people-charity-register', function (req, res) {
-		//req.session.data['tl_dec_people'] = 'completed'
-		//res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/declarations/people-trustee-register')
+	})
+
+	// Who’s in control - Trustee register
+	router.post('/application/' + v + '/declarations/people-trustee-register', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-convictions')
 	})
 

@@ -1,7 +1,7 @@
 {% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
-  RoATP Application Prototype v4
+  RoATP Application Prototype v5
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,6 +20,9 @@
 
         {% set detailHtml %}
         {{ govukInput({
+          label: {
+            text: "Full name"
+          },
           id: "rte-managingrelationships-detail",
           name: "rte-managingrelationships-detail",
           type: "email",
@@ -48,7 +51,7 @@
               value: "yes",
               text: "Yes",
               conditional: {
-                html: otherHtml
+                html: detailHtml
               },
               checked: checked("rte-managingrelationships", "yes")
             },

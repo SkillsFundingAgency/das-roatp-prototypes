@@ -1,7 +1,7 @@
 {% extends "layout_application_v5.html" %}
 
 {% block pageTitle %}
-  RoATP Application Prototype v4
+  RoATP Application Prototype v5
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,14 +19,22 @@
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
-          {{ govukTextarea({
+          {{ govukCharacterCount({
             id: "dec-people-convictions-detail",
             name: "dec-people-convictions-detail",
+            maxlength: 2000,
             label: {
               text: "Give us more information"
             },
             hint: {
-              text: "You can include a brief summary of what measures have been put in place to manage this."
+              html: '<p class="govuk-body">You’ll need to include:</p>
+              <ul class="govuk-!-margin-top-1">
+                <li>a brief summary of the conviction</li>
+                <li>full names of who the conviction is for</li>
+                <li>conviction dates including any time spent </li>
+                <li>outstanding judgements or legal proceedings </li>
+                <li>any actions your organisation has taken in relation to the conviction</li>
+              </ul>'
             },
             value: data['dec-people-convictions-detail'],
             attributes: {
@@ -36,14 +44,14 @@
         {% endset -%}
         
         {% if data['org-legalstatus'] == "sole" %}
-          <h1 class="govuk-heading-l">Do you have any criminal convictions?</h1>
+          <h1 class="govuk-heading-l">Have you had any criminal convictions in the last 5 years?</h1>
         {% elseif data['org-legalstatus'] == "partnership" %}
-          <h1 class="govuk-heading-l">Does your organisation or any of its partners have any criminal convictions?</h1>
+          <h1 class="govuk-heading-l">Has your organisation or any of its partners has any criminal convictions in the last 5 years?</h1>
         {% else %}
-          <h1 class="govuk-heading-l">Does anyone who’s in control of your organisation have any criminal convictions?</h1>
+          <h1 class="govuk-heading-l">Has anyone who’s in control of your organisation had any criminal convictions in the last 5 years?</h1>
         {% endif %}
 
-        <p class="gov-body">This includes things like bribery, corruption, terrorism, convictions, sexual offences and money laundering.</p>
+        <p class="gov-body">This includes things like bribery, corruption, terrorism, fraud, sexual offences and money laundering.</p>
 
         {{ govukRadios({
           idPrefix: "dec-people-convictions",
@@ -65,7 +73,7 @@
           ]
         }) }}
 
-        {% if data['org-ukprn'] != "12340301" %}
+        {% if (data['org-ukprn'] != "12340101") or (data['org-ukprn'] != "12340102") %}
         
         <details class="govuk-details">
           <summary class="govuk-details__summary">
@@ -74,9 +82,8 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
             {% include "../../../includes/directors-pscs.html" %}
-
           </div>
         </details>
 

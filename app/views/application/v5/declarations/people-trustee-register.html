@@ -20,34 +20,42 @@
 
         {% set detailHtml %}
           {{ govukCharacterCount({
-            id: "dec-people-contractterminated-detail",
-            name: "dec-people-contractterminated-detail",
+            id: "dec-people-trusteeregister-detail",
+            name: "dec-people-trusteeregister-detail",
             maxlength: 2000,
             label: {
               text: "Give us more information"
             },
             hint: {
-              text: "You’ll need to include a brief summary of who this was with and why."
+              text: "You’ll need to include a brief summary of who this was and what measures were put in place to manage this."
             },
-            value: data['dec-people-contractterminated-detail']
+            value: data['dec-people-trusteeregister-detail']
           }) }}
         {% endset -%}
 
         {{ govukRadios({
-          idPrefix: "dec-people-contractterminated",
-          name: "dec-people-contractterminated",
+          idPrefix: "dec-people-trusteeregister",
+          name: "dec-people-trusteeregister",
           fieldset: {
             legend: {
-              text: "Has anyone who’s in control of your organisation had a contract terminated by a public body in the last 3 years?",
+              text: "Is anyone who's in control of your organisation on the Register of Removed Trustees?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
+          },
+          hint: {
+            html: '<p class="govuk-body">This includes being removed from:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>the Charity Commission for England and Wales</li>
+                <li>the Charity Commission for Northern Ireland</li>
+                <li>the Office of the Scottish Charity Regulator</li>
+              </ul>'
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("dec-people-contractterminated", "yes"),
+              checked: checked("dec-people-trusteeregister", "yes"),
               conditional: {
                 html: detailHtml
               }
@@ -55,7 +63,7 @@
             {
               value: "no",
               text: "No",
-              checked: checked("dec-people-contractterminated", "no")
+              checked: checked("dec-people-trusteeregister", "no")
             }
           ]
         }) }}

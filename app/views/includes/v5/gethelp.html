@@ -1,0 +1,25 @@
+
+<details class="govuk-details govuk-details--gethelp" id="gethelp">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            Get help with this question
+        </span>
+    </summary>
+    <div class="govuk-details__text govuk-!-padding-bottom-0">
+        <h2 class="govuk-heading-m">Get help with this question</h2>
+        <div id="gethelp_content">
+            <p>Do not include any personal or financial information.</p>
+            {{ govukCharacterCount({
+                name: "gethelp",
+                id: "gethelp",
+                maxlength: 250,
+                label: {
+                    text: "What do you need help with?"
+                }
+            }) }}
+            <button class="govuk-button" data-module="govuk-button" id="gethelp_submit" onclick='document.getElementById("gethelp_content").innerHTML = "<p>Your question has been submitted.</p>"'>
+                Save and continue
+            </button>
+        </div>
+    </div>
+</details>

@@ -27,8 +27,36 @@
             text: "Full name"
           },
           classes: "govuk-input--width-20",
-          id: "wel-safeguardingresponsible",
-          name: "wel-safeguardingresponsible"
+          id: "wel-safeguardingresponsible-name",
+          name: "wel-safeguardingresponsible-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We’ll only use this in the case of an issue with safeguarding"
+          },
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20",
+          id: "wel-safeguardingresponsible-email",
+          email: "wel-safeguardingresponsible-email",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "UK telephone number"
+          },
+          id: "wel-safeguardingresponsible-tel",
+          name: "wel-safeguardingresponsible-tel",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-input--width-10"
         }) }}
 
         {{ govukButton({

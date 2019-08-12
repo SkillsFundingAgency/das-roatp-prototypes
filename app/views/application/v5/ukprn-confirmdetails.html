@@ -30,6 +30,8 @@
             <dd class="govuk-summary-list__value">
               {% if (data['org-ukprn'] == "12340201") or (data['org-ukprn'] == "12340202") or (data['org-ukprn'] == "12340203") %}
               YOUR CHARTITY NAME
+              {% elseif (data['org-ukprn'] == "12340301") %}
+              YOUR NAME
               {% else %}
               YOUR COMPANY NAME LTD
               {% endif %}
@@ -67,7 +69,7 @@
           </div>
           {% endif %}
 
-          {% if (data['org-ukprn'] != "12340202") and (data['org-ukprn'] != "12340203") %}
+          {% if (data['org-ukprn'] != "12340202") and (data['org-ukprn'] != "12340203") and (data['org-ukprn'] != "12340301") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Company number

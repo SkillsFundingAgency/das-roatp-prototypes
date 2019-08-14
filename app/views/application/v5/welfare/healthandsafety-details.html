@@ -17,19 +17,18 @@
     <div class="govuk-grid-column-two-thirds">
 
       <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for health and safety</h1>
 
-        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for safeguarding in your organisation</h1>
-
-        <p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding issues.</p>
-        <p class="govuk-body">We’ll only contact them if there is a safeguarding issue.</p>
+        <p class="govuk-body">We’ll only contact them if there is a health and safety issue.</p>
 
         {{ govukInput({
           label: {
             text: "Full name"
           },
-          classes: "govuk-input--width-20",
-          id: "wel-safeguardingresponsible-name",
-          name: "wel-safeguardingresponsible-name"
+          id: "wel-healthandsafetyresponsible-name",
+          name: "wel-healthandsafetyresponsible-name",
+          value: data['wel-healthandsafetyresponsible-name']
         }) }}
 
         {{ govukInput({
@@ -39,8 +38,9 @@
           type: "email",
           autocomplete: "email",
           classes: "govuk-input--width-20",
-          id: "wel-safeguardingresponsible-email",
-          email: "wel-safeguardingresponsible-email",
+          id: "wel-healthandsafetyresponsible-email",
+          email: "wel-healthandsafetyresponsible-email",
+          value: data['wel-healthandsafetyresponsible-email'],
           attributes: {
             spellcheck: "false"
           }
@@ -50,10 +50,11 @@
           label: {
             text: "Contact number"
           },
-          id: "wel-safeguardingresponsible-tel",
-          name: "wel-safeguardingresponsible-tel",
+          id: "wel-healthandsafetyresponsible-tel",
+          name: "wel-healthandsafetyresponsible-tel",
           type: "tel",
           autocomplete: "tel",
+          value: data['wel-healthandsafetyresponsible-tel'],
           classes: "govuk-input--width-10"
         }) }}
 

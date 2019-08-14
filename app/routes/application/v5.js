@@ -1225,6 +1225,20 @@ module.exports = function (router) {
 
 	// Who's responsible for health and safety
 	router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
+		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
+			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
+		} else {
+			if (req.session.data['org-selectedroute'] == "supporting") {
+				res.redirect('/application/' + v + '/welfare/otherpolicies')
+			} else {
+				req.session.data['tl_wel_healthandsafety'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
+			}
+		}
+	})
+
+	// Who's responsible for health and safety - details
+	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
 		if (req.session.data['org-selectedroute'] == "supporting") {
 			res.redirect('/application/' + v + '/welfare/otherpolicies')
 		} else {

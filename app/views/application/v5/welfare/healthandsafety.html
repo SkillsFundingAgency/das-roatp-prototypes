@@ -18,47 +18,6 @@
 
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
-        {{ govukInput({
-          label: {
-            text: "Full name"
-          },
-          id: "wel-healthandsafetyresponsible-name",
-          name: "wel-healthandsafetyresponsible-name",
-          value: data['wel-healthandsafetyresponsible-name']
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Email address"
-          },
-          hint: {
-            text: "We’ll only use this in the case of an issue with health and safety"
-          },
-          type: "email",
-          autocomplete: "email",
-          classes: "govuk-input--width-20",
-          id: "wel-healthandsafetyresponsible-email",
-          email: "wel-healthandsafetyresponsible-email",
-          value: data['wel-healthandsafetyresponsible-email'],
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-        
-        {{ govukInput({
-          label: {
-            text: "Contact number"
-          },
-          id: "wel-healthandsafetyresponsible-tel",
-          name: "wel-healthandsafetyresponsible-tel",
-          type: "tel",
-          autocomplete: "tel",
-          value: data['wel-healthandsafetyresponsible-tel'],
-          classes: "govuk-input--width-10"
-        }) }}
-      {% endset -%}
-
         {{ govukRadios({
           idPrefix: "wel-healthandsafetyresponsible",
           name: "wel-healthandsafetyresponsible",
@@ -76,10 +35,7 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("wel-healthandsafetyresponsible", "yes"),
-              conditional: {
-                html: detailHtml
-              }
+              checked: checked("wel-healthandsafetyresponsible", "yes")
             },
             {
               value: "no",

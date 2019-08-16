@@ -321,7 +321,7 @@ module.exports = function (router) {
 		// Sole trader details
 		router.post('/application/' + v + '/organisation/org-legalstatus-sole', function (req, res) {
 
-			if (req.session.data['org-soletrader-name'] && req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
+			if (req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
 				req.session.data['org-soletrader-dob-monthname'] = monthNumToName(req.session.data['org-soletrader-dob-month'])
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole-confirm')
 			} else {

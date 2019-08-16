@@ -737,9 +737,10 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-feskills']) {
 				if (req.session.data['pro-ofsted-feskills'] == "yes") {
 					
-					req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
+					//req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
 
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+					//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills-published')
 
 				} else {
 					/*** PR2 ***/
@@ -753,6 +754,15 @@ module.exports = function (router) {
 					//res.redirect('/application/' + v + '/task-list')
 				}
 			}
+		})
+
+		// Profile - Ofsted inspection for further education and skills publish date
+		router.post('/application/' + v + '/organisation/pro-ofsted-feskills-published', function (req, res) {
+
+			req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
+
+			res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+
 		})
 
 		// Profile - Monitoring visit
@@ -850,6 +860,8 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-apprenticeships-shortinspection']) {
 				if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "yes") {
 					
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published')
+					/*
 					req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
 
 					if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
@@ -860,6 +872,7 @@ module.exports = function (router) {
 						// GO TO GRADE MAINTAINED
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 					}
+					*/
 
 				} else {
 					// COMPLETE ALL SECTIONS
@@ -868,6 +881,22 @@ module.exports = function (router) {
 				}
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-shortinspection')
+			}
+
+		})
+
+		// Profile - Apprentices short inspection <3 years - published date
+		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published', function (req, res) {
+
+			req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
+
+			if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
+				// COMPLETE ALL SECTIONS
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
+			} else { // WITHIN LAST 3 YEARS
+				// GO TO GRADE MAINTAINED
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 			}
 
 		})

@@ -992,16 +992,7 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-overall-shortinspection']) {
 				if (req.session.data['pro-ofsted-overall-shortinspection'] == "yes") {
 
-					req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
-
-					if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-						// COMPLETE ALL SECTIONS
-						req.session.data['tl_org_profile'] = 'completed'
-						res.redirect('/application/' + v + '/task-list')
-					} else { // WITHIN LAST 3 YEARS
-						// GO TO GRADE MAINTAINED
-						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
-					}
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published')
 
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
@@ -1011,6 +1002,22 @@ module.exports = function (router) {
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-shortinspection')
 			}
+		})
+
+		// Profile - Overall short inspection
+		router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published', function (req, res) {
+
+			req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
+
+			if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
+				// COMPLETE ALL SECTIONS
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
+			} else { // WITHIN LAST 3 YEARS
+				// GO TO GRADE MAINTAINED
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
+			}
+
 		})
 
 		// Profile - Overall grade maintained

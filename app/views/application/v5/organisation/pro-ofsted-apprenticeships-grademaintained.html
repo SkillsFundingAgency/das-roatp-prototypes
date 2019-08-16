@@ -23,7 +23,7 @@
         name: "pro-ofsted-apprenticeships-grademaintained",
         fieldset: {
           legend: {
-            text: "Has your organisation maintained the grade it was awarded for apprenticeships in its Ofsted inspection?",
+            text: "Has your organisation maintained the grade it was awarded in its full Ofsted inspection?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -32,10 +32,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprenticeships-grademaintained", "yes"),
-            conditional: {
-              html: websiteHtml
-            }
+            checked: checked("pro-ofsted-apprenticeships-grademaintained", "yes")
           },
           {
             value: "no",

@@ -108,12 +108,12 @@
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") and (data['tl_org_type'] == "completed") %}
                 {% if data['org-selectedroute'] == "supporting" %}
-                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Assuring your organisation</a>
+                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% else %}
-                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Assuring your organisation</a>
+                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% endif %}
               {% else %}
-                Assuring your organisation
+                Experience and accreditations
               {% endif %}
               {% if data['tl_org_profile'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-profile-status">In progress</strong>

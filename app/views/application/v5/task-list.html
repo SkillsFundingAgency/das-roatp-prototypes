@@ -257,6 +257,8 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-intro-notrequired">Not required</strong>
               {% endif %}
             </li>
+
+            {% if data['org-selectedroute'] != "supporting" %} 
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-continuity" aria-describedby="wel-continuity">Continuity plan for apprenticeship training</a>
@@ -269,6 +271,8 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-continuity">Not required</strong>
               {% endif %}
             </li>
+            {% endif %}
+
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-diversity" aria-describedby="wel-diversity">Equality and diversity policy</a>
@@ -323,12 +327,11 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-healthandsafety">Not required</strong>
               {% endif %}
             </li>
-            {% if data['org-selectedroute'] == "supporting" %}
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Other providers policies</a>
+                <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Acting as a subcontractor</a>
               {% else %}
-                Other providers policies
+                Acting as a subcontractor
               {% endif %}
               {% if data['tl_wel_other'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-other">Completed</strong>
@@ -336,7 +339,6 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-other">Not required</strong>
               {% endif %}
             </li>
-            {% endif %}
           </ul>
 
         </li>

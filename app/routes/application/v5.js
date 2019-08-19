@@ -1214,7 +1214,11 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/welfare/intro', function (req, res) {
 		req.session.data['tl_wel_intro'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-continuity')
+		if (req.session.data['org-selectedroute'] == "supporting") {
+			res.redirect('/application/' + v + '/welfare/upload-diversity')
+		} else {
+			res.redirect('/application/' + v + '/welfare/upload-continuity')
+		}
 	})
 
 	// Continuity plan upload
@@ -1238,14 +1242,19 @@ module.exports = function (router) {
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
 		req.session.data['tl_wel_safeguarding'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-preventduty')
+		res.redirect('/application/' + v + '/welfare/preventduty')
 	})
 
 	// Include responsibilities to Prevent duty
-	/*router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
-		req.session.data['tl_wel_preventduty'] = 'inprogress'
-		res.redirect('/application/' + v + '/welfare/upload-preventduty')
-	})*/
+	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
+		if (req.session.data['wel-preventduty'] == "no") {
+			req.session.data['tl_wel_preventduty'] = 'inprogress'
+			res.redirect('/application/' + v + '/welfare/upload-preventduty')
+		} else {
+			req.session.data['tl_wel_preventduty'] = 'completed'
+			res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+		}
+	})
 
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
@@ -1264,23 +1273,19 @@ module.exports = function (router) {
 		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
 			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 		} else {
-			if (req.session.data['org-selectedroute'] == "supporting") {
-				res.redirect('/application/' + v + '/welfare/otherpolicies')
-			} else {
-				req.session.data['tl_wel_healthandsafety'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
-			}
+			res.redirect('/application/' + v + '/welfare/otherpolicies')
 		}
 	})
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
-		if (req.session.data['org-selectedroute'] == "supporting") {
-			res.redirect('/application/' + v + '/welfare/otherpolicies')
-		} else {
-			req.session.data['tl_wel_healthandsafety'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
-		}
+		res.redirect('/application/' + v + '/welfare/otherpolicies')
+	})
+
+	// Who's responsible for health and safety - details
+	router.post('/application/' + v + '/welfare/otherpolicies', function (req, res) {
+		req.session.data['tl_wel_healthandsafety'] = 'completed'
+		res.redirect('/application/' + v + '/task-list')
 	})
 
 

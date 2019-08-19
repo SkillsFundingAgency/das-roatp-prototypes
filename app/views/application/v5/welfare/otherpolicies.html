@@ -18,19 +18,13 @@
 
       <form action="" method="post" class="form">
 
+        <h1 class="govuk-heading-l">When acting as a subcontractor, will your organisation follow its lead provider’s policies and plans?</h1>
+
+        <p class="govuk-body">Your organisation has an obligation to follow its lead provider’s policies and plans if asked by them.</p>
+
         {{ govukRadios({
           idPrefix: "wel-otherpolicies",
           name: "wel-otherpolicies",
-          fieldset: {
-            legend: {
-              text: "Will your organisation follow the lead provider’s policies and plans?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "If your organisation acts as a subcontract it may be asked by the lead provider to follow its policies and plans."
-          },
           items: [
             {
               value: "yes",
@@ -47,7 +41,7 @@
 
         {{ govukDetails({
           summaryText: "What is a lead provider?",
-          text: "A lead provider is a college, training organisation or employer that has a direct contractual relationship with ESFA."
+          text: "A lead provider is a main or employer provider who has a direct contractual relationship with ESFA."
         }) }}
 
         {{ govukButton({

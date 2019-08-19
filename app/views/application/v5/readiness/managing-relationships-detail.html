@@ -18,18 +18,18 @@
 
       <form action="" method="post" class="form">
         
-        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for health and safety</h1>
+        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for managing relationships with employers</h1>
 
-        <p class="govuk-body">We’ll only contact them if there is a health and safety issue.</p>
+        <p class="govuk-body">We’ll only contact them if there is an issue.</p>
 
         {{ govukInput({
           label: {
             text: "Full name"
           },
-          id: "wel-healthandsafetyresponsible-name",
-          name: "wel-healthandsafetyresponsible-name",
           classes: "govuk-input--width-20",
-          value: data['wel-healthandsafetyresponsible-name']
+          id: "rte-managingrelationships-name",
+          name: "rte-managingrelationships-name",
+          value: data['rte-managingrelationships-name']
         }) }}
 
         {{ govukInput({
@@ -39,9 +39,9 @@
           type: "email",
           autocomplete: "email",
           classes: "govuk-input--width-20",
-          id: "wel-healthandsafetyresponsible-email",
-          email: "wel-healthandsafetyresponsible-email",
-          value: data['wel-healthandsafetyresponsible-email'],
+          id: "rte-managingrelationships-email",
+          email: "rte-managingrelationships-email",
+          value: data['rte-managingrelationships-email'],
           attributes: {
             spellcheck: "false"
           }
@@ -51,11 +51,11 @@
           label: {
             text: "Contact number"
           },
-          id: "wel-healthandsafetyresponsible-tel",
-          name: "wel-healthandsafetyresponsible-tel",
+          id: "rte-managingrelationships-tel",
+          name: "rte-managingrelationships-tel",
           type: "tel",
           autocomplete: "tel",
-          value: data['wel-healthandsafetyresponsible-tel'],
+          value: data['rte-managingrelationships-tel'],
           classes: "govuk-input--width-10"
         }) }}
 

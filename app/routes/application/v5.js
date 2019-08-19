@@ -321,7 +321,7 @@ module.exports = function (router) {
 		// Sole trader details
 		router.post('/application/' + v + '/organisation/org-legalstatus-sole', function (req, res) {
 
-			if (req.session.data['org-soletrader-name'] && req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
+			if (req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
 				req.session.data['org-soletrader-dob-monthname'] = monthNumToName(req.session.data['org-soletrader-dob-month'])
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole-confirm')
 			} else {
@@ -1302,47 +1302,60 @@ module.exports = function (router) {
 
 	// Manage relationships with employers?
 	router.post('/application/' + v + '/readiness/relationships', function (req, res) {
-		res.redirect('/application/' + v + '/readiness/review')
-	})	
-
-	// Frequency of review?
-	router.post('/application/' + v + '/readiness/review', function (req, res) {
 		res.redirect('/application/' + v + '/readiness/managing-relationships')
-	})	
+	})		
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
-		req.session.data['tl_rte_engagement'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/fat')
+		if (req.session.data['rte-managingrelationships'] == "yes") {
+			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
+		} else {
+			res.redirect('/application/' + v + '/readiness/promote')
+		}
 	})	
 
-	// FAT
-	router.post('/application/' + v + '/readiness/fat', function (req, res) {
-		req.session.data['tl_rte_promoting'] = 'inprogress'
+	// Managing relationships?
+	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {
+		//res.redirect('/application/' + v + '/readiness/fat')
 		res.redirect('/application/' + v + '/readiness/promote')
-	})	
+	})
 
 	// Promote apprenticeships
 	router.post('/application/' + v + '/readiness/promote', function (req, res) {
-		req.session.data['tl_rte_promoting'] = 'completed'
+		req.session.data['tl_rte_engagement'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-complaints')
 	})
 
 	// Upload complaints policy
 	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {
-		req.session.data['tl_rte_policies'] = 'inprogress'
+		req.session.data['tl_rte_complaints'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-contractforservices')
 	})
 
 	// Upload contract for services
 	router.post('/application/' + v + '/readiness/upload-contractforservices', function (req, res) {
+		req.session.data['tl_rte_contractforservices'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
 	})
 
 	// Upload commitment statement
 	router.post('/application/' + v + '/readiness/upload-commitmentstatement', function (req, res) {
-		req.session.data['tl_rte_policies'] = 'completed'
+		req.session.data['tl_rte_commitment'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/prior-learning-assessments')
+		//res.redirect('/application/' + v + '/readiness/use-subcontractors')
+	})
+
+	// Prior learning assessments
+	router.post('/application/' + v + '/readiness/prior-learning-assessments', function (req, res) {
+		req.session.data['tl_rte_priorlearning'] = 'inprogress'
+		res.redirect('/application/' + v + '/readiness/asses-english-maths')
+	})
+
+	// Assess English and Maths
+	router.post('/application/' + v + '/readiness/asses-english-maths', function (req, res) {
+		req.session.data['tl_rte_priorlearning'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/use-subcontractors')
+		//res.redirect('/application/' + v + '/readiness/asses-english-maths.html')
 	})
 
 	// Use subcontractors?

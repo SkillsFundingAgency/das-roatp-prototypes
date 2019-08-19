@@ -19,46 +19,45 @@
       <form action="" method="post" class="form">
 
         {% set otherHtml %}
-        {{ govukInput({
-          id: "rte-promote-other",
-          name: "rte-promote-other",
-          type: "email",
-          classes: "govuk-!-width-two-thirds",
-          label: {
-            text: "Resource name(s)"
-          },
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
+          {{ govukInput({
+            id: "rte-promote-other",
+            name: "rte-promote-other",
+            type: "text",
+            classes: "govuk-!-width-one-third"
+          }) }}
         {% endset -%}
 
-        {{ govukRadios({
-          idPrefix: "rte-promote-conditional",
+        {{ govukCheckboxes({
+          idPrefix: "rte-promote",
           name: "rte-promote",
           fieldset: {
             legend: {
-              text: "Will your organisation use other resources to promote apprenticeships to employers? ",
+              text: "How will your organisation promote apprenticeships to employers?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "For example, the National Careers Service (NCS)."
+            text: "Select all that apply."
           },
           items: [
             {
-              value: "yes",
-              text: "Yes",
-              checked: checked("rte-promote", "yes"),
+              value: "fat",
+              text: "Find Apprenticeship Training (FAT)",
+              checked: checked("rte-promote", "fat")
+            },
+            {
+              value: "ncs",
+              text: "National Careers Services",
+              checked: checked("rte-promote", "ncs")
+            },
+            {
+              value: "other",
+              text: "Other",
+              checked: checked("rte-promote", "other"),
               conditional: {
                 html: otherHtml
               }
-            },
-            {
-              value: "no",
-              text: "No",
-              checked: checked("rte-promote", "no")
             }
           ]
         }) }}

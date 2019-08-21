@@ -16,18 +16,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p class="govuk-caption-l">Experience and accreditations</p>
+
+    <h1 class="govuk-heading-l">Is your organisation funded by the Office for Students (OfS)?</h1>
+
     <form action="" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "pro-funded",
         name: "pro-funded",
-        fieldset: {
-          legend: {
-            text: "Is your organisation funded by the Office for Students (OfS)?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "yes",

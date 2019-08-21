@@ -16,18 +16,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p class="govuk-caption-l">Experience and accreditations</p>
+
+    <h1 class="govuk-heading-l">Has your organisation had a monitoring visit for apprenticeships in further education and skills?</h1>
+
     <form action="" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "pro-monitoring-visit",
         name: "pro-monitoring-visit",
-        fieldset: {
-          legend: {
-            text: "Has your organisation had a monitoring visit for apprenticeships in further education and skills?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "yes",

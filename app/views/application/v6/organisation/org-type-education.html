@@ -16,18 +16,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">What type of educational institute is your organisation?</h1>
+
     <form action="" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "org-type-education",
         name: "org-type-education",
-        fieldset: {
-          legend: {
-            text: "What type of educational institute is your organisation?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "national-college",

@@ -16,18 +16,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">What training organisation or agency is your organisation?</h1>
+
     <form action="" method="post" class="form">
 
       {{ govukRadios({
         idPrefix: "org-type-training",
         name: "org-type-training",
-        fieldset: {
-          legend: {
-            text: "What training organisation or agency is your organisation?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "ata",

@@ -16,6 +16,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">Does your organisation have a website?</h1>
+
     <form action="" method="post" class="form">
 
       {% set websiteHtml %}
@@ -37,13 +41,6 @@
       {{ govukRadios({
         idPrefix: "org-website-conditional",
         name: "org-website",
-        fieldset: {
-          legend: {
-            text: "Does your organisation have a website?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "yes",

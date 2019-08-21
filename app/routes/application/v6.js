@@ -1128,20 +1128,8 @@ module.exports = function (router) {
 	// Organisation - Withdrawn from a contract
 	router.post('/application/' + v + '/declarations/org-withdrawn-contract', function (req, res) {
 		req.session.data['tl_dec_organisation'] = 'completed'
-		//res.redirect('/application/' + v + '/declarations/org-education-register')
 		res.redirect('/application/' + v + '/declarations/org-roto')
 	})
-/*
-	// Organisation - Removed from education register
-	router.post('/application/' + v + '/declarations/org-education-register', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/org-professional-register')
-	})
-
-	// Organisation - Removed from professional register
-	router.post('/application/' + v + '/declarations/org-professional-register', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/org-safeguarding')
-	})
-*/
 
 	// Organisation - Removed from Register of Training Organisations
 	router.post('/application/' + v + '/declarations/org-roto', function (req, res) {

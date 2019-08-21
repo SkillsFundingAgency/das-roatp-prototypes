@@ -1273,18 +1273,20 @@ module.exports = function (router) {
 		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
 			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 		} else {
+			req.session.data['tl_wel_healthandsafety'] = 'completed'
 			res.redirect('/application/' + v + '/welfare/otherpolicies')
 		}
 	})
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
+		req.session.data['tl_wel_healthandsafety'] = 'completed'
 		res.redirect('/application/' + v + '/welfare/otherpolicies')
 	})
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/otherpolicies', function (req, res) {
-		req.session.data['tl_wel_healthandsafety'] = 'completed'
+		req.session.data['tl_wel_other'] = 'completed'
 		res.redirect('/application/' + v + '/task-list')
 	})
 

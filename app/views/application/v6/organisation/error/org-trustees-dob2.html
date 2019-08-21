@@ -1,0 +1,101 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trustees-dob1"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/application/v6/organisation/org-trustees-dob2" method="post" class="form">
+
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Enter a month and year of birth",
+              href: "#org-trustee-dob2-error"
+            }
+          ]
+        }) }}
+      
+        {{ govukDateInput({
+          fieldset: {
+            legend: {
+              text: "What is Nick Riviera's date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 12 1983"
+          },
+          errorMessage: {
+            text: "Enter a month and year of birth"
+          },
+          id: "org-trustee-dob2",
+          namePrefix: "org-trustee-dob2",
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "month",
+              value: data['org-trustee-dob2-month']
+            },
+            {
+              classes: "govuk-input--width-4 govuk-input--error",
+              name: "year",
+              value: data['org-trustee-dob2-year']
+            }
+          ]
+        }) }}
+
+        <!--h1 class="govuk-heading-l">What is Nick Riviera's date of birth?</h1>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="org-trustee-dob2-hint" role="group">
+            <legend class="govuk-fieldset__legend">
+                Date of birth 
+            </legend>
+            <span id="org-trustee-dob2-hint" class="govuk-hint">
+              For example, 12 1983
+            </span>
+            <div class="govuk-date-input" id="org-trustee-dob2">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob2-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="org-trustee-dob2-month" name="org-trustee-dob2-month" type="number" pattern="[0-9]*" value="{{ data['org-trustee-dob2-month'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob2-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="org-trustee-dob2-year" name="org-trustee-dob2-year" type="number" pattern="[0-9]*" value="{{ data['org-trustee-dob2-year'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div-->
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

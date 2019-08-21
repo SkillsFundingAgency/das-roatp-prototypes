@@ -1,0 +1,56 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  Service Start Page - RoATP Organisation Prototype
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Further education and skills</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Apprenticeships</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+
+      <p>Use this service to join the register of apprenticeship training providers (RoATP) so that you can train apprentices in the UK.</p>
+      <p>You do not have to complete your application in one go. You can save your details and finish it later.</p>
+      <p>You can only apply twice within a 12-month period.</p>
+      <p>You’ll need to allow at least 12 weeks for Education and Skills Funding Agency (ESFA) to process your application.</p>
+
+      <a href="/application/v6/signin" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p>To join the register of apprenticeship training providers, your organisation will need to have:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+				<li>a <a href="https://www.ukrlp.co.uk/" target="_blank">UK provider reference number (opens in a new window or tab)</a></li>
+				<li>an <a href="https://ico.org.uk/registration/new" target="_blank">Information Commissioner's Office registration number (opens in a new window or tab)</a></li>
+				<li>a UK business address</li>
+			</ul>
+
+    </div>
+
+  </div>
+{% endblock %}

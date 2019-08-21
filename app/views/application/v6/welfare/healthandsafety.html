@@ -1,0 +1,59 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "wel-healthandsafetyresponsible",
+          name: "wel-healthandsafetyresponsible",
+          fieldset: {
+            legend: {
+              text: "Does your organisation have anyone who’s responsible for health and safety?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This must be someone from your organisation or a third party who has the overall responsibility, relevant knowledge and skills to manage health and safety issues."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("wel-healthandsafetyresponsible", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("wel-healthandsafetyresponsible", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

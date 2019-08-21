@@ -1,0 +1,52 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s equality and diversity policy</h1>
+
+    <p class="gov-body">This must include how your organisation will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>promote the policy</li>
+      <li>get engagement towards the policy</li>
+      <li>train its employees in implementing the policy</li>
+      <li>consider the policy when recruiting</li>
+      <li>consider the policy when delivering apprenticeship training</li>
+      <li>consider the policy when working with employers and apprentices</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "wel-diversity",
+        name: "wel-diversity",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+        {% include "includes/v6/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

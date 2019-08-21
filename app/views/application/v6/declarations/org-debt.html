@@ -1,0 +1,84 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+      {% set detailHtml %}
+        {{ govukCharacterCount({
+          name: "dec-org-debt-detail",
+          id: "dec-org-debt-detail",
+          maxlength: 2000,
+          label: {
+            text: "Give us more information"
+          },
+          hint: {
+            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
+              <ul class='govuk-!-margin-top-1'>
+                <li>a brief summary of the agreement</li>
+                <li>how your organisation will settle the debt</li>
+                <li>the date of when the debt will be fully paid off</li>
+              </ul>"
+          },
+          value: data['dec-org-debt-detail']
+        }) }}
+      {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-debt",
+          name: "dec-org-debt",
+          fieldset: {
+            legend: {
+              text: "Does your organisation have any composition with creditors?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-org-debt", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("dec-org-debt", "no")
+            }
+          ]
+        }) }}
+        
+        {{ govukDetails({
+          summaryText: "What is a composition with creditors?",
+          text: "It’s an agreement between a debtor (someone who owes money) and a creditor (someone owed the money) to settle the debt."
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

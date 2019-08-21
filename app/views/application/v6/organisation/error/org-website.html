@@ -1,0 +1,96 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% if data['org-legalstatus'] == "sole" %}
+  {% set backlink_website = "org-legalstatus-sole-confirm" %}
+{% else %}
+  {% if data['org-legalstatus'] == "partnership" %}
+    {% set backlink_website = "org-legalstatus-partnership-confirm" %}
+  {% else %}
+    {% set backlink_website = "org-confirmorgdetails" %}
+  {% endif %}
+{% endif %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_website
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v6/organisation/org-website" method="post" class="form">
+
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: "Select if your company has a website",
+              href: "#org-website-error"
+            }
+          ]
+        }) }}
+
+      {% set websiteHtml %}
+        {{ govukInput({
+          id: "org-website-address",
+          name: "org-website-address",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Enter main website"
+          },
+          value: data['org-website-address'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "org-website-conditional",
+        name: "org-website",
+        fieldset: {
+          legend: {
+            text: "Does your organisation have a website?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("org-website", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("org-website", "no")
+          }
+        ],
+        errorMessage: {
+          text: "Select if your company has a website"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

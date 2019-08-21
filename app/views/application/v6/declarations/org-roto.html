@@ -1,0 +1,74 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+      {% set detailHtml %}
+        {{ govukCharacterCount({
+          name: "dec-org-roto-detail",
+          id: "dec-org-roto-detail",
+          maxlength: 2000,
+          label: {
+            text: "Give us more information"
+          },
+          hint: {
+            text: "You can include a brief summary of what measures have been put in place to manage this."
+          },
+          value: data['dec-org-roto-detail']
+        }) }}
+      {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-roto",
+          name: "dec-org-roto",
+          fieldset: {
+            legend: {
+              text: "Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-org-educationregister", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("dec-org-educationregister", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

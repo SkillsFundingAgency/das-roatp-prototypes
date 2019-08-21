@@ -1,0 +1,70 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">Your organisation</h1>
+
+      <p class="govuk-body">In this section we’ll ask for:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your organisation’s ICO registration number</li>
+        <li>who’s in control</li>
+        <li>your organisation’s trading history</li>
+        <li>details of what your organisation is</li>
+        <li>Ofsted or other educational accreditations</li>
+      </ul>
+
+      <p class="govuk-body">Depending on your answers, we may ask further questions.</p>
+
+      {% if data["org-selectedroute"] == "supporting" %}
+
+        {{ govukWarningText({
+          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 3 months and have an individual or team with at least 3 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% elseif data["org-selectedroute"] == "employer" %}
+
+        {{ govukWarningText({
+          text: "As an " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% else %}
+
+        {{ govukWarningText({
+          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

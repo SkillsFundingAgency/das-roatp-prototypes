@@ -254,13 +254,14 @@ module.exports = function (router) {
 
 		req.session.data['tl_org_intro'] = 'completed'
 		req.session.data['tl_org_details'] = 'next'
-
+		/*
 		let org_ukprn = req.session.data['org-ukprn']
 		if (org_ukprn === '12340101' || org_ukprn === '12340102' || org_ukprn === '12340103' || org_ukprn === '12340201') { // Is company
 			res.redirect('/application/' + v + '/organisation/org-parentcompany')
 		} else {
 			res.redirect('/application/' + v + '/organisation/org-ico')
-		}
+		}*/
+		res.redirect('/application/' + v + '/task-list#section-organisation')
 	})
 
 	/*** Parent company ***/
@@ -398,7 +399,7 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/org-trading', function (req, res) {
 		
 		if (req.session.data['org-trading']) {
-
+			/*
 			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
@@ -419,6 +420,10 @@ module.exports = function (router) {
 				}
 
 			}
+			*/
+			req.session.data['tl_org_details'] = 'completed'
+			req.session.data['tl_org_people'] = 'next'
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-trading')
 		}
@@ -454,7 +459,8 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			res.redirect('/application/' + v + '/organisation/org-type')
+			//res.redirect('/application/' + v + '/organisation/org-type')
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 		
 		// Confirm people in control
@@ -467,7 +473,8 @@ module.exports = function (router) {
 			} else {
 				req.session.data['tl_org_people'] = 'completed'
 				req.session.data['tl_org_type'] = 'next'
-				res.redirect('/application/' + v + '/organisation/org-type')
+				//res.redirect('/application/' + v + '/organisation/org-type')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 		})
 
@@ -513,14 +520,16 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-trustees-confirm', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			res.redirect('/application/' + v + '/organisation/org-type')
+			//res.redirect('/application/' + v + '/organisation/org-type')
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 		
 		// Confirm trustees - Manual entry
 		router.post('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			res.redirect('/application/' + v + '/organisation/org-type')
+			//res.redirect('/application/' + v + '/organisation/org-type')
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 
 
@@ -687,7 +696,8 @@ module.exports = function (router) {
 					res.redirect('/application/' + v + '/organisation/pro-subcontractor')
 				} else {
 					req.session.data['tl_org_profile'] = 'next'
-					res.redirect('/application/' + v + '/organisation/pro-itt')
+					//res.redirect('/application/' + v + '/organisation/pro-itt')
+					res.redirect('/application/' + v + '/task-list#section-organisation')
 				}
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/org-classification')
@@ -720,7 +730,7 @@ module.exports = function (router) {
 					/***** EXEMPT FROM L&M and AW *****/
 					req.session.data['exempt_lm'] = 'yes'
 					req.session.data['exempt_aw'] = 'yes'
-					res.redirect('/application/' + v + '/task-list')
+					res.redirect('/application/' + v + '/task-list#section-organisation')
 				} else {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills')
 				}
@@ -768,7 +778,7 @@ module.exports = function (router) {
 		// Profile - Monitoring visit
 		router.post('/application/' + v + '/organisation/pro-monitoring-visit', function (req, res) {
 			req.session.data['tl_org_profile'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 
 		// Profile - Ofsted inspection for apprentices
@@ -782,7 +792,7 @@ module.exports = function (router) {
 						req.session.data['exempt_lm'] = 'partial'
 						req.session.data['exempt_aw'] = 'yes'
 						req.session.data['tl_org_profile'] = 'completed'
-						res.redirect('/application/' + v + '/task-list')
+						res.redirect('/application/' + v + '/task-list#section-organisation')
 					} else {
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
 					}
@@ -802,7 +812,7 @@ module.exports = function (router) {
 					
 						if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
 							req.session.data['tl_org_profile'] = 'completed'
-							res.redirect('/application/' + v + '/task-list')
+							res.redirect('/application/' + v + '/task-list#section-organisation')
 						} else { 
 							// Grade is outstanding or good
 							res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection')
@@ -877,7 +887,7 @@ module.exports = function (router) {
 				} else {
 					// COMPLETE ALL SECTIONS
 					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list')
+					res.redirect('/application/' + v + '/task-list#section-organisation')
 				}
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-shortinspection')
@@ -893,7 +903,7 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
 				// COMPLETE ALL SECTIONS
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			} else { // WITHIN LAST 3 YEARS
 				// GO TO GRADE MAINTAINED
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
@@ -909,7 +919,7 @@ module.exports = function (router) {
 			} else {
 				// COMPLETE ALL SECTIONS
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 		})
 
@@ -923,7 +933,7 @@ module.exports = function (router) {
 					req.session.data['exempt_aw'] = 'yes'
 				}
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-fundingmaintained')
 			}
@@ -941,7 +951,7 @@ module.exports = function (router) {
 					
 						if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
 							req.session.data['tl_org_profile'] = 'completed'
-							res.redirect('/application/' + v + '/task-list')
+							res.redirect('/application/' + v + '/task-list#section-organisation')
 						} else {
 							res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
 						}
@@ -958,7 +968,7 @@ module.exports = function (router) {
 
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list')
+					res.redirect('/application/' + v + '/task-list#section-organisation')
 				}
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-grade')
@@ -996,7 +1006,7 @@ module.exports = function (router) {
 
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list')
+					res.redirect('/application/' + v + '/task-list#section-organisation')
 				}
 
 			} else {
@@ -1012,7 +1022,7 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
 				// COMPLETE ALL SECTIONS
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			} else { // WITHIN LAST 3 YEARS
 				// GO TO GRADE MAINTAINED
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
@@ -1027,7 +1037,7 @@ module.exports = function (router) {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
 				}
 				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-grademaintained')
 			}
@@ -1044,7 +1054,7 @@ module.exports = function (router) {
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
 				}
-				res.redirect('/application/' + v + '/task-list')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-fundingmaintained')
 			}
@@ -1058,7 +1068,7 @@ module.exports = function (router) {
 			// if yes limit = £500k
 			// if no limit = £100k
 			req.session.data['tl_org_profile'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 
 
@@ -1069,7 +1079,8 @@ module.exports = function (router) {
 	// Intro and what you'll need
 	router.post('/application/' + v + '/financial/intro', function (req, res) {
 		req.session.data['tl_fin_intro'] = 'completed'
-		res.redirect('/application/' + v + '/financial/full-accounts')
+		//res.redirect('/application/' + v + '/financial/full-accounts')
+		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
 	// Full financial statements for the last year?
@@ -1082,7 +1093,7 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/financial/upload-financial', function (req, res) {
 		if (req.session.data['fin-fullaccounts'] == "yes"){
 			req.session.data['tl_fin_upload'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/task-list#section-financial')
 		} else {
 			/*if (req.session.data['org-selectedroute'] == "supporting") {
 				res.redirect('/application/' + v + '/financial/upload-supporting-management')
@@ -1095,7 +1106,7 @@ module.exports = function (router) {
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'completed'
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
 
@@ -1106,7 +1117,8 @@ module.exports = function (router) {
 	// Intro and what you'll need
 	router.post('/application/' + v + '/declarations/intro', function (req, res) {
 		req.session.data['tl_dec_intro'] = 'completed'
-		res.redirect('/application/' + v + '/declarations/org-debt')
+		//res.redirect('/application/' + v + '/declarations/org-debt')
+		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 	// Organisation - Debt?
@@ -1143,7 +1155,8 @@ module.exports = function (router) {
 
 	// Organisation - Whistleblowing
 	router.post('/application/' + v + '/declarations/org-whistleblowing', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/people-repay-funding')
+		//res.redirect('/application/' + v + '/declarations/people-repay-funding')
+		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 	// Who’s in control - failed to repay funding
@@ -1191,7 +1204,7 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
 		// Will need to go in to a loop if answered yes
 		req.session.data['tl_dec_people'] = 'completed'
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 
@@ -1202,23 +1215,28 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/welfare/intro', function (req, res) {
 		req.session.data['tl_wel_intro'] = 'completed'
+		/*
 		if (req.session.data['org-selectedroute'] == "supporting") {
 			res.redirect('/application/' + v + '/welfare/upload-diversity')
 		} else {
 			res.redirect('/application/' + v + '/welfare/upload-continuity')
 		}
+		*/
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Continuity plan upload
 	router.post('/application/' + v + '/welfare/upload-continuity', function (req, res) {
 		req.session.data['tl_wel_continuity'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-diversity')
+		//res.redirect('/application/' + v + '/welfare/upload-diversity')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Equality and diversity policy upload
 	router.post('/application/' + v + '/welfare/upload-diversity', function (req, res) {
 		req.session.data['tl_wel_diversity'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-safeguarding')
+		//res.redirect('/application/' + v + '/welfare/upload-safeguarding')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Safeguarding policy upload
@@ -1230,7 +1248,8 @@ module.exports = function (router) {
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
 		req.session.data['tl_wel_safeguarding'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/preventduty')
+		//res.redirect('/application/' + v + '/welfare/preventduty')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Include responsibilities to Prevent duty
@@ -1240,14 +1259,16 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/welfare/upload-preventduty')
 		} else {
 			req.session.data['tl_wel_preventduty'] = 'completed'
-			res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+			//res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+			res.redirect('/application/' + v + '/task-list#section-welfare')
 		}
 	})
 
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
 		req.session.data['tl_wel_preventduty'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+		//res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Health and safety policy upload
@@ -1262,20 +1283,22 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 		} else {
 			req.session.data['tl_wel_healthandsafety'] = 'completed'
-			res.redirect('/application/' + v + '/welfare/otherpolicies')
+			//res.redirect('/application/' + v + '/welfare/otherpolicies')
+			res.redirect('/application/' + v + '/task-list#section-welfare')
 		}
 	})
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
 		req.session.data['tl_wel_healthandsafety'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/otherpolicies')
+		//res.redirect('/application/' + v + '/welfare/otherpolicies')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/otherpolicies', function (req, res) {
 		req.session.data['tl_wel_other'] = 'completed'
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 
@@ -1286,7 +1309,8 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/readiness/intro', function (req, res) {
 		req.session.data['tl_rte_intro'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/engaged')
+		//res.redirect('/application/' + v + '/readiness/engaged')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})	
 
 	// Engaged with employers?
@@ -1318,26 +1342,29 @@ module.exports = function (router) {
 	// Promote apprenticeships
 	router.post('/application/' + v + '/readiness/promote', function (req, res) {
 		req.session.data['tl_rte_engagement'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/upload-complaints')
+		//res.redirect('/application/' + v + '/readiness/upload-complaints')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Upload complaints policy
 	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {
 		req.session.data['tl_rte_complaints'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/upload-contractforservices')
+		//res.redirect('/application/' + v + '/readiness/upload-contractforservices')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Upload contract for services
 	router.post('/application/' + v + '/readiness/upload-contractforservices', function (req, res) {
 		req.session.data['tl_rte_contractforservices'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
+		//res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Upload commitment statement
 	router.post('/application/' + v + '/readiness/upload-commitmentstatement', function (req, res) {
 		req.session.data['tl_rte_commitment'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/prior-learning-assessments')
-		//res.redirect('/application/' + v + '/readiness/use-subcontractors')
+		//res.redirect('/application/' + v + '/readiness/prior-learning-assessments')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Prior learning assessments
@@ -1349,8 +1376,8 @@ module.exports = function (router) {
 	// Assess English and Maths
 	router.post('/application/' + v + '/readiness/asses-english-maths', function (req, res) {
 		req.session.data['tl_rte_priorlearning'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/use-subcontractors')
-		//res.redirect('/application/' + v + '/readiness/asses-english-maths.html')
+		//res.redirect('/application/' + v + '/readiness/use-subcontractors')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Use subcontractors?
@@ -1360,14 +1387,14 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/readiness/manage-subcontractors')
 		} else {
 			req.session.data['tl_rte_subcontractors'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/task-list#section-readiness')
 		}
 	})
 
 	// Manage subcontractors?
 	router.post('/application/' + v + '/readiness/manage-subcontractors', function (req, res) {
 		req.session.data['tl_rte_subcontractors'] = 'completed'
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	

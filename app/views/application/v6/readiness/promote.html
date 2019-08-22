@@ -16,6 +16,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Engaging with employers</p>
+        
+      <h1 class="govuk-heading-l">How will your organisation promote apprenticeships to employers?</h1>
+
+      <p class="govuk-body">Select all that apply.</p>
+
       <form action="" method="post" class="form">
 
         {% set otherHtml %}
@@ -30,16 +36,6 @@
         {{ govukCheckboxes({
           idPrefix: "rte-promote",
           name: "rte-promote",
-          fieldset: {
-            legend: {
-              text: "How will your organisation promote apprenticeships to employers?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "Select all that apply."
-          },
           items: [
             {
               value: "fat",

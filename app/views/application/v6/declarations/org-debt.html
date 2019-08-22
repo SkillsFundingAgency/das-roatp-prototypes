@@ -16,38 +16,35 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Checks on your organisation</p>
+
+      <h1 class="govuk-heading-l">Does your organisation have any composition with creditors?</h1>
+
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
-        {{ govukCharacterCount({
-          name: "dec-org-debt-detail",
-          id: "dec-org-debt-detail",
-          maxlength: 2000,
-          label: {
-            text: "Give us more information"
-          },
-          hint: {
-            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
-              <ul class='govuk-!-margin-top-1'>
-                <li>a brief summary of the agreement</li>
-                <li>how your organisation will settle the debt</li>
-                <li>the date of when the debt will be fully paid off</li>
-              </ul>"
-          },
-          value: data['dec-org-debt-detail']
-        }) }}
-      {% endset -%}
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-debt-detail",
+            id: "dec-org-debt-detail",
+            maxlength: 2000,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
+                <ul class='govuk-!-margin-top-1'>
+                  <li>a brief summary of the agreement</li>
+                  <li>how your organisation will settle the debt</li>
+                  <li>the date of when the debt will be fully paid off</li>
+                </ul>"
+            },
+            value: data['dec-org-debt-detail']
+          }) }}
+        {% endset -%}
 
         {{ govukRadios({
           idPrefix: "dec-org-debt",
           name: "dec-org-debt",
-          fieldset: {
-            legend: {
-              text: "Does your organisation have any composition with creditors?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
           items: [
             {
               value: "yes",

@@ -16,6 +16,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Checks on who’s in control of your organisation</p>
+
+      <h1 class="govuk-heading-l">Has anyone who’s in control of your organisation had an early withdrawal from a contract with a public body in the last 3 years?</h1>
+
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
@@ -39,13 +43,6 @@
         {{ govukRadios({
           idPrefix: "dec-people-withdrawncontract",
           name: "dec-people-withdrawncontract",
-          fieldset: {
-            legend: {
-              text: "Has anyone who’s in control of your organisation had an early withdrawal from a contract with a public body in the last 3 years?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
           items: [
             {
               value: "yes",

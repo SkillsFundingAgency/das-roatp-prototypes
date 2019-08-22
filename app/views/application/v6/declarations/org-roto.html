@@ -16,33 +16,30 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Checks on your organisation</p>
+
+      <h1 class="govuk-heading-l">Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?</h1>
+
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
-        {{ govukCharacterCount({
-          name: "dec-org-roto-detail",
-          id: "dec-org-roto-detail",
-          maxlength: 2000,
-          label: {
-            text: "Give us more information"
-          },
-          hint: {
-            text: "You can include a brief summary of what measures have been put in place to manage this."
-          },
-          value: data['dec-org-roto-detail']
-        }) }}
-      {% endset -%}
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-roto-detail",
+            id: "dec-org-roto-detail",
+            maxlength: 2000,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You can include a brief summary of what measures have been put in place to manage this."
+            },
+            value: data['dec-org-roto-detail']
+          }) }}
+        {% endset -%}
 
         {{ govukRadios({
           idPrefix: "dec-org-roto",
           name: "dec-org-roto",
-          fieldset: {
-            legend: {
-              text: "Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
           items: [
             {
               value: "yes",

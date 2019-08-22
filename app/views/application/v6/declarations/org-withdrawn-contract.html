@@ -16,33 +16,30 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Checks on your organisation</p>
+
+      <h1 class="govuk-heading-l">Has your organisation had early withdrawal from a contract with a public body in the last 3 years?</h1>
+
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
-        {{ govukCharacterCount({
-          name: "dec-org-withdrawncontract-detail",
-          id: "dec-org-withdrawncontract-detail",
-          maxlength: 2000,
-          label: {
-            text: "Give us more information"
-          },
-          hint: {
-            text: "You’ll need to include a brief summary of who this was with and why."
-          },
-          value: data['dec-org-withdrawncontract-detail']
-        }) }}
-      {% endset -%}
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-withdrawncontract-detail",
+            id: "dec-org-withdrawncontract-detail",
+            maxlength: 2000,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You’ll need to include a brief summary of who this was with and why."
+            },
+            value: data['dec-org-withdrawncontract-detail']
+          }) }}
+        {% endset -%}
 
         {{ govukRadios({
           idPrefix: "dec-org-withdrawncontract",
           name: "dec-org-withdrawncontract",
-          fieldset: {
-            legend: {
-              text: "Has your organisation had early withdrawal from a contract with a public body in the last 3 years?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
           items: [
             {
               value: "yes",

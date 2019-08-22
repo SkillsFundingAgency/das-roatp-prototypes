@@ -16,6 +16,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Checks on who’s in control of your organisation</p>
+
+      <h1 class="govuk-heading-l">Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?</h1>
+
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
@@ -36,13 +40,6 @@
         {{ govukRadios({
           idPrefix: "dec-people-fraudongoing",
           name: "dec-people-fraudongoing",
-          fieldset: {
-            legend: {
-              text: "Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
           items: [
             {
               value: "yes",

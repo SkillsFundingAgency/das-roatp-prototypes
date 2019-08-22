@@ -1,0 +1,57 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Tell us who’s in control</p>
+        
+      <h1 class="govuk-heading-l">Confirm who’s in control</h1>
+      
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Name</th>
+            <th class="govuk-table__header" scope="col">Date of birth</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% for person in data['org-personincontrol-missing'] %}
+          {% if (person.name != '') %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">{{ person.name }}</td>
+              <td class="govuk-table__cell">{{ person.dob_month }} {{ person.dob_year }}</td>
+              <td class="govuk-table__cell"><a href="#">Change</a></td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+        </tbody>
+      </table>
+
+      <p class="govuk_body"><a href="org-peopleincontrol-missing">Add another person</a></p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {% set otherHtml %}
+          {{ govukInput({
+            id: "rte-promote-other",
+            name: "rte-promote-other",
+            type: "text",
+            classes: "govuk-!-width-one-third"
+          }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          idPrefix: "rte-promote",
+          name: "rte-promote",
+          fieldset: {
+            legend: {
+              text: "How will your organisation promote apprenticeships to employers?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "fat",
+              text: "Find Apprenticeship Training (FAT)",
+              checked: checked("rte-promote", "fat")
+            },
+            {
+              value: "ncs",
+              text: "National Careers Services",
+              checked: checked("rte-promote", "ncs")
+            },
+            {
+              value: "other",
+              text: "Other",
+              checked: checked("rte-promote", "other"),
+              conditional: {
+                html: otherHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="upload-complaints">Skip this question</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

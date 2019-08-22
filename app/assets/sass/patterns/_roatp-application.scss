@@ -10,6 +10,7 @@
     }
 }
 
+
 // Get help
 
     .govuk-details--gethelp .govuk-details__summary {
@@ -35,5 +36,13 @@
         @include govuk-shape-arrow($direction: down, $base: 11px);
     }
 
+
+// Skip question link
+
+    .skipquestion {
+        display: inline-block;
+        margin-top: 9px;
+        margin-bottom: 6px;
+    }
 
 

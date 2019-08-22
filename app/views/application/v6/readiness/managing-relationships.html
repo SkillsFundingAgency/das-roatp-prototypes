@@ -1,0 +1,61 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "rte-managingrelationships-conditional",
+          name: "rte-managingrelationships",
+          fieldset: {
+            legend: {
+              text: "Does your organisation have anyone who’s responsible for managing relationships with employers?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This should be someone who has the overall responsibility and can make decisions independently."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("rte-managingrelationships", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("rte-managingrelationships", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="promote">Skip this question</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">What is your organisation’s process for initial assessments to recognise prior learning?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>review personal learning records</li>
+        <li>review relevant education (including training, qualifications and work experience already achieved)</li>
+        <li>identify and analyse skill gaps</li>
+        <li>address any skill gaps</li>
+      </ul>
+
+      <p class="govuk-body">Find out more about <a href="https://www.gov.uk/government/publications/apprenticeships-recognition-of-prior-learning/apprenticeships-initial-assessment-to-recognise-prior-learning" target="_blank">initial assessments (opens in a new window or tab)</a>.</p>
+
+      <form action="" method="post" class="form">
+      
+        {{ govukCharacterCount({
+          name: "rte-priorlearning",
+          id: "rte-priorlearning",
+          maxlength: 750
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="asses-english-maths">Skip this question</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

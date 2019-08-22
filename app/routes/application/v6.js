@@ -1397,7 +1397,6 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
-	
 
 /****************
  *** Sign out ***

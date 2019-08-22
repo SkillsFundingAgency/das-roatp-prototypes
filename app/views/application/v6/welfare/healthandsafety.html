@@ -16,21 +16,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <p class="govuk-caption-l">Health and safety policy</p>
+
+      <h1 class="govuk-heading-l">Does your organisation have anyone who’s responsible for health and safety?</h1>
+
+      <p class="govuk-body">This must be someone from your organisation or a third party who has the overall responsibility, relevant knowledge and skills to manage health and safety issues.</p>
+
       <form action="" method="post" class="form">
 
         {{ govukRadios({
           idPrefix: "wel-healthandsafetyresponsible",
           name: "wel-healthandsafetyresponsible",
-          fieldset: {
-            legend: {
-              text: "Does your organisation have anyone who’s responsible for health and safety?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "This must be someone from your organisation or a third party who has the overall responsibility, relevant knowledge and skills to manage health and safety issues."
-          },
           items: [
             {
               value: "yes",

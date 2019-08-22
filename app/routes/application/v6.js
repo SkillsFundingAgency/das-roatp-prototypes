@@ -220,7 +220,7 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/shutter/removed')
 	// error page
 		} else {
-			res.redirect('/application/' + v + '/error/ukprn')
+			res.redirect('/application/' + v + '/ukprn-error')
 		}
 	})
 

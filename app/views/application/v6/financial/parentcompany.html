@@ -16,27 +16,25 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-caption-l">Working with subcontractors</p>
+      <p class="govuk-caption-l">Your organisation’s financial evidence</p>
 
-      <h1 class="govuk-heading-l">Does your organisation expect to use subcontractors in the first 12 months of joining RoATP?</h1>
-
-      <p class="govuk-body">This includes using subcontractors for any part of apprenticeship training.</p>
+      <h1 class="govuk-heading-l">Does your UK ultimate parent company have  consolidated financial statements?</h1>
 
       <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "rte-usesubcontractors",
-          name: "rte-usesubcontractors",
+          idPrefix: "fin-consolidatedstatements",
+          name: "fin-consolidatedstatements",
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("rte-usesubcontractors", "yes")
+              checked: checked("fin-consolidatedstatements", "yes")
             },
             {
               value: "no",
               text: "No",
-                checked: checked("rte-usesubcontractors", "no")
+              checked: checked("fin-consolidatedstatements", "no")
             }
           ]
         }) }}
@@ -45,8 +43,9 @@
           text: "Save and continue",
           classes: "govuk-!-margin-right-4"
         }) }}
-
-        <p class="skipquestion" id="skipquestion"><a href="XXX">Return to this question later</a></p>
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
       
         {% include "includes/v6/gethelp.html" %}
 

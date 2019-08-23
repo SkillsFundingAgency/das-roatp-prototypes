@@ -84,6 +84,30 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
+		if (req.session.data['signin-email'] == "skip@organisation.parent") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+			req.session.data['org-parentcompany-number'] = "89987987"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340101"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// 'Your organisation' complete
 		// Organisation has a parent company
 		// ITT and Postgrad, no Ofsted inspections
@@ -689,18 +713,14 @@ module.exports = function (router) {
 		// Organisation classification
 		router.post('/application/' + v + '/organisation/org-classification', function (req, res) {
 			
-			if (req.session.data['org-classification']) {
-				req.session.data['tl_org_profile'] = 'next'
-				req.session.data['tl_org_type'] = 'completed'
-				if (req.session.data['org-selectedroute'] == 'supporting') {
-					res.redirect('/application/' + v + '/organisation/pro-subcontractor')
-				} else {
-					req.session.data['tl_org_profile'] = 'next'
-					//res.redirect('/application/' + v + '/organisation/pro-itt')
-					res.redirect('/application/' + v + '/task-list#section-organisation')
-				}
+			req.session.data['tl_org_profile'] = 'next'
+			req.session.data['tl_org_type'] = 'completed'
+			if (req.session.data['org-selectedroute'] == 'supporting') {
+				res.redirect('/application/' + v + '/organisation/pro-subcontractor')
 			} else {
-				res.redirect('/application/' + v + '/organisation/error/org-classification')
+				req.session.data['tl_org_profile'] = 'next'
+				//res.redirect('/application/' + v + '/organisation/pro-itt')
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 
 		})
@@ -837,7 +857,8 @@ module.exports = function (router) {
 		})
 
 		// Profile - Grade of Ofsted inspection for apprentices <3 years
-		/*router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date', function (req, res) {
+		/*
+		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date', function (req, res) {
 			
 			if (req.session.data['pro-ofsted-apprenticeships-date']) {
 				if (req.session.data['pro-ofsted-apprenticeships-date'] == "yes") {
@@ -862,7 +883,8 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-date')
 			}
 
-		})*/
+		})
+		*/
 
 		// Profile - Apprentices short inspection <3 years
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection', function (req, res) {
@@ -1084,13 +1106,82 @@ module.exports = function (router) {
 	})
 
 	// Full financial statements for the last year?
-	router.post('/application/' + v + '/financial/full-accounts', function (req, res) {
+	router.post('/application/' + v + '/financial/full-statements', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'inprogress'
-		res.redirect('/application/' + v + '/financial/upload-financial')
+		if (req.session.data['fin-fullstatements'] == "yes"){
+			res.redirect('/application/' + v + '/financial/full-statements-upload')
+		} else {
+			if (req.session.data['org-selectedroute'] == "supporting"){
+				res.redirect('/application/' + v + '/financial/incomplete-statements-supporting')
+			} else {
+				res.redirect('/application/' + v + '/financial/incomplete-statements')
+			}
+		}
 	})
 
+	// Full statements upload
+	router.post('/application/' + v + '/financial/full-statements-upload', function (req, res) {
+		res.redirect('/application/' + v + '/financial/who-prepared')
+	})
+
+	// Main or employer
+
+		// Incomplete statements
+		router.post('/application/' + v + '/financial/incomplete-statements', function (req, res) {
+			res.redirect('/application/' + v + '/financial/incomplete-statements-upload')
+		})
+
+		// Who prepared incomplete statements
+		router.post('/application/' + v + '/financial/incomplete-statements-upload', function (req, res) {
+			res.redirect('/application/' + v + '/financial/who-prepared')
+		})
+
+	// Supporting
+
+		// Incomplete statements
+		router.post('/application/' + v + '/financial/incomplete-statements-supporting', function (req, res) {
+			res.redirect('/application/' + v + '/financial/incomplete-statements-supporting-upload')
+		})
+
+		// Who prepared incomplete statements
+		router.post('/application/' + v + '/financial/incomplete-statements-supporting-upload', function (req, res) {
+			res.redirect('/application/' + v + '/financial/who-prepared')
+		})
+
+	// Who prepared statements
+	router.post('/application/' + v + '/financial/who-prepared', function (req, res) {
+		req.session.data['tl_fin_upload'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-financial')
+	})
+
+	// Parent company
+
+		// Parent company interstitial
+		router.post('/application/' + v + '/financial/parentcompany', function (req, res) {
+			req.session.data['tl_fin_parent'] = 'inprogress'
+			res.redirect('/application/' + v + '/financial/parentcompany-upload')
+		})
+
+		// Parent company upload
+		router.post('/application/' + v + '/financial/parentcompany-upload', function (req, res) {
+			res.redirect('/application/' + v + '/financial/parentcompany-subsidiary-upload')
+		})
+
+		// Parent company subsidiary upload
+		router.post('/application/' + v + '/financial/parentcompany-subsidiary-upload', function (req, res) {
+			res.redirect('/application/' + v + '/financial/parentcompany-who-prepared')
+		})
+
+		// Parent company subsidiary upload
+		router.post('/application/' + v + '/financial/parentcompany-who-prepared', function (req, res) {
+			req.session.data['tl_fin_parent'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-financial')
+		})
+
+
+
 	// Upload financial statements
-	router.post('/application/' + v + '/financial/upload-financial', function (req, res) {
+	/*router.post('/application/' + v + '/financial/upload-financial', function (req, res) {
 		if (req.session.data['fin-fullaccounts'] == "yes"){
 			req.session.data['tl_fin_upload'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-financial')
@@ -1098,10 +1189,10 @@ module.exports = function (router) {
 			/*if (req.session.data['org-selectedroute'] == "supporting") {
 				res.redirect('/application/' + v + '/financial/upload-supporting-management')
 			} else {*/
-				res.redirect('/application/' + v + '/financial/upload-management')
+				/*res.redirect('/application/' + v + '/financial/upload-management')
 			//}
 		}
-	})
+	})*/
 
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {

@@ -84,7 +84,7 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
-		if (req.session.data['signin-email'] == "skip@organisation.parent") {
+		if (req.session.data['signin-email'] == "main@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -93,6 +93,30 @@ module.exports = function (router) {
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340101"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
+		if (req.session.data['signin-email'] == "supporting@organisation.parent") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+			req.session.data['org-parentcompany-number'] = "89987987"
+			req.session.data['org-selectedroute'] = "supporting"
+			req.session.data['org-trading'] = "3-6"
 			req.session.data['org-type'] = "employer"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"

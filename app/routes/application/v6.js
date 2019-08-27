@@ -132,6 +132,30 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
+
+		// Public Sector Body
+		// Employer route
+		if (req.session.data['signin-email'] == "main@psb") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['org-trading'] = ">23"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340301"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_profile_ofsted'] = "next"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		// 'Your organisation' complete
 		// Organisation has a parent company
 		// ITT and Postgrad, no Ofsted inspections
@@ -1111,7 +1135,7 @@ module.exports = function (router) {
 
 		// Profile - Subcontractor
 		router.post('/application/' + v + '/organisation/pro-subcontractor', function (req, res) {
-			// if yes limit = £500k
+			// if yes limit = £500k 
 			// if no limit = £100k
 			req.session.data['tl_org_profile'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-organisation')

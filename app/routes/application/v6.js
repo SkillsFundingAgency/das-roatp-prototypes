@@ -108,6 +108,30 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 		}
 
+		if (req.session.data['signin-email'] == "employer@organisation.parent") {
+			req.session.data['exempt_fha'] = "no"
+			req.session.data['org-classification'] = "none"
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+			req.session.data['org-parentcompany-number'] = "89987987"
+			req.session.data['org-selectedroute'] = "employer"
+			req.session.data['org-trading'] = "12-18"
+			req.session.data['org-type'] = "employer"
+			req.session.data['org-ukprn'] = "12340101"
+			req.session.data['pro-itt'] = "no"
+			req.session.data['pro-monitoring-visit'] = "no"
+			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['signedin'] = "yes"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_profile'] = "completed"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')
+		}
+
 		if (req.session.data['signin-email'] == "supporting@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
@@ -1468,22 +1492,28 @@ module.exports = function (router) {
 		if (req.session.data['rte-managingrelationships'] == "yes") {
 			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
 		} else {
-			res.redirect('/application/' + v + '/readiness/promote')
+			//res.redirect('/application/' + v + '/readiness/promote')
+		req.session.data['tl_rte_engagement'] = 'completed'
+		//res.redirect('/application/' + v + '/readiness/upload-complaints')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
 		}
 	})	
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {
 		//res.redirect('/application/' + v + '/readiness/fat')
-		res.redirect('/application/' + v + '/readiness/promote')
-	})
-
-	// Promote apprenticeships
-	router.post('/application/' + v + '/readiness/promote', function (req, res) {
+		//res.redirect('/application/' + v + '/readiness/promote')
 		req.session.data['tl_rte_engagement'] = 'completed'
 		//res.redirect('/application/' + v + '/readiness/upload-complaints')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
+
+	// Promote apprenticeships
+	/*router.post('/application/' + v + '/readiness/promote', function (req, res) {
+		req.session.data['tl_rte_engagement'] = 'completed'
+		//res.redirect('/application/' + v + '/readiness/upload-complaints')
+		res.redirect('/application/' + v + '/task-list#section-readiness')
+	})*/
 
 	// Upload complaints policy
 	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {

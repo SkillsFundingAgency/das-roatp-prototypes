@@ -363,8 +363,9 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-intro">Completed</strong>
               {% endif %}
             </li>
+
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") and (data['org-selectedroute'] != "employer") %}
                 <a class="app-task-list__task-name" href="readiness/engaged" aria-describedby="rte-engagement">Engaging with employers</a>
               {% else %}
                 Engaging with employers
@@ -373,10 +374,12 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-engagement">Completed</strong>
               {% elseif data['tl_rte_engagement'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-engagement">In progress</strong>
+              {% elseif data['org-selectedroute'] == "employer" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="rte-engagement">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") and (data['org-selectedroute'] != "employer") %}
                 <a class="app-task-list__task-name" href="readiness/upload-complaints" aria-describedby="rte-promoting">Complaints policy</a>
               {% else %}
                 Complaints policy
@@ -385,10 +388,12 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-promoting">Completed</strong>
               {% elseif data['tl_rte_complaints'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-promoting">In progress</strong>
+              {% elseif data['org-selectedroute'] == "employer" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="rte-promoting">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") and (data['org-selectedroute'] != "employer") %}
                 <a class="app-task-list__task-name" href="readiness/upload-contractforservices" aria-describedby="rte-policies">Contract for services template</a>
               {% else %}
                 Contract for services template
@@ -397,6 +402,8 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-policies">Completed</strong>
               {% elseif data['tl_rte_contractforservices'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-policies">In progress</strong>
+              {% elseif data['org-selectedroute'] == "employer" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="rte-policies">Not required</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">

@@ -274,6 +274,11 @@ module.exports = function (router) {
 
 	})
 
+	router.get('/application/' + v + '/signout', function (req, res) {
+		req.session.data['signedin'] = "no"
+		res.redirect('/application/' + v + '/saveandsignout')
+	})
+
 
 /****************
  *** Preamble ***

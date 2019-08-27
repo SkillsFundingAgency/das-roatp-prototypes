@@ -1413,11 +1413,11 @@ module.exports = function (router) {
 	// Health and safety policy upload
 	router.post('/application/' + v + '/welfare/upload-healthandsafety', function (req, res) {
 		req.session.data['tl_wel_healthandsafety'] = 'inprogress'
-		res.redirect('/application/' + v + '/welfare/healthandsafety')
+		res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 	})
 
 	// Who's responsible for health and safety
-	router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
+	/*router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
 		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
 			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 		} else {
@@ -1425,7 +1425,7 @@ module.exports = function (router) {
 			//res.redirect('/application/' + v + '/welfare/otherpolicies')
 			res.redirect('/application/' + v + '/task-list#section-welfare')
 		}
-	})
+	})*/
 
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {

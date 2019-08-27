@@ -77,7 +77,12 @@
             
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") and (data['tl_org_details'] == "completed") %}
-                <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
+
+                {% if data['org-ukprn'] == "12340301" %}
+                  <a class="app-task-list__task-name" href="organisation/org-peopleincontrol-missing" aria-describedby="org-details-status">Tell us who’s in control</a>
+                {% else %}
+                  <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
+                {% endif %}
               {% else %}
                 Tell us who’s in control
               {% endif %}

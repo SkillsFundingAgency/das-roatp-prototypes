@@ -18,7 +18,7 @@
 
     <p class="govuk-caption-l">Your organisation’s financial evidence</p>
         
-    <h1 class="govuk-heading-l">Upload the financial statements from your UK ultimate parent company’s subsidiary companies</h1>
+    <h1 class="govuk-heading-l">Upload your UK ultimate parent company’s full financial statements covering the last 12 months</h1>
 
     <p class="gov-body">Financial statements must include:</p>
     <ul class="govuk-list govuk-list--bullet">
@@ -33,8 +33,8 @@
     <form action="" method="post" class="form">
     
       {{ govukFileUpload({
-        id: "fin-subsidiary-upload",
-        name: "fin-subsidiary-upload",
+        id: "fin-fullstatements-upload",
+        name: "fin-fullstatements-upload",
         label: {
           text: "Upload a file"
         }
@@ -43,11 +43,6 @@
       {{ govukWarningText({
         text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
         iconFallbackText: "Warning"
-      }) }}
-
-      {{ govukDetails({
-        summaryText: "What is a subsidiary company?",
-        text: "It’s a company controlled by your ultimate parent company."
       }) }}
 
       {{ govukButton({

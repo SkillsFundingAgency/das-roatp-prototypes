@@ -457,17 +457,67 @@
 
         <li>
           <h2 class="app-task-list__section" id="section-people">
-            <span class="app-task-list__section-number">6. </span> People and planning
+            <span class="app-task-list__section-number">6. </span> Planning apprenticeship training
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="pp-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
-              {% if data['tl_pp_intro'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="pp-intro">Completed</strong>
+              {% if data['tl_people_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-intro">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_people_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-type">Type of apprenticeship training</a>
+              {% else %}
+                Type of apprenticeship training
+              {% endif %}
+              {% if data['tl_people_type'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-type">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_people_directory'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-directory">Course directory contact</a>
+              {% else %}
+                Course directory contact
+              {% endif %}
+              {% if data['tl_people_directory'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-directory">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_people_supporting'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-supporting">Supporting apprentices</a>
+              {% else %}
+                Supporting apprentices
+              {% endif %}
+              {% if data['tl_people_supporting'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-supporting">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_people_forecasting'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-forecasting">Forecasting starts</a>
+              {% else %}
+                Forecasting starts
+              {% endif %}
+              {% if data['tl_people_forecasting'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-forecasting">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_people_offthejob'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="peo-offthejob">Off the job training</a>
+              {% else %}
+                Off the job training
+              {% endif %}
+              {% if data['tl_people_offthejob'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="peo-offthejob">Completed</strong>
               {% endif %}
             </li>
           </ul>
@@ -475,7 +525,65 @@
 
         <li>
           <h2 class="app-task-list__section" id="section-leaders">
-            <span class="app-task-list__section-number">7. </span> Leaders and managers
+            <span class="app-task-list__section-number">7. </span> Delivering apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="del-intro">Introduction and what you’ll need</a>
+              {% else %}
+                Introduction and what you’ll need
+              {% endif %}
+              {% if data['tl_del_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-intro">Completed</strong>
+              {% endif %}
+            </li> 
+            <li class="app-task-list__item">
+              {% if (data['tl_del_management'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="del-management">Management hierarchy</a>
+              {% else %}
+                Management hierarchy
+              {% endif %}
+              {% if data['tl_del_management'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-offthejob">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_del_sectors'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="del-sectors">Sectors</a>
+              {% else %}
+                Sectors
+              {% endif %}
+              {% if data['tl_del_sectors'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-sectors">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_del_development'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="del-development">Professional development of employees</a>
+              {% else %}
+                Professional development of employees
+              {% endif %}
+              {% if data['tl_del_development'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-development">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_del_experience'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="del-experience">Employees experience</a>
+              {% else %}
+                Employees experience
+              {% endif %}
+              {% if data['tl_del_experience'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-experience">Completed</strong>
+              {% endif %}
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-leaders">
+            <span class="app-task-list__section-number">8. </span> Leadership and management
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -495,7 +603,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">8. </span> Finish
+            <span class="app-task-list__section-number">9. </span> Finish
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

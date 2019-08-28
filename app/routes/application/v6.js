@@ -846,8 +846,8 @@ module.exports = function (router) {
 					
 					//req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
 
-					//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills-published')
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+					//res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills-published')
 
 				} else {
 					/*** PR2 ***/
@@ -864,13 +864,13 @@ module.exports = function (router) {
 		})
 
 		// Profile - Ofsted inspection for further education and skills publish date
-		router.post('/application/' + v + '/organisation/pro-ofsted-feskills-published', function (req, res) {
+		/*router.post('/application/' + v + '/organisation/pro-ofsted-feskills-published', function (req, res) {
 
 			req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
 
 			res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
 
-		})
+		})*/
 
 		// Profile - Monitoring visit
 		router.post('/application/' + v + '/organisation/pro-monitoring-visit', function (req, res) {
@@ -901,11 +901,10 @@ module.exports = function (router) {
 
 		// Profile - Grade of Ofsted inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grade', function (req, res) {
-			if (req.session.data['pro-ofsted-apprenticeships-grade']) {
 				if (req.session.data['pro-ofsted-apprenticeships-grade'] == "requires-improvement") {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
 				} else {
-					if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
+					/*if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
 					
 						if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
 							req.session.data['tl_org_profile'] = 'completed'
@@ -925,16 +924,13 @@ module.exports = function (router) {
 							res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-fundingmaintained')
 						}
 
-					}
-					//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date')
+					}*/
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date')
 				}
-			} else {
-				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-grade')
-			}
 		})
 
-		// Profile - Grade of Ofsted inspection for apprentices <3 years
-		/*
+		// Profile - Grade of Ofsted inspection for apprentices within 3 years
+		
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date', function (req, res) {
 			
 			if (req.session.data['pro-ofsted-apprenticeships-date']) {
@@ -961,41 +957,37 @@ module.exports = function (router) {
 			}
 
 		})
-		*/
+		
 
 		// Profile - Apprentices short inspection <3 years
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection', function (req, res) {
 
-			if (req.session.data['pro-ofsted-apprenticeships-shortinspection']) {
-				if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "yes") {
-					
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published')
-					/*
-					req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
+			if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "yes") {
+				
+				//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published')
+				
+				//req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
 
-					if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-						// COMPLETE ALL SECTIONS
-						req.session.data['tl_org_profile'] = 'completed'
-						res.redirect('/application/' + v + '/task-list')
-					} else { // WITHIN LAST 3 YEARS
-						// GO TO GRADE MAINTAINED
-						res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
-					}
-					*/
-
-				} else {
+				if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date'] == "no"){ // NOT WITHIN LAST 3 YEARS
 					// COMPLETE ALL SECTIONS
 					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list#section-organisation')
+					res.redirect('/application/' + v + '/task-list')
+				} else { // WITHIN LAST 3 YEARS
+					// GO TO GRADE MAINTAINED
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 				}
+				
+
 			} else {
-				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-shortinspection')
+				// COMPLETE ALL SECTIONS
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 
 		})
 
 		// Profile - Apprentices short inspection <3 years - published date
-		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published', function (req, res) {
+		/*router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published', function (req, res) {
 
 			req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
 
@@ -1008,7 +1000,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 			}
 
-		})
+		})*/
 
 		// Profile - Grade maindained from short inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained', function (req, res) {
@@ -1043,39 +1035,39 @@ module.exports = function (router) {
 
 		// Profile - Overall Effectiveness Grade of Ofsted inspection
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-grade', function (req, res) {
-			if (req.session.data['pro-ofsted-overall-grade']) {
-				if (req.session.data['pro-ofsted-overall-grade'] == "outstanding" || req.session.data['pro-ofsted-overall-grade'] == "good" || req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+			
+			if (req.session.data['pro-ofsted-overall-grade'] == "outstanding" || req.session.data['pro-ofsted-overall-grade'] == "good" || req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
 
-					if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-					
-						if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-							req.session.data['tl_org_profile'] = 'completed'
-							res.redirect('/application/' + v + '/task-list#section-organisation')
-						} else {
-							res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
-						}
+				/*if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
 				
-					} else { // WITHIN LAST 3 YEARS
+					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+						req.session.data['tl_org_profile'] = 'completed'
+						res.redirect('/application/' + v + '/task-list#section-organisation')
+					} else {
+						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
+					}
+			
+				} else { // WITHIN LAST 3 YEARS
 
-						if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-							res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-overall-inadequate')
-						} else { // OUTSTANDING OR GOOD
-							res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
-						}
-
+					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-overall-inadequate')
+					} else { // OUTSTANDING OR GOOD
+						//res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
 					}
 
-				} else {
-					req.session.data['tl_org_profile'] = 'completed'
-					res.redirect('/application/' + v + '/task-list#section-organisation')
-				}
+				}*/
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
+
 			} else {
-				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-grade')
+				// Ofsted grade of 'Requires improvement'
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
+
 		})
 
 		// Profile - Overall Effectiveness Grade less than 3 years ago
-		/*router.post('/application/' + v + '/organisation/pro-ofsted-overall-date', function (req, res) {
+		router.post('/application/' + v + '/organisation/pro-ofsted-overall-date', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-date']) {
 				if (req.session.data['pro-ofsted-overall-date'] == "yes") {
 					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
@@ -1094,14 +1086,15 @@ module.exports = function (router) {
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-date')
 			}
-		})*/
+		})
 
 		// Profile - Overall short inspection
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-shortinspection']) {
 				if (req.session.data['pro-ofsted-overall-shortinspection'] == "yes") {
 
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published')
+					//res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published')
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
 
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
@@ -1114,7 +1107,7 @@ module.exports = function (router) {
 		})
 
 		// Profile - Overall short inspection
-		router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published', function (req, res) {
+		/*router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published', function (req, res) {
 
 			req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
 
@@ -1127,7 +1120,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
 			}
 
-		})
+		})*/
 
 		// Profile - Overall grade maintained
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained', function (req, res) {

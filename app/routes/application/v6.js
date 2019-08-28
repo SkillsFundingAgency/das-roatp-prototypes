@@ -1306,6 +1306,22 @@ module.exports = function (router) {
 
 	// Organisation - Removed from Register of Training Organisations
 	router.post('/application/' + v + '/declarations/org-roto', function (req, res) {
+		//res.redirect('/application/' + v + '/declarations/org-safeguarding')
+		res.redirect('/application/' + v + '/declarations/org-funding-removed')
+	})
+
+	// Organisation - funding removed from any education bodies
+	router.post('/application/' + v + '/declarations/org-funding-removed', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-trade-register')
+	})
+
+	// Organisation - removed from any professional or trade registers
+	router.post('/application/' + v + '/declarations/org-trade-register', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-itt-withdrawal')
+	})
+
+	// Organisation - ITT withdrawal
+	router.post('/application/' + v + '/declarations/org-itt-withdrawal', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/org-safeguarding')
 	})
 
@@ -1316,13 +1332,30 @@ module.exports = function (router) {
 
 	// Organisation - Whistleblowing
 	router.post('/application/' + v + '/declarations/org-whistleblowing', function (req, res) {
-		//res.redirect('/application/' + v + '/declarations/people-repay-funding')
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
+
+	// Who’s in control intro and what you'll need
+	router.post('/application/' + v + '/declarations/people-intro', function (req, res) {
+		req.session.data['tl_dec_peopleintro'] = 'completed'
+		//res.redirect('/application/' + v + '/declarations/org-debt')
+		res.redirect('/application/' + v + '/task-list#section-declarations')
+	})
+
+
+	// Who’s in control - Criminal convictions
+	router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
+		// Will need to go in to a loop if answered yes
+		req.session.data['tl_dec_people'] = 'inprogress'
+		res.redirect('/application/' + v + '/declarations/people-repay-funding')
+		//res.redirect('/application/' + v + '/task-list#section-declarations')
+	})
+
+
 	// Who’s in control - failed to repay funding
 	router.post('/application/' + v + '/declarations/people-repay-funding', function (req, res) {
-		req.session.data['tl_dec_people'] = 'inprogress'
+		//req.session.data['tl_dec_people'] = 'inprogress'
 		res.redirect('/application/' + v + '/declarations/people-fraud')
 	})
 
@@ -1358,15 +1391,16 @@ module.exports = function (router) {
 
 	// Who’s in control - Trustee register
 	router.post('/application/' + v + '/declarations/people-trustee-register', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/people-convictions')
+		//res.redirect('/application/' + v + '/declarations/people-convictions')
+		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 	// Who’s in control - Criminal convictions
-	router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
+	/*router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
 		// Will need to go in to a loop if answered yes
 		req.session.data['tl_dec_people'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-declarations')
-	})
+	})*/
 
 
 /******************************

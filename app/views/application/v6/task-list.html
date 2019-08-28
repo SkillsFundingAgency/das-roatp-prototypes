@@ -214,8 +214,18 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="declarations/people-repay-funding" aria-describedby="dec-people">Checks on who’s in control of your organisation</a>
+              {% if (data['tl_org_profile'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/people-intro" aria-describedby="dec-peopleintro">Introduction and what you'll need</a>
+              {% else %}
+                Introduction and what you'll need
+              {% endif %}
+              {% if data['tl_dec_peopleintro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="dec-peopleintro">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_peopleintro'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/people-convictions" aria-describedby="dec-people">Checks on who’s in control of your organisation</a>
               {% else %}
                 Checks on who’s in control of your organisation
               {% endif %}

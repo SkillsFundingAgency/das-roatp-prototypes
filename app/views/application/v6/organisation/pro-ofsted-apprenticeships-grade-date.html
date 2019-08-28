@@ -18,29 +18,24 @@
 
     <p class="govuk-caption-l">Experience and accreditations</p>
 
-    <h1 class="govuk-heading-l">Has your organisation maintained funding from any education agency since its full Ofsted inspection?</h1>
-    <p class="govuk-body">This means your organisation already has an existing relationship and has maintained funding from either:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>ESFA</li>
-      <li>Skills Funding Agency (SFA)</li>
-      <li>Education Funding Agency (EFA)</li>
-    </ul>
+    <h1 class="govuk-heading-l">Was your organisation awarded this grade within the last 3 years?</h1>
+
+    <p class="govuk-body">If you’re not sure, <a href="https://reports.ofsted.gov.uk/" target="_blank">check your organisation's Ofsted inspection report  (opens in a new window or tab)</a>.</p>
 
     <form action="" method="post" class="form">
-
       {{ govukRadios({
-        idPrefix: "pro-ofsted-overall-fundingmaintained",
-        name: "pro-ofsted-overall-fundingmaintained",
+        idPrefix: "pro-ofsted-apprenticeships-grade-within3years",
+        name: "pro-ofsted-apprenticeships-grade-within3years",
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-overall-fundingmaintained", "yes")
+            checked: checked("pro-ofsted-apprenticeships-grade-within3years", "yes")
           },
           {
             value: "no",
             text: "No",
-            checked: checked("pro-ofsted-overall-fundingmaintained", "no")
+            checked: checked("pro-ofsted-apprenticeships-grade-within3years", "no")
           }
         ]
       }) }}

@@ -1229,7 +1229,20 @@ module.exports = function (router) {
 		// Parent company interstitial
 		router.post('/application/' + v + '/financial/parentcompany', function (req, res) {
 			req.session.data['tl_fin_parent'] = 'inprogress'
-			res.redirect('/application/' + v + '/financial/parentcompany-upload')
+			if (req.session.data['fin-consolidatedstatements'] == "no") {
+				res.redirect('/application/' + v + '/financial/parentcompany-subsidiary')
+			} else {
+				res.redirect('/application/' + v + '/financial/parentcompany-upload')
+			}
+		})
+
+		// Parent company have a subsidiary
+		router.post('/application/' + v + '/financial/parentcompany-subsidiary', function (req, res) {
+			if (req.session.data['fin-parentsubsidiary'] == "yes"){
+				res.redirect('/application/' + v + '/financial/parentcompany-subsidiary-upload')
+			} else {
+				res.redirect('/application/' + v + '/financial/parentcompany-consolidated')
+			}
 		})
 
 		// Parent company upload
@@ -1242,12 +1255,16 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/financial/parentcompany-who-prepared')
 		})
 
+		// Parent company consolidated
+		router.post('/application/' + v + '/financial/parentcompany-consolidated', function (req, res) {
+			res.redirect('/application/' + v + '/financial/parentcompany-who-prepared')
+		})
+
 		// Parent company subsidiary upload
 		router.post('/application/' + v + '/financial/parentcompany-who-prepared', function (req, res) {
 			req.session.data['tl_fin_parent'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-financial')
 		})
-
 
 
 	// Upload financial statements

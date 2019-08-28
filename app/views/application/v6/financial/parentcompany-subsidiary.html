@@ -18,25 +18,30 @@
 
       <p class="govuk-caption-l">Your organisation’s financial evidence</p>
 
-      <h1 class="govuk-heading-l">Does your UK ultimate parent company have consolidated financial statements?</h1>
+      <h1 class="govuk-heading-l">Does your UK ultimate parent company have  other subsidiary companies?</h1>
 
       <form action="" method="post" class="form">
 
         {{ govukRadios({
-          idPrefix: "fin-consolidatedstatements",
-          name: "fin-consolidatedstatements",
+          idPrefix: "fin-parentsubsidiary",
+          name: "fin-parentsubsidiary",
           items: [
             {
               value: "yes",
               text: "Yes",
-              checked: checked("fin-consolidatedstatements", "yes")
+              checked: checked("fin-parentsubsidiary", "yes")
             },
             {
               value: "no",
               text: "No",
-              checked: checked("fin-consolidatedstatements", "no")
+              checked: checked("fin-parentsubsidiary", "no")
             }
           ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a subsidiary company?",
+          text: "It’s a company controlled by your ultimate parent company."
         }) }}
 
         {{ govukButton({

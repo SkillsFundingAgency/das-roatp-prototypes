@@ -1299,9 +1299,19 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
+	// Organisation - Bankrupt?
+	router.post('/application/' + v + '/declarations/org-bankrupt', function (req, res) {
+		req.session.data['tl_dec_organisation'] = 'inprogress'
+		res.redirect('/application/' + v + '/declarations/org-insolvency')
+	})
+
+	// Organisation - Insolvency?
+	router.post('/application/' + v + '/declarations/org-insolvency', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/org-debt')
+	})
+
 	// Organisation - Debt?
 	router.post('/application/' + v + '/declarations/org-debt', function (req, res) {
-		req.session.data['tl_dec_organisation'] = 'inprogress'
 		res.redirect('/application/' + v + '/declarations/org-repay-funding')
 	})
 
@@ -1614,6 +1624,27 @@ module.exports = function (router) {
 		req.session.data['tl_rte_subcontractors'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
+
+
+/****************************************
+ *** Planning apprenticeship delivery ***
+ ****************************************/
+
+	// What you'll need
+	router.post('/application/' + v + '/planning/intro', function (req, res) {
+		req.session.data['tl_plan_intro'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})	
+
+	// Type of apprenticeship training
+	router.post('/application/' + v + '/planning/type', function (req, res) {
+		req.session.data['tl_plan_type'] = 'inprogress'
+		if (req.session.data["org-selectedroute"] == "supporting"){
+			res.redirect('/application/' + v + '/planning/readytodeliver')
+		} else {
+			res.redirect('/application/' + v + '/planning/readytodeliver-standards')
+		}
+	})	
 
 
 /****************

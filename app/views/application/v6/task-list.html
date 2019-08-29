@@ -203,7 +203,7 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_dec_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="declarations/org-debt" aria-describedby="dec-organisation">Checks on your organisation</a>
+                <a class="app-task-list__task-name" href="declarations/org-bankrupt" aria-describedby="dec-organisation">Checks on your organisation</a>
               {% else %}
                 Checks on your organisation
               {% endif %}
@@ -456,68 +456,70 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section" id="section-people">
+          <h2 class="app-task-list__section" id="section-planning">
             <span class="app-task-list__section-number">6. </span> Planning apprenticeship training
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="#" aria-describedby="plan-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
-              {% if data['tl_people_intro'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-intro">Completed</strong>
+              {% if data['tl_plan_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-intro">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_people_type'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-type">Type of apprenticeship training</a>
+              {% if (data['tl_plan_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="planning/type" aria-describedby="plan-type">Type of apprenticeship training</a>
               {% else %}
                 Type of apprenticeship training
               {% endif %}
-              {% if data['tl_people_type'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-type">Completed</strong>
+              {% if data['tl_plan_type'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-type">Completed</strong>
+              {% elseif data['tl_plan_type'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="plan-type">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_people_directory'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-directory">Course directory contact</a>
+              {% if (data['tl_plan_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="plan-directory">Course directory contact</a>
               {% else %}
                 Course directory contact
               {% endif %}
-              {% if data['tl_people_directory'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-directory">Completed</strong>
+              {% if data['tl_plan_intro'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-directory">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_people_supporting'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-supporting">Supporting apprentices</a>
+              {% if (data['tl_plan_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="plan-supporting">Supporting apprentices</a>
               {% else %}
                 Supporting apprentices
               {% endif %}
-              {% if data['tl_people_supporting'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-supporting">Completed</strong>
+              {% if data['tl_plan_supporting'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-supporting">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_people_forecasting'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-forecasting">Forecasting starts</a>
+              {% if (data['tl_plan_forecasting'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="plan-forecasting">Forecasting starts</a>
               {% else %}
                 Forecasting starts
               {% endif %}
-              {% if data['tl_people_forecasting'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-forecasting">Completed</strong>
+              {% if data['tl_plan_forecasting'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-forecasting">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_people_offthejob'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="peo-offthejob">Off the job training</a>
+              {% if (data['tl_plan_offthejob'] == "completed") %}
+                <a class="app-task-list__task-name" href="#" aria-describedby="plan-offthejob">Off the job training</a>
               {% else %}
                 Off the job training
               {% endif %}
-              {% if data['tl_people_offthejob'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="peo-offthejob">Completed</strong>
+              {% if data['tl_plan_offthejob'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-offthejob">Completed</strong>
               {% endif %}
             </li>
           </ul>

@@ -1198,19 +1198,9 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
-	// Organisation - Bankrupt?
-	router.post('/application/' + v + '/declarations/org-bankrupt', function (req, res) {
-		req.session.data['tl_dec_organisation'] = 'inprogress'
-		res.redirect('/application/' + v + '/declarations/org-insolvency')
-	})
-
-	// Organisation - Insolvency?
-	router.post('/application/' + v + '/declarations/org-insolvency', function (req, res) {
-		res.redirect('/application/' + v + '/declarations/org-debt')
-	})
-
 	// Organisation - Debt?
 	router.post('/application/' + v + '/declarations/org-debt', function (req, res) {
+		req.session.data['tl_dec_organisation'] = 'inprogress'
 		res.redirect('/application/' + v + '/declarations/org-repay-funding')
 	})
 
@@ -1226,7 +1216,6 @@ module.exports = function (router) {
 
 	// Organisation - Withdrawn from a contract
 	router.post('/application/' + v + '/declarations/org-withdrawn-contract', function (req, res) {
-		req.session.data['tl_dec_organisation'] = 'completed'
 		res.redirect('/application/' + v + '/declarations/org-roto')
 	})
 
@@ -1258,6 +1247,7 @@ module.exports = function (router) {
 
 	// Organisation - Whistleblowing
 	router.post('/application/' + v + '/declarations/org-whistleblowing', function (req, res) {
+		req.session.data['tl_dec_organisation'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
@@ -1317,7 +1307,18 @@ module.exports = function (router) {
 
 	// Who’s in control - Trustee register
 	router.post('/application/' + v + '/declarations/people-trustee-register', function (req, res) {
-		//res.redirect('/application/' + v + '/declarations/people-convictions')
+		res.redirect('/application/' + v + '/declarations/people-bankrupt')
+		//res.redirect('/application/' + v + '/task-list#section-declarations')
+	})
+
+	// Who’s in control - Bankrupt?
+	router.post('/application/' + v + '/declarations/people-bankrupt', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-insolvency')
+	})
+
+	// Who’s in control - Insolvency?
+	router.post('/application/' + v + '/declarations/people-insolvency', function (req, res) {
+		req.session.data['tl_dec_people'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 

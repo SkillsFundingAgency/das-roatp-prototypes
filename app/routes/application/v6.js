@@ -42,26 +42,6 @@ module.exports = function (router) {
 
 		req.session.data['signedin'] = 'yes'
 
-		//default skip ofsted for v6 testing
-		req.session.data['exempt_fha'] = "no"
-		req.session.data['org-classification'] = "none"
-		req.session.data['org-ico'] = "12345678"
-		req.session.data['org-parentcompany'] = "yes"
-		req.session.data['org-selectedroute'] = "main"
-		req.session.data['org-trading'] = "12-18"
-		req.session.data['org-type'] = "employer"
-		req.session.data['org-ukprn'] = "12340101"
-		req.session.data['signedin'] = "yes"
-		req.session.data['tl_org_details'] = "completed"
-		req.session.data['tl_org_intro'] = "completed"
-		req.session.data['tl_org_people'] = "completed"
-		req.session.data['tl_org_profile'] = "next"
-		req.session.data['tl_org_type'] = "completed"
-		req.session.data['tl_profile_ofsted'] = "next"
-		req.session.data['tl_selectroute'] = "completed"
-		res.redirect('/application/' + v + '/task-list')
-
-/*
 		if (req.session.data['signin-email'] == "skip@ofsted") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
@@ -80,9 +60,7 @@ module.exports = function (router) {
 			req.session.data['tl_profile_ofsted'] = "next"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		}
-
-		if (req.session.data['signin-email'] == "skip@organisation") {
+		} else if (req.session.data['signin-email'] == "skip@organisation") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -102,9 +80,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		}
-
-		if (req.session.data['signin-email'] == "main@organisation.parent") {
+		} else if (req.session.data['signin-email'] == "main@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -126,9 +102,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		}
-
-		if (req.session.data['signin-email'] == "employer@organisation.parent") {
+		} else if (req.session.data['signin-email'] == "employer@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -150,9 +124,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		}
-
-		if (req.session.data['signin-email'] == "supporting@organisation.parent") {
+		} else if (req.session.data['signin-email'] == "supporting@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -174,101 +146,31 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		}
 
-		// 'Your organisation' complete
-		// Organisation has a parent company
-		// ITT and Postgrad, no Ofsted inspections
-		if (req.session.data['signin-email'] == "main-parentcompany@organisation.complete") {
-			req.session.data['exempt_aw'] = "yes"
+		} else {
+
+			//default skip ofsted for v6 testing
 			req.session.data['exempt_fha'] = "no"
-			req.session.data['exempt_lm'] = "yes"
-			req.session.data['org-parentcompany'] = "yes"
-			req.session.data['org-parentcompany-companynumber'] = "12232323"
-			req.session.data['org-classification'] = "public-service-mutual"
-			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = ">23"
-			req.session.data['org-type'] = "employer"
-			req.session.data['org-ukprn'] = "12340102"
-			req.session.data['org-website'] = "no"
-			req.session.data['org-website-address'] = ""
-			req.session.data['pro-itt'] = "yes"
-			req.session.data['pro-postgrad'] = "yes"
-			req.session.data['tl_selectroute'] = "completed"
-			req.session.data['tl_org_details'] = "completed"
-			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_type'] = "completed"
-			req.session.data['tl_org_profile'] = "completed"
-			res.redirect('/application/' + v + '/task-list')
-		}
-
-		// Jump to: Financial evidence
-		// As a: Main provider, not funded by OFS, no Ofsted
-		if (req.session.data['signin-email'] == "main@financial.upload") {
-			req.session.data['exempt_aw'] = "yes"
-			req.session.data['exempt_fha'] = "no"
-			req.session.data['exempt_lm'] = "yes"
-			req.session.data['org-classification'] = "public-service-mutual"
-			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = ">23"
-			req.session.data['org-type'] = "employer"
-			req.session.data['org-ukprn'] = "12340102"
-			req.session.data['org-website'] = "no"
-			req.session.data['org-website-address'] = ""
-			req.session.data['pro-itt'] = "yes"
-			req.session.data['pro-postgrad'] = "yes"
-			req.session.data['tl_selectroute'] = "completed"
-			req.session.data['tl_org_details'] = "completed"
-			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_type'] = "completed"
-			req.session.data['tl_org_profile'] = "completed"
-			res.redirect('/application/' + v + '/task-list')
-		}
-
-		// Jump to: Your organisation > Organisation profile
-		// As a: Main provider, not funded by OFS
-		if (req.session.data['signin-email'] == "main@company.profile") {
-			req.session.data['exempt_fha'] = "no"
-			req.session.data['org-classification'] = "public-service-mutual"
-			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = ">23"
-			req.session.data['org-type'] = "employer"
-			req.session.data['org-ukprn'] = "12340102"
-			req.session.data['org-website'] = "no"
-			req.session.data['org-website-address'] = ""
-			req.session.data['tl_selectroute'] = "completed"
-			req.session.data['tl_org_details'] = "completed"
-			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_type'] = "completed"
-			req.session.data['tl_org_profile'] = "next"
-			res.redirect('/application/' + v + '/task-list')
-		}
-
-		if (req.session.data['signin-email'] == "main@hei.profile") {
-			req.session.data['exempt_fha'] = "yes"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "yes"
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "education"
-			req.session.data['org-type-education'] = "hei"
-			req.session.data['org-fundedby'] = "yes"
-			req.session.data['org-fundedbytext'] = "monitored and supported by the Office for Students"
+			req.session.data['org-type'] = "employer"
 			req.session.data['org-ukprn'] = "12340101"
-			req.session.data['tl_selectroute'] = "completed"
+			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_intro'] = "completed"
 			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_org_profile'] = "next"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_profile_ofsted'] = "next"
+			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
 		}
 
-		res.redirect('/application/' + v + '/coa')
+		//res.redirect('/application/' + v + '/coa')
 
-*/
 	})
 
 	router.get('/application/' + v + '/signout', function (req, res) {
@@ -1634,14 +1536,95 @@ module.exports = function (router) {
 	})	
 
 	// Type of apprenticeship training
-	router.post('/application/' + v + '/planning/type', function (req, res) {
+	router.post('/application/' + v + '/planning/01-type', function (req, res) {
 		req.session.data['tl_plan_type'] = 'inprogress'
-		if (req.session.data["org-selectedroute"] == "supporting"){
-			res.redirect('/application/' + v + '/planning/readytodeliver')
+		if (
+			req.session.data['plan-type']['0'] == "apprenticeship-standards" || 
+			req.session.data['plan-type']['0'] == "full-apprenticeship-standards" || 
+			req.session.data['plan-type']['0'] == "part-apprenticeship-standards" || 
+			req.session.data['plan-type']['1'] == "part-apprenticeship-standards")
+			{
+				res.redirect('/application/' + v + '/planning/02-readytodeliver')
 		} else {
-			res.redirect('/application/' + v + '/planning/readytodeliver-standards')
+			if (req.session.data["org-selectedroute"] == "supporting"){
+				req.session.data['tl_plan_type'] = 'completed'
+				res.redirect('/application/' + v + '/task-list#section-planning')
+			} else {
+				res.redirect('/application/' + v + '/planning/03-engaging')
+			}
 		}
 	})	
+
+	// Ready to deliver
+	router.post('/application/' + v + '/planning/02-readytodeliver', function (req, res) {
+		if (req.session.data["org-selectedroute"] == "supporting"){
+			req.session.data['tl_plan_type'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-planning')
+		} else {
+			res.redirect('/application/' + v + '/planning/03-engaging')
+		}
+	})	
+
+	// Plan to engage
+	router.post('/application/' + v + '/planning/03-engaging', function (req, res) {
+		req.session.data['tl_plan_type'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-planning')
+		/*if (req.session.data["org-selectedroute"] == "employer"){
+			res.redirect('/application/' + v + '/planning/04-supported')
+		} else {
+			res.redirect('/application/' + v + '/planning/05-contact')
+		}*/
+	})	
+
+	// Apprentices supported
+	router.post('/application/' + v + '/planning/04-supported', function (req, res) {
+		req.session.data['tl_plan_supporting'] = 'completed'
+		//res.redirect('/application/' + v + '/planning/06-forecast-starts')
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})
+
+	// Course directory contact
+	router.post('/application/' + v + '/planning/05-contact', function (req, res) {
+		req.session.data['tl_plan_contact'] = 'completed'
+		//res.redirect('/application/' + v + '/planning/06-forecast-starts')
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})
+
+	// Forecast - Starts
+	router.post('/application/' + v + '/planning/06-forecast-starts', function (req, res) {
+		req.session.data['tl_plan_forecasting'] = 'inprogress'
+		res.redirect('/application/' + v + '/planning/07-forecast-readytodeliver')
+	})
+
+	// Forecast - Ready to deliver
+	router.post('/application/' + v + '/planning/07-forecast-readytodeliver', function (req, res) {
+		res.redirect('/application/' + v + '/planning/08-forecast-newstaff')
+	})
+
+	// Forecast - New staff
+	router.post('/application/' + v + '/planning/08-forecast-newstaff', function (req, res) {
+		res.redirect('/application/' + v + '/planning/09-forecast-ratio')
+	})
+
+	// Forecast - Ratio
+	router.post('/application/' + v + '/planning/09-forecast-ratio', function (req, res) {
+		req.session.data['tl_plan_forecasting'] = 'completed'
+		//res.redirect('/application/' + v + '/planning/10-otj-methods')
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})
+
+	// Off the job - Teaching methods
+	router.post('/application/' + v + '/planning/10-otj-methods', function (req, res) {
+		req.session.data['tl_plan_offthejob'] = 'inprogress'
+		res.redirect('/application/' + v + '/planning/11-otj-relevant')
+	})
+
+
+	// Off the job - Teaching methods
+	router.post('/application/' + v + '/planning/11-otj-relevant', function (req, res) {
+		req.session.data['tl_plan_offthejob'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})
 
 
 /****************

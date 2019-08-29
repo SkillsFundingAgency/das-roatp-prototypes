@@ -21,8 +21,11 @@
         <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em; margin-left: 1em">FOR TESTING</strong>
         <span class="govuk-caption-m">Created on: 21/08/2019</span>
       </p>
-          
-      <p class="govuk-body">On sign in, users will have already completed everything in the 'Your organisation' section bar 'Experience and accreditations'.</p>
+      
+      {{ govukWarningText({
+        text: "On sign in (with an email address other than those listed below), users will have already completed all sub-sections in the 'Your organisation' section except for 'Experience and accreditations'.",
+        iconFallbackText: "Warning"
+      }) }}
 
       <p class="govuk-body" style="margin-bottom: 0;">Scenarios set with UKPRN: 
         <div class="govuk-details__text">
@@ -48,17 +51,17 @@
         </div>
       </p>
           
-      <!--p class="govuk-body" style="margin-bottom: 0;">Scenarios set with email address at login: 
+      <p class="govuk-body" style="margin-bottom: 0;">Scenarios set with email address at login: 
         <div class="govuk-details__text">
           <ul class="govuk-list govuk-list--bullet">
-            <li>main@organisation.parent - Completes organisation section, main provider, has parent company</li>
-            <li>employer@organisation.parent - Completes organisation section, supporting provider, has parent company</li>
-            <li>supporting@organisation.parent - Completes organisation section, supporting provider, has parent company</li>
-            <li>skip@ofsted - Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
-            <li>skip@organisation - Completes the organisation section so that all sections need answering</li>
+            <li><strong>main@organisation.parent</strong><br>Completes organisation section, main provider, has parent company</li>
+            <li><strong>employer@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+            <li><strong>supporting@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+            <li><strong>skip@ofsted</strong><br>Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
+            <li><strong>skip@organisation</strong><br>Completes the organisation section so that all sections need answering</li>
           </ul>
         </div>
-      </p-->
+      </p>
 
       <h3 class="govuk-heading-s" style="margin-bottom: 0;">Archived versions of RoATP Application Journey</h3>
         <div class="govuk-details__text">

@@ -57,6 +57,7 @@
 .app-task-list__task-completed,
 .app-task-list__task-inprogress,
 .app-task-list__task-next,
+.app-task-list__task-todo,
 .app-task-list__task-notrequired {
   margin-top: govuk-spacing(2);
   margin-bottom: govuk-spacing(1);
@@ -78,5 +79,10 @@
 
 .app-task-list__task-next {
   background-color: #FFBF47;
-  color: #000;
+  color: #0b0c0c;
+}
+
+.app-task-list__task-todo {
+  background-color: #f499be;
+  color: #0b0c0c;
 }

@@ -16,10 +16,10 @@
       <h2 class="govuk-heading-m">RoATP Application Journey</h2>
           
       <p class="govuk-body">
-        <a href="/application/v6">Application journey v6</a>
-        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em; margin-left: 1em">WIP</strong><br-->
-        <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em; margin-left: 1em">FOR TESTING</strong>
-        <span class="govuk-caption-m">Created on: 21/08/2019</span>
+        <a href="/application/v7">Application journey v7</a>
+        <strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em; margin-left: 1em">WIP</strong>
+        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em; margin-left: 1em">FOR TESTING</strong-->
+        <span class="govuk-caption-m">Created on: 30/08/2019</span>
       </p>
       
       {{ govukWarningText({
@@ -62,11 +62,67 @@
           </ul>
         </div>
       </p>
+          
 
       <h3 class="govuk-heading-s" style="margin-bottom: 0;">Archived versions of RoATP Application Journey</h3>
         <div class="govuk-details__text">
           
           <ul class="govuk-list govuk-list--bullet">
+
+            <li class="govuk-!-margin-bottom-4">
+              <p class="govuk-body" style="margin-bottom: 0;">
+                <a href="/application/v6">Application journey v6</a>
+                <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+                <span class="govuk-caption-m">
+                Research findings: <!--a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v5" target="_blank"-->29th - 30th Aug 2019<!--/a-->
+                <br>Created on: 21/08/2019</span>
+              </p>
+              <p class="govuk-body" style="margin-bottom: 0;"><strong>N.B.</strong> On sign in (with any email address other than those listed below), users will have already completed all sub-sections in the 'Your organisation' section except for 'Experience and accreditations'.</p>
+              <details class="govuk-details" style="margin-bottom: 0;">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Scenarios set with UKPRN
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340101 - Organisation with all possible details from UKRLP</li>
+                    <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                    <li>12340103 - Organisation has no directors listed</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340201 - Charity with a company number</li>
+                    <li>12340202 - Charity without a company number</li>
+                    <li>12340203 - Charity (not a company) with no trustees listed</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+                  </ul>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>12340401 - Organisation is inactive on UKRLP</li>
+                    <li>12340402 - Organisation is already on the register</li>
+                    <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                    <li>12340404 - Organisation removed from the register</li>
+                  </ul>
+                </div>
+              </details>
+              <details class="govuk-details" style="margin-bottom: 0;">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Scenarios set with login
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><strong>main@organisation.parent</strong><br>Completes organisation section, main provider, has parent company</li>
+                    <li><strong>employer@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                    <li><strong>supporting@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                    <li><strong>skip@ofsted</strong><br>Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
+                    <li><strong>skip@organisation</strong><br>Completes the organisation section so that all sections need answering</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
 
             <li class="govuk-!-margin-bottom-4">
               <p class="govuk-body" style="margin-bottom: 0;">

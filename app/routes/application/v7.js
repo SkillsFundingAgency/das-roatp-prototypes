@@ -1628,6 +1628,54 @@ module.exports = function (router) {
 	})
 
 
+/******************************************
+ *** Delivering apprenticeship training ***
+ ******************************************/
+
+	// What you'll need
+	router.post('/application/' + v + '/delivering/intro', function (req, res) {
+		req.session.data['tl_del_intro'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
+	})	
+
+	// Who's accountable for apprenticeships?
+	router.post('/application/' + v + '/delivering/whosaccountable', function (req, res) {
+		req.session.data['tl_del_hierarchy'] = 'inprogress'
+		res.redirect('/application/' + v + '/delivering/hierarchy-add')
+	})	
+
+	// Who's accountable for apprenticeships?
+	router.post('/application/' + v + '/delivering/hierarchy-add', function (req, res) {
+
+		var newPerson = {
+			'name': req.session.data['del-hierarchy-name'],
+			'job_role': req.session.data['del-hierarchy-role'],
+			'time_in_role': req.session.data['del-hierarchy-timeinrole'],
+			'report_to': req.session.data['del-hierarchy-reportto'],
+			'org_funding': req.session.data['del-hierarchy-orgfunding'],
+			'org_funding_name': req.session.data['del-hierarchy-orgfunding-name'],
+			'subcontractor_funding': req.session.data['del-hierarchy-subcontractorfunding']
+		}
+
+		req.session.data['del-hierarchy-name'] = null
+		req.session.data['del-hierarchy-role'] = null
+		req.session.data['del-hierarchy-timeinrole'] = null
+		req.session.data['del-hierarchy-reportto'] = null
+		req.session.data['del-hierarchy-orgfunding'] = null
+		req.session.data['del-hierarchy-orgfunding-name'] = null
+		req.session.data['del-hierarchy-subcontractorfunding'] = null
+
+		if (!req.session.data['del-hierarchy-person']) {
+			req.session.data['del-hierarchy-person'] = []
+		}
+		req.session.data['del-hierarchy-person'].push(newPerson)
+			
+		res.redirect('/application/' + v + '/delivering/hierarchy-confirm')
+
+	})
+
+
+
 /****************
  *** Sign out ***
  ****************/

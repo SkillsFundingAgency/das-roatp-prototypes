@@ -540,13 +540,13 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section" id="section-leaders">
+          <h2 class="app-task-list__section" id="section-delivering">
             <span class="app-task-list__section-number">7. </span> Delivering apprenticeship training
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="del-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="delivering/intro" aria-describedby="del-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
@@ -555,17 +555,17 @@
               {% endif %}
             </li> 
             <li class="app-task-list__item">
-              {% if (data['tl_del_management'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="del-management">Management hierarchy</a>
+              {% if (data['tl_del_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="delivering/whosaccountable" aria-describedby="del-hierarchy">Management hierarchy</a>
               {% else %}
                 Management hierarchy
               {% endif %}
-              {% if data['tl_del_management'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="del-offthejob">Completed</strong>
+              {% if data['tl_del_hierarchy'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-hierarchy">Completed</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_del_sectors'] == "completed") %}
+              {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="del-sectors">Sectors</a>
               {% else %}
                 Sectors
@@ -575,7 +575,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_del_development'] == "completed") %}
+              {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="del-development">Professional development of employees</a>
               {% else %}
                 Professional development of employees
@@ -585,7 +585,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_del_experience'] == "completed") %}
+              {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="#" aria-describedby="del-experience">Employees experience</a>
               {% else %}
                 Employees experience

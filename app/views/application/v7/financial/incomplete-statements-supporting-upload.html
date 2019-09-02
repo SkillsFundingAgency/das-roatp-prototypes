@@ -1,0 +1,74 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Your organisation’s financial evidence</p>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s management accounts and financial projections covering a 12 month period</h1>
+
+    <p class="gov-body">Management accounts must include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>balance sheet - showing the value of everything your organisation owns, owes and is owed on the last day of the financial year</li>
+      <li>cash flow</li>
+      <li>income statement</li>
+    </ul>
+
+    <p class="govuk-body">Financial projections must include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>a ‘balance sheet’ - showing the value of everything your organisation owns, owes and is owed on the last day of the financial year</li>
+      <li>a ‘profit and loss account’ - showing your organisation’s sales, running costs and profit and loss it made over the financial year</li>
+      <li>detailed notes about the accounts</li>
+      <li>a breakdown of creditors and borrowings</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "fin-managementaccounts-upload",
+        name: "fin-managementaccounts-upload",
+        label: {
+          text: "Upload management accounts"
+        }
+      }) }}
+    
+      {{ govukFileUpload({
+        id: "fin-finprojections-upload",
+        name: "fin-finprojections-upload",
+        label: {
+          text: "Upload financial projections"
+        }
+      }) }}
+
+      {{ govukWarningText({
+        text: "Management accounts and financial projections must not be abbreviated, filleted or for a micro entity.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+      {% include "includes/v7/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

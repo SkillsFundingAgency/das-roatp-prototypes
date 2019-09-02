@@ -1,0 +1,27 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  Sign in - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Sign up complete",
+      html: "Your account has been created"
+    }) }}
+    <br>
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">You can now <a href="signin">sign in using the Apprenticeship Service</a> using the email address and password you used to sign up.</p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1641,7 +1641,11 @@ module.exports = function (router) {
 	// Who's accountable for apprenticeships?
 	router.post('/application/' + v + '/delivering/whosaccountable', function (req, res) {
 		req.session.data['tl_del_hierarchy'] = 'inprogress'
-		res.redirect('/application/' + v + '/delivering/hierarchy-add')
+		if (!req.session.data['del-hierarchy-person']) {
+			res.redirect('/application/' + v + '/delivering/hierarchy-add')
+		} else {
+			res.redirect('/application/' + v + '/delivering/hierarchy-confirm')
+		}
 	})	
 
 	// Who's accountable for apprenticeships?
@@ -1674,6 +1678,58 @@ module.exports = function (router) {
 
 	})
 
+	// Who's accountable for apprenticeships confirmation
+	router.post('/application/' + v + '/delivering/hierarchy-confirm', function (req, res) {
+
+		if (!req.session.data["org-selectedroute"] == "employer"){
+			res.redirect('/application/' + v + '/delivering/develop-deliver')
+		} else {
+			res.redirect('/application/' + v + '/delivering/work-with')
+		}
+	})
+
+	// Worked with to develop and deliver training
+	router.post('/application/' + v + '/delivering/develop-deliver', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/work-with')
+	})
+
+	// Worked with employers/other orgs
+	router.post('/application/' + v + '/delivering/work-with', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations')
+	})
+
+	// Expectations
+	router.post('/application/' + v + '/delivering/expectations', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations-definition')
+	})
+
+	// Expectations - definition
+	router.post('/application/' + v + '/delivering/expectations-definition', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations-communicated')
+	})
+
+	// Expectations - communicated
+	router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/training-manager')
+	})
+
+	// Expectations - communicated
+	router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/training-manager')
+	})
+
+	// Who is your apprenticeship training manager?
+	router.post('/application/' + v + '/delivering/training-manager', function (req, res) {
+		req.session.data['tl_del_hierarchy'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-hierarchy')
+	})
+
+
+	// Sectors training in
+	router.post('/application/' + v + '/delivering/sectors', function (req, res) {
+		req.session.data['tl_del_sectors'] = 'inprogress'
+		//res.redirect('/application/' + v + '/delivering/training-manager')
+	})
 
 
 /****************

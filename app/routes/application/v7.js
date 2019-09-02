@@ -165,11 +165,10 @@ module.exports = function (router) {
 			req.session.data['tl_org_profile'] = "next"
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_profile_ofsted'] = "next"
-			req.session.data['tl_selectroute'] = "completed"*/
-			res.redirect('/application/' + v + '/task-list')
+			req.session.data['tl_selectroute'] = "completed"
+			res.redirect('/application/' + v + '/task-list')*/
+			res.redirect('/application/' + v + '/coa')
 		}
-
-		//res.redirect('/application/' + v + '/coa')
 
 	})
 
@@ -1733,7 +1732,35 @@ module.exports = function (router) {
 
 	// Sectors training in
 	router.post('/application/' + v + '/delivering/employee-add', function (req, res) {
+
+		if (!req.session.data['del-employee-count']) {
+			req.session.data['del-employee-count'] = 0
+		} else {
+			req.session.data['del-employee-count'] = req.session.data['del-employee-count'] + 1
+		}
+
+		var newEmployee = {
+			'name': req.session.data['del-employee-name'],
+			'job_role': req.session.data['del-employee-role'],
+			'time_in_role': req.session.data['del-employee-timeinorg']
+		}
+
+		req.session.data['del-employee-name'] = null
+		req.session.data['del-employee-role'] = null
+		req.session.data['del-employee-timeinorg'] = null
+
+		if (!req.session.data['del-employee']) {
+			req.session.data['del-employee'] = []
+		}
+		req.session.data['del-employee'].push(newEmployee)
+
 		res.redirect('/application/' + v + '/delivering/employee-sectors')
+	})
+
+	// Experience of delivering in those sectors
+	router.post('/application/' + v + '/delivering/employee-sectors', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
+
 	})
 
 

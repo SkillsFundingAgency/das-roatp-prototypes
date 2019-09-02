@@ -16,13 +16,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-caption-l">Management hierarchy</p>
+      <p class="govuk-caption-l">Sectors</p>
 
-      <h1 class="govuk-heading-l">Tell us who’s accountable for apprenticeships in your organisation</h1>
+      <h1 class="govuk-heading-l">Tell us about your employee's experience and expertise</h1>
 
-      <p class="govuk-body">This must someone who’s responsible for the overall management and governance of apprenticeships.</p>
-      
-      <p class="govuk-body">We’ll only contact them if there is an issue.</p>
+      <p class="govuk-body">If there are more people, you can add them later.</p>
 
       <form action="" method="post" class="form">
 
@@ -31,36 +29,26 @@
             text: "Full name"
           },
           classes: "govuk-input--width-20",
-          id: "del-accountable-name",
-          name: "del-accountable-name",
-          value: data['del-accountable-name']
+          id: "del-employee-name",
+          name: "del-employee-name"
         }) }}
 
         {{ govukInput({
           label: {
-            text: "Email"
+            text: "Job role"
           },
-          type: "email",
-          autocomplete: "email",
           classes: "govuk-input--width-20",
-          id: "del-accountable-email",
-          name: "del-accountable-email",
-          value: data['del-accountable-email'],
-          attributes: {
-            spellcheck: "false"
-          }
+          id: "del-employee-role",
+          name: "del-employee-role"
         }) }}
-        
+
         {{ govukInput({
           label: {
-            text: "Contact number"
+            text: "Time with organisation"
           },
-          id: "del-accountable-tel",
-          name: "del-accountable-tel",
-          value: data['del-accountable-tel'],
-          type: "tel",
-          autocomplete: "tel",
-          classes: "govuk-input--width-10"
+          classes: "govuk-input--width-20",
+          id: "del-employee-timeinorg",
+          name: "del-employee-timeinorg"
         }) }}
 
         {{ govukButton({

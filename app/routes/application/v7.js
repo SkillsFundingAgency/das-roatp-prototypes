@@ -150,7 +150,7 @@ module.exports = function (router) {
 		} else {
 
 			//default skip ofsted for v6 testing
-			req.session.data['exempt_fha'] = "no"
+			/*req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
 			req.session.data['org-parentcompany'] = "yes"
@@ -166,7 +166,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_profile_ofsted'] = "next"
 			req.session.data['tl_selectroute'] = "completed"
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/task-list')*/
 		}
 
 		//res.redirect('/application/' + v + '/coa')
@@ -1728,7 +1728,12 @@ module.exports = function (router) {
 	// Sectors training in
 	router.post('/application/' + v + '/delivering/sectors', function (req, res) {
 		req.session.data['tl_del_sectors'] = 'inprogress'
-		//res.redirect('/application/' + v + '/delivering/training-manager')
+		res.redirect('/application/' + v + '/delivering/employee-list')
+	})
+
+	// Sectors training in
+	router.post('/application/' + v + '/delivering/employee-add', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/employee-sectors')
 	})
 
 

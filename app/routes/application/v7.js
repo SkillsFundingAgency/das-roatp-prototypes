@@ -165,8 +165,8 @@ module.exports = function (router) {
 			req.session.data['tl_org_profile'] = "next"
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_profile_ofsted'] = "next"
-			req.session.data['tl_selectroute'] = "completed"
-			res.redirect('/application/' + v + '/task-list')*/
+			req.session.data['tl_selectroute'] = "completed"*/
+			res.redirect('/application/' + v + '/task-list')
 		}
 
 		//res.redirect('/application/' + v + '/coa')

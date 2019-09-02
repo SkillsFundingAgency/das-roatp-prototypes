@@ -562,6 +562,8 @@
               {% endif %}
               {% if data['tl_del_hierarchy'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="del-hierarchy">Completed</strong>
+              {% elseif data['tl_del_hierarchy'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-engagement">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">

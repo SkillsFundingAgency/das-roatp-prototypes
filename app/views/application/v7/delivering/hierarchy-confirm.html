@@ -26,9 +26,9 @@
             <th class="govuk-table__header" scope="col">Name</th>
             <th class="govuk-table__header" scope="col">Job role</th>
             <th class="govuk-table__header" scope="col">Time in role</th>
-            <th class="govuk-table__header" scope="col">Who they report to</th>
+            <!--th class="govuk-table__header" scope="col">Who they report to</th>
             <th class="govuk-table__header" scope="col">Part of another organisation that receives funding from ESFA</th>
-            <th class="govuk-table__header" scope="col">A subcontract who receives funding from ESFA</th>
+            <th class="govuk-table__header" scope="col">A subcontract who receives funding from ESFA</th-->
             <th class="govuk-table__header" scope="col"></th>
           </tr>
         </thead>
@@ -39,9 +39,9 @@
               <td class="govuk-table__cell" scope="row">{{ person.name }}</td>
               <td class="govuk-table__cell">{{ person.job_role }}</td>
               <td class="govuk-table__cell">{{ person.time_in_role }}</td>
-              <td class="govuk-table__cell">{{ person.report_to }}</td>
-              <td class="govuk-table__cell">{{ person.org_funding }} {{ person.org_funding_name }}</td>
-              <td class="govuk-table__cell">{{ person.subcontractor_funding }}</td>
+              <!--td class="govuk-table__cell">{{ person.report_to }}</td>
+              <td class="govuk-table__cell">{{ person.org_funding }} {% if (person.org_funding_name != '') %}({{ person.org_funding_name }}){% endif %}</td>
+              <td class="govuk-table__cell">{{ person.subcontractor_funding }}</td-->
               <td class="govuk-table__cell"><a href="#">Change</a></td>
             </tr>
           {% endif %}

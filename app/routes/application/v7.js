@@ -1,10 +1,10 @@
 // Routes for Application v3
 
 var v = 'v7';
-
+/*
 var NotifyClient = require('notifications-node-client').NotifyClient,
     notify = new NotifyClient(process.env.NOTIFYAPIKEY);
-
+*/
 var months = [
 	'Jan', 'Feb', 'Mar', 'Apr', 'May',
 	'Jun', 'Jul', 'Aug', 'Sep',
@@ -55,18 +55,37 @@ module.exports = function (router) {
  **********************/
 
 	router.post('/application/' + v + '/createaccount', function (req, res) {
-
+/*
 		notify.sendEmail(
-		  // this long string is the template ID, copy it from the template
-		  // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
-		  // in your code.
-		  '43fcf9ee-6f62-47f4-ad88-4514a3ee23e7',
-		  // `emailAddress` here needs to match the name of the form field in
-		  // your HTML page
-		  req.body.createEmail
+			// this long string is the template ID, copy it from the template
+			// page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+			// in your code.
+			'43fcf9ee-6f62-47f4-ad88-4514a3ee23e7',
+			// `emailAddress` here needs to match the name of the form field in
+			// your HTML page
+			req.body.createEmail
 		);
-		
+		*/
 		res.redirect('/application/' + v + '/createaccount-invitesent')
+	})
+
+/**************************
+ *** Forgotten password ***
+ **************************/
+
+	router.post('/application/' + v + '/forgottenpassword', function (req, res) {
+/*
+		notify.sendEmail(
+			// this long string is the template ID, copy it from the template
+			// page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+			// in your code.
+			'7d0752a2-fe97-4fde-a2ba-596dbb49d93c',
+			// `emailAddress` here needs to match the name of the form field in
+			// your HTML page
+			req.body.forgottenEmail
+		);
+		*/
+		res.redirect('/application/' + v + '/forgottenpassword-sent')
 	})
 
 

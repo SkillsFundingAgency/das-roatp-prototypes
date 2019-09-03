@@ -2,6 +2,9 @@
 
 var v = 'v7';
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
+
 var months = [
 	'Jan', 'Feb', 'Mar', 'Apr', 'May',
 	'Jun', 'Jul', 'Aug', 'Sep',
@@ -33,6 +36,39 @@ function checkInspectionDate(d,m,y) {
 }
 
 module.exports = function (router) {
+
+
+/************************
+ *** Have an account? ***
+ ************************/
+
+	router.post('/application/' + v + '/haveanaccount', function (req, res) {
+		if (req.session.data['haveanaccount'] == "yes" ){
+			res.redirect('/application/' + v + '/signin')
+		} else {
+			res.redirect('/application/' + v + '/createaccount')
+		}
+	})
+
+/**********************
+ *** Create account ***
+ **********************/
+
+	router.post('/application/' + v + '/createaccount', function (req, res) {
+
+		notify.sendEmail(
+		  // this long string is the template ID, copy it from the template
+		  // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+		  // in your code.
+		  '43fcf9ee-6f62-47f4-ad88-4514a3ee23e7',
+		  // `emailAddress` here needs to match the name of the form field in
+		  // your HTML page
+		  req.body.createEmail
+		);
+		
+		res.redirect('/application/' + v + '/createaccount-invitesent')
+	})
+
 
 /***************
  *** Sign in ***

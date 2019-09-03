@@ -11,9 +11,15 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Confirm your email address</h1>
+    <h1 class="govuk-heading-xl">We’ve sent you a confirmation email</h1>
 
-    <p class="govuk-body">We've sent an email to <strong>{{ data['create-email'] }}</strong>.</p><p class="govuk-body">Use the <a href="createaccount-confirmemail">link in the email</a> to complete sign up.</p>
+    <p class="govuk-body">We’ve sent a confirmation email to <strong>{{ data['createEmail'] }}</strong>.</p>
+    <p class="govuk-body">Use the link in the email to confirm your details and continue creating an account.</p>
+
+    {{ govukDetails({
+      summaryText: "I have not received the confirmation email",
+      text: "If you have not received the confirmation email, check your junk folder or start again."
+    }) }}
 
   </div>
 </div>

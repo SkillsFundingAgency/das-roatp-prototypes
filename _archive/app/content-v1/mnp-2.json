@@ -1,8 +1,0 @@
-{
-   "backButtonCaption": "Back",
-   "greenButtonCaption": "Save and continue",
-   "title": "How much experience do they have in developing, delivering and managing training?",
-   "hintText": "",
-   "content1": "<p>This experience can be with your organisation or in previous employment.</p>",
-   "radioItems": ["less than 9 months", "9 to 18 months", "more than 18 months"]
-}

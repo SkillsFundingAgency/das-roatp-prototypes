@@ -1742,7 +1742,8 @@ module.exports = function (router) {
 		var newEmployee = {
 			'name': req.session.data['del-employee-name'],
 			'job_role': req.session.data['del-employee-role'],
-			'time_in_role': req.session.data['del-employee-timeinorg']
+			'time_in_role': req.session.data['del-employee-timeinorg'],
+			'sectors': []
 		}
 
 		req.session.data['del-employee-name'] = null
@@ -1757,10 +1758,33 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/delivering/employee-sectors')
 	})
 
-	// Experience of delivering in those sectors
+	// Select the sectors which employee delivers
 	router.post('/application/' + v + '/delivering/employee-sectors', function (req, res) {
+
+		// Add selected sectors to current employee array item
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'] = req.session.data['del-employee-sector']
+
 		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
 
+	})
+
+	// Employee experience of delivering in those sectors
+	router.post('/application/' + v + '/delivering/employee-sectors-experience', function (req, res) {
+
+		//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][0] = req.session.data['del-employee-sector']
+
+		var exp_array = req.session.data['del-employee-sector-experience']
+		var exp_length = exp_array.length;
+		req.session.data['aa_employee_exp_detail_count'] = exp_length
+		//console.log(exp_length);
+		for (var i = 0; i < exp_length; i++) {
+			//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i][1] = req.session.data['del-employee-sector']
+
+			//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i][] = req.session.data['del-employee-sector']
+
+			//Do something
+		}
+		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
 	})
 
 

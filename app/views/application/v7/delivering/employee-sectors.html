@@ -28,8 +28,8 @@
           {% for sector in data['del-sectors'] %}
 
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="del-employee-sectors[{{i}}]" name="del-employee-sectors[{{i}}]" type="checkbox" value="{{ data['del-sectors'][i] }}">
-              <label class="govuk-label govuk-checkboxes__label" for="del-employee-sectors[{{i}}]">
+              <input class="govuk-checkboxes__input" id="del-employee-sector{{i}}" name="del-employee-sector" type="checkbox" value="{{ data['del-sectors'][i] }}">
+              <label class="govuk-label govuk-checkboxes__label" for="del-employee-sector{{i}}">
                 {{ data['del-sectors'][i] }}
               </label>
             </div>

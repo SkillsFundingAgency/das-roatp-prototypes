@@ -23,8 +23,18 @@
       <form action="" method="post" class="form">
         
         {% set i = 0 %}
-        {% for employeesector in data['del-employee-sectors'] %}
-        
+        {% for employeesector in data['del-employee'][ data['del-employee-count'] ]['sectors'] %}
+
+          {{ govukCharacterCount({
+
+            name: "del-employee-sector-experience["+i+"]",
+            id: "del-employee-sector-experience["+i+"]",
+            maxlength: 2000,
+            label: {
+              text: data['del-employee'][ data['del-employee-count'] ]['sectors'][i]
+            }
+          }) }}
+
           {% set i = i + 1 %}
         {% endfor %}
 

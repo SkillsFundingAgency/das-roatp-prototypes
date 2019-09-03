@@ -11,19 +11,38 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">What is your email address?</h1>
+    <h1 class="govuk-heading-xl">Create an account to use the RoATP service</h1>
 
-    <p class="govuk-body">We will send you an email to confirm your email address.</p>
+    <form action="" method="post" class="form">
 
-    <form action="createaccount-invitesent" method="post" class="form">
+      {{ govukInput({
+        label: {
+          text: "First name"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "createFirstname",
+        name: "createFirstname"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Last name"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "createLastname",
+        name: "createLastname"
+      }) }}
 
       {{ govukInput({
         label: {
           text: "Email address"
         },
+        hint: {
+          text: "We’ll use this to send you a confirmation email"
+        },
         classes: "govuk-!-width-two-thirds",
-        id: "create-email",
-        name: "create-email"
+        id: "createEmail",
+        name: "createEmail"
       }) }}
 
       {{ govukButton({

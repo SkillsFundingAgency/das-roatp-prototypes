@@ -18,7 +18,7 @@
 
       <p class="govuk-caption-l">Sectors</p>
 
-      <h1 class="govuk-heading-l">What is {{ data['del-employee'][ data['del-employee-count'] ]['name'] }}'s experience of delivering training in these sectors?</h1>
+      <h1 class="govuk-heading-l">What experience does {{ data['del-employee'][ data['del-employee-count'] ]['name'] }} have in these sectors overall?</h1>
 
       <form action="" method="post" class="form">
         
@@ -26,8 +26,8 @@
         {% for employeesector in data['del-employee'][ data['del-employee-count'] ]['sectors'] %}
 
           {{ govukRadios({
-            idPrefix: "del-employee-sector-experience["+i+"]",
-            name: "del-employee-sector-experience["+i+"]",
+            idPrefix: "del-employee-sector-overallexperience["+i+"]",
+            name: "del-employee-sector-overallexperience["+i+"]",
             fieldset: {
               legend: {
                 text: data['del-employee'][ data['del-employee-count'] ]['sectors'][i],

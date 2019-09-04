@@ -1828,8 +1828,12 @@ module.exports = function (router) {
 	})
 
 	// Sectors training in
-	router.post('/application/' + v + '/delivering/employee-add', function (req, res) {
+	router.get('/application/' + v + '/delivering/employee-add-route', function (req, res) {
+		req.session.data['current_sector_id'] = req.query.sectorid
+		res.redirect('/application/' + v + '/delivering/employee-add')
+	})
 
+/*
 		if (!req.session.data['del-employee-count']) {
 			req.session.data['del-employee-count'] = 0
 		} else {
@@ -1865,7 +1869,7 @@ module.exports = function (router) {
 		req.session.data['del-employee'].push(newEmployee)
 
 		res.redirect('/application/' + v + '/delivering/employee-sectors')
-	})
+*/
 
 	// Select the sectors which employee delivers
 	router.post('/application/' + v + '/delivering/employee-sectors', function (req, res) {

@@ -18,35 +18,26 @@
 
       <p class="govuk-caption-l">Sectors</p>
 
-      <h1 class="govuk-heading-l">Who’s in your organisation’s management team for apprenticeships</h1>
-      
-      {% if data['del-employee'] %}
-        <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th class="govuk-table__header" scope="col">Name</th>
-              <th class="govuk-table__header" scope="col">Job role</th>
-              <th class="govuk-table__header" scope="col">Time with organisation</th>
-              <th class="govuk-table__header" scope="col"></th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-          {% for employee in data['del-employee'] %}
-            {% if (employee.name != '') %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">{{ employee.name }}</td>
-                <td class="govuk-table__cell">{{ employee.job_role }}</td>
-                <td class="govuk-table__cell">{{ employee.time_with_org }}</td>
-                <td class="govuk-table__cell"><a href="#">Change</a></td>
-              </tr>
-            {% endif %}
-          {% endfor %}
-          </tbody>
-        </table>
-        <p class="govuk_body"><a href="employee-add">Add another employee</a></p>
-      {% else %}
-        <p class="govuk_body"><a href="employee-add">Add an employee</a></p>
-      {% endif %}
+      <h1 class="govuk-heading-l">The sectors your organisation will offer apprenticeship training in</h1>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Sectors</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% set i = 0 %}
+        {% for sector in data['del-sectors'] %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">{{ sector }}</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="employee-add-route?sectorid={{i}}">Add the most experienced employee</a></td>
+          </tr>
+          {% set i = i + 1 %}
+        {% endfor %}
+        </tbody>
+      </table>
 
       <form action="" method="post" class="form">
 

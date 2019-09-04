@@ -1803,9 +1803,12 @@ module.exports = function (router) {
 			'sectors_expoverall': [],
 			'sectors_wheregained': [],
 			'sectors_quals': [],
-			'sectors_teachingquals': [],
-			'sectors_awarding': [],
-			'sectors_trade': [],
+			'sectors_teachingquals': '',
+			'sectors_teachingquals_detail': '',
+			'sectors_awarding': '',
+			'sectors_awarding_detail': '',
+			'sectors_trade': '',
+			'sectors_trade_detail': '',
 			'experience_training': '',
 			'apprenticeship_types': ''
 		}

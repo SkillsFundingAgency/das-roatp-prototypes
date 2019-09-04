@@ -16,58 +16,58 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-caption-l">Management hierarchy</p>
+    <p class="govuk-caption-l">Team responsible for developing and delivering training</p>
 
     <form action="" method="post" class="form">
 
       {% if data["org-selectedroute"] == "main" %}
           
-        <h1 class="govuk-heading-l">Who has your management team worked with to develop and deliver training?</h1>
+        <h1 class="govuk-heading-l">Who have the team worked with to develop and deliver training?</h1>
 
         {{ govukRadios({
-          idPrefix: "del-developdeliver",
-          name: "del-developdeliver",
+          idPrefix: "del-developdeliver-workedwith",
+          name: "del-developdeliver-workedwith",
           items: [
-            {
-              value: "Employers",
-              text: "Employers - to deliver training to their employees",
-              checked: checked("del-developdeliver", "Employers")
-            },
             {
               value: "Other",
               text: "Other organisations",
-              checked: checked("del-developdeliver", "Other")
+              checked: checked("del-developdeliver-workedwith", "Other")
+            },
+            {
+              value: "Employers",
+              text: "Employers - to deliver training to their employees",
+              checked: checked("del-developdeliver-workedwith", "Employers")
             },
             {
               value: "Both",
               text: "Both",
-              checked: checked("del-developdeliver", "Both")
+              checked: checked("del-developdeliver-workedwith", "Both")
             },
             {
               value: "No one yet",
               text: "No one yet",
-              checked: checked("del-developdeliver", "No one yet")
+              checked: checked("del-developdeliver-workedwith", "No one yet")
             }
           ]
         }) }}
 
       {% elseif data["org-selectedroute"] == "supporting" %}
 
-        <h1 class="govuk-heading-l">Has your organisation’s management team worked with other organisations to develop and deliver training?</h1>
+        <h1 class="govuk-heading-l">Has the team worked with other organisations to develop and deliver training?</h1>
 
         {{ govukRadios({
-          idPrefix: "del-developdeliver",
-          name: "del-developdeliver",
+          idPrefix: "del-developdeliver-workedwith",
+          name: "del-developdeliver-workedwith",
           items: [
             {
               value: "Yes",
               text: "Yes",
-              checked: checked("del-developdeliver", "Yes")
+              checked: checked("del-developdeliver-workedwith", "Yes")
             },
             {
               value: "No",
               text: "No",
-              checked: checked("del-developdeliver", "No")
+              checked: checked("del-developdeliver-workedwith", "No")
             }
           ]
         }) }}

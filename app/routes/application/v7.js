@@ -1702,7 +1702,7 @@ module.exports = function (router) {
 		}
 	})	
 
-	// Who's accountable for apprenticeships?
+	// Management hierarchy
 	router.post('/application/' + v + '/delivering/hierarchy-add', function (req, res) {
 
 		var newPerson = {
@@ -1735,48 +1735,94 @@ module.exports = function (router) {
 	// Who's accountable for apprenticeships confirmation
 	router.post('/application/' + v + '/delivering/hierarchy-confirm', function (req, res) {
 
-		if (!req.session.data["org-selectedroute"] == "employer"){
+		req.session.data['tl_del_hierarchy'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
+		/*if (!req.session.data["org-selectedroute"] == "employer"){
 			res.redirect('/application/' + v + '/delivering/develop-deliver')
 		} else {
-			res.redirect('/application/' + v + '/delivering/work-with')
+			res.redirect('/application/' + v + '/task-list#section-delivering')
+			//res.redirect('/application/' + v + '/delivering/work-with')
+		}*/
+	})
+
+	// Expectations (high standards)
+	router.post('/application/' + v + '/delivering/expectations', function (req, res) {
+		req.session.data['tl_del_expectations'] = 'inprogress'
+		if (req.session.data['del-expectations'] == "Yes") {
+			res.redirect('/application/' + v + '/delivering/expectations-upload')
+		} else {
+			res.redirect('/application/' + v + '/delivering/expectations-responsible')
 		}
 	})
 
-	// Worked with to develop and deliver training
-	router.post('/application/' + v + '/delivering/develop-deliver', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/work-with')
+	// Expectations - Upload document for high standards
+	router.post('/application/' + v + '/delivering/expectations-upload', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations-responsible')
 	})
 
-	// Worked with employers/other orgs
-	router.post('/application/' + v + '/delivering/work-with', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/expectations')
-	})
-
-	// Expectations
-	router.post('/application/' + v + '/delivering/expectations', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/expectations-definition')
-	})
-
-	// Expectations - definition
-	router.post('/application/' + v + '/delivering/expectations-definition', function (req, res) {
+	// Expectations - Who's responsible?
+	router.post('/application/' + v + '/delivering/expectations-responsible', function (req, res) {
 		res.redirect('/application/' + v + '/delivering/expectations-communicated')
 	})
 
-	// Expectations - communicated
+	// Expectations - How communicated to employees?
 	router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/training-manager')
+		req.session.data['tl_del_expectations'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
-	// Expectations - communicated
-	router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/training-manager')
+	// Expectations (high standards) - definition
+	/*router.post('/application/' + v + '/delivering/expectations-definition', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations-communicated')
+	})*/
+
+
+	// Developing and Delivering - Does your organisation have a team responsible?
+	router.post('/application/' + v + '/delivering/developdeliver', function (req, res) {
+		req.session.data['tl_del_developdeliver'] = 'inprogress'
+		if (req.session.data["org-selectedroute"] == "employer"){
+			res.redirect('/application/' + v + '/delivering/developdeliver-overallmanager')
+		} else {
+			res.redirect('/application/' + v + '/delivering/developdeliver-workedwith')
+		}
 	})
+
+	// Developing and Delivering - Worked with to deliver
+	router.post('/application/' + v + '/delivering/developdeliver-workedwith', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/developdeliver-howworkedwith')
+	})
+
+	// Developing and Delivering - Worked with to deliver
+	router.post('/application/' + v + '/delivering/developdeliver-howworkedwith', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/developdeliver-overallmanager')
+	})
+
+	// Developing and Delivering - Overall manager
+	router.post('/application/' + v + '/delivering/developdeliver-overallmanager', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/developdeliver-overallaccountability')
+	})
+
+	// Developing and Delivering - Overall accountability
+	router.post('/application/' + v + '/delivering/developdeliver-overallaccountability', function (req, res) {
+		req.session.data['tl_del_developdeliver'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
+	})
+
+	// Worked with employers/other orgs
+	/*router.post('/application/' + v + '/delivering/work-with', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/expectations')
+	})*/
+
+	// Expectations - communicated
+	/*router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/training-manager')
+	})*/
 
 	// Who is your apprenticeship training manager?
-	router.post('/application/' + v + '/delivering/training-manager', function (req, res) {
+	/*router.post('/application/' + v + '/delivering/training-manager', function (req, res) {
 		req.session.data['tl_del_hierarchy'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-hierarchy')
-	})
+	})*/
 
 
 	// Sectors training in
@@ -1798,7 +1844,19 @@ module.exports = function (router) {
 			'name': req.session.data['del-employee-name'],
 			'job_role': req.session.data['del-employee-role'],
 			'time_in_role': req.session.data['del-employee-timeinorg'],
-			'sectors': []
+			'sectors': [],
+			'sectors_expdelivering': [],
+			'sectors_expoverall': [],
+			'sectors_wheregained': [],
+			'sectors_quals': [],
+			'sectors_teachingquals': '',
+			'sectors_teachingquals_detail': '',
+			'sectors_awarding': '',
+			'sectors_awarding_detail': '',
+			'sectors_trade': '',
+			'sectors_trade_detail': '',
+			'experience_training': '',
+			'apprenticeship_types': ''
 		}
 
 		req.session.data['del-employee-name'] = null
@@ -1819,6 +1877,13 @@ module.exports = function (router) {
 		// Add selected sectors to current employee array item
 		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'] = req.session.data['del-employee-sector']
 
+		//for each item in selected sectors for employee
+		/*var employeesectors_array = req.session.data['del-employee-sector']
+		var employeesectors_length = employeesectors_array.length
+		for (var i = 0; i < employeesectors_length; i++) {
+			req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i] = req.session.data['del-employee-sector'][i]
+		}*/
+
 		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
 
 	})
@@ -1827,21 +1892,83 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/delivering/employee-sectors-experience', function (req, res) {
 
 		//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][0] = req.session.data['del-employee-sector']
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_expdelivering'] = req.session.data['del-employee-sector-experience']
 
-		var exp_array = req.session.data['del-employee-sector-experience']
-		var exp_length = exp_array.length;
-		req.session.data['aa_employee_exp_detail_count'] = exp_length
-		//console.log(exp_length);
-		for (var i = 0; i < exp_length; i++) {
-			//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i][1] = req.session.data['del-employee-sector']
-
-			//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i][] = req.session.data['del-employee-sector']
-
-			//Do something
-		}
-		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
+		res.redirect('/application/' + v + '/delivering/employee-sectors-overallexperience')
 	})
 
+	// Employee overall experience in those sectors
+	router.post('/application/' + v + '/delivering/employee-sectors-overallexperience', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_expoverall'] = req.session.data['del-employee-sector-overallexperience']
+
+		res.redirect('/application/' + v + '/delivering/employee-sectors-wheregained')
+
+	})
+
+	// Where experience in those sectors was gained
+	router.post('/application/' + v + '/delivering/employee-sectors-wheregained', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_wheregained'] = req.session.data['del-employee-sector-wheregained']
+
+		res.redirect('/application/' + v + '/delivering/employee-sectors-quals')
+
+	})
+
+	// Qualifications in relation to sectors
+	router.post('/application/' + v + '/delivering/employee-sectors-quals', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_quals'] = req.session.data['del-employee-sector-quals']
+
+		res.redirect('/application/' + v + '/delivering/employee-sectors-teachingquals')
+
+	})
+
+	// Teaching and training qualifications in relation to sectors
+	router.post('/application/' + v + '/delivering/employee-sectors-teachingquals', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_teachingquals'] = req.session.data['del-employee-sector-teachingquals']
+
+		res.redirect('/application/' + v + '/delivering/employee-sectors-awarding')
+
+	})
+
+	// Awarding bodies approval to deliver training
+	router.post('/application/' + v + '/delivering/employee-sectors-awarding', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_awarding'] = req.session.data['del-employee-sector-awarding']
+
+		res.redirect('/application/' + v + '/delivering/employee-sectors-trade')
+
+	})
+
+	// Trade bodies approval to deliver training
+	router.post('/application/' + v + '/delivering/employee-sectors-trade', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_trade'] = req.session.data['del-employee-sector-trade']
+
+		res.redirect('/application/' + v + '/delivering/employee-experience-training')
+
+	})
+	
+	// Experience of training apprenctices 
+	router.post('/application/' + v + '/delivering/employee-experience-training', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['experience_training'] = req.session.data['del-employee-experience-training']
+
+		res.redirect('/application/' + v + '/delivering/employee-apprenticeship-types')
+
+	})
+	
+	// What type of apprenticeships have they delivered?
+	router.post('/application/' + v + '/delivering/employee-apprenticeship-types', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['del-employee-count']]['apprenticeship_types'] = req.session.data['del-employee-apprenticeship-types']
+
+		res.redirect('/application/' + v + '/delivering/employee-list')
+
+	})
+	
 
 /****************
  *** Sign out ***

@@ -96,8 +96,20 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/signin', function (req, res) {
 
 		req.session.data['signedin'] = 'yes'
+		//var signinemailtouse = "employer@organisation.parent"
+		var signinemailtouse = ""
+		if (
+			signinemailtouse == "" ||
+			req.session.data['signin-email'] == "skip@ofsted" ||
+			req.session.data['signin-email'] == "skip@organisation" ||
+			req.session.data['signin-email'] == "main@organisation.parent" ||
+			req.session.data['signin-email'] == "employer@organisation.parent" ||
+			req.session.data['signin-email'] == "supporting@organisation.parent"
+		){
+			signinemailtouse = req.session.data['signin-email']
+		}
 
-		if (req.session.data['signin-email'] == "skip@ofsted") {
+		if (signinemailtouse == "skip@ofsted") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -115,7 +127,7 @@ module.exports = function (router) {
 			req.session.data['tl_profile_ofsted'] = "next"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		} else if (req.session.data['signin-email'] == "skip@organisation") {
+		} else if (signinemailtouse == "skip@organisation") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -135,7 +147,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		} else if (req.session.data['signin-email'] == "main@organisation.parent") {
+		} else if (signinemailtouse == "main@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -157,7 +169,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		} else if (req.session.data['signin-email'] == "employer@organisation.parent") {
+		} else if (signinemailtouse == "employer@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
@@ -179,7 +191,7 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = "completed"
 			req.session.data['tl_selectroute'] = "completed"
 			res.redirect('/application/' + v + '/task-list')
-		} else if (req.session.data['signin-email'] == "supporting@organisation.parent") {
+		} else if (signinemailtouse == "supporting@organisation.parent") {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"

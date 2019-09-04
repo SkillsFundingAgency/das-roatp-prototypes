@@ -96,10 +96,12 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/signin', function (req, res) {
 
 		req.session.data['signedin'] = 'yes'
-		//var signinemailtouse = "employer@organisation.parent"
-		var signinemailtouse = ""
+
+		// Set default progress on sign in
+		var signinemailtouse = "employer@organisation.parent"
+		//var signinemailtouse = ""
+
 		if (
-			signinemailtouse == "" ||
 			req.session.data['signin-email'] == "skip@ofsted" ||
 			req.session.data['signin-email'] == "skip@organisation" ||
 			req.session.data['signin-email'] == "main@organisation.parent" ||
@@ -215,25 +217,6 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list')
 
 		} else {
-
-			//default skip ofsted for v6 testing
-			/*req.session.data['exempt_fha'] = "no"
-			req.session.data['org-classification'] = "none"
-			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "yes"
-			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "employer"
-			req.session.data['org-ukprn'] = "12340101"
-			req.session.data['signedin'] = "yes"
-			req.session.data['tl_org_details'] = "completed"
-			req.session.data['tl_org_intro'] = "completed"
-			req.session.data['tl_org_people'] = "completed"
-			req.session.data['tl_org_profile'] = "next"
-			req.session.data['tl_org_type'] = "completed"
-			req.session.data['tl_profile_ofsted'] = "next"
-			req.session.data['tl_selectroute'] = "completed"
-			res.redirect('/application/' + v + '/task-list')*/
 			res.redirect('/application/' + v + '/coa')
 		}
 

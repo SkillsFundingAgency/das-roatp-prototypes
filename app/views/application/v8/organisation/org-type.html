@@ -1,0 +1,101 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">What is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {% if (data['org-selectedroute'] == "employer") %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "education",
+            text: "An educational institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "psb",
+            text: "A public body",
+            checked: checked("org-type", "psb")
+          },
+          {
+            value: "none",
+            text: "None of the above",
+            checked: checked("org-type", "none")
+          }
+        ]
+      }) }}
+
+      {% else %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "education",
+            text: "An educational institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "employer",
+            text: "An employer training apprentices in other organisations",
+            checked: checked("org-type", "employer")
+          },
+          {
+            value: "psb",
+            text: "A public body",
+            checked: checked("org-type", "psb")
+          },
+          {
+            value: "ata",
+            text: "An apprenticeship training agency",
+            checked: checked("org-type-training", "ata")
+          },
+          {
+            value: "itp",
+            text: "An independent training providers",
+            checked: checked("org-type-training", "itp")
+          },
+          {
+            value: "gta",
+            text: "A group training association",
+            checked: checked("org-type-training", "gta")
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

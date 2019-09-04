@@ -12,6 +12,7 @@ require('./routes/application/v4.js')(router);
 require('./routes/application/v5.js')(router);
 require('./routes/application/v6.js')(router);
 require('./routes/application/v7.js')(router);
+require('./routes/application/v8.js')(router);
 
 // Organisation Journey
 require('./routes/organisation/v01.js')(router);

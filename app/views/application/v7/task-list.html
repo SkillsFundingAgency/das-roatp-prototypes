@@ -556,7 +556,7 @@
             </li> 
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/whosaccountable" aria-describedby="del-hierarchy">Management hierarchy</a>
+                <a class="app-task-list__task-name" href="delivering/hierarchy-add" aria-describedby="del-hierarchy">Management hierarchy</a>
               {% else %}
                 Management hierarchy
               {% endif %}
@@ -568,26 +568,26 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/XXX" aria-describedby="del-highstandards">High standards in apprenticeship training</a>
+                <a class="app-task-list__task-name" href="delivering/expectations" aria-describedby="del-expectations">High standards in apprenticeship training</a>
               {% else %}
                 High standards in apprenticeship training
               {% endif %}
-              {% if data['tl_del_highstandards'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="del-highstandards">Completed</strong>
-              {% elseif data['tl_del_highstandards'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="del-highstandards">In progress</strong>
+              {% if data['tl_del_expectations'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-expectations">Completed</strong>
+              {% elseif data['tl_del_expectations'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="del-expectations">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/XXX" aria-describedby="del-teamresponsible">Team responsible for developing and delivering training</a>
+                <a class="app-task-list__task-name" href="delivering/developdeliver" aria-describedby="del-developdeliver">Team responsible for developing and delivering training</a>
               {% else %}
                 Team responsible for developing and delivering training
               {% endif %}
-              {% if data['tl_del_teamresponsible'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="del-teamresponsible">Completed</strong>
-              {% elseif data['tl_del_teamresponsible'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="del-teamresponsible">In progress</strong>
+              {% if data['tl_del_developdeliver'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-developdeliver">Completed</strong>
+              {% elseif data['tl_del_developdeliver'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="del-developdeliver">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">

@@ -16,7 +16,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-caption-l">Management hierarchy</p>
+    <p class="govuk-caption-l">High standards in apprenticeship training</p>
 
     <form action="" method="post" class="form">
 
@@ -26,26 +26,26 @@
 
       {% else %}
 
-        <h1 class="govuk-heading-l">Has your management team documented its expectations for high standards in apprenticeship training?</h1>
+        <h1 class="govuk-heading-l">Has your management hierarchy documented its expectations for high standards in apprenticeship training?</h1>
 
       {% endif %}
 
-        {{ govukRadios({
-          idPrefix: "del-expectations",
-          name: "del-expectations",
-          items: [
-            {
-              value: "Yes",
-              text: "Yes",
-              checked: checked("del-expectations", "Yes")
-            },
-            {
-              value: "No",
-              text: "No",
-              checked: checked("del-expectations", "No")
-            }
-          ]
-        }) }}
+      {{ govukRadios({
+        idPrefix: "del-expectations",
+        name: "del-expectations",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("del-expectations", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("del-expectations", "No")
+          }
+        ]
+      }) }}
 
       {{ govukButton({
         text: "Save and continue",

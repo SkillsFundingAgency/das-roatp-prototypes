@@ -98,10 +98,11 @@ module.exports = function (router) {
 		req.session.data['signedin'] = 'yes'
 
 		// Set default progress on sign in
-		var signinemailtouse = "employer@organisation.parent"
-		//var signinemailtouse = ""
+		//var signinemailtouse = "employer@organisation.parent"
+		var signinemailtouse = ""
 
 		if (
+			signinemailtouse == "" ||
 			req.session.data['signin-email'] == "skip@ofsted" ||
 			req.session.data['signin-email'] == "skip@organisation" ||
 			req.session.data['signin-email'] == "main@organisation.parent" ||

@@ -1,0 +1,57 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Organisation information</p>
+        
+    <h1 class="govuk-heading-l">Enter your organisation’s ultimate parent company details</h1>
+
+    <p class="govuk-body">If you’re not sure, <a href="https://beta.companieshouse.gov.uk/" target="_blank">search for your UK ultimate parent company (opens in a new window or tab)</a>.</p>
+
+    <form action="" method="post" class="form">
+      
+      {{ govukInput({
+        label: {
+          text: "Company number"
+        },
+        classes: "govuk-input--width-10",
+        id: "org-parentcompany-number",
+        name: "org-parentcompany-number",
+        value: data['org-parentcompany-number']
+      }) }}
+      
+      {{ govukInput({
+        label: {
+          text: "Company name"
+        },
+        id: "org-parentcompany-name",
+        name: "org-parentcompany-name",
+        value: data['org-parentcompany-name']
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

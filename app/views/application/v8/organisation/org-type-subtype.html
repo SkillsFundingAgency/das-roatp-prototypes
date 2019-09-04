@@ -1,0 +1,64 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">How will your organisation train its apprentices?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-subtype",
+        name: "org-type-subtype",
+        items: [
+          {
+            value: "own-org",
+            text: "In your organisation",
+            checked: checked("org-type-subtype", "own-org")
+          },
+          {
+            value: "connected-org",
+            text: "In connected companies or charities",
+            checked: checked("org-type-subtype", "connected-org")
+          },
+          {
+            value: "both",
+            text: "In your organisation and connected companies or charities",
+            checked: checked("org-type-subtype", both)
+          }
+        ]
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "What is a connected company or charity?",
+        html: "<p>A connected company is part of the same group and has the same ultimate parent company as your organisation.</p>
+        <p>A connected charity is part of the same group of charities and has a majority of the same controlling trustees as your organisation.</p>"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

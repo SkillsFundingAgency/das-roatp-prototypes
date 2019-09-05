@@ -98,7 +98,7 @@ module.exports = function (router) {
 		req.session.data['signedin'] = 'yes'
 
 		// Set default progress on sign in
-		//var signinemailtouse = "employer@organisation.parent"
+		// var signinemailtouse = "employer@organisation.parent"
 		var signinemailtouse = ""
 
 		if (
@@ -449,14 +449,15 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/org-trading', function (req, res) {
 		
 		if (req.session.data['org-trading']) {
-			/*
+			
 			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
-
+				res.redirect('/application/' + v + '/task-list#section-organisation')
+				/*
 				if (req.session.data['org-ukprn'] === "12340202") { 
 					res.redirect('/application/' + v + '/organisation/org-trustees')
 				} else if (req.session.data['org-ukprn'] === "12340203") {
@@ -468,12 +469,9 @@ module.exports = function (router) {
 				} else {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
 				}
-
+				*/
 			}
-			*/
-			req.session.data['tl_org_details'] = 'completed'
-			req.session.data['tl_org_people'] = 'next'
-			res.redirect('/application/' + v + '/task-list#section-organisation')
+			
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-trading')
 		}

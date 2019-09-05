@@ -98,7 +98,7 @@ module.exports = function (router) {
 		req.session.data['signedin'] = 'yes'
 
 		// Set default progress on sign in
-		//var signinemailtouse = "employer@organisation.parent"
+		// var signinemailtouse = "employer@organisation.parent"
 		var signinemailtouse = ""
 
 		if (
@@ -449,14 +449,15 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/org-trading', function (req, res) {
 		
 		if (req.session.data['org-trading']) {
-			/*
+			
 			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
-
+				res.redirect('/application/' + v + '/task-list#section-organisation')
+				/*
 				if (req.session.data['org-ukprn'] === "12340202") { 
 					res.redirect('/application/' + v + '/organisation/org-trustees')
 				} else if (req.session.data['org-ukprn'] === "12340203") {
@@ -468,12 +469,9 @@ module.exports = function (router) {
 				} else {
 					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
 				}
-
+				*/
 			}
-			*/
-			req.session.data['tl_org_details'] = 'completed'
-			req.session.data['tl_org_people'] = 'next'
-			res.redirect('/application/' + v + '/task-list#section-organisation')
+			
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-trading')
 		}
@@ -1828,8 +1826,12 @@ module.exports = function (router) {
 	})
 
 	// Sectors training in
-	router.post('/application/' + v + '/delivering/employee-add', function (req, res) {
+	router.get('/application/' + v + '/delivering/employee-add-route', function (req, res) {
+		req.session.data['current_sector_id'] = req.query.sectorid
+		res.redirect('/application/' + v + '/delivering/employee-add')
+	})
 
+/*
 		if (!req.session.data['del-employee-count']) {
 			req.session.data['del-employee-count'] = 0
 		} else {
@@ -1865,7 +1867,7 @@ module.exports = function (router) {
 		req.session.data['del-employee'].push(newEmployee)
 
 		res.redirect('/application/' + v + '/delivering/employee-sectors')
-	})
+*/
 
 	// Select the sectors which employee delivers
 	router.post('/application/' + v + '/delivering/employee-sectors', function (req, res) {

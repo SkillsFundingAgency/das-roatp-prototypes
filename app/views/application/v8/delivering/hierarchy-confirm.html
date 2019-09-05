@@ -42,7 +42,7 @@
               <td class="govuk-table__cell">{{ person.report_to }}</td>
               <td class="govuk-table__cell">{{ person.org_funding }} {% if (person.org_funding_name != '') %}({{ person.org_funding_name }}){% endif %}</td>
               <td class="govuk-table__cell">{{ person.subcontractor_funding }}</td-->
-              <td class="govuk-table__cell" style="text-align: right"><a href="#">Change details for this person</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#">Change details for this person</a></td>
             </tr>
           {% endif %}
         {% endfor %}

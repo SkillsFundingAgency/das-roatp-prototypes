@@ -1793,12 +1793,13 @@ module.exports = function (router) {
 
 	// Developing and Delivering - Overall manager
 	router.post('/application/' + v + '/delivering/developdeliver-overallmanager', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/developdeliver-overallaccountability')
+		req.session.data['tl_del_developdeliver'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
 	// Developing and Delivering - Overall accountability
-	router.post('/application/' + v + '/delivering/developdeliver-overallaccountability', function (req, res) {
-		req.session.data['tl_del_developdeliver'] = 'completed'
+	router.post('/application/' + v + '/delivering/overallaccountability', function (req, res) {
+		req.session.data['tl_del_accountability'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
@@ -1830,6 +1831,8 @@ module.exports = function (router) {
 		req.session.data['current_sector_id'] = req.query.sectorid
 		res.redirect('/application/' + v + '/delivering/employee-add')
 	})
+
+
 
 /*
 		if (!req.session.data['del-employee-count']) {
@@ -1875,7 +1878,7 @@ module.exports = function (router) {
 		// Add selected sectors to current employee array item
 		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'] = req.session.data['del-employee-sector']
 
-		//for each item in selected sectors for employee
+		// for each item in selected sectors for employee
 		/*var employeesectors_array = req.session.data['del-employee-sector']
 		var employeesectors_length = employeesectors_array.length
 		for (var i = 0; i < employeesectors_length; i++) {
@@ -1885,7 +1888,7 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
 
 	})
-
+/*
 	// Employee experience of delivering in those sectors
 	router.post('/application/' + v + '/delivering/employee-sectors-experience', function (req, res) {
 
@@ -1966,7 +1969,7 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/delivering/employee-list')
 
 	})
-	
+*/
 
 /****************
  *** Sign out ***

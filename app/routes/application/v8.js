@@ -1823,13 +1823,13 @@ module.exports = function (router) {
 	// Sectors training in
 	router.post('/application/' + v + '/delivering/sectors', function (req, res) {
 		req.session.data['tl_del_sectors'] = 'inprogress'
-		res.redirect('/application/' + v + '/delivering/employee-list')
+		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
 
 	// Sectors training in
-	router.get('/application/' + v + '/delivering/employee-add-route', function (req, res) {
+	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
 		req.session.data['current_sector_id'] = req.query.sectorid
-		res.redirect('/application/' + v + '/delivering/employee-add')
+		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
 	})
 
 

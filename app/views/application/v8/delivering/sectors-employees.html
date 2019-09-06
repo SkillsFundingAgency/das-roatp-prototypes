@@ -11,19 +11,21 @@
   }) }}
 {% endblock %}
 
+{% set sectorcount = data['del-sectors'] | length %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-caption-l">Sectors</p>
+      <p class="govuk-caption-l">Sectors and employee experience</p>
 
-      <h1 class="govuk-heading-l">The sectors your organisation will offer apprenticeship training in</h1>
+      <h1 class="govuk-heading-l">The sector{% if sectorcount > 1 %}s{% endif  %} your organisation will offer apprenticeship training in</h1>
 
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th class="govuk-table__header" scope="col">Sectors</th>
+            <th class="govuk-table__header" scope="col">Sector{% if sectorcount > 1 %}s{% endif  %}</th>
             <th class="govuk-table__header" scope="col"></th>
           </tr>
         </thead>
@@ -32,7 +34,7 @@
         {% for sector in data['del-sectors'] %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell" scope="row">{{ sector }}</td>
-            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="employee-add-route?sectorid={{i}}">Add the most experienced employee</a></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="sectors-employee-add-route?sectorid={{i}}">Add the most experienced employee</a></td>
           </tr>
           {% set i = i + 1 %}
         {% endfor %}

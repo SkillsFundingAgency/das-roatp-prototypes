@@ -18,63 +18,14 @@
 
       <p class="govuk-caption-l">Sectors and employee experience</p>
 
-      <h1 class="govuk-heading-l">Tell us who’s the most experienced employee in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector</h1>
+      <h1 class="govuk-heading-l">Tell us about {{ data['del-employee'][ data['current_sector_id'] ]['name'] }}’s experience in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector</h1>
 
       <form action="" method="post" class="form">
 
-        {{ govukInput({
-          label: {
-            text: "Full name"
-          },
-          classes: "govuk-input--width-20",
-          id: "del-employee-name",
-          name: "del-employee-name",
-          value: data['del-employee'][ data['current_sector_id'] ]['name']
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Job role"
-          },
-          classes: "govuk-input--width-20",
-          id: "del-employee-role",
-          name: "del-employee-role",
-          value: data['del-employee'][ data['current_sector_id'] ]['job_role']
-        }) }}
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="org-partnership-dob-hint" role="group">
-            <legend class="govuk-fieldset__legend">
-                Time in role
-            </legend>
-            <!--span id="org-partnership-dob-hint" class="govuk-hint">
-              For example, 12 1993
-            </span-->
-            <div class="govuk-date-input" id="del-employee-timeinrole">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="del-employee-timeinrole-years">
-                    Years
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="del-employee-timeinrole-years" name="del-employee-timeinrole-years" type="number" pattern="[0-9]*" value="{{data['del-employee'][ data['current_sector_id'] ]['timeinrole_years']}}">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="del-employee-timeinrole-months">
-                    Months
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="del-employee-timeinrole-months" name="del-employee-timeinrole-months" type="number" pattern="[0-9]*" value="{{data['del-employee'][ data['current_sector_id'] ]['timeinrole_months']}}">
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-<!--
         {% set expTraining1Html %}
           {{ govukCharacterCount({
-            name: "del-employee-experience-training1-detail",
-            id: "del-employee-experience-training1-detail",
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
             maxlength: 1500,
             label: {
               text: "Where did they gain this experience?"
@@ -84,8 +35,8 @@
 
         {% set expTraining2Html %}
           {{ govukCharacterCount({
-            name: "del-employee-experience-training2-detail",
-            id: "del-employee-experience-training2-detail",
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
             maxlength: 1500,
             label: {
               text: "Where did they gain this experience?"
@@ -95,8 +46,8 @@
 
         {% set expTraining3Html %}
           {{ govukCharacterCount({
-            name: "del-employee-experience-training3-detail",
-            id: "del-employee-experience-training3-detail",
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
             maxlength: 1500,
             label: {
               text: "Where did they gain this experience?"
@@ -106,8 +57,8 @@
 
         {% set expTraining4Html %}
           {{ govukCharacterCount({
-            name: "del-employee-experience-training4-detail",
-            id: "del-employee-experience-training4-detail",
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
             maxlength: 1500,
             label: {
               text: "Where did they gain this experience?"
@@ -116,8 +67,8 @@
         {% endset -%}
 
         {{ govukRadios({
-          idPrefix: "del-employee-experience-training",
-          name: "del-employee-experience-training",
+          idPrefix: "del-employee-sectorexperience",
+          name: "del-employee-sectorexperience",
           fieldset: {
             legend: {
               classes: "govuk-fieldset__legend--m",
@@ -161,8 +112,8 @@
         }) }}
 
         {{ govukRadios({
-          idPrefix: "del-employee-experience-overall",
-          name: "del-employee-experience-overall",
+          idPrefix: "del-employee-overallexperience",
+          name: "del-employee-overallexperience",
           fieldset: {
             legend: {
               classes: "govuk-fieldset__legend--m",
@@ -192,7 +143,7 @@
             }
           ]
         }) }}
-
+<!--
         {% set expQualsHtml %}
           {{ govukCharacterCount({
             name: "del-employee-qualifications-detail",

@@ -37,6 +37,39 @@ function checkInspectionDate(d,m,y) {
 
 module.exports = function (router) {
 
+/***************
+ *** Jump to ***
+ ***************/
+
+	router.get('/application/' + v + '/jump/tosectors', function (req,res) {
+		req.session.data['del-sectors'] = ["Creative and design", "Digital", "Health and science", "Sales, marketing and procurement"]
+		req.session.data['exempt_fha'] = "no"
+		req.session.data['org-classification'] = "none"
+		req.session.data['org-ico'] = "12345678"
+		req.session.data['org-parentcompany'] = "yes"
+		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+		req.session.data['org-parentcompany-number'] = "89987987"
+		req.session.data['org-selectedroute'] = "main"
+		req.session.data['org-trading'] = "12-18"
+		req.session.data['org-type'] = "employer"
+		req.session.data['org-ukprn'] = "12340101"
+		req.session.data['pro-itt'] = "no"
+		req.session.data['pro-monitoring-visit'] = "no"
+		req.session.data['pro-ofsted-feskills'] = "no"
+		req.session.data['signedin'] = "yes"
+		req.session.data['signin-email'] = "main@organisation.parent"
+		req.session.data['signin-password'] = ""
+		req.session.data['tl_del_intro'] = "completed"
+		req.session.data['tl_del_sectors'] = "inprogress"
+		req.session.data['tl_org_details'] = "completed"
+		req.session.data['tl_org_intro'] = "completed"
+		req.session.data['tl_org_people'] = "completed"
+		req.session.data['tl_org_profile'] = "completed"
+		req.session.data['tl_org_type'] = "completed"
+		req.session.data['tl_selectroute'] = "completed"
+		res.redirect('/application/' + v + '/delivering/sectors-employees')
+	})
+
 
 /************************
  *** Have an account? ***
@@ -1826,15 +1859,61 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
 
-	// Sectors training in
+	// Select sector to which they will add an employee
 	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
 		req.session.data['current_sector_id'] = req.query.sectorid
 		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
 	})
 
+	// Add employee to sector
+	router.post('/application/' + v + '/delivering/sectors-employee-add', function (req, res) {
 
+		// Create new employee for selected sector
+		var newEmployee = {
+			'sector_id': req.session.data['current_sector_id'],
+			'name': req.session.data['del-employee-name'],
+			'job_role': req.session.data['del-employee-role'],
+			'timeinrole_years': req.session.data['del-employee-timeinrole-years'],
+			'timeinrole_months': req.session.data['del-employee-timeinrole-months']
+		}
+		
+		// Now employee data is save to a local array, clear related session variables
+		delete req.session.data['del-employee-name']
+		delete req.session.data['del-employee-role']
+		delete req.session.data['del-employee-timeinrole-years']
+		delete req.session.data['del-employee-timeinrole-months']
+
+		// If the employee array doesn't exist, create it
+		if (!req.session.data['del-employee']) {
+			req.session.data['del-employee'] = []
+		}
+
+		// Store the local employee array in the session array
+		req.session.data['del-employee'][req.session.data['current_sector_id']] = newEmployee
+
+		// Move on to the next employee question
+		res.redirect('/application/' + v + '/delivering/sectors-employee-sectorexperience')
+
+	})
+
+	// Add employee to sector
+	router.post('/application/' + v + '/delivering/sectors-employee-sectorexperience', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience'] = req.session.data['del-employee-sectorexperience']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['overallexperience'] = req.session.data['del-employee-overallexperience']
+
+		req.session.data['del-employee-sectorexperience'] = null
+		req.session.data['del-employee-sectorexperience-detail'] = null
+		req.session.data['del-employee-overallexperience'] = null
+
+		res.redirect('/application/' + v + '/delivering/sectors-employee-qualifications')
+		
+	})
+		
 
 /*
+		// Create a count for employees added
 		if (!req.session.data['del-employee-count']) {
 			req.session.data['del-employee-count'] = 0
 		} else {

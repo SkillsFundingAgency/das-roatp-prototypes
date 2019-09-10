@@ -41,7 +41,7 @@ module.exports = function (router) {
  *** Jump to ***
  ***************/
 
-	router.get('/application/' + v + '/jump/tosectors', function (req,res) {
+	router.get('/application/' + v + '/jump/tosectorsincomplete', function (req,res) {
 		req.session.data['del-sectors'] = ["Creative and design", "Digital", "Health and science", "Sales, marketing and procurement"]
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['org-classification'] = "none"
@@ -1861,8 +1861,21 @@ module.exports = function (router) {
 
 	// Select sector to which they will add an employee
 	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
-		req.session.data['current_sector_id'] = req.query.sectorid
+		//req.session.data['current_sector_id'] = req.query.sectorid
 		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
+	})
+
+	router.get('/application/' + v + '/delivering/sectors-employee-remove-route', function (req, res) {
+		//req.session.data['remove_employee_id'] = req.query.employeeid
+		res.redirect('/application/' + v + '/delivering/sectors-employee-remove')
+	})
+
+	// Remove employee to sector
+	router.post('/application/' + v + '/delivering/sectors-employee-remove', function (req, res) {
+		if (req.session.data['del-employee-remove'] == "Yes"){
+			req.session.data['del-employee'][req.session.data['remove_employee_id']] = null
+		}
+		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
 
 	// Add employee to sector
@@ -1954,12 +1967,13 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/delivering/sectors-employee-trainingdelivered', function (req, res) {
 
 		req.session.data['del-employee'][req.session.data['current_sector_id']]['trainingdelivered'] = req.session.data['del-employee-trainingdelivered']
-		delete req.session.data['del-employee-trainingdelivered']
 
 		if (req.session.data['del-employee-trainingdelivered'] == "No apprenticeship training delivered"){
 			//req.session.data['tl_del_sectors'] = 'completed'
+			delete req.session.data['del-employee-trainingdelivered']
 			res.redirect('/application/' + v + '/delivering/sectors-employees')
 		} else {
+			delete req.session.data['del-employee-trainingdelivered']
 			res.redirect('/application/' + v + '/delivering/sectors-employee-trainingdelivered-detail')
 		}
 	})

@@ -26,7 +26,17 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="col">Sector{% if sectorcount > 1 %}s{% endif  %}</th>
-            <th class="govuk-table__header" scope="col">{% if (data['del-employee']) %}Name{% endif %}</th>
+            <th class="govuk-table__header" scope="col">
+              {% set employeecount = 0 %}
+              {% for employees in data['del-employee'] %}
+                {% if employees != null %}
+                  {% set employeecount = employeecount + 1 %}
+                  {% if employeecount == 1 %}
+                    Name
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </th>
             <th class="govuk-table__header" scope="col"></th>
           </tr>
         </thead>
@@ -42,9 +52,9 @@
             </td>
             <td class="govuk-table__cell govuk-table__cell--numeric">
               {% if (data['del-employee'][i]) %}
-                <a href="#">Change</a> &nbsp; <a href="#">Remove</a>
+                <a href="#">change</a> or <a href="sectors-employee-remove-route?remove_employee_id={{i}}">remove</a>
               {%else %}
-                <a href="sectors-employee-add-route?sectorid={{i}}">Add the most experienced employee</a>
+                <a href="sectors-employee-add-route?current_sector_id={{i}}">Add the most experienced employee</a>
               {% endif %}
             </td>
           </tr>

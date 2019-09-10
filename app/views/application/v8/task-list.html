@@ -652,7 +652,7 @@
           </ul>
         </li>
 
-        <li>
+        <!--li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">9. </span> Finish
           </h2>
@@ -665,64 +665,20 @@
               {% endif %}
             </li>
           </ul>
-        </li>
+        </li-->
       </ol>
 
-    </div>
+      <form action="" method="post" class="form">
 
-    <!--div class="govuk-grid-column-one-third">
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Application messages
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              You have 0 messages
-            </li>
-            <li>
-              <a href="#">
-                Send a new message
-              </a>
-            </li>
-            <!---li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
-      <br><hr><br-->
-<!--
-      {% set pastDayHtml %}
-        {{ govukTable({
-          rows: [
-            [
-              {
-                text: "You have 0 messages"
-              }
-            ]
-          ]
+        {{ govukButton({
+          text: "Check and submit your application",
+          classes: "govuk-!-margin-right-4"
         }) }}
-      {% endset -%}
 
-      {{ govukTabs({
-        items: [
-          {
-            label: "Messages",
-            id: "messages",
-            panel: {
-              html: pastDayHtml
-            }
-          }
-        ]
-      }) }}
+      </form>
 
     </div>
--->
+
   </div>
 
 {% endblock %}

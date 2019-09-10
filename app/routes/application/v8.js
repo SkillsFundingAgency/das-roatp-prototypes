@@ -50,8 +50,8 @@ module.exports = function (router) {
 		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 		req.session.data['org-parentcompany-number'] = "89987987"
 		req.session.data['org-selectedroute'] = "main"
-		req.session.data['org-trading'] = "12-18"
-		req.session.data['org-type'] = "employer"
+		req.session.data['org-trading'] = "12 to 18 months"
+		req.session.data['org-type'] = "An employer training apprentices in other organisations"
 		req.session.data['org-ukprn'] = "12340101"
 		req.session.data['pro-itt'] = "no"
 		req.session.data['pro-monitoring-visit'] = "no"
@@ -151,8 +151,8 @@ module.exports = function (router) {
 			req.session.data['org-ico'] = "12345678"
 			req.session.data['org-parentcompany'] = "no"
 			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "employer"
+			req.session.data['org-trading'] = "12 to 18 months"
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
@@ -169,8 +169,8 @@ module.exports = function (router) {
 			req.session.data['org-ico'] = "12345678"
 			req.session.data['org-parentcompany'] = "no"
 			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "employer"
+			req.session.data['org-trading'] = "12 to 18 months"
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"
 			req.session.data['pro-monitoring-visit'] = "no"
@@ -191,8 +191,8 @@ module.exports = function (router) {
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "main"
-			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "employer"
+			req.session.data['org-trading'] = "12 to 18 months"
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"
 			req.session.data['pro-monitoring-visit'] = "no"
@@ -213,8 +213,8 @@ module.exports = function (router) {
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "employer"
-			req.session.data['org-trading'] = "12-18"
-			req.session.data['org-type'] = "employer"
+			req.session.data['org-trading'] = "12 to 18 months"
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"
 			req.session.data['pro-monitoring-visit'] = "no"
@@ -235,8 +235,8 @@ module.exports = function (router) {
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "supporting"
-			req.session.data['org-trading'] = "3-6"
-			req.session.data['org-type'] = "employer"
+			req.session.data['org-trading'] = "3 to 6 months"
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"
 			req.session.data['pro-monitoring-visit'] = "no"
@@ -483,7 +483,7 @@ module.exports = function (router) {
 		
 		if (req.session.data['org-trading']) {
 			
-			if ( req.session.data['org-trading'] == "<3" || req.session.data['org-trading'] == "<12") {
+			if ( req.session.data['org-trading'] == "Less than 3 months" || req.session.data['org-trading'] == "Less than 12 months") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 
@@ -624,10 +624,10 @@ module.exports = function (router) {
 
 			if (org_route === 'employer') {
 
-				if (org_orgtype === 'education'){
+				if (org_orgtype === 'An educational institute'){
 					req.session.data['tl_org_type'] = 'inprogress'
 					res.redirect('/application/' + v + '/organisation/org-type-education')
-				} else if (org_orgtype === 'psb') {
+				} else if (org_orgtype === 'A public body') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					res.redirect('/application/' + v + '/organisation/org-type-psb')
 				} else if (org_orgtype === 'none') {
@@ -639,31 +639,27 @@ module.exports = function (router) {
 
 			} else {
 
-				if (org_orgtype === 'education') {
+				if (org_orgtype === 'An educational institute') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					res.redirect('/application/' + v + '/organisation/org-type-education')
-				} else if (org_orgtype === 'employer') {
+				} else if (org_orgtype === 'An employer training apprentices in other organisations') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					req.session.data['tl_profile_ofsted'] = 'next'
 					req.session.data['exempt_fha'] = 'no'
 					res.redirect('/application/' + v + '/organisation/org-classification')
-				} else if (org_orgtype === 'psb') {
+				} else if (org_orgtype === 'A public body') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					req.session.data['exempt_fha'] = 'yes'
 					res.redirect('/application/' + v + '/organisation/org-type-psb')
-				} else if (org_orgtype === 'ata' || org_orgtype === 'itp' || org_orgtype === 'gta') {
+				} else if (org_orgtype === 'An apprenticeship training agency' || org_orgtype === 'An independent training providers' || org_orgtype === 'A group training association') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					req.session.data['exempt_fha'] = 'no'
 
-					//if (req.session.data['org-type-training']) {
 					if (req.session.data['org-selectedroute'] === 'employer') {
 						res.redirect('/application/' + v + '/organisation/org-type-subtype')
 					} else {
 						res.redirect('/application/' + v + '/organisation/org-classification')
 					}
-					//} else {
-					//	res.redirect('/application/' + v + '/organisation/error/org-type-training')
-					//}
 
 				} else {
 					res.redirect('/application/' + v + '/organisation/error/org-type')
@@ -680,20 +676,20 @@ module.exports = function (router) {
 			let org_route = req.session.data['org-selectedroute']
 
 			if (
-				org_orgtype_edu === 'national-college' || 
-				org_orgtype_edu === 'sixth-form' || 
-				org_orgtype_edu === 'gfe')
+				org_orgtype_edu === 'National college' || 
+				org_orgtype_edu === 'Sixth form college' || 
+				org_orgtype_edu === 'General further education college')
 			{
 				req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
 			} else if (
-				org_orgtype_edu === 'academy' ||
-				org_orgtype_edu === 'multi-academy' ||
-				org_orgtype_edu === 'fei')
+				org_orgtype_edu === 'Academy' ||
+				org_orgtype_edu === 'Multi-academy trust' ||
+				org_orgtype_edu === 'Further education institute')
 			{
 				req.session.data['org-fundedbytext'] = 'already registered with ESFA'
-			} else if (org_orgtype_edu === 'hei') {
+			} else if (org_orgtype_edu === 'Higher education institute') {
 				req.session.data['org-fundedbytext'] = 'funded by the Office for Students'
-			} else if (org_orgtype_edu === 'school') {
+			} else if (org_orgtype_edu === 'School') {
 				res.redirect('/application/' + v + '/organisation/org-type-education-school')
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/org-type-education')
@@ -709,7 +705,7 @@ module.exports = function (router) {
 			let org_orgtype_edu_school = req.session.data['org-type-education-school']
 
 			if (req.session.data['org-type-education']) {
-				if (org_orgtype_edu_school === 'free-school') {
+				if (org_orgtype_edu_school === 'Free school') {
 					req.session.data['org-fundedbytext'] = 'already registered with ESFA'
 					res.redirect('/application/' + v + '/organisation/org-fundedby')
 				} else {

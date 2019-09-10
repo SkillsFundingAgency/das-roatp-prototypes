@@ -41,7 +41,7 @@ module.exports = function (router) {
  *** Jump to ***
  ***************/
 
-	router.get('/application/' + v + '/jump/tosectors', function (req,res) {
+	router.get('/application/' + v + '/jump/tosectorsincomplete', function (req,res) {
 		req.session.data['del-sectors'] = ["Creative and design", "Digital", "Health and science", "Sales, marketing and procurement"]
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['org-classification'] = "none"
@@ -1861,8 +1861,21 @@ module.exports = function (router) {
 
 	// Select sector to which they will add an employee
 	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
-		req.session.data['current_sector_id'] = req.query.sectorid
+		//req.session.data['current_sector_id'] = req.query.sectorid
 		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
+	})
+
+	router.get('/application/' + v + '/delivering/sectors-employee-remove-route', function (req, res) {
+		//req.session.data['remove_employee_id'] = req.query.employeeid
+		res.redirect('/application/' + v + '/delivering/sectors-employee-remove')
+	})
+
+	// Remove employee to sector
+	router.post('/application/' + v + '/delivering/sectors-employee-remove', function (req, res) {
+		if (req.session.data['del-employee-remove'] == "Yes"){
+			req.session.data['del-employee'][req.session.data['remove_employee_id']] = null
+		}
+		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
 
 	// Add employee to sector
@@ -1900,18 +1913,109 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/delivering/sectors-employee-sectorexperience', function (req, res) {
 
 		req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience'] = req.session.data['del-employee-sectorexperience']
-		req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail']
+
+		if (req.session.data['del-employee-sectorexperience'] == "Less than a year"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail'][0]
+		} else if (req.session.data['del-employee-sectorexperience'] == "One to 2 years"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail'][1]
+		} else if (req.session.data['del-employee-sectorexperience'] == "3 to 5 years"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail'][2]
+		} else if (req.session.data['del-employee-sectorexperience'] == "Over 5 years"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['sectorexperience-detail'] = req.session.data['del-employee-sectorexperience-detail'][3]
+		}
+
 		req.session.data['del-employee'][req.session.data['current_sector_id']]['overallexperience'] = req.session.data['del-employee-overallexperience']
 
-		req.session.data['del-employee-sectorexperience'] = null
-		req.session.data['del-employee-sectorexperience-detail'] = null
-		req.session.data['del-employee-overallexperience'] = null
+		delete req.session.data['del-employee-sectorexperience']
+		delete req.session.data['del-employee-sectorexperience-detail']
+		delete req.session.data['del-employee-overallexperience']
 
 		res.redirect('/application/' + v + '/delivering/sectors-employee-qualifications')
 		
 	})
-		
 
+	// Employee qualifications
+	router.post('/application/' + v + '/delivering/sectors-employee-qualifications', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['awarding'] = req.session.data['del-employee-awarding']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['memberships'] = req.session.data['del-employee-memberships']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['qualifications'] = req.session.data['del-employee-qualifications']
+
+		if (req.session.data['del-employee-awarding'] == "Yes"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['awarding-detail'] = req.session.data['del-employee-awarding-detail']
+		}
+
+		if (req.session.data['del-employee-memberships'] == "Yes"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['memberships-detail'] = req.session.data['del-employee-memberships-detail']
+		}
+
+		if (req.session.data['del-employee-qualifications'] == "Yes"){
+			req.session.data['del-employee'][req.session.data['current_sector_id']]['qualifications-detail'] = req.session.data['del-employee-qualifications-detail']
+		}
+
+		delete req.session.data['del-employee-awarding']
+		delete req.session.data['del-employee-awarding-detail']
+		delete req.session.data['del-employee-memberships']
+		delete req.session.data['del-employee-memberships-detail']
+		delete req.session.data['del-employee-qualifications']
+		delete req.session.data['del-employee-qualifications-detail']
+
+		res.redirect('/application/' + v + '/delivering/sectors-employee-trainingdelivered')
+	})
+
+	// Employee training delivered
+	router.post('/application/' + v + '/delivering/sectors-employee-trainingdelivered', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['trainingdelivered'] = req.session.data['del-employee-trainingdelivered']
+
+		if (req.session.data['del-employee-trainingdelivered'] == "No apprenticeship training delivered"){
+			//req.session.data['tl_del_sectors'] = 'completed'
+			delete req.session.data['del-employee-trainingdelivered']
+			res.redirect('/application/' + v + '/delivering/sectors-employees')
+		} else {
+			delete req.session.data['del-employee-trainingdelivered']
+			res.redirect('/application/' + v + '/delivering/sectors-employee-trainingdelivered-detail')
+		}
+	})
+
+	// Employee training delivered details
+	router.post('/application/' + v + '/delivering/sectors-employee-trainingdelivered-detail', function (req, res) {
+
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['howdelivered'] = req.session.data['del-employee-howdelivered']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['howdelivered-other'] = req.session.data['del-employee-howdelivered-other']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['experience-delivering'] = req.session.data['del-employee-experience-delivering']
+		req.session.data['del-employee'][req.session.data['current_sector_id']]['trainingduration'] = req.session.data['del-employee-trainingduration']
+
+		delete req.session.data['del-employee-howdelivered']
+		delete req.session.data['del-employee-howdelivered-other']
+		delete req.session.data['del-employee-experience-delivering']
+		delete req.session.data['del-employee-trainingduration']
+
+		res.redirect('/application/' + v + '/delivering/sectors-employees')
+
+	})
+
+	// Confirm sectors and employee experience
+	router.post('/application/' + v + '/delivering/sectors-employees', function (req, res) {
+		req.session.data['tl_del_sectors'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
+	})
+		
+	router.post('/application/' + v + '/delivering/development-upload', function (req, res) {
+		req.session.data['tl_del_development'] = 'inprogress'
+		res.redirect('/application/' + v + '/delivering/development-implemented')
+	})
+		
+	router.post('/application/' + v + '/delivering/development-implemented', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/development-reflected')
+	})
+
+	router.post('/application/' + v + '/delivering/development-reflected', function (req, res) {
+		req.session.data['tl_del_development'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-delivering')
+	})
+
+	
 /*
 		// Create a count for employees added
 		if (!req.session.data['del-employee-count']) {

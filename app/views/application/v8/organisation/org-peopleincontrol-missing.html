@@ -16,9 +16,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-caption-l">Tell us who’s in control</p>
+    <span class="govuk-caption-l">Tell us who’s in control</span>
 
-    <h1 class="govuk-heading-l">Who is in control of your organisation?</h1>
+    <h1 class="govuk-heading-l">Tell us who is in control of your organisation</h1>
+
+    <p class="govuk-body">This could be a:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>company director</li>
+      <li>shareholder</li>
+      <li>person with significant control</li>
+      <li>trustee</li>
+    </ul>
+
 
     <p class="govuk-body">If there is more than one person who’s in control, you can add them later.</p>
 
@@ -26,7 +36,7 @@
 
       {{ govukInput({
         label: {
-          text: "Full name"
+          text: "Enter full name"
         },
         classes: "govuk-input--width-20",
         id: "org-personincontrol-name",
@@ -36,7 +46,7 @@
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="org-personincontrol-dob-hint" role="group">
           <legend class="govuk-fieldset__legend">
-              Date of birth 
+              Enter date of birth 
           </legend>
           <span id="org-personincontrol-dob-hint" class="govuk-hint">
             For example, 12 1993

@@ -1,0 +1,293 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+<!-- Your organisation -->
+
+    <h2 class="govuk-heading-l">Your organisation</h2>
+
+
+    <h3 class="govuk-heading-m">Provider route</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <!--dt class="govuk-summary-list__key">
+          Provider route
+        </dt-->
+        <dt class="govuk-summary-list__value">
+          {{ data['org-selectedroute'] | capitalize }} provider route
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> provider route</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <h3 class="govuk-heading-m">Organisation information</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Parent company
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['org-parentcompany'] == "yes" %}
+            {{ data['org-parentcompany-name'] }} ({{ data['org-parentcompany-number'] }})
+          {% else %}
+            {{ data['org-parentcompany'] | capitalize }}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> parent company</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          ICO registration number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-ico'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> ICO registration number</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Trading for
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-trading'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> trading for length</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <h3 class="govuk-heading-m">Tell us who's in control</h3>
+
+    {% include "../../includes/directors-pscs.html" %}
+    <br>
+
+    <h3 class="govuk-heading-m">Describe your organisation</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-type'] }}
+          {% if (data['org-type'] == "An educational institute") %}
+            {% if (data['org-type-education'] == "School") %}
+              ({{ data['org-type-education-school'] }})
+            {% else %}
+              ({{ data['org-type-education'] }})
+            {% endif %}
+          {% elseif (data['org-type'] == "A public body") %}
+            <br>({{ data['org-type-psb'] }})
+          {% endif %}
+          {{ data['org-fundedbytext'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> parent company</span>
+          </a>
+        </dd>
+      </div>
+      {% if (data['org-classification']) and (data['org-classification'] != "None of the above") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set i = 0 %}
+            {% if (data['org-classification'] | length > 1) %}
+              {% for item in data['org-classification'] %}
+                {% set i = i + 1 %}{% if (i == data['org-classification'] | length) %}and {% endif %}
+                {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['org-classification'] | length > 2) and(i < data['org-classification'] | length) %}, {% endif %}
+              {% endfor %}
+            {% else %}
+              {{data['org-classification']}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> parent company</span>
+            </a>
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+
+    <h3 class="govuk-heading-m">Experience and accreditations</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Offer initial teacher training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pro-itt'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> offer initial teacher training</span>
+          </a>
+        </dd>
+      </div>
+      {% if (data['pro-postgrad']) %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Post graduate teaching apprenticeships only
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-postgrad'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> post graduate teaching apprenticeships</span>
+            </a>
+          </dd>
+        </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pro-ofsted-feskills'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% if (data['pro-monitoring-visit']) %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Has your organisation had a monitoring visit for apprenticeships in further education and skills?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-monitoring-visit'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change</a>
+          </dd>
+        </div>
+      {% endif %}
+      {% if (data['pro-ofsted-apprenticeships']) %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Was your organisation awarded a grade for apprenticeships in this Ofsted inspection?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-ofsted-apprenticeships'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change</a>
+          </dd>
+        </div>
+      {% endif %}
+
+      
+
+    </dl>
+
+    
+
+<!--
+    <h2 class="govuk-heading-m">Application details</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Previous application number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          502135326
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> previous application number</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Licence type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          For personal use
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> licence type</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Home address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          72 Guild Street<br>London<br>SE23 6FH
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> home address</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Licence period
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Valid for 6 months
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> licence period</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+-->
+    <h2 class="govuk-heading-m">Now send your application</h2>
+
+    <p class="govuk-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Accept and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

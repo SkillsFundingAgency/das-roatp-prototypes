@@ -1,0 +1,54 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Type of apprenticeship training</span>
+
+      <h1 class="govuk-heading-l">How will your organisation ensure its ready to deliver training in apprenticeship standards?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>get commitment and approval from senior managers to deliver apprenticeship standards</li>
+        <li>have a governance group in place to monitor delivery</li>
+        <li>have an implementation plan specific to apprenticeship training </li>
+        <li>make training methods flexible to suit the apprenticeship standard being delivered </li>
+        <li>have resources that support the delivery of apprenticeship standards</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "plan-readytodeliver",
+          id: "plan-readytodeliver",
+          maxlength: 1500
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -541,6 +541,16 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="plan-offthejob">Not required</strong>
               {% endif %}
             </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="planning/12-address" aria-describedby="plan-address">Where apprentices will be trained</a>
+              {% else %}
+                Where apprentices will be trained
+              {% endif %}
+              {% if data['tl_plan_address'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-address">Completed</strong>
+              {% endif %}
+            </li>
           </ul>
         </li>
 
@@ -559,6 +569,17 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="del-intro">Completed</strong>
               {% endif %}
             </li> 
+
+            <li class="app-task-list__item">
+              {% if (data['tl_del_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="delivering/overallaccountability" aria-describedby="del-accountability">Overall accountability for apprenticeships</a>
+              {% else %}
+                Overall accountability for apprenticeships
+              {% endif %}
+              {% if data['tl_del_accountability'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="del-accountability">Completed</strong>
+              {% endif %}
+            </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="delivering/hierarchy-add" aria-describedby="del-hierarchy">Management hierarchy for apprenticeships</a>
@@ -593,17 +614,6 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="del-developdeliver">Completed</strong>
               {% elseif data['tl_del_developdeliver'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="del-developdeliver">In progress</strong>
-              {% endif %}
-            </li>
-
-            <li class="app-task-list__item">
-              {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/overallaccountability" aria-describedby="del-accountability">Overall accountability for apprenticeships</a>
-              {% else %}
-                Overall accountability for apprenticeships
-              {% endif %}
-              {% if data['tl_del_accountability'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="del-accountability">Completed</strong>
               {% endif %}
             </li>
 

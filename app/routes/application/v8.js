@@ -41,6 +41,7 @@ module.exports = function (router) {
  *** Jump to ***
  ***************/
 
+	// main route, jump to pre-selected sectors
 	router.get('/application/' + v + '/jump/tosectorsincomplete', function (req,res) {
 		req.session.data['del-sectors'] = ["Creative and design", "Digital", "Health and science", "Sales, marketing and procurement"]
 		req.session.data['exempt_fha'] = "no"
@@ -69,6 +70,30 @@ module.exports = function (router) {
 		req.session.data['tl_selectroute'] = "completed"
 		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
+
+	// supporting route, completed organisation section
+	router.get('/application/' + v + '/jump/supportingorgcompleted', function (req,res) {
+		req.session.data['exempt_fha'] = "no"
+		req.session.data['org-classification'] = "none"
+		req.session.data['org-ico'] = "11111111"
+		req.session.data['org-parentcompany'] = "no"
+		req.session.data['org-selectedroute'] = "supporting"
+		req.session.data['org-trading'] = "3 to 6 months"
+		req.session.data['org-type'] = "An employer training apprentices in other organisations"
+		req.session.data['org-ukprn'] = "12340101"
+		req.session.data['pro-subcontractor'] = "no"
+		req.session.data['signedin'] = "yes"
+		req.session.data['signin-email'] = ""
+		req.session.data['signin-password'] = ""
+		req.session.data['tl_org_details'] = "completed"
+		req.session.data['tl_org_intro'] = "completed"
+		req.session.data['tl_org_people'] = "completed"
+		req.session.data['tl_org_profile'] = "completed"
+		req.session.data['tl_org_type'] = "completed"
+		req.session.data['tl_selectroute'] = "completed"
+		res.redirect('/application/' + v + '/task-list')
+	})
+
 
 
 /************************
@@ -2011,144 +2036,68 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
-	
-/*
-		// Create a count for employees added
-		if (!req.session.data['del-employee-count']) {
-			req.session.data['del-employee-count'] = 0
-		} else {
-			req.session.data['del-employee-count'] = req.session.data['del-employee-count'] + 1
-		}
-
-		var newEmployee = {
-			'name': req.session.data['del-employee-name'],
-			'job_role': req.session.data['del-employee-role'],
-			'time_in_role': req.session.data['del-employee-timeinorg'],
-			'sectors': [],
-			'sectors_expdelivering': [],
-			'sectors_expoverall': [],
-			'sectors_wheregained': [],
-			'sectors_quals': [],
-			'sectors_teachingquals': '',
-			'sectors_teachingquals_detail': '',
-			'sectors_awarding': '',
-			'sectors_awarding_detail': '',
-			'sectors_trade': '',
-			'sectors_trade_detail': '',
-			'experience_training': '',
-			'apprenticeship_types': ''
-		}
-
-		req.session.data['del-employee-name'] = null
-		req.session.data['del-employee-role'] = null
-		req.session.data['del-employee-timeinorg'] = null
-
-		if (!req.session.data['del-employee']) {
-			req.session.data['del-employee'] = []
-		}
-		req.session.data['del-employee'].push(newEmployee)
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors')
-*/
-
 	// Select the sectors which employee delivers
 	router.post('/application/' + v + '/delivering/employee-sectors', function (req, res) {
 
 		// Add selected sectors to current employee array item
 		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'] = req.session.data['del-employee-sector']
 
-		// for each item in selected sectors for employee
-		/*var employeesectors_array = req.session.data['del-employee-sector']
-		var employeesectors_length = employeesectors_array.length
-		for (var i = 0; i < employeesectors_length; i++) {
-			req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][i] = req.session.data['del-employee-sector'][i]
-		}*/
-
 		res.redirect('/application/' + v + '/delivering/employee-sectors-experience')
 
 	})
-/*
-	// Employee experience of delivering in those sectors
-	router.post('/application/' + v + '/delivering/employee-sectors-experience', function (req, res) {
 
-		//req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors'][0] = req.session.data['del-employee-sector']
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_expdelivering'] = req.session.data['del-employee-sector-experience']
 
-		res.redirect('/application/' + v + '/delivering/employee-sectors-overallexperience')
+/***************************
+ *** Evaluating training ***
+ ***************************/
+
+	// What you'll need
+	router.post('/application/' + v + '/evaluating/intro', function (req, res) {
+		req.session.data['tl_eval_intro'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
+	})	
+
+	// Existing process for evaluating training
+	router.post('/application/' + v + '/evaluating/training', function (req, res) {
+		req.session.data['tl_eval_training'] = 'inprogress'
+		res.redirect('/application/' + v + '/evaluating/training-improvements')
 	})
 
-	// Employee overall experience in those sectors
-	router.post('/application/' + v + '/delivering/employee-sectors-overallexperience', function (req, res) {
+	// Example of potential improvements (LM 14)
+	router.post('/application/' + v + '/evaluating/training-improvements', function (req, res) {
+		req.session.data['tl_eval_training'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
+	})	
 
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_expoverall'] = req.session.data['del-employee-sector-overallexperience']
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors-wheregained')
-
+	// Existing process suitable for apprenticeships
+	router.post('/application/' + v + '/evaluating/apprenticeships', function (req, res) {
+		if (req.session.data['eval-apprenticeships'] == "Yes"){
+			req.session.data['tl_eval_apprenticeships'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-evaluating')
+		} else {
+			req.session.data['tl_eval_apprenticeships'] = 'inprogress'
+			res.redirect('/application/' + v + '/evaluating/apprenticeships-how')
+		}
 	})
 
-	// Where experience in those sectors was gained
-	router.post('/application/' + v + '/delivering/employee-sectors-wheregained', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_wheregained'] = req.session.data['del-employee-sector-wheregained']
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors-quals')
-
+	// Process for evaluating quality of training and outcomes (LM 12)
+	router.post('/application/' + v + '/evaluating/apprenticeships-how', function (req, res) {
+		req.session.data['tl_eval_apprenticeships'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
 	})
 
-	// Qualifications in relation to sectors
-	router.post('/application/' + v + '/delivering/employee-sectors-quals', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_quals'] = req.session.data['del-employee-sector-quals']
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors-teachingquals')
-
+	// Systems and processes to get info on training (LM 16)
+	router.post('/application/' + v + '/evaluating/collectdata', function (req, res) {
+		req.session.data['tl_eval_collectdata'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
 	})
 
-	// Teaching and training qualifications in relation to sectors
-	router.post('/application/' + v + '/delivering/employee-sectors-teachingquals', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_teachingquals'] = req.session.data['del-employee-sector-teachingquals']
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors-awarding')
-
+	// Systems and processes to get info on training (LM 16)
+	router.post('/application/' + v + '/evaluating/ilr', function (req, res) {
+		req.session.data['tl_eval_ilr'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
 	})
 
-	// Awarding bodies approval to deliver training
-	router.post('/application/' + v + '/delivering/employee-sectors-awarding', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_awarding'] = req.session.data['del-employee-sector-awarding']
-
-		res.redirect('/application/' + v + '/delivering/employee-sectors-trade')
-
-	})
-
-	// Trade bodies approval to deliver training
-	router.post('/application/' + v + '/delivering/employee-sectors-trade', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['sectors_trade'] = req.session.data['del-employee-sector-trade']
-
-		res.redirect('/application/' + v + '/delivering/employee-experience-training')
-
-	})
-	
-	// Experience of training apprenctices 
-	router.post('/application/' + v + '/delivering/employee-experience-training', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['experience_training'] = req.session.data['del-employee-experience-training']
-
-		res.redirect('/application/' + v + '/delivering/employee-apprenticeship-types')
-
-	})
-	
-	// What type of apprenticeships have they delivered?
-	router.post('/application/' + v + '/delivering/employee-apprenticeship-types', function (req, res) {
-
-		req.session.data['del-employee'][req.session.data['del-employee-count']]['apprenticeship_types'] = req.session.data['del-employee-apprenticeship-types']
-
-		res.redirect('/application/' + v + '/delivering/employee-list')
-
-	})
-*/
 
 /****************
  *** Sign out ***

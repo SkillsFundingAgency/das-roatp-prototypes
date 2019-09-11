@@ -633,22 +633,68 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section" id="section-leaders">
-            <span class="app-task-list__section-number">8. </span> Leadership and management
+          <h2 class="app-task-list__section" id="section-evaluating">
+            <span class="app-task-list__section-number">8. </span> Evaluating training
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['exempt_lm'] != "yes") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="lm-intro">Introduction and what you’ll need</a>
+                <a class="app-task-list__task-name" href="evaluating/intro" aria-describedby="lm-intro">Introduction and what you’ll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
-              {% if data['tl_lm_intro'] == "completed" %}
+              {% if data['tl_eval_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="lm-intro">Completed</strong>
               {% elseif data['exempt_lm'] == "yes" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="lm-intro">Not required</strong>
               {% endif %}
             </li> 
+            <li class="app-task-list__item">
+              {% if (data['tl_eval_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="evaluating/training" aria-describedby="eval-training">Process for evaluating the quality of training</a>
+              {% else %}
+                Process for evaluating the quality of training
+              {% endif %}
+              {% if data['tl_eval_training'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="eval-training">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_eval_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="evaluating/apprenticeships" aria-describedby="eval-apprenticeships">Process of evaluating the quality of apprenticeship training</a>
+              {% else %}
+                Process of evaluating the quality of apprenticeship training
+              {% endif %}
+              {% if data['tl_eval_apprenticeships'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="eval-apprenticeships">Completed</strong>
+              {% elseif data['tl_eval_apprenticeships'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="del-sectors">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_eval_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
+                <a class="app-task-list__task-name" href="evaluating/collectdata" aria-describedby="eval-collectdata">Systems and processes to collect data</a>
+              {% else %}
+                Systems and processes to collect data
+              {% endif %}
+              {% if data['tl_eval_collectdata'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="eval-collectdata">Completed</strong>
+              {% elseif data['org-selectedroute'] == "supporting" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="eval-collectdata-notrequired">Not required</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_eval_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
+                <a class="app-task-list__task-name" href="evaluating/ilr" aria-describedby="eval-ilr">Using Individualised Learner Record systems</a>
+              {% else %}
+                Using Individualised Learner Record systems
+              {% endif %}
+              {% if data['tl_eval_ilr'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="eval-ilr">Completed</strong>
+              {% elseif data['org-selectedroute'] == "supporting" %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="eval-ilr-notrequired">Not required</strong>
+              {% endif %}
+            </li>
           </ul>
         </li>
 
@@ -669,12 +715,12 @@
       </ol>
 
       <form action="checkyouranswers" method="post" class="form">
-
+<!--
         {{ govukButton({
           text: "Check and submit your application",
           classes: "govuk-!-margin-right-4"
         }) }}
-
+-->
       </form>
 
     </div>

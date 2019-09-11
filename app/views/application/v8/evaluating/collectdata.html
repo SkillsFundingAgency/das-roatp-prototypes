@@ -31,6 +31,10 @@
 
     <form action="" method="post" class="form">
 
+      {% set conditionalHtml %}
+        <p class="govuk-body">Before joining RoATP, your organisation must have systems and processes in place to get this data. We may ask for evidence on this.</p>
+      {% endset -%}
+
       {{ govukRadios({
         idPrefix: "eval-collectdata",
         name: "eval-collectdata",
@@ -43,12 +47,13 @@
           {
             value: "No",
             text: "No",
-            checked: checked("eval-collectdata", "No")
+            checked: checked("eval-collectdata", "No"),
+            conditional: {
+              html: conditionalHtml
+            }
           }
         ]
       }) }}
-
-    <p class="govuk-body">Before joining RoATP, your organisation must have systems and processes in place to get this data. We may ask for evidence on this.</p>
 
       {{ govukButton({
         text: "Save and continue",

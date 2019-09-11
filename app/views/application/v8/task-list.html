@@ -541,6 +541,16 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="plan-offthejob">Not required</strong>
               {% endif %}
             </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") %}
+                <a class="app-task-list__task-name" href="planning/12-address" aria-describedby="plan-address">Where apprentices will be trained</a>
+              {% else %}
+                Where apprentices will be trained
+              {% endif %}
+              {% if data['tl_plan_address'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-address">Completed</strong>
+              {% endif %}
+            </li>
           </ul>
         </li>
 

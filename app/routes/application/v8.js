@@ -1729,6 +1729,12 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-planning')
 	})
 
+	// Off the job - Teaching methods
+	router.post('/application/' + v + '/planning/12-address', function (req, res) {
+		req.session.data['tl_plan_address'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-planning')
+	})
+
 
 /******************************************
  *** Delivering apprenticeship training ***

@@ -20,6 +20,8 @@
 
       <h1 class="govuk-heading-l">Does your organisation have any composition with creditors?</h1>
 
+      <p class="govuk-body">Composition with creditors is an agreement between a debtor and its creditors where all the creditors agree to accept less than the original amount of debt due to them in full satisfaction of their claim.</p>
+
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
@@ -60,11 +62,6 @@
                 checked: checked("dec-org-debt", "no")
             }
           ]
-        }) }}
-        
-        {{ govukDetails({
-          summaryText: "What is a composition with creditors?",
-          text: "It’s an agreement between a debtor and its creditors where all the creditors agree to accept less than the original amount of debt due to them in full satisfaction of their claim."
         }) }}
 
         {{ govukButton({

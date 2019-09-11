@@ -101,7 +101,7 @@ module.exports = function (router) {
  ************************/
 
 	router.post('/application/' + v + '/haveanaccount', function (req, res) {
-		if (req.session.data['haveanaccount'] == "yes" ){
+		if (req.session.data['haveanaccount'] == "no" ){
 			res.redirect('/application/' + v + '/signin')
 		} else {
 			res.redirect('/application/' + v + '/createaccount')

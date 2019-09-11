@@ -52,7 +52,7 @@
             </td>
             <td class="govuk-table__cell govuk-table__cell--numeric">
               {% if (data['del-employee'][i]) %}
-                <a href="#">change</a> or <a href="sectors-employee-remove-route?remove_employee_id={{i}}">remove</a>
+                <a href="#">Change</a> &nbsp; <a href="sectors-employee-remove-route?remove_employee_id={{i}}">Remove</a>
               {%else %}
                 <a href="sectors-employee-add-route?current_sector_id={{i}}">Add the most experienced employee</a>
               {% endif %}

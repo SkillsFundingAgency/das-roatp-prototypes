@@ -18,7 +18,7 @@
 
       <span class="govuk-caption-l">Management hierarchy</span>
 
-      <h1 class="govuk-heading-l">Tell us who is in your organisation’s management team for apprenticeships</h1>
+      <h1 class="govuk-heading-l">Your organisation’s management hierarchy for apprenticeships</h1>
 
       <p class="govuk-body">If there are more people, you can add them later.</p>
 
@@ -49,15 +49,6 @@
           classes: "govuk-input--width-20",
           id: "del-hierarchy-timeinrole",
           name: "del-hierarchy-timeinrole"
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Who do they report to?"
-          },
-          classes: "govuk-input--width-20",
-          id: "del-hierarchy-reportto",
-          name: "del-hierarchy-reportto"
         }) }}
 
         {% set orgfundingHtml %}
@@ -118,6 +109,18 @@
               checked: checked("del-hierarchy-subcontractorfunding", "No")
             }
           ]
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Who do they report to?"
+          },
+          hint: {
+            text: "You’ll need to include their full name and job role"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-hierarchy-reportto",
+          name: "del-hierarchy-reportto"
         }) }}
 
         {{ govukButton({

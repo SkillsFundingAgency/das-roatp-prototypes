@@ -20,6 +20,14 @@
           
     <h1 class="govuk-heading-l">Does your organisation have a team responsible for developing and delivering training?</h1>
 
+    <p class="govuk-body">Training includes things like:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>training of technical skills</li>
+      <li>apprenticeships</li>
+      <li>work based training </li>
+      <li>commercial training</li>
+    </ul>
+
     <form action="" method="post" class="form">
 
       {{ govukRadios({
@@ -38,23 +46,6 @@
           }
         ]
       }) }}
-      
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            What is training?
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">Training includes things like:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>training of technical skills</li>
-            <li>apprenticeships</li>
-            <li>work based training </li>
-            <li>commercial training</li>
-          </ul>
-        </div>
-      </details>
 
       {{ govukButton({
         text: "Save and continue",

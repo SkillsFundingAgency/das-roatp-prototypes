@@ -1,0 +1,61 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Off the job training</span>
+
+      <h1 class="govuk-heading-l">How will your organisation ensure 20% off the job training is relevant to specific apprenticeship
+      {% if data['plan-type']['0'] == "apprenticeship-frameworks" %}
+      frameworks?
+      {% elseif data['plan-type']['1'] == "apprenticeship-frameworks" %}
+      standards and frameworks?
+      {% elseif data['plan-type']['0'] == "apprenticeship-standards" %}
+      standards?
+      {% endif %}</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use technical and theoretical elements of the apprenticeship to decide the best training method</li>
+        <li>ensure training methods suit the employers and apprentices circumstances </li>
+        <li>work with employers to define a delivery plan</li>
+        <li>ensure its delivery plan is flexible and meets employers and apprentices needs</li>
+        <li>choose the right time for off the job training - the apprentice must have had sufficient time to gain the right knowledge and skills before starting off the job training</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "plan-otj-relevant",
+          id: "plan-otj-relevant",
+          maxlength: 1500
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -28,12 +28,14 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
+        {% set i = 0 %}
         {% for person in data['del-hierarchy-person'] %}
           {% if (person.name != '') %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell" scope="row">{{ person.name }}</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#">Change</a> &nbsp; <a href="#">Remove</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#">Change</a> &nbsp; <a href="hierarchy-remove-route?remove_hierarchy_id={{i}}">Remove</a></td>
             </tr>
+            {% set i = i + 1 %}
           {% endif %}
         {% endfor %}
         </tbody>

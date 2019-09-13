@@ -10,14 +10,13 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
     <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
 
 <!-- Your organisation -->
 
     <h2 class="govuk-heading-l">Your organisation</h2>
-
 
     <h3 class="govuk-heading-m">Provider route</h3>
 
@@ -40,7 +39,7 @@
 
     <h3 class="govuk-heading-m">Organisation information</h3>
 
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Parent company
@@ -85,16 +84,23 @@
         </dd>
       </div>
     </dl>
+  </div>
+</div>
 
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
     <h3 class="govuk-heading-m">Tell us who's in control</h3>
 
     {% include "../../includes/directors-pscs.html" %}
     <br>
+  </div>
+</div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
     <h3 class="govuk-heading-m">Describe your organisation</h3>
 
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Organisation type
@@ -145,76 +151,192 @@
 
     <h3 class="govuk-heading-m">Experience and accreditations</h3>
 
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Offer initial teacher training
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['pro-itt'] | capitalize }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> offer initial teacher training</span>
-          </a>
-        </dd>
-      </div>
-      {% if (data['pro-postgrad']) %}
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+
+      {% if data['org-selectedroute'] == "supporting" %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Post graduate teaching apprenticeships only
+            In the last 12 months, has your organisation delivered apprenticeship training as a subcontractor?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['pro-postgrad'] | capitalize }}
+            {{ data['pro-subcontractor'] | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> post graduate teaching apprenticeships</span>
+              Change
             </a>
           </dd>
         </div>
-      {% endif %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['pro-ofsted-feskills'] | capitalize }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
-      </div>
-      {% if (data['pro-monitoring-visit']) %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Has your organisation had a monitoring visit for apprenticeships in further education and skills?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['pro-monitoring-visit'] | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
-        </div>
-      {% endif %}
-      {% if (data['pro-ofsted-apprenticeships']) %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Was your organisation awarded a grade for apprenticeships in this Ofsted inspection?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['pro-ofsted-apprenticeships'] | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
-        </div>
-      {% endif %}
 
-      
+      {% else %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Offer initial teacher training
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-itt'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> offer initial teacher training</span>
+            </a>
+          </dd>
+        </div>
+        {% if (data['pro-postgrad']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Post graduate teaching apprenticeships only
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-postgrad'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> post graduate teaching apprenticeships</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-ofsted-feskills'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change</a>
+          </dd>
+        </div>
+        {% if (data['pro-monitoring-visit']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation had a monitoring visit for apprenticeships in further education and skills?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-monitoring-visit'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-apprenticeships']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Was your organisation awarded a grade for apprenticeships in this Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+
+      {% endif %}
 
     </dl>
 
-    
+
+<!-- Financial health assessment -->
+
+    {% if data['exempt_fha'] == "no" %}
+
+      <h2 class="govuk-heading-l">Financial health assessment</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Does your organisation have full financial statements covering the last 12 months?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fin-fullstatements'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change
+            </a>
+          </dd>
+        </div>
+
+        {% if data['fin-fullstatements'] == "yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full financial statements
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change
+            </a>
+          </dd>
+        </div>
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Management accounts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Financial projections
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who prepared your organisation’s financial evidence?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set i = 0 %}
+            {% for item in data['fin-whoprepared'] %}
+              {% set i = i + 1 %}
+              {% if (i == data['fin-whoprepared'] | length) %}and {% endif %}
+              {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['fin-whoprepared'] | length > 2) and(i < data['fin-whoprepared'] | length) %}, {% endif %}
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+    {% endif %}
+
+
+    <!--
+    fin-consolidatedstatements: "yes"
+fin-fullstatements-upload: ""
+fin-subsidiary-upload: ""
+fin-whoprepared: ["employee"]
+fin-whoprepared-parentcompany: ["accountant"]
+gethelp: ""
+-->
 
 <!--
     <h2 class="govuk-heading-m">Application details</h2>

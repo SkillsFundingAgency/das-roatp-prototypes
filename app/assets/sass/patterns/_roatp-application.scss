@@ -45,4 +45,19 @@
         margin-bottom: 6px;
     }
 
+// Check your answers summary list
+@media (min-width: 40.0625em) {
 
+    .govuk-summary-list--roatpcya {
+        .govuk-summary-list__key {
+            width: 45%;
+        }
+        .govuk-summary-list__value {
+            width: 45%;
+        }
+        .govuk-summary-list__actions {
+            width: 10%;
+        }
+    }
+
+}

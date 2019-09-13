@@ -30,7 +30,13 @@
             text: "Main provider",
             checked: checked("org-selectedroute", "main"),
             hint: {
-              text: "Your organisation can train apprentices for other organisations, its own employees, employees of connected organisations or act as a subcontractor for other main and employer providers."
+              html: '<p class="govuk-hint">Your organisation will directly deliver training to apprentices for other organisations.</p>
+              <p class="govuk-hint">Whilst doing this, it can also train:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>its own employees</li>
+              <li>employees of connected companies or charities</li>
+              <li>act as a subcontractor for other main and employer providers</li>
+              </ul>'
             }
           },
           {
@@ -38,7 +44,12 @@
             text: "Employer provider",
             checked: checked("org-selectedroute", "employer"),
             hint: {
-              text: "Your organisation can train its own employees, employees of connected organisations or act as a subcontractor for other employer or main providers."
+              html: '<p class="govuk-hint">Your organisation will directly deliver training to its own employees.</p>
+              <p class="govuk-hint">Whilst doing this, it can also train:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>employees of connected companies or charities</li>
+              <li>act as a subcontractor for other employer or main providers</li>
+              </ul>'
             }
           },
           {
@@ -46,10 +57,16 @@
             text: "Supporting provider",
             checked: checked("org-selectedroute", "supporting"),
             hint: {
-              text: "Your organisation will act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If your organisation is new on the register, this will be limited to £100,000 in its first year."
+              html: '<p class="govuk-hint">Your organisation will act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year.</p>
+              <p class="govuk-hint">If your organisation is new on the register, it will be limited to £100,000 in its first year.</p>'
             }
           }
         ]
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "What is a connected company or charity?",
+        html: '<p class="govuk-body">A connected company is part of the same group and has the same ultimate parent company as your organisation.</p><p class="govuk-body">A connected charity is part of the same group of charities and has a majority of the same controlling trustees as your organisation.</p>'
       }) }}
 
       {{ govukButton({

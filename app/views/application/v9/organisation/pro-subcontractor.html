@@ -20,9 +20,9 @@
 
       <span class="govuk-caption-l">Experience and accreditations</span>
 
-      <h1 class="govuk-heading-l">In the last 12 months, has your organisation delivered apprenticeship training as a subcontractor?</h1>
+      <h1 class="govuk-heading-l">Has your organisation delivered apprenticeship training as a subcontractor in the last 12 months?</h1>
       
-      <p class="govuk-body">To confirm your answer, we’ll review your lead provider’s subcontractor declaration. </p>
+      <p class="govuk-body">To confirm your answer, we’ll review your main or employer provider’s subcontractor declaration.</p>
 
       {{ govukRadios({
         idPrefix: "pro-subcontractor",
@@ -40,17 +40,6 @@
           }
         ]
       }) }}
-
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-             What is a lead provider?
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>A lead provider is a college, training organisation or employer that has a direct contractual relationship with ESFA.</p>
-        </div>
-      </details>
 
       {{ govukButton({
         text: "Save and continue",

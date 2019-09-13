@@ -94,6 +94,357 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list')
 	})
 
+	// Application completed - supporting provider
+	router.get('/application/' + v + '/jump/completedapplicationsupporting', function (req,res) {
+		req.session.data['address-county'] = "Northants"
+		req.session.data['address-line-1'] = "123"
+		req.session.data['address-line-2'] = "Main road"
+		req.session.data['address-postcode'] = "NN1 6AA"
+		req.session.data['address-town'] = "Northampton"
+		req.session.data['dec-org-contractterminated'] = "no"
+		req.session.data['dec-org-contractterminated-detail'] = ""
+		req.session.data['dec-org-debt'] = "no"
+		req.session.data['dec-org-debt-detail'] = ""
+		req.session.data['dec-org-fundingremoved'] = "no"
+		req.session.data['dec-org-fundingremoved-detail'] = ""
+		req.session.data['dec-org-insolvency'] = "no"
+		req.session.data['dec-org-insolvency-detail'] = ""
+		req.session.data['dec-org-ittwithdrawal'] = "no"
+		req.session.data['dec-org-ittwithdrawal-detail'] = ""
+		req.session.data['dec-org-repayfunding'] = "no"
+		req.session.data['dec-org-repayfunding-detail'] = ""
+		req.session.data['dec-org-roto'] = "no"
+		req.session.data['dec-org-roto-detail'] = ""
+		req.session.data['dec-org-safeguarding'] = "no"
+		req.session.data['dec-org-safeguarding-detail'] = ""
+		req.session.data['dec-org-traderegister'] = "no"
+		req.session.data['dec-org-traderegister-detail'] = ""
+		req.session.data['dec-org-whistleblowing'] = "no"
+		req.session.data['dec-org-whistleblowing-detail'] = ""
+		req.session.data['dec-org-withdrawncontract'] = "no"
+		req.session.data['dec-org-withdrawncontract-detail'] = ""
+		req.session.data['dec-people-bankrupt'] = "no"
+		req.session.data['dec-people-bankrupt-detail'] = ""
+		req.session.data['dec-people-charityregister'] = "no"
+		req.session.data['dec-people-charityregister-detail'] = ""
+		req.session.data['dec-people-contractterminated'] = "no"
+		req.session.data['dec-people-contractterminated-detail'] = ""
+		req.session.data['dec-people-convictions'] = "no"
+		req.session.data['dec-people-convictions-detail'] = ""
+		req.session.data['dec-people-fraud'] = "no"
+		req.session.data['dec-people-fraud-detail'] = ""
+		req.session.data['dec-people-fraudongoing'] = "no"
+		req.session.data['dec-people-fraudongoing-detail'] = ""
+		req.session.data['dec-people-repayfunding'] = "no"
+		req.session.data['dec-people-repayfunding-detail'] = ""
+		req.session.data['dec-people-taxpayments'] = "no"
+		req.session.data['dec-people-taxpayments-detail'] = ""
+		req.session.data['dec-people-trusteeregister'] = "no"
+		req.session.data['dec-people-trusteeregister-detail'] = ""
+		req.session.data['dec-people-withdrawncontract'] = "no"
+		req.session.data['dec-people-withdrawncontract-detail'] = ""
+		req.session.data['del-developdeliver'] = "no"
+		req.session.data['del-developdeliver-howworkedwith'] = "work with other organisations"
+		req.session.data['del-developdeliver-overallaccountability-name'] = "Anne Peters"
+		req.session.data['del-developdeliver-overallaccountability-number'] = "657483902"
+		req.session.data['del-developdeliver-overallmanager'] = "Steven Collins"
+		req.session.data['del-developdeliver-overallmanager-experience'] = "Yes"
+		req.session.data['del-developdeliver-workedwith'] = "No"
+		req.session.data['del-development-implemented'] = "policy for professional development"
+		req.session.data['del-development-reflected'] = "professional development reflected"
+		//req.session.data['del-employee'] = [{…}]
+		req.session.data['del-expectations'] = "No"
+		req.session.data['del-expectations-comminicated'] = "communicate quality and high standards"
+		req.session.data['del-expectations-responsible-name'] = "Jeff"
+		req.session.data['del-expectations-responsible-number'] = "1234"
+		req.session.data['del-hierarchy-name'] = null
+		req.session.data['del-hierarchy-orgfunding'] = null
+		req.session.data['del-hierarchy-orgfunding-name'] = null
+		//req.session.data['del-hierarchy-person'] = (3) [{…}, {…}, {…}]
+		req.session.data['del-hierarchy-reportto'] = null
+		req.session.data['del-hierarchy-role'] = null
+		req.session.data['del-hierarchy-subcontractorfunding'] = null
+		req.session.data['del-hierarchy-timeinrole'] = null
+		req.session.data['del-professional-development'] = ""
+		req.session.data['del-sectors'] = ["Digital"]
+		req.session.data['eval-apprenticeships'] = "No"
+		req.session.data['eval-apprenticeships-how'] = "how will evaluate quality"
+		req.session.data['eval-training'] = "evaluate quality of training"
+		req.session.data['eval-training-improvements'] = "identify and make improvements"
+		req.session.data['exempt_fha'] = "no"
+		req.session.data['fin-consolidatedstatements'] = "yes"
+		req.session.data['fin-fullstatements'] = "yes"
+		req.session.data['fin-fullstatements-upload'] = ""
+		req.session.data['fin-subsidiary-upload'] = ""
+		req.session.data['fin-whoprepared'] = ["employee"]
+		req.session.data['fin-whoprepared-parentcompany'] = ["accountant"]
+		req.session.data['org-classification'] = "none"
+		req.session.data['org-ico'] = "11111111"
+		req.session.data['org-parentcompany'] = "no"
+		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+		req.session.data['org-parentcompany-number'] = "89987987"
+		req.session.data['org-selectedroute'] = "supporting"
+		req.session.data['org-trading'] = "3 to 6 months"
+		req.session.data['org-type'] = "An employer training apprentices in other organisations"
+		req.session.data['org-ukprn'] = "12340101"
+		req.session.data['plan-contact-name'] = "David Walker"
+		req.session.data['plan-engaging'] = "engage with EPAOs"
+		req.session.data['plan-forecast-newstaff'] = "no"
+		req.session.data['plan-forecast-ratio'] = "11to29"
+		req.session.data['plan-forecast-readytodeliver'] = "3to6months"
+		req.session.data['plan-forecast-starts'] = "1to49"
+		req.session.data['plan-otj-method'] = ["distance"]
+		req.session.data['plan-otj-relevant'] = "ensure 20% off the job"
+		req.session.data['plan-readytodeliver'] = "ready to deliver"
+		req.session.data['plan-type'] = ["apprenticeship-standards"]
+		req.session.data['pro-itt'] = "no"
+		req.session.data['pro-monitoring-visit'] = "no"
+		req.session.data['pro-ofsted-feskills'] = "no"
+		req.session.data['pro-subcontractor'] = "no"
+		req.session.data['rte-assessenglishmaths'] = "process to asses english and maths"
+		req.session.data['rte-complaints'] = ""
+		req.session.data['rte-contractforservices'] = ""
+		req.session.data['rte-engaged'] = "no"
+		req.session.data['rte-managingrelationships'] = "no"
+		req.session.data['rte-priorlearning'] = "process for initial assessments"
+		req.session.data['rte-relationships'] = "manage relationships with employers"
+		req.session.data['rte-usesubcontractors'] = "no"
+		req.session.data['signedin'] = "yes"
+		req.session.data['tl_dec_intro'] = "completed"
+		req.session.data['tl_dec_organisation'] = "completed"
+		req.session.data['tl_dec_people'] = "completed"
+		req.session.data['tl_dec_peopleintro'] = "completed"
+		req.session.data['tl_del_accountability'] = "completed"
+		req.session.data['tl_del_developdeliver'] = "completed"
+		req.session.data['tl_del_development'] = "completed"
+		req.session.data['tl_del_expectations'] = "completed"
+		req.session.data['tl_del_hierarchy'] = "completed"
+		req.session.data['tl_del_intro'] = "completed"
+		req.session.data['tl_del_sectors'] = "completed"
+		req.session.data['tl_eval_apprenticeships'] = "completed"
+		req.session.data['tl_eval_intro'] = "completed"
+		req.session.data['tl_eval_training'] = "completed"
+		req.session.data['tl_fin_intro'] = "completed"
+		req.session.data['tl_fin_parent'] = "completed"
+		req.session.data['tl_fin_upload'] = "completed"
+		req.session.data['tl_org_details'] = "completed"
+		req.session.data['tl_org_intro'] = "completed"
+		req.session.data['tl_org_people'] = "completed"
+		req.session.data['tl_org_profile'] = "completed"
+		req.session.data['tl_org_type'] = "completed"
+		req.session.data['tl_plan_address'] = "completed"
+		req.session.data['tl_plan_contact'] = "completed"
+		req.session.data['tl_plan_forecasting'] = "completed"
+		req.session.data['tl_plan_intro'] = "completed"
+		req.session.data['tl_plan_offthejob'] = "completed"
+		req.session.data['tl_plan_type'] = "completed"
+		req.session.data['tl_rte_commitment'] = "completed"
+		req.session.data['tl_rte_complaints'] = "completed"
+		req.session.data['tl_rte_contractforservices'] = "completed"
+		req.session.data['tl_rte_engagement'] = "completed"
+		req.session.data['tl_rte_intro'] = "completed"
+		req.session.data['tl_rte_priorlearning'] = "completed"
+		req.session.data['tl_rte_subcontractors'] = "completed"
+		req.session.data['tl_selectroute'] = "completed"
+		req.session.data['tl_wel_continuity'] = "completed"
+		req.session.data['tl_wel_diversity'] = "completed"
+		req.session.data['tl_wel_healthandsafety'] = "completed"
+		req.session.data['tl_wel_intro'] = "completed"
+		req.session.data['tl_wel_preventduty'] = "completed"
+		req.session.data['tl_wel_safeguarding'] = "completed"
+		req.session.data['wel-continuity'] = ""
+		req.session.data['wel-diversity'] = ""
+		req.session.data['wel-healthandsafety'] = ""
+		req.session.data['wel-healthandsafetyresponsible-name'] = "Pete Jones"
+		req.session.data['wel-healthandsafetyresponsible-tel'] = "0998765654"
+		req.session.data['wel-safeguarding'] = ""
+		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
+		req.session.data['wel-safeguardingresponsible-tel'] = "01234987654"
+		res.redirect('/application/' + v + '/task-list')
+	})
+
+	// Application completed - employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required
+	router.get('/application/' + v + '/jump/completedapplicationemployer', function (req,res) {
+		req.session.data['address-county'] = "Northants"
+		req.session.data['address-line-1'] = "123"
+		req.session.data['address-line-2'] = "Main road"
+		req.session.data['address-postcode'] = "NN1 6AA"
+		req.session.data['address-town'] = "Northampton"
+		req.session.data['current_sector_id'] = "0"
+		req.session.data['dec-org-contractterminated'] = "no"
+		req.session.data['dec-org-contractterminated-detail'] = ""
+		req.session.data['dec-org-debt'] = "no"
+		req.session.data['dec-org-debt-detail'] = ""
+		req.session.data['dec-org-fundingremoved'] = "no"
+		req.session.data['dec-org-fundingremoved-detail'] = ""
+		req.session.data['dec-org-insolvency'] = "no"
+		req.session.data['dec-org-insolvency-detail'] = ""
+		req.session.data['dec-org-ittwithdrawal'] = "no"
+		req.session.data['dec-org-ittwithdrawal-detail'] = ""
+		req.session.data['dec-org-repayfunding'] = "no"
+		req.session.data['dec-org-repayfunding-detail'] = ""
+		req.session.data['dec-org-roto'] = "no"
+		req.session.data['dec-org-roto-detail'] = ""
+		req.session.data['dec-org-safeguarding'] = "no"
+		req.session.data['dec-org-safeguarding-detail'] = ""
+		req.session.data['dec-org-traderegister'] = "no"
+		req.session.data['dec-org-traderegister-detail'] = ""
+		req.session.data['dec-org-whistleblowing'] = "no"
+		req.session.data['dec-org-whistleblowing-detail'] = ""
+		req.session.data['dec-org-withdrawncontract'] = "no"
+		req.session.data['dec-org-withdrawncontract-detail'] = ""
+		req.session.data['dec-people-bankrupt'] = "no"
+		req.session.data['dec-people-bankrupt-detail'] = ""
+		req.session.data['dec-people-charityregister'] = "no"
+		req.session.data['dec-people-charityregister-detail'] = ""
+		req.session.data['dec-people-contractterminated'] = "no"
+		req.session.data['dec-people-contractterminated-detail'] = ""
+		req.session.data['dec-people-convictions'] = "no"
+		req.session.data['dec-people-convictions-detail'] = ""
+		req.session.data['dec-people-fraud'] = "no"
+		req.session.data['dec-people-fraud-detail'] = ""
+		req.session.data['dec-people-fraudongoing'] = "no"
+		req.session.data['dec-people-fraudongoing-detail'] = ""
+		req.session.data['dec-people-repayfunding'] = "no"
+		req.session.data['dec-people-repayfunding-detail'] = ""
+		req.session.data['dec-people-taxpayments'] = "no"
+		req.session.data['dec-people-taxpayments-detail'] = ""
+		req.session.data['dec-people-trusteeregister'] = "no"
+		req.session.data['dec-people-trusteeregister-detail'] = ""
+		req.session.data['dec-people-withdrawncontract'] = "no"
+		req.session.data['dec-people-withdrawncontract-detail'] = ""
+		req.session.data['del-developdeliver'] = "yes"
+		req.session.data['del-developdeliver-overallaccountability-name'] = "Anne Peters"
+		req.session.data['del-developdeliver-overallaccountability-number'] = "077864526727"
+		req.session.data['del-developdeliver-overallmanager'] = "Steven Collins"
+		req.session.data['del-developdeliver-overallmanager-experience'] = "Over 18 months"
+		req.session.data['del-development-implemented'] = "Sed in porttitor sapien. Nullam at urna vitae leo maximus interdum. Nunc elementum urna augue, ut feugiat justo rhoncus quis. Ut convallis sagittis ullamcorper. In hac habitasse platea dictumst. Donec tristique diam ac nisl mattis, a lacinia libero sodales. Duis porttitor lorem lorem, ut porta leo fringilla ac. Donec porta a massa in bibendum. Nam placerat ipsum nisl, at porttitor velit ultrices eget. Phasellus et justo orci. Etiam feugiat tortor tellus, vitae vulputate felis tristique nec. Sed interdum dolor sit amet felis posuere, in scelerisque nisl vehicula."
+		req.session.data['del-development-reflected'] = "Maecenas ac ligula ut magna ornare ullamcorper. Proin velit lorem, blandit nec tellus sit amet, ultrices luctus ligula. Maecenas mattis, ex a euismod placerat, urna lorem tristique velit, nec malesuada nibh orci eu nisl. Mauris aliquet ipsum eu felis malesuada, sed lacinia mauris rhoncus. Praesent pharetra eget nisi ut pretium. Sed auctor tincidunt ante, non suscipit mi. Vivamus imperdiet gravida dui dictum bibendum. Fusce non ante tristique, semper metus ut, commodo magna. Nullam et aliquet nibh. Sed augue lectus, viverra feugiat magna vitae, facilisis lacinia mi. Suspendisse euismod hendrerit nisi, vitae pretium lorem semper vitae."
+		req.session.data['del-employee'] = [
+			{
+				sector_id: "0",
+				name: "Samantha Pearson",
+				job_role: "Chief Design Officer",
+				timeinrole_years: "4",
+				timeinrole_months: "2"
+			}
+		]		
+		req.session.data['del-expectations'] = "Yes"
+		req.session.data['del-expectations-comminicated'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices lacinia leo, sollicitudin elementum neque. Nullam in blandit mauris. Aliquam vitae euismod risus. Aenean venenatis efficitur nibh quis pharetra. Vestibulum non orci eu mi semper laoreet. Morbi non erat sed tortor consequat tincidunt. Nam quam dolor, imperdiet eu neque sed, condimentum euismod nibh. Duis blandit risus mauris, ut efficitur lectus interdum facilisis. Aliquam at elit finibus, posuere tellus eget, pulvinar lectus. Vestibulum dignissim condimentum dolor, at scelerisque nibh dignissim eget. Fusce tempus sed massa in lobortis. Nulla id orci vel nisi ultrices egestas sit amet sit amet lacus. Integer vehicula purus at dui fringilla, eu placerat nibh eleifend. Nam dignissim erat eu iaculis consectetur. Suspendisse pellentesque augue vehicula nibh tristique dignissim. Nulla mattis, purus et tincidunt euismod, nisl lacus cursus metus, in mattis augue nulla eget dolor. In fringilla arcu non augue vestibulum, quis tincidunt dui feugiat. Phasellus at rutrum lorem. Etiam tempus orci in ultrices fermentum. Maecenas vel dolor rutrum, consequat ligula vitae, blandit metus. Cras imperdiet libero tempus, elementum est ac, placerat elit. Phasellus gravida sapien eu elementum pellentesque. Sed molestie, enim vitae convallis fermentum, dui mauris blandit lorem, nec ultricies lectus est nec lectus. In nec metus enim. Nunc sit amet pharetra eros. Curabitur in commodo magna."
+		req.session.data['del-expectations-responsible-name'] = "Jeff Hall"
+		req.session.data['del-expectations-responsible-number'] = "07625 376223"
+		req.session.data['del-expectations-upload'] = ""
+		req.session.data['del-hierarchy-person'] = [
+			{
+				name: "Michael Downes",
+				job_role: "Head of Apprenticeships",
+				time_in_role: "2.5 years",
+				report_to: "CEO Percy Quinn",
+				org_funding: "No"
+			},{
+				name: "Andrew Moyles",
+				job_role: "CFO",
+				time_in_role: "8 months",
+				report_to: "CEO Percy Quinn",
+				org_funding: "No"
+			}
+		]
+		req.session.data['del-professional-development'] = ""
+		req.session.data['del-sectors'] = ["Creative and design"]
+		req.session.data['eval-apprenticeships'] = "Yes"
+		req.session.data['eval-collectdata'] = "Yes"
+		req.session.data['eval-ilr'] = "Yes"
+		req.session.data['eval-training'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis porta magna. Aliquam ornare justo id placerat fringilla. Nunc metus justo, consequat sed neque sit amet, mattis vehicula justo. Phasellus vulputate ipsum a auctor convallis. Sed laoreet imperdiet est et hendrerit. Nam aliquet dolor sit amet ornare euismod. Aenean consectetur varius justo sed malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras dolor turpis, facilisis vitae scelerisque congue, interdum at massa."
+		req.session.data['eval-training-improvements'] = "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer sit amet fringilla tortor, tristique hendrerit nunc. In eget libero metus. Curabitur in eleifend risus. Maecenas libero tellus, aliquet eget ex nec, luctus imperdiet mi. Nullam a suscipit neque. Morbi feugiat dolor vitae nibh commodo dictum. Nullam quis posuere tellus."
+		req.session.data['exempt_fha'] = "yes"
+		req.session.data['org-classification'] = ["None of the above"]
+		req.session.data['org-ico'] = "12345678"
+		req.session.data['org-parentcompany'] = "yes"
+		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+		req.session.data['org-parentcompany-number'] = "89987987"
+		req.session.data['org-selectedroute'] = "employer"
+		req.session.data['org-trading'] = "More than 23 months"
+		req.session.data['org-type'] = "A public body"
+		req.session.data['org-type-psb'] = "NHS Trust"
+		req.session.data['org-type-subtype'] = "In your organisation and connected companies or charities"
+		req.session.data['org-ukprn'] = "12340102"
+		req.session.data['org-website'] = "yes"
+		req.session.data['org-website-address'] = "ourwebsite.com"
+		req.session.data['plan-engaging'] = "Phasellus tempor, mauris quis maximus condimentum, nisl massa semper mauris, ut imperdiet tortor quam bibendum lectus. Maecenas non massa sodales, mattis erat ut, tempus odio. Donec eleifend nibh sed nunc ultricies vestibulum eu vel est. Donec id nunc pulvinar, cursus felis eget, elementum erat. Duis varius turpis magna, ut luctus ipsum efficitur a. Pellentesque sit amet tortor felis. Aliquam euismod tellus ut augue hendrerit, rhoncus efficitur arcu condimentum. Aliquam ac commodo nibh, vitae finibus metus. Sed et dui eleifend, ultrices ex id, luctus ipsum. Suspendisse porta ipsum ut suscipit egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vitae commodo mi, at tincidunt dolor. Duis consequat erat id vulputate viverra. Nullam venenatis odio vitae urna consequat gravida."
+		req.session.data['plan-forecast-newstaff'] = "yes"
+		req.session.data['plan-forecast-ratio'] = "11to29"
+		req.session.data['plan-forecast-readytodeliver'] = "3to6months"
+		req.session.data['plan-forecast-starts'] = "1to49"
+		req.session.data['plan-otj-method'] = ["selfdirected","written","practical"]
+		req.session.data['plan-otj-relevant'] = "Ut in porttitor massa. Phasellus varius in nibh eget consequat. Fusce lorem libero, molestie eu accumsan vel, sodales porta velit. Integer convallis, ipsum accumsan aliquam maximus, arcu leo condimentum nisl, id euismod est nunc vel lacus. Nulla hendrerit, nulla ut fermentum dignissim, arcu est hendrerit massa, at auctor enim lacus ac lacus. Quisque lacinia quis erat eu imperdiet. Vestibulum fringilla mauris nec finibus congue. Phasellus vel mollis lacus. Pellentesque ac ligula quis augue maximus dictum et non magna. In facilisis ante vel sollicitudin volutpat. Nulla facilisi. Nunc ac erat sapien. Donec vehicula sem tellus, eu tincidunt erat suscipit ut. Duis tincidunt elit et turpis sollicitudin ultricies. In eu mi libero. Nunc eu dolor vel nisi tristique varius sit amet non purus. Sed quam elit, dapibus id est id, laoreet suscipit arcu. Mauris dictum et magna quis interdum."
+		req.session.data['plan-readytodeliver'] = "Nullam eget est sagittis erat mattis ultrices. Mauris efficitur lacus lacinia lorem pretium accumsan. Nam pulvinar ornare enim, ac varius eros vestibulum eu. Donec at risus eu nisi consectetur hendrerit. Phasellus vel lacus lacinia, aliquet ligula in, venenatis quam. Integer dapibus turpis eu erat malesuada mattis. Donec pretium, lacus sit amet dapibus consectetur, erat leo vestibulum mi, ut semper nibh urna id nisi. Vestibulum et purus eros. Fusce tempus nec diam vel venenatis. Aliquam posuere eleifend tortor et placerat. Donec et pharetra erat. Aenean lacus tortor, pretium ac lectus ut, ultrices dignissim diam. Quisque nibh enim, vulputate sit amet nulla eget, porta sodales massa. Donec sed augue sed nisl gravida blandit. Duis risus velit, sollicitudin a nisl quis, pretium molestie lacus."
+		req.session.data['plan-supported'] = "Donec vel venenatis nulla, at maximus enim. Donec tempor massa odio, sed malesuada velit tempus nec. Proin feugiat purus vel cursus consequat. In suscipit sodales ipsum id accumsan. Cras vel ex finibus, hendrerit libero nec, ultrices turpis. Ut arcu urna, aliquam a mi eu, blandit varius magna. Phasellus luctus orci non augue cursus, et condimentum justo dignissim. Aenean ut magna mauris. Morbi iaculis varius lorem in facilisis. Suspendisse eget tellus sit amet magna feugiat interdum. Donec dictum nisi tellus, ac egestas neque lacinia ut. Fusce sed metus sodales, interdum mauris at, finibus arcu. Praesent molestie felis vel tortor mattis pellentesque. Nunc id nisi ut enim accumsan pulvinar et non tortor. Ut luctus nulla id mattis posuere. Proin scelerisque at quam a blandit. Aenean sit amet magna eros. Aenean at risus viverra diam eleifend scelerisque at at nibh."
+		req.session.data['plan-type'] = ["apprenticeship-standards"]
+		req.session.data['pro-itt'] = "yes"
+		req.session.data['pro-ofsted-apprenticeships'] = "no"
+		req.session.data['pro-ofsted-feskills'] = "yes"
+		req.session.data['pro-ofsted-overall-date'] = "no"
+		req.session.data['pro-ofsted-overall-fundingmaintained'] = "no"
+		req.session.data['pro-ofsted-overall-grade'] = "good"
+		req.session.data['pro-ofsted-overall-grademaintained'] = "yes"
+		req.session.data['pro-ofsted-overall-shortinspection'] = "yes"
+		req.session.data['pro-postgrad'] = "no"
+		req.session.data['rte-assessenglishmaths'] = "Nam laoreet velit ac accumsan maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla suscipit sapien ut massa elementum malesuada. Morbi quis nulla maximus, molestie magna et, eleifend urna. Donec ut sapien sit amet lacus scelerisque vehicula. Aenean vitae lacus ligula. Fusce nec vestibulum massa. Nulla facilisi. Suspendisse enim dui, blandit at sapien pharetra, tempor eleifend nisi. Nunc sit amet maximus enim, in volutpat massa. Nullam eros nibh, accumsan in volutpat eu, interdum at sapien. Phasellus vestibulum ligula non purus malesuada lacinia. Morbi non nibh bibendum, mollis mi rhoncus, interdum nibh. Nam sodales ullamcorper enim, bibendum consectetur diam viverra ac. Vivamus efficitur, est sed luctus pretium, diam velit dignissim est, quis condimentum odio nunc ac felis. Vestibulum sit amet quam aliquet, congue leo id, ullamcorper lorem. Maecenas luctus, dui vitae vestibulum ultrices, ante odio tempus est, eu finibus neque lacus quis tortor. Vivamus id eros sapien. Ut cursus lorem in eros laoreet imperdiet. Nam non justo ipsum. Duis lobortis leo vel faucibus faucibus. Morbi quis neque aliquet, suscipit tortor non, dapibus odio. Maecenas tempus rutrum elementum. Praesent risus enim, ultricies nec mollis eget, luctus quis tortor. Suspendisse ut aliquam quam, sed mollis leo. Quisque vehicula viverra rhoncus. Ut blandit eros sit amet libero pulvinar, in vehicula tortor hendrerit. Duis ullamcorper rhoncus odio at aliquet."
+		req.session.data['rte-contractforservices'] = ""
+		req.session.data['rte-priorlearning'] = "prior learning"
+		req.session.data['rte-usesubcontractors'] = "no"
+		req.session.data['signedin'] = "yes"
+		req.session.data['signin-email'] = ""
+		req.session.data['signin-password'] = ""
+		req.session.data['tl_dec_intro'] = "completed"
+		req.session.data['tl_dec_organisation'] = "completed"
+		req.session.data['tl_dec_people'] = "completed"
+		req.session.data['tl_dec_peopleintro'] = "completed"
+		req.session.data['tl_del_accountability'] = "completed"
+		req.session.data['tl_del_developdeliver'] = "completed"
+		req.session.data['tl_del_development'] = "completed"
+		req.session.data['tl_del_expectations'] = "completed"
+		req.session.data['tl_del_hierarchy'] = "completed"
+		req.session.data['tl_del_intro'] = "completed"
+		req.session.data['tl_del_sectors'] = "completed"
+		req.session.data['tl_eval_apprenticeships'] = "completed"
+		req.session.data['tl_eval_collectdata'] = "completed"
+		req.session.data['tl_eval_ilr'] = "completed"
+		req.session.data['tl_eval_intro'] = "completed"
+		req.session.data['tl_eval_training'] = "completed"
+		req.session.data['tl_org_details'] = "completed"
+		req.session.data['tl_org_intro'] = "completed"
+		req.session.data['tl_org_people'] = "completed"
+		req.session.data['tl_org_profile'] = "completed"
+		req.session.data['tl_org_type'] = "completed"
+		req.session.data['tl_plan_address'] = "completed"
+		req.session.data['tl_plan_forecasting'] = "completed"
+		req.session.data['tl_plan_intro'] = "completed"
+		req.session.data['tl_plan_offthejob'] = "completed"
+		req.session.data['tl_plan_supporting'] = "completed"
+		req.session.data['tl_plan_type'] = "completed"
+		req.session.data['tl_rte_commitment'] = "completed"
+		req.session.data['tl_rte_intro'] = "completed"
+		req.session.data['tl_rte_priorlearning'] = "completed"
+		req.session.data['tl_rte_subcontractors'] = "completed"
+		req.session.data['tl_selectroute'] = "completed"
+		req.session.data['tl_wel_continuity'] = "completed"
+		req.session.data['tl_wel_diversity'] = "completed"
+		req.session.data['tl_wel_healthandsafety'] = "completed"
+		req.session.data['tl_wel_intro'] = "completed"
+		req.session.data['tl_wel_preventduty'] = "completed"
+		req.session.data['tl_wel_safeguarding'] = "completed"
+		req.session.data['wel-continuity'] = ""
+		req.session.data['wel-diversity'] = ""
+		req.session.data['wel-healthandsafety'] = ""
+		req.session.data['wel-healthandsafetyresponsible-name'] = "Pete Jones"
+		req.session.data['wel-healthandsafetyresponsible-tel'] = "0998765654"
+		req.session.data['wel-safeguarding'] = ""
+		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
+		req.session.data['wel-safeguardingresponsible-tel'] = "01234987654"
+		res.redirect('/application/' + v + '/task-list')
+	})
+
 
 
 /************************
@@ -359,16 +710,8 @@ module.exports = function (router) {
 
 	// Intro and what you'll need
 	router.post('/application/' + v + '/organisation/intro', function (req, res) {
-
 		req.session.data['tl_org_intro'] = 'completed'
 		req.session.data['tl_org_details'] = 'next'
-		/*
-		let org_ukprn = req.session.data['org-ukprn']
-		if (org_ukprn === '12340101' || org_ukprn === '12340102' || org_ukprn === '12340103' || org_ukprn === '12340201') { // Is company
-			res.redirect('/application/' + v + '/organisation/org-parentcompany')
-		} else {
-			res.redirect('/application/' + v + '/organisation/org-ico')
-		}*/
 		res.redirect('/application/' + v + '/task-list#section-organisation')
 	})
 
@@ -377,13 +720,11 @@ module.exports = function (router) {
 	// Have a parent company?
 	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
 		req.session.data['tl_org_details'] = 'inprogress'
-
-		if (req.session.data['org-parentcompany'] === 'yes'){
+		if (req.session.data['org-parentcompany'] === 'Yes'){
 			res.redirect('/application/' + v + '/organisation/org-parentcompany-details')
 		} else {
 			res.redirect('/application/' + v + '/organisation/org-ico')
 		}
-
 	})
 
 	// Parent company details
@@ -408,14 +749,14 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/organisation/org-legalstatus', function (req, res) {
 
 		if (req.session.data['org-legalstatus']) {
-			if (req.session.data['org-legalstatus'] === 'sole') { 
+			if (req.session.data['org-legalstatus'] === 'Sole trader') { 
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole')
 			} 
-			if (req.session.data['org-legalstatus'] === 'partnership') {
+			if (req.session.data['org-legalstatus'] === 'Partnership') {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership')
 			}
-			if (req.session.data['org-legalstatus'] === 'publicbody') {
-				/******* ASK FOR DIRECTORS!!! ********/
+			if (req.session.data['org-legalstatus'] === 'Public body') {
+				/******* TODO ??? - ASK FOR DIRECTORS!!! ********/
 				res.redirect('/application/' + v + '/organisation/org-type')
 			}
 		} else {
@@ -485,22 +826,17 @@ module.exports = function (router) {
 
 		// Confirm partner details
 		router.post('/application/' + v + '/organisation/org-legalstatus-partnership-confirm', function (req, res) {
-
-			//res.redirect('/application/' + v + '/organisation/org-website')
 			res.redirect('/application/' + v + '/organisation/org-type')
-
 		})
 	
 
 	// Website
 	router.post('/application/' + v + '/organisation/org-website', function (req, res) {
-		
 		if (req.session.data['org-website']) {
 			res.redirect('/application/' + v + '/organisation/org-trading')
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-website')
 		}
-
 	})
 
 	// Started trading date
@@ -511,23 +847,9 @@ module.exports = function (router) {
 			if ( req.session.data['org-trading'] == "Less than 3 months" || req.session.data['org-trading'] == "Less than 12 months") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
-
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
 				res.redirect('/application/' + v + '/task-list#section-organisation')
-				/*
-				if (req.session.data['org-ukprn'] === "12340202") { 
-					res.redirect('/application/' + v + '/organisation/org-trustees')
-				} else if (req.session.data['org-ukprn'] === "12340203") {
-					res.redirect('/application/' + v + '/organisation/org-trustees-declare')
-				} else if (req.session.data['org-ukprn'] === "12340301") {
-					res.redirect('/application/' + v + '/organisation/org-legalstatus')
-				} else if (req.session.data['org-ukprn'] === "12340103") {
-					res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing')
-				} else {
-					res.redirect('/application/' + v + '/organisation/org-peopleincontrol')
-				}
-				*/
 			}
 			
 		} else {
@@ -548,9 +870,9 @@ module.exports = function (router) {
 				'dob_year': req.session.data['org-personincontrol-dob-year']
 			}
 
-			req.session.data['org-personincontrol-name'] = null
-			req.session.data['org-personincontrol-dob-month'] = null
-			req.session.data['org-personincontrol-dob-year'] = null
+			delete req.session.data['org-personincontrol-name']
+			delete req.session.data['org-personincontrol-dob-month']
+			delete req.session.data['org-personincontrol-dob-year']
 
 			if (!req.session.data['org-personincontrol-missing']) {
 				req.session.data['org-personincontrol-missing'] = []
@@ -565,7 +887,6 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			//res.redirect('/application/' + v + '/organisation/org-type')
 			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 		
@@ -579,7 +900,6 @@ module.exports = function (router) {
 			} else {
 				req.session.data['tl_org_people'] = 'completed'
 				req.session.data['tl_org_type'] = 'next'
-				//res.redirect('/application/' + v + '/organisation/org-type')
 				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 		})
@@ -609,9 +929,9 @@ module.exports = function (router) {
 				'dob_year': req.session.data['org-trustee-dob-year']
 			}
 
-			req.session.data['org-trustee-name'] = null
-			req.session.data['org-trustee-dob-month'] = null
-			req.session.data['org-trustee-dob-year'] = null
+			delete req.session.data['org-trustee-name']
+			delete req.session.data['org-trustee-dob-month']
+			delete req.session.data['org-trustee-dob-year']
 
 			if (!req.session.data['org-trustees']) {
 				req.session.data['org-trustees'] = []
@@ -626,7 +946,6 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-trustees-confirm', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			//res.redirect('/application/' + v + '/organisation/org-type')
 			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 		
@@ -634,7 +953,6 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
-			//res.redirect('/application/' + v + '/organisation/org-type')
 			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
 
@@ -655,7 +973,7 @@ module.exports = function (router) {
 				} else if (org_orgtype === 'A public body') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					res.redirect('/application/' + v + '/organisation/org-type-psb')
-				} else if (org_orgtype === 'none') {
+				} else if (org_orgtype === 'None of the above') {
 					req.session.data['tl_org_type'] = 'inprogress'
 					res.redirect('/application/' + v + '/organisation/org-type-subtype')
 				} else {
@@ -767,7 +1085,7 @@ module.exports = function (router) {
 			let org_route = req.session.data['org-selectedroute']
 			req.session.data['tl_org_type'] = 'completed'
 
-			if (org_fundedby === 'yes') {
+			if (org_fundedby === 'Yes') {
 				req.session.data['exempt_fha'] = 'yes'
 			} else if (org_fundedby === 'no') {
 				req.session.data['exempt_fha'] = 'no'
@@ -797,7 +1115,6 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/pro-subcontractor')
 			} else {
 				req.session.data['tl_org_profile'] = 'next'
-				//res.redirect('/application/' + v + '/organisation/pro-itt')
 				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 
@@ -810,7 +1127,7 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/pro-itt', function (req, res) {
 			if (req.session.data['pro-itt']) {
 				req.session.data['tl_org_profile'] = 'inprogress'
-				if (req.session.data['pro-itt'] == "yes") {
+				if (req.session.data['pro-itt'] == "Yes") {
 					res.redirect('/application/' + v + '/organisation/pro-postgrad')
 				} else {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills')
@@ -823,7 +1140,7 @@ module.exports = function (router) {
 		// Profile - Post-grad teaching apprenticeship only
 		router.post('/application/' + v + '/organisation/pro-postgrad', function (req, res) {
 			if (req.session.data['pro-postgrad']) {
-				if (req.session.data['pro-postgrad'] == "yes") {
+				if (req.session.data['pro-postgrad'] == "Yes") {
 					req.session.data['tl_org_profile'] = 'completed'
 					/***** EXEMPT FROM L&M and AW *****/
 					req.session.data['exempt_lm'] = 'yes'
@@ -843,35 +1160,19 @@ module.exports = function (router) {
 		// Profile - Ofsted inspection for further education and skills
 		router.post('/application/' + v + '/organisation/pro-ofsted-feskills', function (req, res) {
 			if (req.session.data['pro-ofsted-feskills']) {
-				if (req.session.data['pro-ofsted-feskills'] == "yes") {
-					
-					//req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
-
+				if (req.session.data['pro-ofsted-feskills'] == "Yes") {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
-					//res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills-published')
-
 				} else {
 					/*** PR2 ***/
-					if (req.session.data['org-type-education'] == "hei" && req.session.data['org-fundedby'] == "yes"){
+					if (req.session.data['org-type-education'] == "Higher education institute" && req.session.data['org-fundedby'] == "Yes"){
 						// EXEMPT FROM AW and CCLM1-6
 						req.session.data['exempt_lm'] = 'partial'
 						req.session.data['exempt_aw'] = 'yes'
 					}
 					res.redirect('/application/' + v + '/organisation/pro-monitoring-visit')
-					//req.session.data['tl_org_profile'] = 'completed'
-					//res.redirect('/application/' + v + '/task-list')
 				}
 			}
 		})
-
-		// Profile - Ofsted inspection for further education and skills publish date
-		/*router.post('/application/' + v + '/organisation/pro-ofsted-feskills-published', function (req, res) {
-
-			req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
-
-			res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
-
-		})*/
 
 		// Profile - Monitoring visit
 		router.post('/application/' + v + '/organisation/pro-monitoring-visit', function (req, res) {
@@ -882,10 +1183,10 @@ module.exports = function (router) {
 		// Profile - Ofsted inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships', function (req, res) {
 			if (req.session.data['pro-ofsted-apprenticeships']) {
-				if (req.session.data['pro-ofsted-apprenticeships'] == "yes") {
+				if (req.session.data['pro-ofsted-apprenticeships'] == "Yes") {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grade')
 				} else {
-					if (req.session.data['org-type-education'] == "hei" && req.session.data['org-fundedby'] == "yes"){
+					if (req.session.data['org-type-education'] == "Higher education institute" && req.session.data['org-fundedby'] == "Yes"){
 						// EXEMPT FROM AW and CCLM1-6
 						req.session.data['exempt_lm'] = 'partial'
 						req.session.data['exempt_aw'] = 'yes'
@@ -902,41 +1203,19 @@ module.exports = function (router) {
 
 		// Profile - Grade of Ofsted inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grade', function (req, res) {
-				if (req.session.data['pro-ofsted-apprenticeships-grade'] == "requires-improvement") {
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
-				} else {
-					/*if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-					
-						if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
-							req.session.data['tl_org_profile'] = 'completed'
-							res.redirect('/application/' + v + '/task-list#section-organisation')
-						} else { 
-							// Grade is outstanding or good
-							res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection')
-						}
-				
-					} else { // WITHIN LAST 3 YEARS
-						
-						if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
-							// INELIGIBLE TO APPLY > SHUTTER PAGE
-							res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-apprenticeships-date')
-						} else { 
-							// Grade is outstanding or good
-							res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-fundingmaintained')
-						}
-
-					}*/
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date')
-				}
+			if (req.session.data['pro-ofsted-apprenticeships-grade'] == "Requires improvement") {
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grade')
+			} else {
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date')
+			}
 		})
 
 		// Profile - Grade of Ofsted inspection for apprentices within 3 years
-		
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-date', function (req, res) {
 			
 			if (req.session.data['pro-ofsted-apprenticeships-date']) {
-				if (req.session.data['pro-ofsted-apprenticeships-date'] == "yes") {
-					if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
+				if (req.session.data['pro-ofsted-apprenticeships-date'] == "Yes") {
+					if (req.session.data['pro-ofsted-apprenticeships-grade'] == "Inadequate") {
 						// INELIGIBLE TO APPLY > SHUTTER PAGE
 						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-apprenticeships-date')
 					} else { 
@@ -945,7 +1224,7 @@ module.exports = function (router) {
 					}
 				} else { // NOT WITHIN LAST 3 YEARS
 					//
-					if (req.session.data['pro-ofsted-apprenticeships-grade'] == "inadequate") {
+					if (req.session.data['pro-ofsted-apprenticeships-grade'] == "Inadequate") {
 						req.session.data['tl_org_profile'] = 'completed'
 						res.redirect('/application/' + v + '/task-list')
 					} else { 
@@ -963,13 +1242,10 @@ module.exports = function (router) {
 		// Profile - Apprentices short inspection <3 years
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection', function (req, res) {
 
-			if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "yes") {
-				
-				//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published')
-				
-				//req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
+			if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "Yes") {
 
-				if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date'] == "no"){ // NOT WITHIN LAST 3 YEARS
+				if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date'] == "No"){ 
+					// NOT WITHIN LAST 3 YEARS
 					// COMPLETE ALL SECTIONS
 					req.session.data['tl_org_profile'] = 'completed'
 					res.redirect('/application/' + v + '/task-list')
@@ -978,7 +1254,6 @@ module.exports = function (router) {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 				}
 				
-
 			} else {
 				// COMPLETE ALL SECTIONS
 				req.session.data['tl_org_profile'] = 'completed'
@@ -987,25 +1262,9 @@ module.exports = function (router) {
 
 		})
 
-		// Profile - Apprentices short inspection <3 years - published date
-		/*router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published', function (req, res) {
-
-			req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
-
-			if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-				// COMPLETE ALL SECTIONS
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list#section-organisation')
-			} else { // WITHIN LAST 3 YEARS
-				// GO TO GRADE MAINTAINED
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
-			}
-
-		})*/
-
 		// Profile - Grade maindained from short inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained', function (req, res) {
-			if (req.session.data['pro-ofsted-apprenticeships-grademaintained'] == "yes") {
+			if (req.session.data['pro-ofsted-apprenticeships-grademaintained'] == "Yes") {
 				// GO TO FUNDING MAINTAINED
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-fundingmaintained')
 			} else {
@@ -1019,7 +1278,7 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-fundingmaintained', function (req, res) {
 
 			if (req.session.data['pro-ofsted-apprenticeships-fundingmaintained']) {
-				if (req.session.data['pro-ofsted-apprenticeships-fundingmaintained'] == "yes") {
+				if (req.session.data['pro-ofsted-apprenticeships-fundingmaintained'] == "Yes") {
 					/***** EXEMPT FROM L&M and AW *****/
 					req.session.data['exempt_lm'] = 'yes'
 					req.session.data['exempt_aw'] = 'yes'
@@ -1037,28 +1296,8 @@ module.exports = function (router) {
 		// Profile - Overall Effectiveness Grade of Ofsted inspection
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-grade', function (req, res) {
 			
-			if (req.session.data['pro-ofsted-overall-grade'] == "outstanding" || req.session.data['pro-ofsted-overall-grade'] == "good" || req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-
-				/*if (req.session.data['ofsted-inspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-				
-					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-						req.session.data['tl_org_profile'] = 'completed'
-						res.redirect('/application/' + v + '/task-list#section-organisation')
-					} else {
-						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection')
-					}
-			
-				} else { // WITHIN LAST 3 YEARS
-
-					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
-						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-overall-inadequate')
-					} else { // OUTSTANDING OR GOOD
-						//res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
-					}
-
-				}*/
+			if (req.session.data['pro-ofsted-overall-grade'] == "Outstanding" || req.session.data['pro-ofsted-overall-grade'] == "Good" || req.session.data['pro-ofsted-overall-grade'] == "Inadequate") {
 				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-date')
-
 			} else {
 				// Ofsted grade of 'Requires improvement'
 				req.session.data['tl_org_profile'] = 'completed'
@@ -1070,14 +1309,14 @@ module.exports = function (router) {
 		// Profile - Overall Effectiveness Grade less than 3 years ago
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-date', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-date']) {
-				if (req.session.data['pro-ofsted-overall-date'] == "yes") {
-					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+				if (req.session.data['pro-ofsted-overall-date'] == "Yes") {
+					if (req.session.data['pro-ofsted-overall-grade'] == "Inadequate") {
 						res.redirect('/application/' + v + '/shutter/organisation/pro-ofsted-overall-inadequate')
 					} else { // OUTSTANDING OR GOOD
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
 					}
 				} else {
-					if (req.session.data['pro-ofsted-overall-grade'] == "inadequate") {
+					if (req.session.data['pro-ofsted-overall-grade'] == "Inadequate") {
 						req.session.data['tl_org_profile'] = 'completed'
 						res.redirect('/application/' + v + '/task-list')
 					} else {
@@ -1092,11 +1331,8 @@ module.exports = function (router) {
 		// Profile - Overall short inspection
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-shortinspection']) {
-				if (req.session.data['pro-ofsted-overall-shortinspection'] == "yes") {
-
-					//res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published')
+				if (req.session.data['pro-ofsted-overall-shortinspection'] == "Yes") {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
-
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
 					res.redirect('/application/' + v + '/task-list#section-organisation')
@@ -1107,26 +1343,10 @@ module.exports = function (router) {
 			}
 		})
 
-		// Profile - Overall short inspection
-		/*router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published', function (req, res) {
-
-			req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
-
-			if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-				// COMPLETE ALL SECTIONS
-				req.session.data['tl_org_profile'] = 'completed'
-				res.redirect('/application/' + v + '/task-list#section-organisation')
-			} else { // WITHIN LAST 3 YEARS
-				// GO TO GRADE MAINTAINED
-				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
-			}
-
-		})*/
-
 		// Profile - Overall grade maintained
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-grademaintained']) {
-				if (req.session.data['pro-ofsted-overall-grademaintained'] == "yes") {
+				if (req.session.data['pro-ofsted-overall-grademaintained'] == "Yes") {
 					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained')
 				}
 				req.session.data['tl_org_profile'] = 'completed'
@@ -1139,7 +1359,7 @@ module.exports = function (router) {
 		// Profile - Overall Ofsted inspection - Maintained funding?
 		router.post('/application/' + v + '/organisation/pro-ofsted-overall-fundingmaintained', function (req, res) {
 			if (req.session.data['pro-ofsted-overall-fundingmaintained']) {
-				if (req.session.data['pro-ofsted-overall-fundingmaintained'] == "yes") {
+				if (req.session.data['pro-ofsted-overall-fundingmaintained'] == "Yes") {
 					/***** EXEMPT FROM AW and CCLM1-6 *****/
 					req.session.data['exempt_lm'] = 'partial'
 					req.session.data['exempt_aw'] = 'yes'
@@ -1172,7 +1392,6 @@ module.exports = function (router) {
 	// Intro and what you'll need
 	router.post('/application/' + v + '/financial/intro', function (req, res) {
 		req.session.data['tl_fin_intro'] = 'completed'
-		//res.redirect('/application/' + v + '/financial/full-accounts')
 		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
@@ -1267,21 +1486,6 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/task-list#section-financial')
 		})
 
-
-	// Upload financial statements
-	/*router.post('/application/' + v + '/financial/upload-financial', function (req, res) {
-		if (req.session.data['fin-fullaccounts'] == "yes"){
-			req.session.data['tl_fin_upload'] = 'completed'
-			res.redirect('/application/' + v + '/task-list#section-financial')
-		} else {
-			/*if (req.session.data['org-selectedroute'] == "supporting") {
-				res.redirect('/application/' + v + '/financial/upload-supporting-management')
-			} else {*/
-				/*res.redirect('/application/' + v + '/financial/upload-management')
-			//}
-		}
-	})*/
-
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'completed'
@@ -1296,7 +1500,6 @@ module.exports = function (router) {
 	// Intro and what you'll need
 	router.post('/application/' + v + '/declarations/intro', function (req, res) {
 		req.session.data['tl_dec_intro'] = 'completed'
-		//res.redirect('/application/' + v + '/declarations/org-debt')
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
@@ -1323,7 +1526,6 @@ module.exports = function (router) {
 
 	// Organisation - Removed from Register of Training Organisations
 	router.post('/application/' + v + '/declarations/org-roto', function (req, res) {
-		//res.redirect('/application/' + v + '/declarations/org-safeguarding')
 		res.redirect('/application/' + v + '/declarations/org-funding-removed')
 	})
 
@@ -1357,7 +1559,6 @@ module.exports = function (router) {
 	// Who’s in control intro and what you'll need
 	router.post('/application/' + v + '/declarations/people-intro', function (req, res) {
 		req.session.data['tl_dec_peopleintro'] = 'completed'
-		//res.redirect('/application/' + v + '/declarations/org-debt')
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
@@ -1367,13 +1568,11 @@ module.exports = function (router) {
 		// Will need to go in to a loop if answered yes
 		req.session.data['tl_dec_people'] = 'inprogress'
 		res.redirect('/application/' + v + '/declarations/people-repay-funding')
-		//res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 
 	// Who’s in control - failed to repay funding
 	router.post('/application/' + v + '/declarations/people-repay-funding', function (req, res) {
-		//req.session.data['tl_dec_people'] = 'inprogress'
 		res.redirect('/application/' + v + '/declarations/people-fraud')
 	})
 
@@ -1410,7 +1609,6 @@ module.exports = function (router) {
 	// Who’s in control - Trustee register
 	router.post('/application/' + v + '/declarations/people-trustee-register', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-bankrupt')
-		//res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 	// Who’s in control - Bankrupt?
@@ -1424,13 +1622,6 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
-	// Who’s in control - Criminal convictions
-	/*router.post('/application/' + v + '/declarations/people-convictions', function (req, res) {
-		// Will need to go in to a loop if answered yes
-		req.session.data['tl_dec_people'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-declarations')
-	})*/
-
 
 /******************************
  *** Apprenticeship welfare ***
@@ -1439,27 +1630,18 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/welfare/intro', function (req, res) {
 		req.session.data['tl_wel_intro'] = 'completed'
-		/*
-		if (req.session.data['org-selectedroute'] == "supporting") {
-			res.redirect('/application/' + v + '/welfare/upload-diversity')
-		} else {
-			res.redirect('/application/' + v + '/welfare/upload-continuity')
-		}
-		*/
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Continuity plan upload
 	router.post('/application/' + v + '/welfare/upload-continuity', function (req, res) {
 		req.session.data['tl_wel_continuity'] = 'completed'
-		//res.redirect('/application/' + v + '/welfare/upload-diversity')
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
 	// Equality and diversity policy upload
 	router.post('/application/' + v + '/welfare/upload-diversity', function (req, res) {
 		req.session.data['tl_wel_diversity'] = 'completed'
-		//res.redirect('/application/' + v + '/welfare/upload-safeguarding')
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
@@ -1472,7 +1654,6 @@ module.exports = function (router) {
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
 		req.session.data['tl_wel_safeguarding'] = 'completed'
-		//res.redirect('/application/' + v + '/welfare/preventduty')
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
@@ -1483,7 +1664,6 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/welfare/upload-preventduty')
 		} else {
 			req.session.data['tl_wel_preventduty'] = 'completed'
-			//res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
 			res.redirect('/application/' + v + '/task-list#section-welfare')
 		}
 	})
@@ -1491,7 +1671,6 @@ module.exports = function (router) {
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
 		req.session.data['tl_wel_preventduty'] = 'completed'
-		//res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
@@ -1501,21 +1680,9 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 	})
 
-	// Who's responsible for health and safety
-	/*router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
-		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
-			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
-		} else {
-			req.session.data['tl_wel_healthandsafety'] = 'completed'
-			//res.redirect('/application/' + v + '/welfare/otherpolicies')
-			res.redirect('/application/' + v + '/task-list#section-welfare')
-		}
-	})*/
-
 	// Who's responsible for health and safety - details
 	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
 		req.session.data['tl_wel_healthandsafety'] = 'completed'
-		//res.redirect('/application/' + v + '/welfare/otherpolicies')
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 
@@ -1533,7 +1700,6 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/readiness/intro', function (req, res) {
 		req.session.data['tl_rte_intro'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/engaged')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})	
 
@@ -1553,47 +1719,32 @@ module.exports = function (router) {
 		if (req.session.data['rte-managingrelationships'] == "yes") {
 			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
 		} else {
-			//res.redirect('/application/' + v + '/readiness/promote')
-		req.session.data['tl_rte_engagement'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/upload-complaints')
-		res.redirect('/application/' + v + '/task-list#section-readiness')
+			req.session.data['tl_rte_engagement'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-readiness')
 		}
 	})	
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {
-		//res.redirect('/application/' + v + '/readiness/fat')
-		//res.redirect('/application/' + v + '/readiness/promote')
 		req.session.data['tl_rte_engagement'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/upload-complaints')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
-
-	// Promote apprenticeships
-	/*router.post('/application/' + v + '/readiness/promote', function (req, res) {
-		req.session.data['tl_rte_engagement'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/upload-complaints')
-		res.redirect('/application/' + v + '/task-list#section-readiness')
-	})*/
 
 	// Upload complaints policy
 	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {
 		req.session.data['tl_rte_complaints'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/upload-contractforservices')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Upload contract for services
 	router.post('/application/' + v + '/readiness/upload-contractforservices', function (req, res) {
 		req.session.data['tl_rte_contractforservices'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
 	// Upload commitment statement
 	router.post('/application/' + v + '/readiness/upload-commitmentstatement', function (req, res) {
 		req.session.data['tl_rte_commitment'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/prior-learning-assessments')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
@@ -1606,7 +1757,6 @@ module.exports = function (router) {
 	// Assess English and Maths
 	router.post('/application/' + v + '/readiness/asses-english-maths', function (req, res) {
 		req.session.data['tl_rte_priorlearning'] = 'completed'
-		//res.redirect('/application/' + v + '/readiness/use-subcontractors')
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})
 
@@ -1672,24 +1822,17 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/planning/03-engaging', function (req, res) {
 		req.session.data['tl_plan_type'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-planning')
-		/*if (req.session.data["org-selectedroute"] == "employer"){
-			res.redirect('/application/' + v + '/planning/04-supported')
-		} else {
-			res.redirect('/application/' + v + '/planning/05-contact')
-		}*/
 	})	
 
 	// Apprentices supported
 	router.post('/application/' + v + '/planning/04-supported', function (req, res) {
 		req.session.data['tl_plan_supporting'] = 'completed'
-		//res.redirect('/application/' + v + '/planning/06-forecast-starts')
 		res.redirect('/application/' + v + '/task-list#section-planning')
 	})
 
 	// Course directory contact
 	router.post('/application/' + v + '/planning/05-contact', function (req, res) {
 		req.session.data['tl_plan_contact'] = 'completed'
-		//res.redirect('/application/' + v + '/planning/06-forecast-starts')
 		res.redirect('/application/' + v + '/task-list#section-planning')
 	})
 
@@ -1712,7 +1855,6 @@ module.exports = function (router) {
 	// Forecast - Ratio
 	router.post('/application/' + v + '/planning/09-forecast-ratio', function (req, res) {
 		req.session.data['tl_plan_forecasting'] = 'completed'
-		//res.redirect('/application/' + v + '/planning/10-otj-methods')
 		res.redirect('/application/' + v + '/task-list#section-planning')
 	})
 
@@ -1791,12 +1933,6 @@ module.exports = function (router) {
 
 		req.session.data['tl_del_hierarchy'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-delivering')
-		/*if (!req.session.data["org-selectedroute"] == "employer"){
-			res.redirect('/application/' + v + '/delivering/develop-deliver')
-		} else {
-			res.redirect('/application/' + v + '/task-list#section-delivering')
-			//res.redirect('/application/' + v + '/delivering/work-with')
-		}*/
 	})
 
 	// Expectations (high standards)
@@ -1824,11 +1960,6 @@ module.exports = function (router) {
 		req.session.data['tl_del_expectations'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
-
-	// Expectations (high standards) - definition
-	/*router.post('/application/' + v + '/delivering/expectations-definition', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/expectations-communicated')
-	})*/
 
 
 	// Developing and Delivering - Does your organisation have a team responsible?
@@ -1863,23 +1994,6 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
-	// Worked with employers/other orgs
-	/*router.post('/application/' + v + '/delivering/work-with', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/expectations')
-	})*/
-
-	// Expectations - communicated
-	/*router.post('/application/' + v + '/delivering/expectations-communicated', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/training-manager')
-	})*/
-
-	// Who is your apprenticeship training manager?
-	/*router.post('/application/' + v + '/delivering/training-manager', function (req, res) {
-		req.session.data['tl_del_hierarchy'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-hierarchy')
-	})*/
-
-
 	// Sectors training in
 	router.post('/application/' + v + '/delivering/sectors', function (req, res) {
 		req.session.data['tl_del_sectors'] = 'inprogress'
@@ -1888,12 +2002,10 @@ module.exports = function (router) {
 
 	// Select sector to which they will add an employee
 	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
-		//req.session.data['current_sector_id'] = req.query.sectorid
 		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
 	})
 
 	router.get('/application/' + v + '/delivering/sectors-employee-remove-route', function (req, res) {
-		//req.session.data['remove_employee_id'] = req.query.employeeid
 		res.redirect('/application/' + v + '/delivering/sectors-employee-remove')
 	})
 
@@ -1996,7 +2108,6 @@ module.exports = function (router) {
 		req.session.data['del-employee'][req.session.data['current_sector_id']]['trainingdelivered'] = req.session.data['del-employee-trainingdelivered']
 
 		if (req.session.data['del-employee-trainingdelivered'] == "No apprenticeship training delivered"){
-			//req.session.data['tl_del_sectors'] = 'completed'
 			delete req.session.data['del-employee-trainingdelivered']
 			res.redirect('/application/' + v + '/delivering/sectors-employees')
 		} else {

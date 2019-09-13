@@ -1935,6 +1935,18 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-delivering')
 	})
 
+	router.get('/application/' + v + '/delivering/hierarchy-remove-route', function (req, res) {
+		res.redirect('/application/' + v + '/delivering/hierarchy-remove')
+	})
+
+	// Remove employee to sector
+	router.post('/application/' + v + '/delivering/hierarchy-remove', function (req, res) {
+		if (req.session.data['del-hierarchy-remove'] == "Yes"){
+			req.session.data['del-hierarchy-person'].splice(req.session.data['remove_hierarchy_id'],1)
+		}
+		res.redirect('/application/' + v + '/delivering/hierarchy-confirm')
+	})
+
 	// Expectations (high standards)
 	router.post('/application/' + v + '/delivering/expectations', function (req, res) {
 		req.session.data['tl_del_expectations'] = 'inprogress'

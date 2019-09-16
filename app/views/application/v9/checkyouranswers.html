@@ -234,6 +234,97 @@
             </dd>
           </div>
         {% endif %}
+        {% if (data['pro-ofsted-apprenticeships-grade']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What grade did your organisation get for apprenticeships in this full Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-apprenticeships-date']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did your organisation get this grade within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships-date'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-grade']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What grade did your organisation get for overall effectiveness in this full Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-date']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did your organisation get this grade within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-date'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-shortinspection']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation had a short Ofsted inspection within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-shortinspection'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-grademaintained']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation maintained the grade it got in its full Ofsted inspection in its short Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-grademaintained'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-fundingmaintained']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation maintained funding from an education agency since getting this grade?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-fundingmaintained'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+        {% endif %}
 
       {% endif %}
 

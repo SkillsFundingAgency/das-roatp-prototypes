@@ -582,7 +582,11 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/hierarchy-add" aria-describedby="del-hierarchy">Management hierarchy for apprenticeships</a>
+                {% if (data['del-hierarchy-person'].length == 0) %}
+                  <a class="app-task-list__task-name" href="delivering/hierarchy-add" aria-describedby="del-hierarchy">Management hierarchy for apprenticeships</a>
+                {% else %}
+                  <a class="app-task-list__task-name" href="delivering/hierarchy-confirm" aria-describedby="del-hierarchy">Management hierarchy for apprenticeships</a>
+                {% endif %}
               {% else %}
                 Management hierarchy for apprenticeships
               {% endif %}

@@ -420,14 +420,22 @@
     {% endif %}
 
 
-    <!--
-    fin-consolidatedstatements: "yes"
-fin-fullstatements-upload: ""
-fin-subsidiary-upload: ""
-fin-whoprepared: ["employee"]
-fin-whoprepared-parentcompany: ["accountant"]
-gethelp: ""
--->
+<!-- Criminal and compliance checks -->
+
+    <h2 class="govuk-heading-l">Criminal and compliance checks</h2>
+
+    <h3 class="govuk-heading-m">Does your organisation have any composition with creditors?</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+          {{ data['dec-org-debt'] | capitalize }}
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
 
 <!--
     <h2 class="govuk-heading-m">Application details</h2>
@@ -495,7 +503,8 @@ gethelp: ""
 
       {{ govukButton({
         text: "Accept and continue",
-        classes: "govuk-!-margin-right-1"
+        classes: "govuk-!-margin-right-1",
+        disabled: "disabled"
       }) }}
     
     </form>

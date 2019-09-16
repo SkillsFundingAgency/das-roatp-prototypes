@@ -152,7 +152,15 @@ module.exports = function (router) {
 		req.session.data['del-developdeliver-workedwith'] = "No"
 		req.session.data['del-development-implemented'] = "policy for professional development"
 		req.session.data['del-development-reflected'] = "professional development reflected"
-		//req.session.data['del-employee'] = [{…}]
+		req.session.data['del-employee'] = [
+			{
+				sector_id: "0",
+				name: "Samantha Pearson",
+				job_role: "Chief Design Officer",
+				timeinrole_years: "4",
+				timeinrole_months: "2"
+			}
+		]		
 		req.session.data['del-expectations'] = "No"
 		req.session.data['del-expectations-comminicated'] = "communicate quality and high standards"
 		req.session.data['del-expectations-responsible-name'] = "Jeff"
@@ -160,7 +168,21 @@ module.exports = function (router) {
 		req.session.data['del-hierarchy-name'] = null
 		req.session.data['del-hierarchy-orgfunding'] = null
 		req.session.data['del-hierarchy-orgfunding-name'] = null
-		//req.session.data['del-hierarchy-person'] = (3) [{…}, {…}, {…}]
+		req.session.data['del-hierarchy-person'] = [
+			{
+				name: "Michael Downes",
+				job_role: "Head of Apprenticeships",
+				time_in_role: "2.5 years",
+				report_to: "CEO Percy Quinn",
+				org_funding: "No"
+			},{
+				name: "Andrew Moyles",
+				job_role: "CFO",
+				time_in_role: "8 months",
+				report_to: "CEO Percy Quinn",
+				org_funding: "No"
+			}
+		]
 		req.session.data['del-hierarchy-reportto'] = null
 		req.session.data['del-hierarchy-role'] = null
 		req.session.data['del-hierarchy-subcontractorfunding'] = null

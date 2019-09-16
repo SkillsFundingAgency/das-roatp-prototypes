@@ -889,6 +889,22 @@ module.exports = function (router) {
 			req.session.data['tl_org_type'] = 'next'
 			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
+
+		router.get('/application/' + v + '/organisation/org-peopleincontrol-remove-route', function (req, res) {
+			res.redirect('/application/' + v + '/organisation/org-peopleincontrol-remove')
+		})
+
+		// Remove employee to sector
+		router.post('/application/' + v + '/organisation/org-peopleincontrol-remove', function (req, res) {
+			if (req.session.data['del-employee-remove'] == "Yes"){
+				req.session.data['org-personincontrol-missing'].splice(req.session.data['current_pic_id'],1)
+			}
+			if (req.session.data['org-personincontrol-missing'].length == 0){
+				res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing')
+			} else {
+				res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm')
+			}
+		})
 		
 		// Confirm people in control
 		router.post('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {

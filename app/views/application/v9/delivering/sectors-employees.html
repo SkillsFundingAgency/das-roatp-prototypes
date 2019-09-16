@@ -21,6 +21,12 @@
       <span class="govuk-caption-l">Sectors and employee experience</span>
 
       <h1 class="govuk-heading-l">The sector{% if sectorcount > 1 %}s{% endif  %} your organisation will offer apprenticeship training in</h1>
+    
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
 
       <table class="govuk-table">
         <thead class="govuk-table__head">
@@ -32,7 +38,7 @@
                 {% if employees != null %}
                   {% set employeecount = employeecount + 1 %}
                   {% if employeecount == 1 %}
-                    Name
+                    Most experienced employee
                   {% endif %}
                 {% endif %}
               {% endfor %}
@@ -62,6 +68,12 @@
         {% endfor %}
         </tbody>
       </table>
+    
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
       <form action="" method="post" class="form">
 

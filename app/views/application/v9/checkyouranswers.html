@@ -899,6 +899,167 @@
     </dl>
 
 
+<!-- Planning apprenticeship training -->
+
+    <h2 class="govuk-heading-l">Planning apprenticeship training</h2>
+
+    <h3 class="govuk-heading-m">Type of apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What type of apprenticeship training will your organisation offer?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% set len = data['plan-type'] | length %}
+          {% for item in data['plan-type'] %}
+            {% if (i == 1) %}
+              and {{ data['plan-type'][i] | lower }}
+            {% else %}
+              {{ data['plan-type'][i] }}
+            {% endif %}
+            {% set i = i + 1 %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How does your organisation plan to engage and work with awarding bodies?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-engaging'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Course directory contact</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Course directory contact
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-contact-name'] }}<br>
+          {{ data['plan-contact-email'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <!-- SUPPORTING APPRENTICES -->
+
+    <h3 class="govuk-heading-m">Forecasting starts</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How many starts does your organisation forecasts in the first 12 months of joining RoATP?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-starts'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          When will your organisation be ready to deliver training against these forecasts?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-readytodeliver'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Will your organisation recruit new staff to deliver training against these forecasts?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-newstaff'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the typical ratio of the staff who deliver training to the learners?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-ratio'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Off the job training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What teaching methods will your organisation use to deliver 20% off the job training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% for item in data['plan-otj-method'] %}
+            {% set i = i + 1 %}
+            {% if (i == data['plan-otj-method'] | length) %}and {% endif %}
+            {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['plan-otj-method'] | length > 2) and(i < data['plan-otj-method'] | length) %}, {% endif %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will your organisation ensure 20% off the job training is relevant to specific apprenticeship
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-otj-relevant'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Where apprentices will be trained</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the main address apprentices will be trained?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-address-line1'] }}
+          {{ data['plan-address-line2'] }}
+          {% if (data['plan-address-town'] != "") %}<br>{% endif %}
+          {{ data['plan-address-town'] }}
+          {% if (data['plan-address-county'] != "") %}<br>{% endif %}
+          {{ data['plan-address-county'] }}
+          {% if (data['plan-address-postcode'] != "") %}<br>{% endif %}
+          {{ data['plan-address-postcode'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+
+
 
 <!--
     <h2 class="govuk-heading-m">Application details</h2>

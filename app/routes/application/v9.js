@@ -96,11 +96,6 @@ module.exports = function (router) {
 
 	// Application completed - supporting provider
 	router.get('/application/' + v + '/jump/completedapplicationsupporting', function (req,res) {
-		req.session.data['address-county'] = "Northants"
-		req.session.data['address-line-1'] = "123"
-		req.session.data['address-line-2'] = "Main road"
-		req.session.data['address-postcode'] = "NN1 6AA"
-		req.session.data['address-town'] = "Northampton"
 		req.session.data['dec-org-contractterminated'] = "no"
 		req.session.data['dec-org-contractterminated-detail'] = ""
 		req.session.data['dec-org-debt'] = "no"
@@ -203,6 +198,7 @@ module.exports = function (router) {
 		req.session.data['org-type'] = "An employer training apprentices in other organisations"
 		req.session.data['org-ukprn'] = "12340101"
 		req.session.data['plan-contact-name'] = "David Walker"
+		req.session.data['plan-contact-email'] = "david@walker.com"
 		req.session.data['plan-engaging'] = "Vestibulum dapibus eget diam a blandit. Fusce lacus lacus, viverra ut pharetra nec, venenatis quis ipsum. Duis at diam fermentum, mattis magna et, pulvinar velit. Aenean quis sapien hendrerit lorem venenatis convallis. Vestibulum nec dapibus velit."
 		req.session.data['plan-forecast-newstaff'] = "No"
 		req.session.data['plan-forecast-ratio'] = "One trainer between 11 to 29 learners"
@@ -211,7 +207,12 @@ module.exports = function (router) {
 		req.session.data['plan-otj-method'] = ["Distance learning - training delivered remotely for example, e-learning or webinars"]
 		req.session.data['plan-otj-relevant'] = "Cras fermentum in ligula ac tempor. Quisque eget pretium ante. Nam sed ante leo. Nulla pulvinar sem vel nulla tincidunt, ut sodales urna sagittis."
 		req.session.data['plan-readytodeliver'] = "ready to deliver"
-		req.session.data['plan-type'] = ["apprenticeship-standards"]
+		req.session.data['plan-type'] = ["Apprenticeship standards"]
+		req.session.data['plan-address-county'] = "Northants"
+		req.session.data['plan-address-line1'] = "123"
+		req.session.data['plan-address-line2'] = "Main road"
+		req.session.data['plan-address-postcode'] = "NN1 6AA"
+		req.session.data['plan-address-town'] = "Northampton"
 		req.session.data['pro-itt'] = "No"
 		req.session.data['pro-monitoring-visit'] = "No"
 		req.session.data['pro-ofsted-feskills'] = "No"
@@ -282,11 +283,6 @@ module.exports = function (router) {
 
 	// Application completed - employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required
 	router.get('/application/' + v + '/jump/completedapplicationemployer', function (req,res) {
-		req.session.data['address-county'] = "Northants"
-		req.session.data['address-line-1'] = "123"
-		req.session.data['address-line-2'] = "Main road"
-		req.session.data['address-postcode'] = "NN1 6AA"
-		req.session.data['address-town'] = "Northampton"
 		req.session.data['current_sector_id'] = "0"
 		req.session.data['dec-org-contractterminated'] = "No"
 		req.session.data['dec-org-contractterminated-detail'] = ""
@@ -396,7 +392,12 @@ module.exports = function (router) {
 		req.session.data['plan-otj-relevant'] = "Ut in porttitor massa. Phasellus varius in nibh eget consequat. Fusce lorem libero, molestie eu accumsan vel, sodales porta velit. Integer convallis, ipsum accumsan aliquam maximus, arcu leo condimentum nisl, id euismod est nunc vel lacus. Nulla hendrerit, nulla ut fermentum dignissim, arcu est hendrerit massa, at auctor enim lacus ac lacus. Quisque lacinia quis erat eu imperdiet. Vestibulum fringilla mauris nec finibus congue. Phasellus vel mollis lacus. Pellentesque ac ligula quis augue maximus dictum et non magna. In facilisis ante vel sollicitudin volutpat. Nulla facilisi. Nunc ac erat sapien. Donec vehicula sem tellus, eu tincidunt erat suscipit ut. Duis tincidunt elit et turpis sollicitudin ultricies. In eu mi libero. Nunc eu dolor vel nisi tristique varius sit amet non purus. Sed quam elit, dapibus id est id, laoreet suscipit arcu. Mauris dictum et magna quis interdum."
 		req.session.data['plan-readytodeliver'] = "Nullam eget est sagittis erat mattis ultrices. Mauris efficitur lacus lacinia lorem pretium accumsan. Nam pulvinar ornare enim, ac varius eros vestibulum eu. Donec at risus eu nisi consectetur hendrerit. Phasellus vel lacus lacinia, aliquet ligula in, venenatis quam. Integer dapibus turpis eu erat malesuada mattis. Donec pretium, lacus sit amet dapibus consectetur, erat leo vestibulum mi, ut semper nibh urna id nisi. Vestibulum et purus eros. Fusce tempus nec diam vel venenatis. Aliquam posuere eleifend tortor et placerat. Donec et pharetra erat. Aenean lacus tortor, pretium ac lectus ut, ultrices dignissim diam. Quisque nibh enim, vulputate sit amet nulla eget, porta sodales massa. Donec sed augue sed nisl gravida blandit. Duis risus velit, sollicitudin a nisl quis, pretium molestie lacus."
 		req.session.data['plan-supported'] = "Donec vel venenatis nulla, at maximus enim. Donec tempor massa odio, sed malesuada velit tempus nec. Proin feugiat purus vel cursus consequat. In suscipit sodales ipsum id accumsan. Cras vel ex finibus, hendrerit libero nec, ultrices turpis. Ut arcu urna, aliquam a mi eu, blandit varius magna. Phasellus luctus orci non augue cursus, et condimentum justo dignissim. Aenean ut magna mauris. Morbi iaculis varius lorem in facilisis. Suspendisse eget tellus sit amet magna feugiat interdum. Donec dictum nisi tellus, ac egestas neque lacinia ut. Fusce sed metus sodales, interdum mauris at, finibus arcu. Praesent molestie felis vel tortor mattis pellentesque. Nunc id nisi ut enim accumsan pulvinar et non tortor. Ut luctus nulla id mattis posuere. Proin scelerisque at quam a blandit. Aenean sit amet magna eros. Aenean at risus viverra diam eleifend scelerisque at at nibh."
-		req.session.data['plan-type'] = ["apprenticeship-standards"]
+		req.session.data['plan-type'] = ["Apprenticeship standards"]
+		req.session.data['plan-address-county'] = "Northants"
+		req.session.data['plan-address-line1'] = "123"
+		req.session.data['plan-address-line2'] = "Main road"
+		req.session.data['plan-address-postcode'] = "NN1 6AA"
+		req.session.data['plan-address-town'] = "Northampton"
 		req.session.data['pro-itt'] = "Yes"
 		req.session.data['pro-ofsted-apprenticeships'] = "No"
 		req.session.data['pro-ofsted-feskills'] = "Yes"
@@ -467,11 +468,6 @@ module.exports = function (router) {
 
 	// Application completed - employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required
 	router.get('/application/' + v + '/jump/completedapplicationmain', function (req,res) {
-		req.session.data['address-county'] = "Northants"
-		req.session.data['address-line-1'] = "123"
-		req.session.data['address-line-2'] = "Main road"
-		req.session.data['address-postcode'] = "NN1 6AA"
-		req.session.data['address-town'] = "Northampton"
 		req.session.data['current_sector_id'] = "0"
 		req.session.data['dec-org-contractterminated'] = "No"
 		req.session.data['dec-org-contractterminated-detail'] = ""
@@ -578,6 +574,7 @@ module.exports = function (router) {
 		req.session.data['org-website'] = "Yes"
 		req.session.data['org-website-address'] = "ourwebsite.com"
 		req.session.data['plan-contact-name'] = "David Walker"
+		req.session.data['plan-contact-email'] = "david@walker.com"
 		req.session.data['plan-engaging'] = "Phasellus tempor, mauris quis maximus condimentum, nisl massa semper mauris, ut imperdiet tortor quam bibendum lectus. Maecenas non massa sodales, mattis erat ut, tempus odio. Donec eleifend nibh sed nunc ultricies vestibulum eu vel est. Donec id nunc pulvinar, cursus felis eget, elementum erat. Duis varius turpis magna, ut luctus ipsum efficitur a. Pellentesque sit amet tortor felis. Aliquam euismod tellus ut augue hendrerit, rhoncus efficitur arcu condimentum. Aliquam ac commodo nibh, vitae finibus metus. Sed et dui eleifend, ultrices ex id, luctus ipsum. Suspendisse porta ipsum ut suscipit egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vitae commodo mi, at tincidunt dolor. Duis consequat erat id vulputate viverra. Nullam venenatis odio vitae urna consequat gravida."
 		req.session.data['plan-forecast-newstaff'] = "Yes"
 		req.session.data['plan-forecast-ratio'] = "One trainer between 11 to 29 learners"
@@ -588,6 +585,11 @@ module.exports = function (router) {
 		req.session.data['plan-readytodeliver'] = "Nullam eget est sagittis erat mattis ultrices. Mauris efficitur lacus lacinia lorem pretium accumsan. Nam pulvinar ornare enim, ac varius eros vestibulum eu. Donec at risus eu nisi consectetur hendrerit. Phasellus vel lacus lacinia, aliquet ligula in, venenatis quam. Integer dapibus turpis eu erat malesuada mattis. Donec pretium, lacus sit amet dapibus consectetur, erat leo vestibulum mi, ut semper nibh urna id nisi. Vestibulum et purus eros. Fusce tempus nec diam vel venenatis. Aliquam posuere eleifend tortor et placerat. Donec et pharetra erat. Aenean lacus tortor, pretium ac lectus ut, ultrices dignissim diam. Quisque nibh enim, vulputate sit amet nulla eget, porta sodales massa. Donec sed augue sed nisl gravida blandit. Duis risus velit, sollicitudin a nisl quis, pretium molestie lacus."
 		req.session.data['plan-supported'] = "Donec vel venenatis nulla, at maximus enim. Donec tempor massa odio, sed malesuada velit tempus nec. Proin feugiat purus vel cursus consequat. In suscipit sodales ipsum id accumsan. Cras vel ex finibus, hendrerit libero nec, ultrices turpis. Ut arcu urna, aliquam a mi eu, blandit varius magna. Phasellus luctus orci non augue cursus, et condimentum justo dignissim. Aenean ut magna mauris. Morbi iaculis varius lorem in facilisis. Suspendisse eget tellus sit amet magna feugiat interdum. Donec dictum nisi tellus, ac egestas neque lacinia ut. Fusce sed metus sodales, interdum mauris at, finibus arcu. Praesent molestie felis vel tortor mattis pellentesque. Nunc id nisi ut enim accumsan pulvinar et non tortor. Ut luctus nulla id mattis posuere. Proin scelerisque at quam a blandit. Aenean sit amet magna eros. Aenean at risus viverra diam eleifend scelerisque at at nibh."
 		req.session.data['plan-type'] = ["Apprenticeship standards"]
+		req.session.data['plan-address-county'] = "Northants"
+		req.session.data['plan-address-line1'] = "123"
+		req.session.data['plan-address-line2'] = "Main road"
+		req.session.data['plan-address-postcode'] = "NN1 6AA"
+		req.session.data['plan-address-town'] = "Northampton"
 		req.session.data['pro-itt'] = "Yes"
 		req.session.data['pro-ofsted-apprenticeships'] = "No"
 		req.session.data['pro-ofsted-feskills'] = "Yes"

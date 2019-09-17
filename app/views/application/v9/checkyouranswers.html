@@ -1058,6 +1058,97 @@
     </dl>
 
 
+<!-- Delivering apprenticeship training -->
+
+    <h2 class="govuk-heading-l">Delivering apprenticeship training</h2>
+
+    <h3 class="govuk-heading-m">Overall accountability for apprenticeships</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall accountability for apprenticeships in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallaccountability-name'] }}<br>
+          {{ data['del-developdeliver-overallaccountability-email'] }}<br>
+          {{ data['del-developdeliver-overallaccountability-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-l">Management hierarchy</h2>
+
+    <h3 class="govuk-heading-m">Your organisation’s management hierarchy for apprenticeships</h3>
+    
+<div class="govuk-accordion govuk-accordion--roatpcya" data-module="accordion" id="accordion-default">
+
+  {% set i = 0 %}
+  {% for person in data['del-hierarchy-person'] %}
+
+    <div class="govuk-accordion__section">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
+            {{data['del-hierarchy-person'][i]['name']}}
+          </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
+        </h2>
+      </div>
+      <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
+        <dl class="govuk-summary-list govuk-summary-list--roatpcya">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Job role
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['del-hierarchy-person'][i]['job_role']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time in role
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['del-hierarchy-person'][i]['time_in_role']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is this person part of another organisation that receives funding from ESFA?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['del-hierarchy-person'][i]['org_funding']}}
+              {% if (data['del-hierarchy-person'][i]['org_funding_name'] != "") %}
+              ({{data['del-hierarchy-person'][i]['org_funding_name']}})
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is this person a subcontractor who receives funding from ESFA?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['del-hierarchy-person'][i]['subcontractor_funding']}}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reports to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['del-hierarchy-person'][i]['report_to']}}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    {% set i = i + 1 %}
+  {% endfor %}
+
+</div>
 
 
 
@@ -1119,6 +1210,8 @@
       </div>
     </dl>
 -->
+
+
     <h2 class="govuk-heading-m">Now send your application</h2>
 
     <p class="govuk-body">By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>

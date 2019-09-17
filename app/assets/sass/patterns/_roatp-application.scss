@@ -61,3 +61,13 @@
     }
 
 }
+
+.govuk-accordion--roatpcya .govuk-accordion__section-content {
+    padding: 0 govuk-spacing(3);
+}
+.govuk-accordion--roatpcya .govuk-summary-list__row:last-child .govuk-summary-list__key,
+.govuk-accordion--roatpcya .govuk-summary-list__row:last-child .govuk-summary-list__value,
+.govuk-accordion--roatpcya .govuk-summary-list__row:last-child .govuk-summary-list__actions {
+    border-bottom: none;
+    padding-bottom: govuk-spacing(6);
+}

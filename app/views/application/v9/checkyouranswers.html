@@ -796,14 +796,100 @@
             <a class="govuk-link" href="#">Change</a>
           </dd>
         </div>
+      {% endif %}
+    </dl>
+
+    <h3 class="govuk-heading-m">Complaints policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Complaints policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Contract for services template</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contract for services template with employers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Commitment statement template</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Commitment statement template
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Prior learning of apprentices</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Process for initial assessments to recognise prior learning?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-priorlearning'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Process to assess English and maths qualifications for apprentices?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-assessenglishmaths'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Working with subcontractors</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation expect to use subcontractors in the first 12 months of joining RoATP?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-usesubcontractors'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% if data['rte-usesubcontractors'] == "Yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Details for the person who’s responsible for managing relationships with employers
+            How will your organisation engage with subcontractors?
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['rte-managingrelationships-name'] }}
-          {% if data['wel-managingrelationships-email'] != "" %}<br>{{ data['wel-managingrelationships-email'] }}{% endif %}
-          {% if data['wel-managingrelationships-email'] != "" %}<br>{{ data['wel-managingrelationships-email'] }}{% endif %}
+            {{ data['rte-engage-subcontractors'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change</a>

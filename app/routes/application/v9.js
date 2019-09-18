@@ -2481,6 +2481,28 @@ module.exports = function (router) {
 	})
 
 
+/**************
+ *** Finish ***
+ **************/
+
+	// Your details
+	router.post('/application/' + v + '/finish/yourdetails', function (req, res) {
+		if (req.session.data['end-permission-submit'] && req.session.data['end-permission-named']){
+			req.session.data['tl_finish_yourdetails'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-finish')
+		} else {
+			req.session.data['tl_finish_yourdetails'] = 'inprogress'
+			res.redirect('/application/' + v + '/shutter/finish')
+		}
+	})	
+
+	// Permission of 'Commercial in confidence'
+	router.post('/application/' + v + '/finish/permission-commercial', function (req, res) {
+		req.session.data['tl_finish_permission'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-evaluating')
+	})	
+
+
 /****************
  *** Sign out ***
  ****************/

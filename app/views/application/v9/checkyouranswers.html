@@ -1079,76 +1079,236 @@
       </div>
     </dl>
 
-    <h2 class="govuk-heading-l">Management hierarchy</h2>
-
-    <h3 class="govuk-heading-m">Your organisation’s management hierarchy for apprenticeships</h3>
-    
-<div class="govuk-accordion govuk-accordion--roatpcya" data-module="accordion" id="accordion-default">
-
-  {% set i = 0 %}
-  {% for person in data['del-hierarchy-person'] %}
-
-    <div class="govuk-accordion__section">
-      <div class="govuk-accordion__section-header">
-        <h2 class="govuk-accordion__section-heading">
-          <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
-            {{data['del-hierarchy-person'][i]['name']}}
-          </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
-        </h2>
-      </div>
-      <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
-        <dl class="govuk-summary-list govuk-summary-list--roatpcya">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Job role
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['del-hierarchy-person'][i]['job_role']}}
-            </dd>
+    <h3 class="govuk-heading-m">Management hierarchy for apprenticeships</h3>
+    <div class="govuk-accordion govuk-accordion--roatpcya" data-module="accordion" id="accordion-default">
+      {% set i = 0 %}
+      {% for person in data['del-hierarchy-person'] %}
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
+                {{data['del-hierarchy-person'][i]['name']}}
+              </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
+            </h2>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Time in role
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['del-hierarchy-person'][i]['time_in_role']}}
-            </dd>
+          <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
+            <dl class="govuk-summary-list govuk-summary-list--roatpcya">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Job role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['job_role']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Time in role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['time_in_role']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this person part of another organisation that receives funding from ESFA?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['org_funding']}}
+                  {% if (data['del-hierarchy-person'][i]['org_funding_name'] != "") %}
+                  ({{data['del-hierarchy-person'][i]['org_funding_name']}})
+                  {% endif %}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this person a subcontractor who receives funding from ESFA?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['subcontractor_funding']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Reports to
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['report_to']}}
+                </dd>
+              </div>
+            </dl>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Is this person part of another organisation that receives funding from ESFA?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['del-hierarchy-person'][i]['org_funding']}}
-              {% if (data['del-hierarchy-person'][i]['org_funding_name'] != "") %}
-              ({{data['del-hierarchy-person'][i]['org_funding_name']}})
-              {% endif %}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Is this person a subcontractor who receives funding from ESFA?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['del-hierarchy-person'][i]['subcontractor_funding']}}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Reports to
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{data['del-hierarchy-person'][i]['report_to']}}
-            </dd>
-          </div>
-        </dl>
-      </div>
+        </div>
+        {% set i = i + 1 %}
+      {% endfor %}
     </div>
 
-    {% set i = i + 1 %}
-  {% endfor %}
+    <h3 class="govuk-heading-m">Quality and standards in apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Have your management hierarchy documented their expectations for quality and high standards in apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Management hierarchy’s expectations for quality and high standards in apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who’s responsible for maintaining quality and high standards in apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations-responsible-name'] }}<br>
+          {{ data['del-expectations-responsible-email'] }}<br>
+          {{ data['del-expectations-responsible-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will these quality and high standards in apprenticeship training communicated to employees?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations-comminicated'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
 
-</div>
+    <h3 class="govuk-heading-m">Developing and delivering training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have a team responsible for developing and delivering training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who have the team worked with to develop and deliver training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-workedwith'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How did the team work with employers to develop and deliver training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-howworkedwith'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who’s the overall manager for this team
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallmanager'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How much experience do they have in developing and delivering training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallmanager-experience'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Sectors and employee experience</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-3 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What sectors will your organisation offer apprenticeship training in?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% for item in data['del-sectors'] %}
+            {% if (i+1 == data['del-sectors'] | length) %}and {% endif %}
+            {% if (i == 0) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (i+1 < data['del-sectors'] | length) %}, {% endif %}
+            {% set i = i + 1 %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+      <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Most experienced employees in sectors</h4>
+      <div class="govuk-accordion govuk-accordion--roatpcyaemployees" data-module="accordion" id="accordion-default">
+        {% set i = 0 %}
+        {% for person in data['del-employee'] %}
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
+                  {{data['del-employee'][i]['name']}} ({{data['del-sectors'][i]}})
+                </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
+              <dl class="govuk-summary-list govuk-summary-list--roatpcya">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Job role
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['del-employee'][i]['job_role']}}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Time in role
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['del-employee'][i]['timeinrole_years']}} years {{data['del-employee'][i]['timeinrole_months']}} months
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+          {% set i = i + 1 %}
+        {% endfor %}
+      </div>
+    </dl>
+
 
 
 

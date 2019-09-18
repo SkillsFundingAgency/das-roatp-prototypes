@@ -138,14 +138,14 @@ module.exports = function (router) {
 		req.session.data['dec-people-trusteeregister-detail'] = ""
 		req.session.data['dec-people-withdrawncontract'] = "no"
 		req.session.data['dec-people-withdrawncontract-detail'] = ""
-		req.session.data['del-developdeliver'] = "no"
-		req.session.data['del-developdeliver-howworkedwith'] = "work with other organisations"
+		req.session.data['del-developdeliver'] = "Yes"
+		req.session.data['del-developdeliver-howworkedwith'] = "Vestibulum placerat facilisis dui a sodales. Nulla ac tellus ultrices, pulvinar magna vitae, ullamcorper tellus. Aenean tempus massa id nisl luctus, ac tristique ipsum facilisis. Donec ultricies tortor velit, et efficitur enim efficitur sed. Etiam luctus pharetra nisi eget tempus."
 		req.session.data['del-developdeliver-overallaccountability-name'] = "Anne Peters"
 		req.session.data['del-developdeliver-overallaccountability-email'] = "anne@peters.com"
 		req.session.data['del-developdeliver-overallaccountability-number'] = "657483902"
 		req.session.data['del-developdeliver-overallmanager'] = "Steven Collins"
-		req.session.data['del-developdeliver-overallmanager-experience'] = "Yes"
-		req.session.data['del-developdeliver-workedwith'] = "No"
+		req.session.data['del-developdeliver-overallmanager-experience'] = "Over 18 months"
+		req.session.data['del-developdeliver-workedwith'] = "Other organisations"
 		req.session.data['del-development-implemented'] = "policy for professional development"
 		req.session.data['del-development-reflected'] = "professional development reflected"
 		req.session.data['del-employee'] = [
@@ -160,6 +160,7 @@ module.exports = function (router) {
 		req.session.data['del-expectations'] = "No"
 		req.session.data['del-expectations-comminicated'] = "communicate quality and high standards"
 		req.session.data['del-expectations-responsible-name'] = "Jeff"
+		req.session.data['del-expectations-responsible-email'] = "jeff@hall.com"
 		req.session.data['del-expectations-responsible-number'] = "1234"
 		req.session.data['del-hierarchy-person'] = [
 			{
@@ -328,11 +329,13 @@ module.exports = function (router) {
 		req.session.data['dec-people-withdrawncontract'] = "No"
 		req.session.data['dec-people-withdrawncontract-detail'] = ""
 		req.session.data['del-developdeliver'] = "Yes"
+		req.session.data['del-developdeliver-howworkedwith'] = "Vestibulum placerat facilisis dui a sodales. Nulla ac tellus ultrices, pulvinar magna vitae, ullamcorper tellus. Aenean tempus massa id nisl luctus, ac tristique ipsum facilisis. Donec ultricies tortor velit, et efficitur enim efficitur sed. Etiam luctus pharetra nisi eget tempus."
 		req.session.data['del-developdeliver-overallaccountability-name'] = "Anne Peters"
 		req.session.data['del-developdeliver-overallaccountability-email'] = "anne@peters.com"
-		req.session.data['del-developdeliver-overallaccountability-number'] = "077864526727"
+		req.session.data['del-developdeliver-overallaccountability-number'] = "657483902"
 		req.session.data['del-developdeliver-overallmanager'] = "Steven Collins"
 		req.session.data['del-developdeliver-overallmanager-experience'] = "Over 18 months"
+		req.session.data['del-developdeliver-workedwith'] = "Other organisations"
 		req.session.data['del-development-implemented'] = "Sed in porttitor sapien. Nullam at urna vitae leo maximus interdum. Nunc elementum urna augue, ut feugiat justo rhoncus quis. Ut convallis sagittis ullamcorper. In hac habitasse platea dictumst. Donec tristique diam ac nisl mattis, a lacinia libero sodales. Duis porttitor lorem lorem, ut porta leo fringilla ac. Donec porta a massa in bibendum. Nam placerat ipsum nisl, at porttitor velit ultrices eget. Phasellus et justo orci. Etiam feugiat tortor tellus, vitae vulputate felis tristique nec. Sed interdum dolor sit amet felis posuere, in scelerisque nisl vehicula."
 		req.session.data['del-development-reflected'] = "Maecenas ac ligula ut magna ornare ullamcorper. Proin velit lorem, blandit nec tellus sit amet, ultrices luctus ligula. Maecenas mattis, ex a euismod placerat, urna lorem tristique velit, nec malesuada nibh orci eu nisl. Mauris aliquet ipsum eu felis malesuada, sed lacinia mauris rhoncus. Praesent pharetra eget nisi ut pretium. Sed auctor tincidunt ante, non suscipit mi. Vivamus imperdiet gravida dui dictum bibendum. Fusce non ante tristique, semper metus ut, commodo magna. Nullam et aliquet nibh. Sed augue lectus, viverra feugiat magna vitae, facilisis lacinia mi. Suspendisse euismod hendrerit nisi, vitae pretium lorem semper vitae."
 		req.session.data['del-employee'] = [
@@ -347,6 +350,7 @@ module.exports = function (router) {
 		req.session.data['del-expectations'] = "Yes"
 		req.session.data['del-expectations-comminicated'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices lacinia leo, sollicitudin elementum neque. Nullam in blandit mauris. Aliquam vitae euismod risus. Aenean venenatis efficitur nibh quis pharetra. Vestibulum non orci eu mi semper laoreet. Morbi non erat sed tortor consequat tincidunt. Nam quam dolor, imperdiet eu neque sed, condimentum euismod nibh. Duis blandit risus mauris, ut efficitur lectus interdum facilisis. Aliquam at elit finibus, posuere tellus eget, pulvinar lectus. Vestibulum dignissim condimentum dolor, at scelerisque nibh dignissim eget. Fusce tempus sed massa in lobortis. Nulla id orci vel nisi ultrices egestas sit amet sit amet lacus. Integer vehicula purus at dui fringilla, eu placerat nibh eleifend. Nam dignissim erat eu iaculis consectetur. Suspendisse pellentesque augue vehicula nibh tristique dignissim. Nulla mattis, purus et tincidunt euismod, nisl lacus cursus metus, in mattis augue nulla eget dolor. In fringilla arcu non augue vestibulum, quis tincidunt dui feugiat. Phasellus at rutrum lorem. Etiam tempus orci in ultrices fermentum. Maecenas vel dolor rutrum, consequat ligula vitae, blandit metus. Cras imperdiet libero tempus, elementum est ac, placerat elit. Phasellus gravida sapien eu elementum pellentesque. Sed molestie, enim vitae convallis fermentum, dui mauris blandit lorem, nec ultricies lectus est nec lectus. In nec metus enim. Nunc sit amet pharetra eros. Curabitur in commodo magna."
 		req.session.data['del-expectations-responsible-name'] = "Jeff Hall"
+		req.session.data['del-expectations-responsible-email'] = "jeff@hall.com"
 		req.session.data['del-expectations-responsible-number'] = "07625 376223"
 		req.session.data['del-expectations-upload'] = ""
 		req.session.data['del-hierarchy-person'] = [
@@ -468,7 +472,7 @@ module.exports = function (router) {
 	})
 
 
-	// Application completed - employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required
+	// Application completed - main provider...
 	router.get('/application/' + v + '/jump/completedapplicationmain', function (req,res) {
 		req.session.data['current_sector_id'] = "0"
 		req.session.data['dec-org-contractterminated'] = "No"
@@ -514,11 +518,13 @@ module.exports = function (router) {
 		req.session.data['dec-people-withdrawncontract'] = "No"
 		req.session.data['dec-people-withdrawncontract-detail'] = ""
 		req.session.data['del-developdeliver'] = "Yes"
+		req.session.data['del-developdeliver-howworkedwith'] = "Vestibulum placerat facilisis dui a sodales. Nulla ac tellus ultrices, pulvinar magna vitae, ullamcorper tellus. Aenean tempus massa id nisl luctus, ac tristique ipsum facilisis. Donec ultricies tortor velit, et efficitur enim efficitur sed. Etiam luctus pharetra nisi eget tempus."
 		req.session.data['del-developdeliver-overallaccountability-name'] = "Anne Peters"
 		req.session.data['del-developdeliver-overallaccountability-email'] = "anne@peters.com"
-		req.session.data['del-developdeliver-overallaccountability-number'] = "077864526727"
+		req.session.data['del-developdeliver-overallaccountability-number'] = "657483902"
 		req.session.data['del-developdeliver-overallmanager'] = "Steven Collins"
 		req.session.data['del-developdeliver-overallmanager-experience'] = "Over 18 months"
+		req.session.data['del-developdeliver-workedwith'] = "Other organisations"
 		req.session.data['del-development-implemented'] = "Sed in porttitor sapien. Nullam at urna vitae leo maximus interdum. Nunc elementum urna augue, ut feugiat justo rhoncus quis. Ut convallis sagittis ullamcorper. In hac habitasse platea dictumst. Donec tristique diam ac nisl mattis, a lacinia libero sodales. Duis porttitor lorem lorem, ut porta leo fringilla ac. Donec porta a massa in bibendum. Nam placerat ipsum nisl, at porttitor velit ultrices eget. Phasellus et justo orci. Etiam feugiat tortor tellus, vitae vulputate felis tristique nec. Sed interdum dolor sit amet felis posuere, in scelerisque nisl vehicula."
 		req.session.data['del-development-reflected'] = "Maecenas ac ligula ut magna ornare ullamcorper. Proin velit lorem, blandit nec tellus sit amet, ultrices luctus ligula. Maecenas mattis, ex a euismod placerat, urna lorem tristique velit, nec malesuada nibh orci eu nisl. Mauris aliquet ipsum eu felis malesuada, sed lacinia mauris rhoncus. Praesent pharetra eget nisi ut pretium. Sed auctor tincidunt ante, non suscipit mi. Vivamus imperdiet gravida dui dictum bibendum. Fusce non ante tristique, semper metus ut, commodo magna. Nullam et aliquet nibh. Sed augue lectus, viverra feugiat magna vitae, facilisis lacinia mi. Suspendisse euismod hendrerit nisi, vitae pretium lorem semper vitae."
 		req.session.data['del-employee'] = [
@@ -528,11 +534,19 @@ module.exports = function (router) {
 				job_role: "Chief Design Officer",
 				timeinrole_years: "4",
 				timeinrole_months: "2"
+			},
+			{
+				sector_id: "1",
+				name: "Jessica Willmott",
+				job_role: "Head of Digital",
+				timeinrole_years: "5",
+				timeinrole_months: "11"
 			}
 		]
 		req.session.data['del-expectations'] = "Yes"
 		req.session.data['del-expectations-comminicated'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices lacinia leo, sollicitudin elementum neque. Nullam in blandit mauris. Aliquam vitae euismod risus. Aenean venenatis efficitur nibh quis pharetra. Vestibulum non orci eu mi semper laoreet. Morbi non erat sed tortor consequat tincidunt. Nam quam dolor, imperdiet eu neque sed, condimentum euismod nibh. Duis blandit risus mauris, ut efficitur lectus interdum facilisis. Aliquam at elit finibus, posuere tellus eget, pulvinar lectus. Vestibulum dignissim condimentum dolor, at scelerisque nibh dignissim eget. Fusce tempus sed massa in lobortis. Nulla id orci vel nisi ultrices egestas sit amet sit amet lacus. Integer vehicula purus at dui fringilla, eu placerat nibh eleifend. Nam dignissim erat eu iaculis consectetur. Suspendisse pellentesque augue vehicula nibh tristique dignissim. Nulla mattis, purus et tincidunt euismod, nisl lacus cursus metus, in mattis augue nulla eget dolor. In fringilla arcu non augue vestibulum, quis tincidunt dui feugiat. Phasellus at rutrum lorem. Etiam tempus orci in ultrices fermentum. Maecenas vel dolor rutrum, consequat ligula vitae, blandit metus. Cras imperdiet libero tempus, elementum est ac, placerat elit. Phasellus gravida sapien eu elementum pellentesque. Sed molestie, enim vitae convallis fermentum, dui mauris blandit lorem, nec ultricies lectus est nec lectus. In nec metus enim. Nunc sit amet pharetra eros. Curabitur in commodo magna."
 		req.session.data['del-expectations-responsible-name'] = "Jeff Hall"
+		req.session.data['del-expectations-responsible-email'] = "jeff@hall.com"
 		req.session.data['del-expectations-responsible-number'] = "07625 376223"
 		req.session.data['del-expectations-upload'] = ""
 		req.session.data['del-hierarchy-person'] = [
@@ -551,7 +565,7 @@ module.exports = function (router) {
 			}
 		]
 		req.session.data['del-professional-development'] = ""
-		req.session.data['del-sectors'] = ["Creative and design"]
+		req.session.data['del-sectors'] = ["Creative and design","Digital"]
 		req.session.data['eval-apprenticeships'] = "Yes"
 		req.session.data['eval-collectdata'] = "Yes"
 		req.session.data['eval-ilr'] = "Yes"

@@ -71,3 +71,15 @@
     border-bottom: none;
     padding-bottom: govuk-spacing(6);
 }
+
+.govuk-accordion--roatpcyaemployees {
+    padding-left: govuk-spacing(3);
+    padding-right: govuk-spacing(3);
+    padding-bottom: govuk-spacing(3);
+}
+
+.govuk-accordion--roatpcyaemployees .govuk-accordion__section-content {
+    padding-top: 0; 
+    padding-left: govuk-spacing(3);
+    padding-right: govuk-spacing(3);
+}

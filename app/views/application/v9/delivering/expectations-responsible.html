@@ -16,7 +16,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">High standards in apprenticeship training</span>
+    <span class="govuk-caption-l">Quality and standards in apprenticeship training</span>
           
     <h1 class="govuk-heading-l">Tell us who’s responsible for maintaining quality and high standards in apprenticeship training</h1>
 
@@ -28,7 +28,8 @@
         },
         classes: "govuk-input--width-20",
         id: "del-expectations-responsible-name",
-        name: "del-expectations-responsible-name"
+        name: "del-expectations-responsible-name",
+        value: data['del-expectations-responsible-name']
       }) }}
 
       {{ govukInput({
@@ -40,6 +41,7 @@
         classes: "govuk-input--width-20",
         id: "del-expectations-responsible-email",
         email: "del-expectations-responsible-email",
+        value: data['del-expectations-responsible-email'],
         attributes: {
           spellcheck: "false"
         }
@@ -51,7 +53,8 @@
         },
         classes: "govuk-input--width-20",
         id: "del-expectations-responsible-number",
-        name: "del-expectations-responsible-number"
+        name: "del-expectations-responsible-number",
+        value: data['del-expectations-responsible-number']
       }) }}
 
       {{ govukButton({

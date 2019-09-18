@@ -116,13 +116,15 @@
             {
               value: "Yes",
               text: "Yes",
+              checked: checked("del-employee-memberships", "Yes"),
               conditional: {
                 html: expMembershipsHtml
               }
             },
             {
               value: "No",
-              text: "No"
+              text: "No",
+              checked: checked("del-employee-memberships", "No")
             }
           ]
         }) }}

@@ -712,22 +712,39 @@
           </ul>
         </li>
 
-        <!--li>
-          <h2 class="app-task-list__section">
+        <li>
+          <h2 class="app-task-list__section" id="section-finish">
             <span class="app-task-list__section-number">9. </span> Finish
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['whole_application'] == "completed") %}
-                <a class="app-task-list__task-name" href="#" aria-describedby="org-convictions-status">Check answers and send application</a>
-              {% else %}
-                Check answers and send application
+              <a class="app-task-list__task-name" href="finish/yourdetails" aria-describedby="end-yourdetails">Your details and permissions</a>
+              {% if data['tl_finish_yourdetails'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="end-yourdetails">In progress</strong>
+              {% elseif data['tl_finish_yourdetails'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="end-yourdetails">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="finish/permission-commercial" aria-describedby="end-yourdetails">Sensitive information</a>
+              {% if data['tl_finish_permission'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="end-yourdetails">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+            {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
+              <a class="app-task-list__task-name" href="checkyouranswers" aria-describedby="end-checkanswers">Check answers and send application</a>
+            {% else %}
+              Check answers and send application
+            {% endif %}
+              {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
+              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
             </li>
           </ul>
-        </li-->
+        </li>
       </ol>
-
+<!--
       <form action="checkyouranswers" method="post" class="form">
 
         {{ govukButton({
@@ -736,7 +753,7 @@
         }) }}
 
       </form>
-
+-->
     </div>
 
   </div>

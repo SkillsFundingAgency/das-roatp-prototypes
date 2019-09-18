@@ -24,49 +24,54 @@
 
       <form action="" method="post" class="form">
 
+        {{ govukInput({
+          label: {
+            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+          },
+          id: "plan-address-line1",
+          name: "plan-address-line1",
+          value: data['plan-address-line1']
+        }) }}
 
-  {{ govukInput({
-    label: {
-      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
-    },
-    id: "address-line-1",
-    name: "address-line-1"
-  }) }}
+        {{ govukInput({
+          label: {
+            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+          },
+          id: "plan-address-line2",
+          name: "plan-address-line2",
+          value: data['plan-address-line2']
+        }) }}
 
-  {{ govukInput({
-    label: {
-      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
-    },
-    id: "address-line-2",
-    name: "address-line-2"
-  }) }}
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "plan-address-town",
+          name: "plan-address-town",
+          value: data['plan-address-town']
+        }) }}
 
-  {{ govukInput({
-    label: {
-      text: "Town or city"
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "address-town"
-  }) }}
+        {{ govukInput({
+          label: {
+            text: "County"
+          },
+          classes: "govuk-!-width-two-thirds",
+          id: "plan-address-county",
+          name: "plan-address-county",
+          value: data['plan-address-county']
+        }) }}
 
-  {{ govukInput({
-    label: {
-      text: "County"
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "address-county"
-  }) }}
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          classes: "govuk-input--width-10",
+          id: "plan-address-postcode",
+          name: "plan-address-postcode",
+          value: data['plan-address-postcode']
+        }) }}
 
-  {{ govukInput({
-    label: {
-      text: "Postcode"
-    },
-    classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "address-postcode"
-  }) }}
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-4"

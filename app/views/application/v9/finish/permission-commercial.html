@@ -16,33 +16,28 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">Developing and delivering training</span>
+    <span class="govuk-caption-l">About this appliction</span>
           
-    <h1 class="govuk-heading-l">Does your organisation have a team responsible for developing and delivering training?</h1>
+    <h1 class="govuk-heading-l">Is any of the information in this application ‘commercial in confidence’?</h1>
 
-    <p class="govuk-body">Training includes things like:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>training of technical skills</li>
-      <li>apprenticeships</li>
-      <li>work based training </li>
-      <li>commercial training</li>
-    </ul>
+    <p class="govuk-body">‘Commercial in confidence’ information is sensitive to your organisation. If this information is shared, it could result in damage to commercial interests, intellectual property or trade secrets.</p>
+    <p class="govuk-body">If any of the information in this application is ‘commercial in confidence’, we will not share it without your permission.</p>
 
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "del-developdeliver",
-        name: "del-developdeliver",
+        idPrefix: "end-permission-commercial",
+        name: "end-permission-commercial",
         items: [
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("del-developdeliver", "Yes")
+            checked: checked("end-permission-commercial", "Yes")
           },
           {
             value: "No",
             text: "No",
-            checked: checked("del-developdeliver", "No")
+              checked: checked("end-permission-commercial", "No")
           }
         ]
       }) }}
@@ -51,8 +46,6 @@
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
       }) }}
-
-      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
       
       {% include "includes/v9/gethelp.html" %}
 

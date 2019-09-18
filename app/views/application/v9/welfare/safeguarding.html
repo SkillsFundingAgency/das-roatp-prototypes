@@ -32,21 +32,19 @@
           },
           classes: "govuk-input--width-20",
           id: "wel-safeguardingresponsible-name",
-          name: "wel-safeguardingresponsible-name"
+          name: "wel-safeguardingresponsible-name",
+          value: data['wel-safeguardingresponsible-name']
         }) }}
 
         {{ govukInput({
           label: {
             text: "Email"
           },
-          type: "email",
-          autocomplete: "email",
-          classes: "govuk-input--width-20",
           id: "wel-safeguardingresponsible-email",
           email: "wel-safeguardingresponsible-email",
-          attributes: {
-            spellcheck: "false"
-          }
+          value: data['wel-safeguardingresponsible-email'],
+          type: "email",
+          classes: "govuk-input--width-20"
         }) }}
         
         {{ govukInput({
@@ -55,8 +53,8 @@
           },
           id: "wel-safeguardingresponsible-tel",
           name: "wel-safeguardingresponsible-tel",
+          value: data['wel-safeguardingresponsible-tel'],
           type: "tel",
-          autocomplete: "tel",
           classes: "govuk-input--width-10"
         }) }}
 

@@ -268,7 +268,7 @@ module.exports = function (router) {
 		req.session.data['tl_wel_diversity'] = "completed"
 		req.session.data['tl_wel_healthandsafety'] = "completed"
 		req.session.data['tl_wel_intro'] = "completed"
-		req.session.data['tl_wel_preventduty'] = "completed"
+		//req.session.data['tl_wel_preventduty'] = "completed"
 		req.session.data['tl_wel_safeguarding'] = "completed"
 		req.session.data['wel-continuity'] = ""
 		req.session.data['wel-diversity'] = ""
@@ -276,6 +276,7 @@ module.exports = function (router) {
 		req.session.data['wel-healthandsafetyresponsible-name'] = "Pete Jones"
 		req.session.data['wel-healthandsafetyresponsible-email'] = "pete@jones.com"
 		req.session.data['wel-healthandsafetyresponsible-tel'] = "0998765654"
+		req.session.data['wel-preventduty'] = "Yes"
 		req.session.data['wel-safeguarding'] = ""
 		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
 		req.session.data['wel-safeguardingresponsible-email'] = "john@smith.com"
@@ -417,7 +418,7 @@ module.exports = function (router) {
 		req.session.data['rte-contractforservices'] = ""
 		req.session.data['rte-priorlearning'] = "Curabitur gravida at mauris vitae tristique. In sit amet tellus ut odio ultrices aliquam eu at leo. Quisque nec ornare purus. Aenean massa augue, egestas a mi eget, ornare lacinia mauris. Nam pretium arcu justo, id venenatis mi rutrum non. Cras scelerisque consectetur sem, in pharetra metus maximus a. Fusce elit dolor, tempus eu maximus in, vehicula et ipsum. Quisque vitae nunc in dolor feugiat gravida. Sed et lobortis dolor. Etiam vitae magna at diam pellentesque mattis."
 		req.session.data['rte-usesubcontractors'] = "No"
-		req.session.data['signedin'] = "Yes"
+		req.session.data['signedin'] = "yes"
 		req.session.data['signin-email'] = ""
 		req.session.data['signin-password'] = ""
 		req.session.data['tl_dec_intro'] = "completed"
@@ -456,7 +457,7 @@ module.exports = function (router) {
 		req.session.data['tl_wel_diversity'] = "completed"
 		req.session.data['tl_wel_healthandsafety'] = "completed"
 		req.session.data['tl_wel_intro'] = "completed"
-		req.session.data['tl_wel_preventduty'] = "completed"
+		//req.session.data['tl_wel_preventduty'] = "completed"
 		req.session.data['tl_wel_safeguarding'] = "completed"
 		req.session.data['wel-continuity'] = ""
 		req.session.data['wel-diversity'] = ""
@@ -464,6 +465,7 @@ module.exports = function (router) {
 		req.session.data['wel-healthandsafetyresponsible-name'] = "Pete Jones"
 		req.session.data['wel-healthandsafetyresponsible-email'] = "pete@jones.com"
 		req.session.data['wel-healthandsafetyresponsible-tel'] = "0998765654"
+		req.session.data['wel-preventduty'] = "Yes"
 		req.session.data['wel-safeguarding'] = ""
 		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
 		req.session.data['wel-safeguardingresponsible-email'] = "john@smith.com"
@@ -624,7 +626,7 @@ module.exports = function (router) {
 		req.session.data['rte-priorlearning'] = "Curabitur gravida at mauris vitae tristique. In sit amet tellus ut odio ultrices aliquam eu at leo. Quisque nec ornare purus. Aenean massa augue, egestas a mi eget, ornare lacinia mauris. Nam pretium arcu justo, id venenatis mi rutrum non. Cras scelerisque consectetur sem, in pharetra metus maximus a. Fusce elit dolor, tempus eu maximus in, vehicula et ipsum. Quisque vitae nunc in dolor feugiat gravida. Sed et lobortis dolor. Etiam vitae magna at diam pellentesque mattis."
 		req.session.data['rte-relationships'] = "Praesent elementum, tortor vel luctus interdum, ante odio laoreet ante, ac pretium nibh orci vitae tellus. Integer quis eros sit amet felis pharetra molestie. Donec eget erat eros. Nullam in augue ipsum. Mauris convallis feugiat porttitor. Nulla non scelerisque mauris, ut condimentum nulla. Curabitur vitae aliquet libero."
 		req.session.data['rte-usesubcontractors'] = "No"
-		req.session.data['signedin'] = "Yes"
+		req.session.data['signedin'] = "yes"
 		req.session.data['tl_dec_intro'] = "completed"
 		req.session.data['tl_dec_organisation'] = "completed"
 		req.session.data['tl_dec_people'] = "completed"
@@ -668,7 +670,7 @@ module.exports = function (router) {
 		req.session.data['tl_wel_diversity'] = "completed"
 		req.session.data['tl_wel_healthandsafety'] = "completed"
 		req.session.data['tl_wel_intro'] = "completed"
-		req.session.data['tl_wel_preventduty'] = "completed"
+		//req.session.data['tl_wel_preventduty'] = "completed"
 		req.session.data['tl_wel_safeguarding'] = "completed"
 		req.session.data['wel-continuity'] = ""
 		req.session.data['wel-diversity'] = ""
@@ -676,6 +678,7 @@ module.exports = function (router) {
 		req.session.data['wel-healthandsafetyresponsible-email'] = "pete@jones.com"
 		req.session.data['wel-healthandsafetyresponsible-name'] = "Pete Jones"
 		req.session.data['wel-healthandsafetyresponsible-tel'] = "0998765654"
+		req.session.data['wel-preventduty'] = "Yes"
 		req.session.data['wel-safeguarding'] = ""
 		req.session.data['wel-safeguardingresponsible-email'] = "john@smith.com"
 		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
@@ -1906,24 +1909,23 @@ module.exports = function (router) {
 
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
-		req.session.data['tl_wel_safeguarding'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-welfare')
+		req.session.data['tl_wel_safeguarding'] = 'inprogress'
+		res.redirect('/application/' + v + '/welfare/preventduty')
 	})
 
 	// Include responsibilities to Prevent duty
 	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
 		if (req.session.data['wel-preventduty'] == "no") {
-			req.session.data['tl_wel_preventduty'] = 'inprogress'
 			res.redirect('/application/' + v + '/welfare/upload-preventduty')
 		} else {
-			req.session.data['tl_wel_preventduty'] = 'completed'
+			req.session.data['tl_wel_safeguarding'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-welfare')
 		}
 	})
 
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
-		req.session.data['tl_wel_preventduty'] = 'completed'
+		req.session.data['tl_wel_safeguarding'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-welfare')
 	})
 

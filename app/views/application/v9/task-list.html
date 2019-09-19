@@ -278,7 +278,6 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-intro-notrequired">Not required</strong>
               {% endif %}
             </li>
-
             {% if data['org-selectedroute'] != "supporting" %} 
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
@@ -293,7 +292,6 @@
               {% endif %}
             </li>
             {% endif %}
-
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-diversity" aria-describedby="wel-diversity">Equality and diversity policy</a>
@@ -308,9 +306,9 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="welfare/upload-safeguarding" aria-describedby="wel-safeguarding">Safeguarding policy</a>
+                <a class="app-task-list__task-name" href="welfare/upload-safeguarding" aria-describedby="wel-safeguarding">Safeguarding and Prevent duty policy</a>
               {% else %}
-                Safeguarding policy
+                Safeguarding and Prevent duty policy
               {% endif %}
               {% if data['tl_wel_safeguarding'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-safeguarding">Completed</strong>
@@ -320,7 +318,7 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-safeguarding">Not required</strong>
               {% endif %}
             </li>
-            <li class="app-task-list__item">
+            <!--li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-preventduty" aria-describedby="wel-preventduty">Prevent duty</a>
               {% else %}
@@ -333,7 +331,7 @@
               {% elseif data['exempt_aw'] == "yes" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-preventduty">Not required</strong>
               {% endif %}
-            </li>
+            </li-->
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-healthandsafety" aria-describedby="wel-health">Health and safety policy</a>
@@ -379,7 +377,6 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-intro">Completed</strong>
               {% endif %}
             </li>
-
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") and (data['org-selectedroute'] != "employer") %}
                 <a class="app-task-list__task-name" href="readiness/engaged" aria-describedby="rte-engagement">Engaging with employers</a>
@@ -569,7 +566,6 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="del-intro">Completed</strong>
               {% endif %}
             </li> 
-
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="delivering/overallaccountability" aria-describedby="del-accountability">Overall accountability for apprenticeships</a>
@@ -598,9 +594,9 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/expectations" aria-describedby="del-expectations">Quality and standards in apprenticeship training</a>
+                <a class="app-task-list__task-name" href="delivering/expectations" aria-describedby="del-expectations">Quality and high standards in apprenticeship training</a>
               {% else %}
-                Quality and standards in apprenticeship training
+                Quality and high standards in apprenticeship training
               {% endif %}
               {% if data['tl_del_expectations'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="del-expectations">Completed</strong>
@@ -620,7 +616,6 @@
                 <strong class="govuk-tag app-task-list__task-inprogress" id="del-developdeliver">In progress</strong>
               {% endif %}
             </li>
-
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="delivering/sectors" aria-describedby="del-sectors">Sectors and employee experience</a>
@@ -733,7 +728,9 @@
             </li>
             <li class="app-task-list__item">
             {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
-              <!--a class="app-task-list__task-name" href="checkyouranswers" aria-describedby="end-checkanswers"-->Check answers and send application<!--/a-->
+              <!--a class="app-task-list__task-name" href="checkyouranswers" aria-describedby="end-checkanswers"-->
+              Check answers and send application
+              <!--/a-->
             {% else %}
               Check answers and send application
             {% endif %}

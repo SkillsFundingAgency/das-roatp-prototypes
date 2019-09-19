@@ -36,7 +36,10 @@
       <li>commitment statement template</li>
     </ul>
 
-    <p class="govuk-body">All uploads must be specific to your organisation, apprentices and trainers. They must also be signed by a senior employee. For example, a director or CEO.</p>
+    {{ govukWarningText({
+      text: "All uploads must be specific to your organisation, apprentices and trainers. They must also be signed by a senior employee. For example, a director or CEO.",
+      iconFallbackText: "Warning"
+    }) }}
 
     <form action="" method="post" class="form">
 

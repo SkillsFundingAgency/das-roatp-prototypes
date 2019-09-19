@@ -1,0 +1,99 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Your details</span>
+          
+    <h1 class="govuk-heading-l">What are your contact details?</h1>
+    
+    <p class="govuk-body">We’ll only contact you if we have any questions about this application.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        classes: "govuk-input--width-20",
+        id: "end-yourdetails-name",
+        name: "end-yourdetails-name",
+        value: data['end-yourdetails-name']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email"
+        },
+        type: "email",
+        autocomplete: "email",
+        classes: "govuk-input--width-20",
+        id: "end-yourdetails-email",
+        name: "end-yourdetails-email",
+        value: data['end-yourdetails-email'],
+        attributes: {
+          spellcheck: "false"
+        }
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Contact number"
+        },
+        classes: "govuk-input--width-20",
+        id: "end-yourdetails-number",
+        name: "end-yourdetails-number",
+        value: data['end-yourdetails-number']
+      }) }}
+
+      <div class="govuk-form-group govuk-!-margin-bottom-0">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-checkboxes govuk-checkboxes--small">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="end-permission-submit" name="end-permission-submit" type="checkbox" value="yes"{% if data['end-permission-submit'] %} checked="checked"{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="end-permission-submit">
+                I have permission from my organisation to submit this application
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-checkboxes govuk-checkboxes--small">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="end-permission-named" name="end-permission-named" type="checkbox" value="yes"{% if data['end-permission-named'] %} checked="checked"{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="end-permission-named">
+                I have permission from everyone named in this application to use their details
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v10/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

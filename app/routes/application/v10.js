@@ -1059,13 +1059,36 @@ module.exports = function (router) {
 		let selected_route = req.session.data['org-selectedroute']
 
 		if (selected_route != '') {
-			req.session.data['tl_selectroute'] = 'completed'
-			req.session.data['tl_org_intro'] = 'next'
-			res.redirect('/application/' + v + '/task-list')
+			if (selected_route == "employer"){
+				res.redirect('/application/' + v + '/select-route-employer')
+			} else {
+				//req.session.data['tl_selectroute'] = 'completed'
+				//req.session.data['tl_org_intro'] = 'next'
+				res.redirect('/application/' + v + '/task-list')
+			}
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/select-route')
 		}
 		
+	})
+
+	// Select route - if employer
+	router.post('/application/' + v + '/select-route-employer', function (req, res) {
+		if (req.session.data['org-selectedroute-employer'] == "Yes"){
+			res.redirect('/application/' + v + '/task-list')
+		} else {
+			res.redirect('/application/' + v + '/select-route-employer-nonlevy')
+		}
+	})
+
+	// Select route - if employer and non-levy
+	router.post('/application/' + v + '/select-route-employer-nonlevy', function (req, res) {
+		if (req.session.data['org-selectedroute-employer-nonlevy'] == "Yes"){
+			res.redirect('/application/' + v + '/select-route')
+		} else {
+			req.session.data['signedin'] = 'no'
+			res.redirect('/application/' + v + '/shutter/select-route')
+		}
 	})
 
 

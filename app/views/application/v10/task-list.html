@@ -18,10 +18,75 @@
         Application overview
       </h1>
 
-      <p class="govuk-body">
+      <p class="govuk-body">Make sure you have read the GOV.UK <a href="#">guidance on RoATP (opens in a new window or tab)</a>.</p>
+      
+
+<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      UKPRN
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['org-ukprn'] }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> UKPRN</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Organisation name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      YOUR COMPANY NAME LTD
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <!--a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> organisation name</span>
+      </a-->
+    </dd>
+  </div>
+  {% if (data['org-ukprn'] == "12340101") %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Trading name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Your Trading Name
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> trading name</span>
+      </a>
+    </dd>
+  </div>
+  {% endif %}
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Provider route
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['org-selectedroute'] | capitalize }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> provider route</span>
+      </a>
+    </dd>
+  </div>
+</dl>
+
+      <!--p class="govuk-body">
         UKPRN: {{ data['org-ukprn'] }}<br>
-        Organisation name: YOUR COMPANY NAME LTD<br><br>
+        Organisation name: YOUR COMPANY NAME LTD<br>
+        {% if (data['org-ukprn'] == "12340101") %}
+          Trading name: Your Trading Name<br>
+        {% endif %}
+        Provider route: {{ data['org-selectedroute'] | capitalize }}
       </p>
+      <p class="govuk-body "><a href="#">Change these details</a></p-->
 
       <ol class="app-task-list">
 
@@ -31,7 +96,7 @@
           </h2>
           <ul class="app-task-list__items">
 
-            <li class="app-task-list__item">
+            <!--li class="app-task-list__item">
               <a class="app-task-list__task-name" href="select-route" aria-describedby="select-route-status">
                 Provider route
               </a>
@@ -40,7 +105,7 @@
               {% else %}
               <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
-            </li>
+            </li-->
 
             <li class="app-task-list__item">
               {% if (data['tl_selectroute'] == "completed") %}
@@ -485,7 +550,7 @@
                 <strong class="govuk-tag app-task-list__task-inprogress" id="plan-type">In progress</strong>
               {% endif %}
             </li>
-            <li class="app-task-list__item">
+            <!--li class="app-task-list__item">
               {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] == "main") %}
                 <a class="app-task-list__task-name" href="planning/05-contact" aria-describedby="plan-contact">Course directory contact</a>
               {% else %}
@@ -496,7 +561,7 @@
               {% elseif data['org-selectedroute'] != "main" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="plan-contact">Not required</strong>
               {% endif %}
-            </li>
+            </li-->
             <li class="app-task-list__item">
               {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] == "employer") %}
                 <a class="app-task-list__task-name" href="planning/04-supported" aria-describedby="plan-supporting">Supporting apprentices</a>

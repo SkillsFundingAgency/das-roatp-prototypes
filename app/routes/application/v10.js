@@ -2191,8 +2191,9 @@ module.exports = function (router) {
 	// Ready to deliver
 	router.post('/application/' + v + '/planning/02-readytodeliver', function (req, res) {
 		if (req.session.data["org-selectedroute"] == "supporting"){
-			req.session.data['tl_plan_type'] = 'completed'
-			res.redirect('/application/' + v + '/task-list#section-planning')
+			//req.session.data['tl_plan_type'] = 'completed'
+			//res.redirect('/application/' + v + '/task-list#section-planning')
+			res.redirect('/application/' + v + '/planning/05-contact')
 		} else {
 			res.redirect('/application/' + v + '/planning/03-engaging')
 		}
@@ -2200,20 +2201,23 @@ module.exports = function (router) {
 
 	// Plan to engage
 	router.post('/application/' + v + '/planning/03-engaging', function (req, res) {
+		//req.session.data['tl_plan_type'] = 'completed'
+		//res.redirect('/application/' + v + '/task-list#section-planning')
+		res.redirect('/application/' + v + '/planning/05-contact')
+	})	
+
+	// Course directory contact
+	router.post('/application/' + v + '/planning/05-contact', function (req, res) {
+		//req.session.data['tl_plan_contact'] = 'completed'
 		req.session.data['tl_plan_type'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-planning')
-	})	
+	})
 
 	// Apprentices supported
 	router.post('/application/' + v + '/planning/04-supported', function (req, res) {
 		req.session.data['tl_plan_supporting'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-planning')
-	})
-
-	// Course directory contact
-	router.post('/application/' + v + '/planning/05-contact', function (req, res) {
-		req.session.data['tl_plan_contact'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-planning')
+		//res.redirect('/application/' + v + '/planning/05-contact')
 	})
 
 	// Forecast - Starts

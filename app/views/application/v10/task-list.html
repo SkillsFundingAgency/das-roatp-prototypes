@@ -23,19 +23,6 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            UKPRN
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['org-ukprn'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> UKPRN</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
             Organisation name
           </dt>
           <dd class="govuk-summary-list__value">
@@ -62,6 +49,19 @@
           </dd>
         </div>
         {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            UKPRN
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['org-ukprn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> UKPRN</span>
+            </a>
+          </dd>
+        </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Provider route
@@ -707,7 +707,7 @@
 
         <li>
           <h2 class="app-task-list__section" id="section-evaluating">
-            <span class="app-task-list__section-number">8. </span> Evaluating training
+            <span class="app-task-list__section-number">8. </span> Evaluating apprenticeship training
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

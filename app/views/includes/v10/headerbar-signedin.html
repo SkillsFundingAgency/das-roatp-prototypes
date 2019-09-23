@@ -18,20 +18,32 @@
       <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
       {{signedin}}
 
-        {% if (data['signedin'] == "yes") and (data['org-ukprn']) and (data['org-selectedroute']) %}
-          {% if currentpage == "task-list" %}
+        {% if data['application_status'] %}
+          {% if currentpage == "timeline" %}
             <li class="roatp__navigation-item roatp__navigation-item--active">
           {% else %}
             <li class="roatp__navigation-item">
           {% endif %}
-            <a class="govuk-header__link" href="/application/v10/task-list">
-              Application overview
-            </a>
-          </li>
+              <a class="govuk-header__link" href="/application/v10/timeline">
+                Application overview
+              </a>
+            </li>
         {% else %}
-          <li class="roatp__navigation-item roatp__navigation-item--inactive">
-            <span class="govuk-header__link">Application overview</span>
-          </li>
+          {% if (data['signedin'] == "yes") and (data['org-ukprn']) and (data['org-selectedroute']) %}
+            {% if currentpage == "task-list" %}
+              <li class="roatp__navigation-item roatp__navigation-item--active">
+            {% else %}
+              <li class="roatp__navigation-item">
+            {% endif %}
+                <a class="govuk-header__link" href="/application/v10/task-list">
+                  Application overview
+                </a>
+              </li>
+          {% else %}
+            <li class="roatp__navigation-item roatp__navigation-item--inactive">
+              <span class="govuk-header__link">Application overview</span>
+            </li>
+          {% endif %}
         {% endif %}
         <!--li class="roatp__navigation-item">
           <a class="govuk-header__link" href="#">

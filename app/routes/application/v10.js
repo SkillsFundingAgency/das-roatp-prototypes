@@ -2657,6 +2657,17 @@ module.exports = function (router) {
 	})	
 
 
+
+/**************************
+ *** Check your answers ***
+ **************************/
+
+	router.post('/application/' + v + '/checkyouranswers', function (req, res) {
+		req.session.data['application_status'] = 'sent'
+		res.redirect('/application/' + v + '/application-complete')
+	})	
+
+
 /****************
  *** Sign out ***
  ****************/

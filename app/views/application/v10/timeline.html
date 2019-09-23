@@ -1,0 +1,75 @@
+{% set currentpage = "timeline" %}
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Application overview
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <ol class="roatp-timeline">
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Gateway checks</h3>
+          <p class="roatp-timeline__info">
+            <span class="roatp-timeline__author">by John Smith</span>
+            <span class="roatp-timeline__date">1 January 2018 at 13:02</span>
+          </p>
+          <p class="roatp-timeline__body">
+            Claimant over state pension age.
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">PMO checks</h3>
+          <p class="roatp-timeline__info">
+            <span class="roatp-timeline__author">by John Smith</span>
+            <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
+          </p>
+          <p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Assessor checks</h3>
+          <p class="roatp-timeline__info">
+            <span class="roatp-timeline__author">by John Smith</span>
+            <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
+          </p>
+          <p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Governance checks</h3>
+          <p class="roatp-timeline__info">
+            <span class="roatp-timeline__author">by John Smith</span>
+            <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
+          </p>
+          <p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p>
+        </li>
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

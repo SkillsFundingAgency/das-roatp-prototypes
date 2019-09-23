@@ -83,3 +83,61 @@
     padding-left: govuk-spacing(3);
     padding-right: govuk-spacing(3);
 }
+
+
+// Timeline
+
+.roatp-timeline {
+    //border-left: 3px solid #1d70b8;
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+  }
+  
+    .roatp-timeline__entry {
+        border-left: 3px solid #1d70b8;
+        display: inline-block;
+        margin: 0;
+        padding: 0em 0 1em 1em;
+        position: relative;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &::before {
+            background-color: #1d70b8;
+            content: ' ';
+            height: 3px;
+            left: 0;
+            position: absolute;
+            top: .5em;
+            width: 10px;
+        }
+    }
+  
+    .roatp-timeline__title {
+      display: block;
+      //font-weight: 700;
+      margin-top: 0;
+    }
+  
+    .roatp-timeline__author,
+    .roatp-timeline__date {
+      color: #6F777B;
+      display: block;
+    }
+  
+    .roatp-timeline__info,
+    .roatp-timeline__body {
+        padding-left: 1em;
+    }
+  
+    .roatp-timeline__info {
+        margin-top: 0;
+    }
+    
+    .roatp-timeline__body {
+      display: block;
+      //margin-bottom: 0;
+    }

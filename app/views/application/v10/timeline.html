@@ -11,35 +11,37 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-xl">
-        Application overview
-      </h1>
-
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Application overview</h1>
     </div>
   </div>
 
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <br>
+
+    </div>
+
     <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m">Application progress</h1>
 
       <ol class="roatp-timeline">
         <li class="roatp-timeline__entry">
           <h3 class="roatp-timeline__title govuk-heading-s">Gateway checks</h3>
           <p class="roatp-timeline__info">
-            <span class="roatp-timeline__author">by John Smith</span>
-            <span class="roatp-timeline__date">1 January 2018 at 13:02</span>
-          </p>
-          <p class="roatp-timeline__body">
-            Claimant over state pension age.
+            <strong class="govuk-tag">Complete</strong>
+            <span class="roatp-timeline__date">Assessment started on 1 January 2018 at 1:02pm</span>
+            <span class="roatp-timeline__date">Assessment completed on 3 January 2018 at 11:21am</span>
           </p>
         </li>
 
         <li class="roatp-timeline__entry">
           <h3 class="roatp-timeline__title govuk-heading-s">PMO checks</h3>
           <p class="roatp-timeline__info">
-            <span class="roatp-timeline__author">by John Smith</span>
-            <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
+            <strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+            <span class="roatp-timeline__date">Assessment started on 1 January 2018 at 1:02pm</span>
           </p>
           <p class="roatp-timeline__body">
             Marriage certificate uploaded to DRS.
@@ -49,6 +51,7 @@
         <li class="roatp-timeline__entry">
           <h3 class="roatp-timeline__title govuk-heading-s">Assessor checks</h3>
           <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-inprogress">Awaiting</strong>
             <span class="roatp-timeline__author">by John Smith</span>
             <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
           </p>
@@ -60,6 +63,7 @@
         <li class="roatp-timeline__entry">
           <h3 class="roatp-timeline__title govuk-heading-s">Governance checks</h3>
           <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-inprogress">Awaiting</strong>
             <span class="roatp-timeline__author">by John Smith</span>
             <span class="roatp-timeline__date">1 January 2018 at 13:21</span>
           </p>

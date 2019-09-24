@@ -1257,12 +1257,14 @@ module.exports = function (router) {
 	// ineligible
 		} else if (org_ukprn === '12340401') { // Company - Inactive
 			res.redirect('/application/' + v + '/shutter/ukprn-inactivecompany')
-		} else if (org_ukprn === '12340402') { // Company - Already on register
+		} else if (org_ukprn === '12340402') { // Company - Already on register (no option to change route)
 			res.redirect('/application/' + v + '/shutter/ukprn-onregister')
 		} else if (org_ukprn === '12340403') { // Incorporation date less than 12 months ago (3 months for supporting)
 			res.redirect('/application/' + v + '/shutter/incorporation')
 		} else if (org_ukprn === '12340404') { // Removed from register
 			res.redirect('/application/' + v + '/shutter/removed')
+		} else if (org_ukprn === '12340501') { // Organisation already on register as a supporting provider
+			res.redirect('/application/' + v + '/ukprn-onregister')
 	// error page
 		} else {
 			res.redirect('/application/' + v + '/ukprn-error')
@@ -1272,6 +1274,15 @@ module.exports = function (router) {
 	// Confirm company details
 	router.post('/application/' + v + '/ukprn-confirmdetails', function (req, res) {
 		res.redirect('/application/' + v + '/select-route')
+	})
+
+	// Organisation already on register as a supporting provider
+	router.post('/application/' + v + '/ukprn-onregister', function (req, res) {
+		if (req.session.data['ukprn-onregister'] == "Yes"){
+			res.redirect('/application/' + v + '/select-route')
+		} else {
+			res.redirect('/application/' + v + '/shutter/ukprn-supportingonregister')
+		}
 	})
 
 	// Select route

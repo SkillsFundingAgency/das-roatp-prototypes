@@ -47,16 +47,16 @@ module.exports = function (router) {
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['org-classification'] = "none"
 		req.session.data['org-ico'] = "12345678"
-		req.session.data['org-parentcompany'] = "yes"
+		req.session.data['org-parentcompany'] = "Yes"
 		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 		req.session.data['org-parentcompany-number'] = "89987987"
 		req.session.data['org-selectedroute'] = "main"
 		req.session.data['org-trading'] = "12 to 18 months"
 		req.session.data['org-type'] = "An employer training apprentices in other organisations"
 		req.session.data['org-ukprn'] = "12340101"
-		req.session.data['pro-itt'] = "no"
-		req.session.data['pro-monitoring-visit'] = "no"
-		req.session.data['pro-ofsted-feskills'] = "no"
+		req.session.data['pro-itt'] = "No"
+		req.session.data['pro-monitoring-visit'] = "No"
+		req.session.data['pro-ofsted-feskills'] = "No"
 		req.session.data['signedin'] = "yes"
 		req.session.data['signin-email'] = "main@organisation.parent"
 		req.session.data['signin-password'] = ""
@@ -76,12 +76,12 @@ module.exports = function (router) {
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['org-classification'] = "none"
 		req.session.data['org-ico'] = "11111111"
-		req.session.data['org-parentcompany'] = "no"
+		req.session.data['org-parentcompany'] = "No"
 		req.session.data['org-selectedroute'] = "supporting"
 		req.session.data['org-trading'] = "3 to 6 months"
 		req.session.data['org-type'] = "An employer training apprentices in other organisations"
 		req.session.data['org-ukprn'] = "12340101"
-		req.session.data['pro-subcontractor'] = "no"
+		req.session.data['pro-subcontractor'] = "No"
 		req.session.data['signedin'] = "yes"
 		req.session.data['signin-email'] = ""
 		req.session.data['signin-password'] = ""
@@ -907,8 +907,8 @@ module.exports = function (router) {
 		req.session.data['del-professional-development'] = ""
 		req.session.data['del-sectors'] = ["Creative and design","Digital"]
 		req.session.data['end-permission-commercial'] = "No"
-		req.session.data['end-permission-named'] = ["yes"]
-		req.session.data['end-permission-submit'] = ["yes"]
+		req.session.data['end-permission-named'] = ["Yes"]
+		req.session.data['end-permission-submit'] = ["Yes"]
 		req.session.data['end-yourdetails-email'] = "charles@peterson.com"
 		req.session.data['end-yourdetails-name'] = "Charles Peterson"
 		req.session.data['end-yourdetails-number'] = "07755 443322"
@@ -1038,7 +1038,7 @@ module.exports = function (router) {
  ************************/
 
 	router.post('/application/' + v + '/haveanaccount', function (req, res) {
-		if (req.session.data['haveanaccount'] == "no" ){
+		if (req.session.data['haveanaccount'] == "No" ){
 			res.redirect('/application/' + v + '/signin')
 		} else {
 			res.redirect('/application/' + v + '/createaccount')
@@ -1111,7 +1111,7 @@ module.exports = function (router) {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "no"
+			req.session.data['org-parentcompany'] = "No"
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = "12 to 18 months"
 			req.session.data['org-type'] = "An employer training apprentices in other organisations"
@@ -1129,14 +1129,14 @@ module.exports = function (router) {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "no"
+			req.session.data['org-parentcompany'] = "No"
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = "12 to 18 months"
 			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
-			req.session.data['pro-itt'] = "no"
-			req.session.data['pro-monitoring-visit'] = "no"
-			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['pro-itt'] = "No"
+			req.session.data['pro-monitoring-visit'] = "No"
+			req.session.data['pro-ofsted-feskills'] = "No"
 			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_intro'] = "completed"
@@ -1149,16 +1149,16 @@ module.exports = function (router) {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany'] = "Yes"
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "main"
 			req.session.data['org-trading'] = "12 to 18 months"
 			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
-			req.session.data['pro-itt'] = "no"
-			req.session.data['pro-monitoring-visit'] = "no"
-			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['pro-itt'] = "No"
+			req.session.data['pro-monitoring-visit'] = "No"
+			req.session.data['pro-ofsted-feskills'] = "No"
 			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_intro'] = "completed"
@@ -1171,7 +1171,7 @@ module.exports = function (router) {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany'] = "Yes"
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "employer"
@@ -1179,8 +1179,8 @@ module.exports = function (router) {
 			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
 			req.session.data['pro-itt'] = "no"
-			req.session.data['pro-monitoring-visit'] = "no"
-			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['pro-monitoring-visit'] = "No"
+			req.session.data['pro-ofsted-feskills'] = "No"
 			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_intro'] = "completed"
@@ -1193,16 +1193,16 @@ module.exports = function (router) {
 			req.session.data['exempt_fha'] = "no"
 			req.session.data['org-classification'] = "none"
 			req.session.data['org-ico'] = "12345678"
-			req.session.data['org-parentcompany'] = "yes"
+			req.session.data['org-parentcompany'] = "Yes"
 			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
 			req.session.data['org-parentcompany-number'] = "89987987"
 			req.session.data['org-selectedroute'] = "supporting"
 			req.session.data['org-trading'] = "3 to 6 months"
 			req.session.data['org-type'] = "An employer training apprentices in other organisations"
 			req.session.data['org-ukprn'] = "12340101"
-			req.session.data['pro-itt'] = "no"
-			req.session.data['pro-monitoring-visit'] = "no"
-			req.session.data['pro-ofsted-feskills'] = "no"
+			req.session.data['pro-itt'] = "No"
+			req.session.data['pro-monitoring-visit'] = "No"
+			req.session.data['pro-ofsted-feskills'] = "No"
 			req.session.data['signedin'] = "yes"
 			req.session.data['tl_org_details'] = "completed"
 			req.session.data['tl_org_intro'] = "completed"
@@ -1723,7 +1723,7 @@ module.exports = function (router) {
 
 			if (org_fundedby === 'Yes') {
 				req.session.data['exempt_fha'] = 'yes'
-			} else if (org_fundedby === 'no') {
+			} else if (org_fundedby === 'No') {
 				req.session.data['exempt_fha'] = 'no'
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/org-fundedby')
@@ -2034,7 +2034,7 @@ module.exports = function (router) {
 	// Full financial statements for the last year?
 	router.post('/application/' + v + '/financial/full-statements', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'inprogress'
-		if (req.session.data['fin-fullstatements'] == "yes"){
+		if (req.session.data['fin-fullstatements'] == "Yes"){
 			res.redirect('/application/' + v + '/financial/full-statements-upload')
 		} else {
 			if (req.session.data['org-selectedroute'] == "supporting"){
@@ -2085,7 +2085,7 @@ module.exports = function (router) {
 		// Parent company interstitial
 		router.post('/application/' + v + '/financial/parentcompany', function (req, res) {
 			req.session.data['tl_fin_parent'] = 'inprogress'
-			if (req.session.data['fin-consolidatedstatements'] == "no") {
+			if (req.session.data['fin-consolidatedstatements'] == "No") {
 				res.redirect('/application/' + v + '/financial/parentcompany-subsidiary')
 			} else {
 				res.redirect('/application/' + v + '/financial/parentcompany-upload')
@@ -2094,7 +2094,7 @@ module.exports = function (router) {
 
 		// Parent company have a subsidiary
 		router.post('/application/' + v + '/financial/parentcompany-subsidiary', function (req, res) {
-			if (req.session.data['fin-parentsubsidiary'] == "yes"){
+			if (req.session.data['fin-parentsubsidiary'] == "Yes"){
 				res.redirect('/application/' + v + '/financial/parentcompany-subsidiary-upload')
 			} else {
 				res.redirect('/application/' + v + '/financial/parentcompany-consolidated')
@@ -2295,7 +2295,7 @@ module.exports = function (router) {
 
 	// Include responsibilities to Prevent duty
 	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
-		if (req.session.data['wel-preventduty'] == "no") {
+		if (req.session.data['wel-preventduty'] == "No") {
 			res.redirect('/application/' + v + '/welfare/upload-preventduty')
 		} else {
 			req.session.data['tl_wel_safeguarding'] = 'completed'
@@ -2351,7 +2351,7 @@ module.exports = function (router) {
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
-		if (req.session.data['rte-managingrelationships'] == "yes") {
+		if (req.session.data['rte-managingrelationships'] == "Yes") {
 			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
 		} else {
 			req.session.data['tl_rte_engagement'] = 'completed'
@@ -2398,7 +2398,7 @@ module.exports = function (router) {
 	// Use subcontractors?
 	router.post('/application/' + v + '/readiness/use-subcontractors', function (req, res) {
 		req.session.data['tl_rte_subcontractors'] = 'inprogress'
-		if (req.session.data['rte-usesubcontractors'] == "yes") {
+		if (req.session.data['rte-usesubcontractors'] == "Yes") {
 			res.redirect('/application/' + v + '/readiness/manage-subcontractors')
 		} else {
 			req.session.data['tl_rte_subcontractors'] = 'completed'

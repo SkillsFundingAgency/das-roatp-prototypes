@@ -141,3 +141,203 @@
       display: block;
       //margin-bottom: 0;
     }
+
+// RoATP Dashboard Panels
+
+    .roatp-panels {
+        background:#e9eaec;
+        display: grid;
+        grid-template-columns: 66.666% 33.333%
+        
+    }
+
+// Panels from MA 
+/*
+.roatp-panel{
+    padding:20px;
+    background:#fff;
+    margin-bottom:15px
+}
+@media (min-width: 40.0625em){
+    .roatp-panel{
+        margin-bottom:0;
+        padding:30px
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panels .roatp-panel{
+        border-top:20px solid #e9eaec
+    }
+}
+.roatp-panel--featured{
+    background:#005ea5;
+    color:#fff
+}
+.roatp-panel--featured>p{
+    color:#fff
+}
+.roatp-panel--featured>dl{
+    color:#fff;
+    font-size:1em
+}
+.roatp-panel--featured>dl>dd.roatp-definition-list__definition{
+    border-color:rgba(255,255,255,0.5)
+}
+.roatp-panel--featured .roatp-panel__link{
+    color:#fff;
+    font-weight:700;
+    font-family:"nta",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+}
+@media print{
+    .roatp-panel--featured .roatp-panel__link{
+        font-family:sans-serif
+    }
+}
+.roatp-panel--featured .roatp-panel__link:focus{
+    outline:3px solid #ffbf47;
+    outline-offset:0;
+    background-color:#ffbf47
+}
+.roatp-panel--featured .roatp-panel__link:focus{
+    color:#000
+}
+.roatp-panel--with-tabs{
+    background:#e9eaec;
+    padding-top:20px;
+    margin-top:0;
+    margin-bottom:0
+}
+@media (min-width: 40.0625em){
+    .roatp-panel--with-tabs .govuk-tabs__list{
+        margin-right:-5px;
+        border-bottom:none
+    }
+}
+@media (min-width: 40.0625em){
+    .js-enabled .roatp-panel--with-tabs .govuk-tabs__list-item{
+        float:left;
+        width:33.33%
+    }
+}
+@media (min-width: 40.0625em){
+    .js-enabled .roatp-panel--with-tabs .govuk-tabs__tab{
+        display:block;
+        float:none;
+        padding-left:10px;
+        padding-right:10px;
+        font-size:16px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis
+    }
+}
+@media (min-width: 48.0625em){
+    .js-enabled .roatp-panel--with-tabs .govuk-tabs__tab{
+        font-size:19px
+    }
+}
+@media (min-width: 40.0625em){
+    .js-enabled .roatp-panel--with-tabs .govuk-tabs__tab--selected{
+        background:#fff;
+        padding-left:10px;
+        padding-right:10px
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panel--with-tabs .govuk-tabs__tab--selected:focus{
+        background:#fff;
+        border-color:#fff
+    }
+}
+.roatp-panel--with-tabs .govuk-tabs__panel{
+    background:#fff;
+    padding:20px;
+    margin-bottom:15px
+}
+@media (min-width: 40.0625em){
+    .roatp-panel--with-tabs .govuk-tabs__panel{
+        padding:30px;
+        margin:0;
+        border-top:1px solid #bfc1c3
+    }
+}
+.roatp-panel__heading{
+    font-family:"nta",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-weight:700;
+    font-size:16px;
+    font-size:1rem;
+    line-height:1.25;
+    margin-top:0;
+    margin-bottom:0
+}
+@media print{
+    .roatp-panel__heading{
+        font-family:sans-serif
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panel__heading{
+        font-size:19px;
+        font-size:1.1875rem;
+        line-height:1.31579
+    }
+}
+@media print{
+    .roatp-panel__heading{
+        font-size:14pt;
+        line-height:1.15
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panel__heading{
+        font-size:24px
+    }
+}
+.roatp-panel--featured .roatp-panel__heading{
+    font-size:24px
+}
+@media (min-width: 40.0625em){
+    .roatp-panel--featured .roatp-panel__heading{
+        font-size:36px;
+        line-height:1.2
+    }
+}
+.roatp-panel__heading+.govuk-list{
+    margin-top:20px
+}
+.roatp-panel__button{
+    margin-bottom:0
+}
+@media (min-width: 40.0625em){
+    .roatp-panels{
+        display: flex;
+        background:#e9eaec;
+        margin:-10px;
+        padding-bottom:20px
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panels__col{
+        width:50%;
+        margin:0 20px;
+        background:#fff
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panels__col--primary{
+        width:60%
+    }
+}
+@media (min-width: 40.0625em){
+    .roatp-panels__col--secondary{
+        width:40%
+    }
+}
+.roatp-panels__col--secondary .roatp-panel:last-child{
+    margin-bottom:0
+}
+*/

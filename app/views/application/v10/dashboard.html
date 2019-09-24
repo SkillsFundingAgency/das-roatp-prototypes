@@ -11,8 +11,13 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">Application overview</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
       <h2 class="das-section__heading govuk-heading-l govuk-!-margin-top-2">
         Your application is being assessed
@@ -36,7 +41,43 @@
 
     </div>
     <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Application progress</h1>
 
+      <ol class="roatp-timeline">
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Gateway checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag">Complete</strong>
+            <span class="roatp-timeline__date">Assessment completed on 3 January 2018 at 11:21am</span>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">PMO checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+            <span class="roatp-timeline__date">Assessment started on 1 January 2018 at 1:02pm</span>
+          </p>
+          <!--p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p-->
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Assessor checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Governance checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+      </ol>
+<!--
       <div class="govuk-tabs" data-module="tabs">
         <ul class="govuk-tabs__list" role="tablist">
           <li class="govuk-tabs__list-item" role="presentation">
@@ -93,7 +134,7 @@
         </section>
       </div>
     </div>
-
+-->
   </div>
 <!--
     <div class="govuk-grid-column-one-third">

@@ -1031,6 +1031,12 @@ module.exports = function (router) {
 		req.session.data['wel-safeguardingresponsible-tel'] = "01234987654"
 		res.redirect('/application/' + v + '/task-list')
 	})
+
+	// Application completed (including Finish section) - main provider...
+	router.get('/application/' + v + '/jump/dashboard', function (req,res) {
+		req.session.data['signedin'] = "yes"
+		res.redirect('/application/' + v + '/dashboard')
+	})
 	
 
 /************************

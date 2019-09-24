@@ -55,6 +55,7 @@
               </span>
             </div>
             {% endif %}
+            {% if data['org-ukprn'] != "12340501" %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="org-selectedroute-3" name="org-selectedroute" type="radio" value="supporting">
               <label class="govuk-label govuk-radios__label" for="org-selectedroute-3">
@@ -65,6 +66,7 @@
                 <p class="govuk-hint">If your organisation is new on the register, it will be limited to £100,000 in its first year.</p>
               </span>
             </div>
+            {% endif %}
           </div>
         </fieldset>
       </div>

@@ -1,0 +1,140 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  Service Start Page - RoATP Organisation Prototype
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Further education and skills</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Apprenticeships</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!--span class="govuk-caption-l">Guidance</span-->
+      <h1 class="govuk-heading-l">Applying to the register of apprenticeship training providers as an existing apprenticeship training provider</h1>
+      <p class="govuk-body">For existing apprenticeship training providers who are invited to reapply or have been unsuccessful using the Department for Education portal (Bravo).</p>
+    </div>
+  </div>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <!--div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body-s">
+        Published 20 September 2019
+        <br>Last updated 25 September 2019
+        — <a href="#">see all updates</a>
+        <br>From: <a class="govuk-!-font-weight-bold" href="#">Education and Skills Funding Agency</a>
+      </p>
+    </div>
+  </div-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!--div class="govuk-panel govuk-panel--confirmation govuk-body-s" style="background: #005ea5; padding: 0; text-align: left; font-size: 16px; border: 0; padding: 1em; line-height: 1em;margin: 1em 0 2em;">
+        Applies to: <span class="govuk-!-font-weight-bold">England</span>
+      </div-->
+
+      <p class="govuk-body-s">Contents</p>
+      <ul class="govuk-list--bullets">
+          <li>
+            <a class="govuk-link" href="#whatyoullneed">What you’ll need for Bravo</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#guidance">Guidance to support your application</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#apply">Apply</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#removing">Removing an apprenticeship training provider from the register</a>
+          </li>
+        </ul>
+        <br>
+
+        <h2 class="govuk-heading-m" id="whatyoullneed">What you’ll need</h2>
+        <p class="govuk-body">If you’re invited to reapply or have been unsuccessful, you’ll need to check if your organisation is still eligible to be on the RoATP.</p>
+        <p class="govuk-body">To be eligible, apprenticeship training providers must have:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>a valid <a href="https://www.ukrlp.co.uk/" target="_blank">UK provider reference number (UKPRN)</a></li>
+          <li>a valid <a href="https://ico.org.uk/registration/new" target="_blank">Information Commissioner’s Office registration number</a> for education and training</li>
+          <li>a registered UK business address</li>
+          <li>read the GOV.UK <a href="https://www.gov.uk/guidance/becoming-an-apprenticeship-training-provider" target="_blank">guidance on becoming an apprenticeship training provider</a></li>
+          <li>not had an inadequate Ofsted grade for apprenticeships (or for overall effectiveness under its FE and skills remit where there is no separate apprenticeships grade) in their latest inspection report.</li>
+        </ol>
+        <p class="govuk-body">Main and employer providers must also have:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>been actively trading for at least 12 months and have financial information to support this</li>
+          <li>the ability to train apprentices in the first 12 months of joining the register</li>
+          <li>a management structure that has experience of developing and delivering training</li>
+        </ol>
+        <p class="govuk-body">Supporting providers must have been actively trading for a minimum of 3 months.</p>
+
+        <h2 class="govuk-heading-m" id="guidance">Guidance to support your application</h2>
+        <p class="govuk-body">Use the application guidance to help you answer your application questions on Bravo. It explains:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>what you need for your application</li>
+          <li>the application process</li>
+          <li>the conditions of acceptance to the register that you’ll need to agree to as part of making your application</li>
+          <li>what happens after you apply</li>
+        </ol>
+
+        <p class="govuk-body"><a href="https://www.gov.uk/guidance/application-guidance-for-the-register-of-apprenticeship-training-providers-version-3-august-2019" target="_blank">Application guidance</a></p>
+        <p class="govuk-body"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/830659/Application_guidance_for_the_Register_of_Apprenticeship_Training_Providers_-_Version_3_August_2019.pdf" target="_blank">Application guidance</a> (PDF, 684KB, 48 pages)</p>
+        <p class="govuk-body"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/764154/Conditions_of_Acceptance.pdf" target="_blank">Conditions of acceptance</a> (PDF, 406KB, 3 pages)</p>
+        <p class="govuk-body">There are 2 questions which require you to download templates, fill  them out and upload them on Bravo as part of your application. The templates are:</p>
+        <p class="govuk-body"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/764156/Template_for_your_management_hierarchy_OD-12.xlsx" target="_blank">Template for your management hierarchy (OD-12)</a> (MS Excel Spreadsheet, 48.3KB)</p>
+        <p class="govuk-body"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/764158/Template_for_your_employees_experience_CC-PP-12.xlsx" target="_blank">Template for your employees experience (CC-PP-12)</a> (MS Excel Spreadsheet, 256KB)</p>
+
+
+        <h2 class="govuk-heading-m" id="apply">Apply</h2>
+        <p class="govuk-body">Before you apply, you must be able to provide evidence in your application showing:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>who’s involved with apprenticeships in your organisation</li>
+          <li>your financial status and ability to meet any financial commitments</li>
+          <li>how you evaluate the quality of training and outcomes</li>
+          <li>how you assess prior learning</li>
+          <li>how your leaders and managers document and define clear expectations of setting high standards for apprenticeship training</li>
+          <li>your employees’ experience in training including qualifications</li>
+          <li>the process of professional development for your employees</li>
+          <li>your plan for continuity of apprenticeship delivery as well as equality and diversity, safeguarding and health and safety policies</li>
+          <li>how you engage with employers and your contracting arrangements with them (only main providers)</li>
+          <li>the commitment statement template you will use to support the apprenticeships (only main or employer providers)</li>
+        </ol>
+
+        <p class="govuk-body"><a href="https://education.bravosolution.co.uk/web/login.shtml" target="_blank">Apply using the Department for Education portal (Bravo)</a>.</p>
+
+        <p class="govuk-body">ESFA will start to assess applications on the first working day of each month for any applications received during the previous month. It usually takes around 12 weeks to assess an application, but it can sometimes take longer. We will keep you informed on the progress of your application.</p>
+        <p class="govuk-body">If your application is unsuccessful, we will provide feedback. You will be able to apply twice within a 12-month period.</p>
+
+
+        <h2 class="govuk-heading-m" id="removing">Removing an apprenticeship training provider from the register</h2>
+        <p class="govuk-body">We will remove a training provider if they no longer meet our requirements. This includes removing a provider that receives an <a href="https://gov.uk/government/publications/removal-from-register-of-apprenticeship-training-providers" target="_blank">inadequate Ofsted grade</a> for apprenticeships (or for overall effectiveness under its FE and skills remit where there is no separate apprenticeships grade).</p>
+
+
+
+
+    </div>
+
+  </div>
+{% endblock %}

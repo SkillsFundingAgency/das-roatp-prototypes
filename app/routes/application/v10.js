@@ -1035,6 +1035,7 @@ module.exports = function (router) {
 	// Application completed (including Finish section) - main provider...
 	router.get('/application/' + v + '/jump/dashboard', function (req,res) {
 		req.session.data['signedin'] = "yes"
+		req.session.data['application_status'] = "dashboard"
 		res.redirect('/application/' + v + '/dashboard')
 	})
 	

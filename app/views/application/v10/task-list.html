@@ -18,7 +18,7 @@
         Application overview
       </h1>
 
-      <p class="govuk-body">Make sure you've read the GOV.UK <a href="#">guidance on RoATP (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">Make sure you've read the GOV.UK <a href="index">guidance on RoATP (opens in a new window or tab)</a>.</p>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -107,11 +107,7 @@
             </li-->
 
             <li class="app-task-list__item">
-              {% if (data['tl_selectroute'] == "completed") %}
                 <a class="app-task-list__task-name" href="organisation/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
-              {% else %}
-                Introduction and what you'll need
-              {% endif %}
               {% if data['tl_org_intro'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="org-intro">Completed</strong>
               {% endif %}

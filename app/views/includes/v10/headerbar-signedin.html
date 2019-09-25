@@ -18,13 +18,9 @@
       <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
       {{signedin}}
 
-        {% if data['application_status'] %}
-          {% if currentpage == "timeline" %}
+        {% if data['application_status'] == "dashboard" %}
             <li class="roatp__navigation-item roatp__navigation-item--active">
-          {% else %}
-            <li class="roatp__navigation-item">
-          {% endif %}
-              <a class="govuk-header__link" href="/application/v10/timeline">
+              <a class="govuk-header__link" href="/application/v10/dashboard">
                 Application overview
               </a>
             </li>

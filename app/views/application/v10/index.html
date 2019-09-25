@@ -26,29 +26,159 @@
 {% endblock %}
 
 {% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Guidance</span>
+      <h1 class="govuk-heading-l">Apply to join the register of apprenticeship training providers (RoATP)</h1>
+      <p class="govuk-body">
+        Find out how to become an apprenticeship training provider so that your can train apprentices in England.
+      </p>
+    </div>
+  </div>
+  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  <!--div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body-s">
+        Published 20 September 2019
+        <br>Last updated 25 September 2019
+        — <a href="#">see all updates</a>
+        <br>From: <a class="govuk-!-font-weight-bold" href="#">Education and Skills Funding Agency</a>
+      </p>
+    </div>
+  </div-->
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        {% if serviceName %} {{ serviceName }} {% endif %}
-      </h1>
+      <!--div class="govuk-panel govuk-panel--confirmation govuk-body-s" style="background: #005ea5; padding: 0; text-align: left; font-size: 16px; border: 0; padding: 1em; line-height: 1em;margin: 1em 0 2em;">
+        Applies to: <span class="govuk-!-font-weight-bold">England</span>
+      </div-->
 
-      <p>Use this service to join the register of apprenticeship training providers (RoATP) so that you can train apprentices in the UK.</p>
-      <p>You do not have to complete your application in one go. You can save your details and finish it later.</p>
-      <p>You can only apply twice within a 12-month period.</p>
-      <p>You’ll need to allow at least 12 weeks for Education and Skills Funding Agency (ESFA) to process your application.</p>
+      <p class="govuk-body-s">Contents</p>
+      <ul class="govuk-list--bullets">
+          <li>
+            <a class="govuk-link" href="#whocanapply">Who can apply</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#whatyoullneed">What you’ll need</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#apply">Apply</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#whathappensnext">What happens next</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#removal">Removal from the RoATP</a>
+          </li>
+        </ul>
+        <br>
 
-      <a href="/application/v10/haveanaccount" role="button" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8">Start now</a>
+        <p class="govuk-body">Once your organisation’s on the RoATP, it will be:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>shown on the <a href="https://download.apprenticeships.education.gov.uk/" target="_blank">register of apprenticeship training providers</a></li>
+          <li>shown on <a href="#">find an apprenticeship</a></li>
+          <li>eligible to receive government funding to train apprentices</li>
+        </ol>
 
-      <h2 class="govuk-heading-m">Before you start</h2>
+        <p class="govuk-body">However, being on the RoATP does not mean your organisation:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>is recommended by ESFA</li>
+          <li>has a ‘kite-mark’ or an award</li>
+          <li>has an identification number</li>
+        </ol>
 
-      <p>To join the register of apprenticeship training providers, your organisation will need to have:</p>
+        <h2 class="govuk-heading-m">Existing apprenticeship training providers</h2>
+        <p class="govuk-body">You’ll need to use [X] if your organisation:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>is invited to reapply for the RoATP</li>
+          <li>has been unsuccessful using the Department for Education portal (Bravo)</li>
+        </ol>
 
-      <ul class="govuk-list govuk-list--bullet">
-				<li>a <a href="https://www.ukrlp.co.uk/" target="_blank">UK provider reference number (opens in a new window or tab)</a></li>
-				<li>an <a href="https://ico.org.uk/registration/new" target="_blank">Information Commissioner's Office registration number (opens in a new window or tab)</a></li>
-				<li>a UK business address</li>
-			</ul>
+        <h2 class="govuk-heading-m" id="whocanapply">Who can apply</h2>
+        <p class="govuk-body">Organisations must apply through one of 3 provider routes.</p>
+
+        <h3 class="govuk-heading-s">Main provider route</h3>
+        <p class="govuk-body">This route allows your organisation to directly deliver training to apprentices for other organisations. While doing this, it can also train its own employees, employees of connected companies or charities or act as a subcontractor for other main and employer providers.</p>
+        <p class="govuk-body">Your organisation must have at least 12 months’ trading history and a training manager with at least 9 months’ experience in developing and delivering training.</p>
+
+        <h3 class="govuk-heading-s">Employer provider route</h3>
+        <p class="govuk-body">This route allows your organisation to directly deliver training to its own employees. It can also train employees of connected companies or charities or act as a subcontractor for other employer or main providers.</p>
+        <p class="govuk-body">Your organisation must have at least 12 months’ trading history and a training manager with at least 9 months’ experience in developing and delivering training.</p>
+
+        <h3 class="govuk-heading-s">Supporting provider route</h3>
+        <p class="govuk-body">This route allows your organisation to directly deliver training to its own employees. It can also train employees of connected companies or charities or act as a subcontractor for other employer or main providers.</p>
+        <p class="govuk-body">Your organisation must have at least 12 months’ trading history and a training manager with at least 9 months’ experience in developing and delivering training.</p>
+
+        <h2 class="govuk-heading-m" id="whatyoullneed">What you’ll need</h2>
+        <p class="govuk-body">Make sure your organisation has:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>a sign in account (if you do not have one, you can create one when you apply)</li>
+          <li>a UK provider reference number (UKPRN)</li>
+          <li>an Information Commissioner's Office registration number (ICO number)</li>
+          <li>a UK business address</li>
+        </ol>
+        <p class="govuk-body">Depending on your organisation and provider route, you may need to know:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>who’s in control of your organisation and their dates of birth</li>
+          <li>if your organisation or anyone who’s in control has had any criminal convictions in the last 3 years and what they are</li>
+          <li>how your organisation manages its relationship with employers and subcontractors</li>
+          <li>who’s in your organisation’s management hierarchy for apprenticeships</li>
+          <li>the sectors your organisation will offer apprenticeships in</li>
+          <li>how your organisation plans to deliver apprenticeship training</li>
+          <li>who will deliver apprenticeship training - including any sector specific experience and qualifications they might have</li>
+          <li>how your organisation will evaluate training</li>
+        </ol>
+        <p class="govuk-body">Depending on your organisation and provider route, you may need to upload:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>financial evidence covering the last 12 months</li>
+          <li>a continuity plan for apprenticeship training</li>
+          <li>an equality and diversity policy</li>
+          <li>a safeguarding policy</li>
+          <li>a Prevent duty policy</li>
+          <li>a health and safety policy</li>
+          <li>a complaints policy</li>
+          <li>a contract for services template with employers</li>
+          <li>a commitment statement template</li>
+          <li>a policy for professional development of employees</li>
+        </ol>
+
+        <div class="call-to-action">
+          <h2 class="govuk-heading-m" id="whatyoullneed">Apply to join the register</h2>
+          <p class="govuk-body"><a href="/application/v10/haveanaccount">Apply using the digital application to join the RoATP</a>.</p>
+          <p class="govuk-body">You must answer the first section in order as it determines the rest of the application questions. Once you do this, you can answer the rest of the application in any order.</p>
+          <p class="govuk-body">We’ll guide you through the application and you’ll be able to ask for help on each page.</p>
+          <p class="govuk-body">You do not have to complete your application in one go. You can save your details and finish it later.</p>
+          <p class="govuk-body">As part of making an application, your organisation must agree to the terms of conditions of joining the RoATP.</p>
+        </div>
+
+        <h2 class="govuk-heading-m" id="whathappensnext">What happens next</h2>
+        <p class="govuk-body">You’ll need to allow at least 12 weeks for ESFA to process your application.</p>
+        <p class="govuk-body">ESFA will:</p>
+        <ol class="govuk-list govuk-list--bullet">
+          <li>do checks on your application and the people involved in your organisation</li>
+          <li>tell you if your application has been successful or unsuccessful</li>
+        </ol>
+        <p class="govuk-body">ESFA may also ask for further information on any application answers (they may withdraw your application if you do not comply).</p>
+        <p class="govuk-body">You’ll receive an email when there’s an update with your application.</p>
+        <p class="govuk-body"><a href="#">Check the progress of your application</a>.</p>
+        <p class="govuk-body">If your application is successful, you’ll receive confirmation from ESFA which will include your next steps.</p>
+
+        <h3 class="govuk-heading-s">If your application is unsuccessful</h3>
+        <p class="govuk-body">If you’re unsuccessful, you can appeal the decision or try again - but your organisation can only apply twice in a 12-month period.</p>
+
+        <h3 class="govuk-heading-s">Change or withdraw your application</h3>
+        <p class="govuk-body">You can change your application at any time before ESFA has given their decision.</p>
+        <p class="govuk-body">To make a change or withdraw your application you can email: XXXXX</p>
+
+        <h3 class="govuk-heading-s">Make a complaint</h3>
+        <p class="govuk-body">To make a complaint, <a href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency/about/complaints-procedure" target="_blank">use ESFA’s complaints procedure</a>.</p>
+
+        <h2 class="govuk-heading-m" id="removal">Removal from the RoATP</h2>
+        <p class="govuk-body">Apprenticeship training providers are removed from the RoATP if they no longer meet ESFA’s requirements. <a href="#">Check if your organisation no longer meets ESFA’s requirements</a>.</p>
 
     </div>
 

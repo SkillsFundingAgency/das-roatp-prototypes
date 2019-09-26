@@ -1,0 +1,63 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Developing and delivering training</span>
+
+    <form action="" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "main" %}
+          
+        <h1 class="govuk-heading-l">How did the team work with employers to develop and deliver training?</h1>
+
+      {% elseif data["org-selectedroute"] == "supporting" %}
+          
+        <h1 class="govuk-heading-l">How did the team work with other organisations to develop and deliver training?</h1>
+      
+      {% endif %}
+
+      <p class="govuk-body">Your answer should include how:</p>
+    
+      <ul class="govuk-list govuk-list--bullet">
+        <li>training needs were identified</li>
+        <li>training was determined for the right solution </li>
+        <li>learning objectives were identified and measured</li>
+        <li>training was developed from learning objectives </li>
+        <li>learning objects will be delivered to apprentices</li>
+      </ul>
+
+      {{ govukCharacterCount({
+        name: "del-developdeliver-howworkedwith",
+        id: "del-developdeliver-howworkedwith",
+        value: data['del-developdeliver-howworkedwith'],
+        maxlength: 1500
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

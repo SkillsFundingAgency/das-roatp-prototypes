@@ -1,0 +1,46 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">When was your organisation’s last short inspection report published?</h1>
+    
+    <p class="govuk-body">You can find this when you <a href="https://reports.ofsted.gov.uk/" target="_blank">search for your organisation on Ofsted</a>. It’s usually in grey text underneath the short inspection report called ‘PDF – Published’. For example, ‘PDF – Published 11 March 2018’.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukDateInput({
+        id: "pro-ofsted-apprenticeships-shortinspection-date",
+        namePrefix: "pro-ofsted-apprenticeships-shortinspection-date",
+        hint: {
+          text: "For example, 11 3 2018"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

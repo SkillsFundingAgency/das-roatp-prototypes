@@ -1,0 +1,170 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Sectors and employee experience</span>
+
+      <h1 class="govuk-heading-l">{{ data['del-employee'][ data['current_sector_id'] ]['name'] }}’s experience in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set expTraining1Html %}
+          {{ govukCharacterCount({
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
+            maxlength: 1500,
+            label: {
+              text: "Where did they gain this experience?"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set expTraining2Html %}
+          {{ govukCharacterCount({
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
+            maxlength: 1500,
+            label: {
+              text: "Where did they gain this experience?"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set expTraining3Html %}
+          {{ govukCharacterCount({
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
+            maxlength: 1500,
+            label: {
+              text: "Where did they gain this experience?"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set expTraining4Html %}
+          {{ govukCharacterCount({
+            name: "del-employee-sectorexperience-detail",
+            id: "del-employee-sectorexperience-detail",
+            maxlength: 1500,
+            label: {
+              text: "Where did they gain this experience?"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-sectorexperience",
+          name: "del-employee-sectorexperience",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "What’s their experience of delivering training in this sector?"
+            }
+          },
+          items: [
+            {
+              value: "Less than a year",
+              text: "Less than a year",
+              checked: checked("del-employee-sectorexperience", "Less than a year"),
+              conditional: {
+                html: expTraining1Html
+              }
+            },
+            {
+              value: "One to 2 years",
+              text: "One to 2 years",
+              checked: checked("del-employee-sectorexperience", "One to 2 years"),
+              conditional: {
+                html: expTraining2Html
+              }
+            },
+            {
+              value: "3 to 5 years",
+              text: "3 to 5 years",
+              checked: checked("del-employee-sectorexperience", "3 to 5 years"),
+              conditional: {
+                html: expTraining3Html
+              }
+            },
+            {
+              value: "Over 5 years",
+              text: "Over 5 years",
+              checked: checked("del-employee-sectorexperience", "Over 5 years"),
+              conditional: {
+                html: expTraining4Html
+              }
+            },
+            {
+              value: "No experience",
+              text: "No experience",
+              checked: checked("del-employee-sectorexperience", "No experience")
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-overallexperience",
+          name: "del-employee-overallexperience",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "What’s their overall experience in this sector?"
+            }
+          },
+          items: [
+            {
+              value: "Less than a year",
+              text: "Less than a year",
+              checked: checked("del-employee-overallexperience", "Less than a year")
+            },
+            {
+              value: "One to 2 years",
+              text: "One to 2 years",
+              checked: checked("del-employee-overallexperience", "One to 2 years")
+            },
+            {
+              value: "3 to 5 years",
+              text: "3 to 5 years",
+              checked: checked("del-employee-overallexperience", "3 to 5 years")
+            },
+            {
+              value: "Over 5 years",
+              text: "Over 5 years",
+              checked: checked("del-employee-overallexperience", "Over 5 years")
+            },
+            {
+              value: "No experience",
+              text: "No experience",
+              checked: checked("del-employee-overallexperience", "No experience")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v11/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

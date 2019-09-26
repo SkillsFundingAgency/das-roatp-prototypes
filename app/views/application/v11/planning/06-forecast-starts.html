@@ -1,0 +1,81 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Forecasting starts</span>
+
+      <h1 class="govuk-heading-l">How many starts does your organisation forecasts in the first 12 months of joining RoATP?</h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "plan-forecast-starts",
+          name: "plan-forecast-starts",
+          items: [
+            {
+              value: "No starts",
+              text: "No starts",
+              checked: checked("plan-forecast-starts", "No starts")
+            },
+            {
+              value: "One to 49",
+              text: "One to 49",
+              checked: checked("plan-forecast-starts", "One to 49")
+            },
+            {
+              value: "50 to 99",
+              text: "50 to 99",
+              checked: checked("plan-forecast-starts", "50 to 99")
+            },
+            {
+              value: "100 to 149",
+              text: "100 to 149",
+              checked: checked("plan-forecast-starts", "100 to 149")
+            },
+            {
+              value: "150 to 249",
+              text: "150 to 249",
+              checked: checked("plan-forecast-starts", "150 to 249")
+            },
+            {
+              value: "250 or more",
+              text: "250 or more",
+              checked: checked("plan-forecast-starts", "250 or more")
+            }
+          ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "What is a start?",
+          text: "A ‘start’ is a new apprentice who starts an apprenticeship after you’ve joined RoATP."
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v11/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

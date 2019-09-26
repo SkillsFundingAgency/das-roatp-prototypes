@@ -1,0 +1,53 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Quality and standards in apprenticeship training</span>
+      
+    <h1 class="govuk-heading-l">How will these quality and high standards in apprenticeship training communicated to employees?</h1>
+
+    <p class="govuk-body">Your answer should include how these expectations will be:</p>
+      
+    <ul class="govuk-list govuk-list--bullet">
+      <li>transparent and available to all employees</li>
+      <li>communicated throughout your organisation - for example through training or official policies</li>
+      <li>maintained through regular feedback from employees</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "del-expectations-comminicated",
+          id: "del-expectations-comminicated",
+          value: data['del-expectations-comminicated'],
+          maxlength: 1500
+        }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">Does your organisation offer initial teacher training?</h1>
+    <p class="govuk-body">This means your organisation has been accredited by the Department for Education (DfE) to offer initial teacher training. </p>
+    <p class="govuk-body">Find out more about <a href="https://www.gov.uk/government/collections/initial-teacher-training" target="_blank">initial teacher training (opens in a new window)</a>.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-itt",
+        name: "pro-itt",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("pro-itt", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("pro-itt", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

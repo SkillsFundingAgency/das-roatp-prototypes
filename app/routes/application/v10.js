@@ -1227,7 +1227,11 @@ module.exports = function (router) {
 
 	router.get('/application/' + v + '/signout', function (req, res) {
 		req.session.data['signedin'] = "no"
-		res.redirect('/application/' + v + '/saveandsignout')
+		if (req.session.data['application_status']){
+			res.redirect('/application/' + v + '/signedout')
+		} else {
+			res.redirect('/application/' + v + '/saveandsignout')
+		}
 	})
 
 

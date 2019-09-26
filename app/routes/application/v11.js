@@ -1335,6 +1335,33 @@ module.exports = function (router) {
 	})
 
 
+/*****************************
+ *** Change UKPRN or route ***
+ *****************************/
+	
+ 	// Change UKPRN
+	router.post('/application/' + v + '/change-ukprn', function (req, res) {
+		if (req.session.data['change-ukprn'] == "Yes"){
+			req.session.data = {}
+			res.redirect('/application/' + v + '/ukprn')
+		} else {
+			res.redirect('/application/' + v + '/task-list')
+		}
+	})
+	
+	// Change provider route
+   router.post('/application/' + v + '/change-route', function (req, res) {
+	   if (req.session.data['change-route'] == "Yes"){
+		   let storeukprn = req.session.data['org-ukprn']
+		   req.session.data = {}
+		   req.session.data['org-ukprn'] = storeukprn
+		   res.redirect('/application/' + v + '/select-route')
+	   } else {
+		   res.redirect('/application/' + v + '/task-list')
+	   }
+   })
+
+
 /*************************
  *** Your organisation ***
  *************************/

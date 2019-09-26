@@ -1,6 +1,6 @@
 
 {% set currentpage = "task-list" %}
-{% extends "layout_application_v10.html" %}
+{% extends "layout_application_v11.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v11
@@ -18,7 +18,7 @@
         Application overview
       </h1>
 
-      <p class="govuk-body">Make sure you've read the GOV.UK <a href="index">guidance on RoATP (opens in a new window or tab)</a>.</p>
+      <p class="govuk-body">Make sure you have read <a href="index">the RoATP GOV.UK page (opens in a new window or tab)</a>.</p>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -29,9 +29,6 @@
             YOUR COMPANY NAME LTD
           </dd>
           <dd class="govuk-summary-list__actions">
-            <!--a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> organisation name</span>
-            </a-->
           </dd>
         </div>
         {% if (data['org-ukprn'] == "12340101") %}
@@ -43,9 +40,6 @@
             Your Trading Name
           </dd>
           <dd class="govuk-summary-list__actions">
-            <!--a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> trading name</span>
-            </a-->
           </dd>
         </div>
         {% endif %}
@@ -57,7 +51,7 @@
             {{ data['org-ukprn'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="change-ukprn">
               Change<span class="govuk-visually-hidden"> UKPRN</span>
             </a>
           </dd>
@@ -70,7 +64,7 @@
             {{ data['org-selectedroute'] | capitalize }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="change-route">
               Change<span class="govuk-visually-hidden"> provider route</span>
             </a>
           </dd>

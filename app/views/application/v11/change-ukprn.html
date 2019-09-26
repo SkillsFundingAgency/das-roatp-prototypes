@@ -12,22 +12,18 @@
 {% endblock %}
 
 {% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl">Are you sure you want to change your organisation’s UKPRN?</h1>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">If you change your organisation’s UKPRN, you’ll need to restart your application.</p>
 
     <form action="" method="post" class="form">
 
-      <h1 class="govuk-heading-l">Your organisation is already on RoATP as a supporting provider</h1>
-
       {{ govukRadios({
-        idPrefix: "ukprn-onregister",
-        name: "ukprn-onregister",
-        fieldset: {
-          legend: {
-            text: "Does your organisation want to change provider route?"
-          }
-        },
+        idPrefix: "change-ukprn",
+        name: "change-ukprn",
         items: [
           {
             value: "Yes",
@@ -39,16 +35,13 @@
           }
         ]
       }) }}
-      
+
       {{ govukButton({
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
       }) }}
-      
-      {% include "includes/v11/gethelp.html" %}
-      
-    </form>
-  </div>
-</div>
 
+    </form>
+
+  </div>
 {% endblock %}

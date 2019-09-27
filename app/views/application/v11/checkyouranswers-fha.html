@@ -1,0 +1,107 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers for 'financial health assessment'</h1>
+      
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h3 class="govuk-heading-m">Financial health assessment</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have full financial statements covering the last 12 months?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['fin-fullstatements'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+
+      {% if data['fin-fullstatements'] == "yes" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full financial statements
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% else %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Management accounts
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Financial projections
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% endif %}
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who prepared your organisation’s financial evidence?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% for item in data['fin-whoprepared'] %}
+            {% set i = i + 1 %}
+            {% if (i == data['fin-whoprepared'] | length) %}and {% endif %}
+            {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['fin-whoprepared'] | length > 2) and(i < data['fin-whoprepared'] | length) %}, {% endif %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+
+    </dl>
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Confirm answers for 'financial health assessment'",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

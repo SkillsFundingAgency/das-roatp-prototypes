@@ -2937,6 +2937,53 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/application-complete')
 	})	
 
+	router.post('/application/' + v + '/checkyouranswers-org', function (req, res) {
+		req.session.data['cya_org'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-fha', function (req, res) {
+		req.session.data['cya_fha'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-dec', function (req, res) {
+		req.session.data['cya_dec'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-wel', function (req, res) {
+		req.session.data['cya_wel'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-rte', function (req, res) {
+		req.session.data['cya_rte'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-pat', function (req, res) {
+		req.session.data['cya_pat'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-del', function (req, res) {
+		req.session.data['cya_del'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-eval', function (req, res) {
+		req.session.data['cya_eval'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+	router.post('/application/' + v + '/checkyouranswers-finish', function (req, res) {
+		req.session.data['cya_finish'] = 'done'
+		res.redirect('/application/' + v + '/checkyouranswers')
+	})	
+
+
+
 
 /****************
  *** Sign out ***

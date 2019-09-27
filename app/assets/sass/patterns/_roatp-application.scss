@@ -66,6 +66,31 @@
         }
     }
 
+    .govuk-summary-list--roatpcyaoverview {
+
+        .govuk-summary-list__key {
+            width: 80%;
+        }
+
+        .govuk-summary-list__tag {
+            border-bottom: 1px solid #bfc1c3;
+            display: table-cell;
+            float: none;
+            overflow-wrap: break-word;
+            padding-bottom: 10px;
+            padding-right: 0;
+            padding-top: 10px;
+            vertical-align: middle;
+            width: 15%;
+            word-wrap: break-word;
+        }
+
+        .govuk-summary-list__actions {
+            width: 20%;
+        }
+        
+    }
+
 }
 
 .govuk-accordion--roatpcya .govuk-accordion__section-content {
@@ -88,6 +113,10 @@
     padding-top: 0; 
     padding-left: govuk-spacing(3);
     padding-right: govuk-spacing(3);
+}
+
+.govuk-summary-list--roatpcyaoverview .govuk-summary-list__key {
+    font-weight: 400;
 }
 
 

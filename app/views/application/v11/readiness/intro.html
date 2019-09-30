@@ -23,21 +23,23 @@
     <p class="govuk-body">For this section, you’ll need to know how your organisation will:</p>
     
     <ul class="govuk-list govuk-list--bullet">
-      <li>engage with employers and subcontractors</li>
-      <li>manage its relationship with employers and subcontractors</li>
+      <li>engage with {% if data['org-selectedroute'] == "employer" %}employers and{% endif %} subcontractors</li>
+      <li>manage its relationship with {% if data['org-selectedroute'] == "employer" %}employers and{% endif %} subcontractors</li>
       <li>assess prior learning - including English and maths qualifications</li>
     </ul>
 
     <p class="govuk-body">You’ll also need to upload your organisation’s:</p>
     
     <ul class="govuk-list govuk-list--bullet">
+      {% if data['org-selectedroute'] == "employer" %}
       <li>complaints policy</li>
       <li>contract for services template with employers</li>
+      {% endif %}
       <li>commitment statement template</li>
     </ul>
 
     {{ govukWarningText({
-      text: "All uploads must be specific to your organisation, apprentices and trainers. They must also be signed by a senior employee. For example, a director or CEO.",
+      text: "All policies and processes must be specific to your organisation, apprentices and trainers. They must also be signed by a senior employee. For example, a director or CEO. We will not accept policies or processes that are generic or taken from a third party.",
       iconFallbackText: "Warning"
     }) }}
 

@@ -23,8 +23,8 @@
     <p class="govuk-body">In this section we’ll ask for:</p>
     
     <ul class="govuk-list govuk-list--bullet">
-      <li>your organisation’s ICO registration number</li>
-      <li>who’s in control</li>
+      <li>your organisation’s Information Commissioner’s Office registration number</li>
+      <li>who’s in control and their date of births</li>
       <li>your organisation’s trading history</li>
       <li>details of what your organisation is</li>
       <li>Ofsted or other educational accreditations</li>
@@ -37,21 +37,21 @@
       {% if data["org-selectedroute"] == "supporting" %}
 
         {{ govukWarningText({
-          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 3 months and have an individual or team with at least 3 months experience in developing and delivering training.",
+          text: "Your organisation must have at least 3 months trading history and a training manager with at least 3 months experience in developing and delivering training.",
           iconFallbackText: "Warning"
         }) }}
 
       {% elseif data["org-selectedroute"] == "employer" %}
 
         {{ govukWarningText({
-          text: "As an " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          text: "Your organisation must have at least 12 months trading history and a training manager with at least 9 months experience in developing and delivering training.",
           iconFallbackText: "Warning"
         }) }}
 
       {% else %}
 
         {{ govukWarningText({
-          text: "As a " + data['org-selectedroute'] + " provider, your organisation must have been trading for at least 12 months and have an individual or team with at least 9 months experience in developing and delivering training.",
+          text: "Your organisation must have at least 12 months trading history and a training manager with at least 9 months experience in developing and delivering training.",
           iconFallbackText: "Warning"
         }) }}
 

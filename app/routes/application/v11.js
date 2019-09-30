@@ -222,6 +222,7 @@ module.exports = function (router) {
 		req.session.data['pro-subcontractor'] = "No"
 		req.session.data['rte-assessenglishmaths'] = "Pellentesque viverra, lorem quis sodales consectetur, lorem elit volutpat nunc, in rutrum elit nunc id libero. Mauris cursus egestas augue. Sed pellentesque ex nibh, vitae mattis est semper vel. Morbi quis enim a ligula condimentum ultricies. Quisque dignissim massa eget mauris accumsan, rhoncus tincidunt arcu efficitur."
 		req.session.data['rte-complaints'] = ""
+		req.session.data['rte-complaints-link'] = ""
 		req.session.data['rte-contractforservices'] = ""
 		req.session.data['rte-engaged'] = "No"
 		req.session.data['rte-managingrelationships'] = "No"
@@ -551,6 +552,7 @@ module.exports = function (router) {
 		req.session.data['pro-postgrad'] = "No"
 		req.session.data['rte-assessenglishmaths'] = "Nam laoreet velit ac accumsan maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla suscipit sapien ut massa elementum malesuada. Morbi quis nulla maximus, molestie magna et, eleifend urna. Donec ut sapien sit amet lacus scelerisque vehicula. Aenean vitae lacus ligula. Fusce nec vestibulum massa. Nulla facilisi. Suspendisse enim dui, blandit at sapien pharetra, tempor eleifend nisi. Nunc sit amet maximus enim, in volutpat massa. Nullam eros nibh, accumsan in volutpat eu, interdum at sapien. Phasellus vestibulum ligula non purus malesuada lacinia. Morbi non nibh bibendum, mollis mi rhoncus, interdum nibh. Nam sodales ullamcorper enim, bibendum consectetur diam viverra ac. Vivamus efficitur, est sed luctus pretium, diam velit dignissim est, quis condimentum odio nunc ac felis. Vestibulum sit amet quam aliquet, congue leo id, ullamcorper lorem. Maecenas luctus, dui vitae vestibulum ultrices, ante odio tempus est, eu finibus neque lacus quis tortor. Vivamus id eros sapien. Ut cursus lorem in eros laoreet imperdiet. Nam non justo ipsum. Duis lobortis leo vel faucibus faucibus. Morbi quis neque aliquet, suscipit tortor non, dapibus odio. Maecenas tempus rutrum elementum. Praesent risus enim, ultricies nec mollis eget, luctus quis tortor. Suspendisse ut aliquam quam, sed mollis leo. Quisque vehicula viverra rhoncus. Ut blandit eros sit amet libero pulvinar, in vehicula tortor hendrerit. Duis ullamcorper rhoncus odio at aliquet."
 		req.session.data['rte-complaints'] = ""
+		req.session.data['rte-complaints-link'] = "www.example.com/complaintspolicy"
 		req.session.data['rte-contractforservices'] = ""
 		req.session.data['rte-engaged'] = "Yes"
 		req.session.data['rte-managingrelationships'] = "Yes"
@@ -745,6 +747,7 @@ module.exports = function (router) {
 		req.session.data['pro-postgrad'] = "No"
 		req.session.data['rte-assessenglishmaths'] = "Nam laoreet velit ac accumsan maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla suscipit sapien ut massa elementum malesuada. Morbi quis nulla maximus, molestie magna et, eleifend urna. Donec ut sapien sit amet lacus scelerisque vehicula. Aenean vitae lacus ligula. Fusce nec vestibulum massa. Nulla facilisi. Suspendisse enim dui, blandit at sapien pharetra, tempor eleifend nisi. Nunc sit amet maximus enim, in volutpat massa. Nullam eros nibh, accumsan in volutpat eu, interdum at sapien. Phasellus vestibulum ligula non purus malesuada lacinia. Morbi non nibh bibendum, mollis mi rhoncus, interdum nibh. Nam sodales ullamcorper enim, bibendum consectetur diam viverra ac. Vivamus efficitur, est sed luctus pretium, diam velit dignissim est, quis condimentum odio nunc ac felis. Vestibulum sit amet quam aliquet, congue leo id, ullamcorper lorem. Maecenas luctus, dui vitae vestibulum ultrices, ante odio tempus est, eu finibus neque lacus quis tortor. Vivamus id eros sapien. Ut cursus lorem in eros laoreet imperdiet. Nam non justo ipsum. Duis lobortis leo vel faucibus faucibus. Morbi quis neque aliquet, suscipit tortor non, dapibus odio. Maecenas tempus rutrum elementum. Praesent risus enim, ultricies nec mollis eget, luctus quis tortor. Suspendisse ut aliquam quam, sed mollis leo. Quisque vehicula viverra rhoncus. Ut blandit eros sit amet libero pulvinar, in vehicula tortor hendrerit. Duis ullamcorper rhoncus odio at aliquet."
 		req.session.data['rte-complaints'] = ""
+		req.session.data['rte-complaints-link'] = "www.example.com/complaintspolicy"
 		req.session.data['rte-contractforservices'] = ""
 		req.session.data['rte-engaged'] = "Yes"
 		req.session.data['rte-managingrelationships'] = "Yes"
@@ -964,6 +967,7 @@ module.exports = function (router) {
 		req.session.data['pro-postgrad'] = "No"
 		req.session.data['rte-assessenglishmaths'] = "Nam laoreet velit ac accumsan maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla suscipit sapien ut massa elementum malesuada. Morbi quis nulla maximus, molestie magna et, eleifend urna. Donec ut sapien sit amet lacus scelerisque vehicula. Aenean vitae lacus ligula. Fusce nec vestibulum massa. Nulla facilisi. Suspendisse enim dui, blandit at sapien pharetra, tempor eleifend nisi. Nunc sit amet maximus enim, in volutpat massa. Nullam eros nibh, accumsan in volutpat eu, interdum at sapien. Phasellus vestibulum ligula non purus malesuada lacinia. Morbi non nibh bibendum, mollis mi rhoncus, interdum nibh. Nam sodales ullamcorper enim, bibendum consectetur diam viverra ac. Vivamus efficitur, est sed luctus pretium, diam velit dignissim est, quis condimentum odio nunc ac felis. Vestibulum sit amet quam aliquet, congue leo id, ullamcorper lorem. Maecenas luctus, dui vitae vestibulum ultrices, ante odio tempus est, eu finibus neque lacus quis tortor. Vivamus id eros sapien. Ut cursus lorem in eros laoreet imperdiet. Nam non justo ipsum. Duis lobortis leo vel faucibus faucibus. Morbi quis neque aliquet, suscipit tortor non, dapibus odio. Maecenas tempus rutrum elementum. Praesent risus enim, ultricies nec mollis eget, luctus quis tortor. Suspendisse ut aliquam quam, sed mollis leo. Quisque vehicula viverra rhoncus. Ut blandit eros sit amet libero pulvinar, in vehicula tortor hendrerit. Duis ullamcorper rhoncus odio at aliquet."
 		req.session.data['rte-complaints'] = ""
+		req.session.data['rte-complaints-link'] = "www.example.com/complaintspolicy"
 		req.session.data['rte-contractforservices'] = ""
 		req.session.data['rte-engaged'] = "Yes"
 		req.session.data['rte-managingrelationships'] = "Yes"
@@ -2384,18 +2388,19 @@ module.exports = function (router) {
 
 	// Manage relationships with employers?
 	router.post('/application/' + v + '/readiness/relationships', function (req, res) {
-		res.redirect('/application/' + v + '/readiness/managing-relationships')
+		//res.redirect('/application/' + v + '/readiness/managing-relationships')
+		res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
 	})		
 
 	// Managing relationships?
-	router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
+	/*router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
 		if (req.session.data['rte-managingrelationships'] == "Yes") {
 			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
 		} else {
 			req.session.data['tl_rte_engagement'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-readiness')
 		}
-	})	
+	})*/
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {

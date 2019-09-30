@@ -1,0 +1,54 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+    <h1 class="govuk-heading-l">Criminal and compliance checks on your organisation</h1>
+
+    <p class="govuk-body">This section is to ensure public funds, employers and apprentices are protected.</p>
+
+    <p class="govuk-body">You’ll need to provide a brief summary if your organisation has:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>composition with creditors</li>
+      <li>had a contract terminated by a public body</li>
+      <li>had early withdrawal from a contract with a public body</li>
+      <li>been removed from the Register of Training Organisations (RoTO)</li>
+      <li>had funds removed from any education bodies</li>
+      <li>been removed from any professional or trade registers</li>
+      <li> had involuntary withdrawal from Initial Teacher Training accreditation</li>
+      <li>been investigated due to safeguarding issues </li>
+      <li>been investigated due to whistleblowing issues </li>
+      <li>failed to pay back funds to ESFA or any other public body</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

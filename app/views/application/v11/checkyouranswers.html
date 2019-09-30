@@ -1,0 +1,194 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          YOUR COMPANY NAME LTD
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% if (data['org-ukprn'] == "12340101") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Trading name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Your Trading Name
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKPRN
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-ukprn'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change-ukprn">
+            Change<span class="govuk-visually-hidden"> UKPRN</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Provider route
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-selectedroute'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change-route">
+            Change<span class="govuk-visually-hidden"> provider route</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+      
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcyaoverview">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          1. <a class="govuk-link" href="checkyouranswers-org">Check your answers for 'your organisation'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_org'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          2. <a class="govuk-link" href="checkyouranswers-fha">Check your answers for 'financial health assessment'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_fha'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          3. <a class="govuk-link" href="checkyouranswers-dec">Check your answers for 'criminal and compliance checks'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_dec'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          4. <a class="govuk-link" href="checkyouranswers-wel">Check your answers for 'protecting your apprentices'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_wel'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          5. <a class="govuk-link" href="checkyouranswers-rte">Check your answers for 'readiness to engage'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_rte'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          6. <a class="govuk-link" href="checkyouranswers-pat">Check your answers for 'planning apprenticeship training'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_pat'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          7. <a class="govuk-link" href="checkyouranswers-del">Check your answers for 'delivering apprenticeship training'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_del'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          8. <a class="govuk-link" href="checkyouranswers-eval">Check your answers for 'evaluating training'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_eval'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          9. <a class="govuk-link" href="checkyouranswers-finish">Check your answers for 'finish'</a>
+        </dt>
+        <dd class="govuk-summary-list__tag">
+          {% if data['cya_finish'] == 'done' %}
+          <strong class="govuk-tag app-task-list__task-completed">Done</strong>
+          {% endif %}
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Now send your application</h2>
+
+    <p class="govuk-body">{{ data['end-yourdetails-name'] }} is submitting this application on behalf of YOUR COMPANY NAME LTD and confirms that, to the best of their knowledge, the details provided are correct.</p>
+
+    <form action="" method="post" novalidate>
+
+    {% if (data['cya_org'] == 'done') and (data['cya_fha'] == 'done') and (data['cya_dec'] == 'done') and (data['cya_wel'] == 'done') and (data['cya_rte'] == 'done') and (data['cya_pat'] == 'done') and (data['cya_del'] == 'done') and (data['cya_eval'] == 'done') and (data['cya_finish'] == 'done') %}
+
+      {{ govukButton({
+        text: "Accept and send",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    {% else %}
+
+      {{ govukButton({
+        text: "Accept and send",
+        classes: "govuk-!-margin-right-1",
+        disabled: "disabled"
+      }) }}
+    
+    {% endif %}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

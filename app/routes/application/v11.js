@@ -1029,7 +1029,7 @@ module.exports = function (router) {
 		req.session.data['wel-safeguardingresponsible-email'] = "john@smith.com"
 		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
 		req.session.data['wel-safeguardingresponsible-tel'] = "01234987654"
-		res.redirect('/application/' + v + '/task-list')
+		res.redirect('/application/' + v + '/checkyouranswers')
 	})
 
 	// Application completed (including Finish section) - main provider...

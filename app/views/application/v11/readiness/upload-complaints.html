@@ -17,42 +17,73 @@
   <div class="govuk-grid-column-two-thirds">
 
     <span class="govuk-caption-l">Complaints policy</span>
+
+    {% if (data['org-website'] == "Yes") %}
+
+      <h1 class="govuk-heading-l">Enter the website link for your organisation’s complaints policy</h1>
+
+      <p class="gov-body">The complaints policy must be published on your organisation’s website and be available to apprentices and employers.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Website link"
+          },
+          hint: {
+            text: "For example, www.example.com/complaintspolicy"
+          },
+          classes: "govuk-input--width-30",
+          id: "rte-complaints-link",
+          name: "rte-complaints-link",
+          value: data['rte-complaints-link']
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
         
-    <h1 class="govuk-heading-l">Upload your organisation’s complaints policy</h1>
+        <p class="skipquestion" id="skipquestion"><a href="upload-contractforservices">Return to this question later</a></p>
 
-    <p class="gov-body">This must include:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>what a complaint is</li>
-      <li>how to raise a complaint</li>
-      <li>how long it takes for a complaint to be resolved</li>
-    </ul>
+      </form>
 
-    {% if (data['org-website'] == "yes") %}
-    <p class="gov-body">It must be published on your organisation’s website and be available to apprentices and employers.</p>
-    {% endif %}
+    {% else %}
+        
+      <h1 class="govuk-heading-l">Upload your organisation’s complaints policy</h1>
 
-    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+      <p class="gov-body">This must include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what a complaint is</li>
+        <li>how to raise a complaint</li>
+        <li>how long it takes for a complaint to be resolved</li>
+      </ul>
 
-    <form action="" method="post" class="form">
-    
-      {{ govukFileUpload({
-        id: "rte-complaints",
-        name: "rte-complaints",
-        label: {
-          text: "Upload a file"
-        }
-      }) }}
+      <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
 
-      {{ govukButton({
-        text: "Save and continue",
-        classes: "govuk-!-margin-right-4"
-      }) }}
-
-      <p class="skipquestion" id="skipquestion"><a href="upload-contractforservices">Return to this question later</a></p>
+      <form action="" method="post" class="form">
       
-      {% include "includes/v11/gethelp.html" %}
+        {{ govukFileUpload({
+          id: "rte-complaints",
+          name: "rte-complaints",
+          label: {
+            text: "Upload a file"
+          }
+        }) }}
 
-    </form>
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="upload-contractforservices">Return to this question later</a></p>
+
+      </form>
+
+    {% endif %}
+    
+    {% include "includes/v11/gethelp.html" %}
+
   </div>
 </div>
 

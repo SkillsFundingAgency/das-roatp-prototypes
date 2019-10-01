@@ -1,0 +1,52 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "register"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<h1 class="govuk-heading-xl">Upload a ‘application determined date’ file</h1>
+
+			<p class="govuk-body">The file must include a UKPRN and the ‘application determined date’ for each training provider.</p>
+
+			<form action="register" method="post" class="form">
+				
+				<input type="hidden" name="action" id="action" value="upload">
+
+				{{ govukFileUpload({
+					id: "file-upload-1",
+					name: "file-upload-1",
+					label: {
+						text: "Upload a file"
+					}
+				}) }}
+
+				{{ govukButton({
+					text: "Save and upload"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

@@ -18,9 +18,23 @@
 
     <span class="govuk-caption-l">Organisation information</span>
 
-    <h1 class="govuk-heading-l">How long has your organisation been trading for?</h1>
+    {% if data["org-selectedroute"] == "supporting" %}
 
-    <p class="govuk-body">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
+      <h1 class="govuk-heading-l">How long has your organisation been trading for?</h1>
+      <p class="govuk-body">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
+
+    {% else %}
+
+      <h1 class="govuk-heading-l">How long has your organisation been actively trading?</h1>
+      <p class="govuk-body">This is when your organisation is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>carrying on a business activity such as a trade or professional activity</li>
+        <li>buying and selling goods or services with a view to making a profit or surplus</li>
+        <li>providing chargeable services</li>
+      </ul>
+      <p class="govuk-body">It does not include start-up or set-up costs.</p>
+
+    {% endif %}
 
     <form action="" method="post" class="form">
 

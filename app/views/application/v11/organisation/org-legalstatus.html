@@ -1,0 +1,67 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Organisation information</span>
+        
+    <h1 class="govuk-heading-l">Tell us your organisation’s type</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-legalstatus",
+        name: "org-legalstatus",
+        items: [
+          {
+            value: "Sole trader",
+            text: "Sole trader"
+          },
+          {
+            value: "Partnership",
+            text: "Partnership"
+          },
+          {
+            value: "Public body",
+            text: "Public body"
+          }
+        ]
+      }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a sole trader or partnership?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>A sole trader is someone who's self-employed and is the only owner of their business.</p>
+          <p>A partnership is when two or more people agree to share the profits, costs and risks of running a business.</p>
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

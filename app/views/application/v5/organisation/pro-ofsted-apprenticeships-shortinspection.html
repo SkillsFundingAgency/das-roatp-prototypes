@@ -24,12 +24,12 @@
           namePrefix: "pro-ofsted-apprenticeships-shortinspection-date",
           fieldset: {
             legend: {
-              text: "What was the publication date of your short Ofsted inspection letter?",
+              text: "When was your short Ofsted inspection published?",
               isPageHeading: false
             }
           },
           hint: {
-            text: "You can find this on the Ofsted website."
+            text: "This is the ‘PDF-Published’ date on the Ofsted website."
           }
         }) }}
       {% endset -%}
@@ -44,14 +44,14 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          html: '<p>If you’re not sure, <a href="https://reports.ofsted.gov.uk/" target="_blank">check if your organisation’s had a short Ofsted inspection</a>.</p>'
+        },
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-apprenticeships-shortinspection", "yes"),
-            conditional: {
-              html: dateHtml
-            }
+            checked: checked("pro-ofsted-apprenticeships-shortinspection", "yes")
           },
           {
             value: "no",
@@ -66,7 +66,7 @@
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

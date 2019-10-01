@@ -1,0 +1,71 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Process of evaluating the quality of apprenticeship training</span>
+
+    {% if data['org-selectedroute'] == "supporting" %}
+
+      <h1 class="govuk-heading-l">How will your organisation evaluate its quality of apprenticeship training?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+    
+      <ul class="govuk-list govuk-list--bullet">
+        <li>respond and act on feedback from employers, lead providers and apprentices</li>
+        <li>continuously improve apprenticeship training</li>
+        <li>identify and address poor apprenticeship training</li>
+      </ul>
+
+      <p class="govuk-body">You’ll also need to include any systems or processes your organisation will use as an apprenticeship training provider to assess the quality of apprenticeship training.</p>
+
+    {% else %}
+
+      <h1 class="govuk-heading-l">How will your organisation evaluate its quality of apprenticeship training?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+    
+      <ul class="govuk-list govuk-list--bullet">
+        <li>respond and act on feedback from employers and apprentices</li>
+        <li>continuously improve apprenticeship training</li>
+        <li>identify and address poor apprenticeship training</li>
+      </ul>
+
+      <p class="govuk-body">You’ll also need to include any systems or processes your organisation will use as an apprenticeship training provider to assess the quality of apprenticeship training.</p>
+
+    {% endif %}
+
+    <form action="" method="post" class="form">
+
+      {{ govukCharacterCount({
+        name: "eval-apprenticeships-how",
+        id: "eval-apprenticeships-how",
+        value: data['eval-apprenticeships-how'],
+        maxlength: 1500
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v9/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

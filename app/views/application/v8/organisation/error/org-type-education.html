@@ -1,0 +1,97 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-type"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v8/organisation/org-type-education" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of educational institute.",
+            href: "#org-type-education-error"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: "org-type-education",
+        name: "org-type-education",
+        fieldset: {
+          legend: {
+            text: "What educational institute is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "national-college",
+            text: "National College",
+            checked: checked("org-type-education", "national-college")
+          },
+          {
+            value: "academy",
+            text: "Academy",
+            checked: checked("org-type-education", "academy")
+          },
+          {
+            value: "multi-academy",
+            text: "Multi-Academy",
+            checked: checked("org-type-education", "multi-academy")
+          },
+          {
+            value: "school",
+            text: "School",
+            checked: checked("org-type-education", "school")
+          },
+          {
+            value: "sixth-form",
+            text: "Sixth Form College",
+            checked: checked("org-type-education", "sixth-form")
+          },
+          {
+            value: "hei",
+            text: "Higher Education Institute ",
+            checked: checked("org-type-education", "hei")
+          },
+          {
+            value: "gfe",
+            text: "General Further Education College",
+            checked: checked("org-type-education", "gfe")
+          },
+          {
+            value: "fei",
+            text: "Further Education Institute",
+            checked: checked("org-type-education", "fei")
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of educational institute."
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

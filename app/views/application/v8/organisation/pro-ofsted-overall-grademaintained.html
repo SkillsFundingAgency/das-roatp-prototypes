@@ -1,0 +1,53 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">Has your organisation maintained the grade it was awarded in its full Ofsted inspection?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-overall-grademaintained",
+        name: "pro-ofsted-overall-grademaintained",
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("pro-ofsted-overall-grademaintained", "yes")
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("pro-ofsted-overall-grademaintained", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

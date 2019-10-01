@@ -22,6 +22,8 @@
 
       <p>This is an 8-digit registration number from the ICO data protection public register. Any organisation that processes personal data must have one.</p>
 
+      <p>If you’re not sure, <a href="https://ico.org.uk/ESDWebPages/Search" target="_blank">search for your organisation on the ICO data protection register</a>.</p>
+
       {{ govukInput({
         label: {
           text: "ICO registration number"
@@ -49,7 +51,7 @@
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

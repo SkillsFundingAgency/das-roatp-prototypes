@@ -1,9 +1,0 @@
-{
-   "backButtonCaption": "Back",
-   "greenButtonCaption": "Save and continue",
-   "title": "Are you currently receiving funding from the ESFA?",
-   "hintText": "",
-   "content1": "",
-   "label": "UKPRN",
-   "radioItems": ["Yes", "No"]
-}

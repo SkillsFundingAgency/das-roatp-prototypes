@@ -1,0 +1,59 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Safeguarding policy</p>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s safeguarding policy</h1>
+
+    <p class="gov-body">This must include how your organisation will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>promote the policy</li>
+      <li>get commitment to the policy</li>
+      <li>train its employees in implementing the policy</li>
+      <li>protect its apprentices</li>
+      <li>prevent abuse towards its apprentices</li>
+      <li>have a way of raising, recording and investigating issues</li>
+      <li>have a way of apprentices getting support or guidance</li>
+      <li>monitor its IT usage </li>
+    </ul>
+    <p class="gov-body">Find out more about safeguarding in <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/365345/Making_Sure_the_Care_Act_Works_EASY_READ.pdf" target="_blank">the Care Act (opens in a new window or tab)</a>.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "wel-safeguarding",
+        name: "wel-safeguarding",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="safeguarding">Return to this question later</a></p>
+      
+      {% include "includes/v6/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

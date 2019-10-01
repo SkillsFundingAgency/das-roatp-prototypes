@@ -1,0 +1,77 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Sectors</p>
+
+      <h1 class="govuk-heading-l">What experience does {{ data['del-employee'][ data['del-employee-count'] ]['name'] }} have in these sectors overall?</h1>
+
+      <form action="" method="post" class="form">
+        
+        {% set i = 0 %}
+        {% for employeesector in data['del-employee'][ data['del-employee-count'] ]['sectors'] %}
+
+          {{ govukRadios({
+            idPrefix: "del-employee-sector-overallexperience["+i+"]",
+            name: "del-employee-sector-overallexperience["+i+"]",
+            fieldset: {
+              legend: {
+                text: data['del-employee'][ data['del-employee-count'] ]['sectors'][i],
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "1",
+                text: "Less than 1 year"
+              },
+              {
+                value: "2",
+                text: "1 to 2 years"
+              },
+              {
+                value: "3",
+                text: "3 to 5 years"
+              },
+              {
+                value: "5",
+                text: "More than 5 years"
+              },
+              {
+                value: "0",
+                text: "No experience"
+              }
+            ]
+          }) }}
+
+          {% set i = i + 1 %}
+        {% endfor %}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v7/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

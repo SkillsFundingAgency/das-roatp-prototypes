@@ -1,0 +1,61 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">High standards in apprenticeship training</span>
+
+    <form action="" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "supporting" %}
+          
+        <h1 class="govuk-heading-l">Has your organisation documented its expectations for quality and high standards in apprenticeship training?</h1>
+
+      {% else %}
+
+        <h1 class="govuk-heading-l">Have your management hierarchy documented their expectations for quality and high standards in apprenticeship training?</h1>
+
+      {% endif %}
+
+      {{ govukRadios({
+        idPrefix: "del-expectations",
+        name: "del-expectations",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("del-expectations", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("del-expectations", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

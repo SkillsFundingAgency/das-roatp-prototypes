@@ -1,0 +1,51 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+      <h1 class="govuk-heading-l">Planning apprenticeship delivery</h1>
+
+      <p class="govuk-body">For this section, you’ll need to know:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what apprenticeship training your organisation will offer</li>
+        <li>contact details for course directory </li>
+        <li>how your organisation will support apprentices </li>
+        <li>how many starts your organisation forecasts for the next 12 months</li>
+        <li>if your organisation is ready to deliver against these forecasts</li>
+        <li>if your organisation will recruit new staff against these forecasts</li>
+        <li>the typical ratio of staff and learners </li>
+        <li>how your organisation will deliver off the job training</li>
+        <li>the main address where apprentices will be trained</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

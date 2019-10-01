@@ -104,12 +104,12 @@
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") and (data['tl_org_type'] == "completed") %}
                 {% if data['org-selectedroute'] == "supporting" %}
-                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Quality assurance</a>
+                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% else %}
-                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Quality assurance</a>
+                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% endif %}
               {% else %}
-                Quality assurance
+                Experience and accreditations
               {% endif %}
               {% if data['tl_org_profile'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-profile-status">In progress</strong>
@@ -154,6 +154,7 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="fin-upload-notrequired">Not required</strong>
               {% endif %}
             </li>
+            <!--
             {% if (data['org-parentcompany'] == "yes") %}
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_intro'] == "completed") %}
@@ -172,6 +173,7 @@
               {% endif %}
             </li>
             {% endif %}
+            -->
           </ul>
         </li>
 
@@ -235,7 +237,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Apprenticeship welfare
+            <span class="app-task-list__section-number">4. </span>Protecting your apprentices
           </h2>
 
           <ul class="app-task-list__items">
@@ -251,6 +253,8 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-intro-notrequired">Not required</strong>
               {% endif %}
             </li>
+
+            {% if data['org-selectedroute'] != "supporting" %} 
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-continuity" aria-describedby="wel-continuity">Continuity plan for apprenticeship training</a>
@@ -263,6 +267,8 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-continuity">Not required</strong>
               {% endif %}
             </li>
+            {% endif %}
+
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/upload-diversity" aria-describedby="wel-diversity">Equality and diversity policy</a>
@@ -317,12 +323,11 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-healthandsafety">Not required</strong>
               {% endif %}
             </li>
-            {% if data['org-selectedroute'] == "supporting" %}
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_wel_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Other providers policies</a>
+                <a class="app-task-list__task-name" href="welfare/otherpolicies" aria-describedby="wel-other">Acting as a subcontractor</a>
               {% else %}
-                Other providers policies
+                Acting as a subcontractor
               {% endif %}
               {% if data['tl_wel_other'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="wel-other">Completed</strong>
@@ -330,7 +335,6 @@
                 <strong class="govuk-tag app-task-list__task-notrequired" id="wel-other">Not required</strong>
               {% endif %}
             </li>
-            {% endif %}
           </ul>
 
         </li>
@@ -368,21 +372,21 @@
               {% else %}
                 Complaints policy
               {% endif %}
-              {% if data['tl_rte_promoting'] == "completed" %}
+              {% if data['tl_rte_complaints'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-promoting">Completed</strong>
-              {% elseif data['tl_rte_promoting'] == "inprogress" %}
+              {% elseif data['tl_rte_complaints'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-promoting">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="readiness/upload-complaints" aria-describedby="rte-policies">‘Contract for services’ template</a>
+                <a class="app-task-list__task-name" href="readiness/upload-complaints" aria-describedby="rte-policies">Contract for services template</a>
               {% else %}
-                ‘Contract for services’ template
+                Contract for services template
               {% endif %}
-              {% if data['tl_rte_policies'] == "completed" %}
+              {% if data['tl_rte_contractforservices'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-policies">Completed</strong>
-              {% elseif data['tl_rte_policies'] == "inprogress" %}
+              {% elseif data['tl_rte_contractforservices'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-policies">In progress</strong>
               {% endif %}
             </li>
@@ -392,10 +396,22 @@
               {% else %}
                 Commitment statement template
               {% endif %}
-              {% if data['tl_rte_policies'] == "completed" %}
+              {% if data['tl_rte_commitment'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="rte-policies">Completed</strong>
-              {% elseif data['tl_rte_policies'] == "inprogress" %}
+              {% elseif data['tl_rte_commitment'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="rte-policies">In progress</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_rte_intro'] == "completed") %}
+                <a class="app-task-list__task-name" href="readiness/prior-learning-assessments" aria-describedby="rte-priorlearning">Prior learning of apprentices</a>
+              {% else %}
+                Prior learning of apprentices
+              {% endif %}
+              {% if data['tl_rte_priorlearning'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="rte-priorlearning">Completed</strong>
+              {% elseif data['tl_rte_priorlearning'] == "inprogress" %}
+                <strong class="govuk-tag app-task-list__task-inprogress" id="rte-priorlearning">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">

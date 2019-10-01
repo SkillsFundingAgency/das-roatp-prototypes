@@ -1,0 +1,146 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% if data['org-ukprn'] == "12340102" %}
+  {% set backlink_trading = "org-website" %}
+{% else %}
+  {% if data['org-legalstatus'] == "sole" %}
+    {% set backlink_trading = "org-website" %}
+  {% else %}
+    {% if data['org-legalstatus'] == "partnership" %}
+      {% set backlink_trading = "org-website" %}
+    {% else %}
+      {% set backlink_trading = "org-confirmorgdetails" %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_trading
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Select how long your organisation has been trading for",
+          href: "#org-trading-error"
+        }
+      ]
+    }) }}
+
+    <h1 class="govuk-heading-l">How long has your organisation been trading for?</h1>
+
+    <p class="govuk-body">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
+
+    <form action="/application/v10/organisation/org-trading" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "supporting" %}
+    
+        {{ govukRadios({
+          idPrefix: "org-trading",
+          name: "org-trading",
+          items: [
+            {
+              value: "<3",
+              text: "Less than 3 months",
+              checked: checked("org-trading", "<3")
+            },
+            {
+              value: "3-6",
+              text: "3 to 6 months",
+              checked: checked("org-trading", "3-6")
+            },
+            {
+              value: "7-11",
+              text: "7 to 11 months",
+              checked: checked("org-trading", "7-11")
+            },
+            {
+              value: ">11",
+              text: "More than 11 months",
+              checked: checked("org-trading", ">11")
+            }
+          ],
+          errorMessage: {
+            text: "Select how long your organisation has been trading for"
+          }
+        }) }}
+
+      {% else %}
+    
+        {{ govukRadios({
+          idPrefix: "org-trading",
+          name: "org-trading",
+          items: [
+            {
+              value: "<12",
+              text: "Less than 12 months",
+              checked: checked("org-trading", "<12")
+            },
+            {
+              value: "12-18",
+              text: "12 to 18 months",
+              checked: checked("org-trading", "12-18")
+            },
+            {
+              value: "19-23",
+              text: "19 to 23 months",
+              checked: checked("org-trading", "19-23")
+            },
+            {
+              value: ">23",
+              text: "More than 23 months",
+              checked: checked("org-trading", ">23")
+            }
+          ],
+          errorMessage: {
+            text: "Select how long your organisation has been trading for."
+          }
+        }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+<script>
+  var months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'Jun', 'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+    ];
+  var dt = new Date();
+</script>
+
+
+{% if (data['org-selectedroute'] === 'supporting') %}
+  <script>dt.setDate( dt.getDate() - 91 );</script>
+{% else %}
+  <script>dt.setDate( dt.getDate() - 365 );</script>
+{% endif %}
+
+  <script>
+    var datetext = dt.getDate() + " " + months[dt.getMonth()] + " " + dt.getFullYear();
+    document.getElementById("displaydate").innerHTML = datetext;
+  </script>
+
+
+{% endblock %}

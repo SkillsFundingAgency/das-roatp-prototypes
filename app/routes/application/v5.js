@@ -321,7 +321,7 @@ module.exports = function (router) {
 		// Sole trader details
 		router.post('/application/' + v + '/organisation/org-legalstatus-sole', function (req, res) {
 
-			if (req.session.data['org-soletrader-name'] && req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
+			if (req.session.data['org-soletrader-dob-month'] && req.session.data['org-soletrader-dob-year'] ) {
 				req.session.data['org-soletrader-dob-monthname'] = monthNumToName(req.session.data['org-soletrader-dob-month'])
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole-confirm')
 			} else {
@@ -737,9 +737,10 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-feskills']) {
 				if (req.session.data['pro-ofsted-feskills'] == "yes") {
 					
-					req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
+					//req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
 
-					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+					//res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-feskills-published')
 
 				} else {
 					/*** PR2 ***/
@@ -753,6 +754,15 @@ module.exports = function (router) {
 					//res.redirect('/application/' + v + '/task-list')
 				}
 			}
+		})
+
+		// Profile - Ofsted inspection for further education and skills publish date
+		router.post('/application/' + v + '/organisation/pro-ofsted-feskills-published', function (req, res) {
+
+			req.session.data['ofsted-inspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-feskills-date-day'],req.session.data['pro-ofsted-feskills-date-month'],req.session.data['pro-ofsted-feskills-date-year'])
+
+			res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships')
+
 		})
 
 		// Profile - Monitoring visit
@@ -850,6 +860,8 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-apprenticeships-shortinspection']) {
 				if (req.session.data['pro-ofsted-apprenticeships-shortinspection'] == "yes") {
 					
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published')
+					/*
 					req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
 
 					if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
@@ -860,6 +872,7 @@ module.exports = function (router) {
 						// GO TO GRADE MAINTAINED
 						res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 					}
+					*/
 
 				} else {
 					// COMPLETE ALL SECTIONS
@@ -868,6 +881,22 @@ module.exports = function (router) {
 				}
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-apprenticeships-shortinspection')
+			}
+
+		})
+
+		// Profile - Apprentices short inspection <3 years - published date
+		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships-shortinspection-published', function (req, res) {
+
+			req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-apprenticeships-shortinspection-date-day'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-month'],req.session.data['pro-ofsted-apprenticeships-shortinspection-date-year'])
+
+			if (req.session.data['pro-ofsted-apprenticeships-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
+				// COMPLETE ALL SECTIONS
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
+			} else { // WITHIN LAST 3 YEARS
+				// GO TO GRADE MAINTAINED
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-apprenticeships-grademaintained')
 			}
 
 		})
@@ -963,16 +992,7 @@ module.exports = function (router) {
 			if (req.session.data['pro-ofsted-overall-shortinspection']) {
 				if (req.session.data['pro-ofsted-overall-shortinspection'] == "yes") {
 
-					req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
-
-					if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
-						// COMPLETE ALL SECTIONS
-						req.session.data['tl_org_profile'] = 'completed'
-						res.redirect('/application/' + v + '/task-list')
-					} else { // WITHIN LAST 3 YEARS
-						// GO TO GRADE MAINTAINED
-						res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
-					}
+					res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published')
 
 				} else {
 					req.session.data['tl_org_profile'] = 'completed'
@@ -982,6 +1002,22 @@ module.exports = function (router) {
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/pro-ofsted-overall-shortinspection')
 			}
+		})
+
+		// Profile - Overall short inspection
+		router.post('/application/' + v + '/organisation/pro-ofsted-overall-shortinspection-published', function (req, res) {
+
+			req.session.data['pro-ofsted-overall-shortinspection-date-more'] = checkInspectionDate(req.session.data['pro-ofsted-overall-shortinspection-date-day'],req.session.data['pro-ofsted-overall-shortinspection-date-month'],req.session.data['pro-ofsted-overall-shortinspection-date-year'])
+
+			if (req.session.data['pro-ofsted-overall-shortinspection-date-more'] == true){ // NOT WITHIN LAST 3 YEARS
+				// COMPLETE ALL SECTIONS
+				req.session.data['tl_org_profile'] = 'completed'
+				res.redirect('/application/' + v + '/task-list')
+			} else { // WITHIN LAST 3 YEARS
+				// GO TO GRADE MAINTAINED
+				res.redirect('/application/' + v + '/organisation/pro-ofsted-overall-grademaintained')
+			}
+
 		})
 
 		// Profile - Overall grade maintained
@@ -1178,7 +1214,11 @@ module.exports = function (router) {
 	// What you'll need
 	router.post('/application/' + v + '/welfare/intro', function (req, res) {
 		req.session.data['tl_wel_intro'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-continuity')
+		if (req.session.data['org-selectedroute'] == "supporting") {
+			res.redirect('/application/' + v + '/welfare/upload-diversity')
+		} else {
+			res.redirect('/application/' + v + '/welfare/upload-continuity')
+		}
 	})
 
 	// Continuity plan upload
@@ -1202,14 +1242,19 @@ module.exports = function (router) {
 	// Who's responsible for safeguarding
 	router.post('/application/' + v + '/welfare/safeguarding', function (req, res) {
 		req.session.data['tl_wel_safeguarding'] = 'completed'
-		res.redirect('/application/' + v + '/welfare/upload-preventduty')
+		res.redirect('/application/' + v + '/welfare/preventduty')
 	})
 
 	// Include responsibilities to Prevent duty
-	/*router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
-		req.session.data['tl_wel_preventduty'] = 'inprogress'
-		res.redirect('/application/' + v + '/welfare/upload-preventduty')
-	})*/
+	router.post('/application/' + v + '/welfare/preventduty', function (req, res) {
+		if (req.session.data['wel-preventduty'] == "no") {
+			req.session.data['tl_wel_preventduty'] = 'inprogress'
+			res.redirect('/application/' + v + '/welfare/upload-preventduty')
+		} else {
+			req.session.data['tl_wel_preventduty'] = 'completed'
+			res.redirect('/application/' + v + '/welfare/upload-healthandsafety')
+		}
+	})
 
 	// Prevent duty policy upload
 	router.post('/application/' + v + '/welfare/upload-preventduty', function (req, res) {
@@ -1225,12 +1270,22 @@ module.exports = function (router) {
 
 	// Who's responsible for health and safety
 	router.post('/application/' + v + '/welfare/healthandsafety', function (req, res) {
-		if (req.session.data['org-selectedroute'] == "supporting") {
-			res.redirect('/application/' + v + '/welfare/otherpolicies')
+		if (req.session.data['wel-healthandsafetyresponsible'] == "yes") {
+			res.redirect('/application/' + v + '/welfare/healthandsafety-details')
 		} else {
-			req.session.data['tl_wel_healthandsafety'] = 'completed'
-			res.redirect('/application/' + v + '/task-list')
+			res.redirect('/application/' + v + '/welfare/otherpolicies')
 		}
+	})
+
+	// Who's responsible for health and safety - details
+	router.post('/application/' + v + '/welfare/healthandsafety-details', function (req, res) {
+		res.redirect('/application/' + v + '/welfare/otherpolicies')
+	})
+
+	// Who's responsible for health and safety - details
+	router.post('/application/' + v + '/welfare/otherpolicies', function (req, res) {
+		req.session.data['tl_wel_healthandsafety'] = 'completed'
+		res.redirect('/application/' + v + '/task-list')
 	})
 
 
@@ -1252,47 +1307,60 @@ module.exports = function (router) {
 
 	// Manage relationships with employers?
 	router.post('/application/' + v + '/readiness/relationships', function (req, res) {
-		res.redirect('/application/' + v + '/readiness/review')
-	})	
-
-	// Frequency of review?
-	router.post('/application/' + v + '/readiness/review', function (req, res) {
 		res.redirect('/application/' + v + '/readiness/managing-relationships')
-	})	
+	})		
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships', function (req, res) {
-		req.session.data['tl_rte_engagement'] = 'completed'
-		res.redirect('/application/' + v + '/readiness/fat')
+		if (req.session.data['rte-managingrelationships'] == "yes") {
+			res.redirect('/application/' + v + '/readiness/managing-relationships-detail')
+		} else {
+			res.redirect('/application/' + v + '/readiness/promote')
+		}
 	})	
 
-	// FAT
-	router.post('/application/' + v + '/readiness/fat', function (req, res) {
-		req.session.data['tl_rte_promoting'] = 'inprogress'
+	// Managing relationships?
+	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {
+		//res.redirect('/application/' + v + '/readiness/fat')
 		res.redirect('/application/' + v + '/readiness/promote')
-	})	
+	})
 
 	// Promote apprenticeships
 	router.post('/application/' + v + '/readiness/promote', function (req, res) {
-		req.session.data['tl_rte_promoting'] = 'completed'
+		req.session.data['tl_rte_engagement'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-complaints')
 	})
 
 	// Upload complaints policy
 	router.post('/application/' + v + '/readiness/upload-complaints', function (req, res) {
-		req.session.data['tl_rte_policies'] = 'inprogress'
+		req.session.data['tl_rte_complaints'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-contractforservices')
 	})
 
 	// Upload contract for services
 	router.post('/application/' + v + '/readiness/upload-contractforservices', function (req, res) {
+		req.session.data['tl_rte_contractforservices'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/upload-commitmentstatement')
 	})
 
 	// Upload commitment statement
 	router.post('/application/' + v + '/readiness/upload-commitmentstatement', function (req, res) {
-		req.session.data['tl_rte_policies'] = 'completed'
+		req.session.data['tl_rte_commitment'] = 'completed'
+		res.redirect('/application/' + v + '/readiness/prior-learning-assessments')
+		//res.redirect('/application/' + v + '/readiness/use-subcontractors')
+	})
+
+	// Prior learning assessments
+	router.post('/application/' + v + '/readiness/prior-learning-assessments', function (req, res) {
+		req.session.data['tl_rte_priorlearning'] = 'inprogress'
+		res.redirect('/application/' + v + '/readiness/asses-english-maths')
+	})
+
+	// Assess English and Maths
+	router.post('/application/' + v + '/readiness/asses-english-maths', function (req, res) {
+		req.session.data['tl_rte_priorlearning'] = 'completed'
 		res.redirect('/application/' + v + '/readiness/use-subcontractors')
+		//res.redirect('/application/' + v + '/readiness/asses-english-maths.html')
 	})
 
 	// Use subcontractors?

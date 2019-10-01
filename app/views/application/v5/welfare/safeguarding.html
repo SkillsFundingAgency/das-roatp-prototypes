@@ -18,17 +18,43 @@
 
       <form action="" method="post" class="form">
 
-        <h1 class="govuk-heading-l">Who’s responsible for safeguarding in your organisation?</h1>
+        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for safeguarding in your organisation</h1>
 
         <p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding issues.</p>
+        <p class="govuk-body">We’ll only contact them if there is a safeguarding issue.</p>
 
         {{ govukInput({
           label: {
             text: "Full name"
           },
           classes: "govuk-input--width-20",
-          id: "wel-safeguardingresponsible",
-          name: "wel-safeguardingresponsible"
+          id: "wel-safeguardingresponsible-name",
+          name: "wel-safeguardingresponsible-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20",
+          id: "wel-safeguardingresponsible-email",
+          email: "wel-safeguardingresponsible-email",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },
+          id: "wel-safeguardingresponsible-tel",
+          name: "wel-safeguardingresponsible-tel",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-input--width-10"
         }) }}
 
         {{ govukButton({
@@ -36,7 +62,7 @@
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

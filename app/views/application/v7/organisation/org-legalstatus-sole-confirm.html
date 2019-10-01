@@ -1,0 +1,63 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Organisation information</p>
+        
+    <h1 class="govuk-heading-l">Confirm your details</h1>
+
+    <form action="" method="post" class="form">
+
+        <dl class="govuk-summary-list">
+          <!--div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['org-soletrader-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org-legalstatus-sole">
+                Change<span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd>
+          </div-->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['org-soletrader-dob-monthname'] }} {{ data['org-soletrader-dob-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="org-legalstatus-sole">
+                Change<span class="govuk-visually-hidden"> date of birht</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

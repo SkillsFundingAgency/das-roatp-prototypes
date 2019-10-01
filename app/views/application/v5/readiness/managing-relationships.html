@@ -18,21 +18,6 @@
 
       <form action="" method="post" class="form">
 
-        {% set detailHtml %}
-        {{ govukInput({
-          label: {
-            text: "Full name"
-          },
-          id: "rte-managingrelationships-detail",
-          name: "rte-managingrelationships-detail",
-          type: "email",
-          classes: "govuk-!-width-two-thirds",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-        {% endset -%}
-
         {{ govukRadios({
           idPrefix: "rte-managingrelationships-conditional",
           name: "rte-managingrelationships",
@@ -44,15 +29,12 @@
             }
           },
           hint: {
-            text: "This should be someone who has the overall responsibility, is able to act independently and make decisions."
+            text: "This should be someone who has the overall responsibility and can make decisions independently."
           },
           items: [
             {
               value: "yes",
               text: "Yes",
-              conditional: {
-                html: detailHtml
-              },
               checked: checked("rte-managingrelationships", "yes")
             },
             {
@@ -68,7 +50,7 @@
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

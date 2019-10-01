@@ -1,0 +1,70 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  Service Start Page - RoATP Organisation Prototype
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Further education and skills</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Apprenticeships</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl">Do you have an account to use the RoATP service?</h1>
+
+    <p class="govuk-body">You cannot use:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>bravo login details</li>
+      <li>DAS account details</li>
+      <li>IDAMS account details</li>
+      <li>Government Gateway account details </li>
+      <li>GOV verify account details</li>
+      <li>Department for Education sign in (DfE) details</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "haveanaccount",
+        name: "haveanaccount",
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+
+  </div>
+{% endblock %}

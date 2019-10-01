@@ -1,0 +1,25 @@
+
+<details class="govuk-details govuk-details--gethelp" id="gethelp">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            Get help with this question
+        </span>
+    </summary>
+    <div class="govuk-details__text govuk-!-padding-bottom-0">
+        <div id="gethelp_content">
+            <p class="govuk-body">Do not include any personal or financial information.</p>
+            {{ govukCharacterCount({
+                name: "gethelp",
+                id: "gethelp",
+                maxlength: 250,
+                label: {
+                    text: "What do you need help with?"
+                }
+            }) }}
+            <p class="govuk-body">We’ll try to respond within 3 working days of receiving this.</p>
+            <button class="govuk-button" data-module="govuk-button" id="gethelp_submit" onclick='document.getElementById("gethelp_content").innerHTML = "<h3>Successfully sent</h3 class=\"govuk-heading-s\"><p>We&apos;ll try to respond within 3 working days of receiving this.</p><p>We&apos;ll send an email to the email address you used to sign in.</p><p>If you do not receive an email, check your junk folder or try again.</p>"'>
+                Send question
+            </button>
+        </div>
+    </div>
+</details>

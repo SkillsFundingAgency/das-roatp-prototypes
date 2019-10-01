@@ -1,0 +1,73 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v5
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Enter details for the person who’s responsible for managing relationships with employers</h1>
+
+        <p class="govuk-body">We’ll only contact them if there is an issue.</p>
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          classes: "govuk-input--width-20",
+          id: "rte-managingrelationships-name",
+          name: "rte-managingrelationships-name",
+          value: data['rte-managingrelationships-name']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20",
+          id: "rte-managingrelationships-email",
+          email: "rte-managingrelationships-email",
+          value: data['rte-managingrelationships-email'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },
+          id: "rte-managingrelationships-tel",
+          name: "rte-managingrelationships-tel",
+          type: "tel",
+          autocomplete: "tel",
+          value: data['rte-managingrelationships-tel'],
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v5/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

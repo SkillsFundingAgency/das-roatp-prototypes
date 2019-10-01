@@ -1,0 +1,60 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Forecasting starts</span>
+
+      <h1 class="govuk-heading-l">What is the typical ratio of the staff who deliver training to the learners?</h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "plan-forecast-ratio",
+          name: "plan-forecast-ratio",
+          items: [
+            {
+              value: "1to10",
+              text: "Between one trainer to 10 or less learners",
+              checked: checked("plan-forecast-ratio", "1to10")
+            },
+            {
+              value: "11to29",
+              text: "One trainer between 11 to 29 learners",
+              checked: checked("plan-forecast-ratio", "11to29")
+            },
+            {
+              value: "30plus",
+              text: "Between one trainer to 30 or more learners",
+              checked: checked("plan-forecast-ratio", "30plus")
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v8/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

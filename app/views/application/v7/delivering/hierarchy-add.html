@@ -1,0 +1,136 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Management hierarchy</p>
+
+      <h1 class="govuk-heading-l">Tell us who is in your organisation’s management team for apprenticeships</h1>
+
+      <p class="govuk-body">If there are more people, you can add them later.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-hierarchy-name",
+          name: "del-hierarchy-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Job role"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-hierarchy-role",
+          name: "del-hierarchy-role"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Time in role"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-hierarchy-timeinrole",
+          name: "del-hierarchy-timeinrole"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Who do they report to?"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-hierarchy-reportto",
+          name: "del-hierarchy-reportto"
+        }) }}
+
+        {% set orgfundingHtml %}
+        {{ govukInput({
+          id: "del-hierarchy-orgfunding-name",
+          name: "del-hierarchy-orgfunding-name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter the organisation’s name"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-hierarchy-orgfunding",
+          name: "del-hierarchy-orgfunding",
+          fieldset: {
+            legend: {
+              text: "Is this person part of another organisation that receives funding from ESFA?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-hierarchy-orgfunding", "Yes"),
+              conditional: {
+                html: orgfundingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-hierarchy-orgfunding", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "del-hierarchy-subcontractorfunding",
+          name: "del-hierarchy-subcontractorfunding",
+          fieldset: {
+            legend: {
+              text: "Is this person a subcontractor who receives funding from ESFA?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-hierarchy-subcontractorfunding", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-hierarchy-subcontractorfunding", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v7/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

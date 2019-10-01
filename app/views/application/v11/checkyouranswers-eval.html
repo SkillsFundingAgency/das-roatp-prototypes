@@ -1,0 +1,120 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers for 'evaluating training'</h1>
+      
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h3 class="govuk-heading-m">Process for evaluating the quality of training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Your organisation’s process for evaluating the quality of training delivered
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-training'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How has your organisation used its process for evaluating the quality of training to identify and make improvements?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-training-improvements'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Process of evaluating the quality of apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation’s process for evaluating the quality of training include apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-apprenticeships'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% if data['eval-apprenticeships-how'] != "" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation’s process for evaluating the quality of training include apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-apprenticeships-how'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      {% endif %}
+    </dl>
+
+    <h3 class="govuk-heading-m">Systems and processes to collect data</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have systems and processes in place to collect apprenticeship data?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-collectdata'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Using Individualised Learner Record systems</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have the resources to use the Individualised Learner Record system (ILR)?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-ilr'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Confirm answers for 'evaluating training'",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

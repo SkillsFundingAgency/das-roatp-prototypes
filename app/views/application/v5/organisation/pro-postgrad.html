@@ -18,24 +18,17 @@
 
     <form action="" method="post" class="form">
 
+      <h1 class="govuk-heading-l">Is the post graduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?</h1>
+      <p class="govuk-body">The postgraduate teaching apprenticeship is an employment-based initial teacher training route leading to qualified teacher status.</p>
+
       {{ govukRadios({
         idPrefix: "pro-postgrad",
         name: "pro-postgrad",
-        fieldset: {
-          legend: {
-            text: "Is the post graduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-postgrad", "yes"),
-            conditional: {
-              html: websiteHtml
-            }
+            checked: checked("pro-postgrad", "yes")
           },
           {
             value: "no",
@@ -50,7 +43,7 @@
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

@@ -1,0 +1,58 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Commitment statement template</p>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s commitment statement template</h1>
+
+    <p class="gov-body">Your organisation can <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/792229/ESFA_Commitment_Statement_v1_reissued_.xlsx" target="_blank">use ESFA’s commitment statement</a>, take one from a third party or have its own.</p>
+
+    <p class="gov-body">It must include:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the planned content and schedule for training</li>
+      <li>what is expected and offered by the employer, the training organisation and the apprentice</li>
+    </ul>
+
+    <p class="gov-body">The commitment statement must also be signed by the apprentice and training organisation.</p>
+    
+    <p class="gov-body">Find out more about the commitment statement in the <a href="#">apprenticeship funding rules (opens in a new window)</a>.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "rte-contractforservices",
+        name: "rte-contractforservices",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="prior-learning-assessments">Return to this question later</a></p>
+      
+      {% include "includes/v6/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

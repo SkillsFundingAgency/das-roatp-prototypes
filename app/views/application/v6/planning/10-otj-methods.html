@@ -1,0 +1,72 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Off the job training</p>
+
+      <h1 class="govuk-heading-l">What teaching methods will your organisation use to deliver 20% off the job training?</h1>
+
+      <p class="govuk-body">Select all that apply.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukCheckboxes({
+          idPrefix: "plan-otj-method",
+          name: "plan-otj-method",
+          items: [
+            {
+              value: "distance",
+              text: "Distance learning - training delivered remotely for example, e-learning or webinars",
+              checked: checked("plan-otj-method", "distance")
+            },
+            {
+              value: "selfdirected",
+              text: "Self-directed distance learning - where the apprentice works alone with online material",
+              checked: checked("plan-otj-method", "selfdirected")
+            },
+            {
+              value: "written",
+              text: "Learning support and written assignments",
+              checked: checked("plan-otj-method", "written")
+            },
+            {
+              value: "practical",
+              text: "Practical training - for example, shadowing, mentoring or industry visits ",
+              checked: checked("plan-otj-method", "practical")
+            },
+            {
+              value: "theory",
+              text: "Teaching of theory - for example, lectures, role-play or simulation exercises",
+              checked: checked("plan-otj-method", "theory")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

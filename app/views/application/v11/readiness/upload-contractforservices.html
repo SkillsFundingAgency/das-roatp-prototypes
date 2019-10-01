@@ -1,0 +1,52 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v11
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Contract for services template</span>
+       
+    <h1 class="govuk-heading-l">Upload your organisation’s contract for services template with employers</h1>
+
+    <p class="govuk-body">A contract for services is a signed and dated written agreement between your organisation and an employer. It’s only used where an apprenticeship is funded from the employer’s apprenticeship service account.</p>
+
+    <p class="govuk-body">The template should include a section for your organisation to add the services it will provide.</p>
+
+    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "rte-contractforservices",
+        name: "rte-contractforservices",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="upload-commitmentstatement">Return to this question later</a></p>
+      
+      {% include "includes/v11/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

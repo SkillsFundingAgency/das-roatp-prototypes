@@ -1,0 +1,79 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Health and safety policy</p>
+        
+      <h1 class="govuk-heading-l">Tell us who has overall responsibility for health and safety in your organisation</h1>
+
+      <p class="govuk-body">This can be an individual or another organisation who has overall responsibility, relevant knowledge and skills to manage health and safety issues.</p>
+
+      <p class="govuk-body">We’ll only contact them if there is a health and safety issue.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          id: "wel-healthandsafetyresponsible-name",
+          name: "wel-healthandsafetyresponsible-name",
+          classes: "govuk-input--width-20",
+          value: data['wel-healthandsafetyresponsible-name']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20",
+          id: "wel-healthandsafetyresponsible-email",
+          email: "wel-healthandsafetyresponsible-email",
+          value: data['wel-healthandsafetyresponsible-email'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },
+          id: "wel-healthandsafetyresponsible-tel",
+          name: "wel-healthandsafetyresponsible-tel",
+          type: "tel",
+          autocomplete: "tel",
+          value: data['wel-healthandsafetyresponsible-tel'],
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="otherpolicies">Return to this question later</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

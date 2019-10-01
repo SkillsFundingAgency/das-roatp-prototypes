@@ -1,0 +1,58 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">What type of school is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-education-school",
+        name: "org-type-education-school",
+        items: [
+          {
+            value: "free-school",
+            text: "Free school",
+            checked: checked("org-type-education-school", "free-school")
+          },
+          {
+            value: "lea-school",
+            text: "Local Education Authority (LEA) school",
+            checked: checked("org-type-education-school", "lea-school")
+          },
+          {
+            value: "other-school",
+            text: "None of the above",
+            checked: checked("org-type-education-school", "other-school")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v6/gethelp.html" %} %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

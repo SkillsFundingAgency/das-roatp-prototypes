@@ -1,0 +1,53 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Describe your organisation</span>
+
+      <h1 class="govuk-heading-l">Is your organisation {{ data['org-fundedbytext'] }}?</h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "org-fundedby",
+          name: "org-fundedby",
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("org-fundedby", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+                checked: checked("org-fundedby", "no")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v8/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

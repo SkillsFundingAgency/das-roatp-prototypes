@@ -1,0 +1,80 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Checks on your organisation</span>
+
+      <h1 class="govuk-heading-l">Does your organisation have any composition with creditors?</h1>
+
+      <p class="govuk-body">Composition with creditors is an agreement between a debtor and its creditors where all the creditors agree to accept less than the original amount of debt due to them in full satisfaction of their claim.</p>
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-debt-detail",
+            id: "dec-org-debt-detail",
+            maxlength: 1500,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
+                <ul class='govuk-!-margin-top-1'>
+                  <li>a brief summary of the agreement</li>
+                  <li>how your organisation will settle the debt</li>
+                  <li>the date of when the debt will be fully paid off</li>
+                </ul>"
+            },
+            value: data['dec-org-debt-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-debt",
+          name: "dec-org-debt",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("dec-org-debt", "Yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("dec-org-debt", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="org-repay-funding">Return to this question later</a></p>
+      
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

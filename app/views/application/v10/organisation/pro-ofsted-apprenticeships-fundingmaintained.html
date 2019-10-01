@@ -1,0 +1,61 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">Has your organisation maintained funding from an education agency since getting this grade?</h1>
+    
+    <p class="govuk-body">This means your organisation already has an existing relationship with and has maintained funding from:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>ESFA</li>
+      <li>Skills Funding Agency (SFA)</li>
+      <li>Education Funding Agency (EFA)</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-apprenticeships-fundingmaintained",
+        name: "pro-ofsted-apprenticeships-fundingmaintained",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("pro-ofsted-apprenticeships-fundingmaintained", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("pro-ofsted-apprenticeships-fundingmaintained", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v10/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

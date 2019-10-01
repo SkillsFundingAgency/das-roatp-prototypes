@@ -1,0 +1,72 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">Does your organisation have a website?</h1>
+
+    <form action="" method="post" class="form">
+
+      {% set websiteHtml %}
+        {{ govukInput({
+          id: "org-website-address",
+          name: "org-website-address",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Enter main website address"
+          },
+          value: data['org-website-address'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        idPrefix: "org-website-conditional",
+        name: "org-website",
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("org-website", "yes"),
+            conditional: {
+              html: websiteHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("org-website", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v7/gethelp.html" %} %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

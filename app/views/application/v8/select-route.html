@@ -1,0 +1,66 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Select route</span>
+
+    <h1 class="govuk-heading-l">Choose your organisation’s provider route</h1>
+
+    <form method="post" class="form">
+      {{ govukRadios({
+        idPrefix: "org-selectedroute",
+        name: "org-selectedroute",
+        items: [
+          {
+            value: "main",
+            text: "Main provider",
+            checked: checked("org-selectedroute", "main"),
+            hint: {
+              text: "Your organisation can train apprentices for other organisations, its own employees, employees of connected organisations or act as a subcontractor for other main and employer providers."
+            }
+          },
+          {
+            value: "employer",
+            text: "Employer provider",
+            checked: checked("org-selectedroute", "employer"),
+            hint: {
+              text: "Your organisation can train its own employees, employees of connected organisations or act as a subcontractor for other employer or main providers."
+            }
+          },
+          {
+            value: "supporting",
+            text: "Supporting provider",
+            checked: checked("org-selectedroute", "supporting"),
+            hint: {
+              text: "Your organisation will act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If your organisation is new on the register, this will be limited to £100,000 in its first year."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v8/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -64,13 +64,18 @@
             }
           ]
         }) }}
+        
+        {{ govukDetails({
+          summaryText: "What is a composition with creditors?",
+          text: "It’s an agreement between a debtor (someone who owes money) and a creditor (someone owed the money) to settle the debt."
+        }) }}
 
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

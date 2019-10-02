@@ -18,10 +18,10 @@
 
       <span class="govuk-caption-l">Checks on who’s in control of your organisation</span>
         
-      {% if data['org-legalstatus'] == "sole" %}
-        <h1 class="govuk-heading-l">Have you had any criminal convictions in the last 5 years?</h1>
+      {% if data['org-legalstatus'] == "Sole trader" %}
+        <h1 class="govuk-heading-l">Do you have any unspent criminal convictions?</h1>
       {% else %}
-        <h1 class="govuk-heading-l">Has anyone who’s in control of your organisation had any criminal convictions in the last 5 years?</h1>
+        <h1 class="govuk-heading-l">Does anyone who’s in control of your organisation have any unspent criminal convictions?</h1>
       {% endif %}
 
       <p class="gov-body">Criminal convictions include:</p>
@@ -87,20 +87,18 @@
           ]
         }) }}
 
-        {% if (data['org-ukprn'] != "12340101") or (data['org-ukprn'] != "12340102") %}
-        
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Who's in control
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
-            {% include "../../../includes/directors-pscs.html" %}
-          </div>
-        </details>
-
+        {% if data['org-legalstatus'] != "Sole trader" %}
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Who's in control
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
+              {% include "../../../includes/directors-pscs.html" %}
+            </div>
+          </details>
         {% endif %}
         
         <details class="govuk-details">

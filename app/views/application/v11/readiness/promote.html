@@ -20,42 +20,14 @@
         
       <h1 class="govuk-heading-l">How will your organisation promote apprenticeships to employers?</h1>
 
-      <p class="govuk-body">Select all that apply.</p>
+      <p class="govuk-body">For example, through find apprenticeship training, National Careers Services or other national branding.</p>
 
       <form action="" method="post" class="form">
 
-        {% set otherHtml %}
-          {{ govukInput({
-            id: "rte-promote-other",
-            name: "rte-promote-other",
-            type: "text",
-            classes: "govuk-!-width-one-third"
-          }) }}
-        {% endset -%}
-
-        {{ govukCheckboxes({
-          idPrefix: "rte-promote",
+        {{ govukCharacterCount({
           name: "rte-promote",
-          items: [
-            {
-              value: "Find Apprenticeship Training (FAT)",
-              text: "Find Apprenticeship Training (FAT)",
-              checked: checked("rte-promote", "Find Apprenticeship Training (FAT)")
-            },
-            {
-              value: "National Careers Services",
-              text: "National Careers Services",
-              checked: checked("rte-promote", "National Careers Services")
-            },
-            {
-              value: "Other",
-              text: "Other",
-              checked: checked("rte-promote", "Other"),
-              conditional: {
-                html: otherHtml
-              }
-            }
-          ]
+          id: "rte-promote",
+          maxlength: 1500
         }) }}
 
         {{ govukButton({

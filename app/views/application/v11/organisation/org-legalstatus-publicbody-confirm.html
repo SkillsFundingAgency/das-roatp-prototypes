@@ -20,7 +20,7 @@
 
         <span class="govuk-caption-l">Organisation information</span>
         
-        <h1 class="govuk-heading-l">Confirm your organisation's partners</h1>
+        <h1 class="govuk-heading-l">Confirm who’s in control</h1>
         
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-          {% for partner in data['org-partners'] %}
+          {% for partner in data['org-publicbodypartner'] %}
             {% if (partner.name != '') %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" scope="row">{{ partner.name }}</td>
@@ -43,7 +43,7 @@
           </tbody>
         </table>
 
-        <p class="govuk_body"><a href="org-legalstatus-partnership-choice">Add another partner</a></p>
+        <p class="govuk_body"><a href="org-legalstatus-publicbody">Add another partner</a></p>
 
         {{ govukButton({
           text: "Confirm and continue",

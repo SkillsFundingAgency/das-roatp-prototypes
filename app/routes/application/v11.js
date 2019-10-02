@@ -2464,6 +2464,13 @@ module.exports = function (router) {
 
 	// Managing relationships?
 	router.post('/application/' + v + '/readiness/managing-relationships-detail', function (req, res) {
+		//req.session.data['tl_rte_engagement'] = 'completed'
+		//res.redirect('/application/' + v + '/task-list#section-readiness')
+		res.redirect('/application/' + v + '/readiness/promote')
+	})
+
+	// Promote?
+	router.post('/application/' + v + '/readiness/promote', function (req, res) {
 		req.session.data['tl_rte_engagement'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-readiness')
 	})

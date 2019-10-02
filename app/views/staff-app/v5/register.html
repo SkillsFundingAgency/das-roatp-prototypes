@@ -11,6 +11,13 @@
   ESFA Staff App
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "dashboard"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
 
@@ -41,6 +48,7 @@
 
 		<div class="govuk-grid-column-two-thirds">
 
+			<span class="govuk-caption-l">Manage register</span>
 			<h1 class="govuk-heading-xl">Search for an apprenticeship training provider</h1>
 
 <!-- 

@@ -1419,7 +1419,8 @@ module.exports = function (router) {
 			}
 			if (req.session.data['org-legalstatus'] === 'Public body') {
 				/******* TODO ??? - ASK FOR DIRECTORS!!! ********/
-				res.redirect('/application/' + v + '/organisation/org-type')
+				//res.redirect('/application/' + v + '/organisation/org-type')
+				res.redirect('/application/' + v + '/organisation/org-legalstatus-publicbody')
 			}
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-legalstatus')
@@ -1449,7 +1450,7 @@ module.exports = function (router) {
 
 	
 	/*** Partnership ***/
-
+	
 		// Partnership details 
 		router.post('/application/' + v + '/organisation/org-legalstatus-partnership', function (req, res) {
 
@@ -1491,6 +1492,36 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/org-type')
 		})
 	
+	
+	/*** Public body ***/
+
+		// Public body details 
+		router.post('/application/' + v + '/organisation/org-legalstatus-publicbody', function (req, res) {
+
+			var newPBPartner = {
+				'name': req.session.data['org-publicbody-name'],
+				'dob_month': monthNumToName(req.session.data['org-publicbody-dob-month']),
+				'dob_year': req.session.data['org-publicbody-dob-year']
+			}
+
+			req.session.data['org-publicbody-name'] = null
+			req.session.data['org-publicbody-dob-month'] = null
+			req.session.data['org-publicbody-dob-year'] = null
+
+			if (!req.session.data['org-publicbodypartner']) {
+				req.session.data['org-publicbodypartner'] = []
+			}
+			req.session.data['org-publicbodypartner'].push(newPBPartner)
+			
+			res.redirect('/application/' + v + '/organisation/org-legalstatus-publicbody-confirm')
+			
+		})
+
+		// Confirm partner details
+		router.post('/application/' + v + '/organisation/org-legalstatus-publicbody-confirm', function (req, res) {
+			res.redirect('/application/' + v + '/organisation/org-type')
+		})
+		
 
 	// Website
 	router.post('/application/' + v + '/organisation/org-website', function (req, res) {
@@ -1511,7 +1542,12 @@ module.exports = function (router) {
 			} else {
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
-				res.redirect('/application/' + v + '/task-list#section-organisation')
+				
+				if (req.session.data['org-ukprn'] == '12340301') {
+					res.redirect('/application/' + v + '/organisation/org-legalstatus')
+				} else {
+					res.redirect('/application/' + v + '/task-list#section-organisation')
+				}
 			}
 			
 		} else {
@@ -2291,13 +2327,40 @@ module.exports = function (router) {
 
 	// Who’s in control - Bankrupt?
 	router.post('/application/' + v + '/declarations/people-bankrupt', function (req, res) {
+		if (req.session.data['org-legalstatus'] == "Partnership"){
+			res.redirect('/application/' + v + '/declarations/people-bankrupt-partners')
+		} else {
+			res.redirect('/application/' + v + '/declarations/people-insolvency')
+		}
+	})
+
+	// Who’s in control - Partners b§ankrupt?
+	router.post('/application/' + v + '/declarations/people-bankrupt-partners', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-insolvency')
 	})
 
 	// Who’s in control - Insolvency?
 	router.post('/application/' + v + '/declarations/people-insolvency', function (req, res) {
+		res.redirect('/application/' + v + '/declarations/people-otherorgs')
+		
+		//req.session.data['tl_dec_people'] = 'completed'
+		//res.redirect('/application/' + v + '/task-list#section-declarations')
+	})
+
+	// Who’s in control - Other orgs?
+	router.post('/application/' + v + '/declarations/people-otherorgs', function (req, res) {
+		if (req.session.data['dec-org-otherorgs'] == "Yes"){
+			res.redirect('/application/' + v + '/declarations/people-otherorgs-insolvency')
+		} else {
+			req.session.data['tl_dec_people'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-declarations')
+		}		
+	})
+
+	// Who’s in control - Other orgs insolvency?
+	router.post('/application/' + v + '/declarations/people-otherorgs-insolvency', function (req, res) {
 		req.session.data['tl_dec_people'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-declarations')
+		res.redirect('/application/' + v + '/task-list#section-declarations')	
 	})
 
 

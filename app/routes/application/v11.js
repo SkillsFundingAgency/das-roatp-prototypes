@@ -2342,9 +2342,6 @@ module.exports = function (router) {
 	// Who’s in control - Insolvency?
 	router.post('/application/' + v + '/declarations/people-insolvency', function (req, res) {
 		res.redirect('/application/' + v + '/declarations/people-otherorgs')
-		
-		//req.session.data['tl_dec_people'] = 'completed'
-		//res.redirect('/application/' + v + '/task-list#section-declarations')
 	})
 
 	// Who’s in control - Other orgs?

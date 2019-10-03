@@ -1,0 +1,30 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">UKPRN {{ data['org-ukprn'] }} not found</h1>
+      <p class="govuk-body">This is because it either:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>does not exist</li>
+				<li>is inactive on the UK Register of Learning Providers</li>
+			</ul>
+      <p class="govuk-body">If your organisation's UKPRN is inactive, contact the UKRLP helpdesk on 0345 202 1600 or <a class ="govuk-link" href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a>.
+      </p>
+      <p><a class ="govuk-link" href="../ukprn">Search for another UKRPN</a></p>
+    </div>
+  </div>
+
+{% endblock %}

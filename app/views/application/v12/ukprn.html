@@ -1,0 +1,58 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <h1 class="govuk-heading-l">What is your organisation's UK Provider Reference Number (UKPRN)?</h1>
+
+      <p>This is an 8-digit number from the UK Register of Learning Providers (UKRLP).</p>
+
+      {{ govukInput({
+        label: {
+          text: "UKPRN"
+        },
+        classes: "govuk-input--width-10",
+        id: "org-ukprn",
+        name: "org-ukprn",
+        value: data['org-ukprn']
+      }) }}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+              I do not have a UKPRN
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>To get a UKPRN, you’ll need to <a href="https://www.ukrlp.co.uk/" target="_blank">register with the UKRLP (opens in a new window or tab)</a>.</p>
+          <p>After you’ve registered and received a UKPRN, sign back in to continue with this application.</p>
+        </div>
+      </details>
+      
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+      
+    </form>
+  </div>
+</div>
+
+{% endblock %}

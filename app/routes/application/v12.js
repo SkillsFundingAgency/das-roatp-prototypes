@@ -1281,7 +1281,9 @@ module.exports = function (router) {
 		} else if (org_ukprn === '12340405') { // Organisation already on register as a supporting provider
 			res.redirect('/application/' + v + '/ukprn-onregister')
 		} else if (org_ukprn === '12340406') { // Application already submitted for UKPRN
-			res.redirect('/application/' + v + '/ukprn-applicationsubmitted')
+			res.redirect('/application/' + v + '/shutter/ukprn-applicationsubmitted')
+		} else if (org_ukprn === '12340407') { // Application already exists for UKPRN
+			res.redirect('/application/' + v + '/shutter/ukprn-applicationexists')
 	// error page
 		} else {
 			res.redirect('/application/' + v + '/ukprn-error')

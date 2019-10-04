@@ -1,0 +1,65 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">What grade did your organisation get for overall effectiveness in this full Ofsted inspection?</h1>
+
+    <p class="govuk-body">We’ll check your organisation’s Ofsted inspection report to confirm your answer.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-ofsted-overall-grade",
+        name: "pro-ofsted-overall-grade",
+        items: [
+          {
+            value: "Outstanding",
+            text: "Outstanding",
+            checked: checked("pro-ofsted-overall-grade", "Outstanding")
+          },
+          {
+            value: "Good",
+            text: "Good",
+            checked: checked("pro-ofsted-overall-grade", "Good")
+          },
+          {
+            value: "Requires improvement",
+            text: "Requires improvement",
+            checked: checked("pro-ofsted-overall-grade", "Requires improvement")
+          },
+          {
+            value: "Inadequate",
+            text: "Inadequate",
+            checked: checked("pro-ofsted-overall-grade", "Inadequate")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

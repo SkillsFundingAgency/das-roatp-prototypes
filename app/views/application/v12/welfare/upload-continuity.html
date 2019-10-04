@@ -1,0 +1,64 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Continuity plan for apprenticeship training</span>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s continuity plan for apprenticeship training</h1>
+
+    <p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.</p>
+    <p class="govuk-body">This must include how your organisation will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>have different methods of communication</li>
+      <li>manage transportation needs</li>
+      <li>provide different operating locations (if needed)</li>
+      <li>back-up relevant business systems</li>
+      <li>back-up and restore data </li>
+      <li>have a list of emergency contacts - ESFA must be listed</li>
+    </ul>
+
+    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "wel-continuity",
+        name: "wel-continuity",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "What is a significant event?",
+        text: "It’s when something happens that impacts the delivery of apprenticeship training. This includes things like a training location being unavailable or loss of systems and data."
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="upload-diversity">Return to this question later</a></p>
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

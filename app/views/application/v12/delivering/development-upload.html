@@ -1,0 +1,59 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Policy for professional development of employees</span>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s policy for professional development of employees</h1>
+    <p class="govuk-body">This must include how your organisation will continuously:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>improve its employees sector expertise, skills and performance</li>
+      <li>improve its employees teaching and training knowledge</li>
+      <li>Improve its employees skills and performance</li>
+      <li>ensure learning objectives are tailored to meet employee and organisation needs</li>
+      <li>monitor employees professional development</li>
+    </ul>
+
+    <p class="govuk-body">It must also include your organisation’s vision for professional development of employees.</p>
+
+    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "del-professional-development",
+        name: "del-professional-development",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="upload-diversity">Return to this question later</a></p>
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

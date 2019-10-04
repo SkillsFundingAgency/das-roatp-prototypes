@@ -1278,8 +1278,10 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/shutter/incorporation')
 		} else if (org_ukprn === '12340404') { // Removed from register
 			res.redirect('/application/' + v + '/shutter/removed')
-		} else if (org_ukprn === '12340501') { // Organisation already on register as a supporting provider
+		} else if (org_ukprn === '12340405') { // Organisation already on register as a supporting provider
 			res.redirect('/application/' + v + '/ukprn-onregister')
+		} else if (org_ukprn === '12340406') { // Application already submitted for UKPRN
+			res.redirect('/application/' + v + '/ukprn-applicationsubmitted')
 	// error page
 		} else {
 			res.redirect('/application/' + v + '/ukprn-error')
@@ -3064,6 +3066,11 @@ module.exports = function (router) {
 	router.get('/application/' + v + '/signout', function (req, res) {
 		req.session.data['signedin'] = 'no'
 		res.redirect('/application/' + v + '/signout')
+	})
+
+	router.get('/application/' + v + '/signoutsignin', function (req, res) {
+		req.session.data['signedin'] = 'no'
+		res.redirect('/application/' + v + '/signin')
 	})
 
 }

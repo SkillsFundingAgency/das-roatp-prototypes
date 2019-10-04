@@ -1,0 +1,124 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Sectors and employee experience</span>
+      
+    <h1 class="govuk-heading-l">What sectors will your organisation offer apprenticeship training in?</h1>
+
+    <p class="govuk-body">We’ll ask you who the most experienced employees are in your selected sectors - including any sector specific qualifications they may have.</p>
+
+    <p class="govuk-body">Select all that apply.</p>
+
+    <form action="" method="post" class="form">
+      
+      {{ govukCheckboxes({
+        idPrefix: "del-sectors",
+        name: "del-sectors",
+        items: [
+          {
+            value: "Agriculture, environmental and animal care",
+            text: "Agriculture, environmental and animal care",
+            checked: checked("del-sectors", "Agriculture, environmental and animal care")
+          },
+          {
+            value: "Business and administration",
+            text: "Business and administration",
+            checked: checked("del-sectors", "Business and administration")
+          },
+          {
+            value: "Care services",
+            text: "Care services",
+            checked: checked("del-sectors", "Care services")
+          },
+          {
+            value: "Catering and hospitality",
+            text: "Catering and hospitality",
+            checked: checked("del-sectors", "Catering and hospitality")
+          },
+          {
+            value: "Construction",
+            text: "Construction",
+            checked: checked("del-sectors", "Construction")
+          },
+          {
+            value: "Creative and design",
+            text: "Creative and design",
+            checked: checked("del-sectors", "Creative and design")
+          },
+          {
+            value: "Digital",
+            text: "Digital",
+            checked: checked("del-sectors", "Digital")
+          },
+          {
+            value: "Education and childcare",
+            text: "Education and childcare",
+            checked: checked("del-sectors", "Education and childcare")
+          },
+          {
+            value: "Engineering and manufacturing",
+            text: "Engineering and manufacturing",
+            checked: checked("del-sectors", "Engineering and manufacturing")
+          },
+          {
+            value: "Hair and beauty",
+            text: "Hair and beauty",
+            checked: checked("del-sectors", "Hair and beauty")
+          },
+          {
+            value: "Health and science",
+            text: "Health and science",
+            checked: checked("del-sectors", "Health and science")
+          },
+          {
+            value: "Legal, finance and accounting",
+            text: "Legal, finance and accounting",
+            checked: checked("del-sectors", "Legal, finance and accounting")
+          },
+          {
+            value: "Protective services",
+            text: "Protective services",
+            checked: checked("del-sectors", "Protective services")
+          },
+          {
+            value: "Sales, marketing and procurement",
+            text: "Sales, marketing and procurement",
+            checked: checked("del-sectors", "Sales, marketing and procurement")
+          },
+          {
+            value: "Transport and logistics",
+            text: "Transport and logistics",
+            checked: checked("del-sectors", "Transport and logistics")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

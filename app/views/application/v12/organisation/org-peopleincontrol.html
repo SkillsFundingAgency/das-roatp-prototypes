@@ -1,0 +1,50 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+     <span class="govuk-caption-l">Tell us who’s in control</span>
+
+      <h1 class="govuk-heading-l">Confirm who’s in control</h1>
+
+      <p>These are the details we found on Companies House.</p>
+
+      {% include "../../../includes/directors-pscs.html" %}
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What if these details are wrong?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>Contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+          <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+        </div>
+      </details>
+
+      <form action="" method="post" class="form">
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Organisation information</span>
+
+    {% if data["org-selectedroute"] == "supporting" %}
+
+      <h1 class="govuk-heading-l">How long has your organisation been trading for?</h1>
+      <p class="govuk-body">Trading includes buying, selling, advertising, renting a property or employing someone.</p>
+
+    {% else %}
+
+      <h1 class="govuk-heading-l">How long has your organisation been actively trading?</h1>
+      <p class="govuk-body">This is when your organisation is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>carrying on a business activity such as a trade or professional activity</li>
+        <li>buying and selling goods or services with a view to making a profit or surplus</li>
+        <li>providing chargeable services</li>
+      </ul>
+      <p class="govuk-body">It does not include start-up or set-up costs.</p>
+
+    {% endif %}
+
+    <form action="" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "supporting" %}
+    
+        {{ govukRadios({
+          idPrefix: "org-trading",
+          name: "org-trading",
+          items: [
+            {
+              value: "Less than 3 months",
+              text: "Less than 3 months",
+              checked: checked("org-trading", "Less than 3 months")
+            },
+            {
+              value: "3 to 6 months",
+              text: "3 to 6 months",
+              checked: checked("org-trading", "3 to 6 months")
+            },
+            {
+              value: "7 to 11 months",
+              text: "7 to 11 months",
+              checked: checked("org-trading", "7 to 11 months")
+            },
+            {
+              value: "More than 11 months",
+              text: "More than 11 months",
+              checked: checked("org-trading", "More than 11 months")
+            }
+          ]
+        }) }}
+
+      {% else %}
+    
+        {{ govukRadios({
+          idPrefix: "org-trading",
+          name: "org-trading",
+          items: [
+            {
+              value: "Less than 12 months",
+              text: "Less than 12 months",
+              checked: checked("org-trading", "Less than 12 months")
+            },
+            {
+              value: "12 to 18 months",
+              text: "12 to 18 months",
+              checked: checked("org-trading", "12 to 18 months")
+            },
+            {
+              value: "19 to 23 months",
+              text: "19 to 23 months",
+              checked: checked("org-trading", "19 to 23 months")
+            },
+            {
+              value: "More than 23 months",
+              text: "More than 23 months",
+              checked: checked("org-trading", "More than 23 months")
+            }
+          ],
+          error: {
+            text: "oops"
+          }
+        }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+<script>
+  var months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'Jun', 'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+    ];
+  var dt = new Date();
+</script>
+
+
+{% if (data['org-selectedroute'] === 'supporting') %}
+  <script>dt.setDate( dt.getDate() - 91 );</script>
+{% else %}
+  <script>dt.setDate( dt.getDate() - 365 );</script>
+{% endif %}
+
+  <script>
+    var datetext = dt.getDate() + " " + months[dt.getMonth()] + " " + dt.getFullYear();
+    document.getElementById("displaydate").innerHTML = datetext;
+  </script>
+
+
+{% endblock %}

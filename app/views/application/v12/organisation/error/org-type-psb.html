@@ -1,0 +1,85 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-type"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v12/organisation/org-type-psb" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of public sector body",
+            href: "#org-type-psb-error"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: "org-type-psb",
+        name: "org-type-psb",
+        fieldset: {
+          legend: {
+            text: "What type of public sector body is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "nhs",
+            text: "NHS Trust"
+          },
+          {
+            value: "police",
+            text: "Police"
+          },
+          {
+            value: "fire-auth",
+            text: "Fire Authority"
+          },
+          {
+            value: "gov-dept",
+            text: "Government department"
+          },
+          {
+            value: "local-auth",
+            text: "Local authority"
+          },
+          {
+            value: "executive-agency",
+            text: "Executive agency"
+          },
+          {
+            value: "ndpb",
+            text: "Non-departmental public body (NDPB)"
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of public sector body"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

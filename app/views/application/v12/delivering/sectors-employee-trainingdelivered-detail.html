@@ -1,0 +1,171 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Sectors and employee experience</span>
+
+      <h1 class="govuk-heading-l">{{ data['del-employee'][ data['current_sector_id'] ]['name'] }}’s experience in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set howdeliveredHtml %}
+          {{ govukInput({
+            classes: "govuk-input--width-20",
+            id: "del-employee-howdelivered-other",
+            name: "del-employee-howdelivered-other"
+          }) }}
+        {% endset -%}
+
+        {{ govukCheckboxes({
+          idPrefix: "del-employee-howdelivered",
+          name: "del-employee-howdelivered",
+          fieldset: {
+            legend: {
+              text: "How have they delivered training to apprentices?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "Classroom-based training",
+              text: "Classroom-based training",
+              checked: checked("del-employee-howdelivered", "Classroom-based training")
+            },
+            {
+              value: "Coaching",
+              text: "Coaching",
+              checked: checked("del-employee-howdelivered", "Coaching")
+            },
+            {
+              value: "E-learning",
+              text: "E-learning",
+              checked: checked("del-employee-howdelivered", "E-learning")
+            },
+            {
+              value: "Mentoring",
+              text: "Mentoring",
+              checked: checked("del-employee-howdelivered", "Mentoring")
+            },
+            {
+              value: "On the job",
+              text: "On the job",
+              checked: checked("del-employee-howdelivered", "On the job")
+            },
+            {
+              value: "Other",
+              text: "Other",
+              checked: checked("del-employee-howdelivered", "Other"),
+              conditional: {
+                html: howdeliveredHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-experience-delivering",
+          name: "del-employee-experience-delivering",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "What’s their experience of delivering training to apprentices?"
+            }
+          },
+          items: [
+            {
+              value: "Less than a year",
+              text: "Less than a year",
+              checked: checked("del-employee-experience-delivering", "Less than a year")
+            },
+            {
+              value: "One to 2 years",
+              text: "One to 2 years",
+              checked: checked("del-employee-experience-delivering", "One to 2 years")
+            },
+            {
+              value: "3 to 5 years",
+              text: "3 to 5 years",
+              checked: checked("del-employee-experience-delivering", "3 to 5 years")
+            },
+            {
+              value: "Over 5 years",
+              text: "Over 5 years",
+              checked: checked("del-employee-experience-delivering", "Over 5 years")
+            },
+            {
+              value: "No experience",
+              text: "No experience",
+              checked: checked("del-employee-experience-delivering", "No experience")
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-trainingduration",
+          name: "del-employee-trainingduration",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "What’s the typical duration of training they have delivered to apprentices?"
+            }
+          },
+          items: [
+            {
+              value: "Less than one month",
+              text: "Less than one month",
+              checked: checked("del-employee-trainingduration", "Less than one month")
+            },
+            {
+              value: "One to 5 months",
+              text: "One to 5 months",
+              checked: checked("del-employee-trainingduration", "One to 5 month")
+            },
+            {
+              value: "6 to 12 months",
+              text: "6 to 12 months",
+              checked: checked("del-employee-trainingduration", "6 to 12 months")
+            },
+            {
+              value: "Over 12 months",
+              text: "Over 12 months",
+              checked: checked("del-employee-trainingduration", "Over 12 month")
+            },
+            {
+              value: "No training delivered",
+              text: "No training delivered",
+              checked: checked("del-employee-trainingduration", "No training delivered")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v12/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

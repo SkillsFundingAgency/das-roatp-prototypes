@@ -1,0 +1,101 @@
+{% extends "layout_application_v11.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">What is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {% if (data['org-selectedroute'] == "employer") %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "An educational institute",
+            text: "An educational instituteal institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "A public body",
+            text: "A public body",
+            checked: checked("org-type", "A public body")
+          },
+          {
+            value: "None of the above",
+            text: "None of the above",
+            checked: checked("org-type", "None of the above")
+          }
+        ]
+      }) }}
+
+      {% else %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "An educational institute",
+            text: "An educational institute",
+            checked: checked("org-type", "An educational institute")
+          },
+          {
+            value: "An employer training apprentices in other organisations",
+            text: "An employer training apprentices in other organisations",
+            checked: checked("org-type", "An employer training apprentices in other organisations")
+          },
+          {
+            value: "A public body",
+            text: "A public body",
+            checked: checked("org-type", "A public body")
+          },
+          {
+            value: "An apprenticeship training agency",
+            text: "An apprenticeship training agency",
+            checked: checked("org-type-training", "An apprenticeship training agency")
+          },
+          {
+            value: "An independent training providers",
+            text: "An independent training providers",
+            checked: checked("org-type-training", "An independent training providers")
+          },
+          {
+            value: "A group training association",
+            text: "A group training association",
+            checked: checked("org-type-training", "A group training association")
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

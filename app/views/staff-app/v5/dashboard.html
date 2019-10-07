@@ -1,23 +1,11 @@
-{% set serviceName = "ESFA admin services" %}
-{% extends "layout.html" %}
-
-{% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
-{% endblock %}
+{% extends "layout_staff_v5.html" %}
+{% set current_section = "dashboard" %}
 
 {% block pageTitle %}
   ESFA Staff App
 {% endblock %}
 
 {% block beforeContent %}
-<!--
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
--->
 {% endblock %}
 
 {% block content %}
@@ -33,8 +21,7 @@
 			<h2 class="govuk-heading-l">Assess applications</h2>
             <p class="govuk-body">Review and approve new organisation applications, check on progress, send and receive feedback.</p>
 			<ul class="govuk-list govuk-list--nobullet">
-				<li><a href="#">Search applications</a></li>
-				<li><a href="#">View list of applications</a></li>
+				<li><a href="applications/list">View applications</a></li>
 			</ul>
 		</div>
 		<div class="govuk-grid-column-one-half">
@@ -42,7 +29,7 @@
             <p class="govuk-body">Search, view and edit organisations that are currently live on the register.</p>
 			<ul class="govuk-list govuk-list--nobullet">
 				<li><a href="register/search/register">Search the register</a></li>
-				<li><a href="register/add/add-ukprn">Add an organisation to the register</a></li>
+				<!--li><a href="register/add/add-ukprn">Add an organisation to the register</a></li-->
 			</ul>
 		</div>
 	</div>

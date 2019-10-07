@@ -1,12 +1,5 @@
-{% set serviceName = "ESFA admin services" %}
-
-{% extends "layout.html" %}
-
-{% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
-{% endblock %}
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
 
 {% block pageTitle %}
   ESFA Staff App
@@ -15,7 +8,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "add-confirm"
+    href: "javascript:history.go(-1)"
   }) }}
 {% endblock %}
 

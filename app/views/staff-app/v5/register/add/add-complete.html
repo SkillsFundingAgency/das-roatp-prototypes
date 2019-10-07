@@ -1,28 +1,29 @@
-{% set serviceName = "ESFA admin services" %}
-{% extends "layout.html" %}
-
-{% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
-{% endblock %}
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
 
 {% block pageTitle %}
   ESFA Staff App
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    {{ govukPanel({
-        titleText: data['staff-add-orgname'] + " has been added to the register"
-    }) }}
-    <br>
-    <p class="govuk-body"><a href="../../dashboard">Back to staff dashboard</a></p>
+      {{ govukPanel({
+          titleText: data['staff-add-orgname'] + " has been added to the register"
+      }) }}
+      <br>
+      <p class="govuk-body"><a href="../../dashboard">Back to staff dashboard</a></p>
 
+    </div>
   </div>
-</div>
 
 {% endblock %}

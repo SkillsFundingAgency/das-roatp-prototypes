@@ -1,21 +1,8 @@
-{% set serviceName = "ESFA admin services" %}
-{% extends "layout.html" %}
-
-{% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
-{% endblock %}
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
 
 {% block pageTitle %}
   ESFA Staff App
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "dashboard"
-  }) }}
 {% endblock %}
 
 {% block content %}
@@ -48,7 +35,7 @@
 
 		<div class="govuk-grid-column-two-thirds">
 
-			<span class="govuk-caption-l">Search the register</span>
+			<span class="govuk-caption-l">Manage register</span>
 			<h1 class="govuk-heading-xl">Search for an apprenticeship training provider</h1>
 
 <!-- 
@@ -74,14 +61,14 @@ hint: {
 
 			</form>
 		
-			<!--hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 			<ul class="govuk-list">
-				<li><a href="add-ukprn">Add a new training provider</a></li>
+				<li><a href="../add/add-ukprn">Add a new training provider</a></li>
 				<li><a href="#">Download list of training providers</a></li>
-				<li><a href="#">Download FAT file</a></li>
-				<li><a href="upload">Upload a 'application determined date’ file</a></li>
-			</ul-->
+				<!--li><a href="#">Download FAT file</a></li>
+				<li><a href="upload">Upload a 'application determined date’ file</a></li-->
+			</ul>
 
 		</div>
 	</div>

@@ -1,30 +1,14 @@
-{% set serviceName = "ESFA admin services" %}
-{% extends "layout.html" %}
-
-{% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
-{% endblock %}
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
 
 {% block pageTitle %}
   ESFA Staff App
 {% endblock %}
 
-{% if (data['staff-add-ukprn'] === "12340003") %}
-	{% set confirmbacklink = "add-manually" %}
-{% elseif (data['staff-add-ukprn'] === "12340001") %}
-	{% set confirmbacklink = "add-fromukrlp-determined" %}
-{% else %}
-	{% set confirmbacklink = "change-charity-number" %}
-{% endif %}
-
 {% block beforeContent %}
-
-
   {{ govukBackLink({
     text: "Back",
-    href: confirmbacklink
+    href: "javascript:history.go(-1)"
   }) }}
 {% endblock %}
 

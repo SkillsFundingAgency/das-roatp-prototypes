@@ -35,6 +35,7 @@ function checkInspectionDate(d,m,y) {
 	}
 }
 
+
 module.exports = function (router) {
 
 /***************
@@ -1382,6 +1383,13 @@ module.exports = function (router) {
 	})
 
 	/*** Parent company ***/
+		/*
+		router.get('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
+			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+				req.session.data['redir_fromtasklist'] = 'org-parentcompany'
+				res.redirect('/application/' + v + '/changeorganswer-tasklist')
+			}
+		})*/
 
 	// Have a parent company?
 	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
@@ -1609,8 +1617,15 @@ module.exports = function (router) {
 		})
 		
 		// Confirm people in control
-		router.post('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {
+		/*
+		router.get('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {
+			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+				req.session.data['redir_fromtasklist'] = 'org-peopleincontrol'
+				res.redirect('/application/' + v + '/changeorganswer-tasklist')
+			}
+		})*/
 
+		router.post('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {
 			if (req.session.data['org-ukprn'] === "12340201") {
 				res.redirect('/application/' + v + '/organisation/org-trustees')
 			} else if (req.session.data['org-ukprn'] === "12340203") {
@@ -1676,6 +1691,13 @@ module.exports = function (router) {
 
 
 	/*** Organisation type ***/
+		/*
+		router.get('/application/' + v + '/organisation/org-type', function (req, res) {
+			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+				req.session.data['redir_fromtasklist'] = 'org-type'
+				res.redirect('/application/' + v + '/changeorganswer-tasklist')
+			}
+		})*/
 
 		// Organisation type
 		router.post('/application/' + v + '/organisation/org-type', function (req, res) {
@@ -1840,6 +1862,13 @@ module.exports = function (router) {
 
 
 	/*** PR3 ***/
+		/*
+		router.get('/application/' + v + '/organisation/pro-itt', function (req, res) {
+			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+				req.session.data['redir_fromtasklist'] = 'pro-itt'
+				res.redirect('/application/' + v + '/changeorganswer-tasklist')
+			}
+		})*/
 
 		// Profile - ITT accreditation
 		router.post('/application/' + v + '/organisation/pro-itt', function (req, res) {
@@ -3056,9 +3085,54 @@ module.exports = function (router) {
 	router.post('/application/' + v + '/checkyouranswers-finish', function (req, res) {
 		req.session.data['cya_finish'] = 'done'
 		res.redirect('/application/' + v + '/checkyouranswers')
-	})	
+	})
 
 
+/*****************************************
+ *** Change org question from tasklist ***
+ *****************************************/
+
+	router.post('/application/' + v + '/changeorganswer-tasklist', function (req, res) {
+		
+		let redirectfrom = req.session.data['from']
+
+		// Clear all session data
+		req.session.data = {}
+
+		if (redirectfrom == "org-ico" || redirectfrom == "org-peopleincontrol" || redirectfrom == "org-type" || redirectfrom == "pro-itt"){
+			req.session.data['signedin'] = "yes"
+			req.session.data['org-ukprn'] = "12340102"
+			req.session.data['org-selectedroute'] = "main"
+			req.session.data['tl_org_intro'] = "completed"
+			req.session.data['tl_org_details'] = "next"
+		}
+
+		if (redirectfrom == "org-peopleincontrol" || redirectfrom == "org-type" || redirectfrom == "pro-itt"){
+			req.session.data['org-ico'] = "12345678"
+			req.session.data['org-parentcompany'] = "Yes"
+			req.session.data['org-parentcompany-name'] = "Parent Company Limited"
+			req.session.data['org-parentcompany-number'] = "89987987"
+			req.session.data['org-trading'] = "More than 23 months"
+			req.session.data['tl_org_details'] = "completed"
+			req.session.data['tl_org_people'] = "next"
+		}
+
+		if (redirectfrom == "org-type" || redirectfrom == "pro-itt"){
+			req.session.data['tl_org_people'] = "completed"
+			req.session.data['tl_org_type'] = "next"
+		}
+
+		if (redirectfrom == "pro-itt"){
+			req.session.data['org-classification'] = ["None of the above"]
+			req.session.data['org-type'] = "An employer training apprentices in other organisations"
+			req.session.data['org-type-subtype'] = "In your organisation and connected companies or charities"
+			req.session.data['tl_org_type'] = "completed"
+			req.session.data['tl_org_profile'] = "next"
+		}
+
+		res.redirect('/application/' + v + '/organisation/' + redirectfrom)
+
+	})
 
 
 /****************

@@ -1,0 +1,77 @@
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block content %}
+
+
+	{% if showAdded == true %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full govuk-!-margin-bottom-9">
+
+				{{ govukPanel({
+					titleText: data['staff-add-orgname'] + " has been added"
+				}) }}
+		
+			</div>
+		</div>
+	{% endif %}
+	{% if showUploaded == true %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full govuk-!-margin-bottom-9">
+
+				{{ govukPanel({
+					titleText: "File uploaded"
+				}) }}
+		
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="govuk-grid-row">
+
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Manage register</span>
+			<h1 class="govuk-heading-xl">Search for an apprenticeship training provider</h1>
+
+<!-- 
+look at possible alternate routes based on search parameter
+hint: {
+	html: "'abc' returns 5 results<br>'none' returns no results<br>'a' returns 50 results"
+},
+-->
+			<form action="register-a" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Organisation name or UKPRN"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-search",
+					name: "staff-search"
+				}) }}
+
+				{{ govukButton({
+					text: "Search"
+				}) }}
+
+			</form>
+		
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<ul class="govuk-list">
+				<li><a href="../add/add-ukprn">Add a new training provider</a></li>
+				<li><a href="#">Download list of training providers</a></li>
+				<!--li><a href="#">Download FAT file</a></li>
+				<li><a href="upload">Upload a 'application determined date’ file</a></li-->
+			</ul>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

@@ -24,20 +24,20 @@ module.exports = function (router) {
 	})
 
 	// Register search
-	router.post('/staff-app/' + v + '/register-a', function (req, res) {
+	router.post('/staff-app/' + v + '/register/search/register-a', function (req, res) {
 
 		let searchterm = req.session.data['staff-search']
 		
 		if (searchterm == '1234567') {
-			res.redirect('/staff-app/' + v + '/detail')
+			res.redirect('/staff-app/' + v + '/register/search/detail')
 		} else {
-			res.redirect('/staff-app/' + v + '/search-results')
+			res.redirect('/staff-app/' + v + '/register/search/search-results')
 		}
 
 	})
 
 	// UKPRN Routing
-	router.post('/staff-app/' + v + '/add-ukprn-search', function (req, res){
+	router.post('/staff-app/' + v + '/register/add/add-ukprn-search', function (req, res){
 
 		let staff_ukprn = req.session.data['staff-add-ukprn']
 
@@ -53,30 +53,19 @@ module.exports = function (router) {
 			req.session.data['staff-add-hastradingname'] = "no"
 			
 			// UKRLP returns data
-			res.redirect('/staff-app/' + v + '/add-fromukrlp-playback')
+			res.redirect('/staff-app/' + v + '/register/add/add-fromukrlp-playback')
 
 		} else if (staff_ukprn === '11110002') {
 			
 			// UKPRN is deactivated/unknown
-			res.redirect('/staff-app/' + v + '/add-ukprn-deactivated')
+			res.redirect('/staff-app/' + v + '/register/add/add-ukprn-deactivated')
 
 		} else {
 
-			res.redirect('/staff-app/' + v + '/add-ukprn')
+			res.redirect('/staff-app/' + v + '/register/add/add-ukprn')
 
-		} /*else if (staff_ukprn === '11110003') {
+		}
 		
-			// UKRLP provides non-200 response
-			// Existing manual entry form
-			res.redirect('/staff-app/' + v + '/add-ukprn-outage')
-
-		} else if (staff_ukprn === '11110004') {
-		
-			// UKRLP provides non-200 response
-			// New multi-page journey
-			res.redirect('/staff-app/' + v + '/add-ukprn-outage')
-
-		}*/
 	})
 
 	// UKRLP unavailable
@@ -118,10 +107,10 @@ module.exports = function (router) {
 		res.redirect('/staff-app/' + v + '/add-confirm')
 	})
 
-	router.post('/staff-app/' + v + '/add-fromukrlp-determined-a', function (req, res) {
+	router.post('/staff-app/' + v + '/register/add/add-fromukrlp-determined-a', function (req, res) {
 
 		req.session.data['staff-add-determined-monthname'] = monthNumToName(req.session.data['staff-add-determined-month']);
-		res.redirect('/staff-app/' + v + '/add-confirm')
+		res.redirect('/staff-app/' + v + '/register/add/add-confirm')
 
 	})
 }

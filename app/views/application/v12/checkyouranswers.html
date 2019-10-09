@@ -1149,22 +1149,30 @@
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Does your organisation’s process for evaluating the quality of training include apprenticeship training?
+          Does your organisation’s process for evaluating the quality of training delivered include apprenticeship training?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['eval-apprenticeships'] }}
         </dd>
       </div>
-      {% if data['eval-apprenticeships-how'] != "" %}
+      {% if data['eval-apprenticeships'] == "No" %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Does your organisation’s process for evaluating the quality of training include apprenticeship training?
+          How will your organisation evaluate the quality of apprenticeship training?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['eval-apprenticeships-how'] }}
         </dd>
       </div>
       {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will your organisation review its process for evaluating the quality of training delivered?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-review'] }}
+        </dd>
+      </div>
     </dl>
 
     <h3 class="govuk-heading-m">Systems and processes to collect data <a href="#" class="roatp_changeanswers">Change answers</a></h3>

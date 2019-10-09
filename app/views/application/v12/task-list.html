@@ -730,9 +730,9 @@
             </li> 
             <li class="app-task-list__item">
               {% if (data['tl_eval_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="evaluating/training" aria-describedby="eval-training">Process for evaluating the quality of training</a>
+                <a class="app-task-list__task-name" href="evaluating/training" aria-describedby="eval-training">Process for evaluating the quality of training delivered</a>
               {% else %}
-                Process for evaluating the quality of training
+                Process for evaluating the quality of training delivered
               {% endif %}
               {% if data['tl_eval_training'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="eval-training">Completed</strong>
@@ -740,9 +740,9 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_eval_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="evaluating/apprenticeships" aria-describedby="eval-apprenticeships">Process of evaluating the quality of apprenticeship training</a>
+                <a class="app-task-list__task-name" href="evaluating/apprenticeships" aria-describedby="eval-apprenticeships">Evaluating the quality of apprenticeship training</a>
               {% else %}
-                Process of evaluating the quality of apprenticeship training
+                Evaluating the quality of apprenticeship training
               {% endif %}
               {% if data['tl_eval_apprenticeships'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="eval-apprenticeships">Completed</strong>
@@ -752,9 +752,9 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_eval_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
-                <a class="app-task-list__task-name" href="evaluating/collectdata" aria-describedby="eval-collectdata">Systems and processes to collect data</a>
+                <a class="app-task-list__task-name" href="evaluating/collectdata" aria-describedby="eval-collectdata">Systems and processes to collect apprenticeship data</a>
               {% else %}
-                Systems and processes to collect data
+                Systems and processes to collect apprenticeship data
               {% endif %}
               {% if data['tl_eval_collectdata'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="eval-collectdata">Completed</strong>
@@ -764,9 +764,9 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_eval_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
-                <a class="app-task-list__task-name" href="evaluating/ilr" aria-describedby="eval-ilr">Using Individualised Learner Record systems</a>
+                <a class="app-task-list__task-name" href="evaluating/ilr" aria-describedby="eval-ilr">Using Individualised Learner Record</a>
               {% else %}
-                Using Individualised Learner Record systems
+                Using Individualised Learner Record
               {% endif %}
               {% if data['tl_eval_ilr'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="eval-ilr">Completed</strong>

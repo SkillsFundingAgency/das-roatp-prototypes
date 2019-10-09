@@ -921,6 +921,7 @@ module.exports = function (router) {
 		req.session.data['eval-ilr'] = "Yes"
 		req.session.data['eval-training'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis porta magna. Aliquam ornare justo id placerat fringilla. Nunc metus justo, consequat sed neque sit amet, mattis vehicula justo. Phasellus vulputate ipsum a auctor convallis. Sed laoreet imperdiet est et hendrerit. Nam aliquet dolor sit amet ornare euismod. Aenean consectetur varius justo sed malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras dolor turpis, facilisis vitae scelerisque congue, interdum at massa."
 		req.session.data['eval-training-improvements'] = "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer sit amet fringilla tortor, tristique hendrerit nunc. In eget libero metus. Curabitur in eleifend risus. Maecenas libero tellus, aliquet eget ex nec, luctus imperdiet mi. Nullam a suscipit neque. Morbi feugiat dolor vitae nibh commodo dictum. Nullam quis posuere tellus."
+		req.session.data['eval-review'] = "Fusce sed massa quis nibh finibus faucibus. Fusce semper nibh odio, sed luctus nisl egestas eget. In imperdiet malesuada risus, id varius justo condimentum eget. Fusce porttitor mi at diam aliquet, sed dignissim metus ornare. Mauris convallis molestie eros, eget tempor nunc commodo ac. Fusce id eros lobortis sem aliquet pulvinar a at turpis. Duis cursus interdum nisi at euismod. Ut ornare mauris ac molestie euismod. Sed nulla eros, auctor non rhoncus non, tristique ac purus. Nam luctus odio et libero viverra, non malesuada velit consectetur. Nulla sed interdum massa, non malesuada odio. Pellentesque ut faucibus magna. Integer ornare ligula leo, eget feugiat ante porta nec. Praesent vitae imperdiet ex. Aliquam pharetra massa sollicitudin nulla facilisis finibus."
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['fin-finstatements-upload'] = ""
 		req.session.data['fin-fullstatements'] = "Yes"
@@ -1143,6 +1144,7 @@ module.exports = function (router) {
 		req.session.data['eval-ilr'] = "Yes"
 		req.session.data['eval-training'] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis porta magna. Aliquam ornare justo id placerat fringilla. Nunc metus justo, consequat sed neque sit amet, mattis vehicula justo. Phasellus vulputate ipsum a auctor convallis. Sed laoreet imperdiet est et hendrerit. Nam aliquet dolor sit amet ornare euismod. Aenean consectetur varius justo sed malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras dolor turpis, facilisis vitae scelerisque congue, interdum at massa."
 		req.session.data['eval-training-improvements'] = "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer sit amet fringilla tortor, tristique hendrerit nunc. In eget libero metus. Curabitur in eleifend risus. Maecenas libero tellus, aliquet eget ex nec, luctus imperdiet mi. Nullam a suscipit neque. Morbi feugiat dolor vitae nibh commodo dictum. Nullam quis posuere tellus."
+		req.session.data['eval-review'] = "Fusce sed massa quis nibh finibus faucibus. Fusce semper nibh odio, sed luctus nisl egestas eget. In imperdiet malesuada risus, id varius justo condimentum eget. Fusce porttitor mi at diam aliquet, sed dignissim metus ornare. Mauris convallis molestie eros, eget tempor nunc commodo ac. Fusce id eros lobortis sem aliquet pulvinar a at turpis. Duis cursus interdum nisi at euismod. Ut ornare mauris ac molestie euismod. Sed nulla eros, auctor non rhoncus non, tristique ac purus. Nam luctus odio et libero viverra, non malesuada velit consectetur. Nulla sed interdum massa, non malesuada odio. Pellentesque ut faucibus magna. Integer ornare ligula leo, eget feugiat ante porta nec. Praesent vitae imperdiet ex. Aliquam pharetra massa sollicitudin nulla facilisis finibus."
 		req.session.data['exempt_fha'] = "no"
 		req.session.data['fin-finstatements-upload'] = ""
 		req.session.data['fin-fullstatements'] = "Yes"
@@ -3204,17 +3206,21 @@ module.exports = function (router) {
 
 	// Existing process suitable for apprenticeships
 	router.post('/application/' + v + '/evaluating/apprenticeships', function (req, res) {
+		req.session.data['tl_eval_apprenticeships'] = 'inprogress'
 		if (req.session.data['eval-apprenticeships'] == "Yes"){
-			req.session.data['tl_eval_apprenticeships'] = 'completed'
-			res.redirect('/application/' + v + '/task-list#section-evaluating')
+			res.redirect('/application/' + v + '/evaluating/review')
 		} else {
-			req.session.data['tl_eval_apprenticeships'] = 'inprogress'
 			res.redirect('/application/' + v + '/evaluating/apprenticeships-how')
 		}
 	})
 
 	// Process for evaluating quality of training and outcomes (LM 12)
 	router.post('/application/' + v + '/evaluating/apprenticeships-how', function (req, res) {
+		res.redirect('/application/' + v + '/evaluating/review')
+	})
+
+	// Review process for evaluating the quality of training delivered
+	router.post('/application/' + v + '/evaluating/review', function (req, res) {
 		req.session.data['tl_eval_apprenticeships'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-evaluating')
 	})

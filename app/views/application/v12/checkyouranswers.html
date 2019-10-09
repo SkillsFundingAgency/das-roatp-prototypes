@@ -70,9 +70,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
 
-      <h2 class="govuk-heading-l">1. Your organisation</h2>
-
-    <h3 class="govuk-heading-m">Organisation information</h3>
+    <h2 class="govuk-heading-l">1. Your organisation</h2>
+    
+    <h3 class="govuk-heading-m">Organisation information<a href="#" class="roatp_changeanswers">Change answers</a></h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
@@ -86,11 +86,6 @@
             {{ data['org-parentcompany'] | capitalize }}
           {% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> parent company</span>
-          </a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -99,11 +94,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['org-ico'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> ICO registration number</span>
-          </a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -111,11 +101,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['org-trading'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> trading for length</span>
-          </a>
         </dd>
       </div>
     </dl>
@@ -133,7 +118,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h3 class="govuk-heading-m">Describe your organisation</h3>
+  
+    <h3 class="govuk-heading-m">Describe your organisation<a href="#" class="roatp_changeanswers">Change answers</a></h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
@@ -153,11 +139,6 @@
           {% endif %}
           {{ data['org-fundedbytext'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
-            Change<span class="govuk-visually-hidden"> parent company</span>
-          </a>
-        </dd>
       </div>
       {% if (data['org-classification']) and (data['org-classification'] != "None of the above") %}
         <div class="govuk-summary-list__row">
@@ -175,16 +156,11 @@
               {{data['org-classification']}}
             {% endif %}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> parent company</span>
-            </a>
-          </dd>
         </div>
       {% endif %}
     </dl>
 
-    <h3 class="govuk-heading-m">Experience and accreditations</h3>
+    <h3 class="govuk-heading-m">Experience and accreditations<a href="#" class="roatp_changeanswers">Change answers</a></h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
 
@@ -197,9 +173,6 @@
           <dd class="govuk-summary-list__value">
             {{ data['pro-subcontractor'] | capitalize }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
 
       {% else %}
@@ -211,11 +184,6 @@
           <dd class="govuk-summary-list__value">
             {{ data['pro-itt'] | capitalize }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> offer initial teacher training</span>
-            </a>
-          </dd>
         </div>
         {% if (data['pro-postgrad']) %}
           <div class="govuk-summary-list__row">
@@ -225,20 +193,12 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-postgrad'] | capitalize }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> post graduate teaching apprenticeships</span>
-              </a>
-            </dd>
           </div>
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
           <dd class="govuk-summary-list__value">
             {{ data['pro-ofsted-feskills'] | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
           </dd>
         </div>
         {% if (data['pro-monitoring-visit']) %}
@@ -248,9 +208,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-monitoring-visit'] | capitalize }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -262,9 +219,6 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships'] | capitalize }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-apprenticeships-grade']) %}
@@ -274,9 +228,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships-grade'] | capitalize }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -288,9 +239,6 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships-date'] | capitalize }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-grade']) %}
@@ -300,9 +248,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-grade'] | capitalize }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -314,9 +259,6 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-date'] | capitalize }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-shortinspection']) %}
@@ -326,9 +268,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-shortinspection'] | capitalize }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -340,9 +279,6 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-grademaintained'] | capitalize }}
             </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
-            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-fundingmaintained']) %}
@@ -352,9 +288,6 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-fundingmaintained'] | capitalize }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -368,7 +301,7 @@
 
     {% if data['exempt_fha'] == "no" %}
 
-      <h2 class="govuk-heading-l">2. Financial health assessment</h2>
+      <h2 class="govuk-heading-l">2. Financial health assessment<a href="#" class="roatp_changeanswers">Change answers</a></h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
 
@@ -378,9 +311,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['fin-fullstatements'] | capitalize }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
           </dd>
         </div>
 
@@ -392,9 +322,6 @@
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
         {% else %}
         <div class="govuk-summary-list__row">
@@ -404,9 +331,6 @@
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -414,9 +338,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
           </dd>
         </div>
         {% endif %}
@@ -433,9 +354,6 @@
               {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['fin-whoprepared'] | length > 2) and(i < data['fin-whoprepared'] | length) %}, {% endif %}
             {% endfor %}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
 
       </dl>
@@ -447,7 +365,7 @@
 
     <h2 class="govuk-heading-l">3. Criminal and compliance checks</h2>
 
-    <h3 class="govuk-heading-m">Checks on your organisation</h3>
+    <h3 class="govuk-heading-m">Checks on your organisation<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -455,9 +373,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-org-debt'] | capitalize }}{% if data['dec-org-debt'] == "Yes" %}. {{ data['dec-org-debt-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -467,9 +382,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-repayfunding'] | capitalize }}{% if data['dec-org-repayfunding'] == "Yes" %}. {{ data['dec-org-repayfunding-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -477,9 +389,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-contractterminated'] | capitalize }}{% if data['dec-org-contractterminated'] == "Yes" %}. {{ data['dec-org-contractterminated-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -489,9 +398,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-withdrawncontract'] | capitalize }}{% if data['dec-org-withdrawncontract'] == "Yes" %}. {{ data['dec-org-withdrawncontract-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -499,9 +405,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-roto'] | capitalize }}{% if data['dec-org-roto'] == "Yes" %}. {{ data['dec-org-roto-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -511,9 +414,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-fundingremoved'] | capitalize }}{% if data['dec-org-fundingremoved'] == "Yes" %}. {{ data['dec-org-fundingremoved-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -521,9 +421,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-traderegister'] | capitalize }}{% if data['dec-org-traderegister'] == "Yes" %}. {{ data['dec-org-traderegister-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -533,9 +430,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-ittwithdrawal'] | capitalize }}{% if data['dec-org-ittwithdrawal'] == "Yes" %}. {{ data['dec-org-ittwithdrawal-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -543,9 +437,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-safeguarding'] | capitalize }}{% if data['dec-org-safeguarding'] == "Yes" %}. {{ data['dec-org-safeguarding-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -555,13 +446,10 @@
         <dd class="govuk-summary-list__value">
           {{ data['dec-org-whistleblowing'] | capitalize }}{% if data['dec-org-whistleblowing'] == "Yes" %}. {{ data['dec-org-whistleblowing-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Checks on who’s in control of your organisation</h3>
+    <h3 class="govuk-heading-m">Checks on who’s in control of your organisation<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -569,9 +457,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-convictions'] | capitalize }}{% if data['dec-people-convictions'] == "Yes" %}. {{ data['dec-people-convictions-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -581,9 +466,6 @@
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-repayfunding'] | capitalize }}{% if data['dec-people-repayfunding'] == "Yes" %}. {{ data['dec-people-repayfunding-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -591,9 +473,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-fraud'] | capitalize }}{% if data['dec-people-fraud'] == "Yes" %}. {{ data['dec-people-fraud-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -603,9 +482,6 @@
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-fraudongoing'] | capitalize }}{% if data['dec-people-fraudongoing'] == "Yes" %}. {{ data['dec-people-fraudongoing-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -613,9 +489,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-contractterminated'] | capitalize }}{% if data['dec-people-contractterminated'] == "Yes" %}. {{ data['dec-people-contractterminated-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -625,9 +498,6 @@
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-withdrawncontract'] | capitalize }}{% if data['dec-people-withdrawncontract'] == "Yes" %}. {{ data['dec-people-withdrawncontract-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -635,9 +505,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-taxpayments'] | capitalize }}{% if data['dec-people-taxpayments'] == "Yes" %}. {{ data['dec-people-taxpayments-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -647,9 +514,6 @@
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-charityregister'] | capitalize }}{% if data['dec-people-charityregister'] == "Yes" %}. {{ data['dec-people-charityregister-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -657,9 +521,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-trusteeregister'] | capitalize }}{% if data['dec-people-trusteeregister'] == "Yes" %}. {{ data['dec-people-trusteeregister-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -669,9 +530,6 @@
         <dd class="govuk-summary-list__value">
         {{ data['dec-people-bankrupt'] | capitalize }}{% if data['dec-people-bankrupt'] == "Yes" %}. {{ data['dec-people-bankrupt-detail'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -679,9 +537,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['dec-people-insolvency'] | capitalize }}{% if data['dec-people-insolvency'] == "Yes" %}. {{ data['dec-people-insolvency-detail'] }}{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
     </dl>
@@ -691,7 +546,7 @@
 
     <h2 class="govuk-heading-l">4. Protecting your apprentices</h2>
 
-    <h3 class="govuk-heading-m">Continuity plan for apprenticeship training</h3>
+    <h3 class="govuk-heading-m">Continuity plan for apprenticeship training<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -700,13 +555,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Equality and diversity policy</h3>
+    <h3 class="govuk-heading-m">Equality and diversity policy<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -715,13 +567,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Safeguarding policy</h3>
+    <h3 class="govuk-heading-m">Safeguarding policy<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -729,9 +578,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -743,13 +589,10 @@
           {% if data['wel-safeguardingresponsible-email'] != "" %}<br>{{ data['wel-safeguardingresponsible-email'] }}{% endif %}
           {% if data['wel-safeguardingresponsible-tel'] != "" %}<br>{{ data['wel-safeguardingresponsible-tel'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Prevent duty policy</h3>
+    <h3 class="govuk-heading-m">Prevent duty policy<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -758,13 +601,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Health and safety policy</h3>
+    <h3 class="govuk-heading-m">Health and safety policy<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -772,9 +612,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -786,9 +623,6 @@
           {% if data['wel-healthandsafetyresponsible-email'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-email'] }}{% endif %}
           {% if data['wel-healthandsafetyresponsible-tel'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-tel'] }}{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
@@ -797,7 +631,7 @@
 
     <h2 class="govuk-heading-l">5. Readiness to engage</h2>
 
-    <h3 class="govuk-heading-m">Engaging with employers</h3>
+    <h3 class="govuk-heading-m">Engaging with employers<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       {% if data['org-selectedroute'] != "employer" %}
         <div class="govuk-summary-list__row">
@@ -807,9 +641,6 @@
           <dd class="govuk-summary-list__value">
             {{ data['rte-engaged'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -817,9 +648,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['rte-relationships'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -829,14 +657,11 @@
           <dd class="govuk-summary-list__value">
             {{ data['rte-managingrelationships'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
       {% endif %}
     </dl>
 
-    <h3 class="govuk-heading-m">Complaints policy</h3>
+    <h3 class="govuk-heading-m">Complaints policy<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -845,13 +670,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Contract for services template</h3>
+    <h3 class="govuk-heading-m">Contract for services template<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -860,13 +682,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Commitment statement template</h3>
+    <h3 class="govuk-heading-m">Commitment statement template<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -875,13 +694,10 @@
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Prior learning of apprentices</h3>
+    <h3 class="govuk-heading-m">Prior learning of apprentices<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -889,9 +705,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['rte-priorlearning'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -901,13 +714,10 @@
         <dd class="govuk-summary-list__value">
           {{ data['rte-assessenglishmaths'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Working with subcontractors</h3>
+    <h3 class="govuk-heading-m">Working with subcontractors<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -915,9 +725,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['rte-usesubcontractors'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       {% if data['rte-usesubcontractors'] == "Yes" %}
@@ -928,9 +735,6 @@
           <dd class="govuk-summary-list__value">
             {{ data['rte-engage-subcontractors'] }}
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change</a>
-          </dd>
         </div>
       {% endif %}
     </dl>
@@ -940,7 +744,8 @@
 
     <h2 class="govuk-heading-l">6. Planning apprenticeship training</h2>
 
-    <h3 class="govuk-heading-m">Type of apprenticeship training</h3>
+    
+    <h3 class="govuk-heading-m">Type of apprenticeship training<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -958,9 +763,6 @@
             {% set i = i + 1 %}
           {% endfor %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -968,9 +770,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['plan-engaging'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -981,15 +780,13 @@
           {{ data['plan-contact-name'] }}<br>
           {{ data['plan-contact-email'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
     <!-- SUPPORTING APPRENTICES - TO DO -->
 
-    <h3 class="govuk-heading-m">Forecasting starts</h3>
+    
+    <h3 class="govuk-heading-m">Forecasting starts<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -997,9 +794,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['plan-forecast-starts'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1009,9 +803,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['plan-forecast-readytodeliver'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1019,9 +810,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['plan-forecast-newstaff'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1031,13 +819,11 @@
         <dd class="govuk-summary-list__value">
           {{ data['plan-forecast-ratio'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Off the job training</h3>
+    
+    <h3 class="govuk-heading-m">Off the job training<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1051,9 +837,6 @@
             {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['plan-otj-method'] | length > 2) and(i < data['plan-otj-method'] | length) %}, {% endif %}
           {% endfor %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1062,13 +845,11 @@
         <dd class="govuk-summary-list__value">
           {{ data['plan-otj-relevant'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Where apprentices will be trained</h3>
+    
+    <h3 class="govuk-heading-m">Where apprentices will be trained<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1084,9 +865,6 @@
           {% if (data['plan-address-postcode'] != "") %}<br>{% endif %}
           {{ data['plan-address-postcode'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
@@ -1095,7 +873,8 @@
 
     <h2 class="govuk-heading-l">7. Delivering apprenticeship training</h2>
 
-    <h3 class="govuk-heading-m">Overall accountability for apprenticeships</h3>
+    
+    <h3 class="govuk-heading-m">Overall accountability for apprenticeships<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1106,13 +885,11 @@
           {{ data['del-developdeliver-overallaccountability-email'] }}<br>
           {{ data['del-developdeliver-overallaccountability-number'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Management hierarchy for apprenticeships</h3>
+    
+    <h3 class="govuk-heading-m">Management hierarchy for apprenticeships<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <div class="govuk-accordion govuk-accordion--roatpcya" data-module="accordion" id="accordion-default">
       {% set i = 0 %}
       {% for person in data['del-hierarchy-person'] %}
@@ -1176,7 +953,8 @@
       {% endfor %}
     </div>
 
-    <h3 class="govuk-heading-m">Quality and standards in apprenticeship training</h3>
+    
+    <h3 class="govuk-heading-m">Quality and standards in apprenticeship training<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1185,9 +963,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-expectations'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1195,9 +970,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1209,9 +981,6 @@
           {{ data['del-expectations-responsible-email'] }}<br>
           {{ data['del-expectations-responsible-number'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1220,13 +989,11 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-expectations-comminicated'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Developing and delivering training</h3>
+    
+    <h3 class="govuk-heading-m">Developing and delivering training<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1234,9 +1001,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['del-developdeliver'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1246,9 +1010,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-developdeliver-workedwith'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1256,9 +1017,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['del-developdeliver-howworkedwith'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1268,9 +1026,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-developdeliver-overallmanager'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1279,13 +1034,10 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-developdeliver-overallmanager-experience'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Sectors and employee experience</h3>
+    <h3 class="govuk-heading-m">Sectors and employee experience<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-3 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1298,9 +1050,6 @@
             {% if (i == 0) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (i+1 < data['del-sectors'] | length) %}, {% endif %}
             {% set i = i + 1 %}
           {% endfor %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
     </dl>
@@ -1342,7 +1091,8 @@
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m govuk-!-margin-top-9">Policy for professional development of employees</h3>
+    
+    <h3 class="govuk-heading-m govuk-!-margin-top-9">Policy for professional development of employees<a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1350,9 +1100,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           '<a href="#">filename.pdf</a>' uploaded
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1362,9 +1109,6 @@
         <dd class="govuk-summary-list__value">
           {{ data['del-development-implemented'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1372,9 +1116,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['del-development-reflected'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
     </dl>
@@ -1384,7 +1125,7 @@
 
     <h2 class="govuk-heading-l">8. Evaluating training</h2>
 
-    <h3 class="govuk-heading-m">Process for evaluating the quality of training</h3>
+    <h3 class="govuk-heading-m">Process for evaluating the quality of training <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1392,9 +1133,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['eval-training'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1404,13 +1142,10 @@
         <dd class="govuk-summary-list__value">
           {{ data['eval-training-improvements'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Process of evaluating the quality of apprenticeship training</h3>
+    <h3 class="govuk-heading-m">Process of evaluating the quality of apprenticeship training <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1418,9 +1153,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['eval-apprenticeships'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       {% if data['eval-apprenticeships-how'] != "" %}
@@ -1431,14 +1163,11 @@
         <dd class="govuk-summary-list__value">
           {{ data['eval-apprenticeships-how'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       {% endif %}
     </dl>
 
-    <h3 class="govuk-heading-m">Systems and processes to collect data</h3>
+    <h3 class="govuk-heading-m">Systems and processes to collect data <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1447,13 +1176,10 @@
         <dd class="govuk-summary-list__value">
           {{ data['eval-collectdata'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">Using Individualised Learner Record systems</h3>
+    <h3 class="govuk-heading-m">Using Individualised Learner Record systems <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1461,9 +1187,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['eval-ilr'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
     </dl>
@@ -1473,7 +1196,7 @@
 
     <h2 class="govuk-heading-l">9. Finish</h2>
 
-    <h3 class="govuk-heading-m">Your details and permissions</h3>
+    <h3 class="govuk-heading-m">Your details and permissions <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1484,9 +1207,6 @@
           {{ data['end-yourdetails-email'] }}<br>
           {{ data['end-yourdetails-number'] }}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1494,9 +1214,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {% if data['end-permission-submit'] %}Yes{% else %}No{% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -1506,13 +1223,10 @@
         <dd class="govuk-summary-list__value">
           {% if data['end-permission-named'] %}Yes{% else %}No{% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
-        </dd>
       </div>
     </dl>
 
-    <h3 class="govuk-heading-m">About this application</h3>
+    <h3 class="govuk-heading-m">About this application <a href="#" class="roatp_changeanswers">Change answers</a></h3>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1520,9 +1234,6 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['end-permission-commercial'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">Change</a>
         </dd>
       </div>
     </dl>

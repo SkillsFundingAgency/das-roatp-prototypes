@@ -1,0 +1,67 @@
+{% set current_section = "applications" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to application overview",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Check organisation information</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+	
+			<table class="govuk-table">
+				<caption class="govuk-table__caption govuk-heading-m">Two answers do not match</caption>
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header">Question</th>
+					<th scope="col" class="govuk-table__header">Applicant answer</th>
+					<th scope="col" class="govuk-table__header">UKRLP record</th>
+					<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header">Legal name</th>
+					<td class="govuk-table__cell">Learnovate ltd</td>
+					<td class="govuk-table__cell">Learnovate training ltd</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Mismatch</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+					<th scope="row" class="govuk-table__header">Trading name</th>
+					<td class="govuk-table__cell">Learnovate</td>
+					<td class="govuk-table__cell">Learnovate training</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Mismatch</strong></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="govuk-body">
+				<a href="#">Show all answers</a>
+			</p>
+
+			<h2 class="govuk-heading-m">
+				Request clarification
+			</h2>
+			<p class="govuk-body">The applicant will be asked to check and update their answers.</p>
+			<button class="govuk-button" data-module="govuk-button">
+				Request clarification
+			</button>
+
+		</div>
+	</div>
+      
+{% endblock %}

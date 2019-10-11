@@ -1,0 +1,89 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Tell us who’s in control</span>
+
+    <h1 class="govuk-heading-l">Who is in control of your organisation?</h1>
+
+    <p class="govuk-body">This could be a:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>company director</li>
+      <li>shareholder</li>
+      <li>person with significant control</li>
+      <li>person with decision making powers</li>
+      <li>head of organisation</li>
+      <li>trustee</li>
+      <li>sole trader</li>
+      <li>partner</li>
+    </ul>
+
+    <p class="govuk-body">If there is more than one person who’s in control, you can add them later.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "Enter full name"
+        },
+        classes: "govuk-input--width-20",
+        id: "org-personincontrol-name",
+        name: "org-personincontrol-name"
+      }) }}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="org-personincontrol-dob-hint" role="group">
+          <legend class="govuk-fieldset__legend">
+              Enter date of birth 
+          </legend>
+          <span id="org-personincontrol-dob-hint" class="govuk-hint">
+            For example, 12 1993
+          </span>
+          <div class="govuk-date-input" id="org-personincontrol-dob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="org-personincontrol-dob-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="org-personincontrol-dob-month" name="org-personincontrol-dob-month" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="org-personincontrol-dob-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="org-personincontrol-dob-year" name="org-personincontrol-dob-year" type="number" pattern="[0-9]*">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v13/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

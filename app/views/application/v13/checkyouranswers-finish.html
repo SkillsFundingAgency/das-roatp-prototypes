@@ -1,0 +1,90 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers for 'finish'</h1>
+      
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h3 class="govuk-heading-m">Your details and permissions</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Your contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['end-yourdetails-name'] }}<br>
+          {{ data['end-yourdetails-email'] }}<br>
+          {{ data['end-yourdetails-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          I have permission from my organisation to submit this application
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['end-permission-submit'] %}Yes{% else %}No{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          I have permission from everyone named in this application to use their details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['end-permission-named'] %}Yes{% else %}No{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">About this application</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Is any of the information in this application ‘commercial in confidence’?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['end-permission-commercial'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Confirm answers for 'finish'",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

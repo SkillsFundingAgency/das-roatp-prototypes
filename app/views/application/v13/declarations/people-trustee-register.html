@@ -1,0 +1,86 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Checks on who’s in control of your organisation</span>
+
+      <h1 class="govuk-heading-l">Is anyone who's in control of your organisation on the Register of Removed Trustees?</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            id: "dec-people-trusteeregister-detail",
+            name: "dec-people-trusteeregister-detail",
+            maxlength: 1500,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You’ll need to include a brief summary of who this was and what measures were put in place to manage this."
+            },
+            value: data['dec-people-trusteeregister-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-people-trusteeregister",
+          name: "dec-people-trusteeregister",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("dec-people-trusteeregister", "Yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("dec-people-trusteeregister", "No")
+            }
+          ]
+        }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="people-bankrupt">Return to this question later</a></p>
+      
+        {% include "includes/v13/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

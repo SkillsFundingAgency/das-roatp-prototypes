@@ -1,0 +1,109 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Developing and delivering training</span>
+          
+    <h1 class="govuk-heading-l">Tell us who’s the overall manager for this team</h1>
+    
+    <p class="govuk-body">This must be someone who is accountable for the team responsible for developing and delivering training.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        classes: "govuk-input--width-20",
+        id: "del-developdeliver-overallmanager",
+        name: "del-developdeliver-overallmanager",
+        value: data['del-developdeliver-overallmanager']
+      }) }}
+
+      {% if data["org-selectedroute"] == "supporting" %}
+
+        <h2 class="govuk-heading-m">Do they have at least 3 months experience in developing and delivering training?</h2>
+        <p class="govuk-body">This experience can be from either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your organisation</li>
+          <li>previous employment</li>
+        </ul>
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-overallmanager-experience",
+          name: "del-developdeliver-overallmanager-experience",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-overallmanager-experience", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-overallmanager-experience", "No")
+            }
+          ]
+        }) }}
+
+      {% else %} <!-- if main or employer route -->
+
+        <h2 class="govuk-heading-m">How much experience do they have in developing and delivering training?</h2>
+        <p class="govuk-body">This experience can be from either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your organisation</li>
+          <li>previous employment</li>
+        </ul>
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-overallmanager-experience",
+          name: "del-developdeliver-overallmanager-experience",
+          items: [
+            {
+              value: "Less than 9 months",
+              text: "Less than 9 months",
+              checked: checked("del-developdeliver-overallmanager-experience", "Less than 9 months")
+            },
+            {
+              value: "Between 9 to 18 months",
+              text: "Between 9 to 18 months",
+              checked: checked("del-developdeliver-overallmanager-experience", "Between 9 to 18 months")
+            },
+            {
+              value: "Over 18 months",
+              text: "Over 18 months",
+              checked: checked("del-developdeliver-overallmanager-experience", "Over 18 months")
+            }
+          ]
+        }) }}
+      
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v10/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class="govuk-caption-l">Engaging with employers</p>
+
+      <h1 class="govuk-heading-l">How will your organisation manage its relationships with employers?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>continuously monitor and improve employer engagement</li>
+        <li>regularly review feedback from employers</li>
+        <li>manage concerns and issues raised by employers</li>
+        <li>manage communication with employers</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+      
+        {{ govukCharacterCount({
+          name: "rte-relationships",
+          id: "rte-relationships",
+          maxlength: 750
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="managing-relationships">Return to this question later</a></p>
+      
+        {% include "includes/v6/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

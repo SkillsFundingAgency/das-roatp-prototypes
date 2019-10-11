@@ -1,0 +1,100 @@
+{% set current_section = "applications" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to application overview",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Organisation details</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Organisation name</dt>
+				<dd class="govuk-summary-list__value">Learnovate ltd</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Trading name</dt>
+				<dd class="govuk-summary-list__value">Learnovate</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">UKPRN</dt>
+				<dd class="govuk-summary-list__value">2893347</dd>
+			</div>
+		</dl>
+
+		<ol class="app-task-list">
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">1. </span> Check information validity
+				</h2>
+				<ul class="app-task-list__items">
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<a href="check-org" aria-describedby="eligibility-completed">
+						Check organisation information
+					</a>
+					</span>
+					<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+				</li>
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<a href="#" aria-describedby="read-declaration-completed">
+						Check persons of significant control information
+					</a>
+					</span>
+					<strong class="govuk-tag app-task-list__task-completed" id="read-declaration-completed">Completed</strong>
+				</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">2. </span> Assess answers
+				</h2>
+				<ul class="app-task-list__items">
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<a href="#" aria-describedby="company-information-completed">
+						Organisation information
+					</a>
+					</span>
+					<!-- <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong> -->
+				</li>
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<a href="#" aria-describedby="contact-details-completed">
+						Describe your organisation
+					</a>
+					</span>
+					<!-- <strong class="govuk-tag app-task-list__task-completed" id="contact-details-completed">Completed</strong> -->
+				</li>
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<a href="#">
+						Experience and accreditations
+					</a>
+					</span>
+				</li>
+				</ul>
+			</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

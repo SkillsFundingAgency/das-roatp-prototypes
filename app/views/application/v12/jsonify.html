@@ -1,0 +1,27 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  Application complete - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<pre id="inhere">
+    HERE WE GO...
+    {{ data | dump }}<br>
+</pre>
+
+<script>
+    //alert('hey there!');
+    //var jsonObj = json_encode(req.session.data);
+    //print 
+/*
+        var obj = req.session.data['org-selectedroute']
+        
+        document.getElementById("inhere").innerHTML = JSON.stringify(obj)
+*/
+</script>
+{% endblock %}

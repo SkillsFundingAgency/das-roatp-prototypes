@@ -1,0 +1,53 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <p class="govuk-caption-l">Introduction and what you'll need</p>
+
+      <h1 class="govuk-heading-l">Delivering apprenticeship training</h1>
+
+      <p class="govuk-body">For this section, you’ll need to know:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your organisation's management hierarchy for apprenticeships</li>
+        <li>your management hierarchy’s high standards in apprenticeship training</li>
+        <li>who’s responsible for developing and delivering training</li>
+        <li>who has overall accountability for apprenticeships</li>
+        <li>the sectors your organisation will offer apprenticeships in</li>
+        <li>who has experience in those sectors </li>
+        <li>how employees experience in those sectors, teaching and training is maintained through professional development</li>
+      </ul>
+
+      <p class="govuk-body">You’ll also need to upload your organisation’s policy for professional development of employees.</p>
+
+      <p class="govuk-body">It must be specific to your organisation and signed by a senior employee. For example, a director or CEO.</p>
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

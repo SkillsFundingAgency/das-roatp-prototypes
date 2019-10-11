@@ -1,0 +1,87 @@
+{% extends "layout_application_v5.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v5
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            id: "dec-people-fraudongoing-detail",
+            name: "dec-people-fraudongoing-detail",
+            maxlength: 2000,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You’ll need to include a brief summary of what measures were put in place to manage this."
+            },
+            value: data['dec-people-fraudongoing-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-people-fraudongoing",
+          name: "dec-people-fraudongoing",
+          fieldset: {
+            legend: {
+              text: "Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("dec-people-fraudongoing", "yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("dec-people-fraudongoing", "no")
+            }
+          ]
+        }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v5/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

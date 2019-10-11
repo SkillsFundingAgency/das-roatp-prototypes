@@ -1,0 +1,55 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Select route</span>
+
+      <h1 class="govuk-heading-l">Is your organisation a levy-paying employer?</h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "org-selectedroute-employer",
+          name: "org-selectedroute-employer",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("org-selectedroute-employer", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("org-selectedroute-employer", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="org-repay-funding">Return to this question later</a></p>
+      
+        {% include "includes/v12/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

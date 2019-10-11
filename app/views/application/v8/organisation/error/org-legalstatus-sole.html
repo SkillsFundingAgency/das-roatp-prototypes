@@ -1,0 +1,92 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-legalstatus"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v8/organisation/org-legalstatus-sole" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Enter your full name",
+            href: "#org-soletrader-name-error"
+          },
+          {
+            text: "Enter your date of birth",
+            href: "#org-soletrader-dob-error"
+          }
+        ]
+      }) }}
+
+      <h1 class="govuk-heading-l">Enter your details</h1>
+
+      {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        classes: "govuk-input--width-20",
+        id: "org-soletrader-name",
+        name: "org-soletrader-name",
+        value: data['org-soletrader-name'],
+        errorMessage: {
+          text: "Enter your full name"
+        }
+      }) }}
+
+      {{ govukDateInput({
+        fieldset: {
+          legend: {
+            isPageHeading: false,
+            text: 'Date of birth'
+          }
+        },
+        id: 'org-soletrader-dob',
+        name: 'org-soletrader-dob',
+        hint: {
+          text: "For example, 12 1993"
+        },
+        errorMessage: {
+          text: "Enter your date of birth"
+        },
+        items: [
+          {
+            label: "Month",
+            name: "org-soletrader-dob-month",
+            classes: "govuk-input--width-2",
+            value: data['org-soletrader-dob-month'],
+            classes: "govuk-input--width-2 govuk-input--error"
+          },
+          {
+            label: "Year",
+            name: "org-soletrader-dob-year",
+            value: data['org-soletrader-dob-year'],
+            classes: "govuk-input--width-4 govuk-input--error"
+          }
+        ]
+        })
+      }}
+      
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

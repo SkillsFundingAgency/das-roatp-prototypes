@@ -19,19 +19,17 @@
       <form action="" method="post" class="form">
 
         {% set detailHtml %}
-          {{ govukTextarea({
+          {{ govukCharacterCount({
             id: "dec-people-charityregister-detail",
             name: "dec-people-charityregister-detail",
+            maxlength: 2000,
             label: {
               text: "Give us more information"
             },
             hint: {
-              text: "You can include a brief summary of what measures have been put in place to manage this."
+              text: "You’ll need to include a brief summary of who this was and what measures were put in place to manage this."
             },
-            value: data['dec-people-charityregister-detail'],
-            attributes: {
-              spellcheck: "false"
-            }
+            value: data['dec-people-charityregister-detail']
           }) }}
         {% endset -%}
 
@@ -48,9 +46,9 @@
           hint: {
             html: '<p class="govuk-body">This includes being removed from:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>the Charity Commission</li>
-                <li>a charity regulator</li>
-                <li>the Register of Removed Trustees</li>
+                <li>the Charity Commission for England and Wales</li>
+                <li>the Charity Commission for Northern Ireland</li>
+                <li>the Office of the Scottish Charity Regulator</li>
               </ul>'
           },
           items: [
@@ -65,7 +63,7 @@
             {
               value: "no",
               text: "No",
-                checked: checked("dec-people-charityregister", "no")
+              checked: checked("dec-people-charityregister", "no")
             }
           ]
         }) }}
@@ -77,7 +75,7 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
             {% include "../../../includes/directors-pscs.html" %}
 
           </div>
@@ -88,7 +86,7 @@
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

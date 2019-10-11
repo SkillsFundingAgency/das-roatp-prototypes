@@ -14,266 +14,766 @@
       </h1>
 
       <h2 class="govuk-heading-m">RoATP Application Journey</h2>
-          
       <p class="govuk-body">
-        <strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em;">WIP</strong><br>
-        <a href="/application/v5">Application journey v5</a><br>
-        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em;">FOR TESTING</strong-->
-        <span class="govuk-caption-m">Added on: 30/07/2019</span>
+        <a href="/application/v12">Application journey v12</a>
+        <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em; margin-left: 1em">WIP</strong-->
+        <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em; margin-left: 1em">FOR TESTING</strong>
+        <span class="govuk-caption-m">
+          User research: 10th to 11th Oct 2019<br>
+          <!--Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v12" target="_blank">10th to 11th Oct 2019</a><br>-->
+          Created on: 3rd Oct 2019
+        </span>
       </p>
-          
-      <p class="govuk-body" style="margin-bottom: 0;">Scenarios set with UKPRN: 
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/application/v12/jump/completedorgsection">Jump to 'Task list' with organisation section completed</a></li>
+        <li><a href="/application/v12/jump/completedapplicationmain">Jump to 'Application overview' for completed application</a></li>
+        <li><a href="/application/v12/jump/cya">Jump to 'Check your answers' (single page)</a></li>
+        <!--li><a href="/application/v12/jump/dashboard">Jump to Post-submission Dashboard</a></li-->
+      </ul>
+      <details class="govuk-details" style="margin-bottom: 0;">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Scenarios set with UKPRN
+          </span>
+        </summary>
         <div class="govuk-details__text">
           <ul class="govuk-list govuk-list--bullet">
-            <li>12340101: Organisation with all possible details from UKRLP</li>
-            <li>12340102: Organisation has no website or trading name on UKRLP</li>
-            <li>12340103: Organisation has no directors listed</li>
-          </ul>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>12340201: Charity with a company number</li>
-            <li>12340202: Charity without a company number</li>
-            <li>12340203: Charity (not a company) with no trustees listed</li>
-          </ul>
-          <ul class="govuk-list govuk-list--bullet">
-            <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
-          </ul>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>12340401: Organisation is inactive on UKRLP</li>
-            <li>12340402: Organisation is already on the register</li>
-            <li>12340403: Incorporation date less than 12 months ago (3 months for supporting)</li>
-            <li>12340404: Organisation removed from the register</li>
+            <li>12340405 - Organisation already on register as a supporting provider</li>
+            <li>12340406 - Application already submitted for UKPRN (APR-770)</li>
+            <li>12340407 - Application - pre-submission In-progress (APR-771)</li>
           </ul>
         </div>
-      </p>
-
-      <h3 class="govuk-heading-s" style="margin-bottom: 0;">Archived versions of RoATP Application Journey</h3>
+      </details>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed</span>
+        </summary>
         <div class="govuk-details__text">
-          
           <ul class="govuk-list govuk-list--bullet">
-            <li class="govuk-!-margin-bottom-4">
-              <p class="govuk-body" style="margin-bottom: 0;">
-                <a href="/application/v4">Application journey v4</a><br>
-                <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-                <span class="govuk-caption-m">Research findings: <!--a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v3" target="_blank"-->30th Jul - 2nd Aug 2019<!--/a--><br>Added on: 16/07/2019</span>
-              </p>
-              <details class="govuk-details" style="margin-bottom: 0;">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Scenarios set with UKPRN
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340101: Organisation with all possible details from UKRLP</li>
-                    <li>12340102: Organisation has no website or trading name on UKRLP</li>
-                    <li>12340103: Organisation has no directors listed</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340201: Charity with a company number</li>
-                    <li>12340202: Charity without a company number</li>
-                    <li>12340203: Charity (not a company) with no trustees listed</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340401: Organisation is inactive on UKRLP</li>
-                    <li>12340402: Organisation is already on the register</li>
-                    <li>12340403: Incorporation date less than 12 months ago (3 months for supporting)</li>
-                    <li>12340404: Organisation removed from the register</li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-
-            <li class="govuk-!-margin-bottom-4">
-              <p class="govuk-body" style="margin-bottom: 0;">
-                <a href="/application/v3">Application journey v3</a><br>
-                <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-                <span class="govuk-caption-m">
-                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v3" target="_blank">17th - 19th Jul 2019</a><br>Added on: 03/07/2019</span>
-              </p>
-              <details class="govuk-details" style="margin-bottom: 0;">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Scenarios set with UKPRN
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340101: Happy path - all org details from UKRLP</li>
-                    <li><span style="background-color: #FFF963">12340102: Organisation has no website or trading name</span></li>
-                    <li>12340103: Inactive organisation</li>
-                    <!--li><s>12340104: Organisation with a parent company</s></li-->
-                    <li>12340105: Incorporation date less than 12 months ago (3 months for supporting)</li>
-                    <li>12340106: Organisation has no directors listed</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li><span style="background-color: #FFF963">12340201: Charity with a company number</span></li>
-                    <li><span style="background-color: #FFF963">12340202: Charity without a company number</span></li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Scenarios set with login
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>main@financial.upload
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>'Your organisation' complete</li>
-                        <li>ITT and Postgrad, no Ofsted inspections</li>
-                      </ul>
-                    </li>
-                    <li>main@company.profile
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>Jump to 'Organisation profile'</li>
-                        <li>All company details found on UKRLP</li>
-                      </ul>
-                    </li>
-                    <li>main-parentcompany@organisation.complete
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>'Your organisation' complete</li>
-                        <li>Organisation has a parent company</li>
-                        <li>ITT and Postgrad, no Ofsted inspections</li>
-                      </ul>
-                    </li>
-                    <li>main@hei.profile
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>Jump to 'Organisation profile'</li>
-                        <li>Higher Education Institute funded by OfS</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-            <li class="govuk-!-margin-bottom-4">
-              <p class="govuk-body" style="margin-bottom: 0;">
-                <a href="/application/v2">Application journey v2</a><br>
-                <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-                <span class="govuk-caption-m">
-                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v2" target="_blank">3rd - 5th Jul 2019</a><br>Added on: 18/06/2019</span>
-              </p>
-              <details class="govuk-details" style="margin-bottom: 0;">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Scenarios set with UKPRN
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340101: Happy path - all org details from UKRLP</li>
-                    <li>12340102: Organisation has no website or trading name</li>
-                    <li>12340103: Inactive organisation</li>
-                    <!--li><s>12340104: Organisation with a parent company</s></li-->
-                    <li>12340105: Incorporation date less than 12 months ago (3 months for supporting)</li>
-                    <li>12340106: Organisation has no directors listed</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>12340201: Charity with a company number</li>
-                    <li>12340202: Charity without a company number</li>
-                  </ul>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Scenarios set with login
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>main@financial.upload
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>'Your organisation' complete</li>
-                        <li>ITT and Postgrad, no Ofsted inspections</li>
-                      </ul>
-                    </li>
-                    <li>main@company.profile
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>Jump to 'Organisation profile'</li>
-                        <li>All company details found on UKRLP</li>
-                      </ul>
-                    </li>
-                    <li>main-parentcompany@organisation.complete
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>'Your organisation' complete</li>
-                        <li>Organisation has a parent company</li>
-                        <li>ITT and Postgrad, no Ofsted inspections</li>
-                      </ul>
-                    </li>
-                    <li>main@hei.profile
-                      <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
-                        <li>Jump to 'Organisation profile'</li>
-                        <li>Higher Education Institute funded by OfS</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </details>
-            </li>
-            <li class="govuk-!-margin-bottom-4">
-              <a href="/application/v1">Application journey v1</a><br>
-              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-              <span class="govuk-caption-m">
-                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v1" target="_blank">19th - 20th Jun 2019</a><br>Added on: 04/06/2019</span>
-            </li>
-            <li class="govuk-!-margin-bottom-4">
-              <a href="/application/v0">Application journey v0</a><br>
-              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-              <span class="govuk-caption-m">
-                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v0" target="_blank">5th - 7th Jun 2019</a><br>
-                Added on: 17/05/2019
-              </span>
-            </li>
-            <li class="govuk-!-margin-bottom-4">
-              <a href="/organisation/v0">
-                Organisation section v0<br>
-              <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-              </a>
-              <span class="govuk-caption-m">
-                Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-org_v0" target="_blank">7th - 10th May 2019</a><br>
-                Last updated: 07/05/2019
-              </span>
-            </li>
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-770" target="_blank">APR-770 Shutter page - Application In-progress</a></li>
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-771" target="_blank">APR-771 Shutter page - Appliction - pre-submission In-progress</a></li>
           </ul>
-
         </div>
+      </details>
+      
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Staff app - Assessor journey</h2>
+      <p class="govuk-body">
+        <a href="/staff-app/v5/esfa-sign-in">v5 - Dashboard</a>
+        <strong class="govuk-tag app-task-list__task-completed" style="float: none; font-size: 0.75em; margin-left: 1em">WIP</strong><br>
+        <span class="govuk-caption-m">Created on: 4th Oct 2019</span>
+      </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-683" target="_blank">APR-683 Assessor landing page/Dashboard</a></li>
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-813" target="_blank">APR-813 Staff app navigation</a></li>
+          </ul>
+        </div>
+      </details>
+          
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h3 class="govuk-heading-m">Archived versions of RoATP Application Journey</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v11">Application journey v11</a>
+            <!--strong class="govuk-tag app-task-list__task-completed" style="float: none; background: green; font-size: 0.75em; margin-left: 1em">IN TESTING</strong-->
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v11" target="_blank">2nd to 4th Oct 2019</a><br>
+              Created on: 26th Sep 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Quick links
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="/application/v11/jump/completedapplication9main">Jump to '9. Finish' section</a></li>
+                <li><a href="/application/v11/jump/completedapplicationmain">Jump to 'Check your answers' (v2)</a></li>
+                <li><a href="/application/v11/jump/dashboard">Jump to 'Application being assessed' (AKA Post-submission Dashboard)</a></li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (5)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-769">APR-769 BR into Backlog - Criminal convictions</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-776">APR-776 BR into Backlog - Readiness to Engage</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-774">APR-774 Content change to Warning sign - Intro Pages</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-763">APR-763 UR into Backlog - CYA version 2</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-709">APR-709 UKPRN Data</a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v10">Application journey v10</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v10" target="_blank">26th to 27th Sep 2019</a><br>
+              Created on: 19th Sep 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Quick links
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="/application/v10/jump/partialapplicationmain">Jump to '6. Planning apprenticeship training' section</a></li>
+                <li><a href="/application/v10/jump/completedapplicationmain">Jump to '9. Finish' section</a></li>
+                <li><a href="/application/v10/jump/completedapplicationemployer">Completed application (employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required)</a></li>
+                <li><a href="/application/v10/jump/completedapplicationsupporting">Completed application (supporting provider)</a></li>
+                <li><a href="/application/v10/jump/supportingorgcompleted">'Your organisation' complete for supporting provider route</a></li>
+                <li><a href="/application/v10/jump/tosectorsincomplete">Jump to pre-selected sectors to test PP12</a></li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101 - Organisation with all possible details from UKRLP</li>
+                <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                <li>12340103 - Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201 - Charity with a company number</li>
+                <li>12340202 - Charity without a company number</li>
+                <li>12340203 - Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401 - Organisation is inactive on UKRLP</li>
+                <li>12340402 - Organisation is already on the register</li>
+                <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404 - Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (5)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-749">APR-749 GOV.UK - Bravo</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-211">APR-211 RoATP GOV.UK Page - DE STORY</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-588">APR-588 Change of Route for existing providers - New Application</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-682">APR-682 Tasklist Post Submission</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-750">APR-750 Guidance Link - Tasklist</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-668">APR-668 Save & Sign out - Data Protection Public Beta & Live</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-766">APR-766 UR into Backlog - Hierarchy</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-734">APR-734 Tasklist - Provider route placement</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-709">APR-709 UKPRN Data</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-715">APR-715 Employer provider - non-levy</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-716">APR-716 DE-AP-6 - Training In-line to IFA</a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v9">Application journey v9</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v9" target="_blank">20th Sep 2019</a><br>
+              Created on: 11th Sep 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Quick links
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="/application/v9/jump/completedapplication9main">Jump to '9. Finish' section</a></li>
+                <li><a href="/application/v9/jump/completedapplicationmain">Jump to 'Check your answers'</a></li>
+                <li><a href="/application/v9/jump/dashboard">Jump to 'Application being assessed' (AKA Post-submission Dashboard)</a></li>
+                <li><a href="/application/v9/jump/partialapplication5main">Jump to '6. Planning apprenticeship training' section</a></li>
+                <li><a href="/application/v9/jump/completedapplicationemployer">Completed application (employer provider, with parent company, no website listed, exempt from FHA, RTE partiall exempt, CDC not required)</a></li>
+                <li><a href="/application/v9/jump/completedapplicationsupporting">Completed application (supporting provider)</a></li>
+                <li><a href="/application/v9/jump/supportingorgcompleted">'Your organisation' complete for supporting provider route</a></li>
+                <li><a href="/application/v9/jump/tosectorsincomplete">Jump to pre-selected sectors to test PP12</a></li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>UKPRN <strong>12340501</strong> - Organisation already on register as a supporting provider</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101 - Organisation with all possible details from UKRLP</li>
+                <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                <li>12340103 - Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201 - Charity with a company number</li>
+                <li>12340202 - Charity without a company number</li>
+                <li>12340203 - Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401 - Organisation is inactive on UKRLP</li>
+                <li>12340402 - Organisation is already on the register</li>
+                <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404 - Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (11)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-383">APR-383 Check Your Answers</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-298">APR-298 Application Declarations</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-711">APR-711 Confirm Data Delete</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-718">APR-718 UR into backlog - View All Questions - Remove Link</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-610">APR-610 Submit Application</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-702">APR-702 BR into backlog - Routes Definitions</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-383">APR-383 Check Your Answers</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-703">APR-703 BR into backlog - Definition 'Who's in Control'</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-704">APR-704 BR into backlog - UKPRN confirmation</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-705">APR-705 BR into backlog - Ofsted content</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-706">APR-706 BR into backlog - Lead provider definition</a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v8">Application journey v8</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v8" target="_blank">11th to 13th Sep 2019</a><br>
+              Created on: 4th Sep 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Quick links
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="/application/v8/jump/supportingorgcompleted">'Your organisation' complete for supporting provider route</a></li>
+                <li><a href="/application/v8/jump/tosectorsincomplete">Jump to pre-selected sectors to test PP12</a></li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101 - Organisation with all possible details from UKRLP</li>
+                <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                <li>12340103 - Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201 - Charity with a company number</li>
+                <li>12340202 - Charity without a company number</li>
+                <li>12340203 - Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401 - Organisation is inactive on UKRLP</li>
+                <li>12340402 - Organisation is already on the register</li>
+                <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404 - Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>main@organisation.parent</strong><br>Completes organisation section, main provider, has parent company</li>
+                <li><strong>employer@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>supporting@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>skip@ofsted</strong><br>Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
+                <li><strong>skip@organisation</strong><br>Completes the organisation section so that all sections need answering</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (3)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-552">APR-552 UR into Backlog - AS Sign in</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-624">APR-624 Question Section 8</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-623">APR-623 Question Section 7</a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v7">Application journey v7</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v7" target="_blank">5th to 6th Sep 2019</a>
+            <br>Created on: 21st Aug 2019</span>
+          </p>
+          <p class="govuk-body" style="margin-bottom: 0;"><strong>N.B.</strong> On sign in (with any email address other than those listed below), users will be on the 'Employer provide route', and will have already completed all sub-sections in the 'Your organisation' section.</p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101 - Organisation with all possible details from UKRLP</li>
+                <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                <li>12340103 - Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201 - Charity with a company number</li>
+                <li>12340202 - Charity without a company number</li>
+                <li>12340203 - Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401 - Organisation is inactive on UKRLP</li>
+                <li>12340402 - Organisation is already on the register</li>
+                <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404 - Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>main@organisation.parent</strong><br>Completes organisation section, main provider, has parent company</li>
+                <li><strong>employer@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>supporting@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>skip@ofsted</strong><br>Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
+                <li><strong>skip@organisation</strong><br>Completes the organisation section so that all sections need answering</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (4)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-552">APR-552 UR into Backlog - AS Sign in</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-645">APR-645 UR into Backlog -Criminal convictions</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-685">APR-685 UR into backlog: Document upload details (format & size)</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-687">APR-687 UR into backlog: Set size limit on text fields to 1500 for private beta</a></li>
+                <li><a href=""></a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v6">Application journey v6</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em">TESTED</strong>
+            <span class="govuk-caption-m">
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v6" target="_blank">29th to 30th Aug 2019</a>
+            <br>Created on: 21st Aug 2019</span>
+          </p>
+          <p class="govuk-body" style="margin-bottom: 0;"><strong>N.B.</strong> On sign in (with any email address other than those listed below), users will have already completed all sub-sections in the 'Your organisation' section except for 'Experience and accreditations'.</p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101 - Organisation with all possible details from UKRLP</li>
+                <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+                <li>12340103 - Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201 - Charity with a company number</li>
+                <li>12340202 - Charity without a company number</li>
+                <li>12340203 - Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401 - Organisation is inactive on UKRLP</li>
+                <li>12340402 - Organisation is already on the register</li>
+                <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404 - Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>main@organisation.parent</strong><br>Completes organisation section, main provider, has parent company</li>
+                <li><strong>employer@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>supporting@organisation.parent</strong><br>Completes organisation section, supporting provider, has parent company</li>
+                <li><strong>skip@ofsted</strong><br>Jumps the user to the 'Experience and accreditation' subsection of 'Your organisation'</li>
+                <li><strong>skip@organisation</strong><br>Completes the organisation section so that all sections need answering</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (11)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-645">APR-645 UR into Backlog -Criminal convictions</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-611">APR-611 Save & Sign out - Data Protection Private Beta</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-622">APR-622 Questions Section 6 - Planning</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-627">APR-627 Introduction page - Section 6 - Planning</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-661">APR-661 FHA - Main/Employer/Supporting/Ultimate UK Parent</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-642">APR-642 UR into Backlog - Ofsted date</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-616">APR-616 Safeguarding Person - Add contact details</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-648">APR-648 Review/update of Readiness to engage content</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-639">APR-639 Ultimate parent company</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-617">APR-617 Health and Safety contact details</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-299">APR-299 Apprenticeship Welfare</a></li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v5">Application journey v5</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v5" target="_blank">20th to 23rd Aug 2019</a><br>
+              Created on: 31st Jul 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101: Organisation with all possible details from UKRLP</li>
+                <li>12340102: Organisation has no website or trading name on UKRLP</li>
+                <li>12340103: Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201: Charity with a company number</li>
+                <li>12340202: Charity without a company number</li>
+                <li>12340203: Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401: Organisation is inactive on UKRLP</li>
+                <li>12340402: Organisation is already on the register</li>
+                <li>12340403: Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404: Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v4">Application journey v4</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v4" target="_blank">30th Jul to 7th Aug 2019</a><br>
+              Created on: 16th Jul 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101: Organisation with all possible details from UKRLP</li>
+                <li>12340102: Organisation has no website or trading name on UKRLP</li>
+                <li>12340103: Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201: Charity with a company number</li>
+                <li>12340202: Charity without a company number</li>
+                <li>12340203: Charity (not a company) with no trustees listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340401: Organisation is inactive on UKRLP</li>
+                <li>12340402: Organisation is already on the register</li>
+                <li>12340403: Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340404: Organisation removed from the register</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v3">Application journey v3</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v3" target="_blank">17th to 19th Jul 2019</a><br>
+              Created on: 3rd Jul 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101: Happy path - all org details from UKRLP</li>
+                <li><span style="background-color: #FFF963">12340102: Organisation has no website or trading name</span></li>
+                <li>12340103: Inactive organisation</li>
+                <!--li><s>12340104: Organisation with a parent company</s></li-->
+                <li>12340105: Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340106: Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><span style="background-color: #FFF963">12340201: Charity with a company number</span></li>
+                <li><span style="background-color: #FFF963">12340202: Charity without a company number</span></li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>main@financial.upload
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>'Your organisation' complete</li>
+                    <li>ITT and Postgrad, no Ofsted inspections</li>
+                  </ul>
+                </li>
+                <li>main@company.profile
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>Jump to 'Organisation profile'</li>
+                    <li>All company details found on UKRLP</li>
+                  </ul>
+                </li>
+                <li>main-parentcompany@organisation.complete
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>'Your organisation' complete</li>
+                    <li>Organisation has a parent company</li>
+                    <li>ITT and Postgrad, no Ofsted inspections</li>
+                  </ul>
+                </li>
+                <li>main@hei.profile
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>Jump to 'Organisation profile'</li>
+                    <li>Higher Education Institute funded by OfS</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        
+        <li class="govuk-!-margin-bottom-4">
+          <p class="govuk-body" style="margin-bottom: 0;">
+            <a href="/application/v2">Application journey v2</a>
+            <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+            <span class="govuk-caption-m">
+              Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v2" target="_blank">3rd to 5th Jul 2019</a><br>
+              Created on: 18th Jun 2019
+            </span>
+          </p>
+          <details class="govuk-details" style="margin-bottom: 0;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with UKPRN
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340101: Happy path - all org details from UKRLP</li>
+                <li>12340102: Organisation has no website or trading name</li>
+                <li>12340103: Inactive organisation</li>
+                <li>12340105: Incorporation date less than 12 months ago (3 months for supporting)</li>
+                <li>12340106: Organisation has no directors listed</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>12340201: Charity with a company number</li>
+                <li>12340202: Charity without a company number</li>
+              </ul>
+              <ul class="govuk-list govuk-list--bullet">
+                <li style="margin-bottom: 0;">12340301: Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Scenarios set with login
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>main@financial.upload
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>'Your organisation' complete</li>
+                    <li>ITT and Postgrad, no Ofsted inspections</li>
+                  </ul>
+                </li>
+                <li>main@company.profile
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>Jump to 'Organisation profile'</li>
+                    <li>All company details found on UKRLP</li>
+                  </ul>
+                </li>
+                <li>main-parentcompany@organisation.complete
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>'Your organisation' complete</li>
+                    <li>Organisation has a parent company</li>
+                    <li>ITT and Postgrad, no Ofsted inspections</li>
+                  </ul>
+                </li>
+                <li>main@hei.profile
+                  <ul class="govuk-list govuk-list--bullet" style="list-style-type: circle;">
+                    <li>Jump to 'Organisation profile'</li>
+                    <li>Higher Education Institute funded by OfS</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </li>
+        
+        <li class="govuk-!-margin-bottom-4">
+          <a href="/application/v1">Application journey v1</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+          <span class="govuk-caption-m">
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v1" target="_blank">19th to 20th Jun 2019</a><br>
+            Created on: 4th Jun 2019
+          </span>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <a href="/application/v0">Application journey v0</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+          <span class="govuk-caption-m">
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-app_v0" target="_blank">5th to 7th Jun 2019</a><br>
+            Created on: 17th May 2019
+          </span>
+        </li>
+
+        <li class="govuk-!-margin-bottom-4">
+          <a href="/organisation/v0">Organisation section v0</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+          <span class="govuk-caption-m">
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-org_v0" target="_blank">7th to 10th May 2019</a><br>
+            Last updated: 7th May 2019
+          </span>
+        </li>
+      </ul>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-      <h2 class="govuk-heading-m">Staff App</h2>
+      <h2 class="govuk-heading-m">Archived versions of Staff app</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li class="govuk-!-margin-bottom-4">
           <a href="/staff-app/v4">v4</a><br>
           <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">Tested</strong>
-          <span class="govuk-caption-m">Added on: 05/06/2019</span>
+          <span class="govuk-caption-m">Added on: 5th Jun 2019</span>
           <ul>
             <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-481" target="_blank">APR-481</a> - Add/update the 'Application determined date' for a new or existing providers</li>
           </ul>
         </li>
         <li class="govuk-!-margin-bottom-4">
-          <a href="/staff-app/v3">v3</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-          <span class="govuk-caption-m">Added on: 28/05/2019</span>
+          <a href="/staff-app/v3">v3</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+          <span class="govuk-caption-m">Created on: 28th May 2019</span>
           <ul>
             <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-482" target="_blank">APR-482</a> - Use a file to bulk update the last application success date for multiple existing providers</li>
           </ul>
         </li>
         <li class="govuk-!-margin-bottom-4">
-          <a href="/staff-app/v2a">v2a</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
-          <span class="govuk-caption-m">Added on: 08/05/2019</span>
+          <a href="/staff-app/v2a">v2a</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
+          <span class="govuk-caption-m">Created on: 8th May 2019</span>
           <ul>
             <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-461" target="_blank">APR-461</a></li>
             <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-462" target="_blank">APR-462</a></li>
@@ -281,7 +781,7 @@
         </li>
         <li>
           <a href="/staff-app/v2">v2 - not for dev</a>
-          <span class="govuk-caption-m">Added on: 12/02/2019</span>
+          <span class="govuk-caption-m">Created on: 12th Feb 2019</span>
           <ul>
             <li>APR-247</li>
             <li>APR-250
@@ -311,38 +811,38 @@
       <h2 class="govuk-heading-m">RoATP Digital Eligibility Checker</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li class="govuk-!-margin-bottom-4">
-          <a href="/eligibility/v2">Eligibility Checker v2</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
+          <a href="/eligibility/v2">Eligibility Checker v2</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
           <span class="govuk-caption-m">
-            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-eligibility_v2" target="_blank">24th - 25th Apr 2019</a><br>
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-eligibility_v2" target="_blank">24th to 25th Apr 2019</a><br>
             Last updated: 18/04/2019
           </span>
         </li>
         <li class="govuk-!-margin-bottom-4">
-          <a href="/eligibility/v1a">Eligibility Checker v1a</a><br>
-          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em;">TESTED</strong>
+          <a href="/eligibility/v1a">Eligibility Checker v1a</a>
+          <strong class="govuk-tag app-task-list__task-completed" style="float: none; background: black; font-size: 0.75em; margin-left: 1em;">TESTED</strong>
           <span class="govuk-caption-m">
-            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-eligibility_v1" target="_blank">10th - 12th Apr 2019</a><br>
-            Last updated: 11/04/2019
+            Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-eligibility_v1" target="_blank">10th to 12th Apr 2019</a><br>
+            Last updated: 11th Apr 2019
           </span>
         </li>
         <li class="govuk-!-margin-bottom-4">
           <a href="/eligibility/v1">Eligibility Checker v1</a>
-          <span class="govuk-caption-m">Last updated: 08/04/2019</span>
+          <span class="govuk-caption-m">Last updated: 8th Apr 2019</span>
         </li>
         <li class="govuk-!-margin-bottom-4">
           <a href="/eligibility/v0">Eligibility Checker v0</a>
-          <span class="govuk-caption-m">Last updated: 03/04/2019</span>
+          <span class="govuk-caption-m">Last updated: 3th Apr 2019</span>
         </li>
       </ul>
 
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
       <h2 class="govuk-heading-m">RoATP Bravo Eligibility Checker</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li>
           <a href="/eligibility/bravo">Eligibility Checker for Bravo</a>
-          <span class="govuk-caption-m">Last updated: 18/04/2019</span>
+          <span class="govuk-caption-m">Last updated: 18th Apr 2019</span>
         </li>
       </ul>
 

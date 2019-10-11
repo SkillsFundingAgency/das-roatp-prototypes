@@ -1,0 +1,136 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers for 'protecting your apprentices'</h1>
+      
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h3 class="govuk-heading-m">Continuity plan for apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Continuity plan for apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Equality and diversity policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Equality and diversity policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Safeguarding policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Safeguarding policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall responsibility for safeguarding in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['wel-safeguardingresponsible-name'] }}
+          {% if data['wel-safeguardingresponsible-email'] != "" %}<br>{{ data['wel-safeguardingresponsible-email'] }}{% endif %}
+          {% if data['wel-safeguardingresponsible-tel'] != "" %}<br>{{ data['wel-safeguardingresponsible-tel'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Prevent duty policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Prevent duty policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Health and safety policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Health and safety policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall responsibility for health and safety in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['wel-healthandsafetyresponsible-name'] }}
+          {% if data['wel-healthandsafetyresponsible-email'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-email'] }}{% endif %}
+          {% if data['wel-healthandsafetyresponsible-tel'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-tel'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Confirm answers for 'protecting your apprentices'",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

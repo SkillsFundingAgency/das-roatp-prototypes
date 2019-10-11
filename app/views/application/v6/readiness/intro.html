@@ -1,0 +1,55 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Introduction and what you'll need</p>
+
+    <h1 class="govuk-heading-l">Readiness to engage</h1>
+
+    <p class="govuk-body">For this section, you’ll need to know how your organisation will:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>engage with employers and subcontractors</li>
+      <li>manage its relationship with employers and subcontractors</li>
+      <li>assess prior learning - including English and maths qualifications</li>
+    </ul>
+
+    <p class="govuk-body">You’ll also need to upload your organisation’s:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>complaints policy</li>
+      <li>contract for services template with employers</li>
+      <li>commitment statement template</li>
+    </ul>
+
+    <p class="govuk-body">All uploads must be specific to your organisation, apprentices and trainers. They must also be signed by a senior employee. For example, a director or CEO.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

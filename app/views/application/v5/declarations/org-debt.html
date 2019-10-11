@@ -19,7 +19,6 @@
       <form action="" method="post" class="form">
 
       {% set detailHtml %}
-
         {{ govukCharacterCount({
           name: "dec-org-debt-detail",
           id: "dec-org-debt-detail",
@@ -28,13 +27,14 @@
             text: "Give us more information"
           },
           hint: {
-            html: "You’ll need to include:
+            html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include:</p>
               <ul class='govuk-!-margin-top-1'>
                 <li>a brief summary of the agreement</li>
                 <li>how your organisation will settle the debt</li>
                 <li>the date of when the debt will be fully paid off</li>
               </ul>"
-          }
+          },
+          value: data['dec-org-debt-detail']
         }) }}
 
       {% endset -%}
@@ -48,9 +48,6 @@
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: ""
           },
           items: [
             {
@@ -68,13 +65,18 @@
             }
           ]
         }) }}
+        
+        {{ govukDetails({
+          summaryText: "What is a composition with creditors?",
+          text: "It’s an agreement between a debtor (someone who owes money) and a creditor (someone owed the money) to settle the debt."
+        }) }}
 
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

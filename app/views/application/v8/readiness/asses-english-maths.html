@@ -1,0 +1,51 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Prior learning of apprentices</span>
+
+      <h1 class="govuk-heading-l">What is your organisation’s process to assess English and maths qualifications for apprentices?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>review existing English and maths qualifications</li>
+        <li>identify and analyse any learning gaps</li>
+        <li>identify no further learning requirements for English and maths</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+      
+        {{ govukCharacterCount({
+          name: "rte-assessenglishmaths",
+          id: "rte-assessenglishmaths",
+          maxlength: 1500
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="use-subcontractors">Return to this question later</a></p>
+      
+        {% include "includes/v8/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -18,17 +18,6 @@
 
       <form action="" method="post" class="form">
 
-      {% set detailHtml %}
-        {{ govukInput({
-          label: {
-            text: "Full name"
-          },
-          id: "wel-healthandsafetyresponsible-detail",
-          name: "wel-healthandsafetyresponsible-detail",
-          value: data['wel-healthandsafetyresponsible-detail']
-        }) }}
-      {% endset -%}
-
         {{ govukRadios({
           idPrefix: "wel-healthandsafetyresponsible",
           name: "wel-healthandsafetyresponsible",
@@ -46,10 +35,7 @@
             {
               value: "yes",
               text: "Yes",
-              checked: checked("wel-healthandsafetyresponsible", "yes"),
-              conditional: {
-                html: detailHtml
-              }
+              checked: checked("wel-healthandsafetyresponsible", "yes")
             },
             {
               value: "no",
@@ -64,7 +50,7 @@
           classes: "govuk-!-margin-right-1"
         }) }}
       
-        {% include "includes/gethelp.html" %}
+        {% include "includes/v5/gethelp.html" %}
 
       </form>
     </div>

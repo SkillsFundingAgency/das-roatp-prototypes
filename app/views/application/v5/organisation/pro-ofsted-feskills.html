@@ -17,41 +17,25 @@
   <div class="govuk-grid-column-two-thirds">
 
     <form action="" method="post" class="form">
-
-      {% set ofstedHtml %}
-        {{ govukDateInput({
-          id: "pro-ofsted-feskills-date",
-          namePrefix: "pro-ofsted-feskills-date",
-          fieldset: {
-            legend: {
-              text: "What was the publication date of your Ofsted report?",
-              isPageHeading: false
-            }
-          }, 
-          hint: {
-            text: "You can find this on the Ofsted website."
-          }
-        }) }}
-      {% endset -%}
-
+    
       {{ govukRadios({
         idPrefix: "pro-ofsted-feskills",
         name: "pro-ofsted-feskills",
         fieldset: {
           legend: {
-            text: "Has your organisation had an Ofsted inspection in further education and skills?",
+            text: "Has your organisation had a full Ofsted inspection in further education and skills?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
+        },
+        hint: {
+          html: '<p>If you’re not sure, <a href="https://reports.ofsted.gov.uk/" target="_blank">check if your organisation’s had an Ofsted inspection</a>.</p>'
         },
         items: [
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-feskills", "yes"),
-            conditional: {
-              html: ofstedHtml
-            }
+            checked: checked("pro-ofsted-feskills", "yes")
           },
           {
             value: "no",
@@ -66,7 +50,7 @@
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

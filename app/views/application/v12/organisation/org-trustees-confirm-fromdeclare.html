@@ -1,0 +1,54 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Tell us who’s in control</span>
+        
+      <h1 class="govuk-heading-l">Confirm your organisation's trustees</h1>
+
+      <form action="" method="post" class="form">
+        
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col">Name</th>
+              <th class="govuk-table__header" scope="col">Date of birth</th>
+              <th class="govuk-table__header" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for trustee in data['org-trustees'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">{{ trustee.name }}</td>
+              <td class="govuk-table__cell">{{ trustee.dob_month }} {{ trustee.dob_year }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+        <p class="govuk_body"><a href="org-trustees-declare">Add another trustee</a></p>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

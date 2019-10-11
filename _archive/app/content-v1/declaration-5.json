@@ -1,9 +1,0 @@
-{
-   "backButtonCaption": "Back",
-   "greenButtonCaption": "Save and continue",
-   "title": "Enter conviction details",
-   "content1": "<p>When entering details, include: </p><ul class='govuk-list govuk-list--bullet'><li>names of people involved</li><li>their conviction dates</li><li>and a brief summary of their offence</li></ul>",
-   "formItems": [
-                {"id": "textInput", "type":"textarea", "label":"Conviction details"}
-                ]
-}

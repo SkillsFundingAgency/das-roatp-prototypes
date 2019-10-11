@@ -1,0 +1,55 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Organisation information</p>
+        
+    <h1 class="govuk-heading-l">Does your organisation have an ultimate parent company in the UK?</h1>
+    
+    <p class="govuk-body">Your organisation will only have an ultimate parent company if it’s part of a group.</p><p>An ultimate parent company sits at the top of your organisation’s group and has the most responsibility.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-parentcompany",
+        name: "org-parentcompany",
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: checked("org-parentcompany", "yes")
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: checked("org-parentcompany", "no")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v6/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -10,6 +10,13 @@ require('./routes/application/v2.js')(router);
 require('./routes/application/v3.js')(router);
 require('./routes/application/v4.js')(router);
 require('./routes/application/v5.js')(router);
+require('./routes/application/v6.js')(router);
+require('./routes/application/v7.js')(router);
+require('./routes/application/v8.js')(router);
+require('./routes/application/v9.js')(router);
+require('./routes/application/v10.js')(router);
+require('./routes/application/v11.js')(router);
+require('./routes/application/v12.js')(router);
 
 // Organisation Journey
 require('./routes/organisation/v01.js')(router);
@@ -20,6 +27,7 @@ require('./routes/staff-app/v2.js')(router);
 require('./routes/staff-app/v2a.js')(router);
 require('./routes/staff-app/v3.js')(router);
 require('./routes/staff-app/v4.js')(router);
+require('./routes/staff-app/v5.js')(router);
 
 // Eligibility Checker
 require('./routes/eligibility/bravo.js')(router); // Bravo

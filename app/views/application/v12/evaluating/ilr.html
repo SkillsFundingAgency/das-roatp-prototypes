@@ -1,0 +1,57 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Using Individualised Learner Record systems</span>
+
+    <h1 class="govuk-heading-l">Does your organisation have the resources to submit Individualised Learner Record (ILR) data?</h1>
+
+    <p class="govuk-body">As part of joining RoATP, your organisation will be required to submit data every month using the ILR. If your organisation fails to do this, it will not receive funding under levy agreements.</p>
+
+    <p class="govuk-body">Find out more about <a href="https://www.gov.uk/government/collections/individualised-learner-record-ilr" target="_blank">the ILR (opens in a new window or tab)</a>.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "eval-ilr",
+        name: "eval-ilr",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("eval-ilr", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("eval-ilr", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

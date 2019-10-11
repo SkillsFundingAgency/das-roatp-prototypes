@@ -1,0 +1,46 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Your organisation’s financial evidence</span>
+
+    <h1 class="govuk-heading-l">What you will need to upload</h1>
+
+    <p class="govuk-body">Because your organisation does not have full financial statements covering the last 12 months, you’ll need to upload:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>any financial statements your organisation has</li>
+      <li>management accounts covering the remaining period</li>
+    </ul>
+
+    <p class="govuk-body">Financial statements and management accounts must cover the last 12 months to date.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+      
+      <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

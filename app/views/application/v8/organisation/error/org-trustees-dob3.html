@@ -1,0 +1,92 @@
+{% extends "layout_application_v8.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v8
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trustees-dob2"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/application/v8/organisation/org-trustees-dob3" method="post" class="form">
+      
+        {{ govukDateInput({
+          fieldset: {
+            legend: {
+              text: "What is Julius Hibbert's date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 12 1983"
+          },
+          errorMessage: {
+            text: "Enter a month and year of birth"
+          },
+          id: "org-trustee-dob3",
+          namePrefix: "org-trustee-dob3",
+          items: [
+            {
+              classes: "govuk-input--width-2 govuk-input--error",
+              name: "month",
+              value: data['org-trustee-dob3-month']
+            },
+            {
+              classes: "govuk-input--width-4 govuk-input--error",
+              name: "year",
+              value: data['org-trustee-dob3-year']
+            }
+          ]
+        }) }}
+
+
+        <!--h1 class="govuk-heading-l">What is Julius Hibbert's date of birth?</h1>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="org-trustee-dob3-hint" role="group">
+            <legend class="govuk-fieldset__legend">
+                Date of birth 
+            </legend>
+            <span id="org-trustee-dob3-hint" class="govuk-hint">
+              For example, 12 1983
+            </span>
+            <div class="govuk-date-input" id="org-trustee-dob3">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob3-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="org-trustee-dob3-month" name="org-trustee-dob3-month" type="number" pattern="[0-9]*" value="{{ data['org-trustee-dob3-month'] }}">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob3-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="org-trustee-dob3-year" name="org-trustee-dob3-year" type="number" pattern="[0-9]*" value="{{ data['org-trustee-dob3-year'] }}">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div-->
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

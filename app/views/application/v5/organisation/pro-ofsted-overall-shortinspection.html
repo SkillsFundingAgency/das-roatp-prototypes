@@ -18,22 +18,6 @@
 
     <form action="" method="post" class="form">
 
-      {% set dateHtml %}
-        {{ govukDateInput({
-          id: "pro-ofsted-overall-shortinspection-date",
-          namePrefix: "pro-ofsted-overall-shortinspection-date",
-          fieldset: {
-            legend: {
-              text: "What was the publication date of your short Ofsted inspection letter?",
-              isPageHeading: false
-            }
-          },
-          hint: {
-            text: "You can find this on the Ofsted website."
-          }
-        }) }}
-      {% endset -%}
-
       {{ govukRadios({
         idPrefix: "pro-ofsted-overall-shortinspection",
         name: "pro-ofsted-overall-shortinspection",
@@ -48,10 +32,7 @@
           {
             value: "yes",
             text: "Yes",
-            checked: checked("pro-ofsted-overall-shortinspection", "yes"),
-            conditional: {
-              html: dateHtml
-            }
+            checked: checked("pro-ofsted-overall-shortinspection", "yes")
           },
           {
             value: "no",
@@ -66,7 +47,7 @@
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

@@ -1,0 +1,113 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% if data['org-type'] == "employer" %}
+  {% set backlink_classification = "org-type" %}
+{% endif %}
+{% if data['org-type'] == "education" %}
+  {% set backlink_classification = "org-fundedby" %}
+{% endif %}
+{% if data['org-type'] == "psb" %}
+  {% set backlink_classification = "org-type-psb" %}
+{% endif %}
+{% if data['org-type'] == "training" %}
+  {% set backlink_classification = "org-type-training" %}
+{% endif %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: backlink_classification 
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v10/organisation/org-classification" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select the classification for your organisation",
+            href: "#org-classification-error"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: "org-classification",
+        name: "org-classification",
+        fieldset: {
+          legend: {
+            text: "What is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "public-service-mutual",
+            text: "A public service mutual",
+            hint: {
+              text: "An organisation that has left the public sector but still delivers public services."
+            },
+            checked: checked("org-classification", "public-service-mutual")
+          },
+          {
+            value: "sheltered-workshop",
+            text: "A sheltered workshop",
+            hint: {
+              text: "An organisation that provides employment opportunities for individuals who are developmentally, physically, or mentally impaired."
+            },
+            checked: checked("org-classification", "sheltered-workshop")
+          },
+          {
+            value: "sme",
+            text: "A small or medium enterprise (SME)",
+            hint: {
+              html: 'As defined by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en">European Commission</a>.'
+            },
+            checked: checked("org-classification", "sme")
+          },
+          {
+            value: "third-sector",
+            text: "Third sector",
+            hint: {
+              text: "A voluntary or community organisation. For example, a charity."
+            },
+            checked: checked("org-classification", "third-sector")
+          },
+          {
+            value: "none",
+            text: "None of the above",
+            hint: {
+              text: ""
+            },
+            checked: checked("org-classification", "none")
+          }
+        ],
+        errorMessage: {
+          text: "Select the classification for your organisation"
+        }
+
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

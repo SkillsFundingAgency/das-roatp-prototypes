@@ -1,0 +1,93 @@
+{% extends "layout_application_v10.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v10
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Developing and delivering training</span>
+
+    <form action="" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "main" %}
+          
+        <h1 class="govuk-heading-l">Who have the team worked with to develop and deliver training?</h1>
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-workedwith",
+          name: "del-developdeliver-workedwith",
+          items: [
+            {
+              value: "Other organisations",
+              text: "Other organisations",
+              checked: checked("del-developdeliver-workedwith", "Other organisations")
+            },
+            {
+              value: "Employers - to deliver training to their employees",
+              text: "Employers - to deliver training to their employees",
+              checked: checked("del-developdeliver-workedwith", "Employers - to deliver training to their employees")
+            },
+            {
+              value: "Both",
+              text: "Both",
+              checked: checked("del-developdeliver-workedwith", "Both")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "No one yet",
+              text: "No one yet",
+              checked: checked("del-developdeliver-workedwith", "No one yet")
+            }
+          ]
+        }) }}
+
+      {% elseif data["org-selectedroute"] == "supporting" %}
+
+        <h1 class="govuk-heading-l">Has the team worked with other organisations to develop and deliver training?</h1>
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-workedwith",
+          name: "del-developdeliver-workedwith",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-workedwith", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-workedwith", "No")
+            }
+          ]
+        }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v10/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

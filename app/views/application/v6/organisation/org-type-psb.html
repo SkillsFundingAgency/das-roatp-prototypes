@@ -1,0 +1,78 @@
+{% extends "layout_application_v6.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v6
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p class="govuk-caption-l">Describe your organisation</p>
+        
+    <h1 class="govuk-heading-l">What type of public body is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-psb",
+        name: "org-type-psb",
+        items: [
+          {
+            value: "nhs",
+            text: "NHS Trust",
+            checked: checked("org-type-psb", "nhs")
+          },
+          {
+            value: "police",
+            text: "Police",
+            checked: checked("org-type-psb", "police")
+          },
+          {
+            value: "fire-auth",
+            text: "Fire Authority",
+            checked: checked("org-type-psb", "fire-auth")
+          },
+          {
+            value: "gov-dept",
+            text: "Government department",
+            checked: checked("org-type-psb", "gov-dept")
+          },
+          {
+            value: "local-auth",
+            text: "Local authority",
+            checked: checked("org-type-psb", "local-auth")
+          },
+          {
+            value: "executive-agency",
+            text: "Executive agency",
+            checked: checked("org-type-psb", "executive-agency")
+          },
+          {
+            value: "ndpb",
+            text: "Non-departmental public body (NDPB)",
+            checked: checked("org-type-psb", "ndpb")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v6/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

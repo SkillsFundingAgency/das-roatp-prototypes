@@ -16,16 +16,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
         
-    <h1 class="govuk-heading-l">Upload a copy of the commitment statement template your organisation will use</h1>
+    <h1 class="govuk-heading-l">Upload your organisation’s commitment statement template</h1>
 
-    <p class="gov-body">This can be your organisation’s, from a third party or XXXX but it’s your organisation’s responsibility to ensure the commitment statement meets the requirements in the apprenticeship funding rules.</p>
-    <p class="gov-body">This must include:</p>
+    <p class="gov-body">Your organisation can <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/792229/ESFA_Commitment_Statement_v1_reissued_.xlsx" target="_blank">use ESFA’s commitment statement</a>, take one from a third party or have its own.</p>
+
+    <p class="gov-body">It must include:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>the planned content and schedule for training</li>
       <li>what is expected and offered by the employer, the training organisation and the apprentice</li>
-      <li>how to resolve queries or complaints</li>
-      <li>how off the job training will be delivered</li>
     </ul>
+
+    <p class="gov-body">The commitment statement must also be signed by the apprentice and training organisation.</p>
+    
+    <p class="gov-body">Find out more about the commitment statement in the <a href="#">apprenticeship funding rules (opens in a new window)</a>.</p>
 
     <form action="" method="post" class="form">
     
@@ -37,19 +40,12 @@
         }
       }) }}
 
-      {{ govukDetails({
-        summaryText: "What is a ‘contract for services’?",
-        text: "A ‘contract for services’ is a signed and dated written agreement between your organisation and the employer and is funded from the employer’s apprenticeship service account."
-      }) }}
-
-      <p class="gov-body">Find out more about the commitment statement in the <a href="#" target="_blank">apprenticeship funding rules (opens in a new window)</a>.</p>
-
       {{ govukButton({
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
       }) }}
       
-      {% include "includes/gethelp.html" %}
+      {% include "includes/v5/gethelp.html" %}
 
     </form>
   </div>

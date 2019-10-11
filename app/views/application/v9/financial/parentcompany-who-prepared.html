@@ -1,0 +1,67 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Your organisation’s financial evidence</span>
+
+      <h1 class="govuk-heading-l">Who prepared your UK ultimate parent company’s financial evidence?</h1>
+
+      <p class="govuk-body">Select all that apply.</p>
+
+      <form action="" method="post" class="form">
+      
+        {{ govukCheckboxes({
+          idPrefix: "fin-whoprepared-parentcompany",
+          name: "fin-whoprepared-parentcompany",
+          items: [
+            {
+              value: "An employee in your UK ultimate parent company",
+              text: "An employee in your UK ultimate parent company",
+              checked: checked("fin-whoprepared-parentcompany", "An employee in your UK ultimate parent company")
+            },
+            {
+              value: "An accountant or auditor",
+              text: "An accountant or auditor",
+              checked: checked("fin-whoprepared-parentcompany", "An accountant or auditor")
+            },
+            {
+              value: "A paid consultant",
+              text: "A paid consultant",
+              checked: checked("fin-whoprepared-parentcompany", "A paid consultant")
+            },
+            {
+              value: "Another third party",
+              text: "Another third party",
+              checked: checked("fin-whoprepared-parentcompany", "Another third party")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

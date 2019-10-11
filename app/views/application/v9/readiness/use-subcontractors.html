@@ -1,0 +1,57 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Working with subcontractors</span>
+
+      <h1 class="govuk-heading-l">Does your organisation expect to use subcontractors in the first 12 months of joining RoATP?</h1>
+
+      <p class="govuk-body">This includes using subcontractors for any part of apprenticeship training.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "rte-usesubcontractors",
+          name: "rte-usesubcontractors",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("rte-usesubcontractors", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("rte-usesubcontractors", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="XXX">Return to this question later</a></p>
+      
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

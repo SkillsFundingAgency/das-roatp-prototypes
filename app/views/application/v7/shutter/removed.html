@@ -1,0 +1,25 @@
+{% extends "layout_application_v7.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v7
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Your organisation is not eligible to apply to join the register of apprenticeship training providers</h1>
+      <p class="govuk-body">This is because your organisation was removed from the RoATP within the last 3 years.</p>
+      <p class="govuk-body">If you think this is wrong, contact our service desk on 0370 267000 or <a href="mailto:servicedesk@education.gov.uk">servicedesk@education.gov.uk</a></p>
+      <p><a class ="govuk-link" href="#">Back to GOV.UK</a></p>
+    </div>
+  </div>
+
+{% endblock %}

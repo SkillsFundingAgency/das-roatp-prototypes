@@ -1,0 +1,74 @@
+{% extends "layout_application_v9.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v9
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Safeguarding policy</span>
+
+      <h1 class="govuk-heading-l">Tell us who has overall responsibility for safeguarding in your organisation</h1>
+
+      <p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding issues.</p>
+      
+      <p class="govuk-body">We’ll only contact them if there is a safeguarding issue.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          classes: "govuk-input--width-20",
+          id: "wel-safeguardingresponsible-name",
+          name: "wel-safeguardingresponsible-name",
+          value: data['wel-safeguardingresponsible-name']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          id: "wel-safeguardingresponsible-email",
+          email: "wel-safeguardingresponsible-email",
+          value: data['wel-safeguardingresponsible-email'],
+          type: "email",
+          classes: "govuk-input--width-20"
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },
+          id: "wel-safeguardingresponsible-tel",
+          name: "wel-safeguardingresponsible-tel",
+          value: data['wel-safeguardingresponsible-tel'],
+          type: "tel",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="preventduty">Return to this question later</a></p>
+      
+        {% include "includes/v9/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

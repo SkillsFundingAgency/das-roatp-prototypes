@@ -1,0 +1,52 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v12
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Process for evaluating the quality of training</span>
+
+    <h1 class="govuk-heading-l">What is your organisation’s process for evaluating the quality of training delivered?</h1>
+
+    <p class="govuk-body">Your answer should include how your organisation:</p>
+  
+    <ul class="govuk-list govuk-list--bullet">
+      <li>responds and acts on feedback from employers and learners</li>
+      <li>continuously improves training</li>
+      <li>identifies and addresses poor training outcomes</li>
+      <li>uses key performance indicators to measure the quality of training</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukCharacterCount({
+        name: "eval-training",
+        id: "eval-training",
+        value: data['eval-training'],
+        maxlength: 1500
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v12/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

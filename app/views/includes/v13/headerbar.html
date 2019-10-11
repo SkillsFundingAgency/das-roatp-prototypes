@@ -1,0 +1,14 @@
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: serviceName,
+    serviceUrl: "#"
+  }) }}
+  
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+    }) }}
+  </div>

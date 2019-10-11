@@ -72,7 +72,7 @@
 
     <h2 class="govuk-heading-l">1. Your organisation</h2>
     
-    <h3 class="govuk-heading-m">Organisation information<a href="#" class="roatp_changeanswers">Change answers</a></h3>
+    <h3 class="govuk-heading-m">Organisation information</h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
@@ -80,11 +80,14 @@
           Parent company
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['org-parentcompany'] == "yes" %}
+          {% if data['org-parentcompany'] == "Yes" %}
             {{ data['org-parentcompany-name'] }} ({{ data['org-parentcompany-number'] }})
           {% else %}
             {{ data['org-parentcompany'] | capitalize }}
           {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-parentcompany">Change</a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -94,6 +97,9 @@
         <dd class="govuk-summary-list__value">
           {{ data['org-ico'] }}
         </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-ico">Change</a>
+        </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -101,6 +107,9 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['org-trading'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-trading">Change</a>
         </dd>
       </div>
     </dl>
@@ -119,7 +128,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
   
-    <h3 class="govuk-heading-m">Describe your organisation<a href="#" class="roatp_changeanswers">Change answers</a></h3>
+    <h3 class="govuk-heading-m">Describe your organisation</h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
       <div class="govuk-summary-list__row">
@@ -139,6 +148,9 @@
           {% endif %}
           {{ data['org-fundedbytext'] }}
         </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-type">Change</a>
+        </dd>
       </div>
       {% if (data['org-classification']) and (data['org-classification'] != "None of the above") %}
         <div class="govuk-summary-list__row">
@@ -156,11 +168,14 @@
               {{data['org-classification']}}
             {% endif %}
           </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/org-classification">Change</a>
+          </dd>
         </div>
       {% endif %}
     </dl>
 
-    <h3 class="govuk-heading-m">Experience and accreditations<a href="#" class="roatp_changeanswers">Change answers</a></h3>
+    <h3 class="govuk-heading-m">Experience and accreditations</h3>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
 
@@ -173,6 +188,9 @@
           <dd class="govuk-summary-list__value">
             {{ data['pro-subcontractor'] | capitalize }}
           </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-subcontractor">Change</a>
+          </dd>
         </div>
 
       {% else %}
@@ -184,6 +202,9 @@
           <dd class="govuk-summary-list__value">
             {{ data['pro-itt'] | capitalize }}
           </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-itt">Change</a>
+          </dd>
         </div>
         {% if (data['pro-postgrad']) %}
           <div class="govuk-summary-list__row">
@@ -193,12 +214,18 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-postgrad'] | capitalize }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-postgrad">Change</a>
+            </dd>
           </div>
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
           <dd class="govuk-summary-list__value">
             {{ data['pro-ofsted-feskills'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-ofsted-feskills">Change</a>
           </dd>
         </div>
         {% if (data['pro-monitoring-visit']) %}
@@ -208,6 +235,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-monitoring-visit'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-monitoring-visit">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -219,6 +249,9 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships'] | capitalize }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships">Change</a>
+            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-apprenticeships-grade']) %}
@@ -228,6 +261,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships-grade">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -239,6 +275,9 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-apprenticeships-date'] | capitalize }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships-date">Change</a>
+            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-grade']) %}
@@ -248,6 +287,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-grade">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -259,6 +301,9 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-date'] | capitalize }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-date">Change</a>
+            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-shortinspection']) %}
@@ -268,6 +313,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-shortinspection'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-shortinspection">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -279,6 +327,9 @@
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-grademaintained'] | capitalize }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-grademaintained">Change</a>
+            </dd>
           </div>
         {% endif %}
         {% if (data['pro-ofsted-overall-fundingmaintained']) %}
@@ -288,6 +339,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['pro-ofsted-overall-fundingmaintained'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-fundingmaintained">Change</a>
             </dd>
           </div>
         {% endif %}
@@ -301,7 +355,7 @@
 
     {% if data['exempt_fha'] == "no" %}
 
-      <h2 class="govuk-heading-l">2. Financial health assessment<a href="#" class="roatp_changeanswers">Change answers</a></h2>
+      <h2 class="govuk-heading-l">2. Financial health assessment</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
 
@@ -311,6 +365,9 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['fin-fullstatements'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/full-statements">Change</a>
           </dd>
         </div>
 
@@ -322,6 +379,9 @@
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
           </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/full-statements-upload">Change</a>
+          </dd>
         </div>
         {% else %}
         <div class="govuk-summary-list__row">
@@ -331,6 +391,9 @@
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
           </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/incomplete-statements-upload">Change</a>
+          </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -338,6 +401,9 @@
           </dt>
           <dd class="govuk-summary-list__value">
             '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/incomplete-statements-upload">Change</a>
           </dd>
         </div>
         {% endif %}
@@ -353,6 +419,9 @@
               {% if (i == data['fin-whoprepared'] | length) %}and {% endif %}
               {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['fin-whoprepared'] | length > 2) and(i < data['fin-whoprepared'] | length) %}, {% endif %}
             {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/who-prepared">Change</a>
           </dd>
         </div>
 

@@ -1,0 +1,49 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+    <h1 class="govuk-heading-l">Financial health assessment</h1>
+
+    <p class="govuk-body">This section is to ensure your organisation’s financial performance and ability to meet ongoing financial commitments meets ESFA’s expectations.</p>
+
+    {% if data["org-parentcompany"] === "yes" %}
+      <p class="govuk-body">You’ll need to upload your organisation’s financial evidence covering a 12 month period and your ultimate parent company's consolidated financial statements.</p>
+    {% else %}
+      <p class="govuk-body">You’ll need to upload your organisation’s financial evidence covering the last 12 months to date.</p>
+    {% endif %}
+
+    <p class="govuk-body">Based on these uploads, your organisation will receive a financial health grade.</p>
+    
+    <p class="govuk-body">Find out more in <a href="https://www.gov.uk/government/publications/esfa-financial-health-assessment" target="_blank">ESFA’s financial health policy (opens in a new window or tab)</a>.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list#section-financial">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

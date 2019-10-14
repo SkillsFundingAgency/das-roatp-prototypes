@@ -1,0 +1,53 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Tell us who’s in control</span>
+
+      <h1 class="govuk-heading-l">Are you sure you want to remove {{ data['org-personincontrol-missing'][ data['current_pic_id'] ]['name'] }}?</h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "del-employee-remove",
+          name: "del-employee-remove",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v13/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

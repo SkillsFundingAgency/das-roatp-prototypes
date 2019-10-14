@@ -1,0 +1,78 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">What type of public body is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-psb",
+        name: "org-type-psb",
+        items: [
+          {
+            value: "NHS Trust",
+            text: "NHS Trust",
+            checked: checked("org-type-psb", "NHS Trust")
+          },
+          {
+            value: "Police",
+            text: "Police",
+            checked: checked("org-type-psb", "Police")
+          },
+          {
+            value: "Fire authority",
+            text: "Fire authority",
+            checked: checked("org-type-psb", "Fire authority")
+          },
+          {
+            value: "Government department",
+            text: "Government department",
+            checked: checked("org-type-psb", "Government department")
+          },
+          {
+            value: "Local authority",
+            text: "Local authority",
+            checked: checked("org-type-psb", "Local authority")
+          },
+          {
+            value: "Executive agency",
+            text: "Executive agency",
+            checked: checked("org-type-psb", "Executive agency")
+          },
+          {
+            value: "Non-departmental public body (NDPB)",
+            text: "Non-departmental public body (NDPB)",
+            checked: checked("org-type-psb", "Non-departmental public body (NDPB)")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v13/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

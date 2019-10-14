@@ -1,0 +1,55 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <span class="govuk-caption-l">Experience and accreditations</span>
+
+      <h1 class="govuk-heading-l">Has your organisation delivered apprenticeship training as a subcontractor in the last 12 months?</h1>
+      
+      <p class="govuk-body">To confirm your answer, we’ll review your main or employer provider’s subcontractor declaration.</p>
+
+      {{ govukRadios({
+        idPrefix: "pro-subcontractor",
+        name: "pro-subcontractor",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("pro-subcontractor", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("pro-subcontractor", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v13/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

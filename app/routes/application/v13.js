@@ -2580,7 +2580,7 @@ module.exports = function (router) {
 /*****************************************
  *** Change org question from tasklist ***
  *****************************************/
-
+/*
 	router.post('/application/' + v + '/changeorganswer-tasklist', function (req, res) {
 		
 		let redirectfrom = req.session.data['from']
@@ -2622,7 +2622,7 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/organisation/' + redirectfrom)
 
 	})
-
+*/
 
 /****************
  *** Sign out ***

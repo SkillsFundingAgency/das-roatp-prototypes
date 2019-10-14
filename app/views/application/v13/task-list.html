@@ -112,15 +112,11 @@
 
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") %}
-                {% if (data['tl_org_details'] == "completed") and (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") and (data['tl_org_profile'] == "completed") and (data['tl_org_type'] == "completed") %}
-                    <a class="app-task-list__task-name" href="changeorganswer-tasklist?from=org-ico" aria-describedby="org-details-status">Organisation information</a>
-                {% else %}
                   {% if (data['org-ukprn'] == "12340101") or (data['org-ukprn'] == "12340102") or (data['org-ukprn'] == "12340103") or (data['org-ukprn'] == "12340201")%}
                     <a class="app-task-list__task-name" href="organisation/org-parentcompany" aria-describedby="org-details-status">Organisation information</a>
                   {% else %}
                     <a class="app-task-list__task-name" href="organisation/org-ico" aria-describedby="org-details-status">Organisation information</a>
                   {% endif %}
-                {% endif %}
               {% else %}
                 Organisation information
               {% endif %}
@@ -135,19 +131,15 @@
             
             <li class="app-task-list__item">
               {% if (data['tl_org_intro'] == "completed") and (data['tl_org_details'] == "completed") %}
-                {% if (data['tl_org_details'] == "completed") and (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") and (data['tl_org_profile'] == "completed") and (data['tl_org_type'] == "completed") %}
-                    <a class="app-task-list__task-name" href="changeorganswer-tasklist?from=org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
-                {% else %}
 
-                  {% if data['org-ukprn'] == "12340301" %}
-                    {% if data['org-personincontrol-missing'].length > 0 %} 
-                      <a class="app-task-list__task-name" href="organisation/org-peopleincontrol-missing-confirm" aria-describedby="org-details-status">Tell us who’s in control</a>
-                    {% else %}
-                      <a class="app-task-list__task-name" href="organisation/org-peopleincontrol-missing" aria-describedby="org-details-status">Tell us who’s in control</a>
-                    {% endif %}
+                {% if data['org-ukprn'] == "12340301" %}
+                  {% if data['org-personincontrol-missing'].length > 0 %} 
+                    <a class="app-task-list__task-name" href="organisation/org-peopleincontrol-missing-confirm" aria-describedby="org-details-status">Tell us who’s in control</a>
                   {% else %}
-                    <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
+                    <a class="app-task-list__task-name" href="organisation/org-peopleincontrol-missing" aria-describedby="org-details-status">Tell us who’s in control</a>
                   {% endif %}
+                {% else %}
+                  <a class="app-task-list__task-name" href="organisation/org-peopleincontrol" aria-describedby="org-details-status">Tell us who’s in control</a>
                 {% endif %}
                   
               {% else %}
@@ -163,14 +155,10 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['tl_org_details'] == "completed") and (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") and (data['tl_org_profile'] == "completed") and (data['tl_org_type'] == "completed") %}
-                  <a class="app-task-list__task-name" href="changeorganswer-tasklist?from=org-type" aria-describedby="org-details-status">Describe your organisation</a>
+              {% if (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") %}
+                <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Describe your organisation</a>
               {% else %}
-                {% if (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") %}
-                  <a class="app-task-list__task-name" href="organisation/org-type" aria-describedby="org-type-completed">Describe your organisation</a>
-                {% else %}
-                  Describe your organisation
-                {% endif %}
+                Describe your organisation
               {% endif %}
               {% if data['tl_org_type'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-type-status">In progress</strong>
@@ -182,18 +170,14 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['tl_org_details'] == "completed") and (data['tl_org_intro'] == "completed") and (data['tl_org_people'] == "completed") and (data['tl_org_profile'] == "completed") and (data['tl_org_type'] == "completed") %}
-                  <a class="app-task-list__task-name" href="changeorganswer-tasklist?from=pro-itt" aria-describedby="org-details-status">Experience and accreditations</a>
-              {% else %}
-                {% if (data['tl_org_intro'] == "completed") and (data['tl_org_type'] == "completed") %}
-                  {% if data['org-selectedroute'] == "supporting" %}
-                    <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Experience and accreditations</a>
-                  {% else %}
-                    <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Experience and accreditations</a>
-                  {% endif %}
+              {% if (data['tl_org_intro'] == "completed") and (data['tl_org_type'] == "completed") %}
+                {% if data['org-selectedroute'] == "supporting" %}
+                  <a class="app-task-list__task-name" href="organisation/pro-subcontractor" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% else %}
-                  Experience and accreditations
+                  <a class="app-task-list__task-name" href="organisation/pro-itt" aria-describedby="org-profile-completed">Experience and accreditations</a>
                 {% endif %}
+              {% else %}
+                Experience and accreditations
               {% endif %}
               {% if data['tl_org_profile'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="org-profile-status">In progress</strong>

@@ -1,0 +1,78 @@
+{% extends "layout_application_v12.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Management hierarchy</span>
+
+      <h1 class="govuk-heading-l">Who is your organisation’s apprenticeship training manager?</h1>
+
+      <p class="govuk-body">This must be someone who’s responsible for the overall training of apprentices.</p>
+      <p class="govuk-body">We’ll only contact them if there is an issue.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          classes: "govuk-input--width-20",
+          id: "del-accountable-name",
+          name: "del-accountable-name",
+          value: data['del-accountable-name']
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          type: "email",
+          autocomplete: "email",
+          classes: "govuk-input--width-20",
+          id: "del-accountable-email",
+          name: "del-accountable-email",
+          value: data['del-accountable-email'],
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+        
+        {{ govukInput({
+          label: {
+            text: "Contact number"
+          },
+          id: "del-accountable-tel",
+          name: "del-accountable-tel",
+          value: data['del-accountable-tel'],
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v13/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

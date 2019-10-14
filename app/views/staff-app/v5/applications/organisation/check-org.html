@@ -22,7 +22,62 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
-	
+
+			<table class="govuk-table">
+				<!-- <caption class="govuk-table__caption">Organisation details</caption> -->
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header">Question</th>
+					<th scope="col" class="govuk-table__header">
+						Applicant answer
+					</th>
+					<th scope="col" class="govuk-table__header">
+						UKRLP record
+					</th>
+					<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Legal name</th>
+						<td class="govuk-table__cell">LEARNOVATE LTD</td>
+						<td class="govuk-table__cell">LEARNOVATE LTD</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag ">Match</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Trading name</th>
+						<td class="govuk-table__cell">Learnovate</td>
+						<td class="govuk-table__cell">Learnovate training</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag govuk-tag-negative">Conflict</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Business address</th>
+						<td class="govuk-table__cell">1 Romford Road<br>Wellington<br>Telford<br>CV16 6BB</td>
+						<td class="govuk-table__cell">1 Romford Road<br>Wellington<br>Telford<br>CV16 6BB</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag ">Match</strong></td>
+					</tr>
+					<!--tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Website</th>
+						<td class="govuk-table__cell">www.learnovate.com</td>
+						<td class="govuk-table__cell">www.learnovate.com</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag ">Match</strong></td>
+					</tr-->
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Organisation type</th>
+						<td class="govuk-table__cell">Sole trader or partnership</td>
+						<td class="govuk-table__cell">Sole trader or partnership</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag ">Match</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Company number</th>
+						<td class="govuk-table__cell">09234854</td>
+						<td class="govuk-table__cell">09234854</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric"><strong class="govuk-tag">Match</strong></td>
+					</tr>
+				</tbody>
+				</table>
+
+<!--
 			<table class="govuk-table">
 				<caption class="govuk-table__caption govuk-heading-m">Two answers do not match</caption>
 				<thead class="govuk-table__head">
@@ -52,6 +107,7 @@
 			<p class="govuk-body">
 				<a href="#">Show all answers</a>
 			</p>
+-->
 
 			<h2 class="govuk-heading-m">
 				Request clarification
@@ -63,5 +119,10 @@
 
 		</div>
 	</div>
+
+	<script>
+		chor = current_date.getHours()
+		document.write("Current hour is : "+chor+"<br />")
+	</script>
       
 {% endblock %}

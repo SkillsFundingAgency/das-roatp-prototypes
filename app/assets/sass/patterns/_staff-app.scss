@@ -11,3 +11,21 @@
 .well {
     background-color: govuk-colour("grey-4");
 }
+
+.govuk-button-search {
+    float: left;
+    margin-left: 1em;
+}
+
+.govuk-input-search {
+    float: left;
+    //display: inline;
+}
+/*
+.form-search {
+    .govuk-form-group {
+        display: inline-block;
+    }
+    .govuk-button {}
+}
+*/

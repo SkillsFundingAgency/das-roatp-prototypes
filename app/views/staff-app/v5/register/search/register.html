@@ -33,7 +33,7 @@
 
 	<div class="govuk-grid-row">
 
-		<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-grid-column-full">
 
 			<span class="govuk-caption-l">Manage register</span>
 			<h1 class="govuk-heading-xl">Search for an apprenticeship training provider</h1>
@@ -44,20 +44,17 @@ hint: {
 	html: "'abc' returns 5 results<br>'none' returns no results<br>'a' returns 50 results"
 },
 -->
-			<form action="register-a" method="post" class="form">
+			<form action="register-a" method="post" class="form form-search">
 
-				{{ govukInput({
-					label: {
-						text: "Organisation name or UKPRN"
-					},
-					classes: "govuk-!-width-two-thirds",
-					id: "staff-search",
-					name: "staff-search"
-				}) }}
-
-				{{ govukButton({
-					text: "Search"
-				}) }}
+				<div class="govuk-form-group">
+					<label class="govuk-label" for="staff-search">
+						Organisation name or UKPRN
+					</label>
+					<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text">
+					<button class="govuk-button govuk-button-search" data-module="govuk-button">
+						Search
+					</button>
+				</div>
 
 			</form>
 		

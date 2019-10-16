@@ -1,0 +1,366 @@
+{% set current_section = "applications" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">View applications</h1>
+		</div>
+	</div>
+	
+	{% set newHtml %}
+		<h2 class="govuk-heading-l">New</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Assessor 1</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Date submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Five Elms Primary School</a></td>
+					<td class="govuk-table__cell">Olivia Williams</td>
+					<td class="govuk-table__cell">17 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Hotgroup</a></td>
+					<td class="govuk-table__cell">Kelly Sharp</td>
+					<td class="govuk-table__cell">18 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Hotgroup</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">18 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">ABC Aid</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">18 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Five Elms Primary School</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">19 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Hybrid Technical</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">19 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Geason Apprenticeships</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">21 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Babcock Training</a></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">22 Sep 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set inprogressHtml %}
+		<h2 class="govuk-heading-l">In progress</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Assessors</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Date submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Specter Systems</a></td>
+					<td class="govuk-table__cell">Julia Hughes & Adam Williams</td>
+					<td class="govuk-table__cell">12 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Red Aviation</a></td>
+					<td class="govuk-table__cell">Harry Roberts & Keith Daniel</td>
+					<td class="govuk-table__cell">13 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Cubehead</a></td>
+					<td class="govuk-table__cell">Jessica Roberts & George Moore</td>
+					<td class="govuk-table__cell">14 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Spirit Limited</a></td>
+					<td class="govuk-table__cell">Amelia Smith & Jack Phillips</td>
+					<td class="govuk-table__cell">15 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Five Elms Primary School</a></td>
+					<td class="govuk-table__cell">Olivia Williams</td>
+					<td class="govuk-table__cell">19 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Hotgroup</a></td>
+					<td class="govuk-table__cell">Kelly Sharp</td>
+					<td class="govuk-table__cell">18 Sep 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set moderationHtml %}
+		<h2 class="govuk-heading-l">In moderation</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Assessors</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Date submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Peach Systems</a></td>
+					<td class="govuk-table__cell">Caroline Merritt & Zac Robertson</td>
+					<td class="govuk-table__cell">10 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Tortoise Productions</a></td>
+					<td class="govuk-table__cell">Kevin Hansen & Melanie Jensen</td>
+					<td class="govuk-table__cell">9 Sep 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set feedbackHtml %}
+		<h2 class="govuk-heading-l">Clarifications</h2>
+		<p class="govuk-body">There are currently no applications awaiting feedback.</p>
+	{% endset -%}
+	
+	{% set completedHtml %}
+		<h2 class="govuk-heading-l">Completed</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Status</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Date submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Orco</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">9 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Cannon Systems</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">8 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Vision</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">7 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Aura Systems</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">7 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Spritehouse</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">7 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Accenco</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">6 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Oceansun</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">6 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Marsoftwares</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">4 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Great White Media</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">4 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Loki Systems</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">4 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Tucan Intelligence</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">1 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Hatchworks</a></td>
+					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">1 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Smart Limited</a></td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">30 Aug 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set searchHtml %}
+		<h2 class="govuk-heading-l">Search</h2>
+		<form action="" method="post" class="form form-search">
+			<div class="govuk-form-group">
+				<label class="govuk-label" for="staff-search">
+					Organisation name or UKPRN
+				</label>
+				<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text" value="le">
+				<button class="govuk-button govuk-button-search" data-module="govuk-button" >
+					Search
+				</button>
+			</div>
+		</form>
+
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Organisation</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Status</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Date submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Leach Academy</a></td>
+					<td class="govuk-table__cell">54638871</td>
+					<td class="govuk-table__cell">Clarifications</td>
+					<td class="govuk-table__cell">15 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Learn Forward</a></td>
+					<td class="govuk-table__cell">44241566</td>
+					<td class="govuk-table__cell">New</td>
+					<td class="govuk-table__cell">19 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Leason Apprenticeships</a></td>
+					<td class="govuk-table__cell">10098981</td>
+					<td class="govuk-table__cell">Completed</td>
+					<td class="govuk-table__cell">21 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Learnovate</a></td>
+					<td class="govuk-table__cell">66777189</td>
+					<td class="govuk-table__cell">In progress</td>
+					<td class="govuk-table__cell">22 Sep 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="">Level Up</a></td>
+					<td class="govuk-table__cell">38878814</td>
+					<td class="govuk-table__cell">New</td>
+					<td class="govuk-table__cell">22 Sep 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{{ govukTabs({
+		items: [
+			{
+				label: "New",
+				id: "new",
+				panel: {
+					html: newHtml
+				}
+			}, {
+				label: "In progress",
+				id: "inprogress",
+				panel: {
+					html: inprogressHtml
+				}
+			}, {
+				label: "In moderation",
+				id: "moderation",
+				panel: {
+					html: moderationHtml
+				}
+			}, {
+				label: "Clarifications",
+				id: "feedback",
+				panel: {
+					html: feedbackHtml
+				}
+			}, {
+				label: "Completed",
+				id: "completed",
+				panel: {
+					html: completedHtml
+				}
+			}, {
+				label: "Search",
+				id: "search",
+				panel: {
+					html: searchHtml
+				}
+			}
+		]
+	}) }}
+      
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[0]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[1]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[2]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[3]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[4]
+			]
+		});
+	</script>
+
+{% endblock %}

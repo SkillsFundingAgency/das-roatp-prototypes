@@ -20,12 +20,16 @@
 
     <h1 class="govuk-heading-l">Financial health assessment</h1>
 
-    <p class="govuk-body">This section is to ensure your organisation’s financial performance and ability to meet ongoing financial commitments meets ESFA’s expectations.</p>
+    <p class="govuk-body">This section is to ensure your organisation’s financial performance and ability to meet ongoing financial commitments meet ESFA’s expectations.</p>
 
     {% if data["org-parentcompany"] === "yes" %}
       <p class="govuk-body">You’ll need to upload your organisation’s financial evidence covering a 12 month period and your ultimate parent company's consolidated financial statements.</p>
     {% else %}
-      <p class="govuk-body">You’ll need to upload your organisation’s financial evidence covering the last 12 months to date.</p>
+      <p class="govuk-body">You’ll need to:</p>      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>provide your organisation’s financial figures</li>
+        <li>upload your organisation’s financial evidence covering the last 12 months</li>
+      </ul>
     {% endif %}
 
     <p class="govuk-body">Based on these uploads, your organisation will receive a financial health grade.</p>

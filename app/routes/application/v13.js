@@ -1627,9 +1627,24 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
+	// Financial evidence
+	router.post('/application/' + v + '/financial/evidence', function (req, res) {
+		req.session.data['tl_fin_upload'] = 'completed'
+		if (req.session.data['fin-total-turnover'] > 7500000){
+			res.redirect('/application/' + v + '/financial/expect-funding')
+		} else {
+			res.redirect('/application/' + v + '/financial/full-statements')
+		}
+	})
+
+	// Funding expected
+	router.post('/application/' + v + '/financial/expect-funding', function (req, res) {
+		res.redirect('/application/' + v + '/financial/full-statements')
+	})
+
 	// Full financial statements for the last year?
 	router.post('/application/' + v + '/financial/full-statements', function (req, res) {
-		req.session.data['tl_fin_upload'] = 'inprogress'
+		//req.session.data['tl_fin_upload'] = 'inprogress'
 		if (req.session.data['fin-fullstatements'] == "Yes"){
 			res.redirect('/application/' + v + '/financial/full-statements-upload')
 		} else {

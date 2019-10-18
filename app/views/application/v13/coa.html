@@ -12,33 +12,49 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Terms and conditions of making an application</h1>
+    <h1 class="govuk-heading-l">Do you agree to the terms and conditions of making an application?</h1>
 
-    <p class="govuk-body">By making an application you agree to:</p>
+    <p class="govuk-body">These terms and conditions are to ensure apprentices and government funding are protected.</p>
+
+    <p class="govuk-body">By making an application to join the RoATP you agree:</p>
 
     <form action="" method="post" class="form">
     
       <ul class="govuk-list govuk-list--bullet">
-        <li>provide correct and accurate information</li>
-        <li>ESFA using information from the public domain to support any application questions</li>
-        <li>ESFA asking for further information on any application answers</li>
-        <li>tell ESFA if ownership of your organisation changes</li>
-        <li>your organisation developing and delivering training in line with <a href="https://www.instituteforapprenticeships.org/quality/what-is-a-quality-apprenticeship/" target="_blank">the Institute for Apprenticeships and Technical Education’s ‘quality statement’</a>.</li>
+        <li>to provide correct and accurate information</li>
+        <li>that your organisation will develop and deliver training in line with <a href="https://www.instituteforapprenticeships.org/quality/what-is-a-quality-apprenticeship/" targhet="_blank">the Institute for Apprenticeships and Technical Education’s ‘quality statement’</a></li>
       </ul>
 
-      {{ govukWarningText({
-        text: "If you do not meet these terms and conditions, your application will automatically fail.",
-        iconFallbackText: "Warning"
-      }) }}
+      <p class="govuk-body">ESFA may ask for further information on any application answers - they may withdraw your application if you do not comply.</p>
 
-      <p class="govuk-body">We reserve the right to make changes to these terms and conditions at our discretion. </p>
+      <p class="govuk-body">ESFA reserve the right to change these terms and conditions at any time. Your organisation will automatically be obligated to meet the changes made to these terms and conditions. You’ll be able to view these changes on <a href="">the RoATP GOV.UK page (opens in a new window or tab)</a>.</p>
+
+      {% set detailHtml %}
+        <p class="govuk-body">If you do not agree, your organisation cannot apply to join the RoATP.</p>
+      {% endset -%}
+      
+      {{ govukRadios({
+        idPrefix: "coa-accept-conditional",
+        name: "coa-accept",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No",
+            conditional: {
+              html: detailHtml
+            }
+          }
+        ]
+      }) }}
 
       {{ govukButton({
-        text: "Accept and continue",
+        text: "Save and continue",
         classes: "govuk-!-margin-right-1"
       }) }}
-
-      <p class="govuk-body"><a href="coa-notaccepted">I do not accept</a></p>
     
     </form>
 

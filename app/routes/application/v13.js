@@ -730,7 +730,11 @@ module.exports = function (router) {
  ****************/
 
 	router.post('/application/' + v + '/coa', function (req, res) {
-		res.redirect('/application/' + v + '/ukprn')
+		if (req.session.data['coa-accept'] == "Yes") {
+			res.redirect('/application/' + v + '/ukprn')
+		} else {
+			res.redirect('/application/' + v + '/coa-notaccepted')
+		}
 	})
 
 	// UKPRN?

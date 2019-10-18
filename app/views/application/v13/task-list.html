@@ -789,6 +789,19 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
+              {% if data['tl_eval_ilr'] == "completed" %}
+                <a class="app-task-list__task-name" href="finish/coa" aria-describedby="end-coa">Terms and conditions</a>
+              {% else %}
+                Terms and conditions
+              {% endif %}
+              {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
+              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+              {% endif %}
+              {% if data['tl_finish_coa'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="end-coa">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
             {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
               <a class="app-task-list__task-name" href="checkyouranswers" aria-describedby="end-checkanswers">
               Check answers and send application
@@ -796,7 +809,7 @@
             {% else %}
               Check answers and send application
             {% endif %}
-              {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
+              {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") and (data['tl_finish_coa'] == "completed") %}
               <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
               {% endif %}
             </li>

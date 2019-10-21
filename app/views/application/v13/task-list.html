@@ -1,6 +1,6 @@
 
 {% set currentpage = "task-list" %}
-{% extends "layout_application_v12.html" %}
+{% extends "layout_application_v13.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v13
@@ -795,10 +795,11 @@
                 Terms and conditions
               {% endif %}
               {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
-              <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
-              {% endif %}
-              {% if data['tl_finish_coa'] == "completed" %}
-                <strong class="govuk-tag app-task-list__task-completed" id="end-coa">Completed</strong>
+                {% if data['tl_finish_coa'] == "completed" %}
+                  <strong class="govuk-tag app-task-list__task-completed" id="end-coa">Completed</strong>
+                {% else %}
+                  <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
+                {% endif %}
               {% endif %}
             </li>
             <li class="app-task-list__item">

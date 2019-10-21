@@ -2539,6 +2539,17 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-evaluating')
 	})	
 
+	// Permission of 'Commercial in confidence'
+	router.post('/application/' + v + '/finish/coa', function (req, res) {
+		if (req.session.data['fin-coa'] == "No"){
+			res.redirect('/application/' + v + '/shutter/finish-coa')
+			
+		} else {
+			req.session.data['tl_finish_coa'] = 'completed'
+			res.redirect('/application/' + v + '/task-list#section-evaluating')
+		}
+	})	
+
 
 
 /**************************

@@ -1,43 +1,66 @@
-{% extends "layout_application_v12.html" %}
+{% extends "layout_application_v13.html" %}
 
 {% block pageTitle %}
   RoATP Application Prototype v13
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-<!--
-    <span class="govuk-caption-l">About this application</span>
-          
-    <h1 class="govuk-heading-l">Is any of the information in this application ‘commercial in confidence’?</h1>
 
-    <p class="govuk-body">‘Commercial in confidence’ information is sensitive to your organisation. If this information is shared, it could result in damage to commercial interests, intellectual property or trade secrets.</p>
-    <p class="govuk-body">If any of the information in this application is ‘commercial in confidence’, we will not share it without your permission.</p>
+    <span class="govuk-caption-l">Terms and conditions</span>
+    <h1 class="govuk-heading-l">Do you agree to the terms and conditions of submitting an application?</h1>
+
+    <p class="govuk-body">These terms and conditions are to ensure government funding and apprentices are protected.</p>
+
+    <p class="govuk-body">By submitting an application you agree to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>all application answers being accurate and specific to your organisation</li>
+      <li>ESFA using information in the public domain to support the assessment of application answers</li>
+      <li>tell ESFA if any application answers change</li>
+      <li>tell ESFA if the ownership of your organisation changes </li>
+      <li>cooperate within 5 working days if ESFA makes an enquiry about your organisation or this application</li>
+    </ul>
+
+    <p class="govuk-body">By submitting an application, you understand that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>incorrect application answers could lead to civil or criminal proceedings</li>
+      <li>your application may be rejected if there’s evidence of collusion with other apprenticeship training providers or organisations</li>
+      <li>your application may be rejected if your organisation falls under the <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/324225/Funding_Higher-risk_Providers_and_Subcontractors.pdf" target="_blank">‘funding higher risk organisations and subcontractors’</a> (or any policy that replaces it)</li>
+      {% if (data['org-selectedroute'] != "supporting") %}
+      <li>your application may be rejected if there’s a change in your application answers which in ESFA’s judgement does or may impact on your organisation’s ability to deliver apprenticeship training</li>
+      <li>your application may be rejected if your organisation does not comply with the requirements of the apprenticeship funding rules or performance management rules</li>
+      {% endif %}
+    </ul>
+
+    <p class="govuk-body">ESFA may ask for further information on any application answers - they may withdraw your application if you do not comply.</p>
+
+    <p class="govuk-body">ESFA reserve the right to change these terms and conditions at any time. Your organisation will automatically be obligated to meet the changes made to these terms and conditions. You’ll be able to view these changes on <a href="">the RoATP GOV.UK page (opens in a new window or tab)</a>.</p>
 
     <form action="" method="post" class="form">
 
+      {% set detailHtml %}
+        <p class="govuk-body">If you do not agree, your application to join the RoATP may be rejected.</p>
+      {% endset -%}
+      
       {{ govukRadios({
-        idPrefix: "end-permission-commercial",
-        name: "end-permission-commercial",
+        idPrefix: "fin-coa-conditional",
+        name: "fin-coa",
         items: [
           {
             value: "Yes",
-            text: "Yes",
-            checked: checked("end-permission-commercial", "Yes")
+            text: "Yes"
           },
           {
             value: "No",
             text: "No",
-              checked: checked("end-permission-commercial", "No")
+            conditional: {
+              html: detailHtml
+            }
           }
         ]
       }) }}
@@ -46,11 +69,9 @@
         text: "Save and continue",
         classes: "govuk-!-margin-right-1"
       }) }}
-      
-      {% include "includes/v13/gethelp.html" %}
-
+    
     </form>
--->
+
   </div>
 </div>
 

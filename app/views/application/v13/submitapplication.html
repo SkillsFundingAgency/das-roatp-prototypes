@@ -1,0 +1,60 @@
+{% extends "layout_application_v13.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v13
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Submit application on behalf of YOUR COMPANY NAME LTD</h1>
+
+    <p class="govuk-body">Before you submit your application, all the answers and uploads provided must be accurate and to the best of your knowledge.</p>
+    <p class="govuk-body">If any of the information provided in this application is incorrect, we may fail your application. Your organisation can only apply twice in a 12-month period.</p>
+    <p class="govuk-body">You can check your answers and uploads using the application overview</a> and going into each section.</p>
+
+    {{ govukCheckboxes({
+      idPrefix: "submitconfirm",
+      name: "submitconfirm",
+      classes: "govuk-checkboxes--small",
+      items: [
+        {
+          value: "confirm",
+          text: "I confirm that all answers and uploads in this application are accurate and to the best of my knowledge."
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      href: "application-complete",
+      text: "Submit application",
+      disabled: true,
+      classes: "govuk-!-margin-right-4 govuk-button__submit"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+    $( "#submitconfirm-1" ).on( "change", function() {
+      var $this = $(".govuk-button__submit");
+      if ($this.hasClass('govuk-button--disabled')) {
+        $this.removeAttr('disabled');
+        $this.removeClass('govuk-button--disabled');
+      } else {
+        $this.attr('disabled', 'disabled');
+        $this.addClass('govuk-button--disabled');
+      }
+    });
+  </script>
+
+{% endblock %}
+

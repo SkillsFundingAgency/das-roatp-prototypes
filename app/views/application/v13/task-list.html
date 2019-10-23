@@ -804,11 +804,11 @@
             </li>
             <li class="app-task-list__item">
             {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
-              <a class="app-task-list__task-name" href="checkyouranswers" aria-describedby="end-checkanswers">
-              Check answers and send application
+              <a class="app-task-list__task-name" href="submitapplication" aria-describedby="end-checkanswers">
+              Submit application
               </a>
             {% else %}
-              Check answers and send application
+              Submit application
             {% endif %}
               {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") and (data['tl_finish_coa'] == "completed") %}
               <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>

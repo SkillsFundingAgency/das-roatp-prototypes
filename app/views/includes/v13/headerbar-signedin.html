@@ -24,6 +24,12 @@
                 Application overview
               </a>
             </li>
+        {% elseif data['application_status'] == "sent" %}
+            <li class="roatp__navigation-item roatp__navigation-item--active">
+              <a class="govuk-header__link" href="/application/v13/application-complete">
+                Application overview
+              </a>
+            </li>
         {% else %}
           {% if (data['signedin'] == "yes") and (data['org-ukprn']) and (data['org-selectedroute']) %}
             {% if currentpage == "task-list" %}

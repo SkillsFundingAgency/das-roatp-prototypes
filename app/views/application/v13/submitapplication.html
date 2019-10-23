@@ -13,9 +13,9 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Submit application on behalf of YOUR COMPANY NAME LTD</h1>
 
-    <p class="govuk-body">Before you submit your application, all the answers and uploads provided must be accurate and to the best of your knowledge.</p>
-    <p class="govuk-body">If any of the information provided in this application is incorrect, we may fail your application. Your organisation can only apply twice in a 12-month period.</p>
-    <p class="govuk-body">You can check your answers and uploads using the application overview</a> and going into each section.</p>
+    <p class="govuk-body">Before you submit your application, you must check that all of your answers and any files you’ve uploaded are correct.</p>
+    <p class="govuk-body">If any of the information provided in this application is wrong, we can fail your application. Your organisation can only apply twice in a 12-month period.</p>
+    <p class="govuk-body">You can check your answers and file uploads using the <a href="/application/v13/task-list">application overview</a>, then going into each section.</p>
 
     {{ govukCheckboxes({
       idPrefix: "submitconfirm",
@@ -24,7 +24,7 @@
       items: [
         {
           value: "confirm",
-          text: "I confirm that all answers and uploads in this application are accurate and to the best of my knowledge."
+          text: "I confirm that all the answers and uploads in this application is accurate to the best of my knowledge."
         }
       ]
     }) }}

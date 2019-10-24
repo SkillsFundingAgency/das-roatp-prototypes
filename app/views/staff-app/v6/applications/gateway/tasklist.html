@@ -1,0 +1,113 @@
+{% set current_section = "applications" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to view applications",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Gateway</span>
+			<h1 class="govuk-heading-xl">Assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Organisation name</dt>
+				<dd class="govuk-summary-list__value">LEARNOVATE LTD</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">UKPRN</dt>
+				<dd class="govuk-summary-list__value">2893347</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Provider route</dt>
+				<dd class="govuk-summary-list__value">Main</dd>
+			</div>
+		</dl>
+
+		<ol class="app-task-list">
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">1. </span> Check third party sources
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<a href="check-ukrlp">UKRLP checks</a>
+						</span>
+						{% if data['gateway-ukrlp'] %}
+							<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
+						{% endif %}
+						<!--strong class="govuk-tag app-task-list__task-inprogress" id="eligibility-completed">In progress</strong-->
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<a href="check-companieshouse">Companies House checks</a>
+						</span>
+						{% if data['gateway-companieshouse'] %}
+							<strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
+						{% endif %}
+						<!--strong class="govuk-tag app-task-list__task-inprogress" id="eligibility-completed">In progress</strong-->
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<a href="check-ofsted">Ofsted checks</a>
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">2. </span> Assess answers
+				</h2>
+				<ul class="app-task-list__items">
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<!--a href="#" aria-describedby="company-information-completed"-->
+						Organisation information
+					<!--/a-->
+					</span>
+					<!-- <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong> -->
+				</li>
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<!--a href="#" aria-describedby="contact-details-completed"-->
+						Describe your organisation
+					<!--/a-->
+					</span>
+					<!-- <strong class="govuk-tag app-task-list__task-completed" id="contact-details-completed">Completed</strong> -->
+				</li>
+				<li class="app-task-list__item">
+					<span class="app-task-list__task-name">
+					<!--a href="#"-->
+						Experience and accreditations
+					<!--/a-->
+					</span>
+				</li>
+				</ul>
+			</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

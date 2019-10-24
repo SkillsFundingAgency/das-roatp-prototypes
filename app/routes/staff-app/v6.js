@@ -113,4 +113,31 @@ module.exports = function (router) {
 		res.redirect('/staff-app/' + v + '/register/add/add-confirm')
 
 	})
+
+
+/********************************
+ *** Gateway Assessor Journey ***
+ ********************************/
+
+	// UKPRN
+	router.post('/staff-app/' + v + '/applications/gateway/checks/ukprn', function (req, res) {
+		if (req.session.data['gw-ukprn']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
+	// ICO
+	router.post('/staff-app/' + v + '/applications/gateway/checks/ico', function (req, res) {
+		if (req.session.data['gw-ico']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
+	// RoATP
+	router.post('/staff-app/' + v + '/applications/gateway/checks/roatp', function (req, res) {
+		if (req.session.data['gw-roatp']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
 }

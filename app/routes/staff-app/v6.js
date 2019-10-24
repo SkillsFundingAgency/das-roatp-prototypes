@@ -113,4 +113,16 @@ module.exports = function (router) {
 		res.redirect('/staff-app/' + v + '/register/add/add-confirm')
 
 	})
+
+
+/********************************
+ *** Gateway Assessor Journey ***
+ ********************************/
+
+	router.post('/staff-app/' + v + '/applications/gateway/checks/ukprn', function (req, res) {
+		if (req.session.data['gw-ukprn']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
 }

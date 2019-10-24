@@ -27,11 +27,11 @@
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Organisation name</dt>
-				<dd class="govuk-summary-list__value">LEARNOVATE LTD</dd>
+				<dd class="govuk-summary-list__value">REDNOCK SCHOOL</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">UKPRN</dt>
-				<dd class="govuk-summary-list__value">32791445</dd>
+				<dd class="govuk-summary-list__value">10005419</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Application ref</dt>
@@ -50,7 +50,7 @@
 		<ol class="app-task-list">
 			<li>
 				<h2 class="app-task-list__section">
-				<span class="app-task-list__section-number">1. </span> Check third party sources
+				<span class="app-task-list__section-number">1. </span> Verify organisation information
 				</h2>
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
@@ -67,6 +67,18 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
+							<a href="checks/ico">Verify ICO</a>
+						</span>
+						{% if data['gw-ico'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-ico-passed">Passed</strong>
+						{% elseif data['gw-ico'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-ico-rejected">Rejected</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-ico-todo">To do</strong>
+						{% endif %}
+					</li>
+					<!--li class="app-task-list__item">
+						<span class="app-task-list__task-name">
 							<a href="check-companieshouse">Companies House checks</a>
 						</span>
 						{% if data['gateway-companieshouse'] %}
@@ -74,14 +86,13 @@
 						{% else %}
 							<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
 						{% endif %}
-						<!--strong class="govuk-tag app-task-list__task-inprogress" id="eligibility-completed">In progress</strong-->
-					</li>
-					<li class="app-task-list__item">
+					</li-->
+					<!--li class="app-task-list__item">
 						<span class="app-task-list__task-name">
 							<a href="check-ofsted">Ofsted checks</a>
 						</span>
 						<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
-					</li>
+					</li-->
 				</ul>
 			</li>
 			<li>

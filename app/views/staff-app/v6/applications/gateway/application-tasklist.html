@@ -77,6 +77,18 @@
 							<strong class="govuk-tag app-task-list__task-todo" id="gw-ico-todo">To do</strong>
 						{% endif %}
 					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<a href="checks/roatp">Verify RoATP Status</a>
+						</span>
+						{% if data['gw-roatp'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-roatp-passed">Passed</strong>
+						{% elseif data['gw-roatp'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-roatp-rejected">Rejected</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-roatp-todo">To do</strong>
+						{% endif %}
+					</li>
 					<!--li class="app-task-list__item">
 						<span class="app-task-list__task-name">
 							<a href="check-companieshouse">Companies House checks</a>

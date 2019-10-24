@@ -133,4 +133,11 @@ module.exports = function (router) {
 		}
 	})
 
+	// RoATP
+	router.post('/staff-app/' + v + '/applications/gateway/checks/roatp', function (req, res) {
+		if (req.session.data['gw-roatp']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
 }

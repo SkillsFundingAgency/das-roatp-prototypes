@@ -1,0 +1,123 @@
+{% set current_section = "register" %}
+{% extends "layout_staff_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search the register</span>
+			<form action="detail" method="post" class="form">
+
+					{% set removeHtml %}
+					{{ govukSelect({
+						id: "staff-status-remove",
+						name: "staff-status-remove",
+						label: {
+							text: "Select a reason"
+						},
+						items: [
+							{
+								value: "breach",
+								text: "Breach"
+							},
+							{
+								value: "change-of-trading-status",
+								text: "Change of trading status"
+							},
+							{
+								value: "high-risk-policy",
+								text: "High risk policy"
+							},
+							{
+								value: "inadequat-financial-health",
+								text: "Inadequate financial health"
+							},
+							{
+								value: "inadequate-ofsted-grade",
+								text: "Inadequate Ofsted grade"
+							},
+							{
+								value: "internal-error",
+								text: "Internal error"
+							},
+							{
+								value: "merger",
+								text: "Merger"
+							},
+							{
+								value: "minimum-standards-not-met",
+								text: "Minimum standards not met"
+							},
+							{
+								value: "provider-error",
+								text: "Provider error"
+							},
+							{
+								value: "provider-request",
+								text: "Provider request"
+							},
+							{
+								value: "other",
+								text: "Other"
+							}
+						]
+					}) }}
+					{% endset -%}
+				
+					{{ govukRadios({
+						classes: "govuk-radios",
+						idPrefix: "staff-changeukprn",
+						name: "staff-changeukprn",
+						fieldset: {
+							legend: {
+								text: "Change status for ABC Assessments",
+								isPageHeading: true,
+								classes: "govuk-fieldset__legend--xl"
+							}
+						},
+						items: [
+						{
+							value: "active",
+							text: "Active",
+							checked: checked("staff-changeukprn", "active")
+						},
+						{
+							value: "active-not",
+							text: "Active - not taking on apprentices",
+							checked: checked("staff-changeukprn", "active-not")
+						},
+							{
+								value: "remove",
+								text: "Remove",
+								checked: checked("staff-changeukprn", "remove"),
+								conditional: {
+									html: removeHtml
+								}
+							}
+						]
+					}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

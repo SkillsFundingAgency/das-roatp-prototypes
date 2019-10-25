@@ -50,12 +50,12 @@
 		<ol class="app-task-list">
 			<li>
 				<h2 class="app-task-list__section">
-				<span class="app-task-list__section-number">1. </span> Organisation information
+				<span class="app-task-list__section-number">1. </span> Initial checks
 				</h2>
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/ukprn">Verify UKRLP information</a>
+							<a href="checks/ukprn">Verify information from APIs</a>
 						</span>
 						{% if data['gw-ukprn'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-ukprn-passed">Passed</strong>
@@ -67,17 +67,59 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
+							<!--a href="checks/epao">Verify EPAO information</a-->
+							Verify EPAO information
+						</span>
+						{% if data['gw-epao'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-epao-passed">Passed</strong>
+						{% elseif data['gw-epao'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-epao-rejected">Rejected</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-epao-todo">To do</strong>
+						{% endif %}
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">2. </span> Organisation information
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
 							<a href="checks/orginfo">Verify organisation information</a>
 						</span>
-						{% if data['gw-orginfo'] == "Pass" %}
+						{% if data['gw-orginfo'] == "In progress" %}
+							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-orginfo-passed">{{ data['gw-orginfo'] }}</strong>
+						{% elseif data['gw-orginfo'] == "Complete" %}
+							{% if data['count-gw-org-rejects'] > 0 %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-orginfo-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
+							{% else %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-orginfo-passed">Passed</strong>
-						{% elseif data['gw-orginfo'] == "Reject" %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-orginfo-rejected">Rejected</strong>
+							{% endif %}
 						{% else %}
 							<strong class="govuk-tag app-task-list__task-todo" id="gw-orginfo-todo">To do</strong>
 						{% endif %}
 					</li>
 					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Verify who's in control
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-whosincontrol-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Verify organisation description
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-orgdesc-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Verify experience and accreditations
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-ofsted-todo">To do</strong>
+					</li>
+					<!--li class="app-task-list__item">
 						<span class="app-task-list__task-name">
 							<a href="checks/roatp">Verify RoATP Status</a>
 						</span>
@@ -88,7 +130,7 @@
 						{% else %}
 							<strong class="govuk-tag app-task-list__task-todo" id="gw-roatp-todo">To do</strong>
 						{% endif %}
-					</li>
+					</li-->
 					<!--li class="app-task-list__item">
 						<span class="app-task-list__task-name">
 							<a href="check-companieshouse">Companies House checks</a>
@@ -105,6 +147,21 @@
 						</span>
 						<strong class="govuk-tag app-task-list__task-todo" id="eligibility-completed">To do</strong>
 					</li-->
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+				<span class="app-task-list__section-number">3. </span> Criminal and compliance checks
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">Organisation checks</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-orginfo-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">Who's in control checks</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-orginfo-todo">To do</strong>
+					</li>
 				</ul>
 			</li>
 			<!--li>

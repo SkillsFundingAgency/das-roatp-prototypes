@@ -127,10 +127,10 @@ module.exports = function (router) {
 	})
 
 	// ICO
-	router.post('/staff-app/' + v + '/applications/gateway/checks/ico', function (req, res) {
-		if (req.session.data['gw-ico']){
+	router.post('/staff-app/' + v + '/applications/gateway/checks/orginfo', function (req, res) {
+		//if (req.session.data['gw-org-ico']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-		}
+		//}
 	})
 
 	// RoATP

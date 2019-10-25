@@ -1,0 +1,17 @@
+  .govuk-table__cell .govuk-form-group {
+    margin-bottom: 0;
+  }
+  
+  @media (min-width: 40.0625em){
+
+  .govuk-table__cell .govuk-radios--inline .govuk-radios__item {
+      margin-bottom: 0;
+  }
+  .govuk-table__cell .govuk-radios--inline .govuk-radios__item:last-child {
+      margin-right: 0;
+  }
+
+  .govuk-table__header--assessoutcome {
+    width: 260px;
+  }
+}

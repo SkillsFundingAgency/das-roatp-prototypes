@@ -128,9 +128,33 @@ module.exports = function (router) {
 
 	// ICO
 	router.post('/staff-app/' + v + '/applications/gateway/checks/orginfo', function (req, res) {
-		//if (req.session.data['gw-org-ico']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-		//}
+		if (req.session.data['gw-org-parentcompany'] && 
+			req.session.data['gw-org-ico'] && 
+			req.session.data['gw-org-website'] && 
+			req.session.data['gw-org-activelytrading'])
+		{
+			req.session.data['count-gw-org-rejects'] = 0
+			if (req.session.data['gw-org-parentcompany'] == "Reject") {
+				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
+			}
+			if (req.session.data['gw-org-ico'] == "Reject"){
+				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
+			}
+			if (req.session.data['gw-org-website'] == "Reject") {
+				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
+			}
+			if (req.session.data['gw-org-activelytrading'] == "Reject") {
+				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
+			}
+			req.session.data['gw-orginfo'] = "Complete"
+		} else if (req.session.data['gw-org-parentcompany'] || 
+			req.session.data['gw-org-ico'] || 
+			req.session.data['gw-org-website'] || 
+			req.session.data['gw-org-activelytrading'])
+		{
+			req.session.data['gw-orginfo'] = "In progress"
+		}
+		res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
 	})
 
 	// RoATP

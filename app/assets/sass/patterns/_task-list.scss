@@ -60,6 +60,7 @@
 .app-task-list__task-negative,
 .app-task-list__task-next,
 .app-task-list__task-todo,
+.app-task-list__task-inprogressalt,
 .app-task-list__task-notrequired {
   margin-top: govuk-spacing(2);
   margin-bottom: govuk-spacing(1);
@@ -92,6 +93,8 @@
   background-color: #d4351c;
 }
 
+.app-task-list__task-inprogressalt,
+.govuk-tag-inprogressalt,
 .app-task-list__task-todo,
 .govuk-tag-todo {
   background-color: #fff;
@@ -99,6 +102,12 @@
   color: #0b0c0c;
   line-height: 1;
   padding: 5px 6px 1px;
+}
+
+.app-task-list__task-inprogressalt,
+.govuk-tag-inprogressalt {
+  border: 1.5px solid #00823B;
+  color: #00823B;
 }
 
 .roatp_changeanswers {

@@ -18,12 +18,8 @@
 		<div class="govuk-grid-column-full">
 			<h1 class="govuk-heading-xl">Legal checks</h1>
 
-			<p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum vulputate nunc, nec luctus metus vehicula ac. Aliquam diam massa, ultricies non pharetra eget, molestie in turpis.</p>
+			<p class="govuk-body govuk-!-margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum vulputate nunc, nec luctus metus vehicula ac. Aliquam diam massa, ultricies non pharetra eget, molestie in turpis.</p>
 
-			{{ govukButton({
-				classes: "govuk-!-margin-bottom-0 govuk-button-checkapis",
-				text: "Check APIs"
-			}) }}
 		</div>
 	</div>
 	
@@ -32,14 +28,17 @@
 	<div class="govuk-grid-row govuk-!-margin-bottom-7">
 		<div class="govuk-grid-column-full">
 			
-			<h2 class="govuk-heading-l">UKRLP</h2>
-			<p class="govuk-body">UKPRN: 10053003</p>
+			<!--h2 class="govuk-heading-l">Applicant response</h2>
+			<p class="govuk-body">Company number: 03548809</p-->
 
-			<table class="govuk-table govuk-table-apiresponse govuk-!-margin-bottom-9">
+			<h2 class="govuk-heading-l">UKRLP</h2>
+			<p class="govuk-body govuk-!-margin-bottom-1">UKPRN: 10053003</p>
+
+			<table class="govuk-table govuk-table-apiresponse">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant response</th>
+					<th scope="col" class="govuk-table__header">Applicant submission</th>
 					<th scope="col" class="govuk-table__header">API response</th>
 					</tr>
 				</thead>
@@ -47,7 +46,12 @@
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Date</th>
 						<td class="govuk-table__cell">17 Sep 2019</td>
-						<td class="govuk-table__cell api-placeholder" rowspan="6"></td>
+						<td class="govuk-table__cell api-placeholder" rowspan="6">
+							{{ govukButton({
+								classes: "govuk-!-margin-bottom-0 govuk-button-checkapis",
+								text: "Check UKRLP"
+							}) }}
+						</td>
 						<td class="govuk-table__cell api-loading" rowspan="6">
 							<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 						</td>
@@ -80,46 +84,28 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row govuk-!-margin-bottom-7">
+		<div class="govuk-grid-column-two-thirds">
 			
 			<h2 class="govuk-heading-l">Companies House</h2>
+			<p class="govuk-body">Company number: 03548809</p>
 
-			<table class="govuk-table govuk-table-apiresponse">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant response</th>
-					<th scope="col" class="govuk-table__header">API response</th>
-					</tr>
-				</thead>
+			<table class="govuk-table">
 				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Date</th>
-						<td class="govuk-table__cell">17 Sep 2019</td>
-						<td class="govuk-table__cell api-placeholder" rowspan="5"></td>
-						<td class="govuk-table__cell api-loading" rowspan="5">
-							<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-						</td>
-						<td class="govuk-table__cell api-result">30 Oct 2019</td>
-					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Legal name</th>
 						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell api-result">SAFRAN LANDING SYSTEMS UK LTD</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Organisation type</th>
 						<td class="govuk-table__cell">Private limited company</td>
-						<td class="govuk-table__cell api-result">Private limited company</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Company status</th>
 						<td class="govuk-table__cell">Active</td>
-						<td class="govuk-table__cell api-result">Active</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Company number</th>
-						<td class="govuk-table__cell">03548809</td>
-						<td class="govuk-table__cell api-result">03548809</td>
 					</tr>
 				</tbody>
 			</table>
@@ -178,7 +164,7 @@
 
 	<script>
 		$('.govuk-button-checkapis').on('click', function(){
-			$(this).attr('disabled','disabled');
+			//$(this).attr('disabled','disabled');
 			$('.api-placeholder').hide();
 			$('.api-loading').show();
 			setTimeout(function() { 

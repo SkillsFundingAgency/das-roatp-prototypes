@@ -120,14 +120,14 @@ module.exports = function (router) {
  ********************************/
 
 	// UKPRN
-	router.post('/staff-app/' + v + '/applications/gateway/checks/ukprn', function (req, res) {
+	/*router.post('/staff-app/' + v + '/applications/gateway/checks/ukprn', function (req, res) {
 		if (req.session.data['gw-ukprn']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
 		}
-	})
+	})*/
 
 	// ICO
-	router.post('/staff-app/' + v + '/applications/gateway/checks/orginfo', function (req, res) {
+	/*router.post('/staff-app/' + v + '/applications/gateway/checks/orginfo', function (req, res) {
 		if (req.session.data['gw-org-parentcompany'] && 
 			req.session.data['gw-org-ico'] && 
 			req.session.data['gw-org-website'] && 
@@ -155,13 +155,28 @@ module.exports = function (router) {
 			req.session.data['gw-orginfo'] = "In progress"
 		}
 		res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-	})
+	})*/
 
 	// RoATP
-	router.post('/staff-app/' + v + '/applications/gateway/checks/roatp', function (req, res) {
+	/*router.post('/staff-app/' + v + '/applications/gateway/checks/roatp', function (req, res) {
 		if (req.session.data['gw-roatp']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
 		}
+	})*/
+
+	//Legal checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/legal-withdata', function (req, res) {
+		if (req.session.data['gw-legal']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
 	})
+
+	//Address checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/address', function (req, res) {
+		if (req.session.data['gw-address']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+		}
+	})
+
 
 }

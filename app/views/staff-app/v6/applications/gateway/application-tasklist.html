@@ -57,38 +57,37 @@
 						<span class="app-task-list__task-name">
 							<a href="checks/legal">Legal checks</a>
 						</span>
-						{% if data['gw-ukprn'] == "Pass" %}
-							<strong class="govuk-tag app-task-list__task-positive" id="gw-ukprn-passed">Passed</strong>
-						{% elseif data['gw-ukprn'] == "Reject" %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-ukprn-rejected">Rejected</strong>
+						{% if data['gw-legal'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-legal-passed">Passed</strong>
+						{% elseif data['gw-legal'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-legal-rejected">Rejected</strong>
 						{% else %}
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-ukprn-todo">To do</strong>
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-legal-todo">To do</strong>
 						{% endif %}
 					</li>
+					<!--li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<a href="checks/address">Address checks</a>
+						</span>
+						{% if data['gw-address'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-address-passed">Passed</strong>
+						{% elseif data['gw-address'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-address-rejected">Rejected</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-address-todo">To do</strong>
+						{% endif %}
+					</li-->
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
 							<!--a href="checks/epao">Verify EPAO information</a-->
-							<a href="">Address checks</a>
+							<a href="checks/register">Register checks</a>
 						</span>
-						{% if data['gw-epao'] == "Pass" %}
-							<strong class="govuk-tag app-task-list__task-positive" id="gw-epao-passed">Passed</strong>
-						{% elseif data['gw-epao'] == "Reject" %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-epao-rejected">Rejected</strong>
+						{% if data['gw-register'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-register-passed">Passed</strong>
+						{% elseif data['gw-register'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-register-rejected">Rejected</strong>
 						{% else %}
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-epao-todo">To do</strong>
-						{% endif %}
-					</li>
-					<li class="app-task-list__item">
-						<span class="app-task-list__task-name">
-							<!--a href="checks/epao">Verify EPAO information</a-->
-							<a href="">Register checks</a>
-						</span>
-						{% if data['gw-epao'] == "Pass" %}
-							<strong class="govuk-tag app-task-list__task-positive" id="gw-epao-passed">Passed</strong>
-						{% elseif data['gw-epao'] == "Reject" %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-epao-rejected">Rejected</strong>
-						{% else %}
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-epao-todo">To do</strong>
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-register-todo">To do</strong>
 						{% endif %}
 					</li>
 				</ul>

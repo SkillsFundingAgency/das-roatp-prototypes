@@ -1,0 +1,89 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to assessment overview",
+    href: "/staff-app/v6/applications/gateway/application-tasklist"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Gateway</span>
+			<h1 class="govuk-heading-xl">Register checks</h1>
+
+			<p class="govuk-body">---</p>
+
+			<!--table class="govuk-table govuk-table-apiresponse govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header">Data source</th>
+					<th scope="col" class="govuk-table__header">Address held</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">UKRLP</th>
+						<td class="govuk-table__cell">Cheltenham Road East, Gloucester, GL2 9QH</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Companies House</th>
+						<td class="govuk-table__cell">Cheltenham Road East, Gloucester, Gloucestershire, GL2 9QH</td>
+					</tr>
+				</tbody>
+			</table-->
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			
+			<h2 class="govuk-heading-m">Register checks outcome</h2>
+
+			<form action="" method="post" class="form">
+
+				{{ govukTextarea({
+					name: "gw-register-notes",
+					id: "gw-register-notes",
+					label: {
+						text: "Notes"
+					}
+				}) }}
+
+				{{ govukRadios({
+					idPrefix: "gw-register",
+					name: "gw-register",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-register", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-register", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="../application-tasklist">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

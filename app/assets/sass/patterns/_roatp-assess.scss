@@ -114,3 +114,12 @@
     opacity: 0;
   }
 }
+
+
+.shrinkit {
+  .govuk-table__header,
+  .govuk-table__cell {
+    font-size: 1rem !important; /* 19px */
+    //font-size: .875rem !important; /* 16px */
+  }
+}

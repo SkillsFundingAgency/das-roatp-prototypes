@@ -1,0 +1,221 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to assessment overview",
+    href: "/staff-app/v6/applications/gateway/application-tasklist"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Gateway</span>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
+
+			<p class="govuk-body">The system will use API’s to get the latest data from UKRLP, Companies House and the Charity Commision for England and Wales.</p>
+			<p class="govuk-body">To pass these checks, the data from the application and the data from the API’s must be the match.</p>
+			<p class="govuk-body">If the data does not match, reject this XXX and send a XXX to the organisation.</p>
+
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Application submitted</th>
+						<td class="govuk-table__cell">18 Oct 2019 at 15:37pm</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">APIs last checked</th>
+						<td class="govuk-table__cell">{{ data['both-legal-apidate'] }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="both-legal-recheck" method="post" class="form">
+
+				{{ govukButton({
+					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
+					text: "Re-check APIs"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+	
+	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+	<div class="govuk-grid-row govuk-!-margin-bottom-7">
+		<div class="govuk-grid-column-full">
+			
+			<h2 class="govuk-heading-l">UKRLP</h2>
+			<p class="govuk-body">UKPRN: 10053003</p>
+
+			<table class="govuk-table govuk-table-apiresponse govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header"></th>
+					<th scope="col" class="govuk-table__header">Applicant data</th>
+					<th scope="col" class="govuk-table__header">API data</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Legal name</th>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Business address</th>
+						<td class="govuk-table__cell">Bromley,<br>BR1 2JQ</td>
+						<td class="govuk-table__cell">Bromley,<br>BR1 2JQ</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Organisation type</th>
+						<td class="govuk-table__cell"></td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Primary verification authority</th>
+						<td class="govuk-table__cell">Companies House</td>
+						<td class="govuk-table__cell">Companies House</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Company number</th>
+						<td class="govuk-table__cell">05422550</td>
+						<td class="govuk-table__cell">05422550</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Charity registration number</th>
+						<td class="govuk-table__cell">1111486</td>
+						<td class="govuk-table__cell">1111486</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Website</th>
+						<td class="govuk-table__cell"><a href="https://www.westmeriacounselling.co.uk" target="_blank">westmeriacounselling.co.uk</a></td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2 class="govuk-heading-l">Companies House</h2>
+			<p class="govuk-body">Company number: 03548809</p>
+
+			<table class="govuk-table govuk-table-apiresponse govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header"></th>
+					<th scope="col" class="govuk-table__header">Applicant data</th>
+					<th scope="col" class="govuk-table__header">API data</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Legal name</th>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Registered office address</th>
+						<td class="govuk-table__cell">Bromley Park Medical Centre 6 Daly Drive,<br>Otford Close,<br>Bromley Park,<br>Bickley,<br>Kent,<br>BR1 2JQ</td>
+						<td class="govuk-table__cell">Bromley Park Medical Centre 6 Daly Drive,<br>Otford Close,<br>Bromley Park,<br>Bickley,<br>Kent,<br>BR1 2JQ</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Company type</th>
+						<td class="govuk-table__cell">Private Limited Company by guarantee without share capital use of 'Limited' exemption</td>
+						<td class="govuk-table__cell">Private Limited Company by guarantee without share capital use of 'Limited' exemption</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Company status</th>
+						<td class="govuk-table__cell">Active</td>
+						<td class="govuk-table__cell">Active</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2 class="govuk-heading-l">Charity Commission</h2>
+			<p class="govuk-body">Charity registration number: 1111486</p>
+
+			<table class="govuk-table govuk-table-apiresponse">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+					<th scope="col" class="govuk-table__header"></th>
+					<th scope="col" class="govuk-table__header">Applicant data</th>
+					<th scope="col" class="govuk-table__header">API data</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Legal name</th>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+						<td class="govuk-table__cell">WESTMERIA COUNSELLING SERVICES</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Address</th>
+						<td class="govuk-table__cell">THE SURGERY,<br>OTFORD CLOSE,<br>BROMLEY PARK,<br>BICKLEY,<br>KENT,<br>BR1 2JQ</td>
+						<td class="govuk-table__cell">THE SURGERY,<br>OTFORD CLOSE,<br>BROMLEY PARK,<br>BICKLEY,<br>KENT,<br>BR1 2JQ</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Charity type</th>
+						<td class="govuk-table__cell">STANDARD REGISTRATION</td>
+						<td class="govuk-table__cell">STANDARD REGISTRATION</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Charity status</th>
+						<td class="govuk-table__cell">Active</td>
+						<td class="govuk-table__cell">Active</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h2 class="govuk-heading-l">Legal and address checks outcome</h2>
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "gw-legal",
+					name: "gw-legal",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-legal", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-legal", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukTextarea({
+					name: "gw-legal-notes",
+					id: "gw-legal-notes",
+					label: {
+						text: "Add comments"
+					}
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-charity">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

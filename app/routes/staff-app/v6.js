@@ -12,6 +12,16 @@ function monthNumToName(monthnum) {
 	return months[monthnum - 1] || '';
 }
 
+function govDateTime() {
+	var d = new Date(),
+			minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+			hours = d.getHours().toString().length == 1 ? d.getHours() : d.getHours(),
+			ampm = d.getHours() >= 12 ? 'pm' : 'am',
+			months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+			days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+	return d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()+' at '+hours+':'+minutes+ampm;
+}
+
 module.exports = function (router) {
 
 	// Training Provider Added
@@ -164,17 +174,52 @@ module.exports = function (router) {
 		}
 	})*/
 
-	//Legal checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/legal-withdata', function (req, res) {
-		if (req.session.data['gw-legal']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+// Company
+
+	// Legal API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal', function (req, res) {
+		req.session.data['company-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data')
+	})
+
+	// Legal API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal-recheck', function (req, res) {
+		req.session.data['company-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data')
+	})
+
+	// Legal checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal-data', function (req, res) {
+		if (req.session.data['gw-company-legal']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		}
 	})
 
-	//Address checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/address', function (req, res) {
-		if (req.session.data['gw-address']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
+	// Register checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-register', function (req, res) {
+		if (req.session.data['gw-company-register']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		}
+	})
+
+// Charity
+
+	// Legal API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal', function (req, res) {
+		req.session.data['both-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-legal-data')
+	})
+
+	// Legal API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal-recheck', function (req, res) {
+		req.session.data['both-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-legal-data')
+	})
+
+	// Legal checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal-data', function (req, res) {
+		if (req.session.data['gw-both-legal']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-both')
 		}
 	})
 

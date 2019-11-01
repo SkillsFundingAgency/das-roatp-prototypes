@@ -23,13 +23,16 @@
 			<p class="govuk-body">To pass these checks, the data from the application and the data from the API’s must be the match.</p>
 			<p class="govuk-body">If the data does not match, reject this XXX and send a XXX to the organisation.</p>
 
-			{{ govukButton({
-				classes: "govuk-button-checkapis",
-				href: "legal-company-data",
-				text: "Check APIs"
-			}) }}
+			<form action="" method="post" class="form">
 
-			<p><a href="../application-tasklist">Return to assessment overview</a></p>
+				{{ govukButton({
+					classes: "govuk-button-checkapis",
+					text: "Check APIs"
+				}) }}
+			
+			</form>
+
+			<p><a href="../tasklist-company">Return to assessment overview</a></p>
 
 		</div>
 	</div>

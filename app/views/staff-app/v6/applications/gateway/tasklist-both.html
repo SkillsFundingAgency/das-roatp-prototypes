@@ -26,40 +26,36 @@
 	
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Organisation name</dt>
-				<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
-			</div>
-			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">UKPRN</dt>
-				<dd class="govuk-summary-list__value">10053003</dd>
+				<dd class="govuk-summary-list__value">10066774</dd>
 			</div>
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Application ref</dt>
-				<dd class="govuk-summary-list__value">APR00000001</dd>
-			</div>
-			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Provider type</dt>
-				<dd class="govuk-summary-list__value">Main</dd>
+				<dt class="govuk-summary-list__key">Organisation name</dt>
+				<dd class="govuk-summary-list__value">WESTMERIA COUNSELLING SERVICES</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Provider route</dt>
-				<dd class="govuk-summary-list__value">Main</dd>
+				<dd class="govuk-summary-list__value">Employer</dd>
 			</div>
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Date application submitted</dt>
-				<dd class="govuk-summary-list__value">17 Sep 2019</dd>
+				<dt class="govuk-summary-list__key">Reference number</dt>
+				<dd class="govuk-summary-list__value">APR00000002</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Application submitted</dt>
+				<dd class="govuk-summary-list__value">18 Oct 2019</dd>
 			</div>
 		</dl>
 
 		<ol class="app-task-list">
 			<li>
 				<h2 class="app-task-list__section">
-				<span class="app-task-list__section-number">1. </span> Initial checks
+					<span class="app-task-list__section-number">1. </span> Initial checks
 				</h2>
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/legal-company">Legal checks</a>
+							<a href="checks/both-legal">Legal and address checks</a>
 						</span>
 						{% if data['gw-legal'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-legal-passed">Passed</strong>
@@ -83,8 +79,7 @@
 					</li-->
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<!--a href="checks/epao">Verify EPAO information</a-->
-							<a href="checks/register">Register checks</a>
+							<a href="checks/both-register">Register checks</a>
 						</span>
 						{% if data['gw-register'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-register-passed">Passed</strong>
@@ -98,12 +93,12 @@
 			</li>
 			<li>
 				<h2 class="app-task-list__section">
-				<span class="app-task-list__section-number">2. </span> Organisation information
+					<span class="app-task-list__section-number">2. </span> Organisation information
 				</h2>
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/orginfo">Organisation information</a>
+							<!--a href="checks/orginfo"-->Organisation checks<!--/a-->
 						</span>
 						{% if data['gw-orginfo'] == "In progress" %}
 							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-orginfo-passed">{{ data['gw-orginfo'] }}</strong>
@@ -134,6 +129,50 @@
 							Experience and accreditations
 						</span>
 						<strong class="govuk-tag app-task-list__task-todo" id="gw-ofsted-todo">To do</strong>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">3. </span> Criminal and compliance checks
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							The organisation
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Who's in control
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">4. </span> Submission checks
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Application permissions and checks
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							‘Commercial in confidence’ information
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							Terms and conditions (CoA’s)
+						</span>
+						<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
 					</li>
 				</ul>
 			</li>

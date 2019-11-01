@@ -152,25 +152,25 @@
 			<form action="" method="post" class="form">
 
 				{{ govukRadios({
-					idPrefix: "gw-legal",
-					name: "gw-legal",
+					idPrefix: "gw-company-legal",
+					name: "gw-company-legal",
 					items: [
 						{
 							value: "Pass",
 							text: "Pass",
-							checked: checked("gw-legal", "Pass")
+							checked: checked("gw-company-legal", "Pass")
 						},
 						{
 							value: "Reject",
 							text: "Reject",
-							checked: checked("gw-legal", "Reject")
+							checked: checked("gw-company-legal", "Reject")
 						}
 					]
 				}) }}
 
 				{{ govukTextarea({
-					name: "gw-legal-notes",
-					id: "gw-legal-notes",
+					name: "gw-company-legal-notes",
+					id: "gw-company-legal-notes",
 					label: {
 						text: "Add comments"
 					}

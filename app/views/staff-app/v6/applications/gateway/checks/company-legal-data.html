@@ -15,19 +15,35 @@
 {% block content %}
 
 	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-full">
+		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Gateway</span>
-			<h1 class="govuk-heading-xl">Legal checks</h1>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
 
-			<p class="govuk-body">By clicking the button below, the system will automatically check the APIs of UKRLP, Companies House, and the Charities Commission for the data required for you to carry out the legal checks on this orgnanisation.</p>
+			<p class="govuk-body">The system will use API’s to get the latest data from UKRLP, Companies House and the Charity Commision for England and Wales.</p>
+			<p class="govuk-body">To pass these checks, the data from the application and the data from the API’s must be the match.</p>
+			<p class="govuk-body">If the data does not match, reject this XXX and send a XXX to the organisation.</p>
+
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Application submitted</th>
+						<td class="govuk-table__cell">17 Oct 2019 at 12:18pm</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">APIs last checked</th>
+						<td class="govuk-table__cell">{{ data['company-legal-apidate'] }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="company-legal-recheck" method="post" class="form">
 
 				{{ govukButton({
 					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
 					text: "Re-check APIs"
 				}) }}
-				
-				<p class="govuk-body">Application submitted: 17 Sep 2019 at 12:18</p>
-				<p class="govuk-body">APIs last checked: 31 Oct 2019 at 11:47</p>
+
+			</form>
 
 		</div>
 	</div>
@@ -44,8 +60,8 @@
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant response</th>
-					<th scope="col" class="govuk-table__header">API response</th>
+					<th scope="col" class="govuk-table__header">Applicant data</th>
+					<th scope="col" class="govuk-table__header">API data</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
@@ -60,12 +76,17 @@
 						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Address</th>
+						<th scope="row" class="govuk-table__header">Business address</th>
 						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>GL2 9QH</td>
 						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>GL2 9QH</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Verification authority</th>
+						<th scope="row" class="govuk-table__header">Organisation type</th>
+						<td class="govuk-table__cell"></td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Primary verification authority</th>
 						<td class="govuk-table__cell">Companies House</td>
 						<td class="govuk-table__cell">Companies House</td>
 					</tr>
@@ -74,6 +95,11 @@
 						<td class="govuk-table__cell">03548809</td>
 						<td class="govuk-table__cell">03548809</td>
 					</tr>
+					<!--tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Charity registration number</th>
+						<td class="govuk-table__cell"></td>
+						<td class="govuk-table__cell"></td>
+					</tr-->
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Website</th>
 						<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/" target="_blank">safran-landing-systems.com</a></td>
@@ -89,8 +115,8 @@
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant response</th>
-					<th scope="col" class="govuk-table__header">API response</th>
+					<th scope="col" class="govuk-table__header">Applicant data</th>
+					<th scope="col" class="govuk-table__header">API data</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
@@ -105,7 +131,7 @@
 						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Organisation type</th>
+						<th scope="row" class="govuk-table__header">Company type</th>
 						<td class="govuk-table__cell">Private limited company</td>
 						<td class="govuk-table__cell">Private limited company</td>
 					</tr>
@@ -121,17 +147,9 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<h2 class="govuk-heading-m">Legal checks outcome</h2>
+			<h2 class="govuk-heading-l">Legal and address checks outcome</h2>
 
 			<form action="" method="post" class="form">
-
-				{{ govukTextarea({
-					name: "gw-legal-notes",
-					id: "gw-legal-notes",
-					label: {
-						text: "Notes"
-					}
-				}) }}
 
 				{{ govukRadios({
 					idPrefix: "gw-legal",
@@ -150,6 +168,14 @@
 					]
 				}) }}
 
+				{{ govukTextarea({
+					name: "gw-legal-notes",
+					id: "gw-legal-notes",
+					label: {
+						text: "Add comments"
+					}
+				}) }}
+
 				{{ govukButton({
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-1"
@@ -157,7 +183,7 @@
 
 			</form>
 
-			<p><a href="../application-tasklist">Return to assessment overview</a></p>
+			<p><a href="../tasklist-company">Return to assessment overview</a></p>
 
 		</div>
 	</div>

@@ -26,12 +26,12 @@
 	
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">UKPRN</dt>
-				<dd class="govuk-summary-list__value">10053003</dd>
-			</div>
-			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Organisation name</dt>
 				<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">UKPRN</dt>
+				<dd class="govuk-summary-list__value">10053003</dd>
 			</div>
 			<div class="govuk-summary-list__row">
 				<dt class="govuk-summary-list__key">Application ref</dt>
@@ -42,7 +42,11 @@
 				<dd class="govuk-summary-list__value">Main</dd>
 			</div>
 			<div class="govuk-summary-list__row">
-				<dt class="govuk-summary-list__key">Date submitted</dt>
+				<dt class="govuk-summary-list__key">Provider route</dt>
+				<dd class="govuk-summary-list__value">Main</dd>
+			</div>
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">Date application submitted</dt>
 				<dd class="govuk-summary-list__value">17 Sep 2019</dd>
 			</div>
 		</dl>
@@ -55,7 +59,7 @@
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/legal">Legal checks</a>
+							<a href="checks/legal-company">Legal checks</a>
 						</span>
 						{% if data['gw-legal'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-legal-passed">Passed</strong>

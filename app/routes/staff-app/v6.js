@@ -224,4 +224,10 @@ module.exports = function (router) {
 	})
 
 
+// RoATP register check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-check-roatp', function (req, res) {
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-register-roatp')
+	})
+
+
 }

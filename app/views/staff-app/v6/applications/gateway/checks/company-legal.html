@@ -15,21 +15,42 @@
 {% block content %}
 
 	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-two-thirds">
+		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Gateway</span>
 			<h1 class="govuk-heading-xl">Legal and address checks</h1>
 
-			<p class="govuk-body">The system will use API’s to get the latest data from UKRLP, Companies House and the Charity Commision for England and Wales.</p>
-			<p class="govuk-body">To pass these checks, the data from the application and the data from the API’s must be the match.</p>
-			<p class="govuk-body">If the data does not match, reject this XXX and send a XXX to the organisation.</p>
+			<h3 class="govuk-heading-m">Applicant data</h3>
+			<p class="govuk-body">
+				UKPRN: 10053003<br>
+				Date: 17 Oct 2019
+			</p>
 
-			<form action="" method="post" class="form">
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Legal name</th>
+						<th scope="col" class="govuk-table__header">Trading name</th>
+						<th scope="col" class="govuk-table__header"><abbr title="Primary verification authority">PVA</abbr></th>
+						<th scope="col" class="govuk-table__header">Company number</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+						<td class="govuk-table__cell">-</td>
+						<td class="govuk-table__cell">Companies House</td>
+						<td class="govuk-table__cell">03548809</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="company-legal-recheck" method="post" class="form">
 
 				{{ govukButton({
-					classes: "govuk-button-checkapis",
-					text: "Check APIs"
+					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
+					text: "Get data"
 				}) }}
-			
+
 			</form>
 
 			<p><a href="../tasklist-company">Return to assessment overview</a></p>

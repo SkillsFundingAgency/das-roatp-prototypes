@@ -40,7 +40,7 @@
 						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
 						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS</td>
 						<td class="govuk-table__cell">03548809</td>
-						<td class="govuk-table__cell">-</td>
+						<td class="govuk-table__cell">Not applicable</td>
 					</tr>
 				</tbody>
 			</table>
@@ -89,105 +89,11 @@
 
 		</div>
 	</div>
-<!--
-	<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-	<div class="govuk-grid-row govuk-!-margin-bottom-7">
-		<div class="govuk-grid-column-full">
-			
-			<h2 class="govuk-heading-l">UKRLP</h2>
-
-			<table class="govuk-table govuk-table-apiresponse govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant data</th>
-					<th scope="col" class="govuk-table__header">API data</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Legal name</th>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Trading name</th>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS</td>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Business address</th>
-						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>GL2 9QH</td>
-						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>GL2 9QH</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Organisation type</th>
-						<td class="govuk-table__cell"></td>
-						<td class="govuk-table__cell"></td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Primary verification authority</th>
-						<td class="govuk-table__cell">Companies House</td>
-						<td class="govuk-table__cell">Companies House</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Company number</th>
-						<td class="govuk-table__cell">03548809</td>
-						<td class="govuk-table__cell">03548809</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Website</th>
-						<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/" target="_blank">safran-landing-systems.com</a></td>
-						<td class="govuk-table__cell"></td>
-					</tr>
-				</tbody>
-			</table>
-			
-			<h2 class="govuk-heading-l">Companies House</h2>
-			<p class="govuk-body">Company number: 03548809</p>
-
-			<table class="govuk-table govuk-table-apiresponse">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-					<th scope="col" class="govuk-table__header"></th>
-					<th scope="col" class="govuk-table__header">Applicant data</th>
-					<th scope="col" class="govuk-table__header">API data</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Legal name</th>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Registered office address</th>
-						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
-						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Company type</th>
-						<td class="govuk-table__cell">Private limited company</td>
-						<td class="govuk-table__cell">Private limited company</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Company status</th>
-						<td class="govuk-table__cell">Active</td>
-						<td class="govuk-table__cell">Active</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
--->
 	<div class="govuk-grid-row govuk-!-margin-top-9">
 		<div class="govuk-grid-column-two-thirds">
-			<h2 class="govuk-heading-l">Legal checks outcome</h2>
 
-			<p class="govuk-body">The system will use API’s to get the latest data from UKRLP, Companies House and the Charity Commision for England and Wales.</p>
-			<p class="govuk-body">To pass these checks, the data from the application and the data from the API’s must match.</p>
-			<p class="govuk-body">If the data does not match, you must reject this XXX and send a XXX to the organisation.</p>
+      {% include "includes/staff-app/v6/sops-gateway-legal.html" %}
 
 			<form action="" method="post" class="form">
 
@@ -207,10 +113,11 @@
 						}
 					]
 				}) }}
-
-				{{ govukTextarea({
+				
+				{{ govukCharacterCount({
 					name: "gw-company-legal-notes",
 					id: "gw-company-legal-notes",
+					maxlength: 750,
 					label: {
 						text: "Add comments"
 					}

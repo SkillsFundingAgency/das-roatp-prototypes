@@ -174,7 +174,8 @@ module.exports = function (router) {
 		}
 	})*/
 
-// Company
+
+// Company Legal
 
 	// Legal API call
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal', function (req, res) {
@@ -195,6 +196,7 @@ module.exports = function (router) {
 		//}
 	})
 
+// Company Address
 
 	// Address API call
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-address', function (req, res) {
@@ -215,6 +217,7 @@ module.exports = function (router) {
 		//}
 	})
 
+// Company Register
 
 	// Register checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-register', function (req, res) {
@@ -223,7 +226,8 @@ module.exports = function (router) {
 		//}
 	})
 
-// Charity
+
+// Company & Charity Legal
 
 	// Legal API call
 	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal', function (req, res) {
@@ -244,11 +248,77 @@ module.exports = function (router) {
 		//}
 	})
 
+// Company & Charity Address
 
-// RoATP register check
-	router.post('/staff-app/' + v + '/applications/gateway/checks/company-check-roatp', function (req, res) {
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-register-roatp')
+	// Address API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address', function (req, res) {
+		req.session.data['both-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-address-data#applicant')
 	})
 
+	// Address API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address-recheck', function (req, res) {
+		req.session.data['both-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-address-data')
+	})
+
+	// Address checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address-data', function (req, res) {
+		//if (req.session.data['gw-both-address']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-both')
+		//}
+	})
+
+
+// Charity Legal
+
+	// Legal API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal', function (req, res) {
+		req.session.data['charity-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
+	})
+
+	// Legal API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal-recheck', function (req, res) {
+		req.session.data['charity-legal-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
+	})
+
+	// Legal checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data', function (req, res) {
+		//if (req.session.data['gw-charity-legal']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
+		//}
+	})
+
+// Charity Address
+
+	// Address API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address', function (req, res) {
+		req.session.data['charity-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-address-data#applicant')
+	})
+
+	// Address API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address-recheck', function (req, res) {
+		req.session.data['charity-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-address-data')
+	})
+
+	// Address checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address-data', function (req, res) {
+		//if (req.session.data['gw-charity-address']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
+		//}
+	})
+
+
+
+
+// RoATP register check
+/*	router.post('/staff-app/' + v + '/applications/gateway/checks/company-check-roatp', function (req, res) {
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-register-roatp')
+	})
+*/
 
 }

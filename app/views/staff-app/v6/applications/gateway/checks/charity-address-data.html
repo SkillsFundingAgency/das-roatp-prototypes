@@ -21,9 +21,9 @@
 
 			<h3 class="govuk-heading-m">Applicant data</h3>
 			<p class="govuk-body">
-				UKPRN: 10053003<br>
-				<abbr title="Primary verification authority">PVA</abbr>: Companies House<br>
-				Date: 17 Oct 2019
+				UKPRN: 10006054<br>
+				<abbr title="Primary verification authority">PVA</abbr>: Charity Commission<br>
+				Date: 19 Oct 2019
 			</p>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -35,15 +35,15 @@
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">Gloucester, GL2 9QH</td>
+						<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
+						<td class="govuk-table__cell">Widnes, Cheshire, WA8 7QH</td>
 					</tr>
 				</tbody>
 			</table>
 			
 			<h3 class="govuk-heading-m" id="realtime">Real-time data</h3>
 			<p class="govuk-body">
-				Date: {{ data['company-address-apidate'] }}
+				Date: {{ data['charity-address-apidate'] }}
 			</p>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -59,16 +59,16 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">UKRLP</th>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">Gloucester, GL2 9QH</td>
-						<td class="govuk-table__cell">10053003</td>
+						<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
+						<td class="govuk-table__cell">Widnes, Cheshire, WA8 7QH</td>
+						<td class="govuk-table__cell">10006054</td>
 						<td class="govuk-table__cell">Active</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">Companies House</th>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">Cheltenham Road East, Gloucester, Gloucestershire, GL2 9QH</td>
-						<td class="govuk-table__cell">03548809</td>
+						<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
+						<td class="govuk-table__cell">CRMZ ROOMS, KINGSWAY, WIDNES, CHESHIRE, WA8 7QE</td>
+						<td class="govuk-table__cell">1060095</td>
 						<td class="govuk-table__cell">Active</td>
 					</tr>
 				</tbody>
@@ -188,25 +188,25 @@
 			<form action="" method="post" class="form">
 
 				{{ govukRadios({
-					idPrefix: "gw-company-address",
-					name: "gw-company-address",
+					idPrefix: "gw-charity-address",
+					name: "gw-charity-address",
 					items: [
 						{
 							value: "Pass",
 							text: "Pass",
-							checked: checked("gw-company-address", "Pass")
+							checked: checked("gw-charity-address", "Pass")
 						},
 						{
 							value: "Reject",
 							text: "Reject",
-							checked: checked("gw-company-address", "Reject")
+							checked: checked("gw-charity-address", "Reject")
 						}
 					]
 				}) }}
 
 				{{ govukTextarea({
-					name: "gw-company-address-notes",
-					id: "gw-company-address-notes",
+					name: "gw-charity-address-notes",
+					id: "gw-charity-address-notes",
 					label: {
 						text: "Add comments"
 					}
@@ -219,7 +219,7 @@
 
 			</form>
 
-			<p><a href="../tasklist-company">Return to assessment overview</a></p>
+			<p><a href="../tasklist-charity">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

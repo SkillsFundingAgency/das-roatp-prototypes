@@ -155,16 +155,12 @@
 						<span class="app-task-list__task-name">
 							<a href="company/organisation/info">Organisation information</a>
 						</span>
-						{% if data['gw-orginfo'] == "In progress" %}
-							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-orginfo-passed">{{ data['gw-orginfo'] }}</strong>
-						{% elseif data['gw-orginfo'] == "Complete" %}
-							{% if data['count-gw-org-rejects'] > 0 %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-orginfo-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
-							{% else %}
-							<strong class="govuk-tag app-task-list__task-positive" id="gw-orginfo-passed">Passed</strong>
-							{% endif %}
+						{% if data['gw-company-ico'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-ico-passed">Passed</strong>
+						{% elseif data['gw-company-ico'] == "Reject" %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-ico-rejected">Rejected</strong>
 						{% else %}
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-orginfo-todo">To do</strong>
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-company-ico-todo">To do</strong>
 						{% endif %}
 					</li>
 					<li class="app-task-list__item">

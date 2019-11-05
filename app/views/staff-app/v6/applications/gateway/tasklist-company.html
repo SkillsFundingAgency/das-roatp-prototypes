@@ -55,7 +55,7 @@
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/company-legal">Legal checks</a>
+							<a href="company/initial/legal">Legal checks</a>
 						</span>
 						{% if data['gw-company-legal'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-passed">Passed</strong>
@@ -67,7 +67,7 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/company-address">Address checks</a>
+							<a href="company/initial/address">Address checks</a>
 						</span>
 						{% if data['gw-company-address'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-address-passed">Passed</strong>
@@ -79,7 +79,7 @@
 					</li>
 					<!--li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/company-register">Register checks</a>
+							<a href="company-register">Register checks</a>
 						</span>
 						{% if data['gw-register'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-register-passed">Passed</strong>
@@ -98,7 +98,7 @@
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<!--a href="checks/orginfo"-->RoATP<!--/a-->
+							<!--a href="company/register/roatp"-->RoATP<!--/a-->
 						</span>
 						{% if data['gw-company-roatp'] == "In progress" %}
 							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roatp-passed">{{ data['gw-company-roatp'] }}</strong>
@@ -114,7 +114,7 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<!--a href="checks/orginfo"-->Register of training organisations<!--/a-->
+							<!--a href="company/register/roto"-->Register of training organisations<!--/a-->
 						</span>
 						{% if data['gw-company-roto'] == "In progress" %}
 							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roto-passed">{{ data['gw-company-roto'] }}</strong>
@@ -130,7 +130,7 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<!--a href="checks/orginfo"-->End Point Assessment Organisation<!--/a-->
+							<!--a href="company/register/epao"-->End Point Assessment Organisation<!--/a-->
 						</span>
 						{% if data['gw-company-epao'] == "In progress" %}
 							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-epao-passed">{{ data['gw-company-epao'] }}</strong>
@@ -153,7 +153,7 @@
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<!--a href="checks/orginfo"-->Organisation information<!--/a-->
+							<a href="company/organisation/info">Organisation information</a>
 						</span>
 						{% if data['gw-orginfo'] == "In progress" %}
 							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-orginfo-passed">{{ data['gw-orginfo'] }}</strong>

@@ -17,31 +17,35 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Gateway</span>
-			<h1 class="govuk-heading-xl">Address checks</h1>
+			<h1 class="govuk-heading-xl">Legal checks</h1>
 
-			<h3 class="govuk-heading-m">Applicant data</h3>
+			<h2 class="govuk-heading-l">Applicant data</h2>
 			<p class="govuk-body">
-				UKPRN: 10053003<br>
-				<abbr title="Primary verification authority">PVA</abbr>: Companies House<br>
-				Date: 17 Oct 2019
+				UKPRN: 10006054<br>
+				<abbr title="Primary verification authority">PVA</abbr>: Charity Commission<br>
+				Date: 19 Oct 2019
 			</p>
 
-			<table class="govuk-table">
+			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header">Legal name</th>
-						<th scope="col" class="govuk-table__header">Address</th>
+						<th scope="col" class="govuk-table__header">Trading name</th>
+						<th scope="col" class="govuk-table__header">Company number</th>
+						<th scope="col" class="govuk-table__header">Charity number</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">Gloucester, GL2 9QH</td>
+						<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
+						<td class="govuk-table__cell">SPARC</td>
+						<td class="govuk-table__cell">-</td>
+						<td class="govuk-table__cell">1060095</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<form action="company-address-recheck" method="post" class="form">
+			<form action="legal-recheck" method="post" class="form">
 
 				{{ govukButton({
 					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
@@ -50,7 +54,7 @@
 
 			</form>
 
-			<p><a href="../tasklist-company">Return to assessment overview</a></p>
+			<p><a href="../tasklist-charity">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

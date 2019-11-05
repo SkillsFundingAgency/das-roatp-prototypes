@@ -190,9 +190,9 @@ module.exports = function (router) {
 
 	// Legal checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal-data', function (req, res) {
-		if (req.session.data['gw-company-legal']){
+		//if (req.session.data['gw-company-legal']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		}
+		//}
 	})
 
 
@@ -210,17 +210,17 @@ module.exports = function (router) {
 
 	// Address checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-address-data', function (req, res) {
-		if (req.session.data['gw-company-address']){
+		//if (req.session.data['gw-company-address']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		}
+		//}
 	})
 
 
 	// Register checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-register', function (req, res) {
-		if (req.session.data['gw-company-register']){
+		//if (req.session.data['gw-company-register']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		}
+		//}
 	})
 
 // Charity
@@ -239,9 +239,9 @@ module.exports = function (router) {
 
 	// Legal checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal-data', function (req, res) {
-		if (req.session.data['gw-both-legal']){
+		//if (req.session.data['gw-both-legal']){
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-both')
-		}
+		//}
 	})
 
 

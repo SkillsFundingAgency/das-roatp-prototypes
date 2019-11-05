@@ -93,7 +93,62 @@
 			</li>
 			<li>
 				<h2 class="app-task-list__section">
-					<span class="app-task-list__section-number">2. </span> Organisation checks
+					<span class="app-task-list__section-number">2. </span> Register checks
+				</h2>
+				<ul class="app-task-list__items">
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<!--a href="checks/orginfo"-->RoATP<!--/a-->
+						</span>
+						{% if data['gw-company-roatp'] == "In progress" %}
+							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roatp-passed">{{ data['gw-company-roatp'] }}</strong>
+						{% elseif data['gw-company-roatp'] == "Complete" %}
+							{% if data['count-gw-org-rejects'] > 0 %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
+							{% else %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-passed">Passed</strong>
+							{% endif %}
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roatp-todo">To do</strong>
+						{% endif %}
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<!--a href="checks/orginfo"-->Register of training organisations<!--/a-->
+						</span>
+						{% if data['gw-company-roto'] == "In progress" %}
+							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roto-passed">{{ data['gw-company-roto'] }}</strong>
+						{% elseif data['gw-company-roto'] == "Complete" %}
+							{% if data['count-gw-org-rejects'] > 0 %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
+							{% else %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roto-passed">Passed</strong>
+							{% endif %}
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roto-todo">To do</strong>
+						{% endif %}
+					</li>
+					<li class="app-task-list__item">
+						<span class="app-task-list__task-name">
+							<!--a href="checks/orginfo"-->End Point Assessment Organisation<!--/a-->
+						</span>
+						{% if data['gw-company-epao'] == "In progress" %}
+							<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-epao-passed">{{ data['gw-company-epao'] }}</strong>
+						{% elseif data['gw-company-epao'] == "Complete" %}
+							{% if data['count-gw-org-rejects'] > 0 %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
+							{% else %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-passed">Passed</strong>
+							{% endif %}
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-todo" id="gw-company-epao-todo">To do</strong>
+						{% endif %}
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="app-task-list__section">
+					<span class="app-task-list__section-number">3. </span> Organisation checks
 				</h2>
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">

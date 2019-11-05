@@ -179,7 +179,7 @@ module.exports = function (router) {
 	// Legal API call
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal', function (req, res) {
 		req.session.data['company-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data')
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data#applicant')
 	})
 
 	// Legal API re-check
@@ -194,6 +194,27 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		}
 	})
+
+
+	// Address API call
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-address', function (req, res) {
+		req.session.data['company-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-address-data#applicant')
+	})
+
+	// Address API re-check
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-address-recheck', function (req, res) {
+		req.session.data['company-address-apidate'] = govDateTime();
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-address-data')
+	})
+
+	// Address checks
+	router.post('/staff-app/' + v + '/applications/gateway/checks/company-address-data', function (req, res) {
+		if (req.session.data['gw-company-address']){
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		}
+	})
+
 
 	// Register checks
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-register', function (req, res) {

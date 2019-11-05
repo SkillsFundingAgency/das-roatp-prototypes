@@ -179,7 +179,7 @@ module.exports = function (router) {
 	// Legal API call
 	router.post('/staff-app/' + v + '/applications/gateway/checks/company-legal', function (req, res) {
 		req.session.data['company-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data')
+		res.redirect('/staff-app/' + v + '/applications/gateway/checks/company-legal-data#applicant')
 	})
 
 	// Legal API re-check

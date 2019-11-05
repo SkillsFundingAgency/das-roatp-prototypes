@@ -55,7 +55,7 @@
 				<ul class="app-task-list__items">
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/charity-legal">Legal checks</a>
+							<a href="charity/initial/legal">Legal checks</a>
 						</span>
 						{% if data['gw-charity-legal'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-charity-legal-passed">Passed</strong>
@@ -67,7 +67,7 @@
 					</li>
 					<li class="app-task-list__item">
 						<span class="app-task-list__task-name">
-							<a href="checks/charity-address">Address checks</a>
+							<a href="charity/initial/address">Address checks</a>
 						</span>
 						{% if data['gw-charity-address'] == "Pass" %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-charity-address-passed">Passed</strong>
@@ -75,19 +75,6 @@
 							<strong class="govuk-tag app-task-list__task-negative" id="gw-charity-address-rejected">Rejected</strong>
 						{% else %}
 							<strong class="govuk-tag app-task-list__task-todo" id="gw-charity-address-todo">To do</strong>
-						{% endif %}
-					</li>
-					<li class="app-task-list__item">
-						<span class="app-task-list__task-name">
-							<!--a href="checks/charity-register">Register checks</a-->
-							Register checks
-						</span>
-						{% if data['gw-charity-register'] == "Pass" %}
-							<strong class="govuk-tag app-task-list__task-positive" id="gw-charity-register-passed">Passed</strong>
-						{% elseif data['gw-charity-register'] == "Reject" %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-charity-register-rejected">Rejected</strong>
-						{% else %}
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-charity-register-todo">To do</strong>
 						{% endif %}
 					</li>
 				</ul>

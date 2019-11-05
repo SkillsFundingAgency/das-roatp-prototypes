@@ -270,47 +270,47 @@ module.exports = function (router) {
 	})
 
 
-// Charity Legal
+/********************************
+ *** Charity - Initial checks ***
+ ********************************/
 
-	// Legal API call
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal', function (req, res) {
-		req.session.data['charity-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
-	})
+	// Legal
 
-	// Legal API re-check
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal-recheck', function (req, res) {
-		req.session.data['charity-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
-	})
+		// Legal API call
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal', function (req, res) {
+			req.session.data['charity-legal-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
+		})
 
-	// Legal checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data', function (req, res) {
-		//if (req.session.data['gw-charity-legal']){
+		// Legal API re-check
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal-recheck', function (req, res) {
+			req.session.data['charity-legal-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/legal-data')
+		})
+
+		// Legal checks
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal-data', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
-		//}
-	})
+		})
 
-// Charity Address
+	// Address
 
-	// Address API call
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address', function (req, res) {
-		req.session.data['charity-address-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-address-data#applicant')
-	})
+		// Address API call
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address', function (req, res) {
+			req.session.data['charity-address-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/address-data#applicant')
+		})
 
-	// Address API re-check
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address-recheck', function (req, res) {
-		req.session.data['charity-address-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-address-data')
-	})
+		// Address API re-check
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address-recheck', function (req, res) {
+			req.session.data['charity-address-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/address-data')
+		})
 
-	// Address checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/charity-address-data', function (req, res) {
-		//if (req.session.data['gw-charity-address']){
+		// Address checks
+		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address-data', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
-		//}
-	})
+		})
 
 
 

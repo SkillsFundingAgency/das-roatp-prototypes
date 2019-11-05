@@ -30,22 +30,20 @@
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header">Legal name</th>
-						<th scope="col" class="govuk-table__header">Trading name</th>
-						<th scope="col" class="govuk-table__header">Company number</th>
-						<th scope="col" class="govuk-table__header">Charity number</th>
+						<th scope="col" class="govuk-table__header">Address</th>
+						<th scope="col" class="govuk-table__header">Status</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS</td>
-						<td class="govuk-table__cell">03548809</td>
-						<td class="govuk-table__cell">-</td>
+						<td class="govuk-table__cell">Gloucester, GL2 9QH</td>
+						<td class="govuk-table__cell">Active</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<form action="company-legal-recheck" method="post" class="form">
+			<form action="company-address-recheck" method="post" class="form">
 
 				{{ govukButton({
 					classes: "govuk-!-margin-right-3 govuk-button-checkapis",

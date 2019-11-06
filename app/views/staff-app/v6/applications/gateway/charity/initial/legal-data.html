@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to assessment overview",
+    text: "Back to application assessment overview",
     href: "/staff-app/v6/applications/gateway/application-tasklist"
   }) }}
 {% endblock %}
@@ -78,7 +78,7 @@
 				</tbody>
 			</table>
 
-			<form action="company-legal-recheck" method="post" class="form">
+			<form action="legal-recheck" method="post" class="form">
 
 				{{ govukButton({
 					classes: "govuk-button--secondary govuk-!-margin-right-3 govuk-button-checkapis",

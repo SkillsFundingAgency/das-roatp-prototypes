@@ -15,13 +15,18 @@
 {{ data['staff-add-tradingname'] == "" }}
 {{ data['staff-add-ukprn'] == "" }}
 
-<!-- Need to look at back link when coming from confirm page... -->
-
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/staff-app/v6/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
 {% endblock %}
 
 {% block content %}
@@ -29,7 +34,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 		
-			<span class="govuk-caption-l">Add an organisation to the register</span>
+			<span class="govuk-caption-l">Add a new training provider</span>
 			<h1 class="govuk-heading-xl">What is the organisation's UKPRN?</h1>
 
 			<form action="add-ukprn-search" method="post" class="form">

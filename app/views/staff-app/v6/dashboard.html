@@ -6,6 +6,13 @@
 {% endblock %}
 
 {% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Dashboard"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

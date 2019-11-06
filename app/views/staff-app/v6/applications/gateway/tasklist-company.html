@@ -6,10 +6,21 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back to RoATP applications",
-    href: "applications-view"
-  }) }}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/staff-app/v6/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v6/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
 {% endblock %}
 
 {% block content %}

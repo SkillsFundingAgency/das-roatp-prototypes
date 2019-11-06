@@ -1,10 +1,25 @@
 {% set serviceName = "ESFA admin services" %}
-{% extends "layouts/layouts/layout.html" %}
+{% extends "layouts/layout.html" %}
 
 {% block header %}
-   {{ govukHeader({
-        serviceName: "ESFA admin services"
-   }) }}
+  {{ govukHeader({
+    serviceName: "ESFA admin services"
+  }) }}
+  <div class="das-user-panel">
+    <div class="govuk-width-container">
+      <div class="das-user-panel__content">
+        <span class="govuk-body-s das-user-panel__item das-user-panel__item--grow">
+          <p class="govuk-!-margin-top-0 govuk-!-margin-bottom-0 das-no-wrap">
+            <span class="govuk-visually-hidden">Signed in as </span>
+            2 APRtest
+          </p>
+        </span>
+        <span class="govuk-body-s das-user-panel__item">
+          <a class="govuk-link govuk-link--white" href="https://localhost:44347/Account/SignOut">Sign out</a>
+        </span>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block pageTitle %}

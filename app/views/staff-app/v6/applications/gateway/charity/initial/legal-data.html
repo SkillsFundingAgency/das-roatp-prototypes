@@ -16,14 +16,14 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
-			<span class="govuk-caption-m">Gateway</span>
+			<span class="govuk-caption-m">Initial checks</span>
 			<h1 class="govuk-heading-xl">Legal checks</h1>
 
 			<h2 class="govuk-heading-l" id="applicant">Applicant data</h2>
 			<p class="govuk-body">
 				UKPRN: 10006054<br>
-				<abbr title="Primary verification authority">PVA</abbr>: Charity Commission<br>
-				Date: 19 Oct 2019
+				Primary verification authority: Charity Commission<br>
+				Date application submitted: 19 Oct 2019
 			</p>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -32,7 +32,7 @@
 						<th scope="col" class="govuk-table__header">Legal name</th>
 						<th scope="col" class="govuk-table__header">Trading name</th>
 						<th scope="col" class="govuk-table__header">Company number</th>
-						<th scope="col" class="govuk-table__header">Charity number</th>
+						<th scope="col" class="govuk-table__header">Charity registration number</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
@@ -47,7 +47,7 @@
 			
 			<h2 class="govuk-heading-l" id="realtime">Real-time data</h2>
 			<p class="govuk-body">
-				Date: {{ data['charity-legal-apidate'] }}
+				Last checked: {{ data['charity-legal-apidate'] }}
 			</p>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">

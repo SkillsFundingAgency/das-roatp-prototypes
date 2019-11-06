@@ -6,6 +6,17 @@
 {% endblock %}
 
 {% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/staff-app/v6/dashboard"
+			},
+			{
+				text: "RoATP applications"
+			}
+		]
+	}) }}
 {% endblock %}
 
 {% block content %}

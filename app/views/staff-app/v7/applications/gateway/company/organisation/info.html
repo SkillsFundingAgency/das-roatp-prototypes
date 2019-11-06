@@ -1,0 +1,101 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v7.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v7/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v7/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v7/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Organisation information"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Information Commissioner's Office (ICO) registration number check</h1>
+
+			<h2 class="govuk-heading-l">Application data</h2>
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">ICO registration number</th>
+						<td class="govuk-table__cell">Z7322278</td>
+						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278">Search</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+      {% include "includes/staff-app/v7/sops-gateway-ico.html" %}
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "gw-company-ico",
+					name: "gw-company-ico",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-company-ico", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-company-ico", "Reject")
+						}
+					]
+				}) }}
+				
+				{{ govukCharacterCount({
+					name: "gw-company-ico-notes",
+					id: "gw-company-ico-notes",
+					maxlength: 750,
+					label: {
+						text: "Add comments"
+					}
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

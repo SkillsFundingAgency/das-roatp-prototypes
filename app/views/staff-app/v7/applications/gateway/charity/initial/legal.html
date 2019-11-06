@@ -1,0 +1,77 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v7.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v7/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v7/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v7/applications/gateway/tasklist-charity"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Initial checks</span>
+			<h1 class="govuk-heading-xl">Legal checks</h1>
+
+			<h2 class="govuk-heading-l">Application data</h2>
+			<p class="govuk-body">
+				UKPRN: 10006054<br>
+				Primary verification authority: Charity Commission<br>
+				Date application submitted: 19 Oct 2019
+			</p>
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Legal name</th>
+						<th scope="col" class="govuk-table__header">Trading name</th>
+						<th scope="col" class="govuk-table__header">Company number</th>
+						<th scope="col" class="govuk-table__header">Charity registration number</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
+						<td class="govuk-table__cell">SPARC</td>
+						<td class="govuk-table__cell">-</td>
+						<td class="govuk-table__cell">1060095</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="legal-recheck" method="post" class="form">
+
+				{{ govukButton({
+					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
+					text: "Get latest data"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-charity">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,3 +1,30 @@
+.das-user-panel {
+  margin-top: -10px;
+  padding: 25px 0 15px;
+  background-color: #005ea5;
+}
+
+.das-user-panel__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.das-user-panel__item {
+  color: #fff;
+  margin-right: 15px;
+  margin-bottom: 0;
+}
+
+.das-user-panel__item:last-child {
+  margin-right: 0;
+}
+
+.das-user-panel__item--grow {
+  flex: 1;
+}
+
+
   .govuk-table__cell .govuk-form-group {
     margin-bottom: 0;
   }

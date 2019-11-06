@@ -322,6 +322,14 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
-	
+
+/*************************************
+ *** Charity - Organisation checks ***
+ *************************************/
+
+		// ICO
+		router.post('/staff-app/' + v + '/applications/gateway/charity/organisation/info', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
+		})
 
 }

@@ -5,8 +5,21 @@
   ESFA Staff App
 {% endblock %}
 
-{% block content %}
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Dashboard",
+      href: "/staff-app/v6/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers"
+    }
+  ]
+}) }}
+{% endblock %}
 
+{% block content %}
 
 	{% if showAdded == true %}
 		<div class="govuk-grid-row">
@@ -35,8 +48,8 @@
 
 		<div class="govuk-grid-column-full">
 
-			<span class="govuk-caption-l">Manage register</span>
-			<h1 class="govuk-heading-xl">Search for an apprenticeship training provider</h1>
+			<span class="govuk-caption-l">Manage the RoATP</span>
+			<h1 class="govuk-heading-xl">Search for existing apprenticeship training providers</h1>
 
 <!-- 
 look at possible alternate routes based on search parameter

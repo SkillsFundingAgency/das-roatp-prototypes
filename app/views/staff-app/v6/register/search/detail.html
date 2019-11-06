@@ -6,10 +6,25 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Dashboard",
+      href: "/staff-app/v6/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v6/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details"
+		}
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -17,7 +32,7 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
-			<span class="govuk-caption-l">Search the register</span>
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
 			<h1 class="govuk-heading-xl">Details for ABC Assessments</h1>
 		</div>
 		<div class="govuk-grid-column-full">

@@ -5,13 +5,30 @@
   ESFA Staff App
 {% endblock %}
 
-<!-- Need to look at back link when coming from confirm page... -->
-
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Dashboard",
+      href: "/staff-app/v6/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v6/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change application determined date"
+		}
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -19,7 +36,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<span class="govuk-caption-l">Search the register</span>
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
 			<h1 class="govuk-heading-xl">Change the application determined date for this organisation?</h1>
 
 			<p class="govuk-body">This is the date of when feedback was given to the training provider.</p>

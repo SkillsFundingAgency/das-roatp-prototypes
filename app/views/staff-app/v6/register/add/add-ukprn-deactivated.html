@@ -6,10 +6,17 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:history.go(-1)"
-  }) }}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/staff-app/v6/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
 {% endblock %}
 
 {% block content %}
@@ -17,7 +24,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
             
-			<span class="govuk-caption-l">Add an organisation to the register</span>
+			<span class="govuk-caption-l">Add a new training provider</span>
 			<h1 class="govuk-heading-xl">UKPRN not found</h1>
 			<p class="govuk-body">This is because the UKPRN either:</p>
 			<ul class="govuk-list govuk-list--bullet">

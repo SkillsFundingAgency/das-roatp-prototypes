@@ -1,0 +1,53 @@
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "ESFA admin services",
+    serviceUrl: "/staff-app/v7/dashboard"
+  }) }}
+  
+  <!--div class="das-user-panel">
+    <div class="govuk-width-container">
+      <div class="das-user-panel__content">
+        <span class="govuk-body-s das-user-panel__item das-user-panel__item--grow">
+          <p class="govuk-!-margin-top-0 govuk-!-margin-bottom-0 das-no-wrap">
+            <span class="govuk-visually-hidden">Signed in as </span>
+            2 APRtest
+          </p>
+        </span>
+        <span class="govuk-body-s das-user-panel__item">
+          <a class="govuk-link govuk-link--white" href="https://localhost:44347/Account/SignOut">Sign out</a>
+        </span>
+      </div>
+    </div>
+  </div-->
+  
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+    }) }}
+  </div>
+  {% if current_section != "dashboard" %}
+  <!--div class="govuk-phase-banner govuk-width-container" style="padding: 0;">
+    <nav>
+      <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
+        <li class="roatp__navigation-item{% if current_section == 'dashboard' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v7/dashboard">Dashboard</a>
+        </li>
+        <li class="roatp__navigation-item{% if current_section == 'applications' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v7/applications/gateway/applications-view">RoATP applications</a>
+        </li>
+        <li class="roatp__navigation-item{% if current_section == 'register' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v7/register/search/register">Manage the RoATP</a>
+        </li>
+        <li class="roatp__navigation-item{% if current_section == 'reporting' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="#">Reporting</a>
+        </li>
+        <li class="roatp__navigation-item roatp__navigation-signout">
+          <a class="govuk-header__link" href="/staff-app/v7/signout">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+  </div-->
+  {% endif %}

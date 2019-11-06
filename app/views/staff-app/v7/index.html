@@ -1,0 +1,32 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+       <h1 class="govuk-heading-xl">ESFA admin services</h1>
+       <p>Use this service to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>assess applications</li>
+            <li>manage existing organisations</li>
+            <li>manage the register</li>
+            <li>view and download reports </li>
+            <li>issue certificates</li>
+        </ul>
+        <!--p class="govuk-body">You’ll need a staff IDAMS account to sign in.</p-->
+       <a href="esfa-sign-in" class="govuk-button govuk-button--start">Start</a>
+    </div>
+</div>
+
+{% endblock %}

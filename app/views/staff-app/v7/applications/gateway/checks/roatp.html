@@ -1,0 +1,127 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v7.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to application assessment overview",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Verify RoATP Status</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row govuk-!-margin-bottom-7">
+		<div class="govuk-grid-column-two-thirds">
+
+			<table class="govuk-table">
+				<!-- <caption class="govuk-table__caption">Organisation details</caption> -->
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Found on RoATP</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Removed from register</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+				</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h2 class="govuk-heading-m">Outcome</h2>
+
+    	<form action="" method="post" class="form">
+
+				{% set detailHtml %}
+					{{ govukTextarea({
+						name: "gw-roatp-comments",
+						id: "gw-roatp-comments",
+						label: {
+							text: "Reasons for rejection"
+						},
+        		value: data['gw-roatp-comments']
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-roatp-conditional",
+					name: "gw-roatp",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-roatp", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-roatp", "Reject"),
+							conditional: {
+								html: detailHtml
+							}
+						}
+					]
+				}) }}
+
+<!--
+			<h2 class="govuk-heading-m">Request clarification</h2>
+			<p class="govuk-body">The applicant will be asked to check and update their answers.</p>
+-->
+<!--
+				{% set detailHtml %}
+					{{ govukTextarea({
+						name: "gateway-ukrlp-detail",
+						id: "gateway-ukrlp-detail",
+						label: {
+							text: "Clarification request"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gateway-ukrlp-conditional",
+					name: "gateway-ukrlp",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gateway-ukrlp", "Yes"),
+							conditional: {
+								html: detailHtml
+							}
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gateway-ukrlp", "No")
+						}
+					]
+				}) }}
+-->
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+      
+			<p><a href="../application-tasklist">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+      
+{% endblock %}

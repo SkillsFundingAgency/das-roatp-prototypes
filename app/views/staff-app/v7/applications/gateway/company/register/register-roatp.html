@@ -1,0 +1,95 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v7.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to application assessment overview",
+    href: "/staff-app/v7/applications/gateway/application-tasklist"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Gateway</span>
+			<h1 class="govuk-heading-xl">Register checks</h1>
+			
+			<h2 class="govuk-heading-l">RoATP</h2>
+			<p class="govuk-body">Organisation not found on RoATP</p>
+	
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<!--table class="govuk-table govuk-!-margin-bottom-9">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">On RoATP register</th>
+						<td class="govuk-table__cell">Organisation not found on RoATP<br>Organisation removed from RoATP for more than 3 years<br>Organisation removed from RoATP></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Reason for removal</th>
+						<td class="govuk-table__cell">Breach<br>Change of trading status<br>High risk policy<br>Inadequate Financial Health<br>Inadequate Ofsted<br>Merger<br>Minimum standards not met<br>Provider error <br>Provider request<br>Other </td>
+					</tr>
+				</tbody>
+			</table-->
+			
+			<!--h2 class="govuk-heading-l">EPAO checks</h2>
+			<p class="govuk-body">Instructions to complete offline checks...</p>
+
+			<h2 class="govuk-heading-l">ROTO checks</h2>
+			<p class="govuk-body">Instructions to complete ROTO checks...</p>
+			<!--table class="govuk-table govuk-!-margin-bottom-9">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Found on RoATP</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+			-->
+			<h3 class="govuk-heading-m">RoATP checks outcome</h3>
+
+			<form action="" method="post" class="form">
+
+				{{ govukTextarea({
+					name: "gw-roatp-notes",
+					id: "gw-roatp-notes",
+					label: {
+						text: "Notes"
+					}
+				}) }}
+
+				{{ govukRadios({
+					idPrefix: "gw-roatp",
+					name: "gw-roatp",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-roatp", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-roatp", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-company">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

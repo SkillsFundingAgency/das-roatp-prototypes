@@ -312,6 +312,47 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
 		})
 
+/********************************
+ *** Mismatch - Initial checks ***
+	********************************/
+
+	// Legal
+
+		// Legal API call
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal', function (req, res) {
+			req.session.data['mismatch-legal-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/checks/mismatch-legal-data')
+		})
+
+		// Legal API re-check
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-recheck', function (req, res) {
+			req.session.data['mismatch-legal-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-data')
+		})
+
+		// Legal checks
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-data', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-mismatch')
+		})
+
+	// Address
+
+		// Address API call
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address', function (req, res) {
+			req.session.data['mismatch-address-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data#applicant')
+		})
+
+		// Address API re-check
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-recheck', function (req, res) {
+			req.session.data['mismatch-address-apidate'] = govDateTime();
+			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data')
+		})
+
+		// Address checks
+		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-mismatch')
+		})
 
 /*************************************
  *** Company - Organisation checks ***

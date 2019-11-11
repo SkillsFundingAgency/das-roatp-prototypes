@@ -65,17 +65,17 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/initial/legal">Legal checks</a>
+								<a href="company/initial/legal">Legal and address checks</a>
 							</span>
-							{% if data['gw-company-legal'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-passed">Passed</strong>
-							{% elseif data['gw-company-legal'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-rejected">Rejected</strong>
+							{% if data['gw-company-legal-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-legal-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-legal-todo">To do</strong>
+								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-legal-outcome-todo">To do</strong>
 							{% endif %}
 						</li>
-						<li class="app-task-list__item">
+						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/initial/address">Address checks</a>
 							</span>
@@ -86,7 +86,7 @@
 							{% else %}
 								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-address-todo">To do</strong>
 							{% endif %}
-						</li>
+						</li-->
 						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company-register">Register checks</a>

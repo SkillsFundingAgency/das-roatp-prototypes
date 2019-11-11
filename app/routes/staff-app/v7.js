@@ -182,10 +182,11 @@ module.exports = function (router) {
 
 		// Legal API call
 		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal', function (req, res) {
-			req.session.data['company-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/legal-data#applicant')
+			//req.session.data['company-legal-apidate'] = govDateTime();
+			//res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/legal-data#applicant')
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
-
+/*
 		// Legal API re-check
 		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal-recheck', function (req, res) {
 			req.session.data['company-legal-apidate'] = govDateTime();
@@ -196,7 +197,7 @@ module.exports = function (router) {
 		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal-data', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
-
+*/
 	// Address
 
 		// Address API call

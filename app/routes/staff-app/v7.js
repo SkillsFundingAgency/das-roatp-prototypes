@@ -125,253 +125,33 @@ module.exports = function (router) {
 	})
 
 
-/********************************
- *** Gateway Assessor Journey ***
- ********************************/
-
-	// UKPRN
-	/*router.post('/staff-app/' + v + '/applications/gateway/checks/ukprn', function (req, res) {
-		if (req.session.data['gw-ukprn']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-		}
-	})*/
-
-	// ICO
-	/*router.post('/staff-app/' + v + '/applications/gateway/checks/orginfo', function (req, res) {
-		if (req.session.data['gw-org-parentcompany'] && 
-			req.session.data['gw-org-ico'] && 
-			req.session.data['gw-org-website'] && 
-			req.session.data['gw-org-activelytrading'])
-		{
-			req.session.data['count-gw-org-rejects'] = 0
-			if (req.session.data['gw-org-parentcompany'] == "Reject") {
-				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
-			}
-			if (req.session.data['gw-org-ico'] == "Reject"){
-				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
-			}
-			if (req.session.data['gw-org-website'] == "Reject") {
-				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
-			}
-			if (req.session.data['gw-org-activelytrading'] == "Reject") {
-				req.session.data['count-gw-org-rejects'] = req.session.data['count-gw-org-rejects'] + 1
-			}
-			req.session.data['gw-orginfo'] = "Complete"
-		} else if (req.session.data['gw-org-parentcompany'] || 
-			req.session.data['gw-org-ico'] || 
-			req.session.data['gw-org-website'] || 
-			req.session.data['gw-org-activelytrading'])
-		{
-			req.session.data['gw-orginfo'] = "In progress"
-		}
-		res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-	})*/
-
-	// RoATP
-	/*router.post('/staff-app/' + v + '/applications/gateway/checks/roatp', function (req, res) {
-		if (req.session.data['gw-roatp']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/application-tasklist')
-		}
-	})*/
-
-/********************************
- *** Company - Initial checks ***
- ********************************/
-
-	// Legal
-
-		// Legal API call
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal', function (req, res) {
-			//req.session.data['company-legal-apidate'] = govDateTime();
-			//res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/legal-data#applicant')
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
-/*
-		// Legal API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal-recheck', function (req, res) {
-			req.session.data['company-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/legal-data')
-		})
-
-		// Legal checks
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
-*/
-	// Address
-
-		// Address API call
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/address', function (req, res) {
-			req.session.data['company-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/address-data#applicant')
-		})
-
-		// Address API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/address-recheck', function (req, res) {
-			req.session.data['company-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/initial/address-data')
-		})
-
-		// Address checks
-		router.post('/staff-app/' + v + '/applications/gateway/company/initial/address-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
-
-
-	// Company Register
-/*
-		// Register checks
-		router.post('/staff-app/' + v + '/applications/gateway/checks/company-register', function (req, res) {
-			//if (req.session.data['gw-company-register']){
-				res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-			//}
-		})
-*/
-
-// Company & Charity Legal
-
-	// Legal API call
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal', function (req, res) {
-		req.session.data['both-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-legal-data')
-	})
-
-	// Legal API re-check
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal-recheck', function (req, res) {
-		req.session.data['both-legal-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-legal-data')
-	})
-
-	// Legal checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-legal-data', function (req, res) {
-		//if (req.session.data['gw-both-legal']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-both')
-		//}
-	})
-
-// Company & Charity Address
-
-	// Address API call
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address', function (req, res) {
-		req.session.data['both-address-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-address-data#applicant')
-	})
-
-	// Address API re-check
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address-recheck', function (req, res) {
-		req.session.data['both-address-apidate'] = govDateTime();
-		res.redirect('/staff-app/' + v + '/applications/gateway/checks/both-address-data')
-	})
-
-	// Address checks
-	router.post('/staff-app/' + v + '/applications/gateway/checks/both-address-data', function (req, res) {
-		//if (req.session.data['gw-both-address']){
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-both')
-		//}
-	})
-
-
-/********************************
- *** Charity - Initial checks ***
- ********************************/
-
-	// Legal
-
-		// Legal API call
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal', function (req, res) {
-			req.session.data['charity-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/checks/charity-legal-data')
-		})
-
-		// Legal API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal-recheck', function (req, res) {
-			req.session.data['charity-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/legal-data')
-		})
-
-		// Legal checks
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/legal-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
-		})
-
-	// Address
-
-		// Address API call
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address', function (req, res) {
-			req.session.data['charity-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/address-data#applicant')
-		})
-
-		// Address API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address-recheck', function (req, res) {
-			req.session.data['charity-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/charity/initial/address-data')
-		})
-
-		// Address checks
-		router.post('/staff-app/' + v + '/applications/gateway/charity/initial/address-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
-		})
-
-/********************************
- *** Mismatch - Initial checks ***
+	/********************************
+	 *** Company - Initial checks ***
 	********************************/
 
-	// Legal
-
-		// Legal API call
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal', function (req, res) {
-			req.session.data['mismatch-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/checks/mismatch-legal-data')
+		// Legal and address
+		router.post('/staff-app/' + v + '/applications/gateway/company/initial/legal', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
-		// Legal API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-recheck', function (req, res) {
-			req.session.data['mismatch-legal-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-data')
+
+	/*********************************
+	 *** Company - Register checks ***
+	 *********************************/
+
+		// RoATP
+		router.post('/staff-app/' + v + '/applications/gateway/company/register/roatp', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
-		// Legal checks
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/legal-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-mismatch')
-		})
 
-	// Address
-
-		// Address API call
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address', function (req, res) {
-			req.session.data['mismatch-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data#applicant')
-		})
-
-		// Address API re-check
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-recheck', function (req, res) {
-			req.session.data['mismatch-address-apidate'] = govDateTime();
-			res.redirect('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data')
-		})
-
-		// Address checks
-		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-mismatch')
-		})
-
-/*************************************
- *** Company - Organisation checks ***
- *************************************/
+	/*************************************
+	 *** Company - Organisation checks ***
+	 *************************************/
 
 		// ICO
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/info', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
-
-
-/*************************************
- *** Charity - Organisation checks ***
- *************************************/
-
-		// ICO
-		router.post('/staff-app/' + v + '/applications/gateway/charity/organisation/info', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
 		})
 
 }

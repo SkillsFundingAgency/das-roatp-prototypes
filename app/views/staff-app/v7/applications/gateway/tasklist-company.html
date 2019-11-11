@@ -108,18 +108,14 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/roatp"-->RoATP<!--/a-->
+								<a href="company/register/roatp">RoATP</a>
 							</span>
-							{% if data['gw-company-roatp'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roatp-passed">{{ data['gw-company-roatp'] }}</strong>
-							{% elseif data['gw-company-roatp'] == "Complete" %}
-								{% if data['count-gw-org-rejects'] > 0 %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
-								{% else %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-passed">Passed</strong>
-								{% endif %}
+							{% if data['gw-company-roatp-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-roatp-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roatp-todo">To do</strong>
+								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roatp-outcome-todo">To do</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">

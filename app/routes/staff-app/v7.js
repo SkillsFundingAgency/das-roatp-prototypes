@@ -313,7 +313,6 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-charity')
 		})
 
-
 /********************************
  *** Mismatch - Initial checks ***
 	********************************/
@@ -355,7 +354,6 @@ module.exports = function (router) {
 		router.post('/staff-app/' + v + '/applications/gateway/mismatch/initial/address-data', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-mismatch')
 		})
-
 
 /*************************************
  *** Company - Organisation checks ***

@@ -17,9 +17,14 @@
     padding: 2em;
 }
 
-    .sops p:last-child {
-        margin-bottom: 0;
-    }
+    .sops {
+        p:last-child,
+        ul:last-child,
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+    } 
 
 // Currency input
 .govuk-currency-input {

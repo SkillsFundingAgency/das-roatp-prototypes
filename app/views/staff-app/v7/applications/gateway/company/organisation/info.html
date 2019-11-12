@@ -39,13 +39,28 @@
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
+			
+			<div class="sops">
+				<p class="govuk-body">To pass this check, you must confirm that:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul>
+			</div>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">ICO registration number</th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">ICO registration number</th>
+						<td scope="row" class="govuk-table__cell">Submitted application</td>
 						<td class="govuk-table__cell">Z7322278</td>
-						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278">Search</a></td>
+						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278">Check this ICO registration number</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -56,7 +71,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-      {% include "includes/staff-app/v7/sops-gateway-ico.html" %}
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
 

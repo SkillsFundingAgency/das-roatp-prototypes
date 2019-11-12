@@ -120,34 +120,26 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/roto"-->Register of training organisations<!--/a-->
+								<a href="company/register/roto">Register of training organisations</a>
 							</span>
-							{% if data['gw-company-roto'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-roto-passed">{{ data['gw-company-roto'] }}</strong>
-							{% elseif data['gw-company-roto'] == "Complete" %}
-								{% if data['count-gw-org-rejects'] > 0 %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
-								{% else %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roto-passed">Passed</strong>
-								{% endif %}
+							{% if data['gw-company-roto-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roto-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-roto-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roto-todo">To do</strong>
+								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roto-outcome-todo">To do</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/epao"-->End Point Assessment Organisation<!--/a-->
+								<a href="company/register/epao">End Point Assessment Organisation</a>
 							</span>
-							{% if data['gw-company-epao'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-inprogressalt" id="gw-company-epao-passed">{{ data['gw-company-epao'] }}</strong>
-							{% elseif data['gw-company-epao'] == "Complete" %}
-								{% if data['count-gw-org-rejects'] > 0 %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-rejected">{{ data['count-gw-org-rejects'] }} Rejection{% if data['count-gw-org-rejects'] != 1 %}s{% endif %}</strong>
-								{% else %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-passed">Passed</strong>
-								{% endif %}
+							{% if data['gw-company-epao-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-epao-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-epao-todo">To do</strong>
+								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-epao-outcome-todo">To do</strong>
 							{% endif %}
 						</li>
 					</ul>

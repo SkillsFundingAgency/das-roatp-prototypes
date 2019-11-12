@@ -17,47 +17,28 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Register checks</span>
-			<h1 class="govuk-heading-xl">RoATP check</h1>
+			<h1 class="govuk-heading-xl">Register of training organisation (RoTO) check</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}
+				<!--Application submitted on: 17 Oct 2019<br>
+				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}-->
 			</p>
 			
-			<!--h2 class="govuk-heading-l">RoATP</h2-->
-
-			<p class="sops govuk-body">To pass this check, the organisation must not be on the RoATP.</p>
-
-			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">Status</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Submitted application</th>
-						<td class="govuk-table__cell">On the RoATP</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">RoATP</th>
-						<td class="govuk-table__cell">Removed from the Roatp<br>[DATE]<br>[REASON]</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="sops">
+				<p class="govuk-body">Manual check</p>
+				<p class="govuk-body">Outcome box - on the roto or not</p>
+			</div>
 			
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
-
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-roatp-outcome-pass",
-						id: "gw-company-roatp-outcome-pass",
+						name: "gw-company-roto-outcome-pass",
+						id: "gw-company-roto-outcome-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -67,8 +48,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-roatp-outcome-reject",
-						id: "gw-company-roatp-outcome-reject",
+						name: "gw-company-roto-outcome-reject",
+						id: "gw-company-roto-outcome-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -77,8 +58,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-roatp-outcome",
-					name: "gw-company-roatp-outcome",
+					idPrefix: "gw-company-roto-outcome",
+					name: "gw-company-roto-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -86,7 +67,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-roatp-outcome", "Pass")
+							checked: checked("gw-company-roto-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -94,7 +75,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-roatp-outcome", "Reject")
+							checked: checked("gw-company-roto-outcome", "Reject")
 						}
 					]
 				}) }}

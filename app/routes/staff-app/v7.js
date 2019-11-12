@@ -144,6 +144,16 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
+		// RoTO
+		router.post('/staff-app/' + v + '/applications/gateway/company/register/roto', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		// EPAO
+		router.post('/staff-app/' + v + '/applications/gateway/company/register/epao', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
 
 	/*************************************
 	 *** Company - Organisation checks ***

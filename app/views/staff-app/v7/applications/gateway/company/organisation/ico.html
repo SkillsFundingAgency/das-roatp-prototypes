@@ -74,6 +74,28 @@
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-parent-pass",
+						id: "gw-company-parent-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-parent-reject",
+						id: "gw-company-parent-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-ico",
@@ -82,23 +104,20 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("gw-company-ico", "Pass")
 						},
 						{
 							value: "Reject",
 							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
 							checked: checked("gw-company-ico", "Reject")
 						}
 					]
-				}) }}
-				
-				{{ govukCharacterCount({
-					name: "gw-company-ico-notes",
-					id: "gw-company-ico-notes",
-					maxlength: 750,
-					label: {
-						text: "Add comments"
-					}
 				}) }}
 
 				{{ govukButton({

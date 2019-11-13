@@ -72,33 +72,10 @@
 							{% elseif data['gw-company-legal-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-legal-outcome-todo">To do</strong>
+								<strong class="govuk-tag app-task-list__task-next" id="gw-company-legal-outcome-next">Next</strong>
+								<!--strong class="govuk-tag app-task-list__task-todo" id="gw-company-legal-outcome-todo">To do</strong-->
 							{% endif %}
 						</li>
-						<!--li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="company/initial/address">Address checks</a>
-							</span>
-							{% if data['gw-company-address'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-address-passed">Passed</strong>
-							{% elseif data['gw-company-address'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-address-rejected">Rejected</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-address-todo">To do</strong>
-							{% endif %}
-						</li-->
-						<!--li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="company-register">Register checks</a>
-							</span>
-							{% if data['gw-register'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-register-passed">Passed</strong>
-							{% elseif data['gw-register'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-register-rejected">Rejected</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-register-todo">To do</strong>
-							{% endif %}
-						</li-->
 					</ul>
 				</li>
 				<li>
@@ -115,7 +92,10 @@
 							{% elseif data['gw-company-roatp-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roatp-outcome-todo">To do</strong>
+								{% if data['gw-company-legal-outcome'] %}
+									<strong class="govuk-tag app-task-list__task-next" id="gw-company-roatp-outcome-next">Next</strong>
+								{% endif %}
+								<!--strong class="govuk-tag app-task-list__task-todo" id="gw-company-roatp-outcome-todo">To do</strong-->
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -127,7 +107,10 @@
 							{% elseif data['gw-company-roto-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-roto-outcome-todo">To do</strong>
+								{% if (data['gw-company-legal-outcome']) and (data['gw-company-roatp-outcome']) %}
+									<strong class="govuk-tag app-task-list__task-next" id="gw-company-roatp-outcome-next">Next</strong>
+								{% endif %}
+								<!--strong class="govuk-tag app-task-list__task-todo" id="gw-company-roto-outcome-todo">To do</strong-->
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -139,7 +122,10 @@
 							{% elseif data['gw-company-epao-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-outcome-rejected">Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-epao-outcome-todo">To do</strong>
+								{% if (data['gw-company-legal-outcome']) and (data['gw-company-roatp-outcome']) and (data['gw-company-roto-outcome']) %}
+									<strong class="govuk-tag app-task-list__task-next" id="gw-company-roatp-outcome-next">Next</strong>
+								{% endif %}
+								<!--strong class="govuk-tag app-task-list__task-todo" id="gw-company-epao-outcome-todo">To do</strong-->
 							{% endif %}
 						</li>
 					</ul>
@@ -153,31 +139,36 @@
 							<span class="app-task-list__task-name">
 								<a href="company/organisation/parent">Organisation information</a>
 							</span>
-							{% if data['gw-company-ico'] == "Pass" %}
+							{% if (data['gw-company-parent'] == "Pass") and (data['gw-company-ico'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-ico-passed">Passed</strong>
-							{% elseif data['gw-company-ico'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-ico-rejected">Rejected</strong>
+							{% elseif (data['gw-company-parent'] == "Reject") and (data['gw-company-ico'] == "Reject") %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-ico-rejected">2 of 2 Rejected</strong>
+							{% elseif (data['gw-company-parent'] == "Reject") or (data['gw-company-ico'] == "Reject") %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-ico-rejected">1 of 2 Rejected</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-todo" id="gw-company-ico-todo">To do</strong>
+								{% if (data['gw-company-legal-outcome']) and (data['gw-company-roatp-outcome']) and (data['gw-company-roto-outcome']) and (data['gw-company-epao-outcome']) %}
+									<strong class="govuk-tag app-task-list__task-next" id="gw-company-roatp-outcome-next">Next</strong>
+								{% endif %}
+								<!--strong class="govuk-tag app-task-list__task-todo" id="gw-company-ico-todo">To do</strong-->
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								Who's in control
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-whosincontrol-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-whosincontrol-todo">To do</strong-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								Organisation type
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-orgdesc-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-orgdesc-todo">To do</strong-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								Experience and accreditations
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-ofsted-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-ofsted-todo">To do</strong-->
 						</li>
 					</ul>
 				</li>
@@ -190,13 +181,13 @@
 							<span class="app-task-list__task-name">
 								The organisation
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								Who's in control
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong-->
 						</li>
 					</ul>
 				</li>
@@ -209,19 +200,19 @@
 							<span class="app-task-list__task-name">
 								Application permissions and checks
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								‘Commercial in confidence’ information
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								Terms and conditions (CoA’s)
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-people-todo">To do</strong-->
 						</li>
 					</ul>
 				</li>
@@ -234,7 +225,7 @@
 							<span class="app-task-list__task-name">
 								Confirm gateway outcome
 							</span>
-							<strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong>
+							<!--strong class="govuk-tag app-task-list__task-todo" id="gw-compliance-org-todo">To do</strong-->
 						</li>
 					</ul>
 				</li>

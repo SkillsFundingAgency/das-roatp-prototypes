@@ -161,7 +161,7 @@ module.exports = function (router) {
 
 		// Parent company
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/parent', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/ico')
 		})
 
 		// ICO

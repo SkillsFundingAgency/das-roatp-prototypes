@@ -159,8 +159,13 @@ module.exports = function (router) {
 	 *** Company - Organisation checks ***
 	 *************************************/
 
+		// Parent company
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/parent', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
 		// ICO
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/info', function (req, res) {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/ico', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 

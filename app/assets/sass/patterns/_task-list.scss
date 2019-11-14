@@ -56,6 +56,7 @@
 
 .app-task-list__task-completed,
 .app-task-list__task-inprogress,
+.app-task-list__task-assessorinprogress,
 .app-task-list__task-positive,
 .app-task-list__task-negative,
 .app-task-list__task-next,
@@ -95,6 +96,7 @@
 
 .app-task-list__task-inprogressalt,
 .govuk-tag-inprogressalt,
+.app-task-list__task-assessorinprogress,
 .app-task-list__task-todo,
 .govuk-tag-todo {
   background-color: #fff;
@@ -102,6 +104,12 @@
   color: #0b0c0c;
   line-height: 1;
   padding: 5px 6px 1px;
+}
+
+
+.app-task-list__task-assessorinprogress {
+  border: 1.5px solid #00823B;
+  color: #00823B;
 }
 
 .app-task-list__task-inprogressalt,

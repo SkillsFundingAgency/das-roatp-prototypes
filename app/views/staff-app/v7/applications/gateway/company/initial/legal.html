@@ -32,12 +32,11 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Initial checks</span>
-			<h1 class="govuk-heading-xl">Legal checks</h1>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
 				UKPRN: 10053003<br>
-				<!--Primary verification authority: Companies House<br-->
 				UKRLP verified with: Companies House<br>
 				Application submitted on: 17 Oct 2019<br>
 				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}
@@ -95,10 +94,6 @@
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">Submitted application</td>
-							<td class="govuk-table__cell">Active</td>
-						</tr>
 						<tr class="govuk-table__row">
 							<td class="govuk-table__header">UKRLP</td>
 							<td class="govuk-table__cell">Active</td>
@@ -167,43 +162,7 @@
 						}
 					]
 				}) }}
-
-				<!--h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the website correct for all sources?</h2>
-				<table class="govuk-table">
-					<thead class="govuk-table__head">
-						<tr class="govuk-table__row">
-							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Website</th>
-						</tr>
-					</thead>
-					<tbody class="govuk-table__body">
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">Submitted application</td>
-							<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/">safran-landing-systems.com</a></td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">UKRLP</td>
-							<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/">safran-landing-systems.com</a></td>
-						</tr>
-					</tbody>
-				</table>
-				{{ govukRadios({
-					idPrefix: "gw-company-legal-website",
-					name: "gw-company-legal-website",
-					classes: "govuk-radios--inline",
-					items: [
-						{
-							value: "Yes",
-							text: "Yes",
-							checked: checked("gw-company-legal-website", "Yes")
-						},
-						{
-							value: "No",
-							text: "No",
-							checked: checked("gw-company-legal-website", "No")
-						}
-					]
-				}) }}-->
+				
 
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
 				

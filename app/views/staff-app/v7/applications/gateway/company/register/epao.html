@@ -22,16 +22,30 @@
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003<br>
-				<!--Application submitted on: 17 Oct 2019<br>
-				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}-->
+				<!--Application submitted on: 17 Oct 2019<br-->
+				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}
 			</p>
-			
-			<div class="sops">
-				<p class="govuk-body">Manual - </p>
-				<p class="govuk-body">Outcome box - on epao or not</p>
-			</div>
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">EPAO</th>
+						<td class="govuk-table__cell">Removed<br>[DATE]</td>
+					</tr>
+				</tbody>
+			</table>
 			
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+				<p class="govuk-body">If the status is ‘removed’, email <a href="mailto:apprentice.assessment@education.gov.uk">apprentice.assessment@education.gov.uk</a> for further information.</p>
+			</div>
 
 			<form action="" method="post" class="form">
 				

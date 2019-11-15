@@ -28,8 +28,6 @@
 			
 			<!--h2 class="govuk-heading-l">RoATP</h2-->
 
-			<p class="sops govuk-body">To pass this check, the organisation must not be on the RoATP.</p>
-
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
@@ -44,15 +42,24 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header">RoATP</th>
-						<td class="govuk-table__cell">Removed from the Roatp<br>[DATE]<br>[REASON]</td>
+						<td class="govuk-table__cell">Removed from the Roatp<br>[DATE]<br>[REASON]<br>[PROVIDER ROUTE]</td>
 					</tr>
 				</tbody>
 			</table>
 			
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+				<p class="govuk-body">Pass this check if:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the organisation was removed from the RoATP over 3 years ago</li>
+					<li>the organisation was removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</li>
+					<li>the organisation is not on the RoATP</li>
+				</ul>
+				<p class="govuk-body">If you’re unsure, ask someone in your team before you make an outcome.</p>
+			</div>
 
 			<form action="" method="post" class="form">
-
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({

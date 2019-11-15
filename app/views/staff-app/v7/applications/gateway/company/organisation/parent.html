@@ -32,11 +32,12 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Are the UK ultimate parent company details correct?</h1>
+			<h1 class="govuk-heading-xl">UK ultimate parent company checks</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003<br>
+				Parent company number: 01234567<br>
 				Application submitted on: 17 Oct 2019<br>
 				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}
 
@@ -49,43 +50,6 @@
 					<li>the organisation's legal name is the same</li>
 				</ul>
 			</div-->
-
-			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the parent company number match for all sources?</h2>
-			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">Parent company number</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">Submitted application</td>
-						<td class="govuk-table__cell">01234567</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">Companies House</td>
-						<td class="govuk-table__cell">01234567</td>
-					</tr>
-				</tbody>
-			</table>
-			{{ govukRadios({
-				idPrefix: "gw-company-org-parentnumber",
-				name: "gw-company-org-parentnumber",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("gw-company-org-parentnumber", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("gw-company-org-parentnumber", "No")
-					}
-				]
-			}) }}
 
 			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the parent company name match for all sources?</h2>
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -124,7 +88,7 @@
 				]
 			}) }}
 
-			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status correct for all sources?</h2>
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status correct?</h2>
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
@@ -133,10 +97,6 @@
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">UKRLP</td>
-						<td class="govuk-table__cell">Active</td>
-					</tr>
 					<tr class="govuk-table__row">
 						<td scope="row" class="govuk-table__cell">Companies House</td>
 						<td class="govuk-table__cell">Dissolved</td>
@@ -215,16 +175,7 @@
 						}
 					]
 				}) }}
-				<!--
-				{{ govukCharacterCount({
-					name: "gw-company-parent-notes",
-					id: "gw-company-parent-notes",
-					maxlength: 750,
-					label: {
-						text: "Add comments"
-					}
-				}) }}
--->
+				
 				{{ govukButton({
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-1"

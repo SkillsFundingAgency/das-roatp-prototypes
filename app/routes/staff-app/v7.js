@@ -194,4 +194,21 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
+		// Experience and accreditation - ITT
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/itt', function (req, res) {
+			req.session.data['rejects-experience'] = 0
+			if (req.session.data['gw-company-itt'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/ofsted')
+		})
+
+		// Experience and accreditation - Ofsted
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/ofsted', function (req, res) {
+			if (req.session.data['gw-company-ofsted'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
 }

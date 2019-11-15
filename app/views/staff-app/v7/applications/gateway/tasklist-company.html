@@ -174,6 +174,21 @@
 							<span class="app-task-list__task-name">
 								<a href="company/organisation/itt">Experience and accreditation</a>
 							</span>
+							{% if (data['gw-company-itt']) and (data['gw-company-ofsted']) %}
+								{% if (data['rejects-experience'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-experience-rejected">{{ data['rejects-experience'] }} of 2 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-experience-passed">Passed</strong>
+								{% endif %}
+							{% else %}
+								{% if (data['gw-company-type']) %}
+									{% if data['gw-company-itt'] %}
+                		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-experience-inprogress">In progress</strong>
+									{% else %}
+										<strong class="govuk-tag app-task-list__task-next" id="gw-company-experience-next">Next</strong>
+									{% endif %}
+								{% endif %}
+							{% endif %}
 						</li>
 					</ul>
 				</li>

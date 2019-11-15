@@ -32,7 +32,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Initial teacher training (ITT) check</h1>
+			<h1 class="govuk-heading-xl">Ofsted checks</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
@@ -40,7 +40,7 @@
 			</p>
 			
 			<div class="sops">
-				<p class="govuk-body">Pass this check if the organisation is on <a href="#">the list of registered ITT</a>.</p>
+				<!--p class="govuk-body">Pass this check if the organisation is on <a href="#">the list of registered ITT</a>.</p-->
 				<!--ul class="govuk-list govuk-list--bullet">
 					<li>the ICO registration number is valid (not expired)</li>
 					<li>the organisation's legal name is the same</li>
@@ -50,12 +50,32 @@
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Offer initial teacher training</th>
+						<th scope="row" class="govuk-table__header">Had a full Ofsted inspection in further education and skills</th>
 						<td class="govuk-table__cell">Yes</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Postgraduate teaching apprenticeship the only apprenticeship the organisation intends to deliver</th>
+						<th scope="row" class="govuk-table__header">Received a grade for apprenticeships</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Grade for overall effectiveness</th>
+						<td class="govuk-table__cell">Good</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Grade given with last 3 years</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Had a short Ofsted inspection within last 3 years</th>
 						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Maintained grade</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Maintained funding from an education agency</th>
+						<td class="govuk-table__cell">No</td>
 					</tr>
 				</tbody>
 			</table>
@@ -72,8 +92,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-itt-pass",
-						id: "gw-company-itt-pass",
+						name: "gw-company-ofsted-pass",
+						id: "gw-company-ofsted-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -83,8 +103,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-itt-reject",
-						id: "gw-company-itt-reject",
+						name: "gw-company-ofsted-reject",
+						id: "gw-company-ofsted-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -93,8 +113,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-itt",
-					name: "gw-company-itt",
+					idPrefix: "gw-company-ofsted",
+					name: "gw-company-ofsted",
 					items: [
 						{
 							value: "Pass",
@@ -102,7 +122,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-itt", "Pass")
+							checked: checked("gw-company-ofsted", "Pass")
 						},
 						{
 							value: "Reject",
@@ -110,7 +130,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-itt", "Reject")
+							checked: checked("gw-company-ofsted", "Reject")
 						}
 					]
 				}) }}

@@ -32,35 +32,26 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Information Commissioner's Office (ICO) registration number check</h1>
+			<h1 class="govuk-heading-xl">[Trading]</h1>
 
-			<h2 class="govuk-heading-l">Application data</h2>
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 			
 			<div class="sops">
-				<p class="govuk-body">To pass this check, you must confirm that:</p>
-				<ul class="govuk-list govuk-list--bullet">
+				<p class="govuk-body">This organisation has XX in the application.</p>
+				<!--ul class="govuk-list govuk-list--bullet">
 					<li>the ICO registration number is valid (not expired)</li>
 					<li>the organisation's legal name is the same</li>
-				</ul>
+				</ul-->
 			</div>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">ICO registration number</th>
-						<th scope="col" class="govuk-table__header"></th>
-					</tr>
-				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">Submitted application</td>
-						<td class="govuk-table__cell">Z7322278</td>
-						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278">Check this ICO registration number</a></td>
+						<th scope="row" class="govuk-table__header">Actively trading</th>
+						<td class="govuk-table__cell">12 to 18 months</td>
 					</tr>
 				</tbody>
 			</table>
@@ -77,8 +68,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-ico-pass",
-						id: "gw-company-ico-pass",
+						name: "gw-company-trading-pass",
+						id: "gw-company-trading-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -88,8 +79,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-ico-reject",
-						id: "gw-company-ico-reject",
+						name: "gw-company-trading-reject",
+						id: "gw-company-trading-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -98,8 +89,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-ico",
-					name: "gw-company-ico",
+					idPrefix: "gw-company-trading",
+					name: "gw-company-trading",
 					items: [
 						{
 							value: "Pass",
@@ -107,7 +98,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-ico", "Pass")
+							checked: checked("gw-company-trading", "Pass")
 						},
 						{
 							value: "Reject",
@@ -115,7 +106,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-ico", "Reject")
+							checked: checked("gw-company-trading", "Reject")
 						}
 					]
 				}) }}

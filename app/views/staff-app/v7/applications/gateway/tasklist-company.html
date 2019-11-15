@@ -140,14 +140,14 @@
 							<span class="app-task-list__task-name">
 								<a href="company/organisation/parent">Organisation information</a>
 							</span>
-							{% if (data['gw-company-parent'] == "Pass") and (data['gw-company-ico'] == "Pass") %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
-							{% elseif (data['gw-company-parent'] == "Reject") and (data['gw-company-ico'] == "Reject") %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">2 of 2 Rejected</strong>
-							{% elseif (data['gw-company-parent'] == "Reject") or (data['gw-company-ico'] == "Reject") %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">1 of 2 Rejected</strong>
+							{% if (data['gw-company-parent']) and (data['gw-company-ico']) and (data['gw-company-trading']) and (data['gw-company-website']) %}
+								{% if (data['rejects-orginfo'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{ data['rejects-orginfo'] }} of 3 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
+								{% endif %}
 							{% else %}
-								{% if (data['gw-company-legal-outcome']) and (data['gw-company-roatp-outcome']) and (data['gw-company-roto-outcome']) and (data['gw-company-epao-outcome']) %}
+								{% if (data['gw-company-roatp-outcome']) and (data['gw-company-roto-outcome']) and (data['gw-company-epao-outcome']) %}
 									{% if data['gw-company-parent'] %}
                 		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
 									{% else %}
@@ -158,12 +158,21 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Organisation type
+								<a href="company/organisation/type">Organisation type</a>
 							</span>
+							{% if (data['gw-company-type'] == "Pass") %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
+							{% elseif (data['gw-company-type'] == "Reject") %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">2 of 2 Rejected</strong>
+							{% else %}
+								{% if (data['gw-company-legal-outcome']) and (data['gw-company-roatp-outcome']) and (data['gw-company-roto-outcome']) and (data['gw-company-epao-outcome']) and (data['gw-company-parent']) and (data['gw-company-ico']) and (data['gw-company-trading']) and (data['gw-company-website']) %}
+									<strong class="govuk-tag app-task-list__task-next" id="gw-company-info-next">Next</strong>
+								{% endif %}
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Experience and accreditation
+								<a href="company/organisation/itt">Experience and accreditation</a>
 							</span>
 						</li>
 					</ul>

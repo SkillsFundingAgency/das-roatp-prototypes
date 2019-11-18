@@ -145,9 +145,9 @@ module.exports = function (router) {
 		})
 
 		// RoTO
-		router.post('/staff-app/' + v + '/applications/gateway/company/register/roto', function (req, res) {
+		/*router.post('/staff-app/' + v + '/applications/gateway/company/register/roto', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
+		})*/
 
 		// EPAO
 		router.post('/staff-app/' + v + '/applications/gateway/company/register/epao', function (req, res) {
@@ -186,6 +186,9 @@ module.exports = function (router) {
 
 		// Organisation info - Website
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/website', function (req, res) {
+			if (req.session.data['gw-company-website'] == "Reject") {
+				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
+			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 

@@ -39,35 +39,142 @@
 				UKPRN: 10053003
 			</p>
 			
-			<div class="sops">
-				<!--p class="govuk-body">This organisation has XX in the application.</p>
+			<!--div class="sops">
+				<p class="govuk-body">This organisation has XX in the application.</p>
 				<ul class="govuk-list govuk-list--bullet">
 					<li>the ICO registration number is valid (not expired)</li>
 					<li>the organisation's legal name is the same</li>
-				</ul-->
-			</div>
+				</ul>
+			</div-->
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Question</th>
+						<th scope="col" class="govuk-table__header">Application answer</th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Organisation type</th>
+						<td scope="row" class="govuk-table__cell">Organisation type</td>
 						<td class="govuk-table__cell">An educational institute</td>
+						<td class="govuk-table__cell">
+							{{ govukRadios({
+								idPrefix: "gw-company-type",
+								name: "gw-company-type",
+								classes: "govuk-radios--inline",
+								items: [
+									{
+										value: "Yes",
+										text: "Yes",
+										checked: checked("gw-company-type", "Yes")
+									},
+									{
+										value: "No",
+										text: "No",
+										checked: checked("gw-company-type", "No")
+									}
+								]
+							}) }}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Type of educational institute</th>
+						<td scope="row" class="govuk-table__cell">Type of educational institute</td>
 						<td class="govuk-table__cell">School</td>
+						<td class="govuk-table__cell">
+							{{ govukRadios({
+								idPrefix: "gw-company-type-edu",
+								name: "gw-company-type-edu",
+								classes: "govuk-radios--inline",
+								items: [
+									{
+										value: "Yes",
+										text: "Yes",
+										checked: checked("gw-company-type-edu", "Yes")
+									},
+									{
+										value: "No",
+										text: "No",
+										checked: checked("gw-company-type-edu", "No")
+									}
+								]
+							}) }}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Type of school</th>
+						<td scope="row" class="govuk-table__cell">Type of school</td>
 						<td class="govuk-table__cell">Not an LEA or a free school</td>
+						<td class="govuk-table__cell">
+							{{ govukRadios({
+								idPrefix: "gw-company-type-school",
+								name: "gw-company-type-school",
+								classes: "govuk-radios--inline",
+								items: [
+									{
+										value: "Yes",
+										text: "Yes",
+										checked: checked("gw-company-type-schooltype", "Yes")
+									},
+									{
+										value: "No",
+										text: "No",
+										checked: checked("gw-company-type-schooltype","No")
+									}
+								]
+							}) }}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Receiving funding from ESFA</th>
+						<td scope="row" class="govuk-table__cell">Receiving funding from ESFA</td>
 						<td class="govuk-table__cell">Yes</td>
+						<td class="govuk-table__cell">
+							{{ govukRadios({
+								idPrefix: "gw-company-type-funding",
+								name: "gw-company-type-funding",
+								classes: "govuk-radios--inline",
+								items: [
+									{
+										value: "Yes",
+										text: "Yes",
+										checked: checked("gw-company-type-funding", "Yes")
+									},
+									{
+										value: "No",
+										text: "No",
+										checked: checked("gw-company-type-funding", "No")
+									}
+								]
+							}) }}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Description</th>
+						<td scope="row" class="govuk-table__cell">Description</td>
 						<td class="govuk-table__cell">A public service mutual</td>
+						<td class="govuk-table__cell">
+							{{ govukRadios({
+								idPrefix: "gw-company-type-description",
+								name: "gw-company-type-description",
+								classes: "govuk-radios--inline",
+								items: [
+									{
+										value: "Yes",
+										text: "Yes",
+										checked: checked("gw-company-type-description", "Yes")
+									},
+									{
+										value: "No",
+										text: "No",
+										checked: checked("gw-company-type-description", "No")
+									}
+								]
+							}) }}
+						</td>
 					</tr>
 				</tbody>
 			</table>

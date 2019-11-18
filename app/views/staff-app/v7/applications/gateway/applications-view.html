@@ -33,28 +33,35 @@
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
 				<tr class="govuk-table__row">
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Organisation name</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th scope="col" class="govuk-table__header"></th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if not data['gw-company-legal-outcome'] %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
+					<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
 					<td class="govuk-table__cell">10053003</td>
 					<td class="govuk-table__cell">APR00000001</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell"><a href="tasklist-company">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
+				{% endif %}
+				{% if not data['gw-roatpdown-legal-outcome'] %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="tasklist-roatpdown">RHINO APPS LIMITED</a></td>
+					<td class="govuk-table__cell">RHINO APPS LIMITED</td>
 					<td class="govuk-table__cell">10082147</td>
 					<td class="govuk-table__cell">APR00009851</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell"><a href="tasklist-roatpdown">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<!--td class="govuk-table__cell"><a href="tasklist-charity">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</a></td-->
 					<td class="govuk-table__cell">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</td>
@@ -62,6 +69,7 @@
 					<td class="govuk-table__cell">APR00000003</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<!--td class="govuk-table__cell"><a href="tasklist-both">WESTMERIA COUNSELLING SERVICES</a></td-->
@@ -70,6 +78,7 @@
 					<td class="govuk-table__cell">APR00000002</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
@@ -77,6 +86,7 @@
 					<td class="govuk-table__cell">APR00000004</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">EXAM SNAP</td>
@@ -84,6 +94,7 @@
 					<td class="govuk-table__cell">APR00000005</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">STELLA NOVA</td>
@@ -91,6 +102,7 @@
 					<td class="govuk-table__cell">APR00000006</td>
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -106,17 +118,41 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
 					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Assigned</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Assigned to</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if data['gw-company-legal-outcome'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+					<td class="govuk-table__cell">10053003</td>
+					<td class="govuk-table__cell">APR00000001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell"><a href="tasklist-company">Continue</a></td>
+				</tr>
+				{% endif %}
+				{% if data['gw-roatpdown-legal-outcome'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">RHINO APPS LIMITED</td>
+					<td class="govuk-table__cell">10082147</td>
+					<td class="govuk-table__cell">APR00009851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell"><a href="tasklist-roatpdown">Continue</a></td>
+				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">LEVEL UP</td>
 					<td class="govuk-table__cell">22657489</td>
 					<td class="govuk-table__cell">APR00000102</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">Peter Waller</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">BOOK BOT</td>
@@ -124,7 +160,8 @@
 					<td class="govuk-table__cell">APR00000097</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">David Collins</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">KNOWTABLY</td>
@@ -132,7 +169,8 @@
 					<td class="govuk-table__cell">APR00000013</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">Gemma Firth</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MOVING THE GRADE</td>
@@ -140,7 +178,8 @@
 					<td class="govuk-table__cell">APR00000187</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">Jessica Florence</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ROCKET TRAINING</td>
@@ -148,7 +187,8 @@
 					<td class="govuk-table__cell">APR00000231</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">Peter Holdsworth</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">SWING START</td>
@@ -156,7 +196,8 @@
 					<td class="govuk-table__cell">APR00000122</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell">Anna Johnson</td>
+					<td class="govuk-table__cell"><a href="#">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -417,12 +458,7 @@
 				$('table')[3]
 			]
 		});
-
-		new MOJFrontend.SortableTable({
-			table: [
-				$('table')[4]
-			]
-		});
+		
 	</script>
 
 {% endblock %}

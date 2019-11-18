@@ -214,4 +214,97 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
+
+/******************* ROATP DOWN  */
+
+	/********************************
+	 *** Company - Initial checks ***
+	********************************/
+
+		// Legal and address
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/initial/legal', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+
+	/*********************************
+	 *** roatpdown - Register checks ***
+	 *********************************/
+
+		// RoATP
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/register/roatp', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+		// RoTO
+		/*router.post('/staff-app/' + v + '/applications/gateway/roatpdown/register/roto', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})*/
+
+		// EPAO
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/register/epao', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+
+	/*************************************
+	 *** roatpdown - Organisation checks ***
+	 *************************************/
+
+		// Organisation info - Parent roatpdown
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/parent', function (req, res) {
+			req.session.data['rejects-orginfo'] = 0
+			if (req.session.data['gw-roatpdown-parent'] == "Reject") {
+				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/ico')
+		})
+
+		// Organisation info - ICO
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/ico', function (req, res) {
+			if (req.session.data['gw-roatpdown-ico'] == "Reject") {
+				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/trading')
+		})
+
+		// Organisation info - Trading for
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/trading', function (req, res) {
+			if (req.session.data['gw-roatpdown-trading'] == "Reject") {
+				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/website')
+		})
+
+		// Organisation info - Website
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/website', function (req, res) {
+			if (req.session.data['gw-roatpdown-website'] == "Reject") {
+				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+		// Organisation type
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/type', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+		// Experience and accreditation - ITT
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/itt', function (req, res) {
+			req.session.data['rejects-experience'] = 0
+			if (req.session.data['gw-roatpdown-itt'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/ofsted')
+		})
+
+		// Experience and accreditation - Ofsted
+		router.post('/staff-app/' + v + '/applications/gateway/roatpdown/organisation/ofsted', function (req, res) {
+			if (req.session.data['gw-roatpdown-ofsted'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-roatpdown')
+		})
+
+
 }

@@ -1,0 +1,226 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Initial checks</span>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
+
+			<!--h2 class="govuk-heading-l">Application data</h2-->
+			<p class="govuk-body">
+				UKPRN: 10082147<br>
+				UKRLP verified with: Companies House<br>
+				Application submitted on: 18 Oct 2019<br>
+				Sources checked on: <span id="apidate"></span>{{ data['roatpdown-legal-apidate'] }}
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the legal name match for all sources?</h2>
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Legal name</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application</td>
+							<td class="govuk-table__cell">RHINO APPS LIMITED</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">UKRLP</td>
+							<td class="govuk-table__cell">RHINO APPS LIMITED</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Companies House</td>
+							<td class="govuk-table__cell">RHINO APPS LIMITED</td>
+						</tr>
+					</tbody>
+				</table>
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-legal-legalname",
+					name: "gw-roatpdown-legal-legalname",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-roatpdown-legal-legalname", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-roatpdown-legal-legalname", "No")
+						}
+					]
+				}) }}
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status correct for all sources?</h2>
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Status</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">UKRLP</td>
+							<td class="govuk-table__cell">Active</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Companies House</td>
+							<td class="govuk-table__cell">Active</td>
+						</tr>
+					</tbody>
+				</table>
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-legal-sources",
+					name: "gw-roatpdown-legal-sources",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-roatpdown-legal-sources", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-roatpdown-legal-sources", "No")
+						}
+					]
+				}) }}
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the address match for all sources?</h2>
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Address</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application</td>
+							<td class="govuk-table__cell">Suite 11 Red Trees Business Suites,<br>24 Stonelaw Road Rutherglen,<br>Glasgow,<br>G73 3TW</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">UKRLP</td>
+							<td class="govuk-table__cell">Suite 11 Red Trees Business Suites,<br>24 Stonelaw Road Rutherglen,<br>Glasgow,<br>G73 3TW</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Companies House</td>
+							<td class="govuk-table__cell">Suite 11 Red Trees Business Suites,<br>24 Stonelaw Road Rutherglen,<br>Glasgow,<br>G73 3TW</td>
+						</tr>
+					</tbody>
+				</table>
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-legal-address",
+					name: "gw-roatpdown-legal-address",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-roatpdown-legal-address", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-roatpdown-legal-address", "No")
+						}
+					]
+				}) }}
+				
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-legal-outcome-pass",
+						id: "gw-roatpdown-legal-outcome-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-legal-outcome-reject",
+						id: "gw-roatpdown-legal-outcome-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-legal-outcome-conditional",
+					name: "gw-roatpdown-legal-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-roatpdown-legal-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-roatpdown-legal-outcome", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

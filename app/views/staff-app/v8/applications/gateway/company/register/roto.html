@@ -1,0 +1,110 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Register checks</span>
+			<h1 class="govuk-heading-xl">Register of training organisation (RoTO) check</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003<br>
+				<!--Application submitted on: 17 Oct 2019<br>
+				Sources checked on: <span id="apidate"></span>{{ data['company-legal-apidate'] }}-->
+			</p>
+			
+			<div class="sops">
+				<p class="govuk-body">Manual check</p>
+				<p class="govuk-body">Outcome box - on the roto or not</p>
+			</div>
+			
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roto-outcome-pass",
+						id: "gw-company-roto-outcome-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roto-outcome-reject",
+						id: "gw-company-roto-outcome-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-roto-outcome",
+					name: "gw-company-roto-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-roto-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-roto-outcome", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

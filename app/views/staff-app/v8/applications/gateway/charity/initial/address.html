@@ -1,0 +1,76 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-charity"
+			},
+			{
+				text: "Address checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Initial checks</span>
+			<h1 class="govuk-heading-xl">Address checks</h1>
+
+			<h3 class="govuk-heading-m">Application data</h3>
+			<p class="govuk-body">
+				Legal name: SUPPORTING PEOPLE ACHIEVING REAL CHOICE<br>
+				UKPRN: 10006054<br>
+				Primary verification authority: Charity Commission<br>
+				Date application submitted: 19 Oct 2019
+			</p>
+
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Address</th>
+						<th scope="col" class="govuk-table__header">Website address</th>
+						<th scope="col" class="govuk-table__header">Website address</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Widnes, Cheshire, WA8 7QH</td>
+						<td class="govuk-table__cell">Yes</td>
+						<td class="govuk-table__cell"><a href="https://sparcproject.tumblr.com/">sparcproject.tumblr.com</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="address-recheck" method="post" class="form">
+
+				{{ govukButton({
+					classes: "govuk-!-margin-right-3 govuk-button-checkapis",
+					text: "Get latest data"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-charity">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/staff-app/v8/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v8/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change type of organisation"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Change type of organisation for ABC Assessments</h1>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukSelect({
+					id: "staff-change-orgtype",
+					name: "staff-change-orgtype",
+					label: {
+						text: "Select a type of organisation"
+					},
+					items: [
+						{
+							value: "Academy",
+							text: "Academy"
+						},
+						{
+							value: "Central government department, executive agency, or Non-Departmental Public Body",
+							text: "Central government department, executive agency, or Non-Departmental Public Body"
+						},
+						{
+							value: "Delivery organisation connected to an Apprenticeship Training Agency (ATA)",
+							text: "Delivery organisation connected to an Apprenticeship Training Agency (ATA)"
+						},
+						{
+							value: "Employer training apprentices within their Connected Companies",
+							text: "Employer training apprentices within their Connected Companies"
+						},
+						{
+							value: "Employer training their own staff and those within other organisations",
+							text: "Employer training their own staff and those within other organisations"
+						},
+						{
+							value: "Further Education Institution",
+							text: "Further Education Institution"
+						},
+						{
+							value: "General Further Education College",
+							text: "General Further Education College"
+						},
+						{
+							value: "Group Training Association (GTA)",
+							text: "Group Training Association (GTA)"
+						},
+						{
+							value: "Higher Education Institution (HEI)",
+							text: "Higher Education Institution (HEI)"
+						},
+						{
+							value: "Independent Training Provider",
+							text: "Independent Training Provider"
+						},
+						{
+							value: "Local Authority, including LEA schools",
+							text: "Local Authority, including LEA schools"
+						},
+						{
+							value: "Multi-Academy Trust",
+							text: "Multi-Academy Trust"
+						},
+						{
+							value: "National College",
+							text: "National College"
+						},
+						{
+							value: "NHS Trust or Fire Authority",
+							text: "NHS Trust or Fire Authority"
+						},
+						{
+							value: "Police Constabulary or Police and Crime Commissioner",
+							text: "Police Constabulary or Police and Crime Commissioner"
+						},
+						{
+							value: "Sixth Form College",
+							text: "Sixth Form College"
+						},
+						{
+							value: "None of the above",
+							text: "None of the above"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

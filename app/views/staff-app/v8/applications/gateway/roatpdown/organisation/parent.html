@@ -1,0 +1,192 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Organisation information"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">UK ultimate parent company checks</h1>
+
+			<p class="govuk-body">
+				Legal name: RHINO APPS LIMITED<br>
+				UKPRN: 10082147<br>
+				Parent company number: 01234567<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: <span id="apidate"></span>{{ data['roatpdown-legal-apidate'] }}
+
+			</p>
+			
+			<!--div class="sops">
+				<p class="govuk-body">To pass this check, you must confirm that:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul>
+			</div-->
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the parent company name match for all sources?</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Parent company name</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">Submitted application</td>
+						<td class="govuk-table__cell">XYZ LIMITED</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">Companies House</td>
+						<td class="govuk-table__cell">XYZ LIMITED</td>
+					</tr>
+				</tbody>
+			</table>
+			{{ govukRadios({
+				idPrefix: "gw-roatpdown-org-parentname",
+				name: "gw-roatpdown-org-parentname",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("gw-roatpdown-org-parentname", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("gw-roatpdown-org-parentname", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status active?</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">Companies House</td>
+						<td class="govuk-table__cell">Dissolved</td>
+					</tr>
+				</tbody>
+			</table>
+
+			{{ govukRadios({
+				idPrefix: "gw-roatpdown-org-parentstatus",
+				name: "gw-roatpdown-org-parentstatus",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("gw-roatpdown-org-parentstatus", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("gw-roatpdown-org-parentstatus", "No")
+					}
+				]
+			}) }}
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-parent-pass",
+						id: "gw-roatpdown-parent-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-parent-reject",
+						id: "gw-roatpdown-parent-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-parent",
+					name: "gw-roatpdown-parent",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-roatpdown-parent", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-roatpdown-parent", "Reject")
+						}
+					]
+				}) }}
+				
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

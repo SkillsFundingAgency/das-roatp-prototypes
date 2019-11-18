@@ -1,0 +1,101 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-charity"
+			},
+			{
+				text: "Organisation information"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Information Commissioner's Office (ICO) registration number check</h1>
+
+			<h2 class="govuk-heading-l">Application data</h2>
+			<p class="govuk-body">
+				Legal name: SUPPORTING PEOPLE ACHIEVING REAL CHOICE<br>
+				UKPRN: 10006054
+			</p>
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">ICO registration number</th>
+						<td class="govuk-table__cell">Z9999999</td>
+						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z9999999">Search</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+      {% include "includes/staff-app/v8/sops-gateway-ico.html" %}
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "gw-charity-ico",
+					name: "gw-charity-ico",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-charity-ico", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							checked: checked("gw-charity-ico", "Reject")
+						}
+					]
+				}) }}
+				
+				{{ govukCharacterCount({
+					name: "gw-charity-ico-notes",
+					id: "gw-charity-ico-notes",
+					maxlength: 750,
+					label: {
+						text: "Add comments"
+					}
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="../tasklist-charity">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

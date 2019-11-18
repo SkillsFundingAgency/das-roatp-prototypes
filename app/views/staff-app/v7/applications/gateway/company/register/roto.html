@@ -6,10 +6,25 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back to application assessment overview",
-    href: "/staff-app/v7/applications/gateway/application-tasklist"
-  }) }}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v7/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v7/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v7/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
 {% endblock %}
 
 {% block content %}

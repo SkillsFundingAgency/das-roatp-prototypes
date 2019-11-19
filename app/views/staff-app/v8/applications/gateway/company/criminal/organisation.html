@@ -1,0 +1,169 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Organisation checks</h1>
+
+			<p class="govuk-body">
+				UKPRN: 10053003<br>
+				UKRLP verified with: Companies House<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: <span id="apidate"></span>{{ data['company-criminal-apidate'] }}
+			</p>
+			
+			<div class="sops">
+				<h2 class="govuk-heading-m">Guidance</h2>
+				<p class="govuk-body">If all of the answers below are 'No', then you can pass this check.</p>
+				<p class="govuk-body">If any questions were answered 'Yes', please review the additional information provided.</p>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<form action="" method="post" class="form">
+
+				<!--h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the legal name match for all sources?</h2-->
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Question</th>
+							<th scope="col" class="govuk-table__header">Answer submitted</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Does your organisation have any composition with creditors?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation failed to pay back funds in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation had a contract terminated early by a public body in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation had early withdrawal from a contract with a public body in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation had funding removed from any education bodies in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation been removed from any professional or trade registers in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation been investigated due to safeguarding issues in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Has your organisation been investigated due to whistleblowing issues in the last 3 years?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-organisation-pass",
+						id: "gw-company-criminal-organisation-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-organisation-reject",
+						id: "gw-company-criminal-organisation-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-criminal-organisation-conditional",
+					name: "gw-company-criminal-organisation",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-criminal-organisation", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-criminal-organisation", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

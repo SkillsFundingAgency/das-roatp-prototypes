@@ -137,8 +137,13 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								People and organisation high risk
+								<a href="company/organisation/highrisk-people">People and organisation high risk</a>
 							</span>
+							{% if data['gw-company-highrisk-people'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">

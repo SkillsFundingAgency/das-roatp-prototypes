@@ -1,0 +1,127 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Experience and accreditation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">People high risk check</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+
+			<h2 class="govuk-heading-l">High risk people with significant control check</h2>
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Name</th>
+						<th scope="col" class="govuk-table__header">Date of birth</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">POWELL, Herbert</td>
+						<td class="govuk-table__cell">May 1963</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="sops">
+				<p class="govuk-body">[SOPs for person of significant control check]</p>
+				<!--ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul-->
+			</div>
+
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+
+			<form action="highrisk-people" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-psc2-pass",
+						id: "gw-company-highrisk-psc2-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-psc2-reject",
+						id: "gw-company-highrisk-psc2-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-highrisk-psc2",
+					name: "gw-company-highrisk-psc2",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-highrisk-psc2", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-highrisk-psc2", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

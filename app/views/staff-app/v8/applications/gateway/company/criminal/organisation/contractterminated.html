@@ -1,0 +1,119 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Organisation checks</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+			
+			<h2 class="govuk-heading-l">Has your organisation had a contract terminated early by a public body in the last 3 years?</h2>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application answer</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>		
+				
+			<div class="sops">
+				<h3 class="govuk-heading-m">Guidance</h3>
+				<p class="govuk-body">&hellip;</p>
+			</div>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-contractterminated-pass",
+						id: "gw-company-criminal-contractterminated-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-contractterminated-reject",
+						id: "gw-company-criminal-contractterminated-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-criminal-contractterminated-conditional",
+					name: "gw-company-criminal-contractterminated",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-criminal-contractterminated", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-criminal-contractterminated", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -215,6 +215,92 @@ module.exports = function (router) {
 		})
 
 
+	/************************************************
+	 *** Company - Criminal and compliance checks ***
+	 ************************************************/
+
+		// Organisation - Creditors
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/creditors', function (req, res) {
+			if (req.session.data['gw-company-criminal-creditors'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/paybackfunds')
+		})
+
+		// Organisation - Payback funds
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/paybackfunds', function (req, res) {
+			if (req.session.data['gw-company-criminal-paybackfunds'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/contractterminated')
+		})
+
+		// Organisation - Contract terminated
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/contractterminated', function (req, res) {
+			if (req.session.data['gw-company-criminal-contractterminated'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/earlywithdrawal')
+		})
+
+		// Organisation - Early withdrawal
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/earlywithdrawal', function (req, res) {
+			if (req.session.data['gw-company-criminal-earlywithdrawal'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/removedfromroto')
+		})
+
+		// Organisation - Removed from RoTO
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/removedfromroto', function (req, res) {
+			if (req.session.data['gw-company-criminal-removedfromroto'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/fundingremoved')
+		})
+
+		// Organisation - Funding removed
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/fundingremoved', function (req, res) {
+			if (req.session.data['gw-company-criminal-fundingremoved'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/removedfromtrade')
+		})
+
+		// Organisation - Removed from trade
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/removedfromtrade', function (req, res) {
+			if (req.session.data['gw-company-criminal-removedfromtrade'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/withdrawalfromitt')
+		})
+
+		// Organisation - Withdrawal from ITT
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/withdrawalfromitt', function (req, res) {
+			if (req.session.data['gw-company-criminal-withdrawalfromitt'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/safeguarding')
+		})
+
+		// Organisation - Safeguarding
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/safeguarding', function (req, res) {
+			if (req.session.data['gw-company-criminal-safeguarding'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/whistleblowing')
+		})
+		
+		// Organisation - Whistleblowing
+		router.post('/staff-app/' + v + '/applications/gateway/company/criminal/organisation/whistleblowing', function (req, res) {
+			if (req.session.data['gw-company-criminal-whistleblowing'] == "Reject") {
+				req.session.data['rejects-criminal-org'] = req.session.data['rejects-criminal-org'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+		
+
+
 /******************* ROATP DOWN  */
 
 	/********************************

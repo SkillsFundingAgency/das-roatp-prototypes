@@ -1,0 +1,78 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/staff-app/v8/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v8/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change parent company guarantee"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<form action="detail" method="post" class="form">
+				
+				{{ govukRadios({
+					classes: "govuk-radios",
+					idPrefix: "staff-changeparentguarantess",
+					name: "staff-changeparentguarantess",
+					fieldset: {
+						legend: {
+							text: "Change parent company guarantee for ABC Assessments",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+					{
+						value: "yes",
+						text: "Yes",
+						checked: true
+					},
+					{
+						value: "no",
+						text: "No",
+						checked: false
+					}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

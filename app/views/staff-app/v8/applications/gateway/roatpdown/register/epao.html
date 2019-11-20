@@ -1,0 +1,124 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/tasklist-roatpdown"
+			},
+			{
+				text: "Register checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Register checks</span>
+			<h1 class="govuk-heading-xl">Register of end-point assessment organisation (EPAO) check</h1>
+
+			<p class="govuk-body">
+				Legal name: RHINO APPS LIMITED<br>
+				UKPRN: 10082147<br>
+				<!--Application submitted on: 17 Oct 2019<br-->
+				Sources checked on: <span id="apidate"></span>{{ data['roatpdown-legal-apidate'] }}
+			</p>
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">EPAO</th>
+						<td class="govuk-table__cell">Removed<br>Date: 18 Jan 2018</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+				<p class="govuk-body">If the status is ‘removed’, email <a href="mailto:apprentice.assessment@education.gov.uk">apprentice.assessment@education.gov.uk</a> for further information.</p>
+			</div>
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-epao-outcome-pass",
+						id: "gw-roatpdown-epao-outcome-pass",
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-roatpdown-epao-outcome-reject",
+						id: "gw-roatpdown-epao-outcome-reject",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-roatpdown-epao-outcome",
+					name: "gw-roatpdown-epao-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-roatpdown-epao-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-roatpdown-epao-outcome", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-1"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Return to assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

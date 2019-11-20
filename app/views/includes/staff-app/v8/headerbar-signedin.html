@@ -1,0 +1,33 @@
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "ESFA admin services",
+    serviceUrl: "#"
+  }) }}
+  
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+    }) }}
+  </div>
+  
+  <!--div class="govuk-phase-banner govuk-width-container" style="padding: 0;">
+    <nav>
+      <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
+        <li class="roatp__navigation-item{% if current_section == 'dashboard' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v8/dashboard">Dashboard</a>
+        </li>
+        <li class="roatp__navigation-item{% if current_section == 'applications' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v8/applications/list">Assess applications</a>
+        </li>
+        <li class="roatp__navigation-item{% if current_section == 'register' %} roatp__navigation-item--active{% endif %}">
+          <a class="govuk-header__link" href="/staff-app/v8/register/search/register">Manage register</a>
+        </li>
+        <li class="roatp__navigation-item roatp__navigation-signout">
+          <a class="govuk-header__link" href="/staff-app/v8/signout">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+  </div-->

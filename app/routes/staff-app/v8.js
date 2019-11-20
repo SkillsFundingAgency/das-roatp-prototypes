@@ -159,6 +159,12 @@ module.exports = function (router) {
 	 *** Company - Organisation checks ***
 	 *************************************/
 
+		// Organisation info - High risk
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/highrisk-people', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
+
 		// Organisation info - Parent company
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/parent', function (req, res) {
 			req.session.data['rejects-orginfo'] = 0

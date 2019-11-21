@@ -159,9 +159,9 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/parent">Organisation information</a>
+								<a href="company/organisation/info/parent">Organisation information</a>
 							</span>
-							{% if (data['gw-company-parent']) and (data['gw-company-ico']) and (data['gw-company-trading']) and (data['gw-company-website']) %}
+							{% if (data['gw-company-info-parent']) and (data['gw-company-info-ico']) and (data['gw-company-info-website']) %}
 								{% if (data['rejects-orginfo'] > 0) %}
 									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{ data['rejects-orginfo'] }} of 4 Rejected</strong>
 								{% else %}
@@ -169,7 +169,7 @@
 								{% endif %}
 							{% else %}
 								{% if (data['gw-company-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
-									{% if data['gw-company-parent'] %}
+									{% if data['gw-company-info-parent'] %}
                 		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
 									{% endif %}
 								{% endif %}

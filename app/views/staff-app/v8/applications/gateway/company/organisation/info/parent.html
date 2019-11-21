@@ -70,19 +70,19 @@
 				</tbody>
 			</table>
 			{{ govukRadios({
-				idPrefix: "gw-company-org-parentname",
-				name: "gw-company-org-parentname",
+				idPrefix: "gw-company-info-parentname",
+				name: "gw-company-info-parentname",
 				classes: "govuk-radios--inline",
 				items: [
 					{
 						value: "Yes",
 						text: "Yes",
-						checked: checked("gw-company-org-parentname", "Yes")
+						checked: checked("gw-company-info-parentname", "Yes")
 					},
 					{
 						value: "No",
 						text: "No",
-						checked: checked("gw-company-org-parentname", "No")
+						checked: checked("gw-company-info-parentname", "No")
 					}
 				]
 			}) }}
@@ -104,19 +104,19 @@
 			</table>
 
 			{{ govukRadios({
-				idPrefix: "gw-company-org-parentstatus",
-				name: "gw-company-org-parentstatus",
+				idPrefix: "gw-company-info-parentstatus",
+				name: "gw-company-info-parentstatus",
 				classes: "govuk-radios--inline",
 				items: [
 					{
 						value: "Yes",
 						text: "Yes",
-						checked: checked("gw-company-org-parentstatus", "Yes")
+						checked: checked("gw-company-info-parentstatus", "Yes")
 					},
 					{
 						value: "No",
 						text: "No",
-						checked: checked("gw-company-org-parentstatus", "No")
+						checked: checked("gw-company-info-parentstatus", "No")
 					}
 				]
 			}) }}
@@ -133,8 +133,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-parent-pass",
-						id: "gw-company-parent-pass",
+						name: "gw-company-info-parent-pass",
+						id: "gw-company-info-parent-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -144,8 +144,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-parent-reject",
-						id: "gw-company-parent-reject",
+						name: "gw-company-info-parent-reject",
+						id: "gw-company-info-parent-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -154,8 +154,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-parent",
-					name: "gw-company-parent",
+					idPrefix: "gw-company-info-parent",
+					name: "gw-company-info-parent",
 					items: [
 						{
 							value: "Pass",
@@ -163,7 +163,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-parent", "Pass")
+							checked: checked("gw-company-info-parent", "Pass")
 						},
 						{
 							value: "Reject",
@@ -171,15 +171,17 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-parent", "Reject")
+							checked: checked("gw-company-info-parent", "Reject")
 						}
 					]
 				}) }}
 				
 				{{ govukButton({
 					text: "Save and continue",
-					classes: "govuk-!-margin-right-1"
+					classes: "govuk-!-margin-right-4"
 				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="ico">Skip this check</a></p>
 
 			</form>
 

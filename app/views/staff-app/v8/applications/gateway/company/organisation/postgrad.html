@@ -21,7 +21,7 @@
 				href: "/staff-app/v8/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Organisation information"
+				text: "Experience and accreditation"
 			}
 		]
 	}) }}
@@ -32,35 +32,26 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Information Commissioner's Office (ICO) registration number check</h1>
+			<h1 class="govuk-heading-xl">Postgraduate teaching apprenticeship check</h1>
 
-			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 			
 			<div class="sops">
-				<p class="govuk-body">Pass this check if you can confirm that:</p>
-				<ul class="govuk-list govuk-list--bullet">
+				<p class="govuk-body">Pass this check if the organisation is on <a href="#">the list of registered ITT</a>.</p>
+				<!--ul class="govuk-list govuk-list--bullet">
 					<li>the ICO registration number is valid (not expired)</li>
 					<li>the organisation's legal name is the same</li>
-				</ul>
+				</ul-->
 			</div>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">ICO registration number</th>
-						<th scope="col" class="govuk-table__header"></th>
-					</tr>
-				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">Submitted application</td>
-						<td class="govuk-table__cell">Z7322278</td>
-						<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278" target="_blank">Check this ICO registration number</a></td>
+						<th scope="row" class="govuk-table__header">Postgraduate teaching apprenticeship the only apprenticeship the organisation intends to deliver</th>
+						<td class="govuk-table__cell">No</td>
 					</tr>
 				</tbody>
 			</table>
@@ -77,8 +68,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-ico-pass",
-						id: "gw-company-ico-pass",
+						name: "gw-company-postgrad-pass",
+						id: "gw-company-postgrad-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -88,8 +79,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-ico-reject",
-						id: "gw-company-ico-reject",
+						name: "gw-company-postgrad-reject",
+						id: "gw-company-postgrad-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -98,8 +89,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-ico",
-					name: "gw-company-ico",
+					idPrefix: "gw-company-postgrad",
+					name: "gw-company-postgrad",
 					items: [
 						{
 							value: "Pass",
@@ -107,7 +98,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-ico", "Pass")
+							checked: checked("gw-company-postgrad", "Pass")
 						},
 						{
 							value: "Reject",
@@ -115,7 +106,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-ico", "Reject")
+							checked: checked("gw-company-postgrad", "Reject")
 						}
 					]
 				}) }}

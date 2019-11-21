@@ -67,8 +67,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-website-pass",
-						id: "gw-company-website-pass",
+						name: "gw-company-info-website-pass",
+						id: "gw-company-info-website-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -78,8 +78,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-website-reject",
-						id: "gw-company-website-reject",
+						name: "gw-company-info-website-reject",
+						id: "gw-company-info-website-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -88,8 +88,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-website",
-					name: "gw-company-website",
+					idPrefix: "gw-company-info-website",
+					name: "gw-company-info-website",
 					items: [
 						{
 							value: "Pass",
@@ -97,7 +97,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-website", "Pass")
+							checked: checked("gw-company-info-website", "Pass")
 						},
 						{
 							value: "Reject",
@@ -105,15 +105,17 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-website", "Reject")
+							checked: checked("gw-company-info-website", "Reject")
 						}
 					]
 				}) }}
 
 				{{ govukButton({
 					text: "Save and continue",
-					classes: "govuk-!-margin-right-1"
+					classes: "govuk-!-margin-right-4"
 				}) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Skip this check</a></p>
 
 			</form>
 

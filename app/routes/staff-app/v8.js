@@ -160,39 +160,39 @@ module.exports = function (router) {
 	 *************************************/
 
 		// Organisation info - High risk
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/highrisk-people', function (req, res) {
+		/*router.post('/staff-app/' + v + '/applications/gateway/company/organisation/highrisk-people', function (req, res) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
+		})*/
 
 
 		// Organisation info - Parent company
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/parent', function (req, res) {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/info/parent', function (req, res) {
 			req.session.data['rejects-orginfo'] = 0
-			if (req.session.data['gw-company-parent'] == "Reject") {
+			if (req.session.data['gw-company-info-parent'] == "Reject") {
 				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
 			}
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/ico')
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/info/ico')
 		})
 
 		// Organisation info - ICO
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/ico', function (req, res) {
-			if (req.session.data['gw-company-ico'] == "Reject") {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/info/ico', function (req, res) {
+			if (req.session.data['gw-company-info-ico'] == "Reject") {
 				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
 			}
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/trading')
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/info/website')
 		})
 
-		// Organisation info - Trading for
+		/* Organisation info - Trading for
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/trading', function (req, res) {
-			if (req.session.data['gw-company-trading'] == "Reject") {
+			if (req.session.data['gw-company-info-trading'] == "Reject") {
 				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
 			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/website')
-		})
+		}) */
 
 		// Organisation info - Website
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/website', function (req, res) {
-			if (req.session.data['gw-company-website'] == "Reject") {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/info/website', function (req, res) {
+			if (req.session.data['gw-company-info-website'] == "Reject") {
 				req.session.data['rejects-orginfo'] = req.session.data['rejects-orginfo'] + 1
 			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')

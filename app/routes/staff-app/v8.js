@@ -155,9 +155,9 @@ module.exports = function (router) {
 		})
 
 
-	/*************************************
-	 *** Company - Organisation checks ***
-	 *************************************/
+	/******************************************
+	 *** Company - Organisation information ***
+	 ******************************************/
 
 		// Organisation info - High risk
 		/*router.post('/staff-app/' + v + '/applications/gateway/company/organisation/highrisk-people', function (req, res) {
@@ -198,10 +198,47 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
+
+	/***********************************
+	 *** Company - Organisation type ***
+	 ***********************************/
+
 		// Organisation type
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type', function (req, res) {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/type', function (req, res) {
+			if (req.session.data['gw-company-type-type'] == "Reject") {
+				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/type/educationalinstitute')
+		})
+
+		// Organisation type - educational institute
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/educationalinstitute', function (req, res) {
+			if (req.session.data['gw-company-type-edu'] == "Reject") {
+				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/type/school')
+		})
+
+		// Organisation type - school
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/school', function (req, res) {
+			if (req.session.data['gw-company-type-school'] == "Reject") {
+				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding')
+		})
+
+		// Organisation type - funding
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding', function (req, res) {
+			if (req.session.data['gw-company-type-funding'] == "Reject") {
+				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
+			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
+
+
+	/***********************************************
+	 *** Company - Experience and accreditatipon ***
+	 ***********************************************/
 
 		// Experience and accreditation - ITT
 		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/itt', function (req, res) {

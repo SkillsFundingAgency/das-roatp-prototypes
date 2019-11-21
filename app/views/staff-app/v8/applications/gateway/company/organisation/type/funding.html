@@ -21,7 +21,7 @@
 				href: "/staff-app/v8/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Register checks"
+				text: "Organisation type"
 			}
 		]
 	}) }}
@@ -31,44 +31,57 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Register checks</span>
-			<h1 class="govuk-heading-xl">Register of end-point assessment organisation (EPAO) check</h1>
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Organisation type checks</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
-				UKPRN: 10053003<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				UKPRN: 10053003
 			</p>
 			
-			<div class="sops">
-				<h2 class="govuk-heading-m">Guidance</h2>
-				<p class="govuk-body">If the status is ‘removed’, email <a href="mailto:apprentice.assessment@education.gov.uk">apprentice.assessment@education.gov.uk</a> for further information.</p>
-			</div>
+			<!--div class="sops">
+				<p class="govuk-body">This organisation has XX in the application.</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul>
+			</div-->
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">Status</th>
+						<th scope="col" class="govuk-table__header">Question</th>
+						<th scope="col" class="govuk-table__header">Application answer</th>
+						<th scope="col" class="govuk-table__header"></th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">EPAO</th>
-						<td class="govuk-table__cell">Removed<br>Date: 18 Jan 2018</td>
+						<td scope="row" class="govuk-table__cell">Receiving funding from ESFA</td>
+						<td class="govuk-table__cell">Yes</td>
 					</tr>
 				</tbody>
 			</table>
-			
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-epao-outcome-pass",
-						id: "gw-company-epao-outcome-pass",
+						name: "gw-company-type-funding-pass",
+						id: "gw-company-type-funding-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -78,8 +91,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-epao-outcome-reject",
-						id: "gw-company-epao-outcome-reject",
+						name: "gw-company-type-funding-reject",
+						id: "gw-company-type-funding-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -88,8 +101,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-epao-outcome",
-					name: "gw-company-epao-outcome",
+					idPrefix: "gw-company-type-funding",
+					name: "gw-company-type-funding",
 					items: [
 						{
 							value: "Pass",
@@ -97,7 +110,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-epao-outcome", "Pass")
+							checked: checked("gw-company-type-funding", "Pass")
 						},
 						{
 							value: "Reject",
@@ -105,7 +118,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-epao-outcome", "Reject")
+							checked: checked("gw-company-type-funding", "Reject")
 						}
 					]
 				}) }}
@@ -115,11 +128,11 @@
 					classes: "govuk-!-margin-right-4"
 				}) }}
         
-        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Skip this check</a></p>
+        <p class="skipquestion" id="skipquestion"><a href="../../../tasklist-company">Skip this check</a></p>
 
 			</form>
 
-			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Return to application assessment overview</a></p>
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

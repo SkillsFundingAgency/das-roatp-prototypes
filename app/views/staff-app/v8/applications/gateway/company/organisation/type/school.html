@@ -21,7 +21,7 @@
 				href: "/staff-app/v8/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Experience and accreditation"
+				text: "Organisation type"
 			}
 		]
 	}) }}
@@ -32,30 +32,38 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Initial teacher training (ITT) check</h1>
+			<h1 class="govuk-heading-xl">Organisation type checks</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 			
-			<div class="sops">
-				<p class="govuk-body">Pass this check if the organisation is on <a href="#">the list of registered ITT</a>.</p>
-				<!--ul class="govuk-list govuk-list--bullet">
+			<!--div class="sops">
+				<p class="govuk-body">This organisation has XX in the application.</p>
+				<ul class="govuk-list govuk-list--bullet">
 					<li>the ICO registration number is valid (not expired)</li>
 					<li>the organisation's legal name is the same</li>
-				</ul-->
-			</div>
+				</ul>
+			</div-->
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Question</th>
+						<th scope="col" class="govuk-table__header">Application answer</th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Offer initial teacher training</th>
-						<td class="govuk-table__cell">Yes</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Postgraduate teaching apprenticeship the only apprenticeship the organisation intends to deliver</th>
-						<td class="govuk-table__cell">No</td>
+						<td scope="row" class="govuk-table__cell">Type of school</td>
+						<td class="govuk-table__cell">Not an LEA or a free school</td>
 					</tr>
 				</tbody>
 			</table>
@@ -72,8 +80,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-itt-pass",
-						id: "gw-company-itt-pass",
+						name: "gw-company-type-school-pass",
+						id: "gw-company-type-school-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -83,8 +91,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-itt-reject",
-						id: "gw-company-itt-reject",
+						name: "gw-company-type-school-reject",
+						id: "gw-company-type-school-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -93,8 +101,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-itt",
-					name: "gw-company-itt",
+					idPrefix: "gw-company-type-school",
+					name: "gw-company-type-school",
 					items: [
 						{
 							value: "Pass",
@@ -102,7 +110,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-itt", "Pass")
+							checked: checked("gw-company-type-school", "Pass")
 						},
 						{
 							value: "Reject",
@@ -110,15 +118,17 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-itt", "Reject")
+							checked: checked("gw-company-type-school", "Reject")
 						}
 					]
 				}) }}
 
 				{{ govukButton({
 					text: "Save and continue",
-					classes: "govuk-!-margin-right-1"
+					classes: "govuk-!-margin-right-4"
 				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="funding">Skip this check</a></p>
 
 			</form>
 

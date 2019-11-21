@@ -21,7 +21,7 @@
 				href: "/staff-app/v8/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Organisation information"
+				text: "Experience and accreditation"
 			}
 		]
 	}) }}
@@ -32,25 +32,26 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Is the website active and correct for the organisation?</h1>
+			<h1 class="govuk-heading-xl">Initial teacher training (ITT) check</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
+			
+			<div class="sops">
+				<p class="govuk-body">Pass this check if the organisation is on <a href="#">the list of registered ITT</a>.</p>
+				<!--ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul-->
+			</div>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header" colspan="2">Website</th>
-					</tr>
-				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header">Submitted application</th>
-						<td class="govuk-table__cell">safran-landing-systems.com</td>
-						<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/" target="_blank">Check this website</a></td>
+						<th scope="row" class="govuk-table__header">Offer initial teacher training</th>
+						<td class="govuk-table__cell">Yes</td>
 					</tr>
 				</tbody>
 			</table>
@@ -67,8 +68,8 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-website-pass",
-						id: "gw-company-website-pass",
+						name: "gw-company-itt-pass",
+						id: "gw-company-itt-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -78,8 +79,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-website-reject",
-						id: "gw-company-website-reject",
+						name: "gw-company-itt-reject",
+						id: "gw-company-itt-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -88,8 +89,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-website",
-					name: "gw-company-website",
+					idPrefix: "gw-company-itt",
+					name: "gw-company-itt",
 					items: [
 						{
 							value: "Pass",
@@ -97,7 +98,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-website", "Pass")
+							checked: checked("gw-company-itt", "Pass")
 						},
 						{
 							value: "Reject",
@@ -105,15 +106,17 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-website", "Reject")
+							checked: checked("gw-company-itt", "Reject")
 						}
 					]
 				}) }}
 
 				{{ govukButton({
 					text: "Save and continue",
-					classes: "govuk-!-margin-right-1"
+					classes: "govuk-!-margin-right-4"
 				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="postgrad">Skip this check</a></p>
 
 			</form>
 

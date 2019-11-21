@@ -21,7 +21,7 @@
 				href: "/staff-app/v8/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Register checks"
+				text: "Organisation information"
 			}
 		]
 	}) }}
@@ -31,30 +31,44 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Register checks</span>
-			<h1 class="govuk-heading-xl">Register of training organisation (RoTO) check</h1>
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Is the website active and correct for the organisation?</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
-				UKPRN: 10053003<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				UKPRN: 10053003
 			</p>
-			
-			<div class="sops">
-				<h2 class="govuk-heading-m">Guidance</h2>
-				<p class="govuk-body">Manual check</p>
-				<p class="govuk-body">Outcome box - on the roto or not</p>
-			</div>
-			
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header" colspan="2">Website</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header">Submitted application</th>
+						<td class="govuk-table__cell">safran-landing-systems.com</td>
+						<td class="govuk-table__cell"><a href="https://www.safran-landing-systems.com/" target="_blank">Check this website</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-roto-outcome-pass",
-						id: "gw-company-roto-outcome-pass",
+						name: "gw-company-info-website-pass",
+						id: "gw-company-info-website-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -64,8 +78,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-roto-outcome-reject",
-						id: "gw-company-roto-outcome-reject",
+						name: "gw-company-info-website-reject",
+						id: "gw-company-info-website-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -74,8 +88,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-roto-outcome",
-					name: "gw-company-roto-outcome",
+					idPrefix: "gw-company-info-website",
+					name: "gw-company-info-website",
 					items: [
 						{
 							value: "Pass",
@@ -83,7 +97,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-roto-outcome", "Pass")
+							checked: checked("gw-company-info-website", "Pass")
 						},
 						{
 							value: "Reject",
@@ -91,7 +105,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-roto-outcome", "Reject")
+							checked: checked("gw-company-info-website", "Reject")
 						}
 					]
 				}) }}
@@ -100,12 +114,12 @@
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"
 				}) }}
-        
+
         <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Skip this check</a></p>
 
 			</form>
 
-			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Return to application assessment overview</a></p>
+			<p><a href="/staff-app/v8/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

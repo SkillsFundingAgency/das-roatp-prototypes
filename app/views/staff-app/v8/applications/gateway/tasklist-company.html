@@ -159,9 +159,9 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/parent">Organisation information</a>
+								<a href="company/organisation/info/parent">Organisation information</a>
 							</span>
-							{% if (data['gw-company-parent']) and (data['gw-company-ico']) and (data['gw-company-trading']) and (data['gw-company-website']) %}
+							{% if (data['gw-company-info-parent']) and (data['gw-company-info-ico']) and (data['gw-company-info-website']) %}
 								{% if (data['rejects-orginfo'] > 0) %}
 									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{ data['rejects-orginfo'] }} of 4 Rejected</strong>
 								{% else %}
@@ -169,7 +169,7 @@
 								{% endif %}
 							{% else %}
 								{% if (data['gw-company-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
-									{% if data['gw-company-parent'] %}
+									{% if data['gw-company-info-parent'] %}
                 		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
 									{% endif %}
 								{% endif %}
@@ -177,12 +177,18 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/type">Organisation type</a>
+								<a href="company/organisation/type/type">Organisation type</a>
 							</span>
-							{% if (data['gw-company-type'] == "Pass") %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
-							{% elseif (data['gw-company-type'] == "Reject") %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">Rejected</strong>
+							{% if (data['gw-company-type-type']) and (data['gw-company-type-edu']) and (data['gw-company-type-school']) and (data['gw-company-type-funding']) %}
+								{% if (data['rejects-orgtype'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{data['rejects-orgtype']}} of 4 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
+								{% endif %}
+							{% else %}
+								{% if (data['gw-company-type-type']) or (data['gw-company-type-edu']) or (data['gw-company-type-school']) or (data['gw-company-type-funding']) %}
+									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
+								{% endif %}
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">

@@ -77,7 +77,34 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">2. </span> Register checks
+						<span class="app-task-list__section-number">2. </span> High risk checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/organisation/highrisk/organisation">The organisation</a>
+							</span>
+							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/organisation/highrisk/people">People in control</a>
+							</span>
+							{% if data['gw-company-highrisk-people'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Register checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -113,23 +140,6 @@
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-outcome-rejected">Rejected</strong>
 							{% endif %}
 						</li>
-					</ul>
-				</li>
-				<li>
-					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">3. </span> Due diligence checks
-					</h2>
-					<ul class="app-task-list__items">
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="company/organisation/highrisk-people">High risk checks on the people in control</a>
-							</span>
-							{% if data['gw-company-highrisk-people'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
-							{% endif %}
-						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/organisation/highrisk-rort">Register of removed trustees</a>
@@ -138,16 +148,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-rort-passed">Passed</strong>
 							{% elseif data['gw-company-highrisk-rort'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-rort-rejected">Rejected</strong>
-							{% endif %}
-						</li>
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="company/organisation/highrisk-people">High risk checks on the organisation</a>
-							</span>
-							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -217,7 +217,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/criminal/people/convictions">People</a>
+								<a href="company/criminal/people/convictions">People in control</a>
 							</span>
 						</li>
 					</ul>

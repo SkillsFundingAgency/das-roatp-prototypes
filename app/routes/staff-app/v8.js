@@ -241,17 +241,73 @@ module.exports = function (router) {
 	 ***********************************************/
 
 		// Experience and accreditation - ITT
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/itt', function (req, res) {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/itt', function (req, res) {
 			req.session.data['rejects-experience'] = 0
 			if (req.session.data['gw-company-itt'] == "Reject") {
 				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
 			}
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/ofsted')
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/postgrad')
+		})
+
+		// Experience and accreditation - Post grad
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/postgrad', function (req, res) {
+			if (req.session.data['gw-company-postgrad'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/ofsted')
 		})
 
 		// Experience and accreditation - Ofsted
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/ofsted', function (req, res) {
-			if (req.session.data['gw-company-ofsted'] == "Reject") {
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/ofsted', function (req, res) {
+			if (req.session.data['gw-company-experience-ofsted'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-apprenticeships')
+		})
+
+		// Experience and accreditation - Grade for apprenticeships
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-apprenticeships', function (req, res) {
+			if (req.session.data['gw-company-experience-gradeapprenticeships'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-overall')
+		})
+
+		// Experience and accreditation - Grade for apprenticeships
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-overall', function (req, res) {
+			if (req.session.data['gw-company-experience-gradeoverall'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-within3years')
+		})
+
+		// Experience and accreditation - Grade within 3 years
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/grade-within3years', function (req, res) {
+			if (req.session.data['gw-company-experience-gradewithin'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/shortinspection')
+		})
+
+		// Experience and accreditation - Short inspection
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/shortinspection', function (req, res) {
+			if (req.session.data['gw-company-experience-shortinspection'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/maintainedgrade')
+		})
+
+		// Experience and accreditation - Maintained grade
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/maintainedgrade', function (req, res) {
+			if (req.session.data['gw-company-experience-maintainedgrade'] == "Reject") {
+				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
+			}
+			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/experience/maintainedfunding')
+		})
+
+		// Experience and accreditation - Maintained funding
+		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/experience/maintainedfunding', function (req, res) {
+			if (req.session.data['gw-company-experience-maintainedfunding'] == "Reject") {
 				req.session.data['rejects-experience'] = req.session.data['rejects-experience'] + 1
 			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')

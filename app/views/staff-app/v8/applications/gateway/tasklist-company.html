@@ -193,19 +193,17 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/itt">Experience and accreditation</a>
+								<a href="company/organisation/experience/itt">Experience and accreditation</a>
 							</span>
-							{% if (data['gw-company-itt']) and (data['gw-company-ofsted']) %}
+							{% if (data['gw-company-itt']) and (data['gw-company-postgrad']) and (data['gw-company-experience-ofsted']) and (data['gw-company-experience-gradeapprenticeships']) and (data['gw-company-experience-gradeoverall']) and (data['gw-company-experience-gradewithin']) and (data['gw-company-experience-shortinspection']) and (data['gw-company-experience-maintainedgrade']) and (data['gw-company-experience-maintainedfunding']) %}
 								{% if (data['rejects-experience'] > 0) %}
-									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-experience-rejected">{{ data['rejects-experience'] }} of 2 Rejected</strong>
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-experience-rejected">{{ data['rejects-experience'] }} of 9 Rejected</strong>
 								{% else %}
 									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-experience-passed">Passed</strong>
 								{% endif %}
 							{% else %}
-								{% if (data['gw-company-type']) %}
-									{% if data['gw-company-itt'] %}
-                		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-experience-inprogress">In progress</strong>
-									{% endif %}
+								{% if (data['gw-company-itt']) or (data['gw-company-postgrad']) or (data['gw-company-experience-ofsted']) or (data['gw-company-experience-gradeapprenticeships']) or (data['gw-company-experience-gradeoverall']) or (data['gw-company-experience-gradewithin']) or (data['gw-company-experience-shortinspection']) or (data['gw-company-experience-maintainedgrade']) or (data['gw-company-experience-maintainedfunding']) %}
+                	<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-experience-inprogress">In progress</strong>
 								{% endif %}
 							{% endif %}
 						</li>

@@ -40,17 +40,6 @@
 				Application submitted on: 17 Oct 2019<br>
 				Sources checked on: 27 Nov 2019
 			</p>
-			
-			<div class="sops">
-				<h2 class="govuk-heading-m">Guidance</h2>
-				<p class="govuk-body">Pass this check if:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>the organisation was removed from the RoATP over 3 years ago</li>
-					<li>the organisation was removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</li>
-					<li>the organisation is not on the RoATP</li>
-				</ul>
-				<p class="govuk-body">If you’re unsure, ask someone in your team before you decide on an outcome.</p>
-			</div>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
@@ -71,7 +60,55 @@
 				</tbody>
 			</table>
 			
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Is the organisation on the RoATP?</h2>
+			{{ govukRadios({
+				idPrefix: "gw-company-roatp-over3years",
+				name: "gw-company-roatp-over3years",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("gw-company-roatp-over3years", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("gw-company-roatp-over3years", "No")
+					}
+				]
+			}) }}
+			
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Was the organisation removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</h2>
+			{{ govukRadios({
+				idPrefix: "gw-company-roatp-within3years",
+				name: "gw-company-roatp-within3years",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("gw-company-roatp-within3years", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("gw-company-roatp-within3years", "No")
+					}
+				]
+			}) }}
+			
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+				<p class="govuk-body">Pass this check if:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the organisation was removed from the RoATP over 3 years ago</li>
+					<li>the organisation was removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</li>
+					<li>the organisation is not on the RoATP</li>
+				</ul>
+				<p class="govuk-body">If you’re unsure, ask someone in your team before you decide on an outcome.</p>
+			</div>
 
 			<form action="" method="post" class="form">
 				
@@ -125,7 +162,7 @@
 					classes: "govuk-!-margin-right-4"
 				}) }}
         
-        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Skip this check</a></p>
+        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p>
 
 			</form>
 

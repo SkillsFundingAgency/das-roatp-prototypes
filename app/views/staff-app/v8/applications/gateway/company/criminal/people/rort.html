@@ -49,15 +49,14 @@
 					</tr>
 				</tbody>
 			</table>
-			
-			<div class="sops">
-				<h3 class="govuk-heading-m">Guidance</h3>
-				<p class="govuk-body">&hellip;</p>
-			</div>
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">&hellip;</p>
+				</div>
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
@@ -106,8 +105,10 @@
 
 				{{ govukButton({
 					text: "Save and continue",
-					classes: "govuk-!-margin-right-1"
+					classes: "govuk-!-margin-right-4"
 				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="bankrupt">Return to this check later</a></p>
 
 			</form>
 

@@ -32,7 +32,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Register checks</span>
-			<h1 class="govuk-heading-xl">RoATP check</h1>
+			<h1 class="govuk-heading-xl">Check if the organisation is on the RoATP</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
@@ -40,6 +40,8 @@
 				Application submitted on: 17 Oct 2019<br>
 				Sources checked on: 27 Nov 2019
 			</p>
+
+			<p class="govuk-body">The latest data from the RoATP is displayed below.</p>
 
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
@@ -59,44 +61,6 @@
 					</tr>
 				</tbody>
 			</table>
-			
-			<h2 class="govuk-heading-l govuk-!-margin-top-9">Is the organisation on the RoATP?</h2>
-			{{ govukRadios({
-				idPrefix: "gw-company-roatp-over3years",
-				name: "gw-company-roatp-over3years",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("gw-company-roatp-over3years", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("gw-company-roatp-over3years", "No")
-					}
-				]
-			}) }}
-			
-			<h2 class="govuk-heading-l govuk-!-margin-top-9">Was the organisation removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</h2>
-			{{ govukRadios({
-				idPrefix: "gw-company-roatp-within3years",
-				name: "gw-company-roatp-within3years",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("gw-company-roatp-within3years", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("gw-company-roatp-within3years", "No")
-					}
-				]
-			}) }}
 			
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
 			

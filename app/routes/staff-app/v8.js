@@ -154,6 +154,11 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
 		})
 
+		// Register of Removed Trustees
+		router.post('/staff-app/' + v + '/applications/gateway/company/register/rort', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
 
 	/******************************************
 	 *** Company - Organisation information ***

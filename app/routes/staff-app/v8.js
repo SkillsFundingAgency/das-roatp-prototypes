@@ -239,16 +239,17 @@ module.exports = function (router) {
 			if (req.session.data['gw-company-type-school'] == "Reject") {
 				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
 			}
-			res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding')
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+			//res.redirect('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding')
 		})
 
 		// Organisation type - funding
-		router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding', function (req, res) {
+		/*router.post('/staff-app/' + v + '/applications/gateway/company/organisation/type/funding', function (req, res) {
 			if (req.session.data['gw-company-type-funding'] == "Reject") {
 				req.session.data['rejects-orgtype'] = req.session.data['rejects-orgtype'] + 1
 			}
 			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})
+		})*/
 
 
 	/***********************************************

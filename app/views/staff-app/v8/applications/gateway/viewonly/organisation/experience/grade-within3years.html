@@ -1,0 +1,71 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v8.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v8/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v8/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v8/applications/gateway/viewonly-company"
+			},
+			{
+				text: "Experience and accreditation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Ofsted checks</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Question</th>
+						<th scope="col" class="govuk-table__header">Application answer</th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">Grade given with last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+
+      <p class="skipquestion" id="skipquestion"><a href="shortinspection">Next question</a></p>
+			<br><br>
+			<p><a href="/staff-app/v8/applications/gateway/viewonly-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

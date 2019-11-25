@@ -88,6 +88,8 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
 							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-organisation-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -98,6 +100,8 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
 							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-people'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-people-rejected">In progress</strong>
 							{% endif %}
 						</li>
 					</ul>

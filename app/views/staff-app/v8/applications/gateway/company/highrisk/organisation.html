@@ -32,25 +32,16 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">People high risk check</h1>
+			<h1 class="govuk-heading-xl">Organisation high risk check</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
-				UKPRN: 10053003<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				UKPRN: 10053003
 			</p>
-			
-			<div class="sops">
-				<p class="govuk-body">Search for each person using the following links:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li><a href="">DNA</a></li>
-					<li><a href="">High risk</a></li>
-				</ul>
-				<p class="govuk-body">Pass this check if each person X X X</p>
-			</div>
 
-			<h2 class="govuk-heading-l">Company directors</h2>
+			<p class="govuk-body">...</p>
+
+			<!--h2 class="govuk-heading-l">Company directors</h2>
 			<table class="govuk-table govuk-!-margin-bottom-9">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
@@ -151,7 +142,7 @@
 						</td>
 					</tr>
 				</tbody>
-			</table>
+			</table-->
 
 		</div>
 	</div>
@@ -160,13 +151,22 @@
 		<div class="govuk-grid-column-two-thirds">
 
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+				<!--p class="govuk-body">Search for each person using the following links:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li><a href="">DNA</a></li>
+					<li><a href="">High risk</a></li>
+				</ul>
+				<p class="govuk-body">Pass this check if each person X X X</p-->
+			</div>
 
 			<form action="" method="post" class="form">
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-people-pass",
-						id: "gw-company-highrisk-people-pass",
+						name: "gw-company-highrisk-organisation-pass",
+						id: "gw-company-highrisk-organisation-pass",
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -176,8 +176,8 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-people-reject",
-						id: "gw-company-highrisk-people-reject",
+						name: "gw-company-highrisk-organisation-reject",
+						id: "gw-company-highrisk-organisation-reject",
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -186,8 +186,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-highrisk-people",
-					name: "gw-company-highrisk-people",
+					idPrefix: "gw-company-highrisk-organisation",
+					name: "gw-company-highrisk-organisation",
 					items: [
 						{
 							value: "Pass",
@@ -195,7 +195,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-highrisk-people", "Pass")
+							checked: checked("gw-company-highrisk-organisation", "Pass")
 						},
 						{
 							value: "Reject",
@@ -203,7 +203,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-highrisk-people", "Reject")
+							checked: checked("gw-company-highrisk-organisation", "Reject")
 						},
 						{
 							divider: "or"
@@ -211,7 +211,7 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-highrisk-people", "In progress")
+							checked: checked("gw-company-highrisk-organisation", "In progress")
 						}
 					]
 				}) }}

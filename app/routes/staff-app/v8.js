@@ -160,14 +160,24 @@ module.exports = function (router) {
 		})
 
 
+	/**********************************
+	 *** Company - High Risk Checks ***
+	 **********************************/
+
+		// Organisation High risk
+		router.post('/staff-app/' + v + '/applications/gateway/company/highrisk/organisation', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		// People High risk
+		router.post('/staff-app/' + v + '/applications/gateway/company/highrisk/people', function (req, res) {
+			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
+		})
+
+
 	/******************************************
 	 *** Company - Organisation information ***
-	 ******************************************/
-
-		// Organisation info - High risk
-		/*router.post('/staff-app/' + v + '/applications/gateway/company/organisation/highrisk-people', function (req, res) {
-			res.redirect('/staff-app/' + v + '/applications/gateway/tasklist-company')
-		})*/
+	******************************************/
 
 
 		// Organisation info - Parent company

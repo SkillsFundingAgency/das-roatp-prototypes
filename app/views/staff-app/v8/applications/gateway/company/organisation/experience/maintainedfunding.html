@@ -82,6 +82,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-experience-maintainedfunding-pass",
 						id: "gw-company-experience-maintainedfunding-pass",
+          	value: data['gw-company-experience-maintainedfunding-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -93,6 +94,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-experience-maintainedfunding-reject",
 						id: "gw-company-experience-maintainedfunding-reject",
+          	value: data['gw-company-experience-maintainedfunding-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-maintainedfunding-inprogress",
+						id: "gw-company-experience-maintainedfunding-inprogress",
+          	value: data['gw-company-experience-maintainedfunding-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -119,6 +133,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-experience-maintainedfunding", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-experience-maintainedfunding", "In progress")
 						}
 					]
 				}) }}

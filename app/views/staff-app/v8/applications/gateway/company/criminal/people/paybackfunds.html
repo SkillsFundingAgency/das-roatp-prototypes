@@ -65,6 +65,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-paybackfunds-pass",
 						id: "gw-company-criminal-people-paybackfunds-pass",
+          	value: data['gw-company-criminal-people-paybackfunds-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -76,6 +77,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-paybackfunds-reject",
 						id: "gw-company-criminal-people-paybackfunds-reject",
+          	value: data['gw-company-criminal-people-paybackfunds-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-paybackfunds-inprogress",
+						id: "gw-company-criminal-people-paybackfunds-inprogress",
+          	value: data['gw-company-criminal-people-paybackfunds-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -102,6 +116,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-people-paybackfunds", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-people-paybackfunds", "In progress")
 						}
 					]
 				}) }}

@@ -82,6 +82,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-experience-gradewithin-pass",
 						id: "gw-company-experience-gradewithin-pass",
+          	value: data['gw-company-experience-gradewithin-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -93,6 +94,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-experience-gradewithin-reject",
 						id: "gw-company-experience-gradewithin-reject",
+          	value: data['gw-company-experience-gradewithin-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-gradewithin-inprogress",
+						id: "gw-company-experience-gradewithin-inprogress",
+          	value: data['gw-company-experience-gradewithin-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -119,6 +133,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-experience-gradewithin", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-experience-gradewithin", "In progress")
 						}
 					]
 				}) }}

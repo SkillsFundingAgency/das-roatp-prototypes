@@ -62,6 +62,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-contractterminated-pass",
 						id: "gw-company-criminal-people-contractterminated-pass",
+          	value: data['gw-company-criminal-people-contractterminated-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -73,6 +74,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-contractterminated-reject",
 						id: "gw-company-criminal-people-contractterminated-reject",
+          	value: data['gw-company-criminal-people-contractterminated-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-contractterminated-inprogress",
+						id: "gw-company-criminal-people-contractterminated-inprogress",
+          	value: data['gw-company-criminal-people-contractterminated-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -99,6 +113,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-people-contractterminated", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-people-contractterminated", "In progress")
 						}
 					]
 				}) }}

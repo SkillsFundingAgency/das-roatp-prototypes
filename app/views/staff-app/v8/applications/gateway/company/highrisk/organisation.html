@@ -167,6 +167,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-highrisk-organisation-pass",
 						id: "gw-company-highrisk-organisation-pass",
+          	value: data['gw-company-highrisk-organisation-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -178,6 +179,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-highrisk-organisation-reject",
 						id: "gw-company-highrisk-organisation-reject",
+          	value: data['gw-company-highrisk-organisation-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-organisation-inprogress",
+						id: "gw-company-highrisk-organisation-inprogress",
+          	value: data['gw-company-highrisk-organisation-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -211,6 +225,9 @@
 						{
 							value: "In progress",
 							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
 							checked: checked("gw-company-highrisk-organisation", "In progress")
 						}
 					]

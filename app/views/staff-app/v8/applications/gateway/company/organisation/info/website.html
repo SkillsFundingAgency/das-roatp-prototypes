@@ -69,6 +69,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-info-website-pass",
 						id: "gw-company-info-website-pass",
+          	value: data['gw-company-info-website-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -80,6 +81,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-info-website-reject",
 						id: "gw-company-info-website-reject",
+          	value: data['gw-company-info-website-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-info-website-inprogress",
+						id: "gw-company-info-website-inprogress",
+          	value: data['gw-company-info-website-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -106,6 +120,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-info-website", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-info-website", "In progress")
 						}
 					]
 				}) }}

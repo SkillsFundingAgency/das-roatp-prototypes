@@ -175,6 +175,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-legal-outcome-pass",
 						id: "gw-company-legal-outcome-pass",
+          	value: data['gw-company-legal-outcome-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -186,6 +187,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-legal-outcome-reject",
 						id: "gw-company-legal-outcome-reject",
+          	value: data['gw-company-legal-outcome-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-legal-outcome-inprogress",
+						id: "gw-company-legal-outcome-inprogress",
+          	value: data['gw-company-legal-outcome-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -212,6 +226,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-legal-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-legal-outcome", "In progress")
 						}
 					]
 				}) }}

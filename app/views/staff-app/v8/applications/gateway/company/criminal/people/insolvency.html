@@ -62,6 +62,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-insolvency-pass",
 						id: "gw-company-criminal-people-insolvency-pass",
+          	value: data['gw-company-criminal-people-insolvency-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -73,6 +74,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-insolvency-reject",
 						id: "gw-company-criminal-people-insolvency-reject",
+          	value: data['gw-company-criminal-people-insolvency-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-insolvency-inprogress",
+						id: "gw-company-criminal-people-insolvency-inprogress",
+          	value: data['gw-company-criminal-people-insolvency-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -99,6 +113,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-people-insolvency", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-people-insolvency", "In progress")
 						}
 					]
 				}) }}

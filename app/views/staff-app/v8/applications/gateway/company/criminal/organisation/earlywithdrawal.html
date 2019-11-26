@@ -74,6 +74,7 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-earlywithdrawal-pass",
 						id: "gw-company-criminal-earlywithdrawal-pass",
+          	value: data['gw-company-criminal-earlywithdrawal-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -85,6 +86,19 @@
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-earlywithdrawal-reject",
 						id: "gw-company-criminal-earlywithdrawal-reject",
+          	value: data['gw-company-criminal-earlywithdrawal-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-earlywithdrawal-inprogress",
+						id: "gw-company-criminal-earlywithdrawal-inprogress",
+          	value: data['gw-company-criminal-earlywithdrawal-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -111,6 +125,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-earlywithdrawal", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-earlywithdrawal", "In progress")
 						}
 					]
 				}) }}

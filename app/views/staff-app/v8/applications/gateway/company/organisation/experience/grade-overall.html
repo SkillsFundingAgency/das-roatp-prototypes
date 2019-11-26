@@ -99,6 +99,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-gradeoverall-inprogress",
+						id: "gw-company-experience-gradeoverall-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-experience-gradeoverall",
@@ -119,6 +130,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-experience-gradeoverall", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-experience-gradeoverall", "In progress")
 						}
 					]
 				}) }}

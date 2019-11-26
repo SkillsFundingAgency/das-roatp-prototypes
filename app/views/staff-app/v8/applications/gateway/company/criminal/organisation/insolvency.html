@@ -95,6 +95,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-insolvency-inprogress",
+						id: "gw-company-criminal-insolvency-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-insolvency-conditional",
@@ -115,6 +126,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-insolvency", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-insolvency", "In progress")
 						}
 					]
 				}) }}

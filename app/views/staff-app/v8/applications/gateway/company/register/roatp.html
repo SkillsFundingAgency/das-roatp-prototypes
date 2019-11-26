@@ -97,6 +97,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roatp-outcome-inprogress",
+						id: "gw-company-roatp-outcome-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-roatp-outcome",
@@ -117,6 +128,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-roatp-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-roatp-outcome", "In progress")
 						}
 					]
 				}) }}

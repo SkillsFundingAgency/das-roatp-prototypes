@@ -95,6 +95,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-fundingremoved-inprogress",
+						id: "gw-company-criminal-fundingremoved-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-fundingremoved-conditional",
@@ -115,6 +126,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-fundingremoved", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-fundingremoved", "In progress")
 						}
 					]
 				}) }}

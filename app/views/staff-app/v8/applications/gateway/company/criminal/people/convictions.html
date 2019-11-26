@@ -79,6 +79,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-convictions-inprogress",
+						id: "gw-company-criminal-people-convictions-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-people-convictions-conditional",
@@ -99,6 +110,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-people-convictions", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-people-convictions", "In progress")
 						}
 					]
 				}) }}

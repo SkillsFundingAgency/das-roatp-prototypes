@@ -87,6 +87,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-postgrad-inprogress",
+						id: "gw-company-postgrad-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-postgrad",
@@ -107,6 +118,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-postgrad", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-postgrad", "In progress")
 						}
 					]
 				}) }}

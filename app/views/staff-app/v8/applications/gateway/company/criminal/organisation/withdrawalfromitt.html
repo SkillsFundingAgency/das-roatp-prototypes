@@ -86,6 +86,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-withdrawalfromitt-inprogress",
+						id: "gw-company-criminal-withdrawalfromitt-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-withdrawalfromitt-conditional",
@@ -106,6 +117,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-withdrawalfromitt", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-withdrawalfromitt", "In progress")
 						}
 					]
 				}) }}

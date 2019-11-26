@@ -91,6 +91,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-safeguarding-inprogress",
+						id: "gw-company-criminal-safeguarding-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-safeguarding-conditional",
@@ -111,6 +122,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-criminal-safeguarding", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-safeguarding", "In progress")
 						}
 					]
 				}) }}

@@ -184,6 +184,17 @@
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-organisation-inprogress",
+						id: "gw-company-highrisk-organisation-inprogress",
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-highrisk-organisation",
@@ -211,6 +222,9 @@
 						{
 							value: "In progress",
 							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
 							checked: checked("gw-company-highrisk-organisation", "In progress")
 						}
 					]

@@ -1,0 +1,198 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v9/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<h1 class="govuk-heading-xl">Confirm details</h1>
+		</div>
+		<div class="govuk-grid-column-full">
+
+			<!-- This Summary List uses HTML rather than Nunjucks due to the more complex handling of data to display to the user. -->
+
+			<dl class="govuk-summary-list">
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						UKPRN
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-ukprn'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="amend-ukprn">
+							Change<span class="govuk-visually-hidden"> UKPRN</span>
+						</a>
+					</dd>
+				</div>
+				
+				{% if (data['staff-add-ukprn'] != "12340001") %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Type of provider
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-route'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="amend-route">
+							Change<span class="govuk-visually-hidden"> UKPRN</span>
+						</a>
+					</dd>
+				</div>
+				{% endif %}
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Legal name
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-orgname'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{% if (data['staff-add-ukprn'] != "12340001") %}
+						<a class="govuk-link" href="amend-ukprn-orgname">
+							Change<span class="govuk-visually-hidden"> legal name</span>
+						</a>
+						{% endif %}
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Trading name
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{% if (data['staff-add-hastradingname'] == "no") %}
+							Not applicable
+						{% else %}
+							{{ data['staff-add-tradingname'] }}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{% if (data['staff-add-ukprn'] != "12340001") %}
+						<a class="govuk-link" href="amend-ukprn-tradingname">
+							Change<span class="govuk-visually-hidden"> trading name</span>
+						</a>
+						{% endif %}
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Company number
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{% if (data['staff-add-hascompanynumber'] == "no") %}
+							Not applicable
+						{% else %}
+							{{ data['staff-add-companynumber'] }}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{% if (data['staff-add-ukprn'] != "12340001") %}
+						<a class="govuk-link" href="amend-ukprn-companynumber">
+							Change<span class="govuk-visually-hidden"> company number</span>
+						</a>
+						{% endif %}
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Charity registration number
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{% if (data['staff-add-hascharitynumber'] == "no") %}
+							Not applicable
+						{% else %}
+							{{ data['staff-add-charitynumber'] }}
+						{% endif %}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						{% if (data['staff-add-ukprn'] != "12340001") %}
+						<a class="govuk-link" href="amend-ukprn-charitynumber">
+							Change<span class="govuk-visually-hidden"> charity registration number</span>
+						</a>
+						{% endif %}
+					</dd>
+				</div>
+				
+				{% if (data['staff-add-ukprn'] == "12340001") %}
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Type of provider
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-route'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="amend-route">
+							Change<span class="govuk-visually-hidden"> UKPRN</span>
+						</a>
+					</dd>
+				</div>
+				{% endif %}
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Type of organisation
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-orgtype'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="amend-ukprn-orgtype">
+							Change<span class="govuk-visually-hidden"> type of organisation</span>
+						</a>
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+						Application determined date
+					</dt>
+					<dd class="govuk-summary-list__value">
+						{{ data['staff-add-determined-day'] }} {{ data['staff-add-determined-monthname'] }} {{ data['staff-add-determined-year'] }}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+						<a class="govuk-link" href="amend-ukprn-determined">
+							Change<span class="govuk-visually-hidden"> application determined date</span>
+						</a>
+					</dd>
+				</div>
+			</dl>
+				
+			<form action="add-complete" method="post" class="form">
+				<input type="hidden" name="action" id="action" value="add">
+				{{ govukButton({
+					text: "Confirm and add organisation"
+				}) }}
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

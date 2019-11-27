@@ -1,0 +1,273 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v9/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v9/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10053003</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Organisation name</dt>
+					<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00000001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<ol class="app-task-list">
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">1. </span> Initial checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/initial/legal">Legal and address checks</a>
+							</span>
+							{% if data['gw-company-legal-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-legal-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">2. </span> High risk checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<!--a href="company/highrisk/organisation">The organisation</a-->
+								The organisation
+							</span>
+							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-organisation-rejected">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/highrisk/people">People in control</a>
+							</span>
+							{% if data['gw-company-highrisk-people'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-people'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-people-rejected">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Register checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/register/roatp">RoATP</a>
+							</span>
+							{% if data['gw-company-roatp-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-roatp-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Register of training organisations
+								<!--a href="company/register/roto">Register of training organisations</a-->
+							</span>
+							<!--
+							{% if data['gw-company-roto-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roto-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-roto-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-outcome-rejected">Rejected</strong>
+							{% endif %}
+							-->
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/register/epao">Register of end-point assessment organisations</a>
+							</span>
+							{% if data['gw-company-epao-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-epao-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/register/rort">Register of removed trustees</a>
+							</span>
+							{% if data['gw-company-highrisk-rort'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-rort-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-rort'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-rort-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">4. </span> Organisation checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/organisation/info/parent">Organisation information</a>
+							</span>
+							{% if (data['gw-company-info-parent']) and (data['gw-company-info-ico']) and (data['gw-company-info-website']) %}
+								{% if (data['rejects-orginfo'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{ data['rejects-orginfo'] }} of 4 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
+								{% endif %}
+							{% else %}
+								{% if (data['gw-company-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
+									{% if data['gw-company-info-parent'] %}
+                		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
+									{% endif %}
+								{% endif %}
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/organisation/type/type">Organisation type</a>
+							</span>
+							{% if (data['gw-company-type-type']) and (data['gw-company-type-edu']) and (data['gw-company-type-school']) and (data['gw-company-type-funding']) %}
+								{% if (data['rejects-orgtype'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{data['rejects-orgtype']}} of 4 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
+								{% endif %}
+							{% else %}
+								{% if (data['gw-company-type-type']) or (data['gw-company-type-edu']) or (data['gw-company-type-school']) or (data['gw-company-type-funding']) %}
+									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
+								{% endif %}
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/organisation/experience/itt">Experience and accreditation</a>
+							</span>
+							{% if (data['gw-company-itt']) and (data['gw-company-postgrad']) and (data['gw-company-experience-ofsted']) and (data['gw-company-experience-gradeapprenticeships']) and (data['gw-company-experience-gradeoverall']) and (data['gw-company-experience-gradewithin']) and (data['gw-company-experience-shortinspection']) and (data['gw-company-experience-maintainedgrade']) and (data['gw-company-experience-maintainedfunding']) %}
+								{% if (data['rejects-experience'] > 0) %}
+									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-experience-rejected">{{ data['rejects-experience'] }} of 9 Rejected</strong>
+								{% else %}
+									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-experience-passed">Passed</strong>
+								{% endif %}
+							{% else %}
+								{% if (data['gw-company-itt']) or (data['gw-company-postgrad']) or (data['gw-company-experience-ofsted']) or (data['gw-company-experience-gradeapprenticeships']) or (data['gw-company-experience-gradeoverall']) or (data['gw-company-experience-gradewithin']) or (data['gw-company-experience-shortinspection']) or (data['gw-company-experience-maintainedgrade']) or (data['gw-company-experience-maintainedfunding']) %}
+                	<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-experience-inprogress">In progress</strong>
+								{% endif %}
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">5. </span> Criminal and compliance checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/criminal/organisation/creditors">The organisation</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/criminal/people/convictions">People in control</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">6. </span> Submission checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Application permissions and checks
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								‘Commercial in confidence’ information
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Terms and conditions (CoA’s)
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">7. </span> Gateway outcome
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Confirm gateway outcome
+							</span>
+						</li>
+					</ul>
+				</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

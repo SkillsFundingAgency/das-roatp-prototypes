@@ -1,0 +1,138 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v9/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v9/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v9/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Register checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Register checks</span>
+			<h1 class="govuk-heading-xl">Register of training organisation (RoTO) check</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+			
+			<div class="sops">
+				<h2 class="govuk-heading-m">Guidance</h2>
+				<p class="govuk-body">Manual check</p>
+				<p class="govuk-body">Outcome box - on the roto or not</p>
+			</div>
+			
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roto-outcome-pass",
+						id: "gw-company-roto-outcome-pass",
+          	value: data['gw-company-roto-outcome-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roto-outcome-reject",
+						id: "gw-company-roto-outcome-reject",
+          	value: data['gw-company-roto-outcome-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-roto-outcome-inprogress",
+						id: "gw-company-roto-outcome-inprogress",
+          	value: data['gw-company-roto-outcome-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-roto-outcome",
+					name: "gw-company-roto-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-roto-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-roto-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-roto-outcome", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v9/applications/gateway/tasklist-company">Return to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

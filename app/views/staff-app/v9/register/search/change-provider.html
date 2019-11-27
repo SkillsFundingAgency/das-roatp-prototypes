@@ -1,0 +1,112 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/staff-app/v9/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v9/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change type of provider"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<form action="detail" method="post" class="form">
+
+				{% set employerHtml %}
+
+					{{ govukSelect({
+						id: "staff-change-provider-employer",
+						name: "staff-change-provider-employer",
+						label: {
+							text: "Employer training apprentices"
+						},
+						items: [
+							{
+								value: "own",
+								text: "in own organisation"
+							},
+							{
+								value: "connected",
+								text: "within their connected companies"
+							},
+							{
+								value: "both",
+								text: "in own organisation and those in their connected companies"
+							}
+						]
+					}) }}
+					
+				{% endset -%}
+				
+				{{ govukRadios({
+					classes: "govuk-radios",
+					idPrefix: "staff-changeprovider",
+					name: "staff-changeprovider",
+					fieldset: {
+						legend: {
+							text: "Change provider type for ABC Assessments",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+					{
+						value: "main",
+						text: "Main provider",
+						checked: checked("staff-changeprovider", "main")
+					},
+					{
+						value: "employer",
+						text: "Employer provider",
+						checked: checked("staff-changeprovider", "employer"),
+						conditional: {
+							html: employerHtml
+						}
+					},
+						{
+							value: "supporting",
+							text: "Supporting provider",
+							checked: checked("staff-changeprovider", "supporting")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

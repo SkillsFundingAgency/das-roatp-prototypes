@@ -1,0 +1,57 @@
+{% set serviceName = "ESFA admin services" %}
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+   {{ govukHeader({
+        serviceName: "ESFA admin services"
+   }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">ESFA sign in</h1>
+
+    <form action="dashboard" method="get" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "ESFA login address"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "staff-email",
+        name: "staff-email",
+        hint: {
+            text: "@sfa.bis.gov.uk or @FASST.org.uk"
+        }
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Password"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "staff-password",
+        name: "staff-password",
+        type: "password"
+      }) }}
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </form>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <p class="govuk-body"><a href="#">I have forgotten my password</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

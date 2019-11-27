@@ -1,0 +1,123 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v9/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v9/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v9/applications/gateway/viewonly-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Initial checks</span>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
+
+			<!--h2 class="govuk-heading-l">Application data</h2-->
+			<p class="govuk-body">
+				UKPRN: 10053003<br>
+				UKRLP verified with: Companies House<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the legal name match for all sources?</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Legal name</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Submitted application</td>
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">UKRLP</td>
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Companies House</td>
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status correct for all sources?</h2>
+			<p class="govuk-body">
+				For companies, the status must be ‘active’ for each source.<br>
+				For charities, the status must be ‘XXX’ for each source.<br>
+				For any other organisation type, the status must be ‘XXX’ for each source.
+			</p>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Status</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">UKRLP</td>
+						<td class="govuk-table__cell">Active</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Companies House</td>
+						<td class="govuk-table__cell">Dissolved</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the address match for all sources?</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Address</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Submitted application</td>
+						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">UKRLP</td>
+						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Companies House</td>
+						<td class="govuk-table__cell">Cheltenham Road East,<br>Gloucester,<br>Gloucestershire,<br>GL2 9QH</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p><a href="/staff-app/v9/applications/gateway/viewonly-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

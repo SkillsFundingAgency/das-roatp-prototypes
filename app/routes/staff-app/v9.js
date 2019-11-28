@@ -633,4 +633,23 @@ module.exports = function (router) {
 		})
 
 
+// 
+// ASSESSOR
+//
+
+	router.get('/staff-app/' + v + '/applications/assessor/assign-3127', function (req,res) {
+		req.session.data['apr3127'] = "assigned"
+		req.session.data['aac-new-count'] = req.session.data['aac-new-count'] - 1
+		req.session.data['aac-inprogress-count'] = req.session.data['aac-inprogress-count'] + 1
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
+
+	router.get('/staff-app/' + v + '/applications/assessor/assign-4291', function (req,res) {
+		req.session.data['apr4291'] = "assigned"
+		req.session.data['aac-new-count'] = req.session.data['aac-new-count'] - 1
+		req.session.data['aac-inprogress-count'] = req.session.data['aac-inprogress-count'] + 1
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4291')
+	})
+	
+
 }

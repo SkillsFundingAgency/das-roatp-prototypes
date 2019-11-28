@@ -39,6 +39,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if data['apr3127'] != "assigned" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MY RECRUITMENT LIMITED</td>
 					<td class="govuk-table__cell">12345678</td>
@@ -46,17 +47,20 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">Martin Clarke</td>
-					<td class="govuk-table__cell"><a href="assessor/tasklist-company">Assign&nbsp;to&nbsp;me</a></td>
+					<td class="govuk-table__cell"><a href="assessor/assign-3127">Assign&nbsp;to&nbsp;me</a></td>
 				</tr>
+				{% endif %}
+				{% if data['apr4291'] != "assigned" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
 					<td class="govuk-table__cell">72754360</td>
-					<td class="govuk-table__cell">APR00000004</td>
+					<td class="govuk-table__cell">APR00004291</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell"><a href="assessor/assign-4291">Assign&nbsp;to&nbsp;me</a></td>
 					<td class="govuk-table__cell"></td>
 				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">EXAM SNAP</td>
 					<td class="govuk-table__cell">77326034</td>
@@ -91,53 +95,83 @@
 					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor&nbsp;1</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor&nbsp;2</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header"></th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if data['apr3127'] == "assigned" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">MY RECRUITMENT LIMITED</td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00003127</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">Martin Clarke</td>
+					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell"><a href="assessor/tasklist-3127">Continue</a></td>
+				</tr>
+				{% endif %}
+				{% if data['apr4291'] == "assigned" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">THINK POD</td>
+					<td class="govuk-table__cell">72754360</td>
+					<td class="govuk-table__cell">APR00004291</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell"><a href="assessor/tasklist-4291">Continue</a></td>
+				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">LEVEL UP</td>
 					<td class="govuk-table__cell">22657489</td>
-					<td class="govuk-table__cell">APR00000102</td>
+					<td class="govuk-table__cell">APR00004102</td>
 					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">22 Oct 2019</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">Peter Waller</td>
 					<td class="govuk-table__cell">Jeff Simms</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">BOOK BOT</td>
 					<td class="govuk-table__cell">24535362</td>
 					<td class="govuk-table__cell">APR00000097</td>
 					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">16 Oct 2019</td>
 					<td class="govuk-table__cell">David Collins</td>
 					<td class="govuk-table__cell">Andy Walton</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">KNOWTABLY</td>
 					<td class="govuk-table__cell">20098778</td>
 					<td class="govuk-table__cell">APR00000013</td>
 					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
 					<td class="govuk-table__cell">Gemma Firth</td>
 					<td class="govuk-table__cell">James Cooke</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MOVING THE GRADE</td>
 					<td class="govuk-table__cell">32118009</td>
 					<td class="govuk-table__cell">APR00000187</td>
 					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
 					<td class="govuk-table__cell">Jessica Florence</td>
 					<td class="govuk-table__cell">David Jennings</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ROCKET TRAINING</td>
 					<td class="govuk-table__cell">20888712</td>
 					<td class="govuk-table__cell">APR00000231</td>
 					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
 					<td class="govuk-table__cell">Peter Holdsworth</td>
 					<td class="govuk-table__cell">Paul Etherington</td>
+					<td class="govuk-table__cell"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -342,13 +376,13 @@
 	{{ govukTabs({
 		items: [
 			{
-				label: "New (4)",
+				label: "New (" + data['aac-new-count'] + ")",
 				id: "new",
 				panel: {
 					html: newHtml
 				}
 			}, {
-				label: "In progress (6)",
+				label: "In progress (" + data['aac-inprogress-count'] + ")",
 				id: "inprogress",
 				panel: {
 					html: inprogressHtml

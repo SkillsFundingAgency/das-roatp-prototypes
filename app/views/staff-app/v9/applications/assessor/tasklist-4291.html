@@ -30,7 +30,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 	
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>
 					<dd class="govuk-summary-list__value">72754360</dd>
@@ -99,6 +99,16 @@
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
 							{% endif %}
 						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="">Acting as a subcontractor</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
 					</ul>
 				</li>
 				<li>
@@ -132,7 +142,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Contract for services template</a>
+								<a href="">Contract for services template with employers</a>
 							</span>
 							{% if data[''] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
@@ -367,9 +377,16 @@
 								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
 							{% endif %}
 						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">6. </span> Assessor outcome
+					</h2>
+					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Using Individualised Learner Record</a>
+								<a href="">Confirm assessor outcome</a>
 							</span>
 							{% if data[''] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>

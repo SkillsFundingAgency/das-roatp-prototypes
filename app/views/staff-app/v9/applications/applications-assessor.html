@@ -207,7 +207,7 @@
 		</table>
 	{% endset -%}
 	
-	{% set feedbackHtml %}
+	{% set clarificationHtml %}
 		<h2 class="govuk-heading-l">Clarifications</h2>
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
@@ -267,8 +267,8 @@
 		</table>
 	{% endset -%}
 	
-	{% set passedHtml %}
-		<h2 class="govuk-heading-l">Passed</h2>
+	{% set outcomeHtml %}
+		<h2 class="govuk-heading-l">Outcome</h2>
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
 				<tr class="govuk-table__row">
@@ -309,25 +309,6 @@
 					<td class="govuk-table__cell">Pass</td>
 					<td class="govuk-table__cell">...</td>
 				</tr>
-			</tbody>
-		</table>
-	{% endset -%}
-	
-	{% set rejectedHtml %}
-		<h2 class="govuk-heading-l">Rejected</h2>
-		<table class="govuk-table">
-			<thead class="govuk-table__head">
-				<tr class="govuk-table__row">
-					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
-					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
-					<th aria-sort="none" class="govuk-table__header" scope="col">Outcome</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Assigned</th>
-				</tr>
-			</thead>
-			<tbody class="govuk-table__body">
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">BABCOCK TRAINING</td>
 					<td class="govuk-table__cell">19987868</td>
@@ -437,22 +418,22 @@
 					html: inprogressHtml
 				}
 			}, {
-				label: "Ready for moderation (" + data['aac-moderation-count'] + ")",
+				label: "For moderation (" + data['aac-moderation-count'] + ")",
 				id: "moderation",
 				panel: {
 					html: moderationHtml
 				}
 			}, {
-				label: "Passed",
-				id: "passed",
+				label: "Clarifications (" + data['aac-clarification-count'] + ")",
+				id: "clarification",
 				panel: {
-					html: passedHtml
+					html: clarificationHtml
 				}
 			}, {
-				label: "Rejected",
-				id: "rejected",
+				label: "Outcome",
+				id: "outcome",
 				panel: {
-					html: rejectedHtml
+					html: outcomeHtml
 				}
 			}, {
 				label: "Search",

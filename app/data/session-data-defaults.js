@@ -49,7 +49,8 @@ module.exports = {
 
     "aac-new-count": 4,
     "aac-inprogress-count": 5,
-    "aac-moderation-count": 1
+    "aac-moderation-count": 1,
+    "aac-clarification-count": 4
   
   }
   

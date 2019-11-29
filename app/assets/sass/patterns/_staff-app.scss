@@ -103,3 +103,12 @@
   right: -2px;
   top: 2px;
 }
+
+.govuk-summary-list--overview {
+  .govuk-summary-list__key {
+    width: 50%;
+  }
+  .govuk-summary-list__value:last-child {
+    width: 50%;
+  }
+}

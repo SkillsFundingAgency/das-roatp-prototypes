@@ -348,20 +348,20 @@
 	{% endset -%}
 	
 	{% set searchHtml %}
-		<h2 class="govuk-heading-l">Search</h2>
+		<h2 class="govuk-heading-l">Search applications</h2>
 		<form action="" method="post" class="form form-search">
 			<div class="govuk-form-group">
 				<label class="govuk-label" for="staff-search">
 					Organisation name or UKPRN
 				</label>
-				<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text" value="le">
+				<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text" value="">
 				<button class="govuk-button govuk-button-search" data-module="govuk-button" >
 					Search
 				</button>
 			</div>
 		</form>
 
-		<table class="govuk-table">
+		<!--table class="govuk-table">
 			<thead class="govuk-table__head">
 				<tr class="govuk-table__row">
 					<th aria-sort="ascending" class="govuk-table__header" scope="col">Organisation name</th>
@@ -406,7 +406,7 @@
 					<td class="govuk-table__cell">22 Oct 2019</td>
 				</tr>
 			</tbody>
-		</table>
+		</table-->
 	{% endset -%}
 
 <div class="shrinkit">
@@ -437,7 +437,7 @@
 					html: clarificationHtml
 				}
 			}, {
-				label: "Outcome",
+				label: "Outcome (6)",
 				id: "outcome",
 				panel: {
 					html: outcomeHtml

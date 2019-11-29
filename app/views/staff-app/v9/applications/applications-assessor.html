@@ -177,6 +177,36 @@
 		</table>
 	{% endset -%}
 	
+	{% set moderationHtml %}
+		<h2 class="govuk-heading-l">Ready for moderation</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor&nbsp;1</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor&nbsp;2</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header"></th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">CHRYSALIS</td>
+					<td class="govuk-table__cell">20098778</td>
+					<td class="govuk-table__cell">APR00000314</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell">Martin Knowles</td>
+					<td class="govuk-table__cell"><a href="javascript: preventDefault();">Moderate</a></td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
 	{% set feedbackHtml %}
 		<h2 class="govuk-heading-l">Clarifications</h2>
 		<table class="govuk-table">
@@ -237,8 +267,54 @@
 		</table>
 	{% endset -%}
 	
-	{% set completedHtml %}
-		<h2 class="govuk-heading-l">Gateway outcome</h2>
+	{% set passedHtml %}
+		<h2 class="govuk-heading-l">Passed</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Outcome</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Assigned</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR00000686</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">...</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HOTGROUP</td>
+					<td class="govuk-table__cell">28876299</td>
+					<td class="govuk-table__cell">APR00000851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">...</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ABC AID</td>
+					<td class="govuk-table__cell">20098887</td>
+					<td class="govuk-table__cell">APR00000334</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">...</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set rejectedHtml %}
+		<h2 class="govuk-heading-l">Rejected</h2>
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
 				<tr class="govuk-table__row">
@@ -271,39 +347,12 @@
 					<td class="govuk-table__cell">...</td>
 				</tr>
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
-					<td class="govuk-table__cell">19987868</td>
-					<td class="govuk-table__cell">APR00000686</td>
-					<td class="govuk-table__cell">Supporting</td>
-					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
-					<td class="govuk-table__cell">...</td>
-				</tr>
-				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">HYBRID TECHNICAL</td>
 					<td class="govuk-table__cell">20087456</td>
 					<td class="govuk-table__cell">APR00000662</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell">6 rejections</td>
-					<td class="govuk-table__cell">...</td>
-				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">HOTGROUP</td>
-					<td class="govuk-table__cell">28876299</td>
-					<td class="govuk-table__cell">APR00000851</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
-					<td class="govuk-table__cell">...</td>
-				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">ABC AID</td>
-					<td class="govuk-table__cell">20098887</td>
-					<td class="govuk-table__cell">APR00000334</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
 					<td class="govuk-table__cell">...</td>
 				</tr>
 			</tbody>
@@ -388,10 +437,22 @@
 					html: inprogressHtml
 				}
 			}, {
-				label: "Completed",
-				id: "completed",
+				label: "Ready for moderation (" + data['aac-moderation-count'] + ")",
+				id: "moderation",
 				panel: {
-					html: completedHtml
+					html: moderationHtml
+				}
+			}, {
+				label: "Passed",
+				id: "passed",
+				panel: {
+					html: passedHtml
+				}
+			}, {
+				label: "Rejected",
+				id: "rejected",
+				panel: {
+					html: rejectedHtml
 				}
 			}, {
 				label: "Search",
@@ -430,6 +491,18 @@
 		new MOJFrontend.SortableTable({
 			table: [
 				$('table')[3]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[4]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[5]
 			]
 		});
 		

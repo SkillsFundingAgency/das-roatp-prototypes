@@ -87,7 +87,7 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
-							{% if (data['aac-3127-pya-safeguarding'] != "") and not data['aac-3127-pya-prevent-upload'] %}
+							{% if not data['aac-3127-pya-prevent-upload'] and (data['aac-3127-pya-safeguarding']) and (data['aac-3127-pya-safeguarding'] != "") %}
 									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
 							{% else %}
 								{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass") %}
@@ -103,7 +103,7 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/healthandsafety">Health and safety policy</a>
 							</span>
-							{% if (data['aac-3127-pya-healthandsafety'] != "") and not data['aac-3127-pya-healthandsafety-responsible'] %}
+							{% if not data['aac-3127-pya-healthandsafety-responsible'] and (data['aac-3127-pya-healthandsafety']) and (data['aac-3127-pya-healthandsafety'] != "") %}
 									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
 							{% else %}
 								{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}

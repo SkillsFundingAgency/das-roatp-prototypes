@@ -650,6 +650,40 @@ module.exports = function (router) {
 		req.session.data['aac-inprogress-count'] = req.session.data['aac-inprogress-count'] + 1
 		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4291')
 	})
+
+
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/continuityplan', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/equality', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible')
+	})
+	
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
 	
 
 }

@@ -1,0 +1,298 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v9.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v9/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v9/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices</span>
+			<h1 class="govuk-heading-xl">Check the organisation’s safeguarding policy</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Upload your organisation’s safeguarding policy</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant's answer</th>
+						<td class="govuk-table__cell"><a href="" target="_blank">myrecruitmentlimited-safeguarding-policy.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will promote the policy?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-promote",
+				name: "aac-3127-pya-safeguarding-promote",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-promote", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-promote", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will get commitment to the policy?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-commitment",
+				name: "aac-3127-pya-safeguarding-commitment",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-commitment", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-commitment", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will train its employees in implementing the policy?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-implementing",
+				name: "aac-3127-pya-safeguarding-implementing",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-implementing", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-implementing", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will protect its apprentices?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-protect",
+				name: "aac-3127-pya-safeguarding-protect",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-protect", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-protect", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will prevent abuse towards its apprentices?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-preventabuse",
+				name: "aac-3127-pya-safeguarding-preventabuse",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-preventabuse", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-preventabuse", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have a way of raising, recording and investigating concerns?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-concerns",
+				name: "aac-3127-pya-safeguarding-concerns",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-concerns", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-concerns", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have a way of apprentices getting support or guidance?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-support",
+				name: "aac-3127-pya-safeguarding-support",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-support", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-support", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will monitor its IT usage?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-pya-safeguarding-itusage",
+				name: "aac-3127-pya-safeguarding-itusage",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-pya-safeguarding-itusage", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-pya-safeguarding-itusage", "No")
+					}
+				]
+			}) }}
+
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
+					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
+					<p class="govuk-body">If you’re unsure, ask someone in your team before you decide on an outcome or you can clarify.</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-safeguarding-pass",
+						id: "aac-3127-pya-safeguarding-pass",
+          	value: data['aac-3127-pya-safeguarding-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-safeguarding-fail",
+						id: "aac-3127-pya-safeguarding-fail",
+          	value: data['aac-3127-pya-safeguarding-fail'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set clarifyHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-safeguarding-clarify",
+						id: "aac-3127-pya-safeguarding-clarify",
+          	value: data['aac-3127-pya-safeguarding-clarify'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-3127-pya-safeguarding-conditional",
+					name: "aac-3127-pya-safeguarding",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-3127-pya-safeguarding", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-3127-pya-safeguarding", "Fail")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "Clarify",
+							text: "Clarify",
+							conditional: {
+								html: clarifyHtml
+							},
+							checked: checked("aac-3127-pya-safeguarding", "Clarify")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="	">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v9/applications/assessor/tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

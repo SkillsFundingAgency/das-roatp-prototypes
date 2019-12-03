@@ -1,0 +1,157 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v10.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v10/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v10/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v10/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Check if the organisation has been removed from any charity register</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+
+			<p class="govuk-body">This check is to see if the organisation has been removed from:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>the Charity Commission for England and Wales</li>
+				<li>the Charity Commission for Northern Ireland</li>
+				<li>the Office of the Scottish Charity Regulator</li>
+			</ul>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application answer</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				<div class="sops">
+					<p class="govuk-body">If the applicant’s answer is ‘no’, pass this check.</p>
+					<p class="govuk-body">If the applicant’s answer is ‘yes with further information’, it must include a brief summary of why the organisation was removed.</p>
+					<p class="govuk-body">Make an outcome based on the applicant’s answer.</p>
+					<p class="govuk-body">If you’re unsure, ask someone in your team before you decide on an outcome.</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-removedfromcharity-pass",
+						id: "gw-company-criminal-removedfromcharity-pass",
+          	value: data['gw-company-criminal-removedfromcharity-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-removedfromcharity-reject",
+						id: "gw-company-criminal-removedfromcharity-reject",
+          	value: data['gw-company-criminal-removedfromcharity-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-removedfromcharity-inprogress",
+						id: "gw-company-criminal-removedfromcharity-inprogress",
+          	value: data['gw-company-criminal-removedfromcharity-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-criminal-removedfromcharity-conditional",
+					name: "gw-company-criminal-removedfromcharity",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-criminal-removedfromcharity", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-criminal-removedfromcharity", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-removedfromcharity", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="safeguarding">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v10/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

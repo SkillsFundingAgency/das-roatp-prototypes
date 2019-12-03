@@ -1,0 +1,71 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v10.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v10/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<form action="add-confirm" method="post" class="form">
+				
+				{{ govukRadios({
+					classes: "govuk-radios",
+					idPrefix: "staff-add-route",
+					name: "staff-add-route",
+					fieldset: {
+						legend: {
+							text: "Change provider type for ABC Assessments",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+					{
+						value: "Main provider",
+						text: "Main provider",
+						checked: checked("staff-add-route", "Main provider")
+					},
+					{
+						value: "Employer provider",
+						text: "Employer provider",
+						checked: checked("staff-add-route", "Employer provider")
+					},
+						{
+							value: "Supporting provider",
+							text: "Supporting provider",
+							checked: checked("staff-add-route", "Supporting provider")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

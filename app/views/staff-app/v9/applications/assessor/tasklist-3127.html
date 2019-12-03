@@ -63,65 +63,45 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
 							</span>
-							{% if data['aac-3127-pya-continuityplan'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-continuityplan-passed">Passed</strong>
-							{% elseif data['aac-3127-pya-continuityplan'] == "Fail" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-continuityplan-failed">Failed</strong>
-							{% elseif data['aac-3127-pya-continuityplan'] == "Clarify" %}
-								<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-continuityplan-clarify">Clarify</strong>
+							{% if data['aac-3127-pya-continuityplan'] %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/equality">Equality and diversity policy</a>
 							</span>
-							{% if data['aac-3127-pya-equality'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-equality-passed">Passed</strong>
-							{% elseif data['aac-3127-pya-equality'] == "Fail" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-equality-failed">Failed</strong>
-							{% elseif data['aac-3127-pya-equality'] == "Clarify" %}
-								<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-equality-clarify">Clarify</strong>
+							{% if data['aac-3127-pya-equality']  %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
-							{% if not data['aac-3127-pya-prevent-upload'] and (data['aac-3127-pya-safeguarding']) and (data['aac-3127-pya-safeguarding'] != "") %}
-									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
-							{% else %}
-								{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass") %}
-									<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-safeguarding-passed">Passed</strong>
-								{% elseif (data['aac-3127-pya-safeguarding'] == "Clarify") or (data['aac-3127-pya-safeguarding-responsible'] == "Clarify") or (data['aac-3127-pya-prevent-responsible'] == "Clarify") or (data['aac-3127-pya-prevent-upload'] == "Clarify") %}
-									<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-safeguarding-clarify">Clarify</strong>
-								{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") or (data['aac-3127-pya-safeguarding-responsible'] == "Fail") or (data['aac-3127-pya-prevent-responsible'] == "Fail") or (data['aac-3127-pya-prevent-upload'] == "Fail") %}
-									<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-safeguarding-failed">Failed</strong>
-								{% endif %}
+							{% if (data['aac-3127-pya-safeguarding']) and (data['aac-3127-pya-prevent-upload'])  %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% elseif data['aac-3127-pya-safeguarding'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/healthandsafety">Health and safety policy</a>
 							</span>
-							{% if not data['aac-3127-pya-healthandsafety-responsible'] and (data['aac-3127-pya-healthandsafety']) and (data['aac-3127-pya-healthandsafety'] != "") %}
-									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
-							{% else %}
-								{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}
-									<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-healthandsafety-passed">Passed</strong>
-								{% elseif (data['aac-3127-pya-healthandsafety'] == "Clarify") or (data['aac-3127-pya-healthandsafety-responsible'] == "Clarify") %}
-									<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-healthandsafety-clarify">Clarify</strong>
-								{% elseif data['aac-3127-pya-healthandsafety'] == "Fail" or (data['aac-3127-pya-healthandsafety-responsible'] == "Fail") %}
-									<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-healthandsafety-failed">Failed</strong>
-								{% endif %}
+							{% if (data['aac-3127-pya-healthandsafety-responsible']) and (data['aac-3127-pya-healthandsafety']) %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% elseif (data['aac-3127-pya-healthandsafety']) %}
+									<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
 							{% endif %}
 						</li>
 						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Acting as a subcontractor</a>
 							</span>
-							{% if data[''] == "Pass" %}
+							{% if data['xxx'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
+							{% elseif data['xxx'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
 							{% endif %}
 						</li-->
@@ -136,73 +116,61 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Engaging with employers</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Complaints policy</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Contract for services template with employers</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Commitment statement template</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Prior learning of apprentices</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Working with subcontractors</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 					</ul>
 				</li>
@@ -215,61 +183,51 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Type of apprenticeship training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Supporting apprentices</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Forecasting starts</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Off the job training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Where apprentices will be trained</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 					</ul>
 				</li>
@@ -282,73 +240,61 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Overall accountability for apprenticeships</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Management hierarchy for apprenticeships</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Quality and high standards in apprenticeship training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Developing and delivering training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Sectors and employee experience</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Policy for professional development of employees</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 					</ul>
 				</li>
@@ -361,37 +307,31 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Process for evaluating the quality of training delivered</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Evaluating the quality of apprenticeship training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Systems and processes to collect apprenticeship data</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 					</ul>
 				</li>
@@ -404,13 +344,11 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Confirm assessor outcome</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
-							{% elseif data[''] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
-							{% endif %}
+							<!--{% if data['xxx'] %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% endif %}-->
 						</li>
 					</ul>
 				</li>

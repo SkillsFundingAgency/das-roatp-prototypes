@@ -71,8 +71,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-roatpdown-legal-outcome-passed">Passed</strong>
 							{% elseif data['gw-roatpdown-legal-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-roatpdown-legal-outcome-rejected">Rejected</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-legal-outcome-next">Next</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -90,10 +88,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-roatpdown-roatp-outcome-passed">Passed</strong>
 							{% elseif data['gw-roatpdown-roatp-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-roatpdown-roatp-outcome-rejected">Rejected</strong>
-							{% else %}
-								{% if data['gw-roatpdown-legal-outcome'] %}
-									<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-roatp-outcome-next">Next</strong>
-								{% endif %}
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -106,10 +100,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-roatpdown-roto-outcome-passed">Passed</strong>
 							{% elseif data['gw-roatpdown-roto-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-roatpdown-roto-outcome-rejected">Rejected</strong>
-							{% else %}
-								{% if (data['gw-roatpdown-legal-outcome']) and (data['gw-roatpdown-roatp-outcome']) %}
-									<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-roatp-outcome-next">Next</strong>
-								{% endif %}
 							{% endif %}
 							-->
 						</li>
@@ -121,11 +111,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-roatpdown-epao-outcome-passed">Passed</strong>
 							{% elseif data['gw-roatpdown-epao-outcome'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-roatpdown-epao-outcome-rejected">Rejected</strong>
-							{% else %}
-
-								{% if (data['gw-roatpdown-legal-outcome']) and (data['gw-roatpdown-roatp-outcome']) %}
-									<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-roatp-outcome-next">Next</strong>
-								{% endif %}
 							{% endif %}
 						</li>
 					</ul>
@@ -154,8 +139,6 @@
 								{% if (data['gw-roatpdown-roatp-outcome']) and (data['gw-roatpdown-epao-outcome']) %}
 									{% if data['gw-roatpdown-parent'] %}
                 		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-roatpdown-info-inprogress">In progress</strong>
-									{% else %}
-										<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-info-next">Next</strong>
 									{% endif %}
 								{% endif %}
 							{% endif %}
@@ -168,10 +151,6 @@
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-roatpdown-info-passed">Passed</strong>
 							{% elseif (data['gw-roatpdown-type'] == "Reject") %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-roatpdown-info-rejected">Rejected</strong>
-							{% else %}
-								{% if (data['gw-roatpdown-legal-outcome']) and (data['gw-roatpdown-roatp-outcome']) and (data['gw-roatpdown-epao-outcome']) and (data['gw-roatpdown-parent']) and (data['gw-roatpdown-ico']) and (data['gw-roatpdown-trading']) and (data['gw-roatpdown-website']) %}
-									<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-info-next">Next</strong>
-								{% endif %}
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -188,8 +167,6 @@
 								{% if (data['gw-roatpdown-type']) %}
 									{% if data['gw-roatpdown-itt'] %}
                 		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-roatpdown-experience-inprogress">In progress</strong>
-									{% else %}
-										<strong class="govuk-tag app-task-list__task-next" id="gw-roatpdown-experience-next">Next</strong>
 									{% endif %}
 								{% endif %}
 							{% endif %}

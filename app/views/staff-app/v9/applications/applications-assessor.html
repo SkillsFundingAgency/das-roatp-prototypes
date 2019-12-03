@@ -107,7 +107,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">Martin Clarke</td>
-					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"><a href="assessor/tasklist-3127">Continue Application</a></td>
 				</tr>
 				{% endif %}
@@ -118,7 +118,7 @@
 					<td class="govuk-table__cell">APR00004291</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"></td>
 					<td class="govuk-table__cell"><a href="assessor/tasklist-4291">Continue Application</a></td>
 				</tr>
@@ -199,7 +199,7 @@
 					<td class="govuk-table__cell">APR00000314</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">You</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell">Martin Knowles</td>
 					<td class="govuk-table__cell"><a href="javascript: preventDefault();">Moderate application</a></td>
 				</tr>
@@ -427,7 +427,7 @@
 					html: clarificationHtml
 				}
 			}, {
-				label: "Outcome (6)",
+				label: "Outcome",
 				id: "outcome",
 				panel: {
 					html: outcomeHtml
@@ -475,12 +475,6 @@
 		new MOJFrontend.SortableTable({
 			table: [
 				$('table')[4]
-			]
-		});
-
-		new MOJFrontend.SortableTable({
-			table: [
-				$('table')[5]
 			]
 		});
 		

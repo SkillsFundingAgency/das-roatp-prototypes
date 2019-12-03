@@ -56,50 +56,66 @@
 			<ol class="app-task-list">
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">1. </span> Protecting your apprentices
+						<span class="app-task-list__section-number">1. </span> Protecting your apprentices checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Continuity plan for apprenticeship training</a>
+								<a href="3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if data['aac-3127-pya-continuityplan'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-continuityplan-passed">Passed</strong>
+							{% elseif data['aac-3127-pya-continuityplan'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-continuityplan-failed">Failed</strong>
+							{% elseif data['aac-3127-pya-continuityplan'] == "Clarify" %}
+								<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-continuityplan-clarify">Clarify</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Equality and diversity policy</a>
+								<a href="3127/pya/equality">Equality and diversity policy</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if data['aac-3127-pya-equality'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-equality-passed">Passed</strong>
+							{% elseif data['aac-3127-pya-equality'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-equality-failed">Failed</strong>
+							{% elseif data['aac-3127-pya-equality'] == "Clarify" %}
+								<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-equality-clarify">Clarify</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Safeguarding and Prevent duty policy</a>
+								<a href="3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if not data['aac-3127-pya-prevent-upload'] and (data['aac-3127-pya-safeguarding']) and (data['aac-3127-pya-safeguarding'] != "") %}
+									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
+							{% else %}
+								{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass") %}
+									<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-safeguarding-passed">Passed</strong>
+								{% elseif (data['aac-3127-pya-safeguarding'] == "Clarify") or (data['aac-3127-pya-safeguarding-responsible'] == "Clarify") or (data['aac-3127-pya-prevent-responsible'] == "Clarify") or (data['aac-3127-pya-prevent-upload'] == "Clarify") %}
+									<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-safeguarding-clarify">Clarify</strong>
+								{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") or (data['aac-3127-pya-safeguarding-responsible'] == "Fail") or (data['aac-3127-pya-prevent-responsible'] == "Fail") or (data['aac-3127-pya-prevent-upload'] == "Fail") %}
+									<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-safeguarding-failed">Failed</strong>
+								{% endif %}
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="">Health and safety policy</a>
+								<a href="3127/pya/healthandsafety">Health and safety policy</a>
 							</span>
-							{% if data[''] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data[''] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if not data['aac-3127-pya-healthandsafety-responsible'] and (data['aac-3127-pya-healthandsafety']) and (data['aac-3127-pya-healthandsafety'] != "") %}
+									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="aac-3127-pya-safeguarding-inprogress">In progress</strong>
+							{% else %}
+								{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}
+									<strong class="govuk-tag app-task-list__task-positive" id="aac-3127-pya-healthandsafety-passed">Passed</strong>
+								{% elseif (data['aac-3127-pya-healthandsafety'] == "Clarify") or (data['aac-3127-pya-healthandsafety-responsible'] == "Clarify") %}
+									<strong class="govuk-tag app-task-list__task-clarify" id="aac-3127-pya-healthandsafety-clarify">Clarify</strong>
+								{% elseif data['aac-3127-pya-healthandsafety'] == "Fail" or (data['aac-3127-pya-healthandsafety-responsible'] == "Fail") %}
+									<strong class="govuk-tag app-task-list__task-negative" id="aac-3127-pya-healthandsafety-failed">Failed</strong>
+								{% endif %}
 							{% endif %}
 						</li>
-						<li class="app-task-list__item">
+						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="">Acting as a subcontractor</a>
 							</span>
@@ -108,12 +124,12 @@
 							{% elseif data[''] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
 							{% endif %}
-						</li>
+						</li-->
 					</ul>
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">2. </span> Readiness to engage
+						<span class="app-task-list__section-number">2. </span> Readiness to engage checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -192,7 +208,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">3. </span> Planning apprenticeship training
+						<span class="app-task-list__section-number">3. </span> Planning apprenticeship training checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -259,7 +275,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">4. </span> Delivering apprenticeship training
+						<span class="app-task-list__section-number">4. </span> Delivering apprenticeship training checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -338,7 +354,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">5. </span> Evaluating apprenticeship training
+						<span class="app-task-list__section-number">5. </span> Evaluating apprenticeship training checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">

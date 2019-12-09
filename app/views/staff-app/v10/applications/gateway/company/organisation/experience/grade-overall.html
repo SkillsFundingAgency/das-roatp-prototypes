@@ -1,0 +1,165 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v10.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v10/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v10/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v10/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Experience and accreditation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Ofsted checks</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+			
+			<div class="sops">
+				<p class="govuk-body"><a href="https://reports.ofsted.gov.uk/search?q=SAFRAN+LANDING+SYSTEMS+UK+LTD&location=GL2+9QH&lat=&lon=&radius=&level_1_types=0" target="_blank">Search the Ofsted website</a> to see if the organisation has had an Ofsted inspection.</p>
+				<!--ul class="govuk-list govuk-list--bullet">
+					<li>the ICO registration number is valid (not expired)</li>
+					<li>the organisation's legal name is the same</li>
+				</ul-->
+			</div>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Question</th>
+						<th scope="col" class="govuk-table__header">Application answer</th>
+						<th scope="col" class="govuk-table__header"></th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">Grade for overall effectiveness</td>
+						<td class="govuk-table__cell">Good</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-gradeoverall-pass",
+						id: "gw-company-experience-gradeoverall-pass",
+          	value: data['gw-company-experience-gradeoverall-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-gradeoverall-reject",
+						id: "gw-company-experience-gradeoverall-reject",
+          	value: data['gw-company-experience-gradeoverall-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-experience-gradeoverall-inprogress",
+						id: "gw-company-experience-gradeoverall-inprogress",
+          	value: data['gw-company-experience-gradeoverall-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-experience-gradeoverall",
+					name: "gw-company-experience-gradeoverall",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-experience-gradeoverall", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-experience-gradeoverall", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-experience-gradeoverall", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="grade-within3years">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v10/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -10,13 +10,13 @@
     }
 }
 
-.call-to-action,
-.sops {
+.call-to-action/*,
+.sops*/ {
     margin: 2em 0;
     background-color: #dee0e2;
     padding: 2em;
 }
-
+/*
     .sops {
         p:last-child,
         ul:last-child,
@@ -25,7 +25,7 @@
         }
 
     } 
-
+*/
 // Currency input
 .govuk-currency-input {
 

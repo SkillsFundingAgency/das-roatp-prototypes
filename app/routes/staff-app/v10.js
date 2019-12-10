@@ -711,7 +711,7 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 		})
 		
-		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/contractforservices', function (req,res) {
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/contractsforservices', function (req,res) {
 			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 		})
 		

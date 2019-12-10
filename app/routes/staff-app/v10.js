@@ -651,75 +651,126 @@ module.exports = function (router) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4291')
 	})
 
+	// Protect your apprentices
 
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/continuityplan', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/equality', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
 
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/continuityplan', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/equality', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/safeguarding-responsible', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-responsible', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/prevent-upload', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible')
-	})
-	
-	router.post('/staff-app/' + v + '/applications/assessor/3127/pya/healthandsafety-responsible', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
-	})
+	// Readiness to engage
+
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/engage', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/engage-relationships')
+		})
+
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/engage-relationships', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/engage-responsible')
+		})
+
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/engage-responsible', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/engage-promote')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/engage-promote', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/complaints', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/complaints-policy')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/complaints-policy', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/contractforservices', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/commitment', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/process', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/englishandmaths')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/englishandmaths', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/subcontractors', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/rte/subcontractors-duediligence')
+		})
+		
+		router.post('/staff-app/' + v + '/applications/assessor/3127/rte/subcontractors-duediligence', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+
 	
 // 
 // ASSESSOR -  VIEW ONLY
 //
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/continuityplan', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/continuityplan', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/equality', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/equality', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding-responsible')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding-responsible')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding-responsible', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-responsible')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/safeguarding-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-responsible')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-responsible', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-upload')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-upload')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-upload', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/prevent-upload', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety-responsible')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety-responsible')
+	})
 
-router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety-responsible', function (req,res) {
-	res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
-})
+	router.post('/staff-app/' + v + '/applications/assessor/viewonly-3127/pya/healthandsafety-responsible', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/viewonly-tasklist-3127')
+	})
 
 
 }

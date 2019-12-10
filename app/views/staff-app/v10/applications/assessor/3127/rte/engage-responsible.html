@@ -17,7 +17,7 @@
 				href: "/staff-app/v10/applications/assessor/tasklist-3127"
 			},
 			{
-				text: "Protecting your apprentices"
+				text: "Readiness to engage"
 			}
 		]
 	}) }}
@@ -27,8 +27,8 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Protecting your apprentices</span>
-			<h1 class="govuk-heading-xl">The person who has overall responsibility for health and safety in the organisation</h1>
+			<span class="govuk-caption-m">Readiness to engage</span>
+			<h1 class="govuk-heading-xl">The person who is responsible for managing relationships with employers</h1>
 
 			<p class="govuk-body">
 				Legal name: MY RECRUITMENT LIMITED<br>
@@ -49,7 +49,7 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Email</th>
-						<td class="govuk-table__cell"><a href="" target="_blank">hello@organisation.co.uk</a></td>
+						<td class="govuk-table__cell">hello@organisation.co.uk</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Contact number</th>
@@ -57,6 +57,30 @@
 					</tr>
 				</tbody>
 			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include at least one of the following:</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>find apprenticeship training</li>
+				<li>National Careers Services</li>
+				<li>other national branding</li>
+      </ul>
+			{{ govukRadios({
+				idPrefix: "aac-3127-rte-engageresponsible-include",
+				name: "aac-3127-rte-engageresponsible-include",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-rte-engageresponsible-include", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-rte-engageresponsible-include", "No")
+					}
+				]
+			}) }}
 			
 			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
@@ -65,15 +89,15 @@
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
 			
 				<div class="sops">
-					<p class="govuk-body">If the applicant has given all the details, pass this check.</p>
-					<p class="govuk-body">If you’re unsure, ask someone in your team or you can clarify with the applicant before you decide on an outcome.</p>
+					<p class="govuk-body">If you have selected ‘yes’ to the question above, pass this check.</p>
+					<p class="govuk-body">If you have selected ‘no’ to the question above, fail this check.</p>
 				</div>
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-healthandsafety-responsible-pass",
-						id: "aac-3127-pya-healthandsafety-responsible-pass",
-          	value: data['aac-3127-pya-healthandsafety-responsible-pass'],
+						name: "aac-3127-rte-engageresponsible-pass",
+						id: "aac-3127-rte-engageresponsible-pass",
+          	value: data['aac-3127-rte-engageresponsible-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -83,21 +107,9 @@
 				
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-healthandsafety-responsible-fail",
-						id: "aac-3127-pya-healthandsafety-responsible-fail",
-          	value: data['aac-3127-pya-healthandsafety-responsible-fail'],
-						maxlength: 750,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
-				
-				{% set clarifyHtml %}
-					{{ govukCharacterCount({
-						name: "aac-3127-pya-healthandsafety-responsible-clarify",
-						id: "aac-3127-pya-healthandsafety-responsible-clarify",
-          	value: data['aac-3127-pya-healthandsafety-responsible-clarify'],
+						name: "aac-3127-rte-engageresponsible-fail",
+						id: "aac-3127-rte-engageresponsible-fail",
+          	value: data['aac-3127-rte-engageresponsible-fail'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -106,8 +118,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-3127-pya-healthandsafety-responsible-conditional",
-					name: "aac-3127-pya-healthandsafety-responsible",
+					idPrefix: "aac-3127-rte-engageresponsible-conditional",
+					name: "aac-3127-rte-engageresponsible",
 					items: [
 						{
 							value: "Pass",
@@ -115,7 +127,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-3127-pya-healthandsafety-responsible", "Pass")
+							checked: checked("aac-3127-rte-engageresponsible", "Pass")
 						},
 						{
 							value: "Fail",
@@ -123,7 +135,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-3127-pya-healthandsafety-responsible", "Fail")
+							checked: checked("aac-3127-rte-engageresponsible", "Fail")
 						}
 					]
 				}) }}

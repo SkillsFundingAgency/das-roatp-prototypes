@@ -23,6 +23,7 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
+			<span class="govuk-tag govuk-!-font-size-19" style="background-color: black;">View only</span><br><br>
 			<h1 class="govuk-heading-xl">Application assessment overview</h1>
 		</div>
 	</div>
@@ -61,7 +62,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
+								<a href="viewonly-3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
 							</span>
 							{% if data['aac-3127-pya-continuityplan'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
@@ -69,7 +70,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="3127/pya/equality">Equality and diversity policy</a>
+								<a href="viewonly-3127/pya/equality">Equality and diversity policy</a>
 							</span>
 							{% if data['aac-3127-pya-equality']  %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
@@ -77,7 +78,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
+								<a href="viewonly-3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
 							{% if (data['aac-3127-pya-safeguarding']) and (data['aac-3127-pya-prevent-upload'])  %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
@@ -87,7 +88,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="3127/pya/healthandsafety">Health and safety policy</a>
+								<a href="viewonly-3127/pya/healthandsafety">Health and safety policy</a>
 							</span>
 							{% if (data['aac-3127-pya-healthandsafety-responsible']) and (data['aac-3127-pya-healthandsafety']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
@@ -326,23 +327,6 @@
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault()">Systems and processes to collect apprenticeship data</a>
-							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
-						</li>
-					</ul>
-				</li>
-				<li>
-					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">6. </span> Assessor outcome
-					</h2>
-					<ul class="app-task-list__items">
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								Confirm assessor outcome
 							</span>
 							<!--{% if data['xxx'] %}
 								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>

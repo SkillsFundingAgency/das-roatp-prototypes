@@ -114,63 +114,59 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Engaging with employers</a>
+								<a href="3127/rte/engage">Engaging with employers</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-rte-engageresponsible']) and (data['aac-3127-rte-engage']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-rte-engage'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Complaints policy</a>
+								<a href="3127/rte/complaints">Complaints policy</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-rte-complaint'] and data['aac-3127-rte-complaintpolicy'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-rte-complaint'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Contract for services template with employers</a>
+								<a href="3127/rte/contractsforservices">Contract for services template with employers</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-rte-contractforservices'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Commitment statement template</a>
+								<a href="3127/rte/commitment">Commitment statement template</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-rte-commitment'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Prior learning of apprentices</a>
+								<a href="3127/rte/process">Prior learning of apprentices</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-rte-process'] and data['aac-3127-rte-mathsandenglish'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-rte-process'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Working with subcontractors</a>
+								<a href="3127/rte/subcontractors">Working with subcontractors</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-rte-subcontractors'] and data['aac-3127-rte-subcontractorsdue'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-rte-subcontractors'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

@@ -50,7 +50,11 @@ module.exports = {
     "aac-new-count": 4,
     "aac-inprogress-count": 5,
     "aac-moderation-count": 1,
-    "aac-clarification-count": 3
+    "aac-clarification-count": 3,
+
+    "aac-loggedinas": "Joan Smith",
+    "aac-4102-assessor1": "Peter Waller",
+    "aac-4102-assessor2": "Jeff Simms"
   
   }
   

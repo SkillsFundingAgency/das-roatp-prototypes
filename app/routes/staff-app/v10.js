@@ -773,4 +773,21 @@ module.exports = function (router) {
 	})
 
 
+// 
+// ASSESSOR - RE-ASSIGN
+//
+
+	router.post('/staff-app/' + v + '/applications/assessor/reassign', function (req,res) {
+		req.session.data[req.session.data['aac-reassign']] = req.session.data['aac-loggedinas']
+		res.redirect('/staff-app/' + v + '/applications/assessor/reassign-confirmation')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/reassign-confirmation', function (req,res) {
+		if (req.session.data['aac-reassign-confirmation'] == "Assess this application") {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4102')
+		} else {
+			res.redirect('/staff-app/' + v + '/applications/applications-assessor#inprogress')
+		}
+	})
+
 }

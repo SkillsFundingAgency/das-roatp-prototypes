@@ -48,30 +48,6 @@
 				</tbody>
 			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Has the organisation used one of the following:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>ESFA’s commitment statement</li>
-				<li>a commitment statement from a third party</li>
-				<li>its own commitment statement</li>
-      </ul>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-commitment-used",
-				name: "aac-3127-rte-commitment-used",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-commitment-used", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-commitment-used", "No")
-					}
-				]
-			}) }}
-
 			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include the planned content and schedule for training?</h2>
 			{{ govukRadios({
 				idPrefix: "aac-3127-rte-commitment-schedule",

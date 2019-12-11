@@ -61,7 +61,7 @@
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="assessor/assign-4291">Assign to me</a></td>
 					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="assessor/assign-4291">Assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
@@ -70,9 +70,9 @@
 					<td class="govuk-table__cell">APR5</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">STELLA NOVA</td>
@@ -80,9 +80,9 @@
 					<td class="govuk-table__cell">APR6</td>
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -125,7 +125,7 @@
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"><a href="assessor/tasklist-4291">Continue Application</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
@@ -134,9 +134,13 @@
 					<td class="govuk-table__cell">APR4102</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
-					<td class="govuk-table__cell">Peter&nbsp;Waller<br>Jeff&nbsp;Simms</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;">{{ data['aac-4102-assessor1'] }}<br>{{ data['aac-4102-assessor2'] }}</td>
+					{% if (data['aac-4102-assessor1'] == data['aac-loggedinas']) or (data['aac-4102-assessor2'] == data['aac-loggedinas']) %}
+						<td class="govuk-table__cell"><a href="assessor/tasklist-4102">Continue Application</a></td>
+					{% else %}
+						<td class="govuk-table__cell" style="white-space: nowrap;"><a href="assessor/reassign">Re-assign to me</a></td>
+					{% endif %}
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">BOOK BOT</td>
@@ -145,8 +149,8 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">16 Oct 2019</td>
 					<td class="govuk-table__cell">David&nbsp;Collins<br>Andy&nbsp;Walton</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()" style="color: grey">Re-assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">KNOWTABLY</td>
@@ -155,8 +159,8 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">14 Oct 2019</td>
 					<td class="govuk-table__cell">Gemma&nbsp;Firth<br>James&nbsp;Cooke</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()" style="color: grey">Re-assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MOVING THE GRADE</td>
@@ -165,8 +169,8 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">14 Oct 2019</td>
 					<td class="govuk-table__cell">Jessica&nbsp;Florence<br>David&nbsp;Jennings</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()" style="color: grey">Re-assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ROCKET TRAINING</td>
@@ -175,8 +179,8 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">12 Oct 2019</td>
 					<td class="govuk-table__cell">Peter&nbsp;Holdsworth<br>Paul&nbsp;Etherington</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
-					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Read&nbsp;only</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()" style="color: grey">Re-assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()" style="color: grey">Read&nbsp;only</a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -205,7 +209,7 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell" style="white-space: nowrap;">Joan Smith<br>Martin Knowles</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Re-assign to me</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()" style="color: grey">Re-assign to me</a></td>
 					<td class="govuk-table__cell"><a href="javascript: preventDefault();">Moderate application</a></td>
 				</tr>
 			</tbody>

@@ -17,7 +17,7 @@
 				href: "/staff-app/v10/applications/assessor/tasklist-3127"
 			},
 			{
-				text: "Protecting your apprentices"
+				text: "Planning apprenticeship training checks"
 			}
 		]
 	}) }}
@@ -27,13 +27,15 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Protecting your apprentices checks</span>
-			<h1 class="govuk-heading-xl">The person who has overall responsibility for safeguarding in the organisation</h1>
+			<span class="govuk-caption-m">Planning apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Check who we can contact about the apprenticeships the organisation will deliver</h1>
 
 			<p class="govuk-body">
 				Legal name: MY RECRUITMENT LIMITED<br>
 				UKPRN: 12345678
 			</p>
+
+			<p class="govuk-body">This person will use the ‘Publish to the Course Directory’ service to enter the organisation’s apprenticeships.</p>
 			
 			<table class="govuk-table">
 				<thead class="govuk-table__head">
@@ -49,16 +51,10 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Email</th>
-						<td class="govuk-table__cell"><a href="" target="_blank">hello@organisation.co.uk</a></td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Contact number</th>
-						<td class="govuk-table__cell">07100003456</td>
+						<td class="govuk-table__cell">hello@organisation.co.uk</td>
 					</tr>
 				</tbody>
 			</table>
-			
-			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 			<form action="" method="post" class="form">
 
@@ -66,14 +62,13 @@
 			
 				<div class="sops">
 					<p class="govuk-body">If the applicant has given all the details, pass this check.</p>
-					<p class="govuk-body">If you’re unsure, ask someone in your team or you can clarify with the applicant before you decide on an outcome.</p>
 				</div>
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-safeguarding-responsible-pass",
-						id: "aac-3127-pya-safeguarding-responsible-pass",
-          	value: data['aac-3127-pya-safeguarding-responsible-pass'],
+						name: "aac-3127-pat-contact-pass",
+						id: "aac-3127-pat-contact-pass",
+          	value: data['aac-3127-pat-contact-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -83,21 +78,9 @@
 				
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-safeguarding-responsible-fail",
-						id: "aac-3127-pya-safeguarding-responsible-fail",
-          	value: data['aac-3127-pya-safeguarding-responsible-fail'],
-						maxlength: 750,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
-				
-				{% set clarifyHtml %}
-					{{ govukCharacterCount({
-						name: "aac-3127-pya-safeguarding-responsible-clarify",
-						id: "aac-3127-pya-safeguarding-responsible-clarify",
-          	value: data['aac-3127-pya-safeguarding-responsible-clarify'],
+						name: "aac-3127-pat-contact-fail",
+						id: "aac-3127-pat-contact-fail",
+          	value: data['aac-3127-pat-contact-fail'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -106,8 +89,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-3127-pya-safeguarding-responsible-conditional",
-					name: "aac-3127-pya-safeguarding-responsible",
+					idPrefix: "aac-3127-pat-contact-conditional",
+					name: "aac-3127-pat-contact",
 					items: [
 						{
 							value: "Pass",
@@ -115,7 +98,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-3127-pya-safeguarding-responsible", "Pass")
+							checked: checked("aac-3127-pat-contact", "Pass")
 						},
 						{
 							value: "Fail",
@@ -123,7 +106,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-3127-pya-safeguarding-responsible", "Fail")
+							checked: checked("aac-3127-pat-contact", "Fail")
 						}
 					]
 				}) }}

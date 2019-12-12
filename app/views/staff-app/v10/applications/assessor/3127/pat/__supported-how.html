@@ -17,7 +17,7 @@
 				href: "/staff-app/v10/applications/assessor/tasklist-3127"
 			},
 			{
-				text: "Readiness to engage"
+				text: "Planning apprenticeship training checks"
 			}
 		]
 	}) }}
@@ -27,8 +27,8 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Readiness to engage checks</span>
-			<h1 class="govuk-heading-xl">Check the organisation’s commitment statement template</h1>
+			<span class="govuk-caption-m">Planning apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Check how the organisation will support during its apprentices</h1>
 
 			<p class="govuk-body">
 				Legal name: MY RECRUITMENT LIMITED<br>
@@ -39,88 +39,69 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Application question</th>
-						<td class="govuk-table__cell">Upload your organisation’s commitment statement template</td>
+						<td class="govuk-table__cell">How will your organisation support its apprentices?</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Applicant’s answer</th>
-						<td class="govuk-table__cell"><a href="javascript:preventDefault();">xxx-limited-commitment-statement.pdf</a></td>
+						<td class="govuk-table__cell">Through a mentor</td>
 					</tr>
 				</tbody>
 			</table>
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include the planned content and schedule for training?</h2>
+<!--
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will have the right people in place to support apprentices?</h2>
 			{{ govukRadios({
-				idPrefix: "aac-3127-rte-commitment-schedule",
-				name: "aac-3127-rte-commitment-schedule",
+				idPrefix: "aac-3127-supportedhow-peopleinplace",
+				name: "aac-3127-supportedhow-peopleinplace",
 				classes: "govuk-radios--inline",
 				items: [
 					{
 						value: "Yes",
 						text: "Yes",
-						checked: checked("aac-3127-rte-commitment-schedule", "Yes")
+						checked: checked("aac-3127-supportedhow-peopleinplace", "Yes")
 					},
 					{
 						value: "No",
 						text: "No",
-						checked: checked("aac-3127-rte-commitment-schedule", "No")
+						checked: checked("aac-3127-supportedhow-peopleinplace", "No")
 					}
 				]
 			}) }}
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include what is expected and offered by the employer, the training organisation and the apprentice?</h2>
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will financially support apprentices?</h2>
 			{{ govukRadios({
-				idPrefix: "aac-3127-rte-commitment-expected",
-				name: "aac-3127-rte-commitment-expected",
+				idPrefix: "aac-3127-supportedhow-financially",
+				name: "aac-3127-supportedhow-financially",
 				classes: "govuk-radios--inline",
 				items: [
 					{
 						value: "Yes",
 						text: "Yes",
-						checked: checked("aac-3127-rte-commitment-expected", "Yes")
+						checked: checked("aac-3127-supportedhow-financially", "Yes")
 					},
 					{
 						value: "No",
 						text: "No",
-						checked: checked("aac-3127-rte-commitment-expected", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include a section for the employer, apprentice and training organisation to sign?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-commitment-sign",
-				name: "aac-3127-rte-commitment-sign",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-commitment-sign", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-commitment-sign", "No")
+						checked: checked("aac-3127-supportedhow-financially", "No")
 					}
 				]
 			}) }}
 			
 			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
+-->
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
 			
-				<div class="sops">
+				<!--div class="sops">
 					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
 					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
-				</div>
+				</div-->
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-rte-commitment-pass",
-						id: "aac-3127-rte-commitment-pass",
-          	value: data['aac-3127-rte-commitment-pass'],
+						name: "aac-3127-supportedhow-pass",
+						id: "aac-3127-supportedhow-pass",
+          	value: data['aac-3127-supportedhow-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -130,9 +111,9 @@
 				
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-rte-commitment-fail",
-						id: "aac-3127-rte-commitment-fail",
-          	value: data['aac-3127-rte-commitment-fail'],
+						name: "aac-3127-supportedhow-fail",
+						id: "aac-3127-supportedhow-fail",
+          	value: data['aac-3127-supportedhow-fail'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -141,8 +122,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-3127-rte-commitment-conditional",
-					name: "aac-3127-rte-commitment",
+					idPrefix: "aac-3127-supportedhow-conditional",
+					name: "aac-3127-supportedhow",
 					items: [
 						{
 							value: "Pass",
@@ -150,7 +131,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-3127-rte-commitment", "Pass")
+							checked: checked("aac-3127-supportedhow", "Pass")
 						},
 						{
 							value: "Fail",
@@ -158,7 +139,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-3127-rte-commitment", "Fail")
+							checked: checked("aac-3127-supportedhow", "Fail")
 						}
 					]
 				}) }}

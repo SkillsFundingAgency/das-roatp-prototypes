@@ -1,0 +1,328 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v10.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v10/applications/applications-assessor"
+			},
+			{
+				text: "Application moderation overview",
+				href: "/staff-app/v10/applications/assessor/moderate/tasklist"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices checks</span>
+			<h1 class="govuk-heading-xl">Check the organisation’s safeguarding policy</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Upload your organisation’s safeguarding policy</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant's answer</th>
+						<td class="govuk-table__cell"><a href="https://safeandsoundgroup.org.uk/safeguarding-policy/" target="_blank">myrecruitmentlimited-safeguarding-policy.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will promote the policy?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will get commitment to the policy?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will train its employees in implementing the policy?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will protect its apprentices?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will prevent abuse towards its apprentices?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have a way of raising, recording and investigating concerns?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have a way of apprentices getting support or guidance?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will monitor its IT usage?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload specific to apprentices, trainers, and the applying organisation?</h2>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload signed by a senior employee?</h2>
+			<p class="govuk-body">For example, the upload is signed by a director or CEO.</p>
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Joan Smith</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Martin Knowles</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		<!--hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible"-->
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9">Outcome of blind assessor checks?</h2>
+			<table class="govuk-table govuk-table__modoutcome">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Joan Smith</th>
+						<th class="govuk-table__header">Martin Knowles</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Notes</th>
+						<td class="govuk-table__cell"></td>
+						<td class="govuk-table__cell">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis eu eros id condimentum. Ut pharetra sed turpis ac semper. Sed malesuada neque ac lacus venenatis pulvinar at sit amet dolor. Cras non purus vitae odio fermentum iaculis. Suspendisse luctus dolor nec ipsum maximus ullamcorper.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this moderation?</h2>
+			
+			<!--div class="sops">
+				<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
+				<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
+				<p class="govuk-body">If you’re unsure, ask someone in your team or you can clarify with the applicant before you decide on an outcome.</p>
+			</div-->
+
+			<form action="" method="post" class="form">
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-pya-safeguarding-pass",
+						id: "aac-mod-pya-safeguarding-pass",
+          	value: data['aac-mod-pya-safeguarding-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-pya-safeguarding-fail",
+						id: "aac-mod-pya-safeguarding-fail",
+          	value: data['aac-mod-pya-safeguarding-fail'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set escalateHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-pya-safeguarding-escalate",
+						id: "aac-mod-pya-safeguarding-escalate",
+          	value: data['aac-mod-pya-safeguarding-escalate'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set clarifyHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-pya-safeguarding-clarify",
+						id: "aac-mod-pya-safeguarding-clarify",
+          	value: data['aac-mod-pya-safeguarding-clarify'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-mod-pya-safeguarding-conditional",
+					name: "aac-mod-pya-safeguarding",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-mod-pya-safeguarding", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-mod-pya-safeguarding", "Fail")
+						},
+						{
+							value: "Escalate",
+							text: "Escalate",
+							conditional: {
+								html: escalateHtml
+							},
+							checked: checked("aac-mod-pya-safeguarding", "Escalate")
+						},
+						{
+							value: "Clarify",
+							text: "Clarify",
+							conditional: {
+								html: clarifyHtml
+							},
+							checked: checked("aac-mod-pya-safeguarding", "Clarify")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="javascript:preventDefault();">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v10/applications/assessor/tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

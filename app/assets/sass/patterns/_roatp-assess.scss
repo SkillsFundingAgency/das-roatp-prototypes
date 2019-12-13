@@ -56,3 +56,16 @@
     //font-size: .875rem !important; /* 16px */
   }
 }
+
+// Moderation outcome table
+
+.govuk-table__modoutcome {
+  .govuk-table__head {
+    .govuk-table__header {
+      width: 40%;
+      &:first-child {
+        width: 20%;
+      }
+    }
+  }
+}

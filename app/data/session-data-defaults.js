@@ -48,8 +48,8 @@ module.exports = {
     "q-ofsted-grade": "What Ofsted grade did your organisation get?",
 
     "aac-new-count": 4,
-    "aac-inprogress-count": 5,
-    "aac-moderation-count": 1,
+    "aac-inprogress-count": 4,
+    "aac-moderation-count": 2,
     "aac-clarification-count": 3,
 
     "aac-loggedinas": "Joan Smith",

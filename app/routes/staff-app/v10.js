@@ -735,6 +735,53 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 		})
 
+
+// Planning apprenticeship training
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/type', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring-frameworks')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring-frameworks', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/engage-epao')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/engage-epao', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/engage-awarding')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/engage-awarding', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/starts')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/starts', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/recruit')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/recruit', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/ratio')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/ratio', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/deliver')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/deliver', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/otj')
+	})
+
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/otj', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained')
+	})
+		
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
+
 	
 // 
 // ASSESSOR -  VIEW ONLY

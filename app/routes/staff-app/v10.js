@@ -777,6 +777,10 @@ module.exports = function (router) {
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/otj', function (req,res) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained')
 	})
+		
+	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+	})
 
 	
 // 

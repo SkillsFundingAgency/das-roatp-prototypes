@@ -287,33 +287,31 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()" style="color: grey">Process for evaluating the quality of training delivered</a>
+								<a href="3127/eat/process">Process for evaluating the quality of training delivered</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-eat-process']) and (data['aac-3127-eat-processimprovements']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif (data['aac-3127-eat-process']) %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()" style="color: grey">Evaluating the quality of apprenticeship training</a>
+								<a href="3127/eat/evaluating">Evaluating the quality of apprenticeship training</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-eat-evaluating'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()" style="color: grey">Systems and processes to collect apprenticeship data</a>
+								<a href="3127/eat/systems">Systems and processes to collect apprenticeship data</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-eat-systems']) and (data['aac-3127-eat-systemsilr']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif (data['aac-3127-eat-systems']) %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

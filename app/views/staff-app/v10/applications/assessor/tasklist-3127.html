@@ -95,16 +95,6 @@
 									<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
 							{% endif %}
 						</li>
-						<!--li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()" style="color: grey">Acting as a subcontractor</a>
-							</span>
-							{% if data['xxx'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data['xxx'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
-							{% endif %}
-						</li-->
 					</ul>
 				</li>
 				<li>
@@ -179,51 +169,47 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/pat/type">Type of apprenticeship training</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-pat-type'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pat/ensuring">Supporting apprentices</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-pat-ensuring']) and (data['aac-3127-pat-engage-awarding']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-pat-ensuring'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pat/starts">Forecasting starts</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-pat-starts']) and (data['aac-3127-pat-ratio']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-pat-starts'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pat/otj">Off the job training</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if (data['aac-3127-pat-deliver']) and (data['aac-3127-pat-otj']) %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% elseif data['aac-3127-pat-deliver'] %}
+								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pat/where-trained">Where apprentices will be trained</a>
 							</span>
-							<!--{% if data['xxx'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% else %}
+							{% if data['aac-3127-pat-wheretrained'] %}
 								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% endif %}-->
+							{% endif %}
 						</li>
 					</ul>
 				</li>

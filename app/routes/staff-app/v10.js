@@ -739,7 +739,7 @@ module.exports = function (router) {
 // Planning apprenticeship training
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/type', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring')
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/ensuring', function (req,res) {
@@ -755,7 +755,7 @@ module.exports = function (router) {
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/engage-awarding', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/starts')
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/starts', function (req,res) {
@@ -771,16 +771,40 @@ module.exports = function (router) {
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/deliver', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/otj')
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/otj', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained')
+		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
 		
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained', function (req,res) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
+
+
+	// Evaluating apprenticeship training
+	
+		router.post('/staff-app/' + v + '/applications/assessor/3127/eat/process', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/eat/process-improvements')
+		})
+	
+		router.post('/staff-app/' + v + '/applications/assessor/3127/eat/process-improvements', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+	
+		router.post('/staff-app/' + v + '/applications/assessor/3127/eat/evaluating', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+	
+		router.post('/staff-app/' + v + '/applications/assessor/3127/eat/systems', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/3127/eat/systems-ilr')
+		})
+	
+		router.post('/staff-app/' + v + '/applications/assessor/3127/eat/systems-ilr', function (req,res) {
+			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+		})
+
 
 	
 // 

@@ -854,7 +854,7 @@ module.exports = function (router) {
 	})
 
 	router.post('/staff-app/' + v + '/applications/assessor/reassign-confirmation', function (req,res) {
-		if (req.session.data['aac-reassign-confirmation'] == "Assess this application") {
+		if (req.session.data['aac-reassign-confirmation'] == "Assess the remaining checks this application") {
 			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4102')
 		} else {
 			res.redirect('/staff-app/' + v + '/applications/applications-assessor#inprogress')

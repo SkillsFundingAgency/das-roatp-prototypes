@@ -35,7 +35,7 @@
 				UKPRN: 12345678
 			</p>
 
-			<p class="govuk-body">This check is to see if the organisation’s continuity plan for apprenticeship training shows how it will continue to deliver in case of a significant event.</p>
+			<!--p class="govuk-body">This check is to see if the organisation’s continuity plan for apprenticeship training shows how it will continue to deliver in case of a significant event.</p-->
 			
 			<table class="govuk-table">
 				<tbody class="govuk-table__body">
@@ -50,171 +50,33 @@
 				</tbody>
 			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have different methods of communication?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-communication",
-				name: "aac-3127-pya-communication",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-communication", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-communication", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will manage transportation needs?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-managetransportation",
-				name: "aac-3127-pya-managetransportation",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-managetransportation", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-managetransportation", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will provide different locations?</h2>
-			<p class="govuk-body">The upload will only include this if it’s relevant to the organisation.</p>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-locations",
-				name: "aac-3127-pya-locations",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-locations", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-locations", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will back-up relevant business systems?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-backup",
-				name: "aac-3127-pya-backup",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-backup", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-backup", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will back-up and restore data?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-restore",
-				name: "aac-3127-pya-restore",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-restore", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-restore", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will have a list of emergency contacts?</h2>
-			<p class="govuk-body">ESFA must be listed.</p>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-emergencycontacts",
-				name: "aac-3127-pya-emergencycontacts",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-emergencycontacts", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-emergencycontacts", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload specific to apprentices, trainers and the applying organisation?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-uploadspecific",
-				name: "aac-3127-pya-uploadspecific",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-uploadspecific", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-uploadspecific", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload signed by a senior employee?</h2>
-			<p class="govuk-body">For example, the upload is signed by a director or CEO.</p>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-signed",
-				name: "aac-3127-pya-signed",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-signed", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-signed", "No")
-					}
-				]
-			}) }}
-			
-			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+			<p class="govuk-body">Check if the upload includes how the organisation will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>have different methods of communication</li>
+				<li>manage transportation needs</li>
+				<li>provide different operating locations (if needed)</li>
+				<li>back-up relevant business systems</li>
+				<li>back-up and restore data</li>
+				<li>have a list of emergency contacts - ESFA must be listed</li>
+			</ul>
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
-			
-				<div class="sops">
-					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
-					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
-				</div>
+
+				<p class="govuk-body">Pass this check if the upload:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>includes all of the above bullet points</li>
+					<li>is specific to the organisation, apprentices and trainers</li>
+					<li>is signed by a senior employee</li>
+				</ul>
+
+				<p class="govuk-body">Fail this check if the upload:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>does not include all of the above bullet points</li>
+					<li>is not specific to the organisation, apprentices and trainers</li>
+					<li>is not signed by a senior employee</li>
+				</ul>
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({

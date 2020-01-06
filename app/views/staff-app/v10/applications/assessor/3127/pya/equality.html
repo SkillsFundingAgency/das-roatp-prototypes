@@ -48,131 +48,31 @@
 				</tbody>
 			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will promote the policy?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-promote",
-				name: "aac-3127-pya-equality-promote",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-promote", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-promote", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will get engagement towards the policy?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-engagement",
-				name: "aac-3127-pya-equality-engagement",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-engagement", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-engagement", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will train its employees in implementing the policy?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-implementing",
-				name: "aac-3127-pya-equality-implementing",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-implementing", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-implementing", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the upload include how the organisation will consider the policy when recruiting, delivering apprenticeship training and working with employers and apprentices?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-consider",
-				name: "aac-3127-pya-equality-consider",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-consider", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-consider", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload specific to apprentices, trainers and the applying organisation?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-uploadspecific",
-				name: "aac-3127-pya-equality-uploadspecific",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-uploadspecific", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-uploadspecific", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Is the upload signed by a senior employee?</h2>
-			<p class="govuk-body">For example, the upload is signed by a director or CEO.</p>
-			{{ govukRadios({
-				idPrefix: "aac-3127-pya-equality-signed",
-				name: "aac-3127-pya-equality-signed",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-pya-equality-signed", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-pya-equality-signed", "No")
-					}
-				]
-			}) }}
-			
-			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+			<p class="govuk-body">Check if the upload includes how the organisation will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>promote the policy</li>
+				<li>get engagement towards the policy</li>
+				<li>train its employees in implementing the policy</li>
+				<li>consider the policy when recruiting, delivering apprenticeship training and working with employers and apprentices</li>
+			</ul>
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
-			
-				<div class="sops">
-					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
-					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
-				</div>
+
+				<p class="govuk-body">Pass this check if the upload:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>includes all of the above bullet points</li>
+					<li>is specific to the organisation, apprentices and trainers</li>
+					<li>is signed by a senior employee</li>
+				</ul>
+
+				<p class="govuk-body">Fail this check if the upload:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>does not include all of the above bullet points</li>
+					<li>is not specific to the organisation, apprentices and trainers</li>
+					<li>is not signed by a senior employee</li>
+				</ul>
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({

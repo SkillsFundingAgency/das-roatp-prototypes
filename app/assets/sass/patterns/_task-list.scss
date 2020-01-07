@@ -61,6 +61,7 @@
 .app-task-list__task-negative,
 .app-task-list__task-next,
 .app-task-list__task-todo,
+.app-task-list__task-black,
 .app-task-list__task-inprogressalt,
 .app-task-list__task-notrequired,
 .app-task-list__task-clarify {
@@ -112,6 +113,12 @@
 .app-task-list__task-assessorinprogress {
   border: 1.5px solid #00823B;
   color: #00823B;
+}
+
+.app-task-list__task-black {
+  background-color: #000;
+  border: 1.5px solid #000;
+  color: #fff;
 }
 
 .app-task-list__task-inprogressalt,

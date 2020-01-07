@@ -79,13 +79,24 @@
 							<span class="app-task-list__task-name">
 								<a href="pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
+							{% if data['aac-mod-pya-safeguarding'] == "Escalate" %}
+							<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% elseif data['aac-mod-pya-safeguarding'] == "Request clarification from provider" %}
+							<strong class="govuk-tag app-task-list__task-black">Clarification</strong>
+							{% elseif data['aac-mod-pya-safeguarding'] == "Pass" %}
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-mod-pya-safeguarding'] == "Fail" %}
+							<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% else %}
 							<strong class="govuk-tag app-task-list__task-completed">Moderate</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="pya/healthandsafety">Health and safety policy</a>
+								Health and safety policy
+								<!--a href="pya/healthandsafety">Health and safety policy</a-->
 							</span>
-							<strong class="govuk-tag app-task-list__task-completed">Moderate</strong>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 						</li>
 						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
@@ -99,6 +110,8 @@
 						</li-->
 					</ul>
 				</li>
+
+				<!--
 				<li>
 					<h2 class="app-task-list__section">
 						<span class="app-task-list__section-number">2. </span> Readiness to engage checks

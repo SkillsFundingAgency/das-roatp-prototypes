@@ -861,4 +861,13 @@ module.exports = function (router) {
 		}
 	})
 
+
+	// 
+	// ASSESSOR - MODERATION
+	//
+
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/safeguarding', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+	})
+
 }

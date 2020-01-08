@@ -1,0 +1,406 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v11/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">72754360</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Organisation name</dt>
+					<dd class="govuk-summary-list__value">THINK POD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR4291</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">19 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<ol class="app-task-list">
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">1. </span> Protecting your apprentices
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Continuity plan for apprenticeship training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Equality and diversity policy</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Safeguarding and Prevent duty policy</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Health and safety policy</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Acting as a subcontractor</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">2. </span> Readiness to engage
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Engaging with employers</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Complaints policy</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Contract for services template with employers</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Commitment statement template</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Prior learning of apprentices</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Working with subcontractors</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Planning apprenticeship training
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Type of apprenticeship training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Supporting apprentices</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Forecasting starts</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Off the job training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Where apprentices will be trained</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">4. </span> Delivering apprenticeship training
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Overall accountability for apprenticeships</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Management hierarchy for apprenticeships</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Quality and high standards in apprenticeship training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Developing and delivering training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Sectors and employee experience</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Policy for professional development of employees</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">5. </span> Evaluating apprenticeship training
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Process for evaluating the quality of training delivered</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Evaluating the quality of apprenticeship training</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Systems and processes to collect apprenticeship data</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">6. </span> Assessor outcome
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()" style="color: grey">Confirm assessor outcome</a>
+							</span>
+							{% if data[''] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
+							{% elseif data[''] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="">Rejected</strong>
+							{% elseif data[''] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

@@ -34,6 +34,7 @@ require('./routes/staff-app/v7.js')(router);
 require('./routes/staff-app/v8.js')(router);
 require('./routes/staff-app/v9.js')(router);
 require('./routes/staff-app/v10.js')(router);
+require('./routes/staff-app/v11.js')(router);
 
 // Eligibility Checker
 require('./routes/eligibility/bravo.js')(router); // Bravo

@@ -1,0 +1,145 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Sectors and employee experience</span>
+
+      <h1 class="govuk-heading-l">{{ data['del-employee'][ data['current_sector_id'] ]['name'] }}’s experience in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set expQualsHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-qualifications-detail",
+            id: "del-employee-qualifications-detail",
+            maxlength: 1500,
+            label: {
+              text: "Tell us what qualifications they have"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-qualifications",
+          name: "del-employee-qualifications",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "Do they have any qualifications relating to this sector?"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: expQualsHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% set expAwardingHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-awarding-detail",
+            id: "del-employee-awarding-detail",
+            maxlength: 1500,
+            label: {
+              text: "Names of awarding bodies"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-awarding",
+          name: "del-employee-awarding",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "Are they approved by awarding bodies to deliver training?"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: expAwardingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% set expMembershipsHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-memberships-detail",
+            id: "del-employee-memberships-detail",
+            maxlength: 1500,
+            label: {
+              text: "Names of sector or trade bodies"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-memberships",
+          name: "del-employee-memberships",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "Do they have sector or trade body memberships?"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-employee-memberships", "Yes"),
+              conditional: {
+                html: expMembershipsHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-employee-memberships", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

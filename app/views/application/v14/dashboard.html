@@ -1,0 +1,180 @@
+{% set currentpage = "timeline" %}
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Application overview</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="das-section__heading govuk-heading-l govuk-!-margin-top-2">Your application is with the RoATP assessment team</h2>
+      <!--p class="das-section__description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec imperdiet nunc. Etiam quis elit ac libero vestibulum finibus vel sit amet eros.
+      </p-->
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m"><a href="#">We need more information</a></h3>
+          <!--p class="govuk-body">Etiam quis elit ac libero vestibulum finibus vel sit amet eros.</p-->
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m"><a href="#">Contact us</a></h3>
+          <!--p class="govuk-body">Vestibulum eget aliquet massa. Quisque eu facilisis enim. </p-->
+        </div>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Application progress</h1>
+
+      <ol class="roatp-timeline">
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Checks on your organisation and the people involved</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag">Complete</strong>
+            <span class="roatp-timeline__date">Assessment completed on 3 January 2018 at 11:21am</span>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Checks on your organisation’s financial health</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+            <span class="roatp-timeline__date">Assessment started on 1 January 2018 at 1:02pm</span>
+          </p>
+          <!--p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p-->
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Assessor checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Governance checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+      </ol>
+<!--
+      <div class="govuk-tabs" data-module="tabs">
+        <ul class="govuk-tabs__list" role="tablist">
+          <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#tab-tasks" id="tab_tab-tasks" role="tab" aria-controls="tab-tasks" tabindex="0" aria-selected="true">
+              Tasks
+            </a>
+          </li>
+
+          <li class="govuk-tabs__list-item" role="presentation">
+            <a class="govuk-tabs__tab" href="#tab-activity" id="tab_tab-activity" role="tab" aria-controls="tab-activity" tabindex="-1" aria-selected="false">
+              Activity
+            </a>
+          </li>
+        </ul>
+
+        <section class="govuk-tabs__panel" id="tab-tasks" role="tabpanel" aria-labelledby="tab_tab-tasks">
+          <ul class="task-list">
+            <li>
+              <p>
+                Levy declaration due by 19 May
+              </p>
+              <p class="govuk-!-margin-top-2 govuk-body-s">
+                <a href="#">Dismiss this message</a>
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="tab-activity" role="tabpanel" aria-labelledby="tab_tab-activity">
+          <ol id="item-list">
+            <li class="item">
+              <div class="item-label">28th Mar 2019</div>
+              <div class="item-description">Raina Nisar joined</div>
+            </li>
+
+            <li class="item">
+              <div class="item-label">28th Mar 2019</div>
+              <div class="item-description">raina nisar invited by Sultan Mahmood</div>
+            </li>
+
+            <li class="item">
+              <div class="item-label">25th Mar 2019</div><div class="item-description">2 users joined</div>
+            </li>
+
+            <li class="item">
+              <div class="item-label">25th Mar 2019</div>
+              <div class="item-description">2 users invited</div>
+            </li>
+
+            <li class="item all-activity">
+              <div class="item-label"><a href="/accounts/84VBNV/activity">See all activity</a></div>
+            </li>
+          </ol>
+        </section>
+      </div>
+    </div>
+-->
+  </div>
+<!--
+    <div class="govuk-grid-column-one-third">
+
+      <h2 class="govuk-heading-m">Application progress</h1>
+
+      <ol class="roatp-timeline">
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Gateway checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag">Complete</strong>
+            <span class="roatp-timeline__date">Assessment completed on 3 January 2018 at 11:21am</span>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">PMO checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+            <span class="roatp-timeline__date">Assessment started on 1 January 2018 at 1:02pm</span>
+          </p>
+          <!--p class="roatp-timeline__body">
+            Marriage certificate uploaded to DRS.
+          </p-->
+        <!--/li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Assessor checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+
+        <li class="roatp-timeline__entry">
+          <h3 class="roatp-timeline__title govuk-heading-s">Governance checks</h3>
+          <p class="roatp-timeline__info">
+            <strong class="govuk-tag govuk-tag-awaiting">Awaiting</strong>
+          </p>
+        </li>
+      </ol>
+
+    </div>
+  </div>
+-->
+{% endblock %}

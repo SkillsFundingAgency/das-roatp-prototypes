@@ -18,6 +18,7 @@ require('./routes/application/v10.js')(router);
 require('./routes/application/v11.js')(router);
 require('./routes/application/v12.js')(router);
 require('./routes/application/v13.js')(router);
+require('./routes/application/v14.js')(router);
 
 // Organisation Journey
 require('./routes/organisation/v01.js')(router);

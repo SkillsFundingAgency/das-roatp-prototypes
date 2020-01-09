@@ -1,0 +1,29 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  Sign in - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">We’ve sent you a confirmation email</h1>
+
+    <p class="govuk-body">We’ve sent a confirmation email to <strong>{{ data['createEmail'] }}</strong>.</p>
+    <p class="govuk-body">Use the link in the email to confirm your details and continue creating an account.</p>
+
+    {{ govukDetails({
+      summaryText: "I have not received the confirmation email",
+      text: "If you have not received the confirmation email, check your junk folder or start again."
+    }) }}
+
+    <br><small><a href="createaccount-password">Go to create password</a></small>
+
+  </div>
+</div>
+
+{% endblock %}

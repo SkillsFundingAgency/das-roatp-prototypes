@@ -520,7 +520,7 @@ module.exports = function (router) {
 		req.session.data['wel-safeguardingresponsible-email'] = "john@smith.com"
 		req.session.data['wel-safeguardingresponsible-name'] = "John Smith"
 		req.session.data['wel-safeguardingresponsible-tel'] = "01234987654"
-		res.redirect('/application/' + v + '/delivering/sectors')
+		res.redirect('/application/' + v + '/task-list')
 	})
 
 	// Application completed (including Finish section) - main provider...
@@ -2525,7 +2525,7 @@ module.exports = function (router) {
 	// Sectors training in
 	router.post('/application/' + v + '/delivering/sectors', function (req, res) {
 		req.session.data['tl_del_sectors'] = 'inprogress'
-		res.redirect('/application/' + v + '/delivering/sectors-employees')
+		res.redirect('/application/' + v + '/delivering/sectors-tasklist')
 	})
 
 	// Select sector to which they will add an employee
@@ -2657,7 +2657,7 @@ module.exports = function (router) {
 		delete req.session.data['del-employee-experience-delivering']
 		delete req.session.data['del-employee-trainingduration']
 
-		res.redirect('/application/' + v + '/delivering/sectors-employees')
+		res.redirect('/application/' + v + '/delivering/sectors-tasklist')
 
 	})
 

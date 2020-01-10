@@ -12,6 +12,17 @@
   {% set employeecount = 0 %}
 {% endif %}
 
+{% set j = 0 %}
+{% set emps_complete = 0 %}
+{% if employeecount > 0 %}
+  {% for emps in data['del-employee'] %}
+    {% if data['del-employee'][j]['trainingduration'] %}
+      {% set emps_complete = emps_complete + 1 %}
+    {% endif %}
+    {% set j = j + 1 %}
+  {% endfor %}
+{% endif %}
+
 {% extends "layouts/layout_application_v14.html" %}
 
 {% block pageTitle %}
@@ -684,13 +695,13 @@
             </li>
             <li class="app-task-list__item">
               {% if (data['tl_del_intro'] == "completed") %}
-                <a class="app-task-list__task-name" href="delivering/sectors" aria-describedby="del-sectors">Sectors and employee experience</a>
+                <a class="app-task-list__task-name" href="delivering/sectors-tasklist" aria-describedby="del-sectors">Sectors and employee experience</a>
               {% else %}
                 Sectors and employee experience
               {% endif %}
-              {% if (sectorcount > 0) and (sectorcount == employeecount) %}
+              {% if (sectorcount > 0) and (sectorcount <= employeecount) and (employeecount == emps_complete) %}
                 <strong class="govuk-tag app-task-list__task-completed" id="del-sectors">Completed</strong>
-              {% elseif sectorcount > employeecount %}
+              {% elseif sectorcount > 0 %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="del-sectors">In progress</strong>
               {% endif %}
             </li>

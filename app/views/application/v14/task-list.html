@@ -1,5 +1,17 @@
-
 {% set currentpage = "task-list" %}
+
+{% if data['del-sectors'] %}
+  {% set sectorcount = data['del-sectors'] | length %}
+{% else %}
+  {% set sectorcount = 0 %}
+{% endif %}
+
+{% if data['del-employee'] %}
+  {% set employeecount = data['del-employee'] | length %}
+{% else %}
+  {% set employeecount = 0 %}
+{% endif %}
+
 {% extends "layouts/layout_application_v14.html" %}
 
 {% block pageTitle %}
@@ -676,9 +688,9 @@
               {% else %}
                 Sectors and employee experience
               {% endif %}
-              {% if data['tl_del_sectors'] == "completed" %}
+              {% if (sectorcount > 0) and (sectorcount == employeecount) %}
                 <strong class="govuk-tag app-task-list__task-completed" id="del-sectors">Completed</strong>
-              {% elseif data['tl_del_sectors'] == "inprogress" %}
+              {% elseif sectorcount > employeecount %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="del-sectors">In progress</strong>
               {% endif %}
             </li>
@@ -731,7 +743,7 @@
               {% if data['tl_eval_apprenticeships'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="eval-apprenticeships">Completed</strong>
               {% elseif data['tl_eval_apprenticeships'] == "inprogress" %}
-                <strong class="govuk-tag app-task-list__task-inprogress" id="del-sectors">In progress</strong>
+                <strong class="govuk-tag app-task-list__task-inprogress" id="eval-apprenticeships">In progress</strong>
               {% endif %}
             </li>
             <li class="app-task-list__item">
@@ -789,7 +801,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if data['tl_eval_ilr'] == "completed" %}
+              {% if data['tl_eval_ilr'] == "completed" and (sectorcount > 0) and (sectorcount == employeecount)%}
                 <a class="app-task-list__task-name" href="finish/coa" aria-describedby="end-coa">Terms and conditions</a>
               {% else %}
                 Terms and conditions
@@ -797,13 +809,13 @@
               {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
                 {% if data['tl_finish_coa'] == "completed" %}
                   <strong class="govuk-tag app-task-list__task-completed" id="end-coa">Completed</strong>
-                {% else %}
+                {% elseif (sectorcount > 0) and (sectorcount == employeecount) %}
                   <strong class="govuk-tag app-task-list__task-next" id="org-details-status">Next</strong>
                 {% endif %}
               {% endif %}
             </li>
             <li class="app-task-list__item">
-            {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") %}
+            {% if (data['tl_finish_yourdetails'] == "completed") and (data['tl_finish_permission'] == "completed") and (sectorcount > 0) and (sectorcount == employeecount) %}
               <a class="app-task-list__task-name" href="submitapplication" aria-describedby="end-checkanswers">
               Submit application
               </a>

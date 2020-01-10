@@ -1,0 +1,78 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+
+        <span class="govuk-caption-l">Organisation information</span>
+        
+        <h1 class="govuk-heading-l">Confirm your organisation details</h1>
+
+        <p class="gov-body">These are the details we found on UKRLP.</p>
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+            {
+              key: {
+                text: "Legal name"
+              },
+              value: {
+                text: "Your Company Name Ltd"
+              }
+            },
+            {
+              key: {
+                text: "Business address"
+              },
+              value: {
+                html: "1 Romford Road<br>Wellington<br>Telford<br>Cv106 6BB"
+              }
+            },
+            {
+              key: {
+                text: "Website"
+              },
+              value: {
+                html: 'yourcompanyname.co.uk'
+              }
+            }
+          ]
+        }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if these details are wrong?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Contact UKRLP to <a href="https://www.ukrlp.co.uk/" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

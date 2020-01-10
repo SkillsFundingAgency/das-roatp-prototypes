@@ -1,0 +1,83 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Checks on your organisation</span>
+
+      <h1 class="govuk-heading-l">Has your organisation failed to pay back funds in the last 3 years?</h1>
+      
+      <p class="govuk-body">Tell us if your organisation has failed to repay £50,000 or more:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>to ESFA or any other public body</li>
+        <li>under a subcontract to deliver education and training services funded by ESFA</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-repayfunding-detail",
+            id: "dec-org-repayfunding-detail",
+            maxlength: 1500,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              html: "<p class='govuk-body govuk-hint govuk-!-margin-bottom-1'>You’ll need to include: </p>
+                <ul class='govuk-!-margin-top-1'>
+                  <li>a brief summary of why your organisation failed to repay funding</li>
+                  <li>if any actions have been taken to resolve this</li>
+                </ul>"
+            },
+            value: data['dec-org-repayfunding-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-repayfunding",
+          name: "dec-org-repayfunding",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("dec-org-repayfunding", "Yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("dec-org-repayfunding", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="org-contract-terminated">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

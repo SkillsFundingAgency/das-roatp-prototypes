@@ -1,0 +1,62 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Your organisation’s financial evidence</span>
+
+      <h1 class="govuk-heading-l">Was your organisation’s total annual turnover over £75 million for the last financial year?</h1>
+
+      <p class="govuk-body">You can find your organisation's total annual turnover on its:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>‘profit and loss statement’</li>
+        <li>‘income and expenditure account’</li>
+        <li>‘statement of financial activities’</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+
+        {{ govukRadios({
+          idPrefix: "fin-turnover",
+          name: "fin-turnover",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("fin-turnover", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("fin-turnover", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

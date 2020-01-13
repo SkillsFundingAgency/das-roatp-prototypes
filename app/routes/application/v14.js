@@ -299,7 +299,6 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list')
 	})
 
-
 	// Application completed except for sectors - main provider...
 	router.get('/application/' + v + '/jump/sectors', function (req,res) {
 		req.session.data['current_sector_id'] = "0"

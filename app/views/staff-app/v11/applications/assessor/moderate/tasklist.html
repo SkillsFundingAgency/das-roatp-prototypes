@@ -101,26 +101,28 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="pya/healthandsaftey">Health and safety policy</a>
+								<a href="pya/healthandsafety">Health and safety policy</a>
 							</span>
-							{% if data['aac-mod-pya-healthandsaftey'] == "Escalate" %}
+							{% if data['aac-mod-pya-healthandsafety'] == "Escalate" %}
 								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
-							{% elseif data['aac-mod-pya-healthandsaftey'] == "Pass" %}
+							{% elseif data['aac-mod-pya-healthandsafety'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-pya-healthandsaftey'] == "Fail" %}
+							{% elseif data['aac-mod-pya-healthandsafety'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 						</li>
-						<!--li class="app-task-list__item">
+						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Acting as a subcontractor</a>
+								<a href="pya/subcontractor">Act as a subcontractor</a>
 							</span>
-							{% if data['xxx'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="">Passed</strong>
-							{% elseif data['xxx'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if data['aac-mod-pya-subcontractor'] == "Escalate" %}
+								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% elseif data['aac-mod-pya-subcontractor'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-mod-pya-subcontractor'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
-						</li-->
+						</li>
 					</ul>
 				</li>
 

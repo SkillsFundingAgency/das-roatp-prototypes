@@ -1,0 +1,53 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Process for evaluating the quality of training</span>
+
+    <h1 class="govuk-heading-l">How has your organisation made improvements using its process for evaluating the quality of training delivered?</h1>
+
+    <p class="govuk-body">Give us an example including:</p>
+  
+    <ul class="govuk-list govuk-list--bullet">
+      <li>how an issue was identified</li>
+      <li>what improvements were made</li>
+      <li>who was involved in implementing the improvements</li>
+      <li>the overall outcome</li>
+      <li>how success was measured</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukCharacterCount({
+        name: "eval-training-improvements",
+        id: "eval-training-improvements",
+        value: data['eval-training-improvements'],
+        maxlength: 1500
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v14/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

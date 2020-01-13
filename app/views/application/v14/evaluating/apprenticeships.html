@@ -1,0 +1,61 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Process of evaluating the quality of apprenticeship training</span>
+
+    <h1 class="govuk-heading-l">Does your organisation’s process for evaluating the quality of training delivered include apprenticeship training?</h1>
+
+    <p class="govuk-body">This means your existing process includes how your organisation will:</p>
+  
+    <ul class="govuk-list govuk-list--bullet">
+      <li>respond and act on feedback from apprentices</li>
+      <li>continuously improve apprenticeship training</li>
+      <li>identify and address poor apprenticeship training</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "eval-apprenticeships",
+        name: "eval-apprenticeships",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("eval-apprenticeships", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("eval-apprenticeships", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v14/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

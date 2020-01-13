@@ -1,0 +1,69 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-type"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/application/v14/organisation/org-type-training" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your type of training organisation or agency",
+            href: "#org-type-training-error"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: "org-type-training",
+        name: "org-type-training",
+        fieldset: {
+          legend: {
+            text: "What training organisation or agency is your organisation?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "ata",
+            text: "Apprenticeship Training Agency"
+          },
+          {
+            value: "itp",
+            text: "Independent Training Providers"
+          },
+          {
+            value: "gta",
+            text: "Group Training Association"
+          }
+        ],
+        errorMessage: {
+          text: "Select your type of training organisation or agency"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Type of apprenticeship training</span>
+      
+      {% if data["plan-type"] == "apprenticeship-standards" %}
+
+        <h1 class="govuk-heading-l">How will your organisation engage with end-point assessment organisations (EPAO’s)?</h1>
+
+        <p class="govuk-body">Your answer should include how your organisation will:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>find EPAO’s for relevant apprenticeship standards</li>
+          <li>contact EPAO’s</li>
+          <li>engage employers in the process of choosing an EPAO</li>
+          <li>confirm a contract or service agreement with EPAO’s</li>
+        </ul>
+
+        <p class="govuk-body">You’ll also need to include what information your organisation will ask from an EPAO to ensure they are suitable.</p>
+
+      {% else %}
+
+        <h1 class="govuk-heading-l">How does your organisation plan to engage and work with awarding bodies?</h1>
+
+        <p class="govuk-body">Your answer should include how your organisation will:</p>
+        
+        <ul class="govuk-list govuk-list--bullet">
+          <li>find awarding bodies for relevant apprenticeship frameworks</li>
+          <li>contact awarding bodies</li>
+          <li>get relevant information from awarding bodies</li>
+          <li>engage employers in the process of choosing an awarding body</li>
+          <li>confirm a contract or service agreement with awarding bodies</li>
+        </ul>
+
+        <p class="govuk-body">You’ll also need to include what information your organisation will ask from an awarding body to ensure they are suitable.</p>
+
+      {% endif %}
+
+      <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "plan-engaging",
+          id: "plan-engaging",
+          value: data['plan-engaging'],
+          maxlength: 1500
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

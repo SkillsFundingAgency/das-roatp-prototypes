@@ -1,0 +1,53 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Policy for professional development of employees</span>
+          
+    <h1 class="govuk-heading-l">Give an example of how your policy for professional development of employees is implemented</h1>
+
+    <p class="govuk-body">Your answer should include how your organisation:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>ensures employee’s sector expertise is relevant to apprenticeship training</li>
+      <li>ensures employee’s expertise is up to date in relevant sectors</li>
+      <li>maintains employee’s expertise in relevant sectors - for example, through co-creation of apprenticeship programmes or mentoring</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+      {{ govukCharacterCount({
+        name: "del-development-implemented",
+        id: "del-development-implemented",
+        value: data['del-development-implemented'],
+        maxlength: 1500
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v14/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Checks on your organisation</span>
+
+      <h1 class="govuk-heading-l">Has anyone who’s in control of your organisation been subject to insolvency or winding up proceedings in the last 3 years?</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-insolvency-detail",
+            id: "dec-org-insolvency-detail",
+            maxlength: 1500,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              text: "You can include a brief summary of what measures have been put in place to manage this."
+            },
+            value: data['dec-org-insolvency-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-insolvency",
+          name: "dec-org-insolvency",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("dec-org-insolvency", "Yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("dec-org-insolvency", "No")
+            }
+          ]
+        }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="../task-list#section-declarations">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

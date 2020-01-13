@@ -57,16 +57,18 @@
       {% endif %}
     </ol>
 
+    {% if data['del-sectors'] %}
 
       {{ govukButton({
         href: "../task-list",
         text: "Save and continue",
         classes: "govuk-!-margin-right-4"
       }) }}
+    {% endif %}
 
-      <p class="skipquestion" id="skipquestion"><a href="../task-list">Return to this question later</a></p>
-      
-      {% include "includes/v14/gethelp.html" %}
+    <p class="skipquestion" id="skipquestion"><a href="../task-list">Return to this question later</a></p>
+
+    {% include "includes/v14/gethelp.html" %}
 
   </div>
 </div>

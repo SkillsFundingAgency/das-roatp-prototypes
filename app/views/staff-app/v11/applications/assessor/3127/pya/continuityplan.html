@@ -101,18 +101,6 @@
 						}
 					}) }}
 				{% endset -%}
-				
-				{% set clarifyHtml %}
-					{{ govukCharacterCount({
-						name: "aac-3127-pya-continuityplan-clarify",
-						id: "aac-3127-pya-continuityplan-clarify",
-          	value: data['aac-3127-pya-continuityplan-clarify'],
-						maxlength: 750,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "aac-3127-pya-continuityplan-conditional",

@@ -1,0 +1,145 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v11/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v11/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v11/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Organisation checks</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+			
+			<h2 class="govuk-heading-l">Has anyone who’s in control of your organisation been made bankrupt in the last 3 years?</h2>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application answer</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">&hellip;</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-bankrupt-pass",
+						id: "gw-company-criminal-people-bankrupt-pass",
+          	value: data['gw-company-criminal-people-bankrupt-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-bankrupt-reject",
+						id: "gw-company-criminal-people-bankrupt-reject",
+          	value: data['gw-company-criminal-people-bankrupt-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-people-bankrupt-inprogress",
+						id: "gw-company-criminal-people-bankrupt-inprogress",
+          	value: data['gw-company-criminal-people-bankrupt-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-criminal-people-bankrupt-conditional",
+					name: "gw-company-criminal-people-bankrupt",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-criminal-people-bankrupt", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-criminal-people-bankrupt", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-people-bankrupt", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="insolvency">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v11/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

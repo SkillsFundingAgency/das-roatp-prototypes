@@ -1,0 +1,66 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v11/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v11/applications/assessor/readonly-tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-tag govuk-!-font-size-19" style="background-color: black;">Read only</span><br><br>
+			<span class="govuk-caption-m">Protecting your apprentices</span>
+			<h1 class="govuk-heading-xl">Check the organisation’s health and safety policy</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Upload your organisation’s health and safety policy</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant's answer</th>
+						<td class="govuk-table__cell"><a href="https://www.cygnethealth.co.uk/content/uploads/2017/03/Health-and-Safety-Policy.pdf" target="_blank">myrecruitmentlimited-healthandsafety.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				{{ govukButton({
+					text: "Continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v11/applications/assessor/readonly-tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

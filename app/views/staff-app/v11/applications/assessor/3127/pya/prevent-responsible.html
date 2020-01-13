@@ -1,0 +1,148 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v11/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v11/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices checks</span>
+			<h1 class="govuk-heading-xl">Safeguarding policy include responsibilities towards the Prevent duty</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant's answer</th>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Safeguarding policy</th>
+						<td class="govuk-table__cell"><a href="https://safeandsoundgroup.org.uk/safeguarding-policy/" target="_blank">myrecruitmentlimited-safeguarding-policy.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="govuk-body">Check if the organisation's safeguarding policy includes how it will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+				<li>protect apprentices and employees from radicalising influences</li>
+				<li>ensure apprentices and employees are resilient to extreme narratives</li>
+				<li>identify changes in behaviour of apprentices and employees</li>
+				<li>deal with any issues raised by apprentices or employees</li>
+			</ul>
+			{{ govukDetails({
+				summaryText: "What is the Prevent duty statement?",
+				text: "The Prevent duty statement is ’to have due regard to the need to prevent people from being drawn into terrorism’."
+			}) }}
+			
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">Pass this check if all the above bullet points are included in the upload.</p>
+					<p class="govuk-body">Fail this check if any of the bullet points are not included in the upload.</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-pass",
+						id: "aac-3127-pya-prevent-responsible-pass",
+          	value: data['aac-3127-pya-prevent-responsible-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-fail",
+						id: "aac-3127-pya-prevent-responsible-fail",
+          	value: data['aac-3127-pya-prevent-responsible-fail'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set clarifyHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-clarify",
+						id: "aac-3127-pya-prevent-responsible-clarify",
+          	value: data['aac-3127-pya-prevent-responsible-clarify'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-3127-pya-prevent-responsible-conditional",
+					name: "aac-3127-pya-prevent-responsible",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("aac-3127-pya-prevent-responsible", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-3127-pya-prevent-responsible", "Fail")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="javascript:preventDefault();">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="/staff-app/v11/applications/assessor/tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -65,38 +65,51 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Continuity plan for apprenticeship training
+								<a href="pya/continuity">Continuity plan for apprenticeship training</a>
 							</span>
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% if data['aac-mod-pya-continuity'] == "Escalate" %}
+								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% elseif data['aac-mod-pya-continuity'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-mod-pya-continuity'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Equality and diversity policy
+								<a href="pya/equality">Equality and diversity policy</a>
 							</span>
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% if data['aac-mod-pya-equality'] == "Escalate" %}
+								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% elseif data['aac-mod-pya-equality'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-mod-pya-equality'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
 							{% if data['aac-mod-pya-safeguarding'] == "Escalate" %}
-							<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
-							{% elseif data['aac-mod-pya-safeguarding'] == "Request clarification from provider" %}
-							<strong class="govuk-tag app-task-list__task-black">Clarification</strong>
+								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
 							{% elseif data['aac-mod-pya-safeguarding'] == "Pass" %}
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif data['aac-mod-pya-safeguarding'] == "Fail" %}
-							<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
-							{% else %}
-							<strong class="govuk-tag app-task-list__task-completed">Moderate</strong>
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Health and safety policy
-								<!--a href="pya/healthandsafety">Health and safety policy</a-->
+								<a href="pya/healthandsaftey">Health and safety policy</a>
 							</span>
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% if data['aac-mod-pya-healthandsaftey'] == "Escalate" %}
+								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% elseif data['aac-mod-pya-healthandsaftey'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-mod-pya-healthandsaftey'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
 						</li>
 						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">

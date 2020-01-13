@@ -28,7 +28,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Protecting your apprentices checks</span>
-			<h1 class="govuk-heading-xl">Check if the organisation’s safeguarding policy include its responsibilities towards the Prevent duty</h1>
+			<h1 class="govuk-heading-xl">Safeguarding policy include responsibilities towards the Prevent duty</h1>
 
 			<p class="govuk-body">
 				Legal name: MY RECRUITMENT LIMITED<br>
@@ -60,14 +60,19 @@
 				<li>identify changes in behaviour of apprentices and employees</li>
 				<li>deal with any issues raised by apprentices or employees</li>
 			</ul>
+			{{ govukDetails({
+				summaryText: "What is the Prevent duty statement?",
+				text: "The Prevent duty statement is ’to have due regard to the need to prevent people from being drawn into terrorism’."
+			}) }}
+			
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
 			
 				<div class="sops">
-					<p class="govuk-body">If all the bullet points are included in the upload, pass this check.</p>
-					<p class="govuk-body">If any of the bullet points are not in the upload, fail this check.</p>
+					<p class="govuk-body">Pass this check if all the above bullet points are included in the upload.</p>
+					<p class="govuk-body">Fail this check if any of the bullet points are not included in the upload.</p>
 				</div>
 				
 				{% set passHtml %}

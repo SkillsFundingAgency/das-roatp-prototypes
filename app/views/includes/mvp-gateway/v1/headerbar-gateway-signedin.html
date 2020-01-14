@@ -1,0 +1,24 @@
+  <div class="roatp-header">
+    {{ govukHeader({
+      homepageUrl: "#",
+      serviceName: "ESFA admin services",
+      serviceUrl: "/mvp-gateway/v1/dashboard"
+    }) }}
+    <div class="roatp-header-panel">
+      <div class="govuk-width-container">
+        <div class="roatp-header-panel-content">
+          <span class="govuk-body-s roatp-header-username">Signed in as Joan Smith</span>
+          <a class="govuk-link govuk-link--white roatp-header-signout" href="/mvp-gateway/v1/sign-in">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+    }) }}
+  </div>

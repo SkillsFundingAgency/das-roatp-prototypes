@@ -1,0 +1,65 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-gateway/v1/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-gateway/v1/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change company number"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Change company number for ABC Assessments</h1>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Company number"
+					},
+					classes: "govuk-!-width-one-third",
+					id: "staff-change-companynumber",
+                    name: "staff-change-companynumber",
+                    value: "1893839"
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

@@ -10,11 +10,11 @@
 		items: [
 			{
 				text: "RoATP dashboard",
-				href: "/staff-app/v11/dashboard"
+				href: "/mvp-gateway/v1/dashboard"
 			},
 			{
 				text: "RoATP applications",
-				href: "/staff-app/v11/applications/gateway/applications-view"
+				href: "/mvp-gateway/v1/applications/gateway/applications-view"
 			},
 			{
 				text: "Application assessment overview"
@@ -65,7 +65,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/initial/legal">Legal and address checks</a>
+								<a href="company/initial/legalname">Legal and address checks</a>
 							</span>
 							{% if data['gw-company-legal-outcome'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-outcome-passed">Passed</strong>
@@ -95,7 +95,8 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/highrisk/people">People in control</a>
+								<!--a href="company/highrisk/people">People in control</a-->
+								People in control
 							</span>
 							{% if data['gw-company-highrisk-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
@@ -114,7 +115,8 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/register/roatp">RoATP</a>
+								<!--a href="company/register/roatp">RoATP</a-->
+								RoATP
 							</span>
 							{% if data['gw-company-roatp-outcome'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-outcome-passed">Passed</strong>
@@ -137,7 +139,8 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/register/epao">Register of end-point assessment organisations</a>
+								Register of end-point assessment organisations
+								<!--a href="company/register/epao">Register of end-point assessment organisations</a-->
 							</span>
 							{% if data['gw-company-epao-outcome'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-outcome-passed">Passed</strong>
@@ -147,7 +150,8 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/register/rort">Register of removed trustees</a>
+								<!--a href="company/register/rort">Register of removed trustees</a-->
+								Register of removed trustees
 							</span>
 							{% if data['gw-company-highrisk-rort'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-rort-passed">Passed</strong>
@@ -164,7 +168,8 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/info/parent">Organisation information</a>
+								Organisation information
+								<!-- href="company/organisation/info/parent">Organisation information</a-->
 							</span>
 							{% if (data['gw-company-info-parent']) and (data['gw-company-info-ico']) and (data['gw-company-info-website']) %}
 								{% if (data['rejects-orginfo'] > 0) %}
@@ -182,7 +187,8 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/type/type">Organisation type</a>
+								Organisation type
+								<!--a href="company/organisation/type/type">Organisation type</a-->
 							</span>
 							{% if (data['gw-company-type-type']) and (data['gw-company-type-edu']) and (data['gw-company-type-school']) and (data['gw-company-type-funding']) %}
 								{% if (data['rejects-orgtype'] > 0) %}
@@ -198,7 +204,8 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/organisation/experience/itt">Experience and accreditation</a>
+								Experience and accreditation
+								<!--a href="company/organisation/experience/itt">Experience and accreditation</a-->
 							</span>
 							{% if (data['gw-company-itt']) and (data['gw-company-postgrad']) and (data['gw-company-experience-ofsted']) and (data['gw-company-experience-gradeapprenticeships']) and (data['gw-company-experience-gradeoverall']) and (data['gw-company-experience-gradewithin']) and (data['gw-company-experience-shortinspection']) and (data['gw-company-experience-maintainedgrade']) and (data['gw-company-experience-maintainedfunding']) %}
 								{% if (data['rejects-experience'] > 0) %}
@@ -221,12 +228,14 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/criminal/organisation/creditors">The organisation</a>
+								The organisation
+								<!--a href="company/criminal/organisation/creditors">The organisation</a-->
 							</span>
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/criminal/people/convictions">People in control</a>
+								People in control
+								<!--a href="company/criminal/people/convictions">People in control</a-->
 							</span>
 						</li>
 					</ul>

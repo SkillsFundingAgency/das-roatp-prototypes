@@ -14,6 +14,27 @@ function monthNumToName(monthnum) {
 
 module.exports = function (router) {
 
+	/******************
+	 * Initial Checks *
+	 ******************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/initial/legalname', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/initial/status')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/initial/status', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/initial/address')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/initial/address', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/initial/outcome')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/initial/outcome', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+		
+
 	/************************
 	 * Sign in and register *
 	 ************************/

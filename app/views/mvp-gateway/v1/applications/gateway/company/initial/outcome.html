@@ -1,0 +1,182 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v1/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Initial checks</span>
+			<h1 class="govuk-heading-xl">Legal and address checks</h1>
+
+			<!--h2 class="govuk-heading-l">Application data</h2-->
+			<p class="govuk-body">
+				UKPRN: 10053003<br>
+				UKRLP verified with: Companies House<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+			
+			<!--p class="govuk-body" style="background: lightgrey; padding :1em; margin-bottom: 0;">Question: Will we be able to play back the checks submitted in the previous screens at this point?</p-->
+
+			<!--p class="govuk-body">Does the legal name match for all sources? {{ data['gw-company-initial-legalname'] }}</p>
+			<p class="govuk-body">Is the status correct for all sources? {{ data['gw-company-initial-status'] }}</p>
+			<p class="govuk-body">Does the address match for all sources? {{ data['gw-company-initial-address'] }}</p-->
+
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Does the legal name match for all sources?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-initial-legalname'] }}</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Is the status correct for all sources?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-initial-status'] }}</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Does the address match for all sources?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-initial-address'] }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of these checks?</h2>
+
+				<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass these checks.</p>
+				<p class="govuk-body">If you have selected ‘no’ to any of the questions above, reject these checks.</p>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-initial-outcome-pass",
+						id: "gw-company-initial-outcome-pass",
+          	value: data['gw-company-initial-outcome-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-initial-outcome-reject",
+						id: "gw-company-initial-outcome-reject",
+          	value: data['gw-company-initial-outcome-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				<!--
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-initial-outcome-inprogress",
+						id: "gw-company-initial-outcome-inprogress",
+          	value: data['gw-company-initial-outcome-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-initial-outcome-conditional",
+					name: "gw-company-initial-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-initial-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-initial-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-initial-outcome", "In progress")
+						}
+					]
+				}) }}
+-->
+				{{ govukRadios({
+					idPrefix: "gw-company-initial-outcome-conditional",
+					name: "gw-company-initial-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-initial-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-initial-outcome", "Reject")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <!--p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p-->
+
+			</form>
+
+			<p><a href="/mvp-gateway/v1/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -67,10 +67,10 @@
 							<span class="app-task-list__task-name">
 								<a href="company/initial/legalname">Legal and address checks</a>
 							</span>
-							{% if data['gw-company-legal-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-legal-outcome-passed">Passed</strong>
-							{% elseif data['gw-company-legal-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-legal-outcome-rejected">Rejected</strong>
+							{% if data['gw-company-initial-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-initial-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-initial-outcome-rejected">Rejected</strong>
 							{% endif %}
 						</li>
 					</ul>

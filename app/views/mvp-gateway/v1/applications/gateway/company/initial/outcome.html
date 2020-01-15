@@ -95,7 +95,7 @@
 						}
 					}) }}
 				{% endset -%}
-				<!--
+				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
 						name: "gw-company-initial-outcome-inprogress",
@@ -107,7 +107,7 @@
 						}
 					}) }}
 				{% endset -%}
-
+<!--
 				{{ govukRadios({
 					idPrefix: "gw-company-initial-outcome-conditional",
 					name: "gw-company-initial-outcome",
@@ -161,6 +161,17 @@
 								html: rejectHtml
 							},
 							checked: checked("gw-company-initial-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-initial-outcome", "In progress")
 						}
 					]
 				}) }}

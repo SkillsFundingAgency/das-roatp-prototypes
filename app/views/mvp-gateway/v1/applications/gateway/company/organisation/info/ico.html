@@ -1,0 +1,109 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v1/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Register checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Information Commissioner's Office (ICO) registration number checks</h1>
+
+			<!--h2 class="govuk-heading-l">Application data</h2-->
+			<p class="govuk-body">
+				Legal name: XXX XXXX LIMITED<br>
+				UKPRN: 10053003
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-l">Is the ICO registration number valid?</h2>
+				<p class="govuk-body">The ICO registration number must not be expired and the legal name must be the same.</p>
+
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">ICO registration number</th>
+							<th scope="col" class="govuk-table__header"></th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Submitted application</td>
+							<td class="govuk-table__cell">Z7322278</td>
+							<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278" target="_blank">Check this ICO registration number</a></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				{% set noHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-organisation-ico-no",
+						id: "gw-company-organisation-ico-no",
+          	value: data['gw-company-organisation-ico-no'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-organisation-ico",
+					name: "gw-company-organisation-ico",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-company-organisation-ico", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-company-organisation-ico", "No")
+						}
+					]
+				}) }}	
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <!--p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p-->
+
+			</form>
+
+			<p><a href="/mvp-gateway/v1/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

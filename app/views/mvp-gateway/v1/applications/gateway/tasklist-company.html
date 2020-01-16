@@ -85,7 +85,6 @@
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/highrisk/organisation">The organisation</a>
-								<!--The organisation-->
 							</span>
 							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
@@ -98,7 +97,6 @@
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/highrisk/people">People in control</a>
-								<!--People in control-->
 							</span>
 							{% if data['gw-company-highrisk-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
@@ -118,7 +116,6 @@
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/register/roatp">RoATP</a>
-								<!--RoATP-->
 							</span>
 							{% if data['gw-company-register-roatp'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-roatp-outcome-passed">Passed</strong>
@@ -130,7 +127,6 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--Register of training organisations-->
 								<a href="company/register/roto">Register of training organisations</a>
 							</span>
 							{% if data['gw-company-register-roto'] == "Pass" %}
@@ -143,7 +139,6 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--Register of end-point assessment organisations-->
 								<a href="company/register/epao">Register of end-point assessment organisations</a>
 							</span>
 							{% if data['gw-company-register-epao'] == "Pass" %}
@@ -157,7 +152,6 @@
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/register/rort">Register of removed trustees</a>
-								<!--Register of removed trustees-->
 							</span>
 							{% if data['gw-company-register-rort'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
@@ -176,21 +170,14 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Organisation information
-								<!-- href="company/organisation/info/parent">Organisation information</a-->
+								<a href="company/organisation/info/parent-name">Organisation information</a>
 							</span>
-							{% if (data['gw-company-info-parent']) and (data['gw-company-info-ico']) and (data['gw-company-info-website']) %}
-								{% if (data['rejects-orginfo'] > 0) %}
-									<strong class="govuk-tag app-task-list__task-negative" id="gw-company-info-rejected">{{ data['rejects-orginfo'] }} of 4 Rejected</strong>
-								{% else %}
-									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
-								{% endif %}
-							{% else %}
-								{% if (data['gw-company-register-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
-									{% if data['gw-company-info-parent'] %}
-                		<strong class="govuk-tag app-task-list__task-completed" id="gw-company-info-inprogress">In progress</strong>
-									{% endif %}
-								{% endif %}
+							{% if data['gw-company-organisation-info'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-organisation-info-passed">Passed</strong>
+							{% elseif data['gw-company-organisation-info'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-organisation-info-rejected">Rejected</strong>
+							{% elseif data['gw-company-organisation-info'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-organisation-info-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">

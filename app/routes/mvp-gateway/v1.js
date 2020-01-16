@@ -65,6 +65,30 @@ module.exports = function (router) {
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/register/rort', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
 		})
+
+	/***********************
+	 * Organisation Checks *
+	 ***********************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/parent-name', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/parent-status')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/parent-status', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/ico')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/ico', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/website')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/website', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/outcome')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/outcome', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
 		
 
 	/************************

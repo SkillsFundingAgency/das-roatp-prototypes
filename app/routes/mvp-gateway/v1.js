@@ -33,6 +33,38 @@ module.exports = function (router) {
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/initial/outcome', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
 		})
+
+	/********************
+	 * High Risk Checks *
+	 ********************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/organisation', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+	/*******************
+	 * Register Checks *
+	 *******************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/register/roatp', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/register/roto', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/register/epao', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/register/rort', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
 		
 
 	/************************

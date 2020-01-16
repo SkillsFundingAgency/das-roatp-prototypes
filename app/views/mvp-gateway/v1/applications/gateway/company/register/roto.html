@@ -1,0 +1,130 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v1/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Register checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Register checks</span>
+			<h1 class="govuk-heading-xl">Check if the organisation is on the register of training organisations (RoTO)</h1>
+
+			<p class="govuk-body">
+				Legal name: XXX XXXX LIMITED<br>
+				UKPRN: 10053003
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<p class="govuk-body">Manual check...</p>
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-register-roto-pass",
+						id: "gw-company-register-roto-pass",
+          	value: data['gw-company-register-roto-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-register-roto-reject",
+						id: "gw-company-register-roto-reject",
+          	value: data['gw-company-register-roto-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-register-roto-inprogress",
+						id: "gw-company-register-roto-inprogress",
+          	value: data['gw-company-register-roto-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-register-roto-conditional",
+					name: "gw-company-register-roto",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-register-roto", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-register-roto", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-register-roto", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v1/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

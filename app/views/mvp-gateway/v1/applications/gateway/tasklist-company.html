@@ -1,5 +1,5 @@
 {% set current_section = "applications" %}
-{% extends "layouts/layout_staff_v11.html" %}
+{% extends "layouts/layout_mvpgateway_v1.html" %}
 
 {% block pageTitle %}
   ESFA Staff App
@@ -84,28 +84,28 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/highrisk/organisation">The organisation</a-->
-								The organisation
+								<a href="company/highrisk/organisation">The organisation</a>
+								<!--The organisation-->
 							</span>
 							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
 							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
 							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-organisation-rejected">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-organisation-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/highrisk/people">People in control</a-->
-								People in control
+								<a href="company/highrisk/people">People in control</a>
+								<!--People in control-->
 							</span>
 							{% if data['gw-company-highrisk-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
 							{% elseif data['gw-company-highrisk-people'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-rejected">Rejected</strong>
 							{% elseif data['gw-company-highrisk-people'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-highrisk-people-rejected">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-people-rejected">In progress</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -117,48 +117,54 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/roatp">RoATP</a-->
-								RoATP
+								<a href="company/register/roatp">RoATP</a>
+								<!--RoATP-->
 							</span>
-							{% if data['gw-company-roatp-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roatp-outcome-passed">Passed</strong>
-							{% elseif data['gw-company-roatp-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roatp-outcome-rejected">Rejected</strong>
+							{% if data['gw-company-register-roatp'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-roatp-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-register-roatp'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-roatp-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-roatp'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-people-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Register of training organisations
-								<!--a href="company/register/roto">Register of training organisations</a-->
+								<!--Register of training organisations-->
+								<a href="company/register/roto">Register of training organisations</a>
 							</span>
-							<!--
-							{% if data['gw-company-roto-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-roto-outcome-passed">Passed</strong>
-							{% elseif data['gw-company-roto-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-roto-outcome-rejected">Rejected</strong>
-							{% endif %}
-							-->
-						</li>
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								Register of end-point assessment organisations
-								<!--a href="company/register/epao">Register of end-point assessment organisations</a-->
-							</span>
-							{% if data['gw-company-epao-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-epao-outcome-passed">Passed</strong>
-							{% elseif data['gw-company-epao-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-epao-outcome-rejected">Rejected</strong>
+							{% if data['gw-company-register-roto'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-roto-passed">Passed</strong>
+							{% elseif data['gw-company-register-roto'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-roto-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-roto'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-roto-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/rort">Register of removed trustees</a-->
-								Register of removed trustees
+								<!--Register of end-point assessment organisations-->
+								<a href="company/register/epao">Register of end-point assessment organisations</a>
 							</span>
-							{% if data['gw-company-highrisk-rort'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-rort-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-rort'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-rort-rejected">Rejected</strong>
+							{% if data['gw-company-register-epao'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-epao-passed">Passed</strong>
+							{% elseif data['gw-company-register-epao'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-epao-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-epao'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-epao-rejected">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="company/register/rort">Register of removed trustees</a>
+								<!--Register of removed trustees-->
+							</span>
+							{% if data['gw-company-register-rort'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+							{% elseif data['gw-company-register-rort'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-rort'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-rort-rejected">In progress</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -180,9 +186,9 @@
 									<strong class="govuk-tag app-task-list__task-positive" id="gw-company-info-passed">Passed</strong>
 								{% endif %}
 							{% else %}
-								{% if (data['gw-company-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
+								{% if (data['gw-company-register-roatp-outcome']) and (data['gw-company-epao-outcome']) %}
 									{% if data['gw-company-info-parent'] %}
-                		<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
+                		<strong class="govuk-tag app-task-list__task-completed" id="gw-company-info-inprogress">In progress</strong>
 									{% endif %}
 								{% endif %}
 							{% endif %}
@@ -200,7 +206,7 @@
 								{% endif %}
 							{% else %}
 								{% if (data['gw-company-type-type']) or (data['gw-company-type-edu']) or (data['gw-company-type-school']) or (data['gw-company-type-funding']) %}
-									<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-info-inprogress">In progress</strong>
+									<strong class="govuk-tag app-task-list__task-completed" id="gw-company-info-inprogress">In progress</strong>
 								{% endif %}
 							{% endif %}
 						</li>
@@ -217,7 +223,7 @@
 								{% endif %}
 							{% else %}
 								{% if (data['gw-company-itt']) or (data['gw-company-postgrad']) or (data['gw-company-experience-ofsted']) or (data['gw-company-experience-gradeapprenticeships']) or (data['gw-company-experience-gradeoverall']) or (data['gw-company-experience-gradewithin']) or (data['gw-company-experience-shortinspection']) or (data['gw-company-experience-maintainedgrade']) or (data['gw-company-experience-maintainedfunding']) %}
-                	<strong class="govuk-tag app-task-list__task-assessorinprogress" id="gw-company-experience-inprogress">In progress</strong>
+                	<strong class="govuk-tag app-task-list__task-completed" id="gw-company-experience-inprogress">In progress</strong>
 								{% endif %}
 							{% endif %}
 						</li>

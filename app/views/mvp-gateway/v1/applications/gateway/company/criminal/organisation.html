@@ -1,0 +1,209 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v1/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Organisation checks</h1>
+
+			<!--h2 class="govuk-heading-l">Application data</h2-->
+			<p class="govuk-body">
+				Legal name: XXX XXXX LIMITED<br>
+				UKPRN: 10053003
+			</p>
+		</div>
+	</div>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
+						<th scope="col" class="govuk-table__header">Further information</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Does your organisation have any composition with creditors?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation failed to pay back funds in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation had a contract terminated early by a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation withdrawn from a contract with a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation had funding removed from any education bodies in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation been removed from any professional or trade registers in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation been investigated due to safeguarding issues in the last 3 months?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation been investigated due to whistleblowing issues in the last 3 months?</td>
+						<td class="govuk-table__cell">No</td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?</td>
+						<td class="govuk-table__cell">Yes</td>
+						<td class="govuk-table__cell"><a href="javascript:preventDefault();">View further information</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<form action="" method="post" class="form">
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+
+				<p class="govuk-body">If the applicant answered 'No' to all of these questions, pass this check.</p>
+				<p class="govuk-body">If the applicant answered 'Yes' to any of these questions, read the additional information and make a decision.</p>
+				<!--p class="govuk-body">If you have selected ‘no’ to any of the questions above, reject these checks.</p-->
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-outcome-pass",
+						id: "gw-company-criminal-outcome-pass",
+          	value: data['gw-company-criminal-outcome-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-outcome-reject",
+						id: "gw-company-criminal-outcome-reject",
+          	value: data['gw-company-criminal-outcome-reject'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-criminal-outcome-inprogress",
+						id: "gw-company-criminal-outcome-inprogress",
+          	value: data['gw-company-criminal-outcome-inprogress'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{{ govukRadios({
+					idPrefix: "gw-company-criminal-outcome-conditional",
+					name: "gw-company-criminal-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-company-criminal-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-criminal-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-criminal-outcome", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <!--p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p-->
+
+			</form>
+
+			<p><a href="/mvp-gateway/v1/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

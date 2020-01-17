@@ -21,7 +21,7 @@
 				href: "/mvp-gateway/v1/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Initial checks"
+				text: "Register checks"
 			}
 		]
 	}) }}
@@ -31,49 +31,42 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Initial checks</span>
-			<h1 class="govuk-heading-xl">Legal and address checks</h1>
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Organisation type checks</h1>
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				UKPRN: 10053003<br>
-				UKRLP verified with: Companies House<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				Legal name: XXX XXXX LIMITED<br>
+				UKPRN: 10053003
 			</p>
 
 			<form action="" method="post" class="form">
-				
-				<h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Is the status correct for all sources?</h2>
-				<p class="govuk-body">
-					For companies, the status must be ‘active’ for each source.<br>
-					For charities, the status must be ‘XXX’ for each source.<br>
-					For any other organisation type, the status must be ‘XXX’ for each source.
-				</p>
+
+				<h2 class="govuk-heading-l">Does the parent company name match for all sources?</h2>
 				<table class="govuk-table">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Status</th>
+							<th scope="col" class="govuk-table__header">Parent company name</th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__header">UKRLP</td>
-							<td class="govuk-table__cell">Active</td>
+							<td class="govuk-table__header">Submitted application</td>
+							<td class="govuk-table__cell">XXX LIMITED</td>
 						</tr>
 						<tr class="govuk-table__row">
 							<td class="govuk-table__header">Companies House</td>
-							<td class="govuk-table__cell">Dissolved</td>
+							<td class="govuk-table__cell">XXX LIMITED</td>
 						</tr>
 					</tbody>
 				</table>
-
+				
 				{% set noHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-initial-status-no",
-						id: "gw-company-initial-status-no",
-          	value: data['gw-company-initial-status-no'],
+						name: "gw-company-organisation-parent-name-no",
+						id: "gw-company-organisation-parent-name-no",
+          	value: data['gw-company-organisation-parent-name-no'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -82,25 +75,22 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-initial-status",
-					name: "gw-company-initial-status",
+					idPrefix: "gw-company-organisation-parent-name",
+					name: "gw-company-organisation-parent-name",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-initial-status", "Yes")
+							checked: checked("gw-company-organisation-parent-name", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-initial-status", "No")
+							checked: checked("gw-company-organisation-parent-name", "No")
 						}
 					]
-				}) }}
-
-
-				<!--h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2-->
+				}) }}	
 				
 
 				{{ govukButton({

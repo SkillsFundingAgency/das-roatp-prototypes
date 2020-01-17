@@ -89,6 +89,18 @@ module.exports = function (router) {
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/outcome', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
 		})
+
+	/**********************************
+	 * Criminal and compliance Checks *
+	 **********************************/
+
+	router.post('/mvp-gateway/' + v + '/applications/gateway/company/criminal/organisation', function (req, res) {
+		res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+	})
+	
+	router.post('/mvp-gateway/' + v + '/applications/gateway/company/criminal/peopleincontrol', function (req, res) {
+		res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+	})
 		
 
 	/************************

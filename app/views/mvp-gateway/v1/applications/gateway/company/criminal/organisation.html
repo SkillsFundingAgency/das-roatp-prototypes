@@ -14,7 +14,7 @@
 			},
 			{
 				text: "RoATP applications",
-				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+				href: "/mvp-gateway/v1/applications/applications-gateway"
 			},
 			{
 				text: "Application assessment overview",
@@ -48,64 +48,66 @@
 					<tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header">Application question</th>
 						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
-						<th scope="col" class="govuk-table__header">Further information</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Does your organisation have any composition with creditors?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation failed to pay back funds in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation had a contract terminated early by a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation withdrawn from a contract with a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation had funding removed from any education bodies in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation been removed from any professional or trade registers in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation been investigated due to safeguarding issues in the last 3 months?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Has your organisation been investigated due to whistleblowing issues in the last 3 months?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?</td>
-						<td class="govuk-table__cell">Yes</td>
-						<td class="govuk-table__cell"><a href="javascript:preventDefault();">View further information</a></td>
+						<td class="govuk-table__cell" style="border-bottom: none;">
+							Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?<br>
+						</td>
+						<td class="govuk-table__cell" style="border-bottom: none;">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" colspan="2">
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View further information",
+								html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet aliquet finibus. Nulla in ex id turpis suscipit fringilla. Morbi ullamcorper, turpis sit amet mollis convallis, purus arcu imperdiet mi, vel rutrum nisi lacus eget risus. Pellentesque laoreet augue neque, sit amet sodales dui tincidunt vitae. Duis iaculis consectetur felis, id ornare massa euismod eget. Nam pretium purus sed ultrices mollis. Morbi sollicitudin pellentesque nunc, sit amet convallis lacus aliquet id. Donec elementum lacus id aliquam eleifend. Cras feugiat vitae metus at suscipit. Aliquam id nulla nisi. Aliquam maximus tellus ut metus lobortis fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br><br>
+								Vestibulum nec purus at sem malesuada congue. Donec vitae ultricies velit, ac pharetra ligula. Aenean non urna eget lorem vestibulum suscipit. Phasellus mattis placerat tellus ut fermentum. Morbi a euismod erat. Suspendisse commodo fringilla leo eu ultrices. Nam condimentum nisl pellentesque massa semper interdum.<br><br>
+								Duis lectus nisi, volutpat quis est non, sollicitudin laoreet tellus. Donec vel dui in sapien pellentesque rhoncus a et sapien. Fusce nisl ex, venenatis in nunc eget, rhoncus vulputate mauris. Ut lorem lectus, tincidunt in risus euismod, porta suscipit nibh. Fusce feugiat id turpis id porttitor. Donec semper laoreet bibendum. Praesent magna est, scelerisque a euismod sed, laoreet ut metus. Nam eu lobortis erat, et molestie orci.<br><br>
+								Maecenas dignissim, risus commodo fermentum dapibus, nunc nunc tincidunt nisi, eget accumsan diam ante sed velit. Quisque lacinia et orci nec feugiat. In commodo odio quis elit scelerisque tincidunt. Duis facilisis odio ut viverra consequat. Sed bibendum vulputate urna id imperdiet. Vestibulum gravida elit vel odio euismod vestibulum. Sed non lectus nec."
+							}) }}
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -124,9 +126,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-pass",
-						id: "gw-company-criminal-outcome-pass",
-          	value: data['gw-company-criminal-outcome-pass'],
+						name: "gw-company-criminal-organisation-outcome-pass",
+						id: "gw-company-criminal-organisation-outcome-pass",
+          	value: data['gw-company-criminal-organisation-outcome-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -136,9 +138,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-reject",
-						id: "gw-company-criminal-outcome-reject",
-          	value: data['gw-company-criminal-outcome-reject'],
+						name: "gw-company-criminal-organisation-outcome-reject",
+						id: "gw-company-criminal-organisation-outcome-reject",
+          	value: data['gw-company-criminal-organisation-outcome-reject'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -148,9 +150,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-inprogress",
-						id: "gw-company-criminal-outcome-inprogress",
-          	value: data['gw-company-criminal-outcome-inprogress'],
+						name: "gw-company-criminal-organisation-outcome-inprogress",
+						id: "gw-company-criminal-organisation-outcome-inprogress",
+          	value: data['gw-company-criminal-organisation-outcome-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -159,8 +161,8 @@
 				{% endset -%}
 				
 				{{ govukRadios({
-					idPrefix: "gw-company-criminal-outcome-conditional",
-					name: "gw-company-criminal-outcome",
+					idPrefix: "gw-company-criminal-organisation-outcome-conditional",
+					name: "gw-company-criminal-organisation-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -168,7 +170,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "Pass")
+							checked: checked("gw-company-criminal-organisation-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -176,7 +178,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "Reject")
+							checked: checked("gw-company-criminal-organisation-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -187,7 +189,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "In progress")
+							checked: checked("gw-company-criminal-organisation-outcome", "In progress")
 						}
 					]
 				}) }}

@@ -14,7 +14,7 @@
 			},
 			{
 				text: "RoATP applications",
-				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+				href: "/mvp-gateway/v1/applications/applications-gateway"
 			},
 			{
 				text: "Application assessment overview"
@@ -210,19 +210,25 @@
 							<span class="app-task-list__task-name">
 								<a href="company/criminal/organisation">The organisation</a>
 							</span>
-							{% if data['gw-company-criminal-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-criminal-outcome-passed">Passed</strong>
-							{% elseif data['gw-company-criminal-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-criminal-outcome-rejected">Rejected</strong>
-							{% elseif data['gw-company-criminal-outcome'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-criminal-outcome-rejected">In progress</strong>
+							{% if data['gw-company-criminal-organisation-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-criminal-organisation-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-criminal-organisation-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-criminal-organisation-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-company-criminal-organisation-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-criminal-organisation-outcome-rejected">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								People in control
-								<!--a href="company/criminal/people/convictions">People in control</a-->
+								<a href="company/criminal/peopleincontrol">People in control</a>
 							</span>
+							{% if data['gw-company-criminal-people-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-criminal-people-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-criminal-people-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-criminal-people-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-company-criminal-people-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-criminal-people-outcome-rejected">In progress</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

@@ -14,7 +14,7 @@
 			},
 			{
 				text: "RoATP applications",
-				href: "/mvp-gateway/v1/applications/gateway/applications-view"
+				href: "/mvp-gateway/v1/applications/applications-gateway"
 			},
 			{
 				text: "Application assessment overview",
@@ -48,64 +48,40 @@
 					<tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header">Application question</th>
 						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
-						<th scope="col" class="govuk-table__header">Further information</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Does your organisation have any composition with creditors?</td>
+						<td class="govuk-table__cell">Does anyone who’s in control of your organisation have any unspent criminal convictions?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation failed to pay back funds in the last 3 years?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation failed to pay back funds in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation had a contract terminated early by a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation been investigated for fraud or irregularities in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation withdrawn from a contract with a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation had funding removed from any education bodies in the last 3 years?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation had a contract terminated by a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation been removed from any professional or trade registers in the last 3 years?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation withdrawn from a contract with a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation breached tax payments or social security contributions in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
+						<td class="govuk-table__cell">Has anyone who’s in control of your organisation or any of its partner organisations been made bankrupt in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation been investigated due to safeguarding issues in the last 3 months?</td>
-						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation been investigated due to whistleblowing issues in the last 3 months?</td>
-						<td class="govuk-table__cell">No</td>
-						<td class="govuk-table__cell"></td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?</td>
-						<td class="govuk-table__cell">Yes</td>
-						<td class="govuk-table__cell"><a href="javascript:preventDefault();">View further information</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -124,9 +100,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-pass",
-						id: "gw-company-criminal-outcome-pass",
-          	value: data['gw-company-criminal-outcome-pass'],
+						name: "gw-company-criminal-people-outcome-pass",
+						id: "gw-company-criminal-people-outcome-pass",
+          	value: data['gw-company-criminal-people-outcome-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments (optional)"
@@ -136,9 +112,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-reject",
-						id: "gw-company-criminal-outcome-reject",
-          	value: data['gw-company-criminal-outcome-reject'],
+						name: "gw-company-criminal-people-outcome-reject",
+						id: "gw-company-criminal-people-outcome-reject",
+          	value: data['gw-company-criminal-people-outcome-reject'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -148,9 +124,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-outcome-inprogress",
-						id: "gw-company-criminal-outcome-inprogress",
-          	value: data['gw-company-criminal-outcome-inprogress'],
+						name: "gw-company-criminal-people-outcome-inprogress",
+						id: "gw-company-criminal-people-outcome-inprogress",
+          	value: data['gw-company-criminal-people-outcome-inprogress'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -159,8 +135,8 @@
 				{% endset -%}
 				
 				{{ govukRadios({
-					idPrefix: "gw-company-criminal-outcome-conditional",
-					name: "gw-company-criminal-outcome",
+					idPrefix: "gw-company-criminal-people-outcome-conditional",
+					name: "gw-company-criminal-people-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -168,7 +144,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "Pass")
+							checked: checked("gw-company-criminal-people-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -176,7 +152,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "Reject")
+							checked: checked("gw-company-criminal-people-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -187,7 +163,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-company-criminal-outcome", "In progress")
+							checked: checked("gw-company-criminal-people-outcome", "In progress")
 						}
 					]
 				}) }}

@@ -75,16 +75,9 @@
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-initial-outcome-inprogress">In progress</strong>
 							{% endif %}
 						</li>
-					</ul>
-				</li>
-				<li>
-					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">2. </span> High risk checks
-					</h2>
-					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/highrisk/organisation">The organisation</a>
+								<a href="company/highrisk/organisation">Organisation high risk checks</a>
 							</span>
 							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
@@ -96,7 +89,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="company/highrisk/people">People in control</a>
+								<a href="company/highrisk/people">People in control high risk checks</a>
 							</span>
 							{% if data['gw-company-highrisk-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-passed">Passed</strong>
@@ -110,7 +103,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">3. </span> Register checks
+						<span class="app-task-list__section-number">2. </span> Register checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -125,7 +118,7 @@
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-people-rejected">In progress</strong>
 							{% endif %}
 						</li>
-						<li class="app-task-list__item">
+						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/register/roto">Register of training organisations</a>
 							</span>
@@ -136,7 +129,7 @@
 							{% elseif data['gw-company-register-roto'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-roto-rejected">In progress</strong>
 							{% endif %}
-						</li>
+						</li-->
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/register/epao">Register of end-point assessment organisations</a>
@@ -149,7 +142,7 @@
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-epao-rejected">In progress</strong>
 							{% endif %}
 						</li>
-						<li class="app-task-list__item">
+						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/register/rort">Register of removed trustees</a>
 							</span>
@@ -160,12 +153,12 @@
 							{% elseif data['gw-company-register-rort'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-rort-rejected">In progress</strong>
 							{% endif %}
-						</li>
+						</li-->
 					</ul>
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">4. </span> Organisation checks
+						<span class="app-task-list__section-number">3. </span> Organisation checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -203,7 +196,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">5. </span> Criminal and compliance checks
+						<span class="app-task-list__section-number">4. </span> Criminal and compliance checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -234,7 +227,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">6. </span> Submission checks
+						<span class="app-task-list__section-number">5. </span> Submission checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -242,7 +235,7 @@
 								Application permissions and checks
 							</span>
 						</li>
-						<li class="app-task-list__item">
+						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								‘Commercial in confidence’ information
 							</span>
@@ -251,10 +244,10 @@
 							<span class="app-task-list__task-name">
 								Terms and conditions (CoA’s)
 							</span>
-						</li>
+						</li-->
 					</ul>
 				</li>
-				<li>
+				<!--li>
 					<h2 class="app-task-list__section">
 						<span class="app-task-list__section-number">7. </span> Gateway outcome
 					</h2>
@@ -265,7 +258,7 @@
 							</span>
 						</li>
 					</ul>
-				</li>
+				</li-->
 			</ol>
 
 		</div>

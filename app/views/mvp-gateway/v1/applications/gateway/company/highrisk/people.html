@@ -31,8 +31,8 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">High risk checks</span>
-			<h1 class="govuk-heading-xl">High risk checks on people in control</h1>
+			<span class="govuk-caption-m">People in control high risk</span>
+			<h1 class="govuk-heading-xl">Check if the people in control of the organisation are on the high risk list</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
@@ -40,15 +40,6 @@
 				Application submitted on: 17 Oct 2019<br>
 				Sources checked on: 27 Nov 2019
 			</p>
-			
-			<div class="sops">
-				<p class="govuk-body">Search for each person using the following links:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li><a href="">DNA</a></li>
-					<li><a href="">High risk</a></li>
-				</ul>
-				<p class="govuk-body">Pass this check if each person X X X</p>
-			</div>
 
 			<h2 class="govuk-heading-l">Company directors</h2>
 			<table class="govuk-table govuk-!-margin-bottom-9">
@@ -163,18 +154,6 @@
 
 			<form action="" method="post" class="form">
 				
-				{% set passHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-highrisk-people-pass",
-						id: "gw-company-highrisk-people-pass",
-          	value: data['gw-company-highrisk-people-pass'],
-						maxlength: 750,
-						label: {
-							text: "Add comments (optional)"
-						}
-					}) }}
-				{% endset -%}
-				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
 						name: "gw-company-highrisk-people-reject",
@@ -206,9 +185,6 @@
 						{
 							value: "Pass",
 							text: "Pass",
-							conditional: {
-								html: passHtml
-							},
 							checked: checked("gw-company-highrisk-people", "Pass")
 						},
 						{

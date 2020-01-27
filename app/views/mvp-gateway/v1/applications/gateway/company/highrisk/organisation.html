@@ -31,118 +31,28 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">High risk checks</span>
-			<h1 class="govuk-heading-xl">Organisation high risk checks</h1>
+			<span class="govuk-caption-m">Organisation high risk</span>
+			<h1 class="govuk-heading-xl">Check if the organisation is on the high risk list</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 
-			<p class="govuk-body">...</p>
-
-			<!--h2 class="govuk-heading-l">Company directors</h2>
-			<table class="govuk-table govuk-!-margin-bottom-9">
+			<table class="govuk-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Name</th>
-						<th scope="col" class="govuk-table__header">Date of birth</th>
-						<td class="govuk-table__cell govuk-table__cell--numeric"></td>
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Organisation</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">BOUVIER, Jacqueline</td>
-						<td class="govuk-table__cell">Feb 1955</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-director1'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-director1-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-director1'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-director1-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">POWELL, Herbert</td>
-						<td class="govuk-table__cell">May 1963</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-director2'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-director2-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-director2'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-director2-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">POWERS, Ruth</td>
-						<td class="govuk-table__cell">May 1957</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-director3'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-director3-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-director3'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-director3-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">VAN HOUTEN, Kirk</td>
-						<td class="govuk-table__cell">Mar 1960</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-director4'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-director4-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-director4'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-director4-rejected">Rejected</strong>
-							{% endif %}
-						</td>
+						<td class="govuk-table__header">Legal name</td>
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
 					</tr>
 				</tbody>
 			</table>
-
-			<h2 class="govuk-heading-l">People with significant control (PSCs)</h2>
-			<table class="govuk-table govuk-!-margin-bottom-9">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Name</th>
-						<th scope="col" class="govuk-table__header">Date of birth</th>
-						<td class="govuk-table__cell govuk-table__cell--numeric"></td>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">BOUVIER, Jacqueline</td>
-						<td class="govuk-table__cell">Feb 1955</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-psc1'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-psc1-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-psc1'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-psc1-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">POWELL, Herbert</td>
-						<td class="govuk-table__cell">May 1963</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-psc2'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-psc2-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-psc2'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-psc2-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td scope="row" class="govuk-table__cell">ACME LIMITED</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric"></td>
-						<td class="govuk-table__cell govuk-table__cell--numeric">
-							{% if data['gw-company-highrisk-psc3'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-psc3-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-psc3'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-psc3-rejected">Rejected</strong>
-							{% endif %}
-						</td>
-					</tr>
-				</tbody>
-			</table-->
 
 		</div>
 	</div>
@@ -151,29 +61,8 @@
 		<div class="govuk-grid-column-two-thirds">
 
 			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
-			
-			<div class="sops">
-				<!--p class="govuk-body">Search for each person using the following links:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li><a href="">DNA</a></li>
-					<li><a href="">High risk</a></li>
-				</ul>
-				<p class="govuk-body">Pass this check if each person X X X</p-->
-			</div>
 
 			<form action="" method="post" class="form">
-				
-				{% set passHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-pass",
-						id: "gw-company-highrisk-organisation-pass",
-          	value: data['gw-company-highrisk-organisation-pass'],
-						maxlength: 750,
-						label: {
-							text: "Add comments (optional)"
-						}
-					}) }}
-				{% endset -%}
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
@@ -206,9 +95,6 @@
 						{
 							value: "Pass",
 							text: "Pass",
-							conditional: {
-								html: passHtml
-							},
 							checked: checked("gw-company-highrisk-organisation", "Pass")
 						},
 						{

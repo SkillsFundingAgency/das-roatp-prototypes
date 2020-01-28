@@ -32,11 +32,10 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Criminal and compliance checks</span>
-			<h1 class="govuk-heading-xl">People in control checks</h1>
+			<h1 class="govuk-heading-xl">People in control</h1>
 
-			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				Legal name: XXX XXXX LIMITED<br>
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 		</div>
@@ -52,35 +51,47 @@
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Does anyone who’s in control of your organisation have any unspent criminal convictions?</td>
+						<td class="govuk-table__cell" style="border-bottom: none;">Anyone who’s in control have any unspent criminal convictions</td>
+						<td class="govuk-table__cell" style="border-bottom: none;">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" colspan="2">
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View applicant’s answer",
+								html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet aliquet finibus. Nulla in ex id turpis suscipit fringilla. Morbi ullamcorper, turpis sit amet mollis convallis, purus arcu imperdiet mi, vel rutrum nisi lacus eget risus. Pellentesque laoreet augue neque, sit amet sodales dui tincidunt vitae. Duis iaculis consectetur felis, id ornare massa euismod eget. Nam pretium purus sed ultrices mollis. Morbi sollicitudin pellentesque nunc, sit amet convallis lacus aliquet id. Donec elementum lacus id aliquam eleifend. Cras feugiat vitae metus at suscipit. Aliquam id nulla nisi. Aliquam maximus tellus ut metus lobortis fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br><br>
+								Vestibulum nec purus at sem malesuada congue. Donec vitae ultricies velit, ac pharetra ligula. Aenean non urna eget lorem vestibulum suscipit. Phasellus mattis placerat tellus ut fermentum. Morbi a euismod erat. Suspendisse commodo fringilla leo eu ultrices. Nam condimentum nisl pellentesque massa semper interdum.<br><br>
+								Duis lectus nisi, volutpat quis est non, sollicitudin laoreet tellus. Donec vel dui in sapien pellentesque rhoncus a et sapien. Fusce nisl ex, venenatis in nunc eget, rhoncus vulputate mauris. Ut lorem lectus, tincidunt in risus euismod, porta suscipit nibh. Fusce feugiat id turpis id porttitor. Donec semper laoreet bibendum. Praesent magna est, scelerisque a euismod sed, laoreet ut metus. Nam eu lobortis erat, et molestie orci.<br><br>
+								Maecenas dignissim, risus commodo fermentum dapibus, nunc nunc tincidunt nisi, eget accumsan diam ante sed velit. Quisque lacinia et orci nec feugiat. In commodo odio quis elit scelerisque tincidunt. Duis facilisis odio ut viverra consequat. Sed bibendum vulputate urna id imperdiet. Vestibulum gravida elit vel odio euismod vestibulum. Sed non lectus nec."
+							}) }}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Anyone who’s in control failed to pay back funds in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation failed to pay back funds in the last 3 years?</td>
+						<td class="govuk-table__cell">Anyone who’s in control been investigated for fraud or irregularities in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation been investigated for fraud or irregularities in the last 3 years?</td>
+						<td class="govuk-table__cell">Anyone who’s in control had a contact terminated by a public body in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?</td>
+						<td class="govuk-table__cell">Anyone who’s in control withdrawn from a contract with a public body in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation had a contract terminated by a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">Anyone who’s in control breached tax payments or social security contributions in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation withdrawn from a contract with a public body in the last 3 years?</td>
+						<td class="govuk-table__cell">Anyone who’s in control on the Register of Removed Trustees</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation breached tax payments or social security contributions in the last 3 years?</td>
-						<td class="govuk-table__cell">No</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Has anyone who’s in control of your organisation or any of its partner organisations been made bankrupt in the last 3 years?</td>
+						<td class="govuk-table__cell">Anyone who’s in control of organisation or partner organisations been made bankrupt in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 				</tbody>
@@ -93,29 +104,13 @@
 			<form action="" method="post" class="form">
 				
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
-
-				<p class="govuk-body">If the applicant answered 'No' to all of these questions, pass this check.</p>
-				<p class="govuk-body">If the applicant answered 'Yes' to any of these questions, read the additional information and make a decision.</p>
-				<!--p class="govuk-body">If you have selected ‘no’ to any of the questions above, reject these checks.</p-->
-				
-				{% set passHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-criminal-people-outcome-pass",
-						id: "gw-company-criminal-people-outcome-pass",
-          	value: data['gw-company-criminal-people-outcome-pass'],
-						maxlength: 750,
-						label: {
-							text: "Add comments (optional)"
-						}
-					}) }}
-				{% endset -%}
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
 						name: "gw-company-criminal-people-outcome-reject",
 						id: "gw-company-criminal-people-outcome-reject",
           	value: data['gw-company-criminal-people-outcome-reject'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments"
 						}
@@ -127,7 +122,7 @@
 						name: "gw-company-criminal-people-outcome-inprogress",
 						id: "gw-company-criminal-people-outcome-inprogress",
           	value: data['gw-company-criminal-people-outcome-inprogress'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments"
 						}
@@ -169,8 +164,6 @@
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"
 				}) }}
-        
-        <!--p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p-->
 
 			</form>
 

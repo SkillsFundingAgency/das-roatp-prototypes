@@ -40,7 +40,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if not data['gw-company-legal-outcome'] %}
+				{% if not data['gw-company-initial-outcome-reject'] and not data['gw-company-organisation-info-reject'] %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
 					<td class="govuk-table__cell">10053003</td>
@@ -102,9 +102,9 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-company-legal-outcome'] %}
+				{% if data['gw-company-initial-outcome-reject'] and not data['gw-company-feedback'] %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
+					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
 					<td class="govuk-table__cell">10053003</td>
 					<td class="govuk-table__cell">APR00001</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
@@ -172,6 +172,17 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if data['gw-company-feedback'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
+					<td class="govuk-table__cell">10053003</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+					</td>
+				</tr>
+				{% endif %}
 				<!--tr class="govuk-table__row">
 					<td class="govuk-table__cell">BABCOCK TRAINING</td>
 					<td class="govuk-table__cell">19987868</td>

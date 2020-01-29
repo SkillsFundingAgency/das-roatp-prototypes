@@ -225,6 +225,9 @@
 							<span class="app-task-list__task-name">
 								<a href="company/outcome">Confirm gateway outcome</a>
 							</span>
+							{% if data['gw-company-feedback'] %}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

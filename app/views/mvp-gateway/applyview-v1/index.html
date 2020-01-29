@@ -1,0 +1,54 @@
+{% set currentpage = "task-list" %}
+{% extends "layouts/layout_mvpapply_v1.html" %}
+
+{% block pageTitle %}
+  Application complete - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">RoATP application overview</h1>
+
+		{% if data['gw-company-initial-outcome'] and data['gw-company-organisation-info'] %}
+
+      <h2 class="govuk-heading-m">Your application has been rejected by the gateway assessment team.</h2>
+      <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dapibus velit a nunc tristique, pharetra laoreet justo rutrum. Pellentesque non commodo purus, vitae auctor nunc. Sed ullamcorper metus ipsum, at dictum quam dignissim ac.</p>
+      {{ govukButton({
+        href: "task-list",
+        text: "Re-open application"
+      }) }}
+      <p class="govuk-body"><a href="javascript:preventDefault();"></a></p>
+
+    {% else %}
+
+      {{ govukPanel({
+        titleText: "Application submitted",
+        html: "Your reference number<br><strong>APR00001</strong>"
+      }) }}
+
+      <p class="govuk-body"><br>We have sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">We have sent your application to the RoATP application assessment team.</p>
+      <p class="govuk-body">You’ll need to allow at least 12 weeks for them to process your application.</p>
+      <p class="govuk-body">They will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check your application and the people involved in your organisation</li>
+        <li>tell you if your application has been successful or unsuccessful</li>
+      </ul>
+      <p class="govuk-body">ESFA may also ask for further information on any application answers (they may withdraw your application if you do not comply).</p>
+      <p class="govuk-body">You’ll receive an email when there’s an update with your application.</p>
+      <p class="govuk-body">To make a change or withdraw your application, email <a href="mailto:helpdesk@manage-apprenticeships.service.gov.uk">helpdesk@manage-apprenticeships.service.gov.uk</a> or call 08000 150 600.</p>
+      <p class="govuk-body"><a href="#">What did you think of this service? (takes 30 seconds)</a></p>
+    
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

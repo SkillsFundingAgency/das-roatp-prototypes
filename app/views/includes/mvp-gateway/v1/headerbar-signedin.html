@@ -12,3 +12,26 @@
       html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
     }) }}
   </div>
+  
+  <div class="govuk-phase-banner govuk-width-container" style="padding: 0;">
+    <nav>
+      <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
+      {{signedin}}
+        <li class="roatp__navigation-item roatp__navigation-item--active">
+                <a class="govuk-header__link" href="/application/v14/task-list">
+                  Application overview
+                </a>
+              </li>
+        <!--li class="roatp__navigation-item">
+          <a class="govuk-header__link" href="#">
+            Your messages (0)
+          </a>
+        </li-->
+        <li class="roatp__navigation-item roatp__navigation-signout">
+          <a class="govuk-header__link" href="#">
+            Sign out
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>

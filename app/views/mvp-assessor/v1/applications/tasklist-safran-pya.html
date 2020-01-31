@@ -1,0 +1,78 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v1/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v1/applications/tasklist-safran"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Protecting your apprentices</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10053003</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<h2><a href="questions-safran-pya-continuity">Continuity plan for apprenticeship training</a></h2>
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<h2><a href="questions-safran-pya-equality">Equality and diversity policy</a></h2>
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<h2><a href="questions-safran-pya-safeguarding">Safeguarding and Prevent duty policy</a></h2>
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<h2><a href="questions-safran-pya-healthandsafety">Health and safety policy</a></h2>
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

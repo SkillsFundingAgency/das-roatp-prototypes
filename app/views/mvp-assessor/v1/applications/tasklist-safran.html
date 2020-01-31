@@ -1,0 +1,81 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v1/applications/applications-assessor"
+			},
+			{
+				text: "Application overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Application overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10053003</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<h2><a href="tasklist-safran-pya">Protecting your apprentices</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

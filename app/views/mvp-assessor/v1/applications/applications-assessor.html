@@ -1,0 +1,129 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">RoATP applications</h1>
+		</div>
+	</div>
+	
+	{% set newHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="tasklist-safran">SAFRAN LANDING SYSTEMS UK LTD</a></td>
+					<td class="govuk-table__cell">10053003</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">THINK POD</td>
+					<td class="govuk-table__cell">10346672</td>
+					<td class="govuk-table__cell">APR00004</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">EXAM SNAP</td>
+					<td class="govuk-table__cell">11982928</td>
+					<td class="govuk-table__cell">APR00005</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">STELLA NOVA</td>
+					<td class="govuk-table__cell">10959582</td>
+					<td class="govuk-table__cell">APR00006</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+					<td class="govuk-table__cell"></td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+<div class="shrinkit">
+	{{ govukTabs({
+		items: [
+			{
+				label: "New",
+				id: "new",
+				panel: {
+					html: newHtml
+				}
+			},
+			{
+				label: "In progress",
+				id: "inprogress",
+				panel: {
+					html: inprogressHtml
+				}
+			},
+			{
+				label: "Outcome",
+				id: "outcome",
+				panel: {
+					html: outcomeHtml
+				}
+			}
+		]
+	}) }}
+</div>
+      
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[0]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[1]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[2]
+			]
+		});
+		
+	</script>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v1/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v1/applications/tasklist-safran"
+			},
+			{
+				text: "Protecting your apprentices",
+				href: "/mvp-assessor/v1/applications/tasklist-safran-pya"
+			},
+			{
+				text: "Equality and diversity policy"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Equality and diversity policy</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10053003</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+		
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Equality and diversity policy</th>
+						<td class="govuk-table__cell"><a href="javascript:preventDefault();">safran-equality-diversity-policy.pdf</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-l">Is this section complete?</h2>
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				idPrefix: "aac-pya-equality-complete",
+				name: "aac-pya-equality-complete",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes"
+					},
+					{
+						value: "No",
+						text: "No"
+					}
+				]
+			}) }}
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

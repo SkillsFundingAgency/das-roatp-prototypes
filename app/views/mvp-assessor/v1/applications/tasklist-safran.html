@@ -54,22 +54,28 @@
 				</div>
 			</dl>
 
-			<h2><a href="tasklist-safran-pya">Protecting your apprentices</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="tasklist-safran-pya">Protecting your apprentices</a></h2>
+			{% if (data['aac-pya-continuity-complete'] == "Yes") and (data['aac-pya-equality-complete'] == "Yes") and (data['aac-pya-safeguarding-complete'] == "Yes") and (data['aac-pya-healthandsafety-complete'] == "Yes") %}
+				<strong class="govuk-tag">Assessed</strong>
+			{% elseif (data['aac-pya-continuity-complete'] == "Yes") or (data['aac-pya-equality-complete'] == "Yes") or (data['aac-pya-safeguarding-complete'] == "Yes") or (data['aac-pya-healthandsafety-complete'] == "Yes") %}
+				<strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+			{% endif %}
+			{% if data['aac-pya-continuity-feedback-record'] %}<strong class="govuk-tag">Feedback added</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 		

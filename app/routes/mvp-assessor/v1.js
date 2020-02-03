@@ -15,10 +15,120 @@ function monthNumToName(monthnum) {
 module.exports = function (router) {
 
 	/******************
-	 * ???            *
+	 * Assessor - PYA *
 	 ******************/
 
+		router.post('/mvp-assessor/' + v + '/applications/safran/questions-pya-continuity', function (req, res) {
+			res.redirect('/mvp-assessor/' + v + '/applications/tasklist-safran-pya')
+		})
+
+		router.post('/mvp-assessor/' + v + '/applications/safran/questions-pya-equality', function (req, res) {
+			res.redirect('/mvp-assessor/' + v + '/applications/tasklist-safran-pya')
+		})
+
+		router.post('/mvp-assessor/' + v + '/applications/safran/questions-pya-safeguarding', function (req, res) {
+			res.redirect('/mvp-assessor/' + v + '/applications/tasklist-safran-pya')
+		})
+
+		router.post('/mvp-assessor/' + v + '/applications/safran/questions-pya-healthandsafety', function (req, res) {
+			res.redirect('/mvp-assessor/' + v + '/applications/tasklist-safran-pya')
+		})
+
+		/*****************************
+		 * Assessor - PYA - Feedback *
+		 *****************************/
+
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/pya-continuity', function (req, res) {
+				// add feedback to an array to store feedback, username, and timestamp
+        var today = new Date();
+				var d = today.getDate();
+				var m = months[(today.getMonth()-1)]
+        var y = today.getFullYear();
+				var newFeedback = {
+					'user': 'J Smith',
+					'dateadded': d+' '+m+' '+y,
+					'feedback': req.session.data['aac-pya-continuity-feedback']
+				}
+				if (!req.session.data['aac-pya-continuity-feedback-record']) {
+					req.session.data['aac-pya-continuity-feedback-record'] = []
+				}
+				req.session.data['aac-pya-continuity-feedback-record'].push(newFeedback)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/questions-pya-continuity')
+			})
 	
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/pya-equality', function (req, res) {
+        var today = new Date();
+				var d = today.getDate();
+				var m = months[(today.getMonth()-1)]
+        var y = today.getFullYear();
+				var newFeedback = {
+					'user': 'J Smith',
+					'dateadded': d+' '+m+' '+y,
+					'feedback': req.session.data['aac-pya-equality-feedback']
+				}
+				if (!req.session.data['aac-pya-equality-feedback-record']) {
+					req.session.data['aac-pya-equality-feedback-record'] = []
+				}
+				req.session.data['aac-pya-equality-feedback-record'].push(newFeedback)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/questions-pya-equality')
+			})
+	
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/pya-safeguarding', function (req, res) {
+        var today = new Date();
+				var d = today.getDate();
+				var m = months[(today.getMonth()-1)]
+        var y = today.getFullYear();
+				var newFeedback = {
+					'user': 'J Smith',
+					'dateadded': d+' '+m+' '+y,
+					'feedback': req.session.data['aac-pya-safeguarding-feedback']
+				}
+				if (!req.session.data['aac-pya-safeguarding-feedback-record']) {
+					req.session.data['aac-pya-safeguarding-feedback-record'] = []
+				}
+				req.session.data['aac-pya-safeguarding-feedback-record'].push(newFeedback)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/questions-pya-safeguarding')
+			})
+	
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/pya-healthandsafety', function (req, res) {
+        var today = new Date();
+				var d = today.getDate();
+				var m = months[(today.getMonth()-1)]
+        var y = today.getFullYear();
+				var newFeedback = {
+					'user': 'J Smith',
+					'dateadded': d+' '+m+' '+y,
+					'feedback': req.session.data['aac-pya-healthandsafety-feedback']
+				}
+				if (!req.session.data['aac-pya-healthandsafety-feedback-record']) {
+					req.session.data['aac-pya-healthandsafety-feedback-record'] = []
+				}
+				req.session.data['aac-pya-healthandsafety-feedback-record'].push(newFeedback)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/questions-pya-healthandsafety')
+			})
+
+
+		// DELETE FEEDBACK
+		
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/delete-pya-continuity', function (req, res) {
+				req.session.data['aac-pya-continuity-feedback-record'].splice(req.session.data['feedbackid'],1)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/feedback/pya-continuity')
+			})
+		
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/delete-pya-equality', function (req, res) {
+				req.session.data['aac-pya-equality-feedback-record'].splice(req.session.data['feedbackid'],1)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/feedback/pya-equality')
+			})
+		
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/delete-pya-safeguarding', function (req, res) {
+				req.session.data['aac-pya-safeguarding-feedback-record'].splice(req.session.data['feedbackid'],1)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/feedback/pya-safeguarding')
+			})
+		
+			router.post('/mvp-assessor/' + v + '/applications/safran/feedback/delete-pya-healthandsafety', function (req, res) {
+				req.session.data['aac-pya-healthandsafety-feedback-record'].splice(req.session.data['feedbackid'],1)
+				res.redirect('/mvp-assessor/' + v + '/applications/safran/feedback/pya-healthandsafety')
+			})
 
 
 	/************************

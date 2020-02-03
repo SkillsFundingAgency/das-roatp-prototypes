@@ -58,17 +58,24 @@
 				</div>
 			</dl>
 
-			<h2><a href="questions-safran-pya-continuity">Continuity plan for apprenticeship training</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="safran/questions-pya-continuity">Continuity plan for apprenticeship training</a></h2>
+			{% if data['aac-pya-continuity-complete'] == "Yes" %}<strong class="govuk-tag">Assessed</strong>{% endif %}
+			{% if data['aac-pya-continuity-feedback-record'] %}<strong class="govuk-tag">Feedback added</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-			<h2><a href="questions-safran-pya-equality">Equality and diversity policy</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="safran/questions-pya-equality">Equality and diversity policy</a></h2>
+			{% if data['aac-pya-equality-complete'] == "Yes" %}<strong class="govuk-tag">Assessed</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-			<h2><a href="questions-safran-pya-safeguarding">Safeguarding and Prevent duty policy</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="safran/questions-pya-safeguarding">Safeguarding and Prevent duty policy</a></h2>
+			{% if data['aac-pya-safeguarding-complete'] == "Yes" %}<strong class="govuk-tag">Assessed</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-			<h2><a href="questions-safran-pya-healthandsafety">Health and safety policy</a></h2>
+			<h2 class="govuk-!-margin-bottom-2"><a href="safran/questions-pya-healthandsafety">Health and safety policy</a></h2>
+			{% if data['aac-pya-healthandsafety-complete'] == "Yes" %}<strong class="govuk-tag">Assessed</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+			<p class="govuk-!-margin-top-9"><a href="http://localhost:1337/mvp-assessor/v1/applications/tasklist-safran">Back to application overview</a></p>
 		
 		</div>
 	</div>

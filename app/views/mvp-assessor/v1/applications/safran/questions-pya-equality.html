@@ -73,7 +73,13 @@
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">Equality and diversity policy</th>
 						<td class="govuk-table__cell"><a href="javascript:preventDefault();">safran-equality-diversity-policy.pdf</a></td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-equality-policy'][0] %}
+							<a href="feedback/pya-equality">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-equality">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 				</tbody>
 			</table>

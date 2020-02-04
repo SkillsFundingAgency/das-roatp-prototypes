@@ -21,7 +21,7 @@
 				href: "/mvp-assessor/v1/applications/tasklist-safran-pya"
 			},
 			{
-				text: "Safeguarding and Prevent duty policy"
+				text: "Safeguarding and prevent duty policy"
 			}
 		]
 	}) }}
@@ -76,7 +76,13 @@
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Safeguarding policy upload</h3>
 							<p class="govuk-body"><a href="javascript:preventDefault();">safran-safeguarding-policy.pdf</a></p>
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-safeguarding-policy'][0] %}
+							<a href="feedback/pya-safeguarding-policy">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-policy">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">Overall responsibility for safeguarding</th>
@@ -88,7 +94,13 @@
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Contact number</h3>
 							<p class="govuk-body govuk-!-margin-bottom-1">07123 456789</p>
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-safeguarding-responsible'][0] %}
+							<a href="feedback/pya-safeguarding-responsible">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-responsible">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">Prevent duty</th>
@@ -96,9 +108,15 @@
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</h3>
 							<p class="govuk-body">No</p>
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Prevent duty upload</h3>
-							<p class="govuk-body"><a href="javascript:preventDefault();">safran-prevent-duty-policy.pdf</a></p>
+							<p class="govuk-body"><a href="javascript:preventDefault();">safran-preventduty.pdf</a></p>
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-safeguarding-preventduty'][0] %}
+							<a href="feedback/pya-safeguarding-preventduty">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-preventduty">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 				</tbody>
 			</table>

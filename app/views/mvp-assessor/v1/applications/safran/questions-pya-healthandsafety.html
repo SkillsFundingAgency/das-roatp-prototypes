@@ -73,7 +73,13 @@
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">health and safety policy</th>
 						<td class="govuk-table__cell"><a href="javascript:preventDefault();">safran-healthsafety-policy.pdf</a></td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-healthandsafety-policy'][0] %}
+							<a href="feedback/pya-healthandsafety-policy">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-healthandsafety-policy">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">Overall responsibility for health and safety</th>
@@ -85,7 +91,13 @@
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Contact number</h3>
 							<p class="govuk-body govuk-!-margin-bottom-1">07123 456789</p>
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top"><a href="javascript:preventDefault();">Add feedback</a></td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+							{% if data['feedback-pya-healthandsafety-responsible'][0] %}
+							<a href="feedback/pya-healthandsafety-responsible">View or delete feedback</a>
+							{% else %}
+							<a href="feedback/pya-healthandsafety-responsible">Add feedback</a>
+							{% endif %}
+						</td>
 					</tr>
 				</tbody>
 			</table>

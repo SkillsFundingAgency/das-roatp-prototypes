@@ -74,7 +74,7 @@
 						<th scope="row" class="govuk-table__header" style="vertical-align: top">Continuity plan for apprenticeship training</th>
 						<td class="govuk-table__cell"><a href="javascript:preventDefault();">safran-continuity-plan.pdf</a></td>
 						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
-							{% if data['aac-pya-continuity-feedback'] %}
+							{% if data['feedback-pya-continuity-policy'][0] %}
 							<a href="feedback/pya-continuity">View or delete feedback</a>
 							{% else %}
 							<a href="feedback/pya-continuity">Add feedback</a>

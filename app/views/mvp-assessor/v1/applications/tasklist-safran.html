@@ -60,7 +60,16 @@
 			{% elseif (data['aac-pya-continuity-complete'] == "Yes") or (data['aac-pya-equality-complete'] == "Yes") or (data['aac-pya-safeguarding-complete'] == "Yes") or (data['aac-pya-healthandsafety-complete'] == "Yes") %}
 				<strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
 			{% endif %}
-			{% if data['aac-pya-continuity-feedback-record'] %}<strong class="govuk-tag">Feedback added</strong>{% endif %}
+			{% if (data['feedback-pya-continuity-policy'][0]) or 
+						(data['feedback-pya-equality-policy'][0]) or
+						(data['feedback-pya-safeguarding-policy'][0]) or 
+						(data['feedback-pya-safeguarding-responsible'][0]) or 
+						(data['feedback-pya-safeguarding-preventduty'][0]) or 
+						(data['feedback-pya-healthandsafety-policy'][0]) or 
+						(data['feedback-pya-healthandsafety-responsible'][0]) 
+				%}
+				<strong class="govuk-tag">Feedback added</strong>
+			{% endif %}
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2>

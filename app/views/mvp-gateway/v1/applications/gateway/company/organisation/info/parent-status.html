@@ -32,11 +32,11 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">UK ultimate parent company checks</h1>
+			<h1 class="govuk-heading-xl">Is the parent company’s status ‘active’?</h1>
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				Legal name: XXX XXXX LIMITED<br>
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003<br>
 				Parent company number: 01234567<br>
 				Application submitted on: 17 Oct 2019<br>
@@ -60,18 +60,6 @@
 						</tr>
 					</tbody>
 				</table>
-				
-				{% set noHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-organisation-parent-status-no",
-						id: "gw-company-organisation-parent-status-no",
-          	value: data['gw-company-organisation-parent-status-no'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-organisation-parent-status",
@@ -91,7 +79,6 @@
 					]
 				}) }}	
 				
-
 				{{ govukButton({
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"

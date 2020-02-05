@@ -36,7 +36,7 @@
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				Legal name: XXX XXXX LIMITED<br>
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 
@@ -47,15 +47,15 @@
 						<td class="govuk-table__cell">{{ data['gw-company-organisation-parent-name'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Is the parent company’s status active?</td>
+						<td class="govuk-table__header">Is the parent company’s status ‘active’?</td>
 						<td class="govuk-table__cell">{{ data['gw-company-organisation-parent-status'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Is the ICO registration number valid?</td>
+						<td class="govuk-table__header">Is the Information Commissioner's Office (ICO) registration number valid and correct?	</td>
 						<td class="govuk-table__cell">{{ data['gw-company-organisation-ico'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Is the website active and correct for the organisation?</td>
+						<td class="govuk-table__header">Is the website address active and correct?</td>
 						<td class="govuk-table__cell">{{ data['gw-company-organisation-website'] }}</td>
 					</tr>
 				</tbody>
@@ -63,11 +63,8 @@
 
 			<form action="" method="post" class="form">
 				
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of these checks?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of these checks?</h2>
 
-				<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass these checks.</p>
-				<p class="govuk-body">If you have selected ‘no’ to any of the questions above, reject these checks.</p>
-				
 				{% set passHtml %}
 					{{ govukCharacterCount({
 						name: "gw-company-organisation-info-pass",

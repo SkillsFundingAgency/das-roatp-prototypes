@@ -77,8 +77,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/highrisk/organisation">Organisation high risk checks</a-->
-								<a href="javascript:preventDefault();">Organisation high risk</a>
+								<a href="company/highrisk/organisation">Organisation high risk</a>
 							</span>
 							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
@@ -87,20 +86,10 @@
 							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-organisation-inprogress">In progress</strong>
 							{% endif %}
-							<!--
-							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
-							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-organisation-rejected">In progress</strong>
-							{% endif %}
-							-->
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/highrisk/people">People in control high risk checks</a-->
-								<a href="javascript:preventDefault();">People in control high risk</a>
+								<a href="company/highrisk/people">People in control high risk</a>
 							</span>
 							{% if data['gw-company-people-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-people-organisation-passed">Passed</strong>

@@ -67,18 +67,6 @@
 						</tr>
 					</tbody>
 				</table>
-				
-				{% set noHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-initial-legalname-no",
-						id: "gw-company-initial-legalname-no",
-          	value: data['gw-company-initial-legalname-no'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-initial-legalname",

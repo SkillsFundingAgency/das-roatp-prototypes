@@ -78,6 +78,8 @@ module.exports = function (router) {
 	 * Organisation Checks *
 	 ***********************/
 
+	// Organisation information
+
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/parent-name', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/parent-status')
 		})
@@ -97,6 +99,35 @@ module.exports = function (router) {
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/info/outcome', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
 		})
+
+	// Organisation type
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/type/type', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
+	// Experience and accreditation
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/ofs', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/itt')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/itt', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/ofsted')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/ofsted', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/subcontractor')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/subcontractor', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/outcome')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/organisation/experience/outcome', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
+		})
+
 
 	/**********************************
 	 * Criminal and compliance Checks *

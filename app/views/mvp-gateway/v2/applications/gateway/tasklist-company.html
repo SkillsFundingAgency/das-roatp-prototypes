@@ -151,14 +151,27 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Organisation type</a>
+								<a href="company/organisation/type/type">Organisation type</a>
 							</span>
+							{% if data['gw-company-organisation-type'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-organisation-type-passed">Passed</strong>
+							{% elseif data['gw-company-organisation-type'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-organisation-type-rejected">Rejected</strong>
+							{% elseif data['gw-company-organisation-type'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-organisation-type-rejected">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Experience and accreditation</a>
-								<!--a href="company/organisation/experience/itt">Experience and accreditation</a-->
+								<a href="company/organisation/experience/ofs">Experience and accreditation</a>
 							</span>
+							{% if data['gw-company-organisation-experience'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-organisation-experience-passed">Passed</strong>
+							{% elseif data['gw-company-organisation-experience'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-organisation-experience-rejected">Rejected</strong>
+							{% elseif data['gw-company-organisation-experience'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-organisation-experience-rejected">In progress</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

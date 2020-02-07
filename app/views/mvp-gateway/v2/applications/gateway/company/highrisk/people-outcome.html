@@ -31,26 +31,26 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Organisation high risk</span>
-			<h1 class="govuk-heading-xl">Check if the organisation is on the high risk list</h1>
+			<span class="govuk-caption-m">People in control and high risk</span>
+			<h1 class="govuk-heading-xl">Are any of the people in control of the organisation on the high risk list?</h1>
 
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003<br>
 				Type of organisation: Company<br>
-				UKPRN: 10053003
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
 			</p>
 
 			<table class="govuk-table">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">Organisation</th>
-					</tr>
-				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Legal name</td>
-						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+						<td class="govuk-table__header">Do the people in control of the organisation match for ‘submitted application’ and the relevant source?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-legal-people'] }}</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Are any of the people in control of the organisation on the high risk list?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-legal-people-highrisk'] }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -58,18 +58,19 @@
 		</div>
 	</div>
 
-	<div class="govuk-grid-row govuk-!-margin-top-5">
+	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
 			<h3 class="govuk-heading-m">What is the overall outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
+
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-reject",
-						id: "gw-company-highrisk-organisation-reject",
-          	value: data['gw-company-highrisk-organisation-reject'],
+						name: "gw-company-initial-outcome-reject",
+						id: "gw-company-initial-outcome-reject",
+          	value: data['gw-company-initial-outcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -79,9 +80,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-inprogress",
-						id: "gw-company-highrisk-organisation-inprogress",
-          	value: data['gw-company-highrisk-organisation-inprogress'],
+						name: "gw-company-initial-outcome-inprogress",
+						id: "gw-company-initial-outcome-inprogress",
+          	value: data['gw-company-initial-outcome-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -90,13 +91,13 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-highrisk-organisation-outcome",
-					name: "gw-company-highrisk-organisation-outcome",
+					idPrefix: "gw-company-highrisk-people-outcome-conditional",
+					name: "gw-company-highrisk-people-outcome",
 					items: [
 						{
 							value: "Pass",
 							text: "Pass",
-							checked: checked("gw-company-highrisk-organisation-outcome", "Pass")
+							checked: checked("gw-company-highrisk-people-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -104,7 +105,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-highrisk-organisation-outcome", "Reject")
+							checked: checked("gw-company-highrisk-people-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -115,7 +116,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-company-highrisk-organisation-outcome", "In progress")
+							checked: checked("gw-company-highrisk-people-outcome", "In progress")
 						}
 					]
 				}) }}

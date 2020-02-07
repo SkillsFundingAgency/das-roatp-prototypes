@@ -43,6 +43,14 @@ module.exports = function (router) {
 		})
 
 		router.post('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people-highrisk')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people-highrisk', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people-outcome')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/company/highrisk/people-outcome', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-company')
 		})
 

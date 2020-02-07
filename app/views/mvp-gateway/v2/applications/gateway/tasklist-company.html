@@ -79,24 +79,24 @@
 							<span class="app-task-list__task-name">
 								<a href="company/highrisk/organisation">Organisation high risk</a>
 							</span>
-							{% if data['gw-company-highrisk-organisation'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-passed">Passed</strong>
-							{% elseif data['gw-company-highrisk-organisation'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-rejected">Rejected</strong>
-							{% elseif data['gw-company-highrisk-organisation'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-organisation-inprogress">In progress</strong>
+							{% if data['gw-company-highrisk-organisation-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-organisation-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-organisation-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-organisation-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-organisation-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-organisation-outcome-inprogress">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="company/highrisk/people">People in control high risk</a>
 							</span>
-							{% if data['gw-company-people-organisation'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-people-organisation-passed">Passed</strong>
-							{% elseif data['gw-company-people-organisation'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-people-organisation-rejected">Rejected</strong>
-							{% elseif data['gw-company-people-organisation'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-people-organisation-inprogress">In progress</strong>
+							{% if data['gw-company-highrisk-people-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-highrisk-people-outcome-passed">Passed</strong>
+							{% elseif data['gw-company-highrisk-people-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-highrisk-people-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-company-highrisk-people-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-highrisk-people-outcome-inprogress">In progress</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -111,18 +111,12 @@
 								<!--a href="company/register/roatp">RoATP</a-->
 								<a href="javascript:preventDefault();">RoATP</a>
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<!--a href="company/register/epao">Register of end-point assessment organisations</a-->
 								<a href="javascript:preventDefault();">Register of end-point assessment organisations</a>
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 					</ul>
 				</li>
@@ -147,18 +141,12 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Organisation type</a>
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Experience and accreditation</a>
 								<!--a href="company/organisation/experience/itt">Experience and accreditation</a-->
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 					</ul>
 				</li>
@@ -172,18 +160,12 @@
 								<!--a href="company/criminal/organisation">The organisation</a-->
 								<a href="javascript:preventDefault();">The organisation</a>
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<!--a href="company/criminal/peopleincontrol">People in control</a-->
 								<a href="javascript:preventDefault();">People in control</a>
 							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
 						</li>
 					</ul>
 				</li>
@@ -212,9 +194,6 @@
 							<span class="app-task-list__task-name">
 								<a href="company/outcome">Confirm gateway outcome</a>
 							</span>
-							{% if data['gw-company-feedback'] %}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
-							{% endif %}
 						</li>
 					</ul>
 				</li>

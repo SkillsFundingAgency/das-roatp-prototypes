@@ -1,0 +1,137 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v2/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v2/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v2/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation high risk</span>
+			<h1 class="govuk-heading-xl">Check if the organisation is on the high risk list</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				Type of organisation: Company<br>
+				UKPRN: 10053003
+			</p>
+
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Organisation</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Legal name</td>
+						<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row govuk-!-margin-top-5">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m">What is the overall outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-organisation-reject",
+						id: "gw-company-highrisk-organisation-reject",
+          	value: data['gw-company-highrisk-organisation-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-highrisk-organisation-inprogress",
+						id: "gw-company-highrisk-organisation-inprogress",
+          	value: data['gw-company-highrisk-organisation-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-highrisk-organisation",
+					name: "gw-company-highrisk-organisation",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("gw-company-highrisk-organisation", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-highrisk-organisation", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-company-highrisk-organisation", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p>
+
+			</form>
+
+			<p><a href="mvp-gateway/v2applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

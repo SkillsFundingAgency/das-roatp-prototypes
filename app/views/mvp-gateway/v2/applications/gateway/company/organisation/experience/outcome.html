@@ -21,7 +21,7 @@
 				href: "/mvp-gateway/v2/applications/gateway/tasklist-company"
 			},
 			{
-				text: "Organisation checks"
+				text: "Organisation information"
 			}
 		]
 	}) }}
@@ -31,51 +31,44 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Organisation type</span>
-			<h1 class="govuk-heading-xl">Organisation type checks</h1>
+			<span class="govuk-caption-m">Experience and accreditation</span>
+			<h1 class="govuk-heading-xl">Experience and accreditation checks</h1>
 
-			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				Legal name: XXX XXXX LIMITED<br>
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003
 			</p>
 
 			<table class="govuk-table">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Application question </th>
-						<th scope="col" class="govuk-table__header">Applicant answer</th>
-					</tr>
-				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">What is your organisation?</td>
-						<td class="govuk-table__cell">An educational institute</td>
+						<td class="govuk-table__header">Is the organisation funded by the Office for Students (OfS) and on the OfS register?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-ofs'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">What type of educational institute is your organisation?</td>
-						<td class="govuk-table__cell">School</td>
+						<td class="govuk-table__header">Is the organisation offering initial teacher training (ITT) and on the list of registered ITT?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-itt'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">What type of school is your organisation?</td>
-						<td class="govuk-table__cell">Free school</td>
+						<td class="govuk-table__header">Does the organisation meet our requirements for Ofsted?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-ofsted'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Is your organisation already registered with ESFA?</td>
-						<td class="govuk-table__cell">Yes</td>
+						<td class="govuk-table__header">Has the organisation delivered apprenticeship training as a subcontractor in the last 12 months and on the subcontractor list?</td>
+						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-subcontractor'] }}</td>
 					</tr>
 				</tbody>
 			</table>
 
 			<form action="" method="post" class="form">
-
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of this check?</h2>
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of these checks?</h2>
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-type-pass",
-						id: "gw-company-organisation-type-pass",
-          	value: data['gw-company-organisation-type-pass'],
+						name: "gw-company-organisation-experience-pass",
+						id: "gw-company-organisation-experience-pass",
+          	value: data['gw-company-organisation-experience-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -85,9 +78,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-type-reject",
-						id: "gw-company-organisation-type-reject",
-          	value: data['gw-company-organisation-type-reject'],
+						name: "gw-company-organisation-experience-reject",
+						id: "gw-company-organisation-experience-reject",
+          	value: data['gw-company-organisation-experience-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -97,9 +90,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-type-inprogress",
-						id: "gw-company-organisation-type-inprogress",
-          	value: data['gw-company-organisation-type-inprogress'],
+						name: "gw-company-organisation-experience-inprogress",
+						id: "gw-company-organisation-experience-inprogress",
+          	value: data['gw-company-organisation-experience-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -108,13 +101,13 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-type-conditional",
-					name: "gw-company-organisation-type",
+					idPrefix: "gw-company-organisation-experience-conditional",
+					name: "gw-company-organisation-experience",
 					items: [
 						{
 							value: "Pass",
 							text: "Pass",
-							checked: checked("gw-company-organisation-type", "Pass")
+							checked: checked("gw-company-organisation-experience", "Pass")
 						},
 						{
 							value: "Reject",
@@ -122,7 +115,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-organisation-type", "Reject")
+							checked: checked("gw-company-organisation-experience", "Reject")
 						},
 						{
 							divider: "or"
@@ -133,11 +126,10 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-company-organisation-type", "In progress")
+							checked: checked("gw-company-organisation-experience", "In progress")
 						}
 					]
 				}) }}
-				
 
 				{{ govukButton({
 					text: "Save and continue",

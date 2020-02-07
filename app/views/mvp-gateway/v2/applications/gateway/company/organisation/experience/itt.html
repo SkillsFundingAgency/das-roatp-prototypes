@@ -31,17 +31,13 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Is the parent company’s status ‘active’?</h1>
+			<span class="govuk-caption-m">Experience and accreditation</span>
+			<h1 class="govuk-heading-xl">Is the organisation offering initial teacher training (ITT) and on the list of registered ITT?</h1>
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
 				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
-				UKPRN: 10053003<br>
-				Parent company number: 01234567<br>
-				Parent company name: XXX LIMITED<br>
-				Application submitted on: 17 Oct 2019<br>
-				Source checked on: 27 Nov 2019
+				UKPRN: 10053003
 			</p>
 
 			<form action="" method="post" class="form">
@@ -49,36 +45,52 @@
 				<table class="govuk-table">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
-							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Status</th>
+							<th scope="col" class="govuk-table__header">Application question</th>
+							<th scope="col" class="govuk-table__header">Applicant's answer</th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Companies House</td>
-							<td class="govuk-table__cell">Active</td>
+							<td class="govuk-table__cell">Does your organisation offer initial teacher training?</td>
+							<td class="govuk-table__cell">Yes</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Is the postgraduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?</td>
+							<td class="govuk-table__cell">No</td>
 						</tr>
 					</tbody>
 				</table>
+				
+				{% set noHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-organisation-experience-itt-no",
+						id: "gw-company-organisation-experience-itt-no",
+          	value: data['gw-company-organisation-experience-itt-no'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-parent-status",
-					name: "gw-company-organisation-parent-status",
+					idPrefix: "gw-company-organisation-experience-itt",
+					name: "gw-company-organisation-experience-itt",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-organisation-parent-status", "Yes")
+							checked: checked("gw-company-organisation-experience-itt", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-organisation-parent-status", "No")
+							checked: checked("gw-company-organisation-experience-itt", "No")
 						}
 					]
 				}) }}	
-				
+
 				{{ govukButton({
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"

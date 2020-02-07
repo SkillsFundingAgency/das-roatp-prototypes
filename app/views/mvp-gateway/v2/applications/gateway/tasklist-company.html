@@ -108,15 +108,27 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/roatp">RoATP</a-->
-								<a href="javascript:preventDefault();">RoATP</a>
+								<a href="company/register/roatp">RoATP</a>
 							</span>
+							{% if data['gw-company-register-roatp'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-roatp-passed">Passed</strong>
+							{% elseif data['gw-company-register-roatp'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-roatp-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-roatp'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-roatp-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<!--a href="company/register/epao">Register of end-point assessment organisations</a-->
-								<a href="javascript:preventDefault();">Register of end-point assessment organisations</a>
+								<a href="company/register/epao">Register of end-point assessment organisations</a>
 							</span>
+							{% if data['gw-company-register-epao'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-epao-passed">Passed</strong>
+							{% elseif data['gw-company-register-epao'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-epao-rejected">Rejected</strong>
+							{% elseif data['gw-company-register-epao'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-company-register-epao-inprogress">In progress</strong>
+							{% endif %}
 						</li>
 					</ul>
 				</li>

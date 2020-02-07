@@ -206,34 +206,31 @@
 						</li>
 					</ul>
 				</li>
-				<!--li>
-					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">5. </span> Submission checks
-					</h2>
-					<ul class="app-task-list__items">
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Application permissions and checks</a>
-							</span>
-							{% if data['gw-company-initial-outcome'] %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-company-initial-outcome-passed">Passed</strong>
-							{% endif %}
-						</li>
-					</ul>
-				</li-->
-				{% if data['gw-company-initial-outcome'] and data['gw-company-organisation-info'] %}
-				<li>
-					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">5. </span> Gateway outcome
-					</h2>
-					<ul class="app-task-list__items">
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="company/outcome">Confirm gateway outcome</a>
-							</span>
-						</li>
-					</ul>
-				</li>
+				
+				{% if (data['gw-company-initial-outcome'] == "Pass" or data['gw-company-initial-outcome'] == "Reject")
+					and (data['gw-company-highrisk-organisation-outcome'] == "Pass" or data['gw-company-highrisk-organisation-outcome'] == "Reject")
+					and (data['gw-company-highrisk-people-outcome'] == "Pass" or data['gw-company-highrisk-people-outcome'] == "Reject")
+					and (data['gw-company-register-roatp'] == "Pass" or data['gw-company-register-roatp'] == "Reject")
+					and (data['gw-company-register-epao'] == "Pass" or data['gw-company-register-epao'] == "Reject")
+					and (data['gw-company-organisation-info'] == "Pass" or data['gw-company-organisation-info'] == "Reject")
+					and (data['gw-company-organisation-type'] == "Pass" or data['gw-company-organisation-type'] == "Reject")
+					and (data['gw-company-organisation-experience'] == "Pass" or data['gw-company-organisation-experience'] == "Reject")
+					and (data['gw-company-criminal-organisation-outcome'] == "Pass" or data['gw-company-criminal-organisation-outcome'] == "Reject")
+					and (data['gw-company-criminal-people-outcome']  == "Pass" or data['gw-company-criminal-people-outcome'] == "Reject")
+				%}
+					<li>
+						<h2 class="app-task-list__section">
+							<span class="app-task-list__section-number">5. </span> Gateway outcome
+						</h2>
+						<ul class="app-task-list__items">
+							<li class="app-task-list__item">
+								<span class="app-task-list__task-name">
+									<a href="company/outcome">Confirm gateway outcome</a>
+								</span>
+							</li>
+						</ul>
+					</li>
+
 				{% endif %}
 			</ol>
 

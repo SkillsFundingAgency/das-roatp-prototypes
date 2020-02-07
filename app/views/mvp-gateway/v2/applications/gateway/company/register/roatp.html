@@ -31,12 +31,12 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Register checks</span>
-			<h1 class="govuk-heading-xl">Check if the organisation is on the RoATP</h1>
+			<span class="govuk-caption-m">RoATP</span>
+			<h1 class="govuk-heading-xl">Check if the organisation was removed from the RoATP in the last 3 years</h1>
 
 			<!--h2 class="govuk-heading-l">Application data</h2-->
 			<p class="govuk-body">
-				Legal name: XXX XXXX LIMITED<br>
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
 				UKPRN: 10053003<br>
 				Application submitted on: 17 Oct 2019<br>
 				Source checked on: 27 Nov 2019
@@ -44,12 +44,11 @@
 
 			<form action="" method="post" class="form">
 
-				<p class="govuk-body">The latest data from the RoATP is displayed below.</p>
 				<table class="govuk-table">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Legal name</th>
+							<th scope="col" class="govuk-table__header">Status</th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
@@ -61,23 +60,15 @@
 							<td class="govuk-table__header">RoATP</td>
 							<td class="govuk-table__cell">
 								Removed from the RoATP<br>
+								[PROVIDER ROUTE]<br>
 								[DATE]<br>
-								[REASON]<br>
-								[PROVIDER ROUTE]
+								[REASON]
 							</td>
 						</tr>
 					</tbody>
 				</table>				
 				
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
-
-				<p class="govuk-body">Pass this check if:</p>
-				<ul class="govuk-list govuk-list--bullet">
-					<li>the organisation was removed from the RoATP over 3 years ago</li>
-					<li>the organisation was removed from the RoATP within 3 years with the reason of ‘provider request’, ‘internal error’ or ‘non-direct delivery in a 12-month period’</li>
-					<li>the organisation is not on the RoATP</li>
-				</ul>
-				<p class="govuk-body">If you’re unsure, ask someone in your team before you decide on an outcome. </p>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of this check?</h2>
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
@@ -122,9 +113,6 @@
 						{
 							value: "Pass",
 							text: "Pass",
-							conditional: {
-								html: passHtml
-							},
 							checked: checked("gw-company-register-roatp", "Pass")
 						},
 						{

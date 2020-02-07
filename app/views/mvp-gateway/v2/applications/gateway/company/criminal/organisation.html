@@ -147,18 +147,6 @@
 					}) }}
 				{% endset -%}
 				
-				{% set inprogressHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-criminal-organisation-outcome-inprogress",
-						id: "gw-company-criminal-organisation-outcome-inprogress",
-          	value: data['gw-company-criminal-organisation-outcome-inprogress'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
-				
 				{{ govukRadios({
 					idPrefix: "gw-company-criminal-organisation-outcome-conditional",
 					name: "gw-company-criminal-organisation-outcome",
@@ -166,6 +154,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("gw-company-criminal-organisation-outcome", "Pass")
 						},
 						{
@@ -182,9 +173,6 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							conditional: {
-								html: inprogressHtml
-							},
 							checked: checked("gw-company-criminal-organisation-outcome", "In progress")
 						}
 					]

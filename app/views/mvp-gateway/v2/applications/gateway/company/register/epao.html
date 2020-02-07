@@ -66,18 +66,6 @@
 						}
 					}) }}
 				{% endset -%}
-				
-				{% set inprogressHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-register-epao-inprogress",
-						id: "gw-company-register-epao-inprogress",
-          	value: data['gw-company-register-epao-inprogress'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-register-epao-conditional",
@@ -86,6 +74,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("gw-company-register-epao", "Pass")
 						},
 						{
@@ -102,9 +93,6 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							conditional: {
-								html: inprogressHtml
-							},
 							checked: checked("gw-company-register-epao", "In progress")
 						}
 					]

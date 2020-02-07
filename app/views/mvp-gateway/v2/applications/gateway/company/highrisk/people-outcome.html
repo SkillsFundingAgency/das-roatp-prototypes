@@ -68,9 +68,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-initial-outcome-reject",
-						id: "gw-company-initial-outcome-reject",
-          	value: data['gw-company-initial-outcome-reject'],
+						name: "gw-company-highrisk-people-outcome-reject",
+						id: "gw-company-highrisk-people-outcome-reject",
+          	value: data['gw-company-highrisk-people-outcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -78,14 +78,14 @@
 					}) }}
 				{% endset -%}
 				
-				{% set inprogressHtml %}
+				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-initial-outcome-inprogress",
-						id: "gw-company-initial-outcome-inprogress",
-          	value: data['gw-company-initial-outcome-inprogress'],
+						name: "gw-company-highrisk-people-outcome-pass",
+						id: "gw-company-highrisk-people-outcome-pass",
+          	value: data['gw-company-highrisk-people-outcome-pass'],
 						maxwords: 150,
 						label: {
-							text: "Add comments"
+							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
@@ -97,6 +97,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("gw-company-highrisk-people-outcome", "Pass")
 						},
 						{
@@ -113,9 +116,6 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							conditional: {
-								html: inprogressHtml
-							},
 							checked: checked("gw-company-highrisk-people-outcome", "In progress")
 						}
 					]

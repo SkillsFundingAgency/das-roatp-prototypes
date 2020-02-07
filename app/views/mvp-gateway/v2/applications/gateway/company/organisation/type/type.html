@@ -94,18 +94,6 @@
 						}
 					}) }}
 				{% endset -%}
-				
-				{% set inprogressHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-organisation-type-inprogress",
-						id: "gw-company-organisation-type-inprogress",
-          	value: data['gw-company-organisation-type-inprogress'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
 					idPrefix: "gw-company-organisation-type-conditional",
@@ -114,6 +102,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("gw-company-organisation-type", "Pass")
 						},
 						{
@@ -130,9 +121,6 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							conditional: {
-								html: inprogressHtml
-							},
 							checked: checked("gw-company-organisation-type", "In progress")
 						}
 					]

@@ -77,14 +77,14 @@
 					}) }}
 				{% endset -%}
 				
-				{% set inprogressHtml %}
+				{% set passssHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-inprogress",
-						id: "gw-company-highrisk-organisation-inprogress",
-          	value: data['gw-company-highrisk-organisation-inprogress'],
+						name: "gw-company-highrisk-organisation-pass",
+						id: "gw-company-highrisk-organisation-pass",
+          	value: data['gw-company-highrisk-organisation-pass'],
 						maxwords: 150,
 						label: {
-							text: "Add comments"
+							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
@@ -96,6 +96,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passssHtml
+							},
 							checked: checked("gw-company-highrisk-organisation-outcome", "Pass")
 						},
 						{
@@ -112,9 +115,6 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							conditional: {
-								html: inprogressHtml
-							},
 							checked: checked("gw-company-highrisk-organisation-outcome", "In progress")
 						}
 					]

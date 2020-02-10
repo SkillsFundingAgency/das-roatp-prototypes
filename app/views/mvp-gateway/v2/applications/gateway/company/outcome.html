@@ -31,7 +31,7 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<!--span class="govuk-caption-m">Organisation high risk</span-->
+			<span class="govuk-caption-m">Gateway outcome</span>
 			<h1 class="govuk-heading-xl">Confirm gateway outcome</h1>
 
 			<p class="govuk-body">
@@ -39,53 +39,127 @@
 				UKPRN: 10053003
 			</p>
 
-			<h3 class="govuk-heading-m">This application will be rejected.</h3>
-
-			<table class="govuk-table">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Rejected question</th>
-						<th scope="col" class="govuk-table__header">Reason</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Legal and address checks</td>
-						<td class="govuk-table__cell">{{ data['gw-company-initial-outcome-reject'] }}</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__header">UK ultimate parent company checks</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-info-reject'] }}</td>
-					</tr>
-				</tbody>
-			</table>
-
-		</div>
-	</div>
-
-	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-two-thirds">
-
-			<h3 class="govuk-heading-m">Feedback to the provider</h3>
-			<p class="govuk-body">This will be the feedback that the provider will use to update their application to RoATP</p>
-
 			<form action="" method="post" class="form">
+
+				<input type="hidden" name="gw-company-gatewayoutcome" value="true">
+				{%
+					if (data['gw-company-initial-outcome'] == "Reject")
+						or (data['gw-company-highrisk-organisation-outcome'] == "Reject")
+						or (data['gw-company-highrisk-people-outcome'] == "Reject")
+						or (data['gw-company-register-roatp'] == "Reject")
+						or (data['gw-company-register-epao'] == "Reject")
+						or (data['gw-company-organisation-info'] == "Reject")
+						or (data['gw-company-organisation-type'] == "Reject")
+						or (data['gw-company-organisation-experience'] == "Reject")
+						or (data['gw-company-criminal-organisation-outcome'] == "Reject")
+						or (data['gw-company-criminal-people-outcome'] == "Reject")
+				%}
+
+					{{ govukWarningText({
+						text: "This application will be rejected and sent back to the applicant.",
+						iconFallbackText: "Warning",
+						classes: "govuk-!-margin-top-9 govuk-!-margin-bottom-9"
+					}) }}
+
+					<table class="govuk-table govuk-!-margin-bottom-9">
+						<thead class="govuk-table__head">
+							<tr class="govuk-table__row">
+								<th scope="col" class="govuk-table__header">Sub-sections you’ve rejected</th>
+								<th scope="col" class="govuk-table__header">Reason for rejection</th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							{% if data['gw-company-initial-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Legal checks</td>
+								<td class="govuk-table__cell">{{ data['gw-company-initial-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-highrisk-organisation-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation high risk</td>
+								<td class="govuk-table__cell">{{ data['gw-company-highrisk-organisation-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-highrisk-people-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">People in control high risk</td>
+								<td class="govuk-table__cell">{{ data['gw-company-highrisk-people-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-register-roatp-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">RoATP</td>
+								<td class="govuk-table__cell">{{ data['gw-company-register-roatp-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-register-epao-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Register of end-point assessment organisations</td>
+								<td class="govuk-table__cell">{{ data['gw-company-register-epao-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-organisation-info-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation information</td>
+								<td class="govuk-table__cell">{{ data['gw-company-organisation-info-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-organisation-type-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation type</td>
+								<td class="govuk-table__cell">{{ data['gw-company-organisation-type-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-organisation-experience-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Experience and accreditation</td>
+								<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-criminal-organisation-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation criminal and compliance checks</td>
+								<td class="govuk-table__cell">{{ data['gw-company-criminal-organisation-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-company-criminal-people-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">People in control criminal and compliance checks</td>
+								<td class="govuk-table__cell">{{ data['gw-company-criminal-people-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+						</tbody>
+					</table>
+
+					<h3 class="govuk-heading-m">Feedback for the applicant</h3>
+					<p class="govuk-body">The applicant will be able to see this feedback and may use it to amend their application answers.</p>
+					<p class="govuk-body">Add as much information as you can.</p>
 
 					{{ govukCharacterCount({
 						name: "gw-company-feedback",
 						id: "gw-company-feedback",
           	value: data['gw-company-feedback'],
-						maxwords: 250
+						maxwords: 500
 					}) }}
 
-				{{ govukButton({
-					text: "Reject and send feedback",
-					classes: "govuk-!-margin-right-4"
-				}) }}
+					{{ govukButton({
+						text: "Reject application and send feedback"
+					}) }}
+
+				{% else %}
+
+					<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-9">You’ve assessed and passed this application.</h3>
+
+					{{ govukButton({
+						text: "Finish gateway outcome"
+					}) }}
+
+				{% endif %}
         
 			</form>
 
-			<p><a href="mvp-gateway/v2/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v2/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

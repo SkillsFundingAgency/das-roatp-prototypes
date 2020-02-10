@@ -41,7 +41,17 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if not data['gw-company-initial-outcome-reject'] and not data['gw-company-organisation-info-reject'] %}
+				{% if not (data['gw-company-initial-outcome']
+						or data['gw-company-highrisk-organisation-outcome']
+						or data['gw-company-highrisk-people-outcome']
+						or data['gw-company-register-roatp']
+						or data['gw-company-register-epao']
+						or data['gw-company-organisation-info']
+						or data['gw-company-organisation-type']
+						or data['gw-company-organisation-experience']
+						or data['gw-company-criminal-organisation-outcome']
+						or data['gw-company-criminal-people-outcome'])
+				%}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
 					<td class="govuk-table__cell">10053003</td>
@@ -50,7 +60,6 @@
 					<td class="govuk-table__cell">17 Oct 2019</td>
 				</tr>
 				{% endif %}
-				{% if not data['gw-roatpdown-legal-outcome'] %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">RHINO APPS LIMITED</a></td>
 					<td class="govuk-table__cell">10082147</td>
@@ -58,7 +67,6 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 				</tr>
-				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</a></td>
 					<td class="govuk-table__cell">10006054</td>
@@ -106,60 +114,69 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Organisation name</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-company-initial-outcome-reject'] and not data['gw-company-feedback'] %}
+				{% if (data['gw-company-initial-outcome']
+						or data['gw-company-highrisk-organisation-outcome']
+						or data['gw-company-highrisk-people-outcome']
+						or data['gw-company-register-roatp']
+						or data['gw-company-register-epao']
+						or data['gw-company-organisation-info']
+						or data['gw-company-organisation-type']
+						or data['gw-company-organisation-experience']
+						or data['gw-company-criminal-organisation-outcome']
+						or data['gw-company-criminal-people-outcome']) and not data['gw-company-gatewayoutcome'] %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
 					<td class="govuk-table__cell">10053003</td>
 					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
-				</tr>
-				{% endif %}
-				{% if data['gw-roatpdown-legal-outcome'] %}
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="tasklist-roatpdown">RHINO APPS LIMITED</a></td>
-					<td class="govuk-table__cell">10082147</td>
-					<td class="govuk-table__cell">APR09851</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">LEVEL UP</a></td>
 					<td class="govuk-table__cell">22657489</td>
 					<td class="govuk-table__cell">APR00102</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">BOOK BOT</a></td>
 					<td class="govuk-table__cell">24535362</td>
 					<td class="govuk-table__cell">APR00097</td>
+					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">KNOWTABLY</a></td>
 					<td class="govuk-table__cell">20098778</td>
 					<td class="govuk-table__cell">APR00013</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">MOVING THE GRADE</a></td>
 					<td class="govuk-table__cell">32118009</td>
 					<td class="govuk-table__cell">APR00187</td>
+					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">ROCKET TRAINING</a></td>
 					<td class="govuk-table__cell">20888712</td>
 					<td class="govuk-table__cell">APR00231</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">SWING START</a></td>
 					<td class="govuk-table__cell">31109023</td>
 					<td class="govuk-table__cell">APR00122</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 				</tr>
 			</tbody>
@@ -175,19 +192,37 @@
 					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
 					<th aria-sort="none" class="govuk-table__header" scope="col">Outcome</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-company-feedback'] %}
+				{% if data['gw-company-gatewayoutcome'] %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td>
+					<!--td class="govuk-table__cell"><a href="gateway/tasklist-company">SAFRAN LANDING SYSTEMS UK LTD</a></td-->
+					<td class="govuk-table__cell">SAFRAN LANDING SYSTEMS UK LTD</td>
 					<td class="govuk-table__cell">10053003</td>
 					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+						{%
+							if (data['gw-company-initial-outcome'] == "Reject")
+								or (data['gw-company-highrisk-organisation-outcome'] == "Reject")
+								or (data['gw-company-highrisk-people-outcome'] == "Reject")
+								or (data['gw-company-register-roatp'] == "Reject")
+								or (data['gw-company-register-epao'] == "Reject")
+								or (data['gw-company-organisation-info'] == "Reject")
+								or (data['gw-company-organisation-type'] == "Reject")
+								or (data['gw-company-organisation-experience'] == "Reject")
+								or (data['gw-company-criminal-organisation-outcome'] == "Reject")
+								or (data['gw-company-criminal-people-outcome'] == "Reject")
+						%}
+							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+						{% else %}
+							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+						{% endif %}
 					</td>
 				</tr>
 				{% endif %}
@@ -204,6 +239,7 @@
 					<td class="govuk-table__cell">GEASON APPRENTICESHIPS</td>
 					<td class="govuk-table__cell">18664753</td>
 					<td class="govuk-table__cell">APR00561</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
@@ -213,6 +249,7 @@
 					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
 					<td class="govuk-table__cell">19987868</td>
 					<td class="govuk-table__cell">APR00686</td>
+					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
@@ -231,6 +268,7 @@
 					<td class="govuk-table__cell">HOTGROUP</td>
 					<td class="govuk-table__cell">28876299</td>
 					<td class="govuk-table__cell">APR00851</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
@@ -240,6 +278,7 @@
 					<td class="govuk-table__cell">ABC AID</td>
 					<td class="govuk-table__cell">20098887</td>
 					<td class="govuk-table__cell">APR00334</td>
+					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>

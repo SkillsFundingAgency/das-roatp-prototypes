@@ -1,0 +1,64 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{{ data['staff-add-charitynumber'] == "" }}
+{{ data['staff-add-companynumber'] == "" }}
+{{ data['staff-add-hascharitynumber'] == "" }}
+{{ data['staff-add-hascompanynumber'] == "" }}
+{{ data['staff-add-hastradingname'] == "" }}
+{{ data['staff-add-orgname'] == "" }}
+{{ data['staff-add-route'] == "" }}
+{{ data['staff-add-tradingname'] == "" }}
+{{ data['staff-add-ukprn'] == "" }}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-assessor/v2/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+		
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<h1 class="govuk-heading-xl">What is the organisation's UKPRN?</h1>
+
+			<form action="add-ukprn-search" method="post" class="form">
+
+					{{ govukInput({
+						label: {
+							text: "UKPRN"
+						},
+						classes: "govuk-input--width-10",
+						id: "staff-add-ukprn",
+						name: "staff-add-ukprn",
+						hint: {
+							html: "11110001 returns data from UKRLP<br>11110002 is deactivated/unknown UKPRN<!--br>12340003 is UKRLP unavailable - single form<br>12340004 is UKRLP unavailable - new journey (don't build this one!)-->"
+						}
+					}) }}
+
+				{{ govukButton({
+					text: "Continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

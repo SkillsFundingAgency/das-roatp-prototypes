@@ -1,0 +1,112 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v3/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v3/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+			},
+			{
+				text: "Organisation checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Does the parent company’s name match for all sources?</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Parent company number: 01234567<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-l">Does the parent company name match for all sources?</h2>
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Parent company name</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application</td>
+							<td class="govuk-table__cell">XXX LIMITED</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Companies House</td>
+							<td class="govuk-table__cell">XXX LIMITED</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				{% set noHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-organisation-parent-name-no",
+						id: "gw-company-organisation-parent-name-no",
+          	value: data['gw-company-organisation-parent-name-no'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-company-organisation-parent-name",
+					name: "gw-company-organisation-parent-name",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-company-organisation-parent-name", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-company-organisation-parent-name", "No")
+						}
+					]
+				}) }}	
+				
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+        <!--p class="skipquestion" id="skipquestion"><a href="../../tasklist-company">Return to this check later</a></p-->
+
+			</form>
+
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

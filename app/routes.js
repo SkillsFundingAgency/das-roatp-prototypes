@@ -27,6 +27,7 @@ require('./routes/organisation/v0.js')(router);
 // MVP Gateway
 require('./routes/mvp-gateway/v1.js')(router);
 require('./routes/mvp-gateway/v2.js')(router);
+require('./routes/mvp-gateway/v3.js')(router);
 
 // MVP Assessor
 require('./routes/mvp-assessor/v1.js')(router);

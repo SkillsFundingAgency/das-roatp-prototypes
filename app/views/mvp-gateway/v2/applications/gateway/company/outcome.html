@@ -55,13 +55,13 @@
 						or (data['gw-company-criminal-organisation-outcome'] == "Reject")
 						or (data['gw-company-criminal-people-outcome'] == "Reject")
 				%}
-
+<!--
 					{{ govukWarningText({
 						text: "This application will be rejected and sent back to the applicant.",
 						iconFallbackText: "Warning",
 						classes: "govuk-!-margin-top-9 govuk-!-margin-bottom-9"
 					}) }}
-
+-->
 					<table class="govuk-table govuk-!-margin-bottom-9">
 						<thead class="govuk-table__head">
 							<tr class="govuk-table__row">
@@ -133,6 +133,71 @@
 						</tbody>
 					</table>
 
+
+			<form action="" method="post" class="form">
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What do you want to do with this applicaiton?</h2>
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-overalloutcome-reject",
+						id: "gw-company-overalloutcome-reject",
+          	value: data['gw-company-overalloutcome-reject'],
+						hint: {
+							text: "The comments added here will be made available to the applicant."
+						},
+						maxwords: 500,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set clarifyHtml %}
+					{{ govukCharacterCount({
+						name: "gw-company-overalloutcome-clarify",
+						id: "gw-company-overalloutcome-clarify",
+          	value: data['gw-company-overalloutcome-clarify'],
+						hint: {
+							text: "These comments must help guide the user to where they need to make changes in their application in order for them to re-submit their application."
+						},
+						maxwords: 500,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{{ govukRadios({
+					idPrefix: "gw-company-overalloutcome-conditional",
+					name: "gw-company-overalloutcome",
+					items: [
+						{
+							value: "Reject application",
+							text: "Reject application",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-company-overalloutcome", "Reject application")
+						},
+						{
+							value: "Ask for clarification",
+							text: "Ask for clarification",
+							conditional: {
+								html: clarifyHtml
+							},
+							checked: checked("gw-company-overalloutcome", "Ask for clarification")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+<!--
 					<h3 class="govuk-heading-m">Feedback for the applicant</h3>
 					<p class="govuk-body">The applicant will be able to see this feedback and may use it to amend their application answers.</p>
 					<p class="govuk-body">Add as much information as you can.</p>
@@ -147,7 +212,7 @@
 					{{ govukButton({
 						text: "Reject application and send feedback"
 					}) }}
-
+-->
 				{% else %}
 
 					<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-9">You’ve assessed and passed this application.</h3>

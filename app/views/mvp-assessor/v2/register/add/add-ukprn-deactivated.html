@@ -1,0 +1,40 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-assessor/v2/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<h1 class="govuk-heading-xl">UKPRN not found</h1>
+			<p class="govuk-body">This is because the UKPRN either:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>does not exist</li>
+				<li>is inactive on the UK Register of Learning Providers</li>
+			</ul>
+			<p class="govuk-body"><a href="add-ukprn">Try again</a></p>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

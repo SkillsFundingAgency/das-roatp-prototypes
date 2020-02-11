@@ -14,6 +14,13 @@ function monthNumToName(monthnum) {
 
 module.exports = function (router) {
 
+	/* Redirect rule */
+	router.get('/mvp-gateway/' + v + '/applications/gateway/company/outcome-rejected', function (req, res) {
+		req.session.data['gw-company-initial-outcome'] = "Reject"
+		req.session.data['gw-company-initial-outcome-reject'] = "Organisation status is 'Dissolved' on Companies House"
+		res.redirect('/mvp-gateway/' + v + '/applications/gateway/company/outcome')
+	})
+
 	/******************
 	 * Initial Checks *
 	 ******************/

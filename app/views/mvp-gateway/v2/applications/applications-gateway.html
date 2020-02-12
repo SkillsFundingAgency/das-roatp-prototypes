@@ -207,19 +207,10 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">
-						{%
-							if (data['gw-company-initial-outcome'] == "Reject")
-								or (data['gw-company-highrisk-organisation-outcome'] == "Reject")
-								or (data['gw-company-highrisk-people-outcome'] == "Reject")
-								or (data['gw-company-register-roatp'] == "Reject")
-								or (data['gw-company-register-epao'] == "Reject")
-								or (data['gw-company-organisation-info'] == "Reject")
-								or (data['gw-company-organisation-type'] == "Reject")
-								or (data['gw-company-organisation-experience'] == "Reject")
-								or (data['gw-company-criminal-organisation-outcome'] == "Reject")
-								or (data['gw-company-criminal-people-outcome'] == "Reject")
-						%}
-							<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
+						{% if (data['gw-company-overalloutcome'] == "Reject this application")	%}
+							<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+						{% elseif (data['gw-company-overalloutcome'] == "Send a clarification to the applicant")	%}
+							<strong class="govuk-tag app-task-list__task-negative">Clarify</strong>
 						{% else %}
 							<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
 						{% endif %}

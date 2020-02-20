@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-xyztraining"
 			},
 			{
 				text: "Confirm gateway outcome"
@@ -35,24 +35,24 @@
 			<h1 class="govuk-heading-xl">Confirm gateway outcome</h1>
 
 			<p class="govuk-body">
-				UKPRN: 12345678<br>
-				Legal name: ABC TRAINING LIMITED<br>
+				UKPRN: 98765432<br>
+				Legal name: XYZ TRAINING LIMITED<br>
 				Type of organisation: Company
 			</p>
 
 			<form action="" method="post" class="form">
 
-				<input type="hidden" name="gw-abctraining-gatewayoutcome" value="true">
+				<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="true">
 				{%
-					if (data['gw-abctraining-legal-legaloutcome'] == "Reject")
-						or (data['gw-abctraining-legal-highriskorg-outcome'] == "Reject")
-						or (data['gw-abctraining-legal-highriskpeople-outcome'] == "Reject")
-						or (data['gw-abctraining-register-roatp'] == "Reject")
-						or (data['gw-abctraining-register-epao'] == "Reject")
-						or (data['gw-abctraining-organisation-info'] == "Reject")
-						or (data['gw-abctraining-organisation-experience'] == "Reject")
-						or (data['gw-abctraining-criminal-organisation-outcome'] == "Reject")
-						or (data['gw-abctraining-criminal-people-outcome'] == "Reject")
+					if (data['gw-xyztraining-legal-legaloutcome'] == "Reject")
+						or (data['gw-xyztraining-legal-highriskorg-outcome'] == "Reject")
+						or (data['gw-xyztraining-legal-highriskpeople-outcome'] == "Reject")
+						or (data['gw-xyztraining-register-roatp'] == "Reject")
+						or (data['gw-xyztraining-register-epao'] == "Reject")
+						or (data['gw-xyztraining-organisation-info'] == "Reject")
+						or (data['gw-xyztraining-organisation-experience'] == "Reject")
+						or (data['gw-xyztraining-criminal-organisation-outcome'] == "Reject")
+						or (data['gw-xyztraining-criminal-people-outcome'] == "Reject")
 				%}
 
 					{{ govukWarningText({
@@ -69,64 +69,58 @@
 							</tr>
 						</thead>
 						<tbody class="govuk-table__body">
-							{% if data['gw-abctraining-initial-outcome-reject'] %}
+							{% if data['gw-xyztraining-legal-legaloutcome-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Legal checks</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-initial-outcome-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-legaloutcome-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-highrisk-organisation-reject'] %}
+							{% if data['gw-xyztraining-legal-highriskorg-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Organisation high risk</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-highrisk-organisation-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-highriskorg-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-highrisk-people-outcome-reject'] %}
+							{% if data['gw-xyztraining-legal-highriskpeople-outcome-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">People in control high risk</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-highrisk-people-outcome-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-highriskpeople-outcome-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-register-roatp-reject'] %}
+							{% if data['gw-xyztraining-register-roatp-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">RoATP</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-register-roatp-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-register-roatp-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-register-epao-reject'] %}
+							{% if data['gw-xyztraining-register-epao-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Register of end-point assessment organisations</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-register-epao-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-register-epao-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-organisation-info-reject'] %}
+							{% if data['gw-xyztraining-organisation-info-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Organisation information</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-info-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-organisation-info-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-organisation-type-reject'] %}
-							<tr class="govuk-table__row">
-								<td class="govuk-table__header">Organisation type</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-type-reject'] }}</td>
-							</tr>
-							{% endif %}
-							{% if data['gw-abctraining-organisation-experience-reject'] %}
+							{% if data['gw-xyztraining-organisation-experience-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Experience and accreditation</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-experience-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-organisation-experience-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-criminal-organisation-outcome-reject'] %}
+							{% if data['gw-xyztraining-criminal-organisation-outcome-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">Organisation criminal and compliance checks</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-criminal-organisation-outcome-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-criminal-organisation-outcome-reject'] }}</td>
 							</tr>
 							{% endif %}
-							{% if data['gw-abctraining-criminal-people-outcome-reject'] %}
+							{% if data['gw-xyztraining-criminal-people-outcome-reject'] %}
 							<tr class="govuk-table__row">
 								<td class="govuk-table__header">People in control criminal and compliance checks</td>
-								<td class="govuk-table__cell">{{ data['gw-abctraining-criminal-people-outcome-reject'] }}</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-criminal-people-outcome-reject'] }}</td>
 							</tr>
 							{% endif %}
 						</tbody>
@@ -137,9 +131,9 @@
 					<p class="govuk-body">Add as much information as you can.</p>
 
 					{{ govukCharacterCount({
-						name: "gw-abctraining-feedback",
-						id: "gw-abctraining-feedback",
-          	value: data['gw-abctraining-feedback'],
+						name: "gw-xyztraining-feedback",
+						id: "gw-xyztraining-feedback",
+          	value: data['gw-xyztraining-feedback'],
 						maxwords: 500
 					}) }}
 
@@ -159,7 +153,7 @@
         
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-xyztraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

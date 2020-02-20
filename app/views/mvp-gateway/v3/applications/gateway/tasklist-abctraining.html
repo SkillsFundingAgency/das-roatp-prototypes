@@ -193,15 +193,13 @@
 							{% endif %}
 						</li>
 					</ul>
-				</li>
-				
-				{% if (data['gw-abctraining-legal-outcome'] == "Pass" or data['gw-abctraining-legal-outcome'] == "Reject")
-					and (data['gw-abctraining-highrisk-organisation-outcome'] == "Pass" or data['gw-abctraining-highrisk-organisation-outcome'] == "Reject")
-					and (data['gw-abctraining-highrisk-people-outcome'] == "Pass" or data['gw-abctraining-highrisk-people-outcome'] == "Reject")
+				</li>				
+				{% if (data['gw-abctraining-legal-legaloutcome'] == "Pass" or data['gw-abctraining-legal-legaloutcome'] == "Reject")
+					and (data['gw-abctraining-legal-highriskorg-outcome'] == "Pass" or data['gw-abctraining-legal-highriskorg-outcome'] == "Reject")
+					and (data['gw-abctraining-legal-highriskpeople-outcome'] == "Pass" or data['gw-abctraining-legal-highriskpeople-outcome'] == "Reject")
 					and (data['gw-abctraining-register-roatp'] == "Pass" or data['gw-abctraining-register-roatp'] == "Reject")
 					and (data['gw-abctraining-register-epao'] == "Pass" or data['gw-abctraining-register-epao'] == "Reject")
 					and (data['gw-abctraining-organisation-info'] == "Pass" or data['gw-abctraining-organisation-info'] == "Reject")
-					and (data['gw-abctraining-organisation-type'] == "Pass" or data['gw-abctraining-organisation-type'] == "Reject")
 					and (data['gw-abctraining-organisation-experience'] == "Pass" or data['gw-abctraining-organisation-experience'] == "Reject")
 					and (data['gw-abctraining-criminal-organisation-outcome'] == "Pass" or data['gw-abctraining-criminal-organisation-outcome'] == "Reject")
 					and (data['gw-abctraining-criminal-people-outcome']  == "Pass" or data['gw-abctraining-criminal-people-outcome'] == "Reject")

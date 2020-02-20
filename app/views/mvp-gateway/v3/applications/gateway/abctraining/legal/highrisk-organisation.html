@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Legal checks"
@@ -61,9 +61,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-reject",
-						id: "gw-company-highrisk-organisation-reject",
-          	value: data['gw-company-highrisk-organisation-reject'],
+						name: "gw-abctraining-legal-highriskorg-reject",
+						id: "gw-abctraining-legal-highriskorg-reject",
+          	value: data['gw-abctraining-legal-highriskorg-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -71,11 +71,23 @@
 					}) }}
 				{% endset -%}
 				
-				{% set passssHtml %}
+				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-organisation-pass",
-						id: "gw-company-highrisk-organisation-pass",
-          	value: data['gw-company-highrisk-organisation-pass'],
+						name: "gw-abctraining-legal-highriskorg-pass",
+						id: "gw-abctraining-legal-highriskorg-pass",
+          	value: data['gw-abctraining-legal-highriskorg-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-legal-highriskorg-inprogress",
+						id: "gw-abctraining-legal-highriskorg-inprogress",
+          	value: data['gw-abctraining-legal-highriskorg-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -84,16 +96,16 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-highrisk-organisation-outcome",
-					name: "gw-company-highrisk-organisation-outcome",
+					idPrefix: "gw-abctraining-legal-highriskorg-outcome",
+					name: "gw-abctraining-legal-highriskorg-outcome",
 					items: [
 						{
 							value: "Pass",
 							text: "Pass",
 							conditional: {
-								html: passssHtml
+								html: passHtml
 							},
-							checked: checked("gw-company-highrisk-organisation-outcome", "Pass")
+							checked: checked("gw-abctraining-legal-highriskorg-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -101,7 +113,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-highrisk-organisation-outcome", "Reject")
+							checked: checked("gw-abctraining-legal-highriskorg-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -109,7 +121,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-highrisk-organisation-outcome", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-legal-highriskorg-outcome", "In progress")
 						}
 					]
 				}) }}
@@ -121,7 +136,7 @@
 				
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

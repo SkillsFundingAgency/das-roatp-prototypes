@@ -18,10 +18,10 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
-				text: "Legal checks"
+				text: "Organisation checks"
 			}
 		]
 	}) }}
@@ -31,67 +31,50 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Legal checks</span>
-			<h1 class="govuk-heading-xl">Are the statuses correct for all sources?</h1>
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Is the Information Commissioner's Office (ICO) registration number valid and correct?</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
 				Legal name: ABC TRAINING LIMITED<br>
-				Type of organisation: Company<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				UKRLP address: 172 Quinton Park, Coventry, CV3 5HZ
 			</p>
 
 			<form action="" method="post" class="form">
-				
+
 				<table class="govuk-table">
 					<thead class="govuk-table__head">
 						<tr class="govuk-table__row">
 							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Status</th>
+							<th scope="col" class="govuk-table__header">ICO registration number</th>
+							<th scope="col" class="govuk-table__header"></th>
 						</tr>
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__header">UKRLP</td>
-							<td class="govuk-table__cell">Active</td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">Companies House</td>
-							<td class="govuk-table__cell">Dissolved</td>
+							<td class="govuk-table__cell">Submitted application</td>
+							<td class="govuk-table__cell"><a href="https://ico.org.uk/ESDWebPages/Entry/Z7322278" target="_blank">Z7322278</a></td>
 						</tr>
 					</tbody>
 				</table>
 
-				{% set noHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-initial-status-no",
-						id: "gw-company-initial-status-no",
-          	value: data['gw-company-initial-status-no'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
-
 				{{ govukRadios({
-					idPrefix: "gw-company-initial-status",
-					name: "gw-company-initial-status",
+					idPrefix: "gw-abctraining-organisation-info-ico",
+					name: "gw-abctraining-organisation-info-ico",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-initial-status", "Yes")
+							checked: checked("gw-abctraining-organisation-info-ico", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-initial-status", "No")
+							checked: checked("gw-abctraining-organisation-info-ico", "No")
 						}
 					]
-				}) }}
+				}) }}	
 
 				{{ govukButton({
 					text: "Save and continue",
@@ -100,7 +83,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

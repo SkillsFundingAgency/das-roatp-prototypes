@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Organisation checks"
@@ -32,7 +32,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Experience and accreditation</span>
-			<h1 class="govuk-heading-xl">Has the organisation delivered apprenticeship training as a subcontractor in the last 12 months and on the subcontractor list?</h1>
+			<h1 class="govuk-heading-xl">Is the organisation offering initial teacher training (ITT) and on the list of registered ITT?</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
@@ -51,42 +51,30 @@
 					</thead>
 					<tbody class="govuk-table__body">
 						<tr class="govuk-table__row">
-							<td class="govuk-table__cell">Has your organisation delivered apprenticeship training as a subcontractor in the last 12 months?</td>
+							<td class="govuk-table__cell">Does your organisation offer initial teacher training?</td>
 							<td class="govuk-table__cell">No</td>
 						</tr>
 						<!--tr class="govuk-table__row">
-							<td class="govuk-table__cell">Upload a copy of a legally binding contract between your organisation and a main or employer provider </td>
-							<td class="govuk-table__cell"><a href="javascript:preventDefault();">safran-subcontractor-contract.pdf</a></td>
+							<td class="govuk-table__cell">Is the postgraduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?</td>
+							<td class="govuk-table__cell">No</td>
 						</tr-->
 					</tbody>
 				</table>
-				
-				{% set noHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-organisation-experience-subcontractor-no",
-						id: "gw-company-organisation-experience-subcontractor-no",
-          	value: data['gw-company-organisation-experience-subcontractor-no'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-experience-subcontractor",
-					name: "gw-company-organisation-experience-subcontractor",
+					idPrefix: "gw-abctraining-organisation-experience-itt",
+					name: "gw-abctraining-organisation-experience-itt",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-organisation-experience-subcontractor", "Yes")
+							checked: checked("gw-abctraining-organisation-experience-itt", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-organisation-experience-subcontractor", "No")
+							checked: checked("gw-abctraining-organisation-experience-itt", "No")
 						}
 					]
 				}) }}	
@@ -98,7 +86,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

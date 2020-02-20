@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Register checks"
@@ -31,8 +31,8 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Register of end-point assessment organisations</span>
-			<h1 class="govuk-heading-xl">Check if the organisation was removed from the register of end-point assessment organisations (EPAO)</h1>
+			<span class="govuk-caption-m">RoATP</span>
+			<h1 class="govuk-heading-xl">Check if the organisation was removed from the RoATP in the last 3 years</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
@@ -41,14 +41,38 @@
 			</p>
 
 			<form action="" method="post" class="form">
+
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Status</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application</td>
+							<td class="govuk-table__cell">On the RoATP</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">RoATP</td>
+							<td class="govuk-table__cell">
+								Removed from the RoATP<br>
+								[PROVIDER ROUTE]<br>
+								[DATE]<br>
+								[REASON]
+							</td>
+						</tr>
+					</tbody>
+				</table>				
 				
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of this check?</h2>
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-register-epao-pass",
-						id: "gw-company-register-epao-pass",
-          	value: data['gw-company-register-epao-pass'],
+						name: "gw-abctraining-register-roatp-pass",
+						id: "gw-abctraining-register-roatp-pass",
+          	value: data['gw-abctraining-register-roatp-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -58,9 +82,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-register-epao-reject",
-						id: "gw-company-register-epao-reject",
-          	value: data['gw-company-register-epao-reject'],
+						name: "gw-abctraining-register-roatp-reject",
+						id: "gw-abctraining-register-roatp-reject",
+          	value: data['gw-abctraining-register-roatp-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -69,8 +93,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-register-epao-conditional",
-					name: "gw-company-register-epao",
+					idPrefix: "gw-abctraining-register-roatp-conditional",
+					name: "gw-abctraining-register-roatp",
 					items: [
 						{
 							value: "Pass",
@@ -78,7 +102,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-register-epao", "Pass")
+							checked: checked("gw-abctraining-register-roatp", "Pass")
 						},
 						{
 							value: "Reject",
@@ -86,7 +110,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-register-epao", "Reject")
+							checked: checked("gw-abctraining-register-roatp", "Reject")
 						},
 						{
 							divider: "or"
@@ -94,7 +118,7 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-register-epao", "In progress")
+							checked: checked("gw-abctraining-register-roatp", "In progress")
 						}
 					]
 				}) }}
@@ -106,7 +130,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

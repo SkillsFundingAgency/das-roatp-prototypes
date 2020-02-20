@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Organisation checks"
@@ -72,33 +72,21 @@
 						</tr>
 					</tbody>
 				</table>
-				
-				{% set noHtml %}
-					{{ govukCharacterCount({
-						name: "gw-company-organisation-experience-ofsted-no",
-						id: "gw-company-organisation-experience-ofsted-no",
-          	value: data['gw-company-organisation-experience-ofsted-no'],
-						maxwords: 150,
-						label: {
-							text: "Add comments"
-						}
-					}) }}
-				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-experience-ofsted",
-					name: "gw-company-organisation-experience-ofsted",
+					idPrefix: "gw-abctraining-organisation-experience-ofsted",
+					name: "gw-abctraining-organisation-experience-ofsted",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-organisation-experience-ofsted", "Yes")
+							checked: checked("gw-abctraining-organisation-experience-ofsted", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-organisation-experience-ofsted", "No")
+							checked: checked("gw-abctraining-organisation-experience-ofsted", "No")
 						}
 					]
 				}) }}	
@@ -110,7 +98,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

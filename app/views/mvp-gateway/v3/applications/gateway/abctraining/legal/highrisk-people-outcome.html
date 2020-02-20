@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Legal checks"
@@ -44,11 +44,11 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Do the people in control of the organisation match for ‘submitted application’ and the relevant source?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-legal-people'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-people'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Are any of the people in control of the organisation on the high risk list?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-legal-people-highrisk'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-people-highrisk'] }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -66,9 +66,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-people-outcome-reject",
-						id: "gw-company-highrisk-people-outcome-reject",
-          	value: data['gw-company-highrisk-people-outcome-reject'],
+						name: "gw-abctraining-highrisk-people-outcome-reject",
+						id: "gw-abctraining-highrisk-people-outcome-reject",
+          	value: data['gw-abctraining-highrisk-people-outcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -78,9 +78,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-highrisk-people-outcome-pass",
-						id: "gw-company-highrisk-people-outcome-pass",
-          	value: data['gw-company-highrisk-people-outcome-pass'],
+						name: "gw-abctraining-highrisk-people-outcome-pass",
+						id: "gw-abctraining-highrisk-people-outcome-pass",
+          	value: data['gw-abctraining-highrisk-people-outcome-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -89,8 +89,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-highrisk-people-outcome-conditional",
-					name: "gw-company-highrisk-people-outcome",
+					idPrefix: "gw-abctraining-highrisk-people-outcome-conditional",
+					name: "gw-abctraining-highrisk-people-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -98,7 +98,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-highrisk-people-outcome", "Pass")
+							checked: checked("gw-abctraining-highrisk-people-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -106,7 +106,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-highrisk-people-outcome", "Reject")
+							checked: checked("gw-abctraining-highrisk-people-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -114,7 +114,7 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-highrisk-people-outcome", "In progress")
+							checked: checked("gw-abctraining-highrisk-people-outcome", "In progress")
 						}
 					]
 				}) }}
@@ -126,7 +126,7 @@
         
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

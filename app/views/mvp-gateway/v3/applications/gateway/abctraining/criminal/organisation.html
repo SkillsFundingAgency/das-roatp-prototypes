@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Criminal and compliance checks"
@@ -52,11 +52,11 @@
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
+					<!--tr class="govuk-table__row">
 						<td class="govuk-table__cell">Organisation have any composition with creditors</td>
 						<td class="govuk-table__cell">No</td>
-					</tr>
-					<!--tr class="govuk-table__row">
+					</tr-->
+					<tr class="govuk-table__row">
 						<td class="govuk-table__cell" style="border-bottom: none;">Organisation have any composition with creditors</td>
 						<td class="govuk-table__cell" style="border-bottom: none;">Yes</td>
 					</tr>
@@ -71,7 +71,7 @@
 								Maecenas dignissim, risus commodo fermentum dapibus, nunc nunc tincidunt nisi, eget accumsan diam ante sed velit. Quisque lacinia et orci nec feugiat. In commodo odio quis elit scelerisque tincidunt. Duis facilisis odio ut viverra consequat. Sed bibendum vulputate urna id imperdiet. Vestibulum gravida elit vel odio euismod vestibulum. Sed non lectus nec."
 							}) }}
 						</td>
-					</tr-->
+					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Organisation failed to pay back funds in the last 3 years</td>
 						<td class="govuk-table__cell">No</td>
@@ -131,9 +131,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-organisation-outcome-pass",
-						id: "gw-company-criminal-organisation-outcome-pass",
-          	value: data['gw-company-criminal-organisation-outcome-pass'],
+						name: "gw-abctraining-criminal-organisation-outcome-pass",
+						id: "gw-abctraining-criminal-organisation-outcome-pass",
+          	value: data['gw-abctraining-criminal-organisation-outcome-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -143,9 +143,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-organisation-outcome-reject",
-						id: "gw-company-criminal-organisation-outcome-reject",
-          	value: data['gw-company-criminal-organisation-outcome-reject'],
+						name: "gw-abctraining-criminal-organisation-outcome-reject",
+						id: "gw-abctraining-criminal-organisation-outcome-reject",
+          	value: data['gw-abctraining-criminal-organisation-outcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -153,9 +153,21 @@
 					}) }}
 				{% endset -%}
 				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminal-organisation-outcome-inprogress",
+						id: "gw-abctraining-criminal-organisation-outcome-inprogress",
+          	value: data['gw-abctraining-criminal-organisation-outcome-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
 				{{ govukRadios({
-					idPrefix: "gw-company-criminal-organisation-outcome-conditional",
-					name: "gw-company-criminal-organisation-outcome",
+					idPrefix: "gw-abctraining-criminal-organisation-outcome-conditional",
+					name: "gw-abctraining-criminal-organisation-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -163,7 +175,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-criminal-organisation-outcome", "Pass")
+							checked: checked("gw-abctraining-criminal-organisation-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -171,7 +183,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-criminal-organisation-outcome", "Reject")
+							checked: checked("gw-abctraining-criminal-organisation-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -179,7 +191,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-criminal-organisation-outcome", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-criminal-organisation-outcome", "In progress")
 						}
 					]
 				}) }}
@@ -191,7 +206,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

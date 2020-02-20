@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Organisation information"
@@ -42,21 +42,13 @@
 
 			<table class="govuk-table">
 				<tbody class="govuk-table__body">
-					<!--tr class="govuk-table__row">
-						<td class="govuk-table__header">Does the parent company name match for all sources?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-parent-name'] }}</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Is the parent company’s status ‘active’?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-parent-status'] }}</td>
-					</tr-->
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Is the Information Commissioner's Office (ICO) registration number valid and correct?	</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-ico'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-info-ico'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Is the website address active and correct?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-website'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-info-website'] }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -67,9 +59,9 @@
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-info-pass",
-						id: "gw-company-organisation-info-pass",
-          	value: data['gw-company-organisation-info-pass'],
+						name: "gw-abctraining-organisation-info-pass",
+						id: "gw-abctraining-organisation-info-pass",
+          	value: data['gw-abctraining-organisation-info-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -79,9 +71,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-info-reject",
-						id: "gw-company-organisation-info-reject",
-          	value: data['gw-company-organisation-info-reject'],
+						name: "gw-abctraining-organisation-info-reject",
+						id: "gw-abctraining-organisation-info-reject",
+          	value: data['gw-abctraining-organisation-info-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -89,9 +81,21 @@
 					}) }}
 				{% endset -%}
 
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-info-inprogress",
+						id: "gw-abctraining-organisation-info-inprogress",
+          	value: data['gw-abctraining-organisation-info-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-info-conditional",
-					name: "gw-company-organisation-info",
+					idPrefix: "gw-abctraining-organisation-info-conditional",
+					name: "gw-abctraining-organisation-info",
 					items: [
 						{
 							value: "Pass",
@@ -99,7 +103,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-organisation-info", "Pass")
+							checked: checked("gw-abctraining-organisation-info", "Pass")
 						},
 						{
 							value: "Reject",
@@ -107,7 +111,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-organisation-info", "Reject")
+							checked: checked("gw-abctraining-organisation-info", "Reject")
 						},
 						{
 							divider: "or"
@@ -115,7 +119,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-organisation-info", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-organisation-info", "In progress")
 						}
 					]
 				}) }}
@@ -127,7 +134,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

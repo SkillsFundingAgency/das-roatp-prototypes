@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Legal checks"
@@ -44,23 +44,23 @@
 			
 			<!--p class="govuk-body" style="background: lightgrey; padding :1em; margin-bottom: 0;">Question: Will we be able to play back the checks submitted in the previous screens at this point?</p-->
 
-			<!--p class="govuk-body">Does the legal name match for all sources? {{ data['gw-company-initial-legalname'] }}</p>
-			<p class="govuk-body">Is the status correct for all sources? {{ data['gw-company-initial-status'] }}</p>
-			<p class="govuk-body">Does the address match for all sources? {{ data['gw-company-initial-address'] }}</p-->
+			<!--p class="govuk-body">Does the legal name match for all sources? {{ data['gw-abctraining-legal-legalname'] }}</p>
+			<p class="govuk-body">Is the status correct for all sources? {{ data['gw-abctraining-legal-status'] }}</p>
+			<p class="govuk-body">Does the address match for all sources? {{ data['gw-abctraining-legal-address'] }}</p-->
 
 			<table class="govuk-table">
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Does the legal name match for all sources?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-initial-legalname'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-legalname'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Is the status correct for all sources?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-initial-status'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-legalstatus'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Does the address match for ‘submitted application’ and ‘UKRLP’?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-initial-address'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-legaladdress'] }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -74,9 +74,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-initial-outcome-pass",
-						id: "gw-company-initial-outcome-pass",
-          	value: data['gw-company-initial-outcome-pass'],
+						name: "gw-abctraining-legal-legaloutcome-pass",
+						id: "gw-abctraining-legal-legaloutcome-pass",
+          	value: data['gw-abctraining-legal-legaloutcome-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -86,19 +86,31 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-initial-outcome-reject",
-						id: "gw-company-initial-outcome-reject",
-          	value: data['gw-company-initial-outcome-reject'],
+						name: "gw-abctraining-legal-legaloutcome-reject",
+						id: "gw-abctraining-legal-legaloutcome-reject",
+          	value: data['gw-abctraining-legal-legaloutcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
 						}
 					}) }}
 				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-legal-legaloutcome-inprogress",
+						id: "gw-abctraining-legal-legaloutcome-inprogress",
+          	value: data['gw-abctraining-legal-legaloutcome-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-company-initial-outcome-conditional",
-					name: "gw-company-initial-outcome",
+					idPrefix: "gw-abctraining-legal-legaloutcome-conditional",
+					name: "gw-abctraining-legal-legaloutcome",
 					items: [
 						{
 							value: "Pass",
@@ -106,7 +118,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-initial-outcome", "Pass")
+							checked: checked("gw-abctraining-legal-legaloutcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -114,7 +126,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-initial-outcome", "Reject")
+							checked: checked("gw-abctraining-legal-legaloutcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -122,7 +134,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-initial-outcome", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-legal-legaloutcome", "In progress")
 						}
 					]
 				}) }}
@@ -134,7 +149,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

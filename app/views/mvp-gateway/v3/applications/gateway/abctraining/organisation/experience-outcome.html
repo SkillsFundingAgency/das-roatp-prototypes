@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Organisation information"
@@ -44,19 +44,19 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Is the organisation funded by the Office for Students (OfS) and on the OfS register?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-ofs'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-experience-ofs'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Is the organisation offering initial teacher training (ITT) and on the list of registered ITT?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-itt'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-experience-itt'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Does the organisation meet our requirements for Ofsted?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-ofsted'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-experience-ofsted'] }}</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__header">Has the organisation delivered apprenticeship training as a subcontractor in the last 12 months and on the subcontractor list?</td>
-						<td class="govuk-table__cell">{{ data['gw-company-organisation-experience-subcontractor'] }}</td>
+						<td class="govuk-table__cell">{{ data['gw-abctraining-organisation-experience-subcontractor'] }}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -67,9 +67,9 @@
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-experience-pass",
-						id: "gw-company-organisation-experience-pass",
-          	value: data['gw-company-organisation-experience-pass'],
+						name: "gw-abctraining-organisation-experience-pass",
+						id: "gw-abctraining-organisation-experience-pass",
+          	value: data['gw-abctraining-organisation-experience-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -79,9 +79,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-organisation-experience-reject",
-						id: "gw-company-organisation-experience-reject",
-          	value: data['gw-company-organisation-experience-reject'],
+						name: "gw-abctraining-organisation-experience-reject",
+						id: "gw-abctraining-organisation-experience-reject",
+          	value: data['gw-abctraining-organisation-experience-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -89,9 +89,21 @@
 					}) }}
 				{% endset -%}
 
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-experience-inprogress",
+						id: "gw-abctraining-organisation-experience-inprogress",
+          	value: data['gw-abctraining-organisation-experience-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
 				{{ govukRadios({
-					idPrefix: "gw-company-organisation-experience-conditional",
-					name: "gw-company-organisation-experience",
+					idPrefix: "gw-abctraining-organisation-experience-conditional",
+					name: "gw-abctraining-organisation-experience",
 					items: [
 						{
 							value: "Pass",
@@ -99,7 +111,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-organisation-experience", "Pass")
+							checked: checked("gw-abctraining-organisation-experience", "Pass")
 						},
 						{
 							value: "Reject",
@@ -107,7 +119,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-organisation-experience", "Reject")
+							checked: checked("gw-abctraining-organisation-experience", "Reject")
 						},
 						{
 							divider: "or"
@@ -115,7 +127,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-organisation-experience", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-organisation-experience", "In progress")
 						}
 					]
 				}) }}
@@ -127,7 +142,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

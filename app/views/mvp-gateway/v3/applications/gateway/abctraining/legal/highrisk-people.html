@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Legal checks"
@@ -53,19 +53,19 @@
 			<form action="" method="post" class="form">
 
 				{{ govukRadios({
-					idPrefix: "gw-company-legal-people-highrisk",
-					name: "gw-company-legal-people-highrisk",
+					idPrefix: "gw-abctraining-legal-people-highrisk",
+					name: "gw-abctraining-legal-people-highrisk",
 					classes: "govuk-radios--inline",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("gw-company-legal-people-highrisk", "Yes")
+							checked: checked("gw-abctraining-legal-people-highrisk", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("gw-company-legal-people-highrisk", "No")
+							checked: checked("gw-abctraining-legal-people-highrisk", "No")
 						}
 					]
 				}) }}
@@ -77,7 +77,7 @@
         
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

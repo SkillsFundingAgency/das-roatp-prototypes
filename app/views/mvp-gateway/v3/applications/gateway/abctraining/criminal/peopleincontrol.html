@@ -18,7 +18,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/mvp-gateway/v3/applications/gateway/tasklist-company"
+				href: "/mvp-gateway/v3/applications/gateway/tasklist-abctraining"
 			},
 			{
 				text: "Criminal and compliance checks"
@@ -111,11 +111,23 @@
 				
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
 				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminal-people-outcome-pass",
+						id: "gw-abctraining-criminal-people-outcome-pass",
+          	value: data['gw-abctraining-criminal-people-outcome-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-people-outcome-reject",
-						id: "gw-company-criminal-people-outcome-reject",
-          	value: data['gw-company-criminal-people-outcome-reject'],
+						name: "gw-abctraining-criminal-people-outcome-reject",
+						id: "gw-abctraining-criminal-people-outcome-reject",
+          	value: data['gw-abctraining-criminal-people-outcome-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -123,11 +135,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set passHtml %}
+				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-company-criminal-people-outcome-pass",
-						id: "gw-company-criminal-people-outcome-pass",
-          	value: data['gw-company-criminal-people-outcome-pass'],
+						name: "gw-abctraining-criminal-people-outcome-inprogress",
+						id: "gw-abctraining-criminal-people-outcome-inprogress",
+          	value: data['gw-abctraining-criminal-people-outcome-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -136,8 +148,8 @@
 				{% endset -%}
 				
 				{{ govukRadios({
-					idPrefix: "gw-company-criminal-people-outcome-conditional",
-					name: "gw-company-criminal-people-outcome",
+					idPrefix: "gw-abctraining-criminal-people-outcome-conditional",
+					name: "gw-abctraining-criminal-people-outcome",
 					items: [
 						{
 							value: "Pass",
@@ -145,7 +157,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-company-criminal-people-outcome", "Pass")
+							checked: checked("gw-abctraining-criminal-people-outcome", "Pass")
 						},
 						{
 							value: "Reject",
@@ -153,7 +165,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-company-criminal-people-outcome", "Reject")
+							checked: checked("gw-abctraining-criminal-people-outcome", "Reject")
 						},
 						{
 							divider: "or"
@@ -161,7 +173,10 @@
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-company-criminal-people-outcome", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-criminal-people-outcome", "In progress")
 						}
 					]
 				}) }}
@@ -173,7 +188,7 @@
 
 			</form>
 
-			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-company">Back to application assessment overview</a></p>
+			<p><a href="/mvp-gateway/v3/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

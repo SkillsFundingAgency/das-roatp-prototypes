@@ -1,0 +1,94 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Organisation checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Experience and accreditation</span>
+			<h1 class="govuk-heading-xl">Is the organisation offering initial teacher training (ITT) and on the list of registered ITT?</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Application question</th>
+							<th scope="col" class="govuk-table__header">Applicant's answer</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">Does your organisation offer initial teacher training?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr>
+						<!--tr class="govuk-table__row">
+							<td class="govuk-table__cell">Is the postgraduate teaching apprenticeship the only apprenticeship your organisation intends to deliver?</td>
+							<td class="govuk-table__cell">No</td>
+						</tr-->
+					</tbody>
+				</table>
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-organisation-experience-itt",
+					name: "gw-abctraining-organisation-experience-itt",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-abctraining-organisation-experience-itt", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-abctraining-organisation-experience-itt", "No")
+						}
+					]
+				}) }}	
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

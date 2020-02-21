@@ -1,0 +1,324 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">12345678</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Organisation name</dt>
+					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<ol class="app-task-list">
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">1. </span> Legal checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/legal-name">Legal name</a>
+							</span>
+							{% if data['gw-abctraining-legal-name'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-name'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-name'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/status">Organisation status</a>
+							</span>
+							{% if data['gw-abctraining-legal-status'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-status'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-status'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/address">Address</a>
+							</span>
+							{% if data['gw-abctraining-legal-address'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-address'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-address'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/ico">ICO</a>
+							</span>
+							{% if data['gw-abctraining-legal-ico'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-ico'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-ico'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/website">Website address</a>
+							</span>
+							{% if data['gw-abctraining-legal-website'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-website'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-website'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/highrisk">Organisation high risk</a>
+							</span>
+							{% if data['gw-abctraining-legal-highrisk'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-legal-highrisk'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-highrisk'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+
+						<!--li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/legal/highrisk-people-match">People in control high risk</a>
+							</span>
+							{% if data['gw-abctraining-legal-highriskpeople-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-abctraining-legal-highriskpeople-outcome-passed">Passed</strong>
+							{% elseif data['gw-abctraining-legal-highriskpeople-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-abctraining-legal-highriskpeople-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-abctraining-legal-highriskpeople-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-abctraining-legal-highriskpeople-outcome-inprogress">In progress</strong>
+							{% endif %}
+						</li-->
+					</ul>
+				</li>
+
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">2. </span> People in control
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/people/people">People in control</a>
+							</span>
+							{% if data['gw-abctraining-people-people'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-people-people'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-people-people'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/people/highrisk">People in control high risk</a>
+							</span>
+							{% if data['gw-abctraining-people-highrisk'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-people-highrisk'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-people-highrisk'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Register checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/register/roatp">RoATP</a>
+							</span>
+							{% if data['gw-abctraining-register-roatp'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-register-roatp'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-register-roatp'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/register/epao">Register of end-point assessment organisations</a>
+							</span>
+							{% if data['gw-abctraining-register-epao'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-register-epao'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-register-epao'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">4. </span> Experience and accreditation 
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/experience/ofs">Office for Students (OfS)</a>
+							</span>
+							{% if data['gw-abctraining-experience-ofs'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-experience-ofs'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-experience-ofs'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/experience/itt">Initial teacher training (ITT)</a>
+							</span>
+							{% if data['gw-abctraining-experience-itt'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-experience-itt'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-experience-itt'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/experience/ofsted">Ofsted</a>
+							</span>
+							{% if data['gw-abctraining-experience-ofsted'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-experience-ofsted'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-experience-ofsted'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/experience/subcontractor">Subcontractor declaration</a>
+							</span>
+							{% if data['gw-abctraining-experience-subcontractor'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-experience-subcontractor'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-experience-subcontractor'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">5. </span> Criminal and compliance checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/criminal/organisation">The organisation</a>
+							</span>
+							{% if data['gw-abctraining-criminal-organisation'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-criminal-organisation'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-criminal-organisation'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="abctraining/criminal/people">People in control</a>
+							</span>
+							{% if data['gw-abctraining-criminal-people'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+							{% elseif data['gw-abctraining-criminal-people'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
+							{% elseif data['gw-abctraining-criminal-people'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
+						</li>
+					</ul>
+				</li>
+			
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">6. </span> Gateway outcome
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<!--a href="abctraining/outcome"-->Confirm gateway outcome<!--/a-->
+							</span>
+						</li>
+					</ul>
+				</li>
+
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

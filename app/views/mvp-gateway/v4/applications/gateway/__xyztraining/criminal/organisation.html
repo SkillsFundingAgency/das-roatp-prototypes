@@ -1,0 +1,214 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-xyztraining"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">The organisation</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company
+			</p>
+			
+		</div>
+	</div>
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<!--tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation have any composition with creditors</td>
+						<td class="govuk-table__cell">No</td>
+					</tr-->
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" style="border-bottom: none;">Organisation have any composition with creditors</td>
+						<td class="govuk-table__cell" style="border-bottom: none;">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" colspan="2">
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View applicant’s answer",
+								html: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc laoreet aliquet finibus. Nulla in ex id turpis suscipit fringilla. Morbi ullamcorper, turpis sit amet mollis convallis, purus arcu imperdiet mi, vel rutrum nisi lacus eget risus. Pellentesque laoreet augue neque, sit amet sodales dui tincidunt vitae. Duis iaculis consectetur felis, id ornare massa euismod eget. Nam pretium purus sed ultrices mollis. Morbi sollicitudin pellentesque nunc, sit amet convallis lacus aliquet id. Donec elementum lacus id aliquam eleifend. Cras feugiat vitae metus at suscipit. Aliquam id nulla nisi. Aliquam maximus tellus ut metus lobortis fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.<br><br>
+								Vestibulum nec purus at sem malesuada congue. Donec vitae ultricies velit, ac pharetra ligula. Aenean non urna eget lorem vestibulum suscipit. Phasellus mattis placerat tellus ut fermentum. Morbi a euismod erat. Suspendisse commodo fringilla leo eu ultrices. Nam condimentum nisl pellentesque massa semper interdum.<br><br>
+								Duis lectus nisi, volutpat quis est non, sollicitudin laoreet tellus. Donec vel dui in sapien pellentesque rhoncus a et sapien. Fusce nisl ex, venenatis in nunc eget, rhoncus vulputate mauris. Ut lorem lectus, tincidunt in risus euismod, porta suscipit nibh. Fusce feugiat id turpis id porttitor. Donec semper laoreet bibendum. Praesent magna est, scelerisque a euismod sed, laoreet ut metus. Nam eu lobortis erat, et molestie orci.<br><br>
+								Maecenas dignissim, risus commodo fermentum dapibus, nunc nunc tincidunt nisi, eget accumsan diam ante sed velit. Quisque lacinia et orci nec feugiat. In commodo odio quis elit scelerisque tincidunt. Duis facilisis odio ut viverra consequat. Sed bibendum vulputate urna id imperdiet. Vestibulum gravida elit vel odio euismod vestibulum. Sed non lectus nec."
+							}) }}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation failed to pay back funds in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation had a contract terminated early by a public body in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation withdrawn from a contract with a public body in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation been removed from the Register of Training Organisations in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation had funding removed from any education bodies in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation been removed from any professional or trade registers in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation been removed from any charity register</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation been investigated due to safeguarding issues in the last 3 months</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation been investigated due to whistleblowing issues in the last 3 months<br>
+						</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years<br>
+						</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<form action="" method="post" class="form">
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-criminal-organisation-outcome-pass",
+						id: "gw-xyztraining-criminal-organisation-outcome-pass",
+          	value: data['gw-xyztraining-criminal-organisation-outcome-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-criminal-organisation-outcome-reject",
+						id: "gw-xyztraining-criminal-organisation-outcome-reject",
+          	value: data['gw-xyztraining-criminal-organisation-outcome-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-criminal-organisation-outcome-inprogress",
+						id: "gw-xyztraining-criminal-organisation-outcome-inprogress",
+          	value: data['gw-xyztraining-criminal-organisation-outcome-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{{ govukRadios({
+					idPrefix: "gw-xyztraining-criminal-organisation-outcome-conditional",
+					name: "gw-xyztraining-criminal-organisation-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-xyztraining-criminal-organisation-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-xyztraining-criminal-organisation-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-xyztraining-criminal-organisation-outcome", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-xyztraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Organisation status check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<form action="" method="post" class="form">
+				
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Status</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">UKRLP  data</td>
+							<td class="govuk-table__cell">Active</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Companies House data</td>
+							<td class="govuk-table__cell">Dissolved</td>
+						</tr>
+					</tbody>
+				</table>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-status-pass",
+						id: "gw-abctraining-organisation-status-pass",
+          	value: data['gw-abctraining-organisation-status-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-status-reject",
+						id: "gw-abctraining-organisation-status-reject",
+          	value: data['gw-abctraining-organisation-status-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-status-inprogress",
+						id: "gw-abctraining-organisation-status-inprogress",
+          	value: data['gw-abctraining-organisation-status-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-organisation-status-conditional",
+					name: "gw-abctraining-organisation-status",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-organisation-status", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-abctraining-organisation-status", "Reject")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-organisation-status", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

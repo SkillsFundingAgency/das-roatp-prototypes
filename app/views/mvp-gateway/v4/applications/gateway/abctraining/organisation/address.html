@@ -1,0 +1,145 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Address check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<!--h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the address match for all sources?</h2-->
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Address</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application data</td>
+							<td class="govuk-table__cell">172 Quinton Park,<br>Coventry<br>Cv4 5HZ</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">UKRLP data</td>
+							<td class="govuk-table__cell">172 Quinton Park,<br>Coventry<br>Cv4 5HZ</td>
+						</tr>
+					</tbody>
+				</table>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-address-pass",
+						id: "gw-abctraining-organisation-address-pass",
+          	value: data['gw-abctraining-organisation-address-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-address-reject",
+						id: "gw-abctraining-organisation-address-reject",
+          	value: data['gw-abctraining-organisation-address-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-organisation-address-inprogress",
+						id: "gw-abctraining-organisation-address-inprogress",
+          	value: data['gw-abctraining-organisation-address-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-organisation-address-conditional",
+					name: "gw-abctraining-organisation-address",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-organisation-address", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-abctraining-organisation-address", "Reject")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-organisation-address", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

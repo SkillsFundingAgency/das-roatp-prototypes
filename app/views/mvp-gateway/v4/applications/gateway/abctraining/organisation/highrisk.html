@@ -31,8 +31,8 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Organisation high risk</span>
-			<h1 class="govuk-heading-xl">Check if the organisation is on the high risk list</h1>
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Organisation high risk check</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
@@ -55,15 +55,15 @@
 	<div class="govuk-grid-row govuk-!-margin-top-5">
 		<div class="govuk-grid-column-two-thirds">
 
-			<h3 class="govuk-heading-m">What is the overall outcome of this check?</h3>
+			<h3 class="govuk-heading-m">What is the overall of this check?</h3>
 
 			<form action="" method="post" class="form">
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-legal-highriskorg-reject",
-						id: "gw-abctraining-legal-highriskorg-reject",
-          	value: data['gw-abctraining-legal-highriskorg-reject'],
+						name: "gw-abctraining-organisation-highrisk-reject",
+						id: "gw-abctraining-organisation-highrisk-reject",
+          	value: data['gw-abctraining-organisation-highrisk-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -73,9 +73,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-legal-highriskorg-pass",
-						id: "gw-abctraining-legal-highriskorg-pass",
-          	value: data['gw-abctraining-legal-highriskorg-pass'],
+						name: "gw-abctraining-organisation-highrisk-pass",
+						id: "gw-abctraining-organisation-highrisk-pass",
+          	value: data['gw-abctraining-organisation-highrisk-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -85,9 +85,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-legal-highriskorg-inprogress",
-						id: "gw-abctraining-legal-highriskorg-inprogress",
-          	value: data['gw-abctraining-legal-highriskorg-inprogress'],
+						name: "gw-abctraining-organisation-highrisk-inprogress",
+						id: "gw-abctraining-organisation-highrisk-inprogress",
+          	value: data['gw-abctraining-organisation-highrisk-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -96,8 +96,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-abctraining-legal-highriskorg-outcome",
-					name: "gw-abctraining-legal-highriskorg-outcome",
+					idPrefix: "gw-abctraining-organisation-highrisk",
+					name: "gw-abctraining-organisation-highrisk",
 					items: [
 						{
 							value: "Pass",
@@ -105,7 +105,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-abctraining-legal-highriskorg-outcome", "Pass")
+							checked: checked("gw-abctraining-organisation-highrisk", "Pass")
 						},
 						{
 							value: "Reject",
@@ -113,10 +113,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-abctraining-legal-highriskorg-outcome", "Reject")
-						},
-						{
-							divider: "or"
+							checked: checked("gw-abctraining-organisation-highrisk", "Reject")
 						},
 						{
 							value: "In progress",
@@ -124,7 +121,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-abctraining-legal-highriskorg-outcome", "In progress")
+							checked: checked("gw-abctraining-organisation-highrisk", "In progress")
 						}
 					]
 				}) }}

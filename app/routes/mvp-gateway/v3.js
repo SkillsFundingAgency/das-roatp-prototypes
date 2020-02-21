@@ -24,6 +24,7 @@ module.exports = function (router) {
 			req.session.data['gw-xyztraining-legal-legaladdress'] = "Yes"
 			req.session.data['gw-xyztraining-legal-legaloutcome'] = "In progress"
 			req.session.data['gw-xyztraining-legal-legaloutcome-inprogress'] = "Checking on discrepancy in difference of address"
+			req.session.data['gw-xyztraining-legal-legaloutcome-reject'] = "Discrepancy in legal addresses"
 			req.session.data['gw-xyztraining-legal-highriskorg-outcome'] = "Pass"
 			req.session.data['gw-xyztraining-legal-people-highrisk'] = "Yes"
 			req.session.data['gw-xyztraining-legal-people'] = "Yes"
@@ -41,6 +42,17 @@ module.exports = function (router) {
 			req.session.data['gw-xyztraining-criminal-organisation-outcome'] = "Pass"
 			req.session.data['gw-xyztraining-criminal-people-outcome'] = "Pass"
 			res.redirect('/mvp-gateway/' + v + '/')
+		})
+
+	/**********************************
+	 * Move applications through tabs *
+	 **********************************/
+	
+		router.get('/mvp-gateway/' + v + '/applications/gateway/assign-abctraining', function (req,res) {
+			req.session.data['gw-abctraining'] = "assigned"
+			req.session.data['mvp-gw-new-count'] = req.session.data['mvp-gw-new-count'] - 1
+			req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] + 1
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 
 
@@ -276,13 +288,29 @@ module.exports = function (router) {
 		// ABC Training Limited
 
 			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+				req.session.data['gw-abctraining'] = "outcome"
+				req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
+				if (req.session.data['gw-abctraining-gatewayoutcome'] == "passed") {
+					req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
+					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+				} else if (req.session.data['gw-abctraining-gatewayoutcome'] == "clarify") {
+					req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
+					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
+				}
 			})
 
 		// XYZ Training Limited
 
 			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/outcome', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+				req.session.data['gw-xyztraining'] = "outcome"
+				req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
+				if (req.session.data['gw-xyztraining-gatewayoutcome'] == "passed") {
+					req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
+					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+				} else if (req.session.data['gw-xyztraining-gatewayoutcome'] == "clarify") {
+					req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
+					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
+				}
 			})	
 
 

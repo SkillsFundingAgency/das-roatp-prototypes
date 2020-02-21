@@ -54,7 +54,13 @@ module.exports = {
 
     "aac-loggedinas": "Joan Smith",
     "aac-4102-assessor1": "Peter Waller",
-    "aac-4102-assessor2": "Jeff Simms"
+    "aac-4102-assessor2": "Jeff Simms",
+
+    "mvp-gw-new-count": 7,
+    "mvp-gw-inprogress-count": 7,
+    "mvp-gw-clarify-count": 2,
+    "mvp-gw-outcome-count": 4,
+    "gw-xyztraining": "assigned"
   
   }
   

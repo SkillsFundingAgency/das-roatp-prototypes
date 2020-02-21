@@ -41,18 +41,9 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if not (data['gw-abctraining-legal-legaloutcome']
-						or data['gw-abctraining-legal-highriskorg-outcome']
-						or data['gw-abctraining-legal-highriskpeople-outcome']
-						or data['gw-abctraining-register-roatp']
-						or data['gw-abctraining-register-epao']
-						or data['gw-abctraining-organisation-info']
-						or data['gw-abctraining-organisation-experience']
-						or data['gw-abctraining-criminal-organisation-outcome']
-						or data['gw-abctraining-criminal-people-outcome'])
-				%}
+				{% if not (data['gw-abctraining'] == "assigned")	%}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="gateway/tasklist-abctraining">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell"><a href="gateway/assign-abctraining">ABC TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
 					<td class="govuk-table__cell">APR00001</td>
 					<td class="govuk-table__cell">Main</td>
@@ -118,15 +109,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if (data['gw-abctraining-legal-legaloutcome']
-						or data['gw-abctraining-legal-highriskorg-outcome']
-						or data['gw-abctraining-legal-highriskpeople-outcome']
-						or data['gw-abctraining-register-roatp']
-						or data['gw-abctraining-register-epao']
-						or data['gw-abctraining-organisation-info']
-						or data['gw-abctraining-organisation-experience']
-						or data['gw-abctraining-criminal-organisation-outcome']
-						or data['gw-abctraining-criminal-people-outcome']) and not data['gw-abctraining-gatewayoutcome'] %}
+				{% if (data['gw-abctraining'] == "assigned") %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/tasklist-abctraining">ABC TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
@@ -135,15 +118,7 @@
 					<td class="govuk-table__cell">17 Oct 2019</td>
 				</tr>
 				{% endif %}
-				{% if (data['gw-xyztraining-legal-legaloutcome']
-						or data['gw-xyztraining-legal-highriskorg-outcome']
-						or data['gw-xyztraining-legal-highriskpeople-outcome']
-						or data['gw-xyztraining-register-roatp']
-						or data['gw-xyztraining-register-epao']
-						or data['gw-xyztraining-organisation-info']
-						or data['gw-xyztraining-organisation-experience']
-						or data['gw-xyztraining-criminal-organisation-outcome']
-						or data['gw-xyztraining-criminal-people-outcome']) and not data['gw-xyztraining-gatewayoutcome'] %}
+				{% if (data['gw-xyztraining'] == "assigned") %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/tasklist-xyztraining">XYZ TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">98765432</td>
@@ -198,9 +173,64 @@
 		</table>
 	{% endset -%}
 	
+	{% set clarifyHtml %}
+		<h2 class="govuk-heading-l">Clarifications</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Clarification sent</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['gw-abctraining-gatewayoutcome'] == "clarify" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				{% endif %}
+				{% if data['gw-xyztraining-gatewayoutcome'] == "clarify" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">XYZ TRAINING LIMITED</td>
+					<td class="govuk-table__cell">98765432</td>
+					<td class="govuk-table__cell">APR00002</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">BABCOCK TRAINING</td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR00454</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">5 Oct 2019</td>
+					<td class="govuk-table__cell">8 Oct 2019</td>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HYBRID TECHNICAL</td>
+					<td class="govuk-table__cell">20087456</td>
+					<td class="govuk-table__cell">APR00662</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">3 Oct 2019</td>
+					<td class="govuk-table__cell">6 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	{% endset -%}
+	
 	{% set outcomeHtml %}
 		<h2 class="govuk-heading-l">Gateway outcome</h2>
-		
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
 				<tr class="govuk-table__row">
@@ -213,7 +243,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-abctraining-gatewayoutcome'] %}
+				{% if data['gw-abctraining-gatewayoutcome'] == "passed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 					<td class="govuk-table__cell">12345678</td>
@@ -221,25 +251,11 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">
-						{%
-							if (data['gw-abctraining-legal-legaloutcome'] == "Reject")
-								or (data['gw-abctraining-legal-highriskorg-outcome'] == "Reject")
-								or (data['gw-abctraining-legal-highriskpeople-outcome'] == "Reject")
-								or (data['gw-abctraining-register-roatp'] == "Reject")
-								or (data['gw-abctraining-register-epao'] == "Reject")
-								or (data['gw-abctraining-organisation-info'] == "Reject")
-								or (data['gw-abctraining-organisation-experience'] == "Reject")
-								or (data['gw-abctraining-criminal-organisation-outcome'] == "Reject")
-								or (data['gw-abctraining-criminal-people-outcome'] == "Reject")
-						%}
-							<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-						{% else %}
 							<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-						{% endif %}
 					</td>
 				</tr>
 				{% endif %}
-				{% if data['gw-xyztraining-gatewayoutcome'] %}
+				{% if data['gw-xyztraining-gatewayoutcome'] == "passed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">XYZ TRAINING LIMITED</td>
 					<td class="govuk-table__cell">98765432</td>
@@ -247,33 +263,10 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">
-						{%
-							if (data['gw-xyztraining-legal-legaloutcome'] == "Reject")
-								or (data['gw-xyztraining-legal-highriskorg-outcome'] == "Reject")
-								or (data['gw-xyztraining-legal-highriskpeople-outcome'] == "Reject")
-								or (data['gw-xyztraining-register-roatp'] == "Reject")
-								or (data['gw-xyztraining-register-epao'] == "Reject")
-								or (data['gw-xyztraining-organisation-info'] == "Reject")
-								or (data['gw-xyztraining-organisation-experience'] == "Reject")
-								or (data['gw-xyztraining-criminal-organisation-outcome'] == "Reject")
-								or (data['gw-xyztraining-criminal-people-outcome'] == "Reject")
-						%}
-							<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-						{% else %}
 							<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-						{% endif %}
 					</td>
 				</tr>
 				{% endif %}
-				<!--tr class="govuk-table__row">
-					<td class="govuk-table__cell">BABCOCK TRAINING</td>
-					<td class="govuk-table__cell">19987868</td>
-					<td class="govuk-table__cell">APR00454</td>
-					<td class="govuk-table__cell">22 Oct 2019</td>
-					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
-					</td>
-				</tr-->
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">GEASON APPRENTICESHIPS</td>
 					<td class="govuk-table__cell">18664753</td>
@@ -294,15 +287,6 @@
 						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
 					</td>
 				</tr>
-				<!--tr class="govuk-table__row">
-					<td class="govuk-table__cell">HYBRID TECHNICAL</td>
-					<td class="govuk-table__cell">20087456</td>
-					<td class="govuk-table__cell">APR00662</td>
-					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-negative" id="gw-company-register-rort-rejected">Rejected</strong>
-					</td>
-				</tr-->
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">HOTGROUP</td>
 					<td class="govuk-table__cell">28876299</td>
@@ -404,24 +388,30 @@
 			</tbody>
 		</table>
 	{% endset -%}
-
+	
 <div class="shrinkit">
 	{{ govukTabs({
 		items: [
 			{
-				label: "New (7)",
+				label: "New (" + data['mvp-gw-new-count'] + ")",
 				id: "new",
 				panel: {
 					html: newHtml
 				}
 			}, {
-				label: "In progress (6)",
+				label: "In progress (" + data['mvp-gw-inprogress-count'] + ")",
 				id: "inprogress",
 				panel: {
 					html: inprogressHtml
 				}
 			}, {
-				label: "Gateway outcome (6)",
+				label: "Clarifications (" + data['mvp-gw-clarify-count'] + ")",
+				id: "clarifications",
+				panel: {
+					html: clarifyHtml
+				}
+			}, {
+				label: "Gateway outcome (" + data['mvp-gw-outcome-count'] + ")",
 				id: "outcome",
 				panel: {
 					html: outcomeHtml
@@ -431,29 +421,4 @@
 	}) }}
 </div>
       
-{% endblock %}
-
-{% block pageScripts %}
-
-	<script>
-		new MOJFrontend.SortableTable({
-			table: [
-				$('table')[0]
-			]
-		});
-
-		new MOJFrontend.SortableTable({
-			table: [
-				$('table')[1]
-			]
-		});
-
-		new MOJFrontend.SortableTable({
-			table: [
-				$('table')[2]
-			]
-		});
-		
-	</script>
-
 {% endblock %}

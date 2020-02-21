@@ -41,8 +41,6 @@
 			</p>
 
 			<form action="" method="post" class="form">
-
-				<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="true">
 				{%
 					if (data['gw-xyztraining-legal-legaloutcome'] == "Reject")
 						or (data['gw-xyztraining-legal-highriskorg-outcome'] == "Reject")
@@ -137,6 +135,8 @@
 						maxwords: 500
 					}) }}
 
+					<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="clarify">
+
 					{{ govukButton({
 						text: "Reject application and send feedback"
 					}) }}
@@ -144,6 +144,8 @@
 				{% else %}
 
 					<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-9">You’ve assessed and passed this application.</h3>
+					
+					<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="passed">
 
 					{{ govukButton({
 						text: "Finish gateway outcome"

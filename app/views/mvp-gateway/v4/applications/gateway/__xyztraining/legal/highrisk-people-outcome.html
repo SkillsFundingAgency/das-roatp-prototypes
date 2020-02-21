@@ -1,0 +1,134 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-xyztraining"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">People in control and high risk</span>
+			<h1 class="govuk-heading-xl">People in control and high risk checks</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company
+			</p>
+
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Do the people in control of the organisation match for ‘submitted application’ and the relevant source?</td>
+						<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-people'] }}</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Are any of the people in control of the organisation on the high risk list?</td>
+						<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-people-highrisk'] }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m">What is the overall outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-legal-highriskpeople-outcome-reject",
+						id: "gw-xyztraining-legal-highriskpeople-outcome-reject",
+          	value: data['gw-xyztraining-legal-highriskpeople-outcome-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-legal-highriskpeople-outcome-pass",
+						id: "gw-xyztraining-legal-highriskpeople-outcome-pass",
+          	value: data['gw-xyztraining-legal-highriskpeople-outcome-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-xyztraining-legal-highriskpeople-outcome-conditional",
+					name: "gw-xyztraining-legal-highriskpeople-outcome",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-xyztraining-legal-highriskpeople-outcome", "Pass")
+						},
+						{
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-xyztraining-legal-highriskpeople-outcome", "Reject")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							checked: checked("gw-xyztraining-legal-highriskpeople-outcome", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-xyztraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

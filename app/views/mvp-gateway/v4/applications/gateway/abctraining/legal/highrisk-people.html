@@ -1,0 +1,85 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">People in control high risk</span>
+			<h1 class="govuk-heading-xl">Are any of the people in control of the organisation on the high risk list?</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company
+			</p>
+
+      {% include "../../../../../../includes/directors-pscs.html" %}
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row govuk-!-margin-top-3">
+		<div class="govuk-grid-column-two-thirds">
+
+			<!--h3 class="govuk-heading-m">What is the overall outcome of this check?</h3-->
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-legal-people-highrisk",
+					name: "gw-abctraining-legal-people-highrisk",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("gw-abctraining-legal-people-highrisk", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("gw-abctraining-legal-people-highrisk", "No")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v4/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v4/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v4/applications/gateway/tasklist-xyztraining"
+			},
+			{
+				text: "Confirm gateway outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Gateway outcome</span>
+			<h1 class="govuk-heading-xl">Confirm gateway outcome</h1>
+
+			<p class="govuk-body">
+				UKPRN: 98765432<br>
+				Legal name: XYZ TRAINING LIMITED<br>
+				Type of organisation: Company
+			</p>
+
+			<form action="" method="post" class="form">
+				{%
+					if (data['gw-xyztraining-legal-legaloutcome'] == "Reject")
+						or (data['gw-xyztraining-legal-highriskorg-outcome'] == "Reject")
+						or (data['gw-xyztraining-legal-highriskpeople-outcome'] == "Reject")
+						or (data['gw-xyztraining-register-roatp'] == "Reject")
+						or (data['gw-xyztraining-register-epao'] == "Reject")
+						or (data['gw-xyztraining-organisation-info'] == "Reject")
+						or (data['gw-xyztraining-organisation-experience'] == "Reject")
+						or (data['gw-xyztraining-criminal-organisation-outcome'] == "Reject")
+						or (data['gw-xyztraining-criminal-people-outcome'] == "Reject")
+				%}
+
+					{{ govukWarningText({
+						text: "This application will be rejected and sent back to the applicant.",
+						iconFallbackText: "Warning",
+						classes: "govuk-!-margin-top-9 govuk-!-margin-bottom-9"
+					}) }}
+
+					<table class="govuk-table govuk-!-margin-bottom-9">
+						<thead class="govuk-table__head">
+							<tr class="govuk-table__row">
+								<th scope="col" class="govuk-table__header">Rejected check</th>
+								<th scope="col" class="govuk-table__header">Reason for rejection</th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							{% if data['gw-xyztraining-legal-legaloutcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Legal checks</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-legaloutcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-legal-highriskorg-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation high risk</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-highriskorg-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-legal-highriskpeople-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">People in control high risk</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-legal-highriskpeople-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-register-roatp-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">RoATP</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-register-roatp-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-register-epao-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Register of end-point assessment organisations</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-register-epao-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-organisation-info-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation information</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-organisation-info-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-organisation-experience-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Experience and accreditation</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-organisation-experience-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-criminal-organisation-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">Organisation criminal and compliance checks</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-criminal-organisation-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+							{% if data['gw-xyztraining-criminal-people-outcome-reject'] %}
+							<tr class="govuk-table__row">
+								<td class="govuk-table__header">People in control criminal and compliance checks</td>
+								<td class="govuk-table__cell">{{ data['gw-xyztraining-criminal-people-outcome-reject'] }}</td>
+							</tr>
+							{% endif %}
+						</tbody>
+					</table>
+
+					<h3 class="govuk-heading-m">Feedback for the applicant</h3>
+					<p class="govuk-body">The applicant will be able to see this feedback and may use it to amend their application answers.</p>
+					<p class="govuk-body">Add as much information as you can.</p>
+
+					{{ govukCharacterCount({
+						name: "gw-xyztraining-feedback",
+						id: "gw-xyztraining-feedback",
+          	value: data['gw-xyztraining-feedback'],
+						maxwords: 500
+					}) }}
+
+					<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="clarify">
+
+					{{ govukButton({
+						text: "Reject application and send feedback"
+					}) }}
+
+				{% else %}
+
+					<h3 class="govuk-heading-m govuk-!-margin-top-9 govuk-!-margin-bottom-9">You’ve assessed and passed this application.</h3>
+					
+					<input type="hidden" name="gw-xyztraining-gatewayoutcome" value="passed">
+
+					{{ govukButton({
+						text: "Finish gateway outcome"
+					}) }}
+
+				{% endif %}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v4/applications/gateway/tasklist-xyztraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

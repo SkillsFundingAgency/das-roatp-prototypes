@@ -60,92 +60,92 @@
 			<ol class="app-task-list">
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">1. </span> Legal checks
+						<span class="app-task-list__section-number">1. </span> Organisation checks
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/legal-name">Legal name</a>
+								<a href="abctraining/organisation/legalname">Legal name</a>
 							</span>
-							{% if data['gw-abctraining-legal-name'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-legalname'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-name'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-legalname'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-name'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-legalname'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/status">Organisation status</a>
+								<a href="abctraining/organisation/status">Organisation status</a>
 							</span>
-							{% if data['gw-abctraining-legal-status'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-status'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-status'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-status'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-status'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-status'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/address">Address</a>
+								<a href="abctraining/organisation/address">Address</a>
 							</span>
-							{% if data['gw-abctraining-legal-address'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-address'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-address'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-address'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-address'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-address'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/ico">ICO</a>
+								<a href="abctraining/organisation/ico">ICO</a>
 							</span>
-							{% if data['gw-abctraining-legal-ico'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-ico'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-ico'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-ico'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-ico'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-ico'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/website">Website address</a>
+								<a href="abctraining/organisation/website">Website address</a>
 							</span>
-							{% if data['gw-abctraining-legal-website'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-website'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-website'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-website'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-website'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-website'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/highrisk">Organisation high risk</a>
+								<a href="abctraining/organisation/highrisk">Organisation high risk</a>
 							</span>
-							{% if data['gw-abctraining-legal-highrisk'] == "Pass" %}
+							{% if data['gw-abctraining-organisation-highrisk'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-legal-highrisk'] == "Reject" %}
+							{% elseif data['gw-abctraining-organisation-highrisk'] == "Reject" %}
 								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-highrisk'] == "In progress" %}
+							{% elseif data['gw-abctraining-organisation-highrisk'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 
 						<!--li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/legal/highrisk-people-match">People in control high risk</a>
+								<a href="abctraining/organisation/highrisk-people-match">People in control high risk</a>
 							</span>
-							{% if data['gw-abctraining-legal-highriskpeople-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive" id="gw-abctraining-legal-highriskpeople-outcome-passed">Passed</strong>
-							{% elseif data['gw-abctraining-legal-highriskpeople-outcome'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative" id="gw-abctraining-legal-highriskpeople-outcome-rejected">Rejected</strong>
-							{% elseif data['gw-abctraining-legal-highriskpeople-outcome'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed" id="gw-abctraining-legal-highriskpeople-outcome-inprogress">In progress</strong>
+							{% if data['gw-abctraining-organisation-highriskpeople-outcome'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive" id="gw-abctraining-organisation-highriskpeople-outcome-passed">Passed</strong>
+							{% elseif data['gw-abctraining-organisation-highriskpeople-outcome'] == "Reject" %}
+								<strong class="govuk-tag app-task-list__task-negative" id="gw-abctraining-organisation-highriskpeople-outcome-rejected">Rejected</strong>
+							{% elseif data['gw-abctraining-organisation-highriskpeople-outcome'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed" id="gw-abctraining-organisation-highriskpeople-outcome-inprogress">In progress</strong>
 							{% endif %}
 						</li-->
 					</ul>
@@ -158,7 +158,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/people/people">People in control</a>
+								<a href="">People in control</a>
 							</span>
 							{% if data['gw-abctraining-people-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -170,7 +170,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/people/highrisk">People in control high risk</a>
+								<a href="">People in control high risk</a>
 							</span>
 							{% if data['gw-abctraining-people-highrisk'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -190,7 +190,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/register/roatp">RoATP</a>
+								<a href="">RoATP</a>
 							</span>
 							{% if data['gw-abctraining-register-roatp'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -202,7 +202,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/register/epao">Register of end-point assessment organisations</a>
+								<a href="">Register of end-point assessment organisations</a>
 							</span>
 							{% if data['gw-abctraining-register-epao'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -222,7 +222,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/experience/ofs">Office for Students (OfS)</a>
+								<a href="">Office for Students (OfS)</a>
 							</span>
 							{% if data['gw-abctraining-experience-ofs'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -234,7 +234,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/experience/itt">Initial teacher training (ITT)</a>
+								<a href="">Initial teacher training (ITT)</a>
 							</span>
 							{% if data['gw-abctraining-experience-itt'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -246,7 +246,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/experience/ofsted">Ofsted</a>
+								<a href="">Ofsted</a>
 							</span>
 							{% if data['gw-abctraining-experience-ofsted'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -258,7 +258,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/experience/subcontractor">Subcontractor declaration</a>
+								<a href="">Subcontractor declaration</a>
 							</span>
 							{% if data['gw-abctraining-experience-subcontractor'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -278,7 +278,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/criminal/organisation">The organisation</a>
+								<a href="">The organisation</a>
 							</span>
 							{% if data['gw-abctraining-criminal-organisation'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
@@ -290,7 +290,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="abctraining/criminal/people">People in control</a>
+								<a href="">People in control</a>
 							</span>
 							{% if data['gw-abctraining-criminal-people'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>

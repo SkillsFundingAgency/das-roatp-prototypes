@@ -31,27 +31,18 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">People in control and high risk</span>
-			<h1 class="govuk-heading-xl">People in control and high risk checks</h1>
+			<span class="govuk-caption-m">People in control checks</span>
+			<h1 class="govuk-heading-xl">People in control check</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
 				Legal name: ABC TRAINING LIMITED<br>
-				Type of organisation: Company
+				Type of organisation: Company<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
 			</p>
 
-			<table class="govuk-table">
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Do the people in control of the organisation match for ‘submitted application’ and the relevant source?</td>
-						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-people'] }}</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Are any of the people in control of the organisation on the high risk list?</td>
-						<td class="govuk-table__cell">{{ data['gw-abctraining-legal-people-highrisk'] }}</td>
-					</tr>
-				</tbody>
-			</table>
+      {% include "../../../../../../includes/directors-pscs.html" %}
 
 		</div>
 	</div>
@@ -59,16 +50,27 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<h3 class="govuk-heading-m">What is the overall outcome of this check?</h3>
+			<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
 
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-highrisk-pass",
+						id: "gw-abctraining-people-highrisk-pass",
+          	value: data['gw-abctraining-people-highrisk-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-legal-highriskpeople-outcome-reject",
-						id: "gw-abctraining-legal-highriskpeople-outcome-reject",
-          	value: data['gw-abctraining-legal-highriskpeople-outcome-reject'],
+						name: "gw-abctraining-people-highrisk-reject",
+						id: "gw-abctraining-people-highrisk-reject",
+          	value: data['gw-abctraining-people-highrisk-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -76,11 +78,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set passHtml %}
+				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-legal-highriskpeople-outcome-pass",
-						id: "gw-abctraining-legal-highriskpeople-outcome-pass",
-          	value: data['gw-abctraining-legal-highriskpeople-outcome-pass'],
+						name: "gw-abctraining-people-highrisk-inprogress",
+						id: "gw-abctraining-people-highrisk-inprogress",
+          	value: data['gw-abctraining-people-highrisk-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -89,8 +91,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-abctraining-legal-highriskpeople-outcome-conditional",
-					name: "gw-abctraining-legal-highriskpeople-outcome",
+					idPrefix: "gw-abctraining-people-highrisk-conditional",
+					name: "gw-abctraining-people-highrisk",
 					items: [
 						{
 							value: "Pass",
@@ -98,7 +100,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-abctraining-legal-highriskpeople-outcome", "Pass")
+							checked: checked("gw-abctraining-people-highrisk", "Pass")
 						},
 						{
 							value: "Reject",
@@ -106,15 +108,15 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-abctraining-legal-highriskpeople-outcome", "Reject")
-						},
-						{
-							divider: "or"
+							checked: checked("gw-abctraining-people-highrisk", "Reject")
 						},
 						{
 							value: "In progress",
 							text: "In progress",
-							checked: checked("gw-abctraining-legal-highriskpeople-outcome", "In progress")
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-people-highrisk", "In progress")
 						}
 					]
 				}) }}

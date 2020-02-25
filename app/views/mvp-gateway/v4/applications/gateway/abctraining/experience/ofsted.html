@@ -21,7 +21,7 @@
 				href: "/mvp-gateway/v4/applications/gateway/tasklist-abctraining"
 			},
 			{
-				text: "Legal checks"
+				text: "Organisation checks"
 			}
 		]
 	}) }}
@@ -31,30 +31,41 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">Organisation checks</span>
-			<h1 class="govuk-heading-xl">Organisation status check</h1>
+			<span class="govuk-caption-m">Experience and accreditation checks</span>
+			<h1 class="govuk-heading-xl">Ofsted check</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
-				Application submitted on: 17 Oct 2019<br>
-				Sources checked on: 27 Nov 2019
+				Legal name: ABC TRAINING LIMITED
 			</p>
-				
+
 			<table class="govuk-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Source</th>
-						<th scope="col" class="govuk-table__header">Status</th>
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant's answer</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">UKRLP data</td>
-						<td class="govuk-table__cell">Active</td>
+						<td class="govuk-table__cell">Has your organisation had a full Ofsted inspection in further education and skills?</td>
+						<td class="govuk-table__cell">Yes</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__header">Companies House data</td>
-						<td class="govuk-table__cell">Dissolved</td>
+						<td class="govuk-table__cell">Did your organisation get a grade for apprenticeships in this full Ofsted inspection?</td>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">What grade did your organisation get for apprenticeships in this full Ofsted inspection?</td>
+						<td class="govuk-table__cell">Good</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Did your organisation get this grade within the last 3 years?</td>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation maintained funding from an education agency since its full Ofsted inspection?</td>
+						<td class="govuk-table__cell">Yes</td>
 					</tr>
 				</tbody>
 			</table>
@@ -65,9 +76,9 @@
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-organisation-status-pass",
-						id: "gw-abctraining-organisation-status-pass",
-          	value: data['gw-abctraining-organisation-status-pass'],
+						name: "gw-abctraining-experience-ofsted-pass",
+						id: "gw-abctraining-experience-ofsted-pass",
+          	value: data['gw-abctraining-experience-ofsted-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -77,9 +88,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-organisation-status-reject",
-						id: "gw-abctraining-organisation-status-reject",
-          	value: data['gw-abctraining-organisation-status-reject'],
+						name: "gw-abctraining-experience-ofsted-reject",
+						id: "gw-abctraining-experience-ofsted-reject",
+          	value: data['gw-abctraining-experience-ofsted-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -89,9 +100,9 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-organisation-status-inprogress",
-						id: "gw-abctraining-organisation-status-inprogress",
-          	value: data['gw-abctraining-organisation-status-inprogress'],
+						name: "gw-abctraining-experience-ofsted-inprogress",
+						id: "gw-abctraining-experience-ofsted-inprogress",
+          	value: data['gw-abctraining-experience-ofsted-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -100,8 +111,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "gw-abctraining-organisation-status-conditional",
-					name: "gw-abctraining-organisation-status",
+					idPrefix: "gw-abctraining-experience-ofsted-conditional",
+					name: "gw-abctraining-experience-ofsted",
 					items: [
 						{
 							value: "Pass",
@@ -109,7 +120,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-abctraining-organisation-status", "Pass")
+							checked: checked("gw-abctraining-experience-ofsted", "Pass")
 						},
 						{
 							value: "Reject",
@@ -117,7 +128,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-abctraining-organisation-status", "Reject")
+							checked: checked("gw-abctraining-experience-ofsted", "Reject")
 						},
 						{
 							value: "In progress",
@@ -125,7 +136,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-abctraining-organisation-status", "In progress")
+							checked: checked("gw-abctraining-experience-ofsted", "In progress")
 						}
 					]
 				}) }}

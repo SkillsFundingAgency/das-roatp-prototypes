@@ -31,13 +31,15 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-			<span class="govuk-caption-m">People in control high risk</span>
-			<h1 class="govuk-heading-xl">Do the people in control of the organisation match for ‘submitted application’ and the relevant source?</h1>
+			<span class="govuk-caption-m">People in control checks</span>
+			<h1 class="govuk-heading-xl">People in control check</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
 				Legal name: ABC TRAINING LIMITED<br>
-				Type of organisation: Company
+				Type of organisation: Company<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
 			</p>
 
 			<h2 class="govuk-heading-l">Company directors</h2>
@@ -70,7 +72,7 @@
 			</table>
 
 			<h2 class="govuk-heading-l">People with significant control (PSCs)</h2>
-			<table class="govuk-table govuk-!-margin-bottom-9">
+			<table class="govuk-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th scope="col" class="govuk-table__header">Submitted application</th>
@@ -99,24 +101,73 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<!--h3 class="govuk-heading-m">What is the overall outcome of this check?</h3-->
+			<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
 
 			<form action="" method="post" class="form">
 
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-pass",
+						id: "gw-abctraining-people-people-pass",
+          	value: data['gw-abctraining-people-people-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set rejectHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-reject",
+						id: "gw-abctraining-people-people-reject",
+          	value: data['gw-abctraining-people-people-reject'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-inprogress",
+						id: "gw-abctraining-people-people-inprogress",
+          	value: data['gw-abctraining-people-people-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
 				{{ govukRadios({
-					idPrefix: "gw-abctraining-legal-people",
-					name: "gw-abctraining-legal-people",
-					classes: "govuk-radios--inline",
+					idPrefix: "gw-abctraining-people-people-conditional",
+					name: "gw-abctraining-people-people",
 					items: [
 						{
-							value: "Yes",
-							text: "Yes",
-							checked: checked("gw-abctraining-legal-people", "Yes")
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-people-people", "Pass")
 						},
 						{
-							value: "No",
-							text: "No",
-							checked: checked("gw-abctraining-legal-people", "No")
+							value: "Reject",
+							text: "Reject",
+							conditional: {
+								html: rejectHtml
+							},
+							checked: checked("gw-abctraining-people-people", "Reject")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-people-people", "In progress")
 						}
 					]
 				}) }}

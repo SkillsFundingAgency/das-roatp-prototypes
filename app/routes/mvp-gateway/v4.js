@@ -146,38 +146,21 @@ module.exports = function (router) {
 		})
 
 
-
 	/*******************
 	 * Gateway outcome *
 	 *******************/
 
-		// ABC Training Limited
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome', function (req, res) {
-				req.session.data['gw-abctraining'] = "outcome"
-				req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
-				if (req.session.data['gw-abctraining-gatewayoutcome'] == "passed") {
-					req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
-					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
-				} else if (req.session.data['gw-abctraining-gatewayoutcome'] == "clarify") {
-					req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
-					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
-				}
-			})
-
-		// XYZ Training Limited
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/outcome', function (req, res) {
-				req.session.data['gw-xyztraining'] = "outcome"
-				req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
-				if (req.session.data['gw-xyztraining-gatewayoutcome'] == "passed") {
-					req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
-					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
-				} else if (req.session.data['gw-xyztraining-gatewayoutcome'] == "clarify") {
-					req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
-					res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
-				}
-			})	
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome', function (req, res) {
+			req.session.data['gw-abctraining'] = "outcome"
+			req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
+			if (req.session.data['gw-abctraining-outcome'] == "Send a clarification to the applicant") {
+				req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
+				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
+			} else {
+				req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
+				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+			}
+		})
 
 
 	/************************

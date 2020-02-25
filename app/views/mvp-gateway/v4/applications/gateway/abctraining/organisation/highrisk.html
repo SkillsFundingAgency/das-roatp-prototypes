@@ -59,11 +59,11 @@
 
 			<form action="" method="post" class="form">
 				
-				{% set rejectHtml %}
+				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-organisation-highrisk-reject",
-						id: "gw-abctraining-organisation-highrisk-reject",
-          	value: data['gw-abctraining-organisation-highrisk-reject'],
+						name: "gw-abctraining-organisation-highrisk-fail",
+						id: "gw-abctraining-organisation-highrisk-fail",
+          	value: data['gw-abctraining-organisation-highrisk-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -108,12 +108,12 @@
 							checked: checked("gw-abctraining-organisation-highrisk", "Pass")
 						},
 						{
-							value: "Reject",
-							text: "Reject",
+							value: "Fail",
+							text: "Fail",
 							conditional: {
-								html: rejectHtml
+								html: failHtml
 							},
-							checked: checked("gw-abctraining-organisation-highrisk", "Reject")
+							checked: checked("gw-abctraining-organisation-highrisk", "Fail")
 						},
 						{
 							value: "In progress",

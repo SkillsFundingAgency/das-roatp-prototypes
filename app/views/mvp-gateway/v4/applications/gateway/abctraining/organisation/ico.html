@@ -73,11 +73,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set rejectHtml %}
+				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-organisation-ico-reject",
-						id: "gw-abctraining-organisation-ico-reject",
-          	value: data['gw-abctraining-organisation-ico-reject'],
+						name: "gw-abctraining-organisation-ico-fail",
+						id: "gw-abctraining-organisation-ico-fail",
+          	value: data['gw-abctraining-organisation-ico-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -110,12 +110,12 @@
 							checked: checked("gw-abctraining-organisation-ico", "Pass")
 						},
 						{
-							value: "Reject",
-							text: "Reject",
+							value: "Fail",
+							text: "Fail",
 							conditional: {
-								html: rejectHtml
+								html: failHtml
 							},
-							checked: checked("gw-abctraining-organisation-ico", "Reject")
+							checked: checked("gw-abctraining-organisation-ico", "Fail")
 						},
 						{
 							value: "In progress",

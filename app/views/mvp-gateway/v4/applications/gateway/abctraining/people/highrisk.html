@@ -66,11 +66,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set rejectHtml %}
+				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-people-highrisk-reject",
-						id: "gw-abctraining-people-highrisk-reject",
-          	value: data['gw-abctraining-people-highrisk-reject'],
+						name: "gw-abctraining-people-highrisk-fail",
+						id: "gw-abctraining-people-highrisk-fail",
+          	value: data['gw-abctraining-people-highrisk-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -103,12 +103,12 @@
 							checked: checked("gw-abctraining-people-highrisk", "Pass")
 						},
 						{
-							value: "Reject",
-							text: "Reject",
+							value: "Fail",
+							text: "Fail",
 							conditional: {
-								html: rejectHtml
+								html: failHtml
 							},
-							checked: checked("gw-abctraining-people-highrisk", "Reject")
+							checked: checked("gw-abctraining-people-highrisk", "Fail")
 						},
 						{
 							value: "In progress",

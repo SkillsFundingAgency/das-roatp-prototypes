@@ -86,11 +86,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set rejectHtml %}
+				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-experience-ofsted-reject",
-						id: "gw-abctraining-experience-ofsted-reject",
-          	value: data['gw-abctraining-experience-ofsted-reject'],
+						name: "gw-abctraining-experience-ofsted-fail",
+						id: "gw-abctraining-experience-ofsted-fail",
+          	value: data['gw-abctraining-experience-ofsted-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -123,12 +123,12 @@
 							checked: checked("gw-abctraining-experience-ofsted", "Pass")
 						},
 						{
-							value: "Reject",
-							text: "Reject",
+							value: "Fail",
+							text: "Fail",
 							conditional: {
-								html: rejectHtml
+								html: failHtml
 							},
-							checked: checked("gw-abctraining-experience-ofsted", "Reject")
+							checked: checked("gw-abctraining-experience-ofsted", "Fail")
 						},
 						{
 							value: "In progress",

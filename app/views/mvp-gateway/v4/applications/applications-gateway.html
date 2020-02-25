@@ -41,7 +41,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if not (data['gw-abctraining'] == "assigned")	%}
+				{% if not (data['gw-abctraining'] == "assigned") and not (data['gw-abctraining'] == "outcome")	%}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="gateway/assign-abctraining">ABC TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
@@ -185,11 +185,11 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
-					<th aria-sort="none" class="govuk-table__header" scope="col">Clarification sent</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Date clarification sent</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-abctraining-gatewayoutcome'] == "clarify" %}
+				{% if data['gw-abctraining-outcome'] == "Send a clarification to the applicant" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 					<td class="govuk-table__cell">12345678</td>
@@ -200,7 +200,7 @@
 				</tr>
 				{% endif %}
 <!--
-				{% if data['gw-xyztraining-gatewayoutcome'] == "clarify" %}
+				{% if data['gw-xyztraining-outcome'] == "clarify" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">XYZ TRAINING LIMITED</td>
 					<td class="govuk-table__cell">98765432</td>
@@ -247,7 +247,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-abctraining-gatewayoutcome'] == "passed" %}
+				{% if data['gw-abctraining-outcome'] == "passed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 					<td class="govuk-table__cell">12345678</td>
@@ -260,7 +260,7 @@
 				</tr>
 				{% endif %}
 <!--
-				{% if data['gw-xyztraining-gatewayoutcome'] == "passed" %}
+				{% if data['gw-xyztraining-outcome'] == "passed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">XYZ TRAINING LIMITED</td>
 					<td class="govuk-table__cell">98765432</td>
@@ -280,7 +280,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 					</td>
 				</tr>
 				<tr class="govuk-table__row">
@@ -290,7 +290,7 @@
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 					</td>
 				</tr>
 				<tr class="govuk-table__row">
@@ -300,7 +300,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 					</td>
 				</tr>
 				<tr class="govuk-table__row">
@@ -310,7 +310,7 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive" id="gw-company-register-rort-passed">Passed</strong>
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 					</td>
 				</tr>
 			</tbody>

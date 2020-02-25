@@ -42,7 +42,7 @@
 
 			<form action="" method="post" class="form">
 				
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the overall outcome of this check?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
@@ -56,11 +56,11 @@
 					}) }}
 				{% endset -%}
 				
-				{% set rejectHtml %}
+				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-register-epao-reject",
-						id: "gw-abctraining-register-epao-reject",
-          	value: data['gw-abctraining-register-epao-reject'],
+						name: "gw-abctraining-register-epao-fail",
+						id: "gw-abctraining-register-epao-fail",
+          	value: data['gw-abctraining-register-epao-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -81,12 +81,12 @@
 							checked: checked("gw-abctraining-register-epao", "Pass")
 						},
 						{
-							value: "Reject",
-							text: "Reject",
+							value: "Fail",
+							text: "Fail",
 							conditional: {
-								html: rejectHtml
+								html: failHtml
 							},
-							checked: checked("gw-abctraining-register-epao", "Reject")
+							checked: checked("gw-abctraining-register-epao", "Fail")
 						},
 						{
 							divider: "or"

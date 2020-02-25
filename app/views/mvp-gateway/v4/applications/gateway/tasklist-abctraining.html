@@ -256,18 +256,6 @@
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
-						<li class="app-task-list__item">
-							<span class="app-task-list__task-name">
-								<a href="abctraining/experience/subcontractor">Subcontractor declaration</a>
-							</span>
-							{% if data['gw-abctraining-experience-subcontractor'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
-							{% elseif data['gw-abctraining-experience-subcontractor'] == "Reject" %}
-								<strong class="govuk-tag app-task-list__task-negative">Rejected</strong>
-							{% elseif data['gw-abctraining-experience-subcontractor'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
-							{% endif %}
-						</li>
 					</ul>
 				</li>
 

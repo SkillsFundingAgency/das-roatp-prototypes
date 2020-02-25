@@ -40,31 +40,32 @@
 				Sources checked on: 27 Nov 2019
 			</p>
 
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Legal name</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Submitted application data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">UKRLP data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Companies House data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+				</tbody>
+			</table>
+
 			<form action="" method="post" class="form">
 
-				<!--h2 class="govuk-heading-l govuk-!-margin-top-9" id="realtime">Does the legal name match for all sources?</h2-->
-				<table class="govuk-table">
-					<thead class="govuk-table__head">
-						<tr class="govuk-table__row">
-							<th scope="col" class="govuk-table__header">Source</th>
-							<th scope="col" class="govuk-table__header">Legal name</th>
-						</tr>
-					</thead>
-					<tbody class="govuk-table__body">
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">Submitted application data</td>
-							<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">UKRLP data</td>
-							<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
-						</tr>
-						<tr class="govuk-table__row">
-							<td class="govuk-table__header">Companies House data</td>
-							<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
-						</tr>
-					</tbody>
-				</table>
+				<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
 
 				{% set passHtml %}
 					{{ govukCharacterCount({

@@ -57,11 +57,9 @@ module.exports = function (router) {
 		})
 
 
-	/******************
-	 * Legal Checks *
-	 ******************/
-
-		// ABC Training Limited
+	/***********************
+	 * Organisation checks *
+	 ***********************/
 
 			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/legalname', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
@@ -87,75 +85,25 @@ module.exports = function (router) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-		// XYZ Training Limited
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-name', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-status')
-			})
+		/****************************
+		 * People in control checks *
+		 ****************************/
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-status', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-address')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-address', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-outcome')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/legal-outcome', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-	/********************
-	 * High Risk Checks *
-	 ********************/
-
-		// ABC Training Limited
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-organisation', function (req, res) {
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/people/people', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-people-match', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-people')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-people', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-people-outcome')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/highrisk-people-outcome', function (req, res) {
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/people/highrisk', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-		// XYZ Training Limited
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-organisation', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-people-match', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-people')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-people', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-people-outcome')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/highrisk-people-outcome', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-	/*******************
-	 * Register Checks *
-	 *******************/
-
-		// ABC Training Limited
+		/*******************
+		 * Register checks *
+		 *******************/
 
 			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/register/roatp', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/register/roto', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
@@ -163,132 +111,41 @@ module.exports = function (router) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/register/rort', function (req, res) {
+
+		/***************************************
+		 * Experience and accreditation checks *
+		 ***************************************/
+
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/experience/ofs', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-		// XYZ Training Limited
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/register/roatp', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/register/roto', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/register/epao', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/register/rort', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
-
-	/***********************
-	 * Organisation Checks *
-	 ***********************/
-
-		// ABC Training Limited
-
-			// Organisation information
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/info-ico', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/info-website')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/info-website', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/info-outcome')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/info-outcome', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
-				})
-
-			// Experience and accreditation
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-ofs', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-itt')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-itt', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-ofsted')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-ofsted', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-subcontractor')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-subcontractor', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-outcome')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/organisation/experience-outcome', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
-				})
-
-		// XYZ Training Limited
-
-			// Organisation information
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/info-ico', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/info-website')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/info-website', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/info-outcome')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/info-outcome', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-				})
-
-			// Experience and accreditation
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-ofs', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-itt')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-itt', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-ofsted')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-ofsted', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-subcontractor')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-subcontractor', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-outcome')
-				})
-
-				router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/organisation/experience-outcome', function (req, res) {
-					res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-				})
-
-
-	/**********************************
-	 * Criminal and compliance Checks *
-	 **********************************/
-
-		// ABC Training Limited
-
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/organisation', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
-			})
-			
-			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/peopleincontrol', function (req, res) {
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/experience/itt', function (req, res) {
 				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
 
-		// XYZ Training Limited
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/experience/ofsted', function (req, res) {
+				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+			})
 
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/criminal/organisation', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
+			router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/experience/subcontractor', function (req, res) {
+				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 			})
-			
-			router.post('/mvp-gateway/' + v + '/applications/gateway/xyztraining/criminal/peopleincontrol', function (req, res) {
-				res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-xyztraining')
-			})
+
+
+		/**********************************
+		 * Criminal and compliance checks *
+		 **********************************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/organisation', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/people', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+
 
 	/*******************
 	 * Gateway outcome *

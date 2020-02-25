@@ -36,8 +36,7 @@
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
-				Legal name: ABC TRAINING LIMITED<br>
-				Type of organisation: Company
+				Legal name: ABC TRAINING LIMITED
 			</p>
 			
 		</div>
@@ -57,7 +56,7 @@
 						<td class="govuk-table__cell">No</td>
 					</tr-->
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell" style="border-bottom: none;">Organisation have any composition with creditors</td>
+						<td class="govuk-table__cell" style="border-bottom: none;">Does your organisation have any composition with creditors?</td>
 						<td class="govuk-table__cell" style="border-bottom: none;">Yes</td>
 					</tr>
 					<tr class="govuk-table__row">
@@ -73,49 +72,48 @@
 						</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation failed to pay back funds in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation failed to pay back funds in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation had a contract terminated early by a public body in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation had a contract terminated early by a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation withdrawn from a contract with a public body in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation withdrawn from a contract with a public body in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation been removed from the Register of Training Organisations in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation had funding removed from any education bodies in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation had funding removed from any education bodies in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation been removed from any professional or trade registers in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation been removed from any professional or trade registers in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years</td>
+						<td class="govuk-table__cell">Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation been removed from any charity register</td>
+						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation been investigated due to safeguarding issues in the last 3 months</td>
+						<td class="govuk-table__cell">Has your organisation been investigated due to safeguarding issues in the last 3 months?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation been investigated due to whistleblowing issues in the last 3 months<br>
+						<td class="govuk-table__cell">Has your organisation been investigated due to whistleblowing issues in the last 3 months?<br>
 						</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years<br>
-						</td>
+						<td class="govuk-table__cell">Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?</td>
 						<td class="govuk-table__cell">No</td>
 					</tr>
 				</tbody>
@@ -125,15 +123,16 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
+		
 			<form action="" method="post" class="form">
-				
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
-				
+
+				<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
+
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-criminal-organisation-outcome-pass",
-						id: "gw-abctraining-criminal-organisation-outcome-pass",
-          	value: data['gw-abctraining-criminal-organisation-outcome-pass'],
+						name: "gw-abctraining-criminal-organisation-pass",
+						id: "gw-abctraining-criminal-organisation-pass",
+          	value: data['gw-abctraining-criminal-organisation-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -143,9 +142,9 @@
 				
 				{% set rejectHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-criminal-organisation-outcome-reject",
-						id: "gw-abctraining-criminal-organisation-outcome-reject",
-          	value: data['gw-abctraining-criminal-organisation-outcome-reject'],
+						name: "gw-abctraining-criminal-organisation-reject",
+						id: "gw-abctraining-criminal-organisation-reject",
+          	value: data['gw-abctraining-criminal-organisation-reject'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -155,19 +154,19 @@
 				
 				{% set inprogressHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-criminal-organisation-outcome-inprogress",
-						id: "gw-abctraining-criminal-organisation-outcome-inprogress",
-          	value: data['gw-abctraining-criminal-organisation-outcome-inprogress'],
+						name: "gw-abctraining-criminal-organisation-inprogress",
+						id: "gw-abctraining-criminal-organisation-inprogress",
+          	value: data['gw-abctraining-criminal-organisation-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
-				
+
 				{{ govukRadios({
-					idPrefix: "gw-abctraining-criminal-organisation-outcome-conditional",
-					name: "gw-abctraining-criminal-organisation-outcome",
+					idPrefix: "gw-abctraining-criminal-organisation-conditional",
+					name: "gw-abctraining-criminal-organisation",
 					items: [
 						{
 							value: "Pass",
@@ -175,7 +174,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("gw-abctraining-criminal-organisation-outcome", "Pass")
+							checked: checked("gw-abctraining-criminal-organisation", "Pass")
 						},
 						{
 							value: "Reject",
@@ -183,10 +182,7 @@
 							conditional: {
 								html: rejectHtml
 							},
-							checked: checked("gw-abctraining-criminal-organisation-outcome", "Reject")
-						},
-						{
-							divider: "or"
+							checked: checked("gw-abctraining-criminal-organisation", "Reject")
 						},
 						{
 							value: "In progress",
@@ -194,7 +190,7 @@
 							conditional: {
 								html: inprogressHtml
 							},
-							checked: checked("gw-abctraining-criminal-organisation-outcome", "In progress")
+							checked: checked("gw-abctraining-criminal-organisation", "In progress")
 						}
 					]
 				}) }}

@@ -17,33 +17,26 @@ module.exports = function (router) {
 	/*********************************
 	 * Setup in progress application *
 	 *********************************/
-/*
+
 		router.get('/mvp-gateway/' + v + '-setup', function (req, res) {
-			req.session.data['gw-xyztraining-legal-legalname'] = "Yes"
-			req.session.data['gw-xyztraining-legal-legalstatus'] = "No"
-			req.session.data['gw-xyztraining-legal-legaladdress'] = "Yes"
-			req.session.data['gw-xyztraining-legal-legaloutcome'] = "In progress"
-			req.session.data['gw-xyztraining-legal-legaloutcome-inprogress'] = "Checking on discrepancy in difference of address"
-			req.session.data['gw-xyztraining-legal-legaloutcome-reject'] = "Discrepancy in legal addresses"
-			req.session.data['gw-xyztraining-legal-highriskorg-outcome'] = "Pass"
-			req.session.data['gw-xyztraining-legal-people-highrisk'] = "Yes"
-			req.session.data['gw-xyztraining-legal-people'] = "Yes"
-			req.session.data['gw-xyztraining-legal-highriskpeople-outcome'] = "Pass"
-			req.session.data['gw-xyztraining-register-roatp'] = "Pass"
-			req.session.data['gw-xyztraining-register-epao'] = "Pass"
-			req.session.data['gw-xyztraining-organisation-info-ico'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-info-website'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-info'] = "Pass"
-			req.session.data['gw-xyztraining-organisation-experience-ofs'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-experience-itt'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-experience-ofsted'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-experience-subcontractor'] = "Yes"
-			req.session.data['gw-xyztraining-organisation-experience'] = "Pass"
-			req.session.data['gw-xyztraining-criminal-organisation-outcome'] = "Pass"
-			req.session.data['gw-xyztraining-criminal-people-outcome'] = "Pass"
-			res.redirect('/mvp-gateway/' + v + '/')
+			req.session.data['gw-abctraining-organisation-legalname'] = "Pass"
+			req.session.data['gw-abctraining-organisation-status'] = "Fail"
+			req.session.data['gw-abctraining-organisation-status-fail'] = "Company has status of Dissolved on Companies House"
+			req.session.data['gw-abctraining-organisation-address'] = "Pass"
+			req.session.data['gw-abctraining-organisation-ico'] = "Pass"
+			req.session.data['gw-abctraining-organisation-website'] = "Pass"
+			req.session.data['gw-abctraining-organisation-highrisk'] = "Pass"
+			req.session.data['gw-abctraining-people-people'] = "Pass"
+			req.session.data['gw-abctraining-people-highrisk'] = "Pass"
+			req.session.data['gw-abctraining-register-roatp'] = "Pass"
+			req.session.data['gw-abctraining-register-epao'] = "Pass"
+			req.session.data['gw-abctraining-experience-ofs'] = "Pass"
+			req.session.data['gw-abctraining-experience-itt'] = "Pass"
+			req.session.data['gw-abctraining-experience-ofsted'] = "Pass"
+			req.session.data['gw-abctraining-criminal-organisation'] = "Pass"
+			req.session.data['gw-abctraining-criminal-people'] = "Pass"
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
-*/
 
 	/**********************************
 	 * Move applications through tabs *

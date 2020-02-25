@@ -1,0 +1,317 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!--div class="govuk-grid-column-two-thirds"-->
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        Application overview
+      </h1>
+
+      <h2 class="govuk-heading-l">Feedback from the RoATP application assessment team</h2>
+      <p class="govuk-body">
+        Your application has not been taken forward for assessment due to an incorrectly claimed exemption regarding the following question:<br><br>
+        "Did your organisation get this grade within the last 3 years?"<br><br>
+        We have identified that this inspection report is not within the last 3 years.<br><br>
+        Please submit a new application completing this answer with information as published in your Ofsted report, and complete the questions that may be required as a result.<br><br>
+        You can find this question in "1. Your organisation" under "Experience and accreditations".
+      </p>
+      
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-!-margin-top-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Organisation name</dt>
+          <dd class="govuk-summary-list__value">YOUR COMPANY NAME LTD</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">UKPRN</dt>
+          <dd class="govuk-summary-list__value">12345678</dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="javascript:preventDefault();">
+              Change<span class="govuk-visually-hidden"> UKPRN</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Provider route</dt>
+          <dd class="govuk-summary-list__value">Main </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="javascript:preventDefault();">
+              Change<span class="govuk-visually-hidden"> provider route</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section" id="section-organisation">
+            <span class="app-task-list__section-number">1. </span> Your organisation
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="organisation/org-parentcompany">Organisation information</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Tell us who’s in control</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Describe your organisation</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Experience and accreditations</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-financial">
+            <span class="app-task-list__section-number">2. </span> Financial health assessment
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="financial/turnover" aria-describedby="fin-evidence">Your organisation’s financial evidence</a>
+              <strong class="govuk-tag app-task-list__task-completed" id="fin-evidence-status">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-declarations">
+            <span class="app-task-list__section-number">3. </span> Criminal and compliance checks
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Checks on your organisation</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Checks on who’s in control of your organisation</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-welfare">
+            <span class="app-task-list__section-number">4. </span>Protecting your apprentices
+          </h2>
+
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Equality and diversity policy</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Safeguarding and Prevent duty policy</a>
+              <strong class="govuk-tag app-task-list__task-completed" id="wel-safeguarding">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Health and safety policy</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-readiness">
+            <span class="app-task-list__section-number">5. </span> Readiness to engage
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you’ll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Engaging with employers</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Complaints policy</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Contract for services template</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Commitment statement template</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Prior learning of apprentices</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Working with subcontractors</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-planning">
+            <span class="app-task-list__section-number">6. </span> Planning apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you’ll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Type of apprenticeship training</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Supporting apprentices</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Forecasting starts</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Off the job training</a>
+              <strong class="govuk-tag app-task-list__task-completed" id="plan-offthejob">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Where apprentices will be trained</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-delivering">
+            <span class="app-task-list__section-number">7. </span> Delivering apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you’ll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li> 
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Overall accountability for apprenticeships</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Management hierarchy for apprenticeships</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Quality and high standards in apprenticeship training</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Developing and delivering training</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Sectors and employee experience</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Policy for professional development of employees</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-evaluating">
+            <span class="app-task-list__section-number">8. </span> Evaluating apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you’ll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li> 
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Process for evaluating the quality of training delivered</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Evaluating the quality of apprenticeship training</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Systems and processes to collect apprenticeship data</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Using Individualised Learner Record</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-finish">
+            <span class="app-task-list__section-number">9. </span> Finish
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Your details and permissions</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">‘Commercial in confidence’ information</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Terms and conditions</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Submit application</a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+{% endblock %}

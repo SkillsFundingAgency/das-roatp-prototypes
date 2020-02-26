@@ -1,0 +1,59 @@
+{% extends "layouts/layout_clarify_gw_v1.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14 
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Health and safety policy</span>
+        
+    <h1 class="govuk-heading-l">Upload your organisation’s health and safety policy</h1>
+
+    <p class="gov-body">This must include how your organisation will:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>promote the policy</li>
+      <li>get commitment to the policy</li>
+      <li>train its employees in implementing the policy</li>
+      <li>cover apprentices in its care</li>
+      <li>have people who are responsible for health and safety</li>
+      <li>identify and manage health and safety concerns</li>
+      <li>have a procedure for accidents or ill health of apprentices</li>
+    </ul>
+
+    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+
+    <form action="" method="post" class="form">
+    
+      {{ govukFileUpload({
+        id: "wel-healthandsafety",
+        name: "wel-healthandsafety",
+        label: {
+          text: "Upload a file"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="healthandsafety">Return to this question later</a></p>
+      
+      {% include "includes/v14/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

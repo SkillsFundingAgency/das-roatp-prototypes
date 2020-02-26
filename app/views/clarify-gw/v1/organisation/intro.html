@@ -1,0 +1,72 @@
+{% extends "layouts/layout_clarify_gw_v1.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+    <h1 class="govuk-heading-l">Your organisation</h1>
+
+    <p class="govuk-body">In this section we’ll ask for:</p>
+    
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your organisation’s Information Commissioner’s Office registration number</li>
+      <li>who’s in control and their date of births</li>
+      <li>your organisation’s trading history</li>
+      <li>details of what your organisation is</li>
+      <li>Ofsted or other educational accreditations</li>
+    </ul>
+
+    <p class="govuk-body">Depending on your answers, we may ask further questions.</p>
+
+    <form action="" method="post" class="form">
+
+      {% if data["org-selectedroute"] == "supporting" %}
+
+        {{ govukWarningText({
+          text: "Your organisation must have at least 3 months trading history and a training manager with at least 3 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% elseif data["org-selectedroute"] == "employer" %}
+
+        {{ govukWarningText({
+          text: "Your organisation must have at least 12 months trading history and a training manager with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% else %}
+
+        {{ govukWarningText({
+          text: "Your organisation must have at least 12 months trading history and a training manager with at least 9 months experience in developing and delivering training.",
+          iconFallbackText: "Warning"
+        }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

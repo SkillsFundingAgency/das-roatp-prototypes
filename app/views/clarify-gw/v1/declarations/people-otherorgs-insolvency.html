@@ -1,0 +1,91 @@
+{% extends "layouts/layout_clarify_gw_v1.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Checks on your organisation</span>
+
+      <h1 class="govuk-heading-l">Have any of those other organisations been subject to insolvency or winding up proceedings in the last 3 years?</h1>
+
+      <form action="" method="post" class="form">
+
+        {% set detailHtml %}
+          {{ govukCharacterCount({
+            name: "dec-org-otherorginsolvency-detail",
+            id: "dec-org-otherorginsolvency-detail",
+            maxlength: 1500,
+            label: {
+              text: "Give us more information"
+            },
+            hint: {
+              html: '<p class="govuk-hint">You’ll need to include:</p>
+              <ul>
+                <li>names of the other organisations</li>
+                <li>a brief summary of why this happened - including relevant dates</li>
+                <li>outstanding judgements or legal proceedings</li>
+              </ul>'
+            },
+            value: data['dec-org-otherorginsolvency-detail']
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "dec-org-otherorginsolvency",
+          name: "dec-org-otherorginsolvency",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("dec-org-otherorginsolvency", "Yes"),
+              conditional: {
+                html: detailHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("dec-org-otherorginsolvency", "No")
+            }
+          ]
+        }) }}
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Who's in control
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">These are the people you confirmed as being in control of your organisation.</p>
+            {% include "../../../includes/directors-pscs.html" %}
+
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="../task-list#section-declarations">Return to this question later</a></p>
+      
+        {% include "includes/v14/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

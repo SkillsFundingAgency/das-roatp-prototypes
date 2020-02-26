@@ -1,0 +1,84 @@
+{% extends "layouts/layout_clarify_gw_v1.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "task-list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/clarify-gw/v14/organisation/select-route" method="post" class="form">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "Select your training provider route",
+            href: "#org-selectedroute-error"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        idPrefix: "org-selectedroute",
+        name: "org-selectedroute",
+        fieldset: {
+          legend: {
+            text: "Select your route",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: ""
+        },
+        items: [
+          {
+            value: "main",
+            text: "Main provider",
+            checked: checked("org-selectedroute", "main"),
+            hint: {
+              text: "You can train apprentices for other organisations, your own employees, employees of connected companies or act as a subcontractor for other main and employer providers."
+            }
+          },
+          {
+            value: "employer",
+            text: "Employer provider",
+            checked: checked("org-selectedroute", "employer"),
+            hint: {
+              text: "You can train your own employees, employees of connected companies or act as a subcontractor for other employer or main providers."
+            }
+          },
+          {
+            value: "supporting",
+            text: "Supporting provider",
+            checked: checked("org-selectedroute", "supporting"),
+            hint: {
+              text: "You’ll act as a subcontractor for main and employer providers to train apprentices up to a maximum of £500,000 per year. If you're new, this will be limited to £100,000 in your first year on the register.
+              "
+            }
+          }
+        ],
+        errorMessage: {
+          text: "Select your training provider route"
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

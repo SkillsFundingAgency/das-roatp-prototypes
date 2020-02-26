@@ -20,6 +20,9 @@ require('./routes/application/v12.js')(router);
 require('./routes/application/v13.js')(router);
 require('./routes/application/v14.js')(router);
 
+// Clarify applicant journey from Gateway
+require('./routes/clarify-gw/v1.js')(router);
+
 // Organisation Journey
 require('./routes/organisation/v01.js')(router);
 require('./routes/organisation/v0.js')(router);

@@ -1,0 +1,58 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvppmo_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-pmo/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-pmo/v1/roatp/list"
+			},
+			{
+				text: "Financial health evaluation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<!--div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">PMO</span>
+			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+		</div>
+	</div-->
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-5">
+				<h1 class="govuk-panel__title">Evaluation submitted</h1>
+				<div class="govuk-panel__body">
+					The evaluation has been saved with a grade of <strong>{{ data['pmo-abc'] }}</strong>
+				</div>
+			</div>
+
+			<p class="govuk-body">You can view previous evaluations, including this one in the <a href="javascript:preventDefault();">Outcomes</a> area.</p>
+		
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-5">What do you want to do next?</h2>
+			<p class="govuk-body"><a href="list">Return to RoATP applications</a></p>
+
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

@@ -137,54 +137,129 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 
-			<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the grade for this application</a></h2>
+			<form action="" method="post" class="form">
 
-			{{ govukRadios({
-				name: "pmo-abc",
-				items: [
-					{
-						value: "Outstanding",
-						text: "Outstanding",
-						checked: checked("pmo-abc", "Outstanding")
-					},
-					{
-						value: "Good",
-						text: "Good",
-						checked: checked("pmo-abc", "Good")
-					},
-					{
-						value: "Satisfactory",
-						text: "Satisfactory",
-						checked: checked("pmo-abc", "Satisfactory")
-					},
-					{
-						value: "Clarification",
-						text: "Clarification",
-						checked: checked("pmo-abc", "Clarification")
-					},
-					{
-						value: "Inadequate",
-						text: "Inadequate",
-						checked: checked("pmo-abc", "Inadequate")
-					},
-					{
-						value: "Exempt",
-						text: "Exempt",
-						checked: checked("pmo-abc", "Exempt")
-					}
-				]
-			}) }}
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the grade for this application</a></h2>
+					
+				{% set oustandingHtml %}
+					{{ govukDateInput({
+						id: "pmo-abc-outstanding",
+						namePrefix: "pmo-abc-outstanding",
+						fieldset: {
+							legend: {
+								text: "What is the financial due date?"
+							}
+						}
+					}) }}
+				{% endset -%}
 
+				{% set goodHtml %}
+					{{ govukDateInput({
+						id: "pmo-abc-good",
+						namePrefix: "pmo-abc-good",
+						fieldset: {
+							legend: {
+								text: "What is the financial due date?"
+							}
+						}
+					}) }}
+				{% endset -%}
 
-			{{ govukButton({
-				classes: "govuk-!-margin-top-5",
-				href: "abc-outcome",
-				text: "Confirm outcome"
-			}) }}
+				{% set satisfactoryHtml %}
+					{{ govukDateInput({
+						id: "pmo-abc-satisfactory",
+						namePrefix: "pmo-abc-satisfactory",
+						fieldset: {
+							legend: {
+								text: "What is the financial due date?"
+							}
+						}
+					}) }}
+				{% endset -%}
+					
+				{% set clarificationHtml %}
+					{{ govukCharacterCount({
+						name: "pmo-abc-clarification",
+						id: "pmo-abc-clarification",
+						value: data['pmo-abc-clarification'],
+						maxwords: 500,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inadequateHtml %}
+					{{ govukCharacterCount({
+						name: "pmo-abc-inadequate",
+						id: "pmo-abc-inadequate",
+						value: data['pmo-abc-inadequate'],
+						maxwords: 150,
+						label: {
+							text: "Why is the application inadequate"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "pmo-abc",
+					items: [
+						{
+							value: "Outstanding",
+							text: "Outstanding",
+							conditional: {
+								html: oustandingHtml
+							},
+							checked: checked("pmo-abc", "Outstanding")
+						},
+						{
+							value: "Good",
+							text: "Good",
+							conditional: {
+								html: goodHtml
+							},
+							checked: checked("pmo-abc", "Good")
+						},
+						{
+							value: "Satisfactory",
+							text: "Satisfactory",
+							conditional: {
+								html: satisfactoryHtml
+							},
+							checked: checked("pmo-abc", "Satisfactory")
+						},
+						{
+							value: "Clarification",
+							text: "Clarification",
+							conditional: {
+								html: clarificationHtml
+							},
+							checked: checked("pmo-abc", "Clarification")
+						},
+						{
+							value: "Inadequate",
+							text: "Inadequate",
+							conditional: {
+								html: inadequateHtml
+							},
+							checked: checked("pmo-abc", "Inadequate")
+						},
+						{
+							value: "Exempt",
+							text: "Exempt",
+							checked: checked("pmo-abc", "Exempt")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					classes: "govuk-!-margin-top-5",
+					text: "Confirm outcome"
+				}) }}
+
+			</form>
 		
 		</div>
 	</div>
-
-	
 
 {% endblock %}

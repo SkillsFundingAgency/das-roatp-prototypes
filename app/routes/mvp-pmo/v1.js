@@ -18,11 +18,13 @@ module.exports = function (router) {
 	 * PMO Assessor *
 	 ****************/
 
-	
-
 		router.get('/mvp-pmo/' + v + '/roatp/abc-setinprogress', function (req, res) {
 			req.session.data['pmo-abc-status'] = 'inprogress'
 			res.redirect('/mvp-pmo/' + v + '/roatp/abc-evaluation')
+		})
+
+		router.post('/mvp-pmo/' + v + '/roatp/abc-evaluation', function (req, res) {
+			res.redirect('/mvp-pmo/' + v + '/roatp/abc-submitted')
 		})
 
 		

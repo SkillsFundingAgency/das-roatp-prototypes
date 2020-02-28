@@ -41,6 +41,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if not data['pmo-abc'] %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="abc-setinprogress">ABC TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
@@ -55,6 +56,7 @@
 						{% endif %}
 					</td>
 				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
 					<td class="govuk-table__cell">10346672</td>
@@ -79,6 +81,64 @@
 					<td class="govuk-table__cell">22 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
 				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{% set clarificationsHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Financial health status</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['pmo-abc'] == "Clarification" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="abc-setinprogress">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-negative">Clarify</strong>
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{% set outcomeHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Financial health status</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if (data['pmo-abc']) and not (data['pmo-abc'] == "Clarification") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="abc-setinprogress">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-completed">{{ data['pmo-abc'] }}</strong>
+					</td>
+				</tr>
+				{% endif %}
 			</tbody>
 		</table>
 	{% endset -%}

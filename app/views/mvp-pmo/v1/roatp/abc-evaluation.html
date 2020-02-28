@@ -1,0 +1,190 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvppmo_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-pmo/v1/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-pmo/v1/roatp/list"
+			},
+			{
+				text: "Financial health evaluation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">PMO</span>
+			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">12345678</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<h2 class="govuk-heading-l">Organisation's financial evidence</a></h2>
+
+			<p class="govuk-body"><a href="javascript:preventDefault();">Download financial statements</a></p>
+
+
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Was your organisation’s total annual turnover over £75 million for the last financial year?</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total annual turnover for the last financial year</td>
+						<td class="govuk-table__cell">£123,456</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total depreciation and amortisation charges for the last financial year</td>
+						<td class="govuk-table__cell">£9,853</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s profit or loss for the last financial year</td>
+						<td class="govuk-table__cell">£26,382</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total dividends for the last financial year</td>
+						<td class="govuk-table__cell">£20,500</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total current assets for the last financial year</td>
+						<td class="govuk-table__cell">£2,551</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total current liabilities for the last financial year</td>
+						<td class="govuk-table__cell">£0</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total borrowings for the last financial year</td>
+						<td class="govuk-table__cell">£0</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s net assets for the last financial year</td>
+						<td class="govuk-table__cell">£2,160</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Enter your organisation’s total intangible assets for the last financial year</td>
+						<td class="govuk-table__cell">£0</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation produced its latest full financial statements covering a minimum of 12 months?</td>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Has your organisation produced financial statements covering any period within the last 12 months?</td>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Who prepared the answers and uploads in this section?</td>
+						<td class="govuk-table__cell">An employee in your organisation</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the grade for this application</a></h2>
+
+			{{ govukRadios({
+				name: "pmo-abc",
+				items: [
+					{
+						value: "Outstanding",
+						text: "Outstanding",
+						checked: checked("pmo-abc", "Outstanding")
+					},
+					{
+						value: "Good",
+						text: "Good",
+						checked: checked("pmo-abc", "Good")
+					},
+					{
+						value: "Satisfactory",
+						text: "Satisfactory",
+						checked: checked("pmo-abc", "Satisfactory")
+					},
+					{
+						value: "Clarification",
+						text: "Clarification",
+						checked: checked("pmo-abc", "Clarification")
+					},
+					{
+						value: "Inadequate",
+						text: "Inadequate",
+						checked: checked("pmo-abc", "Inadequate")
+					},
+					{
+						value: "Exempt",
+						text: "Exempt",
+						checked: checked("pmo-abc", "Exempt")
+					}
+				]
+			}) }}
+
+
+			{{ govukButton({
+				classes: "govuk-!-margin-top-5",
+				href: "abc-outcome",
+				text: "Confirm outcome"
+			}) }}
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

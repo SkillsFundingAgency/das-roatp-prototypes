@@ -1,0 +1,161 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v4.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: ""
+			},
+			{
+				text: "RoATP applications",
+				href: ""
+			},
+			{
+				text: "Application assessment overview",
+				href: ""
+			},
+			{
+				text: "Legal checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Legal name check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 28 Nov 2019
+			</p>
+
+			<!--div class="call-to-action">
+				{{ govukWarningText({
+					text: "Source data was last checked on 27 Nov 2019",
+					classes: "govuk-!-margin-bottom-3",
+					iconFallbackText: "Warning"
+				}) }}
+
+				{{ govukButton({
+					text: "Refrresh data from sources",
+					classes: "govuk-!-margin-bottom-0"
+				}) }}
+			</div-->
+
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Source</th>
+						<th scope="col" class="govuk-table__header">Legal name</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Submitted application data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">UKRLP data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Companies House data</td>
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "legalnameapi-pass",
+						id: "legalnameapi-pass",
+          	value: data['legalnameapi-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "legalnameapi-fail",
+						id: "legalnameapi-fail",
+          	value: data['legalnameapi-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "legalnameapi-inprogress",
+						id: "legalnameapi-inprogress",
+          	value: data['legalnameapi-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "legalnameapi-conditional",
+					name: "legalnameapi",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("legalnameapi", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("legalnameapi", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("legalnameapi", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					href: "javascript:preventDefault();",
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			<p><a href="javascript:preventDefault();">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

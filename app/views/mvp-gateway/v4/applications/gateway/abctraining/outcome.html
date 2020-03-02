@@ -338,14 +338,14 @@
 					}) }}
 				{% endset -%}
 				
-				{% set rejectHtml %}
+				{% set declineHtml %}
 					{{ govukCharacterCount({
-						name: "gw-abctraining-outcome-reject",
-						id: "gw-abctraining-outcome-reject",
-          	value: data['gw-abctraining-outcome-reject'],
+						name: "gw-abctraining-outcome-decline",
+						id: "gw-abctraining-outcome-decline",
+          	value: data['gw-abctraining-outcome-decline'],
 						maxwords: 500,
 						label: {
-							text: "Enter your rejection comments"
+							text: "Enter your declined comments"
 						},
 						hint: {
 							text: "The applicant will be able to see this information."
@@ -378,12 +378,12 @@
 							checked: checked("gw-abctraining-outcome", "Send a clarification to the applicant")
 						},
 						{
-							value: "Reject this application",
-							text: "Reject this application",
+							value: "Decline this application",
+							text: "Decline this application",
 							conditional: {
-								html: rejectHtml
+								html: declineHtml
 							},
-							checked: checked("gw-abctraining-outcome", "Reject this application")
+							checked: checked("gw-abctraining-outcome", "Decline this application")
 						},
 						{
 							value: "Pass this application",

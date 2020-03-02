@@ -43,7 +43,13 @@
 				</div>
 			</div>
 
-			<p class="govuk-body">You can view previous evaluations, including this one in the <a href="list#outcome">Outcomes</a> area.</p>
+			
+			{% if data['pmo-abc'] == "Clarification" %}
+				<p class="govuk-body">You can view previous evaluations with clarifications, including this one, in the <a href="list#clarifications">Clarifications</a>
+			{% else %}
+				<p class="govuk-body">You can view previous evaluations, including this one in the <a href="list#outcome">Outcomes</a>
+			{% endif %}
+			area.</p>
 		
 
 			<h2 class="govuk-heading-l govuk-!-margin-top-5">What do you want to do next?</h2>

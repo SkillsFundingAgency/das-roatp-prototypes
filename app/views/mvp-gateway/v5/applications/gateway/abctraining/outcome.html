@@ -1,0 +1,410 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v5/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v5/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v5/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Confirm gateway outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Gateway outcome</span>
+			<h1 class="govuk-heading-xl">Confirm gateway outcome</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Provider route: Main
+			</p>
+		
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header" width="40%">Check</th>
+						<th scope="col" class="govuk-table__header" width="10%">Outome</th>
+						<th scope="col" class="govuk-table__header" width="50%">Comments</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Legal name</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-legalname'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-legalname'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-legalname'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-legalname-pass'] }}
+							{% elseif data['gw-abctraining-organisation-legalname'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-legalname-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Organisation status</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-status'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-status'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-status'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-status-pass'] }}
+							{% elseif data['gw-abctraining-organisation-status'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-status-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Address</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-address'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-address'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-address'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-address-pass'] }}
+							{% elseif data['gw-abctraining-organisation-address'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-address-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">ICO registration number</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-ico'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-ico'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-ico'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-ico-pass'] }}
+							{% elseif data['gw-abctraining-organisation-ico'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-ico-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Website address</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-website'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-website'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-website'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-website-pass'] }}
+							{% elseif data['gw-abctraining-organisation-website'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-website-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Organisation high risk</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-highrisk'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-organisation-highrisk'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-organisation-highrisk'] == "Pass" %}
+								{{ data['gw-abctraining-organisation-highrisk-pass'] }}
+							{% elseif data['gw-abctraining-organisation-highrisk'] == "Fail" %}
+								{{ data['gw-abctraining-organisation-highrisk-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">People in control</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-people-people'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-people-people'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-people-people'] == "Pass" %}
+								{{ data['gw-abctraining-people-people-pass'] }}
+							{% elseif data['gw-abctraining-people-people'] == "Fail" %}
+								{{ data['gw-abctraining-people-people-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">People in control high risk</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-people-highrisk'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-people-highrisk'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-people-highrisk'] == "Pass" %}
+								{{ data['gw-abctraining-people-highrisk-pass'] }}
+							{% elseif data['gw-abctraining-people-highrisk'] == "Fail" %}
+								{{ data['gw-abctraining-people-highrisk-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">RoATP</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-register-roatp'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-register-roatp'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-register-roatp'] == "Pass" %}
+								{{ data['gw-abctraining-register-roatp-pass'] }}
+							{% elseif data['gw-abctraining-register-roatp'] == "Fail" %}
+								{{ data['gw-abctraining-register-roatp-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Register of end-point assessment organisations</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-register-epao'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-register-epao'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-register-epao'] == "Pass" %}
+								{{ data['gw-abctraining-register-epao-pass'] }}
+							{% elseif data['gw-abctraining-register-epao'] == "Fail" %}
+								{{ data['gw-abctraining-register-epao-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Office for Students (OfS)</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-ofs'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-experience-ofs'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-ofs'] == "Pass" %}
+								{{ data['gw-abctraining-experience-ofs-pass'] }}
+							{% elseif data['gw-abctraining-experience-ofs'] == "Fail" %}
+								{{ data['gw-abctraining-experience-ofs-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Initial teacher training (ITT)</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-itt'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-experience-itt'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-itt'] == "Pass" %}
+								{{ data['gw-abctraining-experience-itt-pass'] }}
+							{% elseif data['gw-abctraining-experience-itt'] == "Fail" %}
+								{{ data['gw-abctraining-experience-itt-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Ofsted</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-ofsted'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-experience-ofsted'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-experience-ofsted'] == "Pass" %}
+								{{ data['gw-abctraining-experience-ofsted-pass'] }}
+							{% elseif data['gw-abctraining-experience-ofsted'] == "Fail" %}
+								{{ data['gw-abctraining-experience-ofsted-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Criminal and compliance on the organisation</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-criminal-organisation'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-criminal-organisation'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-criminal-organisation'] == "Pass" %}
+								{{ data['gw-abctraining-criminal-organisation-pass'] }}
+							{% elseif data['gw-abctraining-criminal-organisation'] == "Fail" %}
+								{{ data['gw-abctraining-criminal-organisation-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__header">Criminal and compliance on the people in control</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-criminal-people'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag-positive">Pass</strong>
+							{% elseif data['gw-abctraining-criminal-people'] == "Fail" %}
+								<strong class="govuk-tag govuk-tag-negative">Fail</strong>
+							{% endif %}
+						</td>
+						<td class="govuk-table__cell">
+							{% if data['gw-abctraining-criminal-people'] == "Pass" %}
+								{{ data['gw-abctraining-criminal-people-pass'] }}
+							{% elseif data['gw-abctraining-criminal-people'] == "Fail" %}
+								{{ data['gw-abctraining-criminal-people-fail'] }}
+							{% endif %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="" method="post" class="form">
+
+				<h3 class="govuk-heading-m govuk-!-margin-top-5">What do you want to do?</h3>
+
+				{% set clarifyHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-outcome-clarify",
+						id: "gw-abctraining-outcome-clarify",
+          	value: data['gw-abctraining-outcome-clarify'],
+						maxwords: 500,
+						label: {
+							text: "Enter your clarification comments"
+						},
+						hint: {
+							text: "The applicant can use this information to change and resubmit their application."
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set declineHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-outcome-decline",
+						id: "gw-abctraining-outcome-decline",
+          	value: data['gw-abctraining-outcome-decline'],
+						maxwords: 500,
+						label: {
+							text: "Enter your declined comments"
+						},
+						hint: {
+							text: "The applicant will be able to see this information."
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-outcome-pass",
+						id: "gw-abctraining-outcome-pass",
+          	value: data['gw-abctraining-outcome-pass'],
+						maxwords: 500,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-outcome-conditional",
+					name: "gw-abctraining-outcome",
+					items: [
+						{
+							value: "Send a clarification to the applicant",
+							text: "Send a clarification to the applicant",
+							conditional: {
+								html: clarifyHtml
+							},
+							checked: checked("gw-abctraining-outcome", "Send a clarification to the applicant")
+						},
+						{
+							value: "Decline this application",
+							text: "Decline this application",
+							conditional: {
+								html: declineHtml
+							},
+							checked: checked("gw-abctraining-outcome", "Decline this application")
+						},
+						{
+							value: "Pass this application",
+							text: "Pass this application",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-outcome", "Pass this application")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save gateway outcome"
+				}) }}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v5/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

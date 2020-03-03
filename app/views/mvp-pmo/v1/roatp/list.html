@@ -57,6 +57,22 @@
 					</td>
 				</tr>
 				{% endif %}
+				{% if not data['pmo-xyz'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="xyz-setinprogress">XYZ LEARNING</a></td>
+					<td class="govuk-table__cell">10987654</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Exempt</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">
+						{% if data['pmo-xyz-status'] == 'inprogress' %}
+						<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag app-task-list__task-positive">New</strong>
+						{% endif %}
+					</td>
+				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
 					<td class="govuk-table__cell">10346672</td>
@@ -106,6 +122,27 @@
 					<td class="govuk-table__cell">17 Oct 2019</td>
 				</tr>
 				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">KNOWTABLY</td>
+					<td class="govuk-table__cell">10776351</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">CHRYSALIS</td>
+					<td class="govuk-table__cell">12110997</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">23 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">EDUSPHERE</td>
+					<td class="govuk-table__cell">11098793</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Exempt</td>
+					<td class="govuk-table__cell">24 Oct 2019</td>
+				</tr>
 			</tbody>
 		</table>
 	{% endset -%}
@@ -125,7 +162,7 @@
 			<tbody class="govuk-table__body">
 				{% if (data['pmo-abc']) and not (data['pmo-abc'] == "Clarification") %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="abc-setinprogress">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell"><a href="abc-evaluation">ABC TRAINING LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">Not exempt</td>
@@ -135,6 +172,38 @@
 					</td>
 				</tr>
 				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">SCHOOL SOURCE</td>
+					<td class="govuk-table__cell">10776392</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Exempt</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
+					<td class="govuk-table__cell">Exempt</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">FUTURE THINK</td>
+					<td class="govuk-table__cell">10652842</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Satisfactory</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">MOVING THE GRADE</td>
+					<td class="govuk-table__cell">10234173</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Outstanding</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ROCKET TRAINING</td>
+					<td class="govuk-table__cell">10882394</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">11 Oct 2019</td>
+					<td class="govuk-table__cell">Inadequate</td>
+				</tr>
 			</tbody>
 		</table>
 	{% endset -%}

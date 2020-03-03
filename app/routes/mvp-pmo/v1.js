@@ -14,9 +14,9 @@ function monthNumToName(monthnum) {
 
 module.exports = function (router) {
 
-	/****************
-	 * PMO Assessor *
-	 ****************/
+	/**********************
+	 * PMO Assessor - ABC *
+	 **********************/
 
 		router.get('/mvp-pmo/' + v + '/roatp/abc-setinprogress', function (req, res) {
 			req.session.data['pmo-abc-status'] = 'inprogress'
@@ -26,6 +26,20 @@ module.exports = function (router) {
 		router.post('/mvp-pmo/' + v + '/roatp/abc-evaluation', function (req, res) {
 			res.redirect('/mvp-pmo/' + v + '/roatp/abc-submitted')
 		})
+
+
+	/**********************
+	 * PMO Assessor - XYZ *
+	 **********************/
+
+	router.get('/mvp-pmo/' + v + '/roatp/xyz-setinprogress', function (req, res) {
+		req.session.data['pmo-xyz-status'] = 'inprogress'
+		res.redirect('/mvp-pmo/' + v + '/roatp/xyz-evaluation')
+	})
+
+	router.post('/mvp-pmo/' + v + '/roatp/xyz-evaluation', function (req, res) {
+		res.redirect('/mvp-pmo/' + v + '/roatp/xyz-submitted')
+	})
 
 		
 	/************************

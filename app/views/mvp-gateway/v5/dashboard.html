@@ -1,0 +1,42 @@
+{% set current_section = "dashboard" %}
+{% extends "layouts/layout_mvpgateway_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Gateway, Manage RoATP, Reporting</span>
+			<h1 class="govuk-heading-xl">RoATP dashboard</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-one-half">
+			<h2 class="govuk-heading-l">RoATP applications</h2>
+      <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
+			<ul class="govuk-list govuk-list--nobullet">
+				<li><a href="applications/applications-gateway">View RoATP applications</a></li>
+			</ul>
+		</div>
+		<div class="govuk-grid-column-one-half">
+			<h2 class="govuk-heading-l">Manage the RoATP</h2>
+			<ul class="govuk-list govuk-list--nobullet">
+				<li><a href="register/search/register">Search for existing apprenticeship training providers </a></li>
+				<li><a href="register/add/add-ukprn">Add a new training provider</a></li>
+			</ul>
+			<h2 class="govuk-heading-l">Reporting</h2>
+			<ul class="govuk-list govuk-list--nobullet">
+				<li><a href="#">Download list of apprenticeship training providers</a></li>
+			</ul>
+		</div>
+	</div>
+      
+{% endblock %}
+      

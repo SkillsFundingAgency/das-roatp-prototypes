@@ -35,6 +35,7 @@ require('./routes/mvp-gateway/v1.js')(router);
 require('./routes/mvp-gateway/v2.js')(router);
 require('./routes/mvp-gateway/v3.js')(router);
 require('./routes/mvp-gateway/v4.js')(router);
+require('./routes/mvp-gateway/v5.js')(router);
 
 // MVP Assessor
 require('./routes/mvp-assessor/v1.js')(router);

@@ -1,0 +1,81 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-gateway/v5/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-gateway/v5/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change application determined date"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Change the application determined date for this organisation?</h1>
+
+			<p class="govuk-body">This is the date of when feedback was given to the training provider.</p>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukDateInput({
+					id: "staff-add-determined",
+					namePrefix: "staff-add-determined",
+					hint: {
+						text: "For example, 24 04 2019"
+					},
+					items: [
+						{
+							classes: "govuk-input--width-2",
+							name: "day",
+							value: "03"
+						},
+						{
+							classes: "govuk-input--width-2",
+							name: "month",
+							value: "06"
+						},
+						{
+							classes: "govuk-input--width-4",
+							name: "year",
+							value:"2019"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

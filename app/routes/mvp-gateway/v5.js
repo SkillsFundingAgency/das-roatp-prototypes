@@ -33,8 +33,40 @@ module.exports = function (router) {
 			req.session.data['gw-abctraining-experience-ofs'] = "Pass"
 			req.session.data['gw-abctraining-experience-itt'] = "Pass"
 			req.session.data['gw-abctraining-experience-ofsted'] = "Pass"
-			req.session.data['gw-abctraining-criminal-organisation'] = "Pass"
-			req.session.data['gw-abctraining-criminal-people'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-unspent'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-failed'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-fraud'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-ongoingfraud'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-contractterminated'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-withdrawncontract'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-breached'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-removedtrustees'] = "Pass"
+			req.session.data['gw-abctraining-criminalpeople-bankrupt'] = "Fail"
+			req.session.data['gw-abctraining-criminalorg-composition'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-failed'] = "Fail"
+			req.session.data['gw-abctraining-criminalorg-contractterminated'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-withdrawncontract'] = "Fail"
+			req.session.data['gw-abctraining-criminalorg-roto'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-fundingremoved'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-removedregisters'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-itt'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-removedcharity'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-safeguarding'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-whistleblowing'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-insolvency'] = "Pass"
+			req.session.data['gw-abctraining-experience-ofs'] = "Pass"
+			req.session.data['gw-abctraining-experience-itt'] = "Pass"
+			req.session.data['gw-abctraining-experience-ofsted'] = "Pass"
+			req.session.data['gw-abctraining-organisation-legalname'] = "Pass"
+			req.session.data['gw-abctraining-organisation-status'] = "Pass"
+			req.session.data['gw-abctraining-organisation-address'] = "Pass"
+			req.session.data['gw-abctraining-organisation-ico'] = "Pass"
+			req.session.data['gw-abctraining-organisation-website'] = "Pass"
+			req.session.data['gw-abctraining-organisation-highrisk'] = "Pass"
+			req.session.data['gw-abctraining-people-people'] = "Pass"
+			req.session.data['gw-abctraining-people-highrisk'] = "Pass"
+			req.session.data['gw-abctraining-register-roatp'] = "Pass"
+			req.session.data['gw-abctraining-register-epao'] = "Pass"
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 
@@ -175,6 +207,47 @@ module.exports = function (router) {
 		})
 
 		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/insolvency', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+
+	/******************************************************
+	 * People in control's criminal and compliance checks *
+	 ******************************************************/
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/unspent', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/failed', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/fraud', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/ongoingfraud', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/contractterminated', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/withdrawncontract', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/breached', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/removedtrustees', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-people/bankrupt', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 

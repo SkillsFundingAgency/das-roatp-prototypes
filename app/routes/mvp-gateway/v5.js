@@ -126,15 +126,55 @@ module.exports = function (router) {
 			})
 
 
-		/**********************************
-		 * Criminal and compliance checks *
-		 **********************************/
+	/*************************************************
+	 * Organisation's criminal and compliance checks *
+	 *************************************************/
 
-		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/organisation', function (req, res) {
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/composition', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 
-		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal/people', function (req, res) {
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/failed', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/contractterminated', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/withdrawncontract', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/roto', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/fundingremoved', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/removedregisters', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/itt', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/removedcharity', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/safeguarding', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/whistleblowing', function (req, res) {
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/criminal-org/insolvency', function (req, res) {
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 

@@ -1,0 +1,151 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-gateway/v5/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v5/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v5/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Organisation's criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation's criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Failed to pay back funds in the last 3 years check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED
+			</p>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application question</dt>
+					<dd class="govuk-summary-list__value">Does your organisation have any composition with creditors?</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Applicant's answer</dt>
+					<dd class="govuk-summary-list__value">Yes</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Applicant's detailed answer</dt>
+					<dd class="govuk-summary-list__value">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis luctus nibh non convallis. Aliquam metus mi, consequat rhoncus orci et, euismod feugiat leo. Fusce sagittis tempus augue, ut lobortis turpis viverra vel. Vivamus fermentum non sem ut varius. Cras sed tempus nisi. Fusce vel augue at turpis pretium viverra. Mauris sit amet pellentesque nisi. Suspendisse potenti.<br>Maecenas tincidunt metus rhoncus risus elementum, venenatis posuere ipsum vulputate. Aenean et bibendum leo, quis imperdiet sem. Curabitur vestibulum neque libero, in facilisis arcu elementum dictum. Quisque non velit vulputate, semper ligula a, cursus urna. Proin tincidunt pretium nisi vel commodo. Aenean eget scelerisque purus. Vivamus condimentum nisi feugiat nisi dignissim posuere. Aenean dui arcu, auctor eu augue at, pretium eleifend arcu. Suspendisse sodales orci ut sollicitudin condimentum. Nunc justo tellus, pellentesque sit amet condimentum quis, dignissim in elit.<br>Phasellus in sapien tortor. In hac habitasse platea dictumst. Etiam libero ante, semper sed ante vel, fringilla ultricies ex. Vivamus tristique lobortis arcu, id fermentum sapien condimentum eu. Quisque molestie purus eu diam feugiat fermentum. Integer varius risus sed libero euismod, in volutpat tellus vestibulum. Etiam at sollicitudin nunc. Phasellus vitae ipsum at nibh pulvinar pretium vitae ac nibh. Praesent tincidunt, metus vitae euismod feugiat, risus justo venenatis libero, sit amet tincidunt nulla dolor at mauris. Sed viverra, turpis semper consequat sollicitudin, nisl velit tincidunt est, sed posuere turpis sem id magna. Quisque non consectetur nunc, a ultrices mauris. Vivamus pellentesque tempor purus porta suscipit. Sed porta lobortis laoreet.</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="" method="post" class="form">
+
+				<h3 class="govuk-heading-m govuk-!-margin-top-5">What is the outcome of this check?</h3>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-failed-pass",
+						id: "gw-abctraining-criminalorg-failed-pass",
+          	value: data['gw-abctraining-criminalorg-failed-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-failed-fail",
+						id: "gw-abctraining-criminalorg-failed-fail",
+          	value: data['gw-abctraining-criminalorg-failed-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-failed-inprogress",
+						id: "gw-abctraining-criminalorg-failed-inprogress",
+          	value: data['gw-abctraining-criminalorg-failed-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-criminalorg-failed-conditional",
+					name: "gw-abctraining-criminalorg-failed",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-failed", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-failed", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-failed", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v5/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

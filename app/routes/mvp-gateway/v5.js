@@ -67,6 +67,9 @@ module.exports = function (router) {
 			req.session.data['gw-abctraining-people-highrisk'] = "Pass"
 			req.session.data['gw-abctraining-register-roatp'] = "Pass"
 			req.session.data['gw-abctraining-register-epao'] = "Pass"
+			req.session.data['gw-abctraining-criminalorg-failed-fail'] = "Evidence that organisation failed to repay funds."
+			req.session.data['gw-abctraining-criminalorg-withdrawncontract-fail'] = "Evidence that organisation withdrew from a public body contract early."
+			req.session.data['gw-abctraining-criminalpeople-bankrupt-fail'] = "Evidence of bankruptcy found."
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 
@@ -259,7 +262,7 @@ module.exports = function (router) {
 		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome', function (req, res) {
 			req.session.data['gw-abctraining'] = "outcome"
 			req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
-			if (req.session.data['gw-abctraining-outcome'] == "Send a clarification to the applicant") {
+			if (req.session.data['gw-abctraining-outcome'] == "Ask for clarification") {
 				req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
 				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
 			} else {

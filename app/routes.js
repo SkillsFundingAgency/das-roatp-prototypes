@@ -40,6 +40,7 @@ require('./routes/mvp-gateway/v5.js')(router);
 // MVP Assessor
 require('./routes/mvp-assessor/v1.js')(router);
 require('./routes/mvp-assessor/v2.js')(router);
+require('./routes/mvp-assessor/v3.js')(router);
 
 // Staff App
 require('./routes/staff-app/v2.js')(router);

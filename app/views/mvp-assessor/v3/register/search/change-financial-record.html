@@ -1,0 +1,78 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-assessor/v3/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-assessor/v3/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change financial track record"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<form action="detail" method="post" class="form">
+				
+					{{ govukRadios({
+						classes: "govuk-radios",
+						idPrefix: "staff-changefinancialrecord",
+						name: "staff-changefinancialrecord",
+						fieldset: {
+							legend: {
+								text: "Change financial track record for ABC Assessments",
+								isPageHeading: true,
+								classes: "govuk-fieldset__legend--xl"
+							}
+						},
+						items: [
+						{
+							value: "yes",
+							text: "Yes",
+							checked: false
+						},
+						{
+							value: "no",
+							text: "No",
+							checked: true
+						}
+						]
+					}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

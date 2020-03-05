@@ -60,7 +60,12 @@ module.exports = {
     "mvp-gw-inprogress-count": 7,
     "mvp-gw-clarify-count": 2,
     "mvp-gw-outcome-count": 4,
-    "gw-xyztraining": "assigned"
+    "gw-xyztraining": "assigned",
+
+    "mvp-gwv5-new-count": 7,
+    "mvp-gwv5-inprogress-count": 6,
+    "mvp-gwv5-clarify-count": 2,
+    "mvp-gwv5-outcome-count": 4
   
   }
   

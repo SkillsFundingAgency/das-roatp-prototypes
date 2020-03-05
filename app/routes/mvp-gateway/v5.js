@@ -79,8 +79,8 @@ module.exports = function (router) {
 	
 		router.get('/mvp-gateway/' + v + '/applications/gateway/assign-abctraining', function (req,res) {
 			req.session.data['gw-abctraining'] = "assigned"
-			req.session.data['mvp-gw-new-count'] = req.session.data['mvp-gw-new-count'] - 1
-			req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] + 1
+			req.session.data['mvp-gwv5-new-count'] = req.session.data['mvp-gwv5-new-count'] - 1
+			req.session.data['mvp-gwv5-inprogress-count'] = req.session.data['mvp-gwv5-inprogress-count'] + 1
 			res.redirect('/mvp-gateway/' + v + '/applications/gateway/tasklist-abctraining')
 		})
 
@@ -261,12 +261,12 @@ module.exports = function (router) {
 
 		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome', function (req, res) {
 			req.session.data['gw-abctraining'] = "outcome"
-			req.session.data['mvp-gw-inprogress-count'] = req.session.data['mvp-gw-inprogress-count'] - 1
+			req.session.data['mvp-gwv5-inprogress-count'] = req.session.data['mvp-gwv5-inprogress-count'] - 1
 			if (req.session.data['gw-abctraining-outcome'] == "Ask for clarification") {
-				req.session.data['mvp-gw-clarify-count'] = req.session.data['mvp-gw-clarify-count'] + 1
+				req.session.data['mvp-gwv5-clarify-count'] = req.session.data['mvp-gwv5-clarify-count'] + 1
 				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
 			} else {
-				req.session.data['mvp-gw-outcome-count'] = req.session.data['mvp-gw-outcome-count'] + 1
+				req.session.data['mvp-gwv5-outcome-count'] = req.session.data['mvp-gwv5-outcome-count'] + 1
 				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
 			}
 		})

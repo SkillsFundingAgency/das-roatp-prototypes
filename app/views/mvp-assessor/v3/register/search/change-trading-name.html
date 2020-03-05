@@ -1,0 +1,64 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-assessor/v3/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-assessor/v3/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change trading name"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Change trading name for ABC Assessments</h1>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Trading name"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-changetradingname",
+					name: "staff-changetradingname",
+					value: "ABC Assessments"
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

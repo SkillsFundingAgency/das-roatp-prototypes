@@ -29,7 +29,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">PMO</span>
-			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+			<h1 class="govuk-heading-xl">Financial health assessment overview</h1>
 		</div>
 	</div>
 
@@ -37,10 +37,6 @@
 		<div class="govuk-grid-column-two-thirds">
 	
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR00001</dd>
-				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>
 					<dd class="govuk-summary-list__value">12345678</dd>
@@ -58,8 +54,12 @@
 					<dd class="govuk-summary-list__value">Not exempt</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dt class="govuk-summary-list__key">Application submitted on</dt>
 					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
 				</div>
 			</dl>
 		</div>
@@ -68,11 +68,47 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 
-			<h2 class="govuk-heading-l">Financial statements</a></h2>
-			<p class="govuk-body"><a href="javascript:preventDefault();">Download financial statements</a></p>
+			<h2 class="govuk-heading-l">Ultimate parent company in the UK</a></h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Does your organisation have an ultimate parent company in the UK?</td>
+						<td class="govuk-table__cell">Yes</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Company number</td>
+						<td class="govuk-table__cell"><a href="javascript:preventDefault();">01234567</a></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">Company name</td>
+						<td class="govuk-table__cell">XXX LIMITED</td>
+					</tr>
+				</tbody>
+			</table>
 
-			<h2 class="govuk-heading-l govuk-!-margin-top-7">Organisation's financial evidence</a></h2>
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Actively trading</a></h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">How long has your organisation been actively trading?</td>
+						<td class="govuk-table__cell">More than 23 months</td>
+					</tr>
+				</tbody>
+			</table>
 
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Organisation type</a></h2>
 			<table class="govuk-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
@@ -85,10 +121,18 @@
 						<td class="govuk-table__cell">What is your organisation?</td>
 						<td class="govuk-table__cell">An independent training provider</td>
 					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Organisation's financial health</a></h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">How long has your organisation been actively trading?</td>
-						<td class="govuk-table__cell">More than 23 months</td>
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant’s answer</th>
 					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Was your organisation’s total annual turnover over £75 million for the last financial year?</td>
 						<td class="govuk-table__cell">No</td>
@@ -141,23 +185,11 @@
 						<td class="govuk-table__cell">Who prepared the answers and uploads in this section?</td>
 						<td class="govuk-table__cell">An employee in your organisation</td>
 					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Does your UK ultimate parent company have consolidated financial statements?</td>
-						<td class="govuk-table__cell">Yes</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Does your UK ultimate parent company have other subsidiary companies?</td>
-						<td class="govuk-table__cell">Yes</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Who prepared the answers and uploads for your UK ultimate parent company?</td>
-						<td class="govuk-table__cell">An accountant or auditor</td>
-					</tr>
 				</tbody>
 			</table>
+			<p class="govuk-body"><a href="javascript:preventDefault();">Download organisation’s financial statements</a></p>
 
-			<h2 class="govuk-heading-l govuk-!-margin-top-9">Parent company's financial evidence</a></h2>
-
+			<h2 class="govuk-heading-l govuk-!-margin-top-9">Parent company's financial health</h2>
 			<table class="govuk-table">
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
@@ -168,18 +200,15 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Does your UK ultimate parent company have consolidated financial statements?</td>
-						<td class="govuk-table__cell">Yes</td>
+						<td class="govuk-table__cell">No</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">Does your UK ultimate parent company have other subsidiary companies?</td>
 						<td class="govuk-table__cell">Yes</td>
 					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Who prepared the answers and uploads for your UK ultimate parent company?</td>
-						<td class="govuk-table__cell">An accountant or auditor</td>
-					</tr>
 				</tbody>
 			</table>
+			<p class="govuk-body govuk-!-margin-bottom-9"><a href="javascript:preventDefault();">Download parent company's financial statements</a></p>
 
 		</div>
 	</div>
@@ -217,7 +246,7 @@
 
 				<form action="" method="post" class="form">
 
-					<h2 class="govuk-heading-l">What is the grade for this application</a></h2>
+					<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the outcome of this financial health assessment?</a></h2>
 						
 					{% set oustandingHtml %}
 						{{ govukDateInput({
@@ -262,7 +291,10 @@
 							value: data['pmo-abc-clarification'],
 							maxwords: 500,
 							label: {
-								text: "Add comments"
+								text: "Enter your clarification comments"
+							},
+							hint: {
+								text: "The applicant can use this information to change and resubmit their application."
 							}
 						}) }}
 					{% endset -%}
@@ -272,9 +304,12 @@
 							name: "pmo-abc-inadequate",
 							id: "pmo-abc-inadequate",
 							value: data['pmo-abc-inadequate'],
-							maxwords: 150,
+							maxwords: 500,
 							label: {
-								text: "Why is the application inadequate"
+								text: "Enter your comments"
+							},
+							hint: {
+								text: "Your comments will be shown in governance."
 							}
 						}) }}
 					{% endset -%}
@@ -307,14 +342,6 @@
 								checked: checked("pmo-abc", "Satisfactory")
 							},
 							{
-								value: "Clarification",
-								text: "Clarification",
-								conditional: {
-									html: clarificationHtml
-								},
-								checked: checked("pmo-abc", "Clarification")
-							},
-							{
 								value: "Inadequate",
 								text: "Inadequate",
 								conditional: {
@@ -326,13 +353,21 @@
 								value: "Exempt",
 								text: "Exempt",
 								checked: checked("pmo-abc", "Exempt")
+							},
+							{
+								value: "Ask for clarification",
+								text: "Ask for clarification",
+								conditional: {
+									html: clarificationHtml
+								},
+								checked: checked("pmo-abc", "Ask for clarification")
 							}
 						]
 					}) }}
 
 					{{ govukButton({
 						classes: "govuk-!-margin-top-5",
-						text: "Confirm outcome"
+						text: "Save financial health outcome"
 					}) }}
 
 				</form>

@@ -235,7 +235,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['gw-abctraining-outcome'] == "passed" %}
+				{% if (data['gw-abctraining-outcome'] == "Pass this application") or (data['gw-abctraining-outcome'] == "Decline this application") %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 					<td class="govuk-table__cell">12345678</td>
@@ -243,7 +243,11 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">
-							<strong class="govuk-tag app-task-list__task-positive">Passed</strong>
+						{% if data['gw-abctraining-outcome'] == "Pass this application" %}
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+							<strong class="govuk-tag app-task-list__task-negative">Decline</strong>
+						{% endif %}
 					</td>
 				</tr>
 				{% endif %}

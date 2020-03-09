@@ -29,7 +29,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">PMO</span>
-			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+			<h1 class="govuk-heading-xl">Financial health assessment overview</h1>
 		</div>
 	</div>
 
@@ -37,10 +37,6 @@
 		<div class="govuk-grid-column-two-thirds">
 	
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR000381</dd>
-				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>
 					<dd class="govuk-summary-list__value">10987654</dd>
@@ -54,12 +50,16 @@
 					<dd class="govuk-summary-list__value">Main</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Financial health status</dt>
+					<dt class="govuk-summary-list__key">Declared in application</dt>
 					<dd class="govuk-summary-list__value">Exempt</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dt class="govuk-summary-list__key">Application submitted on</dt>
 					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR000381</dd>
 				</div>
 			</dl>
 		</div>
@@ -174,7 +174,10 @@
 							value: data['pmo-xyz-clarification'],
 							maxwords: 500,
 							label: {
-								text: "Add comments"
+								text: "Enter your clarification comments"
+							},
+							hint: {
+								text: "The applicant can use this information to change and resubmit their application."
 							}
 						}) }}
 					{% endset -%}
@@ -184,9 +187,9 @@
 							name: "pmo-xyz-inadequate",
 							id: "pmo-xyz-inadequate",
 							value: data['pmo-xyz-inadequate'],
-							maxwords: 150,
+							maxwords: 500,
 							label: {
-								text: "Why is the application inadequate"
+								text: "Enter your comments"
 							}
 						}) }}
 					{% endset -%}
@@ -219,14 +222,6 @@
 								checked: checked("pmo-xyz", "Satisfactory")
 							},
 							{
-								value: "Clarification",
-								text: "Clarification",
-								conditional: {
-									html: clarificationHtml
-								},
-								checked: checked("pmo-xyz", "Clarification")
-							},
-							{
 								value: "Inadequate",
 								text: "Inadequate",
 								conditional: {
@@ -238,6 +233,14 @@
 								value: "Exempt",
 								text: "Exempt",
 								checked: checked("pmo-xyz", "Exempt")
+							},
+							{
+								value: "Clarification",
+								text: "Clarification",
+								conditional: {
+									html: clarificationHtml
+								},
+								checked: checked("pmo-xyz", "Clarification")
 							}
 						]
 					}) }}

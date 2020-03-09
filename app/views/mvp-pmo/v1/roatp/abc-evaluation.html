@@ -217,12 +217,8 @@
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">Application details</h2>
 				<dl class="govuk-summary-list govuk-summary-list--overview">
 					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Grade</dt>
+						<dt class="govuk-summary-list__key">Outcome</dt>
 						<dd class="govuk-summary-list__value">{{ data['pmo-abc'] }}</dd>
-					</div>
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Date reviewed</dt>
-						<dd class="govuk-summary-list__value">18 February 2020</dd>
 					</div>
 					{% if data['pmo-abc-clarification'] %}
 					<div class="govuk-summary-list__row">
@@ -231,12 +227,16 @@
 					</div>
 					{% endif %}
 					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">Reviewer</dt>
+						<dt class="govuk-summary-list__key">Financial health assessed on</dt>
+						<dd class="govuk-summary-list__value">18 February 2020</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Financial health assessed by</dt>
 						<dd class="govuk-summary-list__value">Joan Smith</dd>
 					</div>
 				</dl>
 
-				<p class="govuk-body govuk-!-margin-top-9"><a href="list">Return to RoATP applications</a></p>
+				<p class="govuk-body govuk-!-margin-top-9"><a href="list">Back to RoATP financial pplications</a></p>
 
 			{% else %}
 

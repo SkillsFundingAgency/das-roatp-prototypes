@@ -1,0 +1,142 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpoversight_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Oversight</span>
+			<h1 class="govuk-heading-xl">RoATP applications</h1>
+		</div>
+	</div>
+	
+	{% set applicationsHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if not data['oversight-abc'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="decision">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">THINK POD</td>
+					<td class="govuk-table__cell">10346672</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">EXAM SNAP</td>
+					<td class="govuk-table__cell">11982928</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">STELLA NOVA</td>
+					<td class="govuk-table__cell">10959582</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{% set outcomeHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Overall outcome</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if (data['oversight-abc']) %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="decision">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">{{ data['oversight-abc'] }}</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">SCHOOL SOURCE</td>
+					<td class="govuk-table__cell">10776392</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">FUTURE THINK</td>
+					<td class="govuk-table__cell">10652842</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">MOVING THE GRADE</td>
+					<td class="govuk-table__cell">10234173</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Fail</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ROCKET TRAINING</td>
+					<td class="govuk-table__cell">10882394</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">11 Oct 2019</td>
+					<td class="govuk-table__cell">Pass</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+<div class="shrinkit">
+	{{ govukTabs({
+		items: [
+			{
+				label: "Applications",
+				id: "applications",
+				panel: {
+					html: applicationsHtml
+				}
+			},
+			{
+				label: "Outcome",
+				id: "outcome",
+				panel: {
+					html: outcomeHtml
+				}
+			}
+		]
+	}) }}
+</div>
+      
+{% endblock %}

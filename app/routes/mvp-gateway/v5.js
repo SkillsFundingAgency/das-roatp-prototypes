@@ -264,11 +264,12 @@ module.exports = function (router) {
 			req.session.data['mvp-gwv5-inprogress-count'] = req.session.data['mvp-gwv5-inprogress-count'] - 1
 			if (req.session.data['gw-abctraining-outcome'] == "Ask for clarification") {
 				req.session.data['mvp-gwv5-clarify-count'] = req.session.data['mvp-gwv5-clarify-count'] + 1
-				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
+				//res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#clarifications')
 			} else {
 				req.session.data['mvp-gwv5-outcome-count'] = req.session.data['mvp-gwv5-outcome-count'] + 1
-				res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
+				//res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
 			}
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/confirmation')
 		})
 
 

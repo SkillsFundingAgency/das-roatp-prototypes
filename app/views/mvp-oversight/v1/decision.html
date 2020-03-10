@@ -1,0 +1,88 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpoversight_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-oversight/v1/list"
+			},
+			{
+				text: "Overall outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Oversight</span>
+			<h1 class="govuk-heading-xl">Decision</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">12345678</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application submitted on</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+			</dl>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the overall outcome of this assessment?</a></h2>
+
+				{{ govukRadios({
+					name: "oversight-abc",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("oversight-abc", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							checked: checked("oversight-abc", "Fail")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					classes: "govuk-!-margin-top-5",
+					text: "Save outcome"
+				}) }}
+
+			</form>
+	
+		</div>
+	</div>
+
+{% endblock %}

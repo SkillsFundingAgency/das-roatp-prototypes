@@ -1,0 +1,59 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpoversight_v1.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-oversight/v1/list"
+			},
+			{
+				text: "Overall outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<!--div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Oversight</span>
+			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+		</div>
+	</div-->
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">Overall outcome</h1>
+				<div class="govuk-panel__body">
+					{{ data['oversight-abc'] }}
+				</div>
+			</div>
+
+<!--	
+			{% if data['pmo-abc'] == "Clarification" %}
+				<p class="govuk-body">You can view previous evaluations with clarifications, including this one, in the <a href="list#clarifications">Clarifications</a>
+			{% else %}
+				<p class="govuk-body">You can view previous evaluations, including this one in the <a href="list#outcome">Outcomes</a>
+			{% endif %}
+			area.</p>
+			<h2 class="govuk-heading-l govuk-!-margin-top-5">What do you want to do next?</h2>
+-->
+
+			<p class="govuk-body"><a href="list">Back to RoATP applications</a></p>
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

@@ -112,11 +112,14 @@
 
 
 			{% if (data['aac-pya-continuity-complete'] == "Yes") and (data['aac-pya-equality-complete'] == "Yes") and (data['aac-pya-safeguarding-complete'] == "Yes") and (data['aac-pya-healthandsafety-complete'] == "Yes") %}
-			{{ govukButton({
-				classes: "govuk-!-margin-top-5",
-				href: "outcome-abc",
-				text: "Confirm outcome"
-			}) }}
+			
+				<form action="" method="post" class="form">
+					{{ govukButton({
+						classes: "govuk-!-margin-top-5",
+						text: "Confirm outcome"
+					}) }}
+				</form>
+				
 			{% endif %}
 		
 		</div>

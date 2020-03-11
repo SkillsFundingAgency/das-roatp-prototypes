@@ -1,0 +1,81 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Gateway v5 Clarification
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Resubmit application on behalf of YOUR COMPANY NAME LTD</h1>
+
+    <p class="govuk-body">Before you resubmit your application, you must check that all of your answers and file uploads are correct.</p>
+    <p class="govuk-body">If any information provided in your application is:</p>
+    <ul class="govuk-list govuk-list-bulleted">
+      <li>unclear - we may ask for further information</li>
+      <li>not suitable, true and accurate - we may fail your application</li>
+    </ul>
+    <p class="govuk-body">You can check your answers and file uploads using the <a href="tasklist">application overview</a>, then going into each section.</p>
+    <p class="govuk-body">You will not be able to view them once you resubmit your application.</p>
+
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="submitconfirm" name="submitconfirm" type="checkbox" value="confirm" onclick="buttonswitch();">
+        <label class="govuk-label govuk-checkboxes__label" for="submitconfirm">
+          I confirm that all the answers and uploads in this application is accurate to the best of my knowledge.
+        </label>
+      </div>
+    </div>
+
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item govuk-!-margin-bottom-5">
+        <input class="govuk-checkboxes__input" id="furtherinfo" name="furtherinfo" type="checkbox" value="confirm" onclick="buttonswitch();">
+        <label class="govuk-label govuk-checkboxes__label" for="furtherinfo">
+          I agree to give further information on any application answers within 5 working days when requested by ESFA.
+        </label>
+      </div>
+    </div>
+
+    <p class="govuk-body">The conditions of acceptance that you accepted in your first application still apply. Find out more about <a href="javascript:preventDefault();">the conditions of acceptance (opens in a new window or tab)</a>.</p>
+
+    {{ govukButton({
+      href: "complete",
+      text: "Resubmit application",
+      disabled: true,
+      classes: "govuk-!-margin-right-4 govuk-button__submit"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+
+    function buttonswitch(){
+      if ($("#submitconfirm:checked, #furtherinfo:checked").length == 2) {
+        var $this = $(".govuk-button__submit");
+        if ($this.hasClass('govuk-button--disabled')) {
+          $this.removeAttr('disabled');
+          $this.removeClass('govuk-button--disabled');
+        } else {
+          $this.attr('disabled', 'disabled');
+          $this.addClass('govuk-button--disabled');
+        }
+      }
+    }
+    /*
+    $(  ).on( "change", function() {
+      if ($("#submitconfirm-1:checked, #furtherinfo-1:checked").length == 2) {
+        alert('both checked');
+    });*/
+  </script>
+
+{% endblock %}
+

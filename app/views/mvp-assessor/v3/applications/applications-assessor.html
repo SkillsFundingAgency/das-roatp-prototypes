@@ -37,31 +37,33 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="tasklist-abc">ABC TRAINING LIMITED</a></td>
-					<td class="govuk-table__cell">12345678</td>
-					<td class="govuk-table__cell">APR00001</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">17 Oct 2019</td>
-					<td class="govuk-table__cell">
-					{% if (data['feedback-pya-continuity-policy'][0]) or 
-								(data['feedback-pya-equality-policy'][0]) or
-								(data['feedback-pya-safeguarding-policy'][0]) or 
-								(data['feedback-pya-safeguarding-responsible'][0]) or 
-								(data['feedback-pya-safeguarding-preventduty'][0]) or 
-								(data['feedback-pya-healthandsafety-policy'][0]) or 
-								(data['feedback-pya-healthandsafety-responsible'][0]) or
-								(data['aac-pya-continuity-complete'] == "Yes") or
-								(data['aac-pya-equality-complete'] == "Yes") or
-								(data['aac-pya-safeguarding-complete'] == "Yes") or
-								(data['aac-pya-healthandsafety-complete'] == "Yes")
-					%}
-						<strong class="govuk-tag app-task-list__task-completed">In&nbsp;progress</strong>
-					{% else %}
-						<strong class="govuk-tag app-task-list__task-positive">New</strong>
-					{% endif %}
-					</td>
-				</tr>
+				{% if not data['assessor-abc-outcome'] %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell"><a href="tasklist-abc">ABC TRAINING LIMITED</a></td>
+						<td class="govuk-table__cell">12345678</td>
+						<td class="govuk-table__cell">APR00001</td>
+						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">17 Oct 2019</td>
+						<td class="govuk-table__cell">
+							{% if (data['feedback-pya-continuity-policy'][0]) or 
+										(data['feedback-pya-equality-policy'][0]) or
+										(data['feedback-pya-safeguarding-policy'][0]) or 
+										(data['feedback-pya-safeguarding-responsible'][0]) or 
+										(data['feedback-pya-safeguarding-preventduty'][0]) or 
+										(data['feedback-pya-healthandsafety-policy'][0]) or 
+										(data['feedback-pya-healthandsafety-responsible'][0]) or
+										(data['aac-pya-continuity-complete'] == "Yes") or
+										(data['aac-pya-equality-complete'] == "Yes") or
+										(data['aac-pya-safeguarding-complete'] == "Yes") or
+										(data['aac-pya-healthandsafety-complete'] == "Yes")
+							%}
+								<strong class="govuk-tag app-task-list__task-completed">In&nbsp;progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-positive">New</strong>
+							{% endif %}
+						</td>
+					</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
 					<td class="govuk-table__cell">10346672</td>
@@ -85,6 +87,55 @@
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set outcomeHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['assessor-abc-outcome'] == "done" %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+						<td class="govuk-table__cell">12345678</td>
+						<td class="govuk-table__cell">APR00001</td>
+						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">17 Oct 2019</td>
+						<td class="govuk-table__cell">
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</td>
+					</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR00686</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HOTGROUP</td>
+					<td class="govuk-table__cell">28876299</td>
+					<td class="govuk-table__cell">APR00851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">20 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
 				</tr>
 			</tbody>
 		</table>

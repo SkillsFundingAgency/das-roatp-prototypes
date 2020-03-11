@@ -108,37 +108,37 @@ module.exports = function (router) {
 		// DELETE FEEDBACK
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-continuity-policy', function (req, res) {
-				req.session.data['feedback']['pya-continuity-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-continuity-policy'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-continuity')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-equality-policy', function (req, res) {
-				req.session.data['feedback']['pya-equality-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-equality-policy'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-equality')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-safeguarding-policy', function (req, res) {
-				req.session.data['feedback']['pya-safeguarding-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-safeguarding-policy'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-policy')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-safeguarding-responsible', function (req, res) {
-				req.session.data['feedback']['pya-safeguarding-responsible'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-safeguarding-responsible'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-responsible')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-safeguarding-preventduty', function (req, res) {
-				req.session.data['feedback']['pya-safeguarding-preventduty'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-safeguarding-preventduty'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-preventduty')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-healthandsafety-policy', function (req, res) {
-				req.session.data['feedback']['pya-healthandsafety-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-healthandsafety-policy'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-healthandsafety-policy')
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/delete-pya-healthandsafety-responsible', function (req, res) {
-				req.session.data['feedback']['pya-healthandsafety-responsible'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-pya-healthandsafety-responsible'].splice(req.session.data['feedbackid'],1)
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-healthandsafety-responsible')
 			})
 		/*
@@ -152,6 +152,17 @@ module.exports = function (router) {
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/feedback/pya-healthandsafety')
 			})
 */
+
+	/*******************
+	 * Confirm outcome *
+	 *******************/
+		
+			router.post('/mvp-assessor/' + v + '/applications/tasklist-abc', function (req, res) {
+				req.session.data['assessor-abc-outcome'] = "done"
+				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
+			})
+
+			
 
 	/************************
 	 * Sign in and register *

@@ -70,60 +70,99 @@
 		
 			<table class="govuk-table govuk-!-margin-top-5">
 				<tbody class="govuk-table__body">
+
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Safeguarding policy</th>
-						<td class="govuk-table__cell">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Safeguarding policy</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Safeguarding policy upload</h3>
 							<p class="govuk-body"><a href="javascript:preventDefault();">abc-safeguarding-policy.pdf</a></p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>promote the policy</li>
+									<li>get commitment to the policy</li>
+									<li>train its employees in implementing the policy</li>
+									<li>protect its apprentices</li>
+									<li>prevent abuse towards its apprentices </li>
+									<li>have a way of raising, recording and investigating concerns </li>
+									<li>have a way of apprentices getting support or guidance </li>
+									<li>monitor its IT usage</li>
+								</ul>
+								<p class="govuk-body">Find out more about safeguarding in <a href="javascript:preventDefault();">the Care Act 2014 (opens in a new window or tab)</a>.</p>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top; width: 15%">
 							{% if data['feedback-pya-safeguarding-policy'][0] %}
-							<a href="feedback/pya-safeguarding-policy">View or delete feedback</a>
+							<a href="feedback/pya-safeguarding-policy">View or delete clarification</a>
 							{% else %}
-							<a href="feedback/pya-safeguarding-policy">Add feedback</a>
+							<a href="feedback/pya-safeguarding-policy">Add clarification</a>
 							{% endif %}
 						</td>
 					</tr>
+
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Overall responsibility for safeguarding</th>
-						<td class="govuk-table__cell">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;">Overall responsibility for safeguarding</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Full name</h3>
 							<p class="govuk-body">[First name] [Last name]</p>
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Email</h3>
 							<p class="govuk-body"><a href="javascript:preventDefault();">email@abc.com</a></p>
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Contact number</h3>
-							<p class="govuk-body govuk-!-margin-bottom-1">07123 456789</p>
+							<p class="govuk-body">07123 456789</p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding concerns.</p>
+								<p class="govuk-body">We’ll only contact them if there is a safeguarding concern.</p>'
+							}) }}
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top;">
 							{% if data['feedback-pya-safeguarding-responsible'][0] %}
-							<a href="feedback/pya-safeguarding-responsible">View or delete feedback</a>
+							<a href="feedback/pya-safeguarding-responsible">View or delete clarification</a>
 							{% else %}
-							<a href="feedback/pya-safeguarding-responsible">Add feedback</a>
+							<a href="feedback/pya-safeguarding-responsible">Add clarification</a>
 							{% endif %}
 						</td>
 					</tr>
+
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Prevent duty</th>
-						<td class="govuk-table__cell">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;">Prevent duty</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</h3>
 							<p class="govuk-body">No</p>
 							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Prevent duty upload</h3>
 							<p class="govuk-body"><a href="javascript:preventDefault();">abc-preventduty.pdf</a></p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">This means your organisation&#39;s safeguarding policy includes how it will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+									<li>rotect apprentices and employees from radicalising influences</li>
+									<li>nsure apprentices and employees are resilient to extreme narratives</li>
+									<li>dentify changes in behaviour of apprentices and employees</li>
+									<li>eal with any issues raised by apprentices or employees</li>
+								</ul>'
+							}) }}
 						</td>
-						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top">
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top;">
 							{% if data['feedback-pya-safeguarding-preventduty'][0] %}
-							<a href="feedback/pya-safeguarding-preventduty">View or delete feedback</a>
+							<a href="feedback/pya-safeguarding-preventduty">View or delete clarification</a>
 							{% else %}
-							<a href="feedback/pya-safeguarding-preventduty">Add feedback</a>
+							<a href="feedback/pya-safeguarding-preventduty">Add clarification</a>
 							{% endif %}
 						</td>
 					</tr>
+
 				</tbody>
 			</table>
 
 			<form action="" method="post" class="form">
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">Is this section complete?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">Has this section been assessed?</h2>
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
 					idPrefix: "aac-pya-safeguarding-complete",

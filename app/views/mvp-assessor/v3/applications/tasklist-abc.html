@@ -56,9 +56,9 @@
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="tasklist-abc-pya">Protecting your apprentices</a></h2>
 			{% if (data['aac-pya-continuity-complete'] == "Yes") and (data['aac-pya-equality-complete'] == "Yes") and (data['aac-pya-safeguarding-complete'] == "Yes") and (data['aac-pya-healthandsafety-complete'] == "Yes") %}
-				<strong class="govuk-tag">Assessed</strong>
+				<strong class="govuk-tag govuk-tag-positive">Assessed</strong>
 			{% elseif (data['aac-pya-continuity-complete'] == "Yes") or (data['aac-pya-equality-complete'] == "Yes") or (data['aac-pya-safeguarding-complete'] == "Yes") or (data['aac-pya-healthandsafety-complete'] == "Yes") %}
-				<strong class="govuk-tag govuk-tag-inprogress">In progress</strong>
+				<strong class="govuk-tag">In progress</strong>
 			{% endif %}
 			{% if (data['feedback-pya-continuity-policy'][0]) or 
 						(data['feedback-pya-equality-policy'][0]) or
@@ -67,25 +67,48 @@
 						(data['feedback-pya-safeguarding-preventduty'][0]) or 
 						(data['feedback-pya-healthandsafety-policy'][0]) or 
 						(data['feedback-pya-healthandsafety-responsible'][0]) 
-				%}
-				<strong class="govuk-tag">Feedback added</strong>
+			%}
+				{% set pya_clarify_count = 0 %}
+				{% if data['feedback-pya-continuity-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-continuity-policy'].length %}
+				{% endif %}
+				{% if data['feedback-pya-equality-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-equality-policy'].length %}
+				{% endif %}
+				{% if data['feedback-pya-safeguarding-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-policy'].length %}
+				{% endif %}
+				{% if data['feedback-pya-safeguarding-responsible'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-responsible'].length %}
+				{% endif %}
+				{% if data['feedback-pya-safeguarding-preventduty'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-preventduty'].length %}
+				{% endif %}
+				{% if data['feedback-pya-healthandsafety-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-healthandsafety-policy'].length %}
+				{% endif %}
+				{% if data['feedback-pya-healthandsafety-responsible'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-healthandsafety-responsible'].length %}
+				{% endif %}
+				<!--strong class="govuk-tag">Feedback added</strong-->
+				<strong class="govuk-tag govuk-tag-negative">{{ pya_clarify_count }} clarification{% if pya_clarify_count > 1 %}s{% endif %}</strong>
 			{% endif %}
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2><strong class="govuk-tag">Assessed</strong>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2><strong class="govuk-tag">Assessed</strong>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2><strong class="govuk-tag">Assessed</strong>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2><strong class="govuk-tag">Assessed</strong>
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
-			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2><strong class="govuk-tag">Assessed</strong>
-			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+			<!--h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"-->
 
 
 			{% if (data['aac-pya-continuity-complete'] == "Yes") and (data['aac-pya-equality-complete'] == "Yes") and (data['aac-pya-safeguarding-complete'] == "Yes") and (data['aac-pya-healthandsafety-complete'] == "Yes") %}

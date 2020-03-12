@@ -1,0 +1,38 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Your application to join the RoATP as a main provider was successful</h1>
+
+    <p class="govuk-body">Your financial grade is XXXX.</p>
+    
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">You’ll receive an email within 5 working days from the ‘Business Operations Provider Management’ team about the post application tasks you need to do.</p>
+    <p class="govuk-body">We’ll publish your organisation on the RoATP once you’ve completed the tasks.</p>
+    
+    <h2 class="govuk-heading-m">What you agreed to</h2>
+    <p class="govuk-body">In your application, you accepted <a href="javascript:preventDefault();">the conditions of acceptance for the RoATP (opens in a new window or tab)</a>. If your organisation fails to follow them, it may not be published on the RoATP.</p>
+    <p class="govuk-body">You also need to read and understand <a href="javascript:preventDefault();">the apprenticeship funding and performance management rules (opens in a new window or tab)</a>.</p>
+
+    <h2 class="govuk-heading-m">How to contact us</h2>
+    <p class="govuk-body">If you have any questions about the outcome of your application, email <a href="javascript:preventDefault();">roatp.support@education.gov.uk</a>.</p>
+    <p class="govuk-body">If you have any questions about the apprenticeship service, <a href="javascript:preventDefault();">complete a service desk form (opens in a new window or tab)</a> or call 0370 2670001.</p>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -25,7 +25,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Oversight</span>
-			<h1 class="govuk-heading-xl">Decision</h1>
+			<h1 class="govuk-heading-xl">What is the overall outcome of this application?</h1>
 		</div>
 	</div>
 
@@ -46,7 +46,7 @@
 					<dd class="govuk-summary-list__value">Main</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Application submitted on</dt>
+					<dt class="govuk-summary-list__key">Submitted date</dt>
 					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
@@ -57,27 +57,27 @@
 
 			<form action="" method="post" class="form">
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-5">What is the overall outcome of this assessment?</a></h2>
+				<p class="govuk-body">We’ll send this outcome to the applicant.</p>
 
 				{{ govukRadios({
 					name: "oversight-abc",
 					items: [
 						{
-							value: "Pass",
-							text: "Pass",
-							checked: checked("oversight-abc", "Pass")
+							value: "Successful application",
+							text: "Successful application",
+							checked: checked("oversight-abc", "Successful application")
 						},
 						{
-							value: "Fail",
-							text: "Fail",
-							checked: checked("oversight-abc", "Fail")
+							value: "Unsuccessful application",
+							text: "Unsuccessful application",
+							checked: checked("oversight-abc", "Unsuccessful application")
 						}
 					]
 				}) }}
 
 				{{ govukButton({
 					classes: "govuk-!-margin-top-5",
-					text: "Save outcome"
+					text: "Save overall outcome"
 				}) }}
 
 			</form>

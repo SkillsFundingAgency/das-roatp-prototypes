@@ -33,11 +33,20 @@
 		<div class="govuk-grid-column-two-thirds">
 
 			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
-				<h1 class="govuk-panel__title">Overall outcome</h1>
+				<h1 class="govuk-panel__title">Overall outcome saved</h1>
 				<div class="govuk-panel__body">
-					{{ data['oversight-abc'] }}
+					Outcome saved as:
+					<strong>
+					{% if data['oversight-abc'] == "Successful application" %}
+						Successful
+					{% elseif data['oversight-abc'] == "Unsuccessful application" %}
+						Unsuccessful
+					{% endif %}
+					</strong>
 				</div>
 			</div>
+
+			<p class="govuk-body govuk-!-margin-bottom-5">We’ve sent this outcome to the applicant.</p>
 
 <!--	
 			{% if data['pmo-abc'] == "Clarification" %}
@@ -49,7 +58,7 @@
 			<h2 class="govuk-heading-l govuk-!-margin-top-5">What do you want to do next?</h2>
 -->
 
-			<p class="govuk-body"><a href="list">Back to RoATP applications</a></p>
+			<p class="govuk-body"><a href="list">Go to RoATP applications</a></p>
 		
 		</div>
 	</div>

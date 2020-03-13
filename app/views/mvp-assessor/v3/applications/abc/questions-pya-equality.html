@@ -71,7 +71,7 @@
 			<table class="govuk-table govuk-!-margin-top-5">
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Equality and diversity policy</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Upload your organisation’s equality and diversity policy</th>
 						<td class="govuk-table__cell" style="vertical-align: top;">
 							<p class="govuk-body"><a href="javascript:preventDefault();">abc-equality-diversity-policy.pdf</a></p>
 							{{ govukDetails({
@@ -89,9 +89,9 @@
 						</td>
 						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top; width: 15%">
 							{% if data['feedback-pya-equality-policy'][0] %}
-							<a href="feedback/pya-equality">View or delete clarification</a>
+							<a href="feedback/pya-equality">View or delete fail</a>
 							{% else %}
-							<a href="feedback/pya-equality">Add clarification</a>
+							<a href="feedback/pya-equality">Fail this check</a>
 							{% endif %}
 						</td>
 					</tr>
@@ -100,7 +100,7 @@
 
 			<form action="" method="post" class="form">
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">Has this section been assessed?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">Have you assessed this check?</h2>
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
 					idPrefix: "aac-pya-equality-complete",

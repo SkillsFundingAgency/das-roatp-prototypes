@@ -30,10 +30,10 @@
 				<tr class="govuk-table__row">
 					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Submitted date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application status</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
@@ -41,8 +41,8 @@
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell"><a href="tasklist-abc">ABC TRAINING LIMITED</a></td>
 						<td class="govuk-table__cell">12345678</td>
-						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">17 Oct 2019</td>
 						<td class="govuk-table__cell">
 							{% if (data['feedback-pya-continuity-policy'][0]) or 
@@ -67,24 +67,24 @@
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">THINK POD</td>
 					<td class="govuk-table__cell">10346672</td>
-					<td class="govuk-table__cell">APR00004</td>
 					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR00004</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">EXAM SNAP</td>
 					<td class="govuk-table__cell">11982928</td>
-					<td class="govuk-table__cell">APR00005</td>
 					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">APR00005</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">STELLA NOVA</td>
 					<td class="govuk-table__cell">10959582</td>
-					<td class="govuk-table__cell">APR00006</td>
 					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">APR00006</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
 				</tr>
@@ -98,10 +98,10 @@
 				<tr class="govuk-table__row">
 					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Outcome date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Outcome</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
@@ -109,8 +109,8 @@
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 						<td class="govuk-table__cell">12345678</td>
-						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">17 Oct 2019</td>
 						<td class="govuk-table__cell">
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
@@ -120,8 +120,8 @@
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
 					<td class="govuk-table__cell">19987868</td>
-					<td class="govuk-table__cell">APR00686</td>
 					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">APR00686</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
@@ -130,8 +130,8 @@
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">HOTGROUP</td>
 					<td class="govuk-table__cell">28876299</td>
-					<td class="govuk-table__cell">APR00851</td>
 					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR00851</td>
 					<td class="govuk-table__cell">20 Oct 2019</td>
 					<td class="govuk-table__cell">
 						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
@@ -145,14 +145,14 @@
 	{{ govukTabs({
 		items: [
 			{
-				label: "Applications",
+				label: "Applications (x)",
 				id: "new",
 				panel: {
 					html: newHtml
 				}
 			},
 			{
-				label: "Outcome",
+				label: "Outcome (x)",
 				id: "outcome",
 				panel: {
 					html: outcomeHtml

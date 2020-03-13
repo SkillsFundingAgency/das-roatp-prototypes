@@ -25,7 +25,7 @@
 				href: "/mvp-assessor/v3/applications/abc/questions-pya-equality"
 			},
 			{
-				text: "Add clarification"
+				text: "Fail this check"
 			}
 		]
 	}) }}
@@ -36,9 +36,8 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Add clarification</h1>
-			<h2 class="govuk-heading-l govuk-!-margin-bottom-1">Protecting your apprentices</h2>
-			<h3 class="govuk-heading-m">Equality and diversity policy</h3>
+			<h1 class="govuk-heading-xl">Fail this check</h1>
+			<h2 class="govuk-heading-l">Equality and diversity policy</h2>
 		</div>
 	</div>
 
@@ -67,7 +66,7 @@
 
 			{% set i = 0 %}
       {% if data['feedback-pya-equality-policy'][0] %}
-				<h2 class="govuk-heading-l govuk-!-margin-top-5">Feedback</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
 				{% for item in data['feedback-pya-equality-policy'] %}
 					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-pya-equality-policy'][i]['user'] }}</h3>
 					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-pya-equality-policy'][i]['dateadded'] }}</p>
@@ -75,7 +74,7 @@
 					<form action="delete-pya-equality-policy" method="post" class="form">
 						<input name="feedbackid" type="hidden" value="{{i}}">
 						{{ govukButton({
-							text: "Delete feedback",
+							text: "Delete note",
 							classes: "govuk-button--warning"
 						}) }}
 					</form>
@@ -88,7 +87,7 @@
 
 			<form action="" method="post" class="form">
 
-				<h2 class="govuk-heading-l govuk-!-margin-bottom-1">Add clarification</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
 
 				{{ govukTextarea({
 					name: "aac-pya-equality-policy-feedback",
@@ -96,7 +95,7 @@
 				}) }}
 
 				{{ govukButton({
-					text: "Add clarification",
+					text: "Add note",
 					classes: "govuk-!-margin-right-4"
 				}) }}
 

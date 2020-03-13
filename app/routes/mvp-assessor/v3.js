@@ -38,26 +38,26 @@ module.exports = function (router) {
 		 * Assessor - PYA - Feedback *
 		 *****************************/
 
-		 function saveFeedback(req,seq,sec,q){
-			// add feedback to an array to store feedback, username, and timestamp
-			var today = new Date();
-			var d = today.getDate();
-			var m = months[(today.getMonth()-1)]
-			var y = today.getFullYear();
-			var hh = today.getHours();
-			var mm = today.getMinutes();
-			if (mm < 10) mm = '0'+mm;
-			var ampm = hh >= 12 ? 'pm' : 'am'
-			var newFeedback = {
-				'user': 'J Smith',
-				'dateadded': d+' '+m+' '+y+' at '+hh+':'+mm+ampm,
-				'feedback': req.session.data['aac-' + seq + '-' + sec + '-' + q + '-feedback']
+			function saveFeedback(req,seq,sec,q){
+				// add feedback to an array to store feedback, username, and timestamp
+				var today = new Date();
+				var d = today.getDate();
+				var m = months[(today.getMonth()-1)]
+				var y = today.getFullYear();
+				var hh = today.getHours();
+				var mm = today.getMinutes();
+				if (mm < 10) mm = '0'+mm;
+				var ampm = hh >= 12 ? 'pm' : 'am'
+				var newFeedback = {
+					'user': 'J Smith',
+					'dateadded': d+' '+m+' '+y+' at '+hh+':'+mm+ampm,
+					'feedback': req.session.data['aac-' + seq + '-' + sec + '-' + q + '-feedback']
+				}
+				if (!req.session.data['feedback-'+seq+'-'+sec+'-'+q]) {
+					req.session.data['feedback-'+seq+'-'+sec+'-'+q] = []
+				}
+				req.session.data['feedback-'+seq+'-'+sec+'-'+q].push(newFeedback)
 			}
-			if (!req.session.data['feedback-'+seq+'-'+sec+'-'+q]) {
-				req.session.data['feedback-'+seq+'-'+sec+'-'+q] = []
-			}
-			req.session.data['feedback-'+seq+'-'+sec+'-'+q].push(newFeedback)
-		 }
 
 			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/pya-continuity', function (req, res) {
 				saveFeedback(req,'pya','continuity','policy');
@@ -79,8 +79,13 @@ module.exports = function (router) {
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/questions-pya-safeguarding')
 			})
 	
-			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-preventduty', function (req, res) {
-				saveFeedback(req,'pya','safeguarding','preventduty');
+			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-preventdutyincluded', function (req, res) {
+				saveFeedback(req,'pya','safeguarding','preventdutyincluded');
+				res.redirect('/mvp-assessor/' + v + '/applications/abc/questions-pya-safeguarding')
+			})
+	
+			router.post('/mvp-assessor/' + v + '/applications/abc/feedback/pya-safeguarding-preventdutyupload', function (req, res) {
+				saveFeedback(req,'pya','safeguarding','preventdutyupload');
 				res.redirect('/mvp-assessor/' + v + '/applications/abc/questions-pya-safeguarding')
 			})
 	

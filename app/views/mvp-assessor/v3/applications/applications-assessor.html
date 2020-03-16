@@ -37,7 +37,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if not data['assessor-abc-outcome'] %}
+				{% if not data['aac-abc-outcome'] %}
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell"><a href="tasklist-abc">ABC TRAINING LIMITED</a></td>
 						<td class="govuk-table__cell">12345678</td>
@@ -86,7 +86,7 @@
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">APR00006</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">Resubmitted</strong></td>
 				</tr>
 			</tbody>
 		</table>
@@ -105,7 +105,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['assessor-abc-outcome'] == "done" %}
+				{% if data['aac-abc-outcome'] != "" %}
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 						<td class="govuk-table__cell">12345678</td>
@@ -113,7 +113,17 @@
 						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">17 Oct 2019</td>
 						<td class="govuk-table__cell">
+							
+							{% if data['aac-abc-outcome'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
+							{% if data['aac-abc-outcome'] == "Request clarifications" %}
+								<strong class="govuk-tag app-task-list__task-negative">Clarify</strong>
+							{% endif %}
+							{% if data['aac-abc-outcome'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							</strong>
 						</td>
 					</tr>
 				{% endif %}

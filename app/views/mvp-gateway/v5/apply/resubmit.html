@@ -59,15 +59,13 @@
 	<script>
 
     function buttonswitch(){
+      var $this = $(".govuk-button__submit");
       if ($("#submitconfirm:checked, #furtherinfo:checked").length == 2) {
-        var $this = $(".govuk-button__submit");
-        if ($this.hasClass('govuk-button--disabled')) {
-          $this.removeAttr('disabled');
-          $this.removeClass('govuk-button--disabled');
-        } else {
-          $this.attr('disabled', 'disabled');
-          $this.addClass('govuk-button--disabled');
-        }
+        $this.removeAttr('disabled');
+        $this.removeClass('govuk-button--disabled');
+      } else {
+        $this.attr('disabled', 'disabled');
+        $this.addClass('govuk-button--disabled');
       }
     }
     /*

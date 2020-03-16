@@ -31,34 +31,15 @@
 			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
 				<h1 class="govuk-panel__title">Assessor outcome</h1>
 				<div class="govuk-panel__body">
-					<strong>Passed</strong>
+					<strong>
+					{% if data['aac-abc-outcome'] == "Pass" %}Passed{% endif %}
+					{% if data['aac-abc-outcome'] == "Request clarifications" %}Clarifications requested{% endif %}
+					{% if data['aac-abc-outcome'] == "Fail" %}Failed{% endif %}
+					</strong>
 				</div>
 			</div>
 
 			<p class="govuk-body"><a href="applications-assessor">Back to RoATP applications</a></p>
-	
-			<!--dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR00001</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">UKPRN</dt>
-					<dd class="govuk-summary-list__value">12345678</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Legal name</dt>
-					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Provider route</dt>
-					<dd class="govuk-summary-list__value">Main</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Date application submitted</dt>
-					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
-				</div>
-			</dl-->
 
 		</div>
 	</div>

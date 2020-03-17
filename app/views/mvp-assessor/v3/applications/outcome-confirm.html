@@ -57,46 +57,89 @@
 					<dd class="govuk-summary-list__value">APR00001</dd>
 				</div>
 			</dl>
+		</div>
+	</div>
 
-			{% if data['feedback-count'] > 0 %}
-				<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
-				<p class="govuk-body">[display questions with notes here]</p>
-			{% else %}
-				<p class="govuk-body">No feedback has been requested.</p>
-			{% endif %}
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
 
 			<form action="" method="post" class="form">
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
-				{{ govukRadios({
-					idPrefix: "aac-abc-outcome",
-					name: "aac-abc-outcome",
-					items: [
-						{
-							value: "Pass",
-							text: "Pass",
-							checked: checked("aac-abc-outcome", "Pass")
-						},
-						{
-							value: "Request clarifications",
-							text: "Request clarifications",
-							checked: checked("aac-abc-outcome", "Request clarifications")
-						},
-						{
-							value: "Fail",
-							text: "Fail",
-							checked: checked("aac-abc-outcome", "Fail")
-						}
-					]
-				}) }}
+				{% if data['feedback-count'] > 0 %}
+					<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
+
+					<p class="govuk-body">[display questions with notes here]</p>
+					{% if (data['feedback-pya-continuity-policy'][0]) or 
+								(data['feedback-pya-equality-policy'][0]) or
+								(data['feedback-pya-safeguarding-policy'][0]) or 
+								(data['feedback-pya-safeguarding-responsible'][0]) or 
+								(data['feedback-pya-safeguarding-preventduty'][0]) or 
+								(data['feedback-pya-healthandsafety-policy'][0]) or 
+								(data['feedback-pya-healthandsafety-responsible'][0]) 
+					%}
+		
+						<table class="govuk-table govuk-!-margin-top-5">
+							<thead class="govuk-table__body">
+								<tr class="govuk-table__row">
+									<th scope="row" class="govuk-table__header" style="vertical-align: top">Section</th>
+									<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
+									<th scope="row" class="govuk-table__header" style="vertical-align: top">Notes</th>
+								</tr>
+							</thead>
+							<tbody class="govuk-table__body">
+								{% if data['aac-pya-continuity-policy-feedback'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Protecting your apprentices</td>
+										<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-continuity-policy-feedback'] }}</td>
+									</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					{% endif %}
+<!--
+
+			{% set i = 0 %}
+      {% if data['feedback-pya-healthandsafety-policy'][0] %}
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
+				{% for item in data['feedback-pya-healthandsafety-policy'] %}
+				{% endfor %}
+        {% if data['feedback-pya-healthandsafety-policy'].length == i %} 
+				<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8">
+				{% endif %}
+			{% endif %}
+-->
+					<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
+					{{ govukRadios({
+						idPrefix: "aac-abc-outcome",
+						name: "aac-abc-outcome",
+						items: [
+							{
+								value: "Request clarifications",
+								text: "Request clarifications",
+								checked: checked("aac-abc-outcome", "Request clarifications")
+							},
+							{
+								value: "Fail",
+								text: "Fail",
+								checked: checked("aac-abc-outcome", "Fail")
+							}
+						]
+					}) }}
+
+				{% else %}
+					<input type="hidden" name="aac-abc-outcome" value="Pass">
+					<h2 class="govuk-heading-l">This application has been passed</h2>
+					<p class="govuk-body">No feedback has been requested.</p>
+				{% endif %}
 
 				{{ govukButton({
 					text: "Confirm outcome",
-					classes: "govuk-button__submit govuk-!-margin-bottom-9"
+					classes: "govuk-button__submit govuk-!-margin-top-5"
 				}) }}
 			</form>
 
-			<p class="govuk-body"><a href="applications-assessor">Back to RoATP applications</a></p>
+			<p class="govuk-body govuk-!-margin-top-9"><a href="applications-assessor">Back to RoATP applications</a></p>
 
 		</div>
 	</div>

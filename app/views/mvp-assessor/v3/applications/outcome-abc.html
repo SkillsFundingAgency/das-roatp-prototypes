@@ -32,7 +32,8 @@
 				<h1 class="govuk-panel__title">Assessor outcome</h1>
 				<div class="govuk-panel__body">
 					<strong>
-					{% if data['aac-abc-outcome'] == "Pass" %}Passed{% endif %}
+
+					{% if data['feedback-count'] == 0 %}Passed{% endif %}
 					{% if data['aac-abc-outcome'] == "Request clarifications" %}Clarifications requested{% endif %}
 					{% if data['aac-abc-outcome'] == "Fail" %}Failed{% endif %}
 					</strong>

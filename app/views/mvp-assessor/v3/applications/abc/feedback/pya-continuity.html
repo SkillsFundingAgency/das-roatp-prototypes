@@ -53,8 +53,25 @@
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
-						<td class="govuk-table__cell"><a href="javascript:preventDefault();">abc-continuity-plan.pdf</a></td>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							Upload your organisation’s continuity plan for apprenticeship training
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-2",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.<p>
+								<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>have different methods of communication</li>
+									<li>manage transportation needs</li>
+									<li>provide different operating locations (if needed)</li>
+									<li>back-up relevant business systems</li>
+									<li>back-up and restore data</li>
+									<li>have a list of emergency contacts - ESFA must be listed </li>
+								</ul>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell" style="vertical-align: top;"><a href="javascript:preventDefault();">abc-continuity-plan.pdf</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -83,23 +100,25 @@
         {% if data['feedback-pya-continuity-policy'].length == i %} 
 				<!--hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8"-->
 				{% endif %}
+			{% else %}
+
+				<form action="" method="post" class="form">
+
+					<h2 class="govuk-heading-l govuk-!-margin-top-9">Add notes</h2>
+
+					{{ govukTextarea({
+						name: "aac-pya-continuity-policy-feedback",
+						id: "aac-pya-continuity-policy-feedback"
+					}) }}
+
+					{{ govukButton({
+						text: "Add notes",
+						classes: "govuk-!-margin-right-4"
+					}) }}
+
+				</form>
+
 			{% endif %}
-
-			<form action="" method="post" class="form">
-
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">Add notes</h2>
-
-				{{ govukTextarea({
-					name: "aac-pya-continuity-policy-feedback",
-					id: "aac-pya-continuity-policy-feedback"
-				}) }}
-
-				{{ govukButton({
-					text: "Add note",
-					classes: "govuk-!-margin-right-4"
-				}) }}
-
-			</form>
 
 			<p class="govuk-!-margin-top-5"><a href="/mvp-assessor/v3/applications/abc/questions-pya-continuity">Back to continuity plan for apprenticeship training</a></p>
 

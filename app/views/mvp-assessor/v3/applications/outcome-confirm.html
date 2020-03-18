@@ -68,16 +68,20 @@
 				{% if data['feedback-count'] > 0 %}
 					<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
 
-					<p class="govuk-body">[display questions with notes here]</p>
+					<!--p class="govuk-body">[display questions with notes here]</p-->
 					{% if (data['feedback-pya-continuity-policy'][0]) or 
 								(data['feedback-pya-equality-policy'][0]) or
 								(data['feedback-pya-safeguarding-policy'][0]) or 
 								(data['feedback-pya-safeguarding-responsible'][0]) or 
-								(data['feedback-pya-safeguarding-preventduty'][0]) or 
+								(data['feedback-pya-safeguarding-preventdutyincluded'][0]) or 
+								(data['feedback-pya-safeguarding-preventdutyupload'][0]) or 
 								(data['feedback-pya-healthandsafety-policy'][0]) or 
 								(data['feedback-pya-healthandsafety-responsible'][0]) 
 					%}
 		
+						<h2 class="govuk-heading-l">Notes added</h2>
+
+						<h3 class="govuk-heading-m">Protecting your apprentices</h3>
 						<table class="govuk-table govuk-!-margin-top-5">
 							<thead class="govuk-table__body">
 								<tr class="govuk-table__row">
@@ -89,9 +93,58 @@
 							<tbody class="govuk-table__body">
 								{% if data['aac-pya-continuity-policy-feedback'] %}
 									<tr class="govuk-table__row">
-										<td class="govuk-table__cell">Protecting your apprentices</td>
+										<td class="govuk-table__cell">Continuity plan for apprenticeship training</td>
 										<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
 										<td class="govuk-table__cell">{{ data['aac-pya-continuity-policy-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['aac-pya-equality-policy-feedback'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Equality and diversity policy</td>
+										<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-equality-policy-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-safeguarding-policy'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+										<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-safeguarding-policy-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-safeguarding-responsible'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+										<td class="govuk-table__cell">Tell us who has overall responsibility for safeguarding in your organisation</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-safeguarding-responsible-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-safeguarding-preventdutyincluded'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+										<td class="govuk-table__cell">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-safeguarding-preventdutyincluded-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-safeguarding-preventdutyupload'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+										<td class="govuk-table__cell">Upload your organisation’s Prevent duty policy</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-safeguarding-preventdutyupload-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-healthandsafety-policy'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Health and safety policy</td>
+										<td class="govuk-table__cell">Upload your organisation’s health and safety policy</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-healthandsafety-policy-feedback'] }}</td>
+									</tr>
+								{% endif %}
+								{% if data['feedback-pya-healthandsafety-responsible'] %}
+									<tr class="govuk-table__row">
+										<td class="govuk-table__cell">Health and safety policy</td>
+										<td class="govuk-table__cell">Tell us who has overall responsibility for health and safety in your organisation</td>
+										<td class="govuk-table__cell">{{ data['aac-pya-healthandsafety-responsible-feedback'] }}</td>
 									</tr>
 								{% endif %}
 							</tbody>
@@ -110,6 +163,21 @@
 			{% endif %}
 -->
 					<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+					{% set clarifyHtml %}
+						<p>This will display a generic request for clarifications to the applicant when they re-open their application form.</p>
+					{% endset -%}
+
+					{% set failHtml %}
+						<p>This will inform the applicant that their application has failed.</p>
+					{% endset -%}
+
 					{{ govukRadios({
 						idPrefix: "aac-abc-outcome",
 						name: "aac-abc-outcome",
@@ -117,12 +185,18 @@
 							{
 								value: "Request clarifications",
 								text: "Request clarifications",
-								checked: checked("aac-abc-outcome", "Request clarifications")
+								checked: checked("aac-abc-outcome", "Request clarifications"),
+								conditional: {
+									html: clarifyHtml
+								}
 							},
 							{
 								value: "Fail",
 								text: "Fail",
-								checked: checked("aac-abc-outcome", "Fail")
+								checked: checked("aac-abc-outcome", "Fail"),
+								conditional: {
+									html: failHtml
+								}
 							}
 						]
 					}) }}

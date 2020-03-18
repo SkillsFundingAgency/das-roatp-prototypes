@@ -214,6 +214,11 @@ module.exports = function (router) {
 		
 			router.post('/mvp-assessor/' + v + '/applications/outcome-confirm', function (req, res) {
 				//req.session.data['assessor-abc-outcome'] = "done"
+				res.redirect('/mvp-assessor/' + v + '/applications/outcome-confirm-confirm')
+			})
+		
+			router.post('/mvp-assessor/' + v + '/applications/outcome-confirm-confirm', function (req, res) {
+				//req.session.data['assessor-abc-outcome'] = "done"
 				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
 			})
 

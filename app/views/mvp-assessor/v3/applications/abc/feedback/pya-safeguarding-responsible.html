@@ -53,16 +53,23 @@
 				</thead>
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Full name</td>
-						<td class="govuk-table__cell">[First name] [Last name]</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Email</td>
-						<td class="govuk-table__cell">email@abc.com</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell">Contact number</td>
-						<td class="govuk-table__cell">07123 456789</td>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							Tell us who has overall responsibility for safeguarding in your organisation
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding concerns.</p>
+								<p class="govuk-body">We’ll only contact them if there is a safeguarding concern.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Full name</h3>
+							<p class="govuk-body">[First name] [Last name]</p>
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Email</h3>
+							<p class="govuk-body"><a href="javascript:preventDefault();">email@abc.com</a></p>
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Contact number</h3>
+							<p class="govuk-body">07123 456789</p>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -91,23 +98,25 @@
         {% if data['feedback-pya-safeguarding-responsible'].length == i %} 
 				<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8">
 				{% endif %}
+			{% else %}
+			
+				<form action="" method="post" class="form">
+
+					<h2 class="govuk-heading-l govuk-!-margin-top-5">Add notes</h2>
+
+					{{ govukTextarea({
+						name: "aac-pya-safeguarding-responsible-feedback",
+						id: "aac-pya-safeguarding-responsible-feedback"
+					}) }}
+
+					{{ govukButton({
+						text: "Add notes",
+						classes: "govuk-!-margin-right-4"
+					}) }}
+
+				</form>
+
 			{% endif %}
-
-			<form action="" method="post" class="form">
-
-				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
-
-				{{ govukTextarea({
-					name: "aac-pya-safeguarding-responsible-feedback",
-					id: "aac-pya-safeguarding-responsible-feedback"
-				}) }}
-
-				{{ govukButton({
-					text: "Add note",
-					classes: "govuk-!-margin-right-4"
-				}) }}
-
-			</form>
 
 			<p class="govuk-!-margin-top-5"><a href="/mvp-assessor/v3/applications/abc/questions-pya-safeguarding">Back to safeguarding and prevent duty policy</a></p>
 

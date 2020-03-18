@@ -92,6 +92,41 @@
 		</table>
 	{% endset -%}
 	
+	{% set clarificationsHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Submitted date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Clarification date</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['aac-abc-outcome'] == "Request clarifications" %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+						<td class="govuk-table__cell">12345678</td>
+						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">APR00001</td>
+						<td class="govuk-table__cell">17 Oct 2019</td>
+						<td class="govuk-table__cell">19 Oct 2019</td>
+					</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HOTGROUP</td>
+					<td class="govuk-table__cell">28876299</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR00851</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">15 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
 	{% set outcomeHtml %}
 		<table class="govuk-table">
 			<thead class="govuk-table__head">
@@ -105,7 +140,7 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
-				{% if data['aac-abc-outcome'] != "" %}
+				{% if (data['aac-abc-outcome'] == "Pass") or (data['aac-abc-outcome'] == "Fail") %}
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
 						<td class="govuk-table__cell">12345678</td>
@@ -137,16 +172,6 @@
 						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 					</td>
 				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">HOTGROUP</td>
-					<td class="govuk-table__cell">28876299</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">APR00851</td>
-					<td class="govuk-table__cell">20 Oct 2019</td>
-					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	{% endset -%}
@@ -159,6 +184,13 @@
 				id: "new",
 				panel: {
 					html: newHtml
+				}
+			},
+			{
+				label: "Clarifications (x)",
+				id: "clarifications",
+				panel: {
+					html: clarificationsHtml
 				}
 			},
 			{

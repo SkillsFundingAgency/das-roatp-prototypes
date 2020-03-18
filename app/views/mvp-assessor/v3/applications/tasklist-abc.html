@@ -64,7 +64,8 @@
 						(data['feedback-pya-equality-policy'][0]) or
 						(data['feedback-pya-safeguarding-policy'][0]) or 
 						(data['feedback-pya-safeguarding-responsible'][0]) or 
-						(data['feedback-pya-safeguarding-preventduty'][0]) or 
+						(data['feedback-pya-safeguarding-preventdutyincluded'][0]) or 
+						(data['feedback-pya-safeguarding-preventdutyupload'][0]) or 
 						(data['feedback-pya-healthandsafety-policy'][0]) or 
 						(data['feedback-pya-healthandsafety-responsible'][0]) 
 			%}
@@ -81,8 +82,11 @@
 				{% if data['feedback-pya-safeguarding-responsible'][0] %}
 					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-responsible'].length %}
 				{% endif %}
-				{% if data['feedback-pya-safeguarding-preventduty'][0] %}
-					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-preventduty'].length %}
+				{% if data['feedback-pya-safeguarding-preventdutyincluded'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-preventdutyincluded'].length %}
+				{% endif %}
+				{% if data['feedback-pya-safeguarding-preventdutyupload'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-safeguarding-preventdutyupload'].length %}
 				{% endif %}
 				{% if data['feedback-pya-healthandsafety-policy'][0] %}
 					{% set pya_clarify_count = pya_clarify_count + data['feedback-pya-healthandsafety-policy'].length %}

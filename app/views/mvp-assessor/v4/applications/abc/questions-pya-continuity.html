@@ -10,18 +10,18 @@
 		items: [
 			{
 				text: "RoATP applications",
-				href: "/mvp-assessor/v3/applications/applications-assessor"
+				href: "/mvp-assessor/v4/applications/applications-assessor"
 			},
 			{
 				text: "Application overview",
-				href: "/mvp-assessor/v3/applications/tasklist-abc"
+				href: "/mvp-assessor/v4/applications/tasklist-abc"
 			},
 			{
 				text: "Protecting your apprentices",
-				href: "/mvp-assessor/v3/applications/tasklist-abc-pya"
+				href: "/mvp-assessor/v4/applications/tasklist-abc-pya"
 			},
 			{
-				text: "Equality and diversity policy"
+				text: "Continuity plan for apprenticeship training"
 			}
 		]
 	}) }}
@@ -32,7 +32,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Equality and diversity policy</h1>
+			<h1 class="govuk-heading-xl">Continuity plan for apprenticeship training</h1>
 		</div>
 	</div>
 
@@ -71,27 +71,30 @@
 			<table class="govuk-table govuk-!-margin-top-5">
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Upload your organisation’s equality and diversity policy</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;  width: 25%">Upload your organisation’s continuity plan for apprenticeship training</th>
 						<td class="govuk-table__cell" style="vertical-align: top;">
-							<p class="govuk-body"><a href="javascript:preventDefault();">abc-equality-diversity-policy.pdf</a></p>
+							<p class="govuk-body"><a href="javascript:preventDefault();">abc-continuity-plan.pdf</a></p>
 							{{ govukDetails({
 								classes: "govuk-!-margin-bottom-0",
 								summaryText: "View question details",
-								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								html: '<p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.<p>
+								<p class="govuk-body">This must include how your organisation will:</p>
 								<ul class=""govuk-list govuk-list--bullet"">
-									<li>promote the policy</li>
-									<li>get engagement towards the policy </li>
-									<li>train its employees in implementing the policy </li>
-									<li>consider the policy when recruiting, delivering apprenticeship training and working with employers and apprentices</li>
+									<li>have different methods of communication</li>
+									<li>manage transportation needs</li>
+									<li>provide different operating locations (if needed)</li>
+									<li>back-up relevant business systems</li>
+									<li>back-up and restore data</li>
+									<li>have a list of emergency contacts - ESFA must be listed </li>
 								</ul>
 								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
 							}) }}
 						</td>
 						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top; width: 15%">
-							{% if data['feedback-abc-pya-equality-policy'][0] %}
-							<a href="feedback/pya-equality">View or delete fail</a>
+							{% if data['feedback-abc-pya-continuity-policy'][0] %}
+							<a href="feedback/pya-continuity">View or delete fail</a>
 							{% else %}
-							<a href="feedback/pya-equality">Fail this check</a>
+							<a href="feedback/pya-continuity">Fail this check</a>
 							{% endif %}
 						</td>
 					</tr>
@@ -103,18 +106,18 @@
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">Have you assessed this check?</h2>
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
-					idPrefix: "aac-abc-pya-equality-complete",
-					name: "aac-abc-pya-equality-complete",
+					idPrefix: "aac-abc-pya-continuity-complete",
+					name: "aac-abc-pya-continuity-complete",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("aac-abc-pya-equality-complete", "Yes")
+							checked: checked("aac-abc-pya-continuity-complete", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("aac-abc-pya-equality-complete", "No")
+							checked: checked("aac-abc-pya-continuity-complete", "No")
 						}
 					]
 				}) }}

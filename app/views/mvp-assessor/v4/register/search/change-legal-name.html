@@ -1,0 +1,65 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-assessor/v4/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-assessor/v4/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details",
+			href: "#"
+		},
+		{
+			text: "Change legal name"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+            
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Change legal name for ABC Assessments</h1>
+
+			<form action="detail" method="post" class="form">
+
+				{{ govukInput({
+					label: {
+						text: "Legal name"
+					},
+					classes: "govuk-!-width-two-thirds",
+					id: "staff-changelegalname",
+                    name: "staff-changelegalname",
+                    value: "ABC Assessments"
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

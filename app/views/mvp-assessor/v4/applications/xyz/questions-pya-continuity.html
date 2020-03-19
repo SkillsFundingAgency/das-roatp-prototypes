@@ -10,18 +10,18 @@
 		items: [
 			{
 				text: "RoATP applications",
-				href: "/mvp-assessor/v3/applications/applications-assessor"
+				href: "/mvp-assessor/v4/applications/applications-assessor"
 			},
 			{
 				text: "Application overview",
-				href: "/mvp-assessor/v3/applications/tasklist-abc"
+				href: "/mvp-assessor/v4/applications/tasklist-xyz"
 			},
 			{
 				text: "Protecting your apprentices",
-				href: "/mvp-assessor/v3/applications/tasklist-abc-pya"
+				href: "/mvp-assessor/v4/applications/tasklist-xyz-pya"
 			},
 			{
-				text: "Equality and diversity policy"
+				text: "Continuity plan for apprenticeship training"
 			}
 		]
 	}) }}
@@ -32,7 +32,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Equality and diversity policy</h1>
+			<h1 class="govuk-heading-xl">Continuity plan for apprenticeship training</h1>
 		</div>
 	</div>
 
@@ -42,11 +42,11 @@
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>
-					<dd class="govuk-summary-list__value">12345678</dd>
+					<dd class="govuk-summary-list__value">10959582</dd>
 				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Legal name</dt>
-					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+					<dd class="govuk-summary-list__value">XYZ TRAINING</dd>
 				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Provider route</dt>
@@ -54,11 +54,11 @@
 				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Submitted date</dt>
-					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+					<dd class="govuk-summary-list__value">22 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR00001</dd>
+					<dd class="govuk-summary-list__value">APR00006</dd>
 				</div>
 			</dl>
 
@@ -71,27 +71,30 @@
 			<table class="govuk-table govuk-!-margin-top-5">
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Upload your organisation’s equality and diversity policy</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;  width: 25%">Upload your organisation’s continuity plan for apprenticeship training</th>
 						<td class="govuk-table__cell" style="vertical-align: top;">
-							<p class="govuk-body"><a href="javascript:preventDefault();">abc-equality-diversity-policy.pdf</a></p>
+							<p class="govuk-body"><a href="javascript:preventDefault();">xyz-continuity-plan.pdf</a></p>
 							{{ govukDetails({
 								classes: "govuk-!-margin-bottom-0",
 								summaryText: "View question details",
-								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								html: '<p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.<p>
+								<p class="govuk-body">This must include how your organisation will:</p>
 								<ul class=""govuk-list govuk-list--bullet"">
-									<li>promote the policy</li>
-									<li>get engagement towards the policy </li>
-									<li>train its employees in implementing the policy </li>
-									<li>consider the policy when recruiting, delivering apprenticeship training and working with employers and apprentices</li>
+									<li>have different methods of communication</li>
+									<li>manage transportation needs</li>
+									<li>provide different operating locations (if needed)</li>
+									<li>back-up relevant business systems</li>
+									<li>back-up and restore data</li>
+									<li>have a list of emergency contacts - ESFA must be listed </li>
 								</ul>
 								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
 							}) }}
 						</td>
 						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top; width: 15%">
-							{% if data['feedback-abc-pya-equality-policy'][0] %}
-							<a href="feedback/pya-equality">View or delete fail</a>
+							{% if data['feedback-xyz-pya-continuity-policy'][0] %}
+							<a href="feedback/pya-continuity">View or delete fail</a>
 							{% else %}
-							<a href="feedback/pya-equality">Fail this check</a>
+							<a href="feedback/pya-continuity">Fail this check</a>
 							{% endif %}
 						</td>
 					</tr>
@@ -103,18 +106,18 @@
 				<h2 class="govuk-heading-l govuk-!-margin-top-9">Have you assessed this check?</h2>
 				{{ govukRadios({
 					classes: "govuk-radios--inline",
-					idPrefix: "aac-abc-pya-equality-complete",
-					name: "aac-abc-pya-equality-complete",
+					idPrefix: "aac-xyz-pya-continuity-complete",
+					name: "aac-xyz-pya-continuity-complete",
 					items: [
 						{
 							value: "Yes",
 							text: "Yes",
-							checked: checked("aac-abc-pya-equality-complete", "Yes")
+							checked: checked("aac-xyz-pya-continuity-complete", "Yes")
 						},
 						{
 							value: "No",
 							text: "No",
-							checked: checked("aac-abc-pya-equality-complete", "No")
+							checked: checked("aac-xyz-pya-continuity-complete", "No")
 						}
 					]
 				}) }}

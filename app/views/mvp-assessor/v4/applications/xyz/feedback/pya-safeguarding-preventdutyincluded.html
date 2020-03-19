@@ -1,0 +1,127 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v4/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v4/applications/tasklist-xyz"
+			},
+			{
+				text: "Protecting your apprentices",
+				href: "/mvp-assessor/v4/applications/tasklist-xyz-pya"
+			},
+			{
+				text: "Safeguarding and prevent duty policy",
+				href: "/mvp-assessor/v4/applications/xyz/questions-pya-safeguarding"
+			},
+			{
+				text: "Fail this check"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Fail this check</h1>
+			<h2 class="govuk-heading-l">Safeguarding and Prevent duty policy</h2>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+		
+			<table class="govuk-table govuk-!-margin-top-5">
+				<thead class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-2",
+								summaryText: "View question details",
+								html: '<p class="govuk-body">This means your organisation&#39;s safeguarding policy includes how it will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+									<li>protect apprentices and employees from radicalising influences</li>
+									<li>ensure apprentices and employees are resilient to extreme narratives</li>
+									<li>identify changes in behaviour of apprentices and employees</li>
+									<li>deal with any issues raised by apprentices or employees</li>
+								</ul>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell" style="vertical-align: top;">No</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			{% set i = 0 %}
+      {% if data['feedback-xyz-pya-safeguarding-preventdutyincluded'][0] %}
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
+				{% for item in data['feedback-xyz-pya-safeguarding-preventdutyincluded'] %}
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-safeguarding-preventdutyincluded'][i]['user'] }}</h3>
+					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-safeguarding-preventdutyincluded'][i]['dateadded'] }}</p>
+					<p class="govuk-body govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-safeguarding-preventdutyincluded'][i]['feedback'] }}</p>
+					<form action="delete-pya-safeguarding-preventdutyincluded" method="post" class="form">
+						<input name="feedbackid" type="hidden" value="{{i}}">
+						{{ govukButton({
+							text: "Delete note",
+							classes: "govuk-button--warning"
+						}) }}
+					</form>
+					{% set i = i + 1 %}
+				{% endfor %}
+        {% if data['feedback-xyz-pya-safeguarding-preventdutyincluded'].length == i %} 
+				<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8">
+				{% endif %}
+			{% else %}
+
+				<form action="" method="post" class="form">
+
+					<h2 class="govuk-heading-l govuk-!-margin-top-5">Add notes</h2>
+
+					{{ govukTextarea({
+						name: "aac-xyz-pya-safeguarding-preventdutyincluded-feedback",
+						id: "aac-xyz-pya-safeguarding-preventdutyincluded-feedback"
+					}) }}
+
+					{{ govukButton({
+						text: "Add notes",
+						classes: "govuk-!-margin-right-4"
+					}) }}
+
+				</form>
+
+			{% endif %}
+
+			<p class="govuk-!-margin-top-5"><a href="/mvp-assessor/v4/applications/xyz/questions-pya-safeguarding">Back to safeguarding and prevent duty policy</a></p>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

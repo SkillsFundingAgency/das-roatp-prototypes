@@ -1,0 +1,134 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v4/applications/applications-assessor"
+			},
+			{
+				text: "Application overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">12345678</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Submitted date</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+			</dl>
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="tasklist-abc-pya">Protecting your apprentices</a></h2>
+			{% if (data['aac-abc-pya-continuity-complete'] == "Yes") and (data['aac-abc-pya-equality-complete'] == "Yes") and (data['aac-abc-pya-safeguarding-complete'] == "Yes") and (data['aac-abc-pya-healthandsafety-complete'] == "Yes") %}
+				<strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			{% elseif (data['aac-abc-pya-continuity-complete'] == "Yes") or (data['aac-abc-pya-equality-complete'] == "Yes") or (data['aac-abc-pya-safeguarding-complete'] == "Yes") or (data['aac-abc-pya-healthandsafety-complete'] == "Yes") %}
+				<strong class="govuk-tag">In progress</strong>
+			{% endif %}
+			{% if (data['feedback-abc-pya-continuity-policy'][0]) or 
+						(data['feedback-abc-pya-equality-policy'][0]) or
+						(data['feedback-abc-pya-safeguarding-policy'][0]) or 
+						(data['feedback-abc-pya-safeguarding-responsible'][0]) or 
+						(data['feedback-abc-pya-safeguarding-preventdutyincluded'][0]) or 
+						(data['feedback-abc-pya-safeguarding-preventdutyupload'][0]) or 
+						(data['feedback-abc-pya-healthandsafety-policy'][0]) or 
+						(data['feedback-abc-pya-healthandsafety-responsible'][0]) 
+			%}
+				{% set pya_clarify_count = 0 %}
+				{% if data['feedback-abc-pya-continuity-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-continuity-policy'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-equality-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-equality-policy'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-safeguarding-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-safeguarding-policy'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-safeguarding-responsible'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-safeguarding-responsible'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-safeguarding-preventdutyincluded'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-safeguarding-preventdutyincluded'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-safeguarding-preventdutyupload'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-safeguarding-preventdutyupload'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-healthandsafety-policy'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-healthandsafety-policy'].length %}
+				{% endif %}
+				{% if data['feedback-abc-pya-healthandsafety-responsible'][0] %}
+					{% set pya_clarify_count = pya_clarify_count + data['feedback-abc-pya-healthandsafety-responsible'].length %}
+				{% endif %}
+				<!--strong class="govuk-tag">Feedback added</strong-->
+				<strong class="govuk-tag govuk-tag-negative">{{ pya_clarify_count }} clarification{% if pya_clarify_count > 1 %}s{% endif %}</strong>
+			{% endif %}
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Readiness to engage</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Planning apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Delivering apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Evaluating apprenticeship training</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<!--h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();" style="color:grey;">Financial health assessment</a></h2><strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"-->
+
+
+			{% if (data['aac-abc-pya-continuity-complete'] == "Yes") and (data['aac-abc-pya-equality-complete'] == "Yes") and (data['aac-abc-pya-safeguarding-complete'] == "Yes") and (data['aac-abc-pya-healthandsafety-complete'] == "Yes") %}
+			
+				<form action="" method="post" class="form">
+					{{ govukButton({
+						classes: "govuk-!-margin-top-5",
+						text: "Decide application outcome"
+					}) }}
+				</form>
+				
+			{% endif %}
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

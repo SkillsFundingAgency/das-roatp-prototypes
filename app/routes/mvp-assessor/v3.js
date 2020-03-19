@@ -187,15 +187,15 @@ module.exports = function (router) {
 		
 			router.post('/mvp-assessor/' + v + '/applications/tasklist-abc', function (req, res) {
 				//req.session.data['assessor-abc-outcome'] = "done"
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-confirm')
+				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc-confirm')
 			})
 		
-			router.post('/mvp-assessor/' + v + '/applications/outcome-confirm', function (req, res) {
+			router.post('/mvp-assessor/' + v + '/applications/outcome-abc-confirm', function (req, res) {
 				//req.session.data['assessor-abc-outcome'] = "done"
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-confirm-confirm')
+				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc-confirm-confirm')
 			})
 		
-			router.post('/mvp-assessor/' + v + '/applications/outcome-confirm-confirm', function (req, res) {
+			router.post('/mvp-assessor/' + v + '/applications/outcome-abc-confirm-confirm', function (req, res) {
 				//req.session.data['assessor-abc-outcome'] = "done"
 				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
 			})

@@ -80,14 +80,34 @@
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
 				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">XYZ TRAINING</td>
-					<td class="govuk-table__cell">10959582</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">APR00006</td>
-					<td class="govuk-table__cell">22 Oct 2019</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">Resubmitted</strong></td>
-				</tr>
+				{% if not data['aac-xyz-outcome'] %}
+					<tr class="govuk-table__row">
+						<!--td class="govuk-table__cell"><a href="tasklist-xyz">XYZ TRAINING</a></td-->
+						<td class="govuk-table__cell">XYZ TRAINING</td>
+						<td class="govuk-table__cell">10959582</td>
+						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">APR00006</td>
+						<td class="govuk-table__cell">22 Oct 2019</td>
+						<td class="govuk-table__cell">
+							{% if (data['feedback-abc-pya-continuity-policy'][0]) or 
+										(data['feedback-abc-pya-equality-policy'][0]) or
+										(data['feedback-abc-pya-safeguarding-policy'][0]) or 
+										(data['feedback-abc-pya-safeguarding-responsible'][0]) or 
+										(data['feedback-abc-pya-safeguarding-preventduty'][0]) or 
+										(data['feedback-abc-pya-healthandsafety-policy'][0]) or 
+										(data['feedback-abc-pya-healthandsafety-responsible'][0]) or
+										(data['aac-pya-continuity-complete'] == "Yes") or
+										(data['aac-pya-equality-complete'] == "Yes") or
+										(data['aac-pya-safeguarding-complete'] == "Yes") or
+										(data['aac-pya-healthandsafety-complete'] == "Yes")
+							%}
+								<strong class="govuk-tag app-task-list__task-completed">In&nbsp;progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-positive">Resubmitted</strong>
+							{% endif %}
+						</td>
+					</tr>
+				{% endif %}
 			</tbody>
 		</table>
 	{% endset -%}

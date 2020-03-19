@@ -3,7 +3,7 @@
 // Note: prototype config can be overridden using environment variables (eg on heroku)
 
 module.exports = {
-  // Service name used in header. Eg: 'Renew your passport'
+  // Service name used in header. Eg: 'Renew your driving license'
   serviceName: 'Apply to join the register of apprenticeship training providers',
   //serviceName: 'Apply to become an Apprenticeship Training Provider',
   serviceNameStaffapp: 'ESFA Admin Services',

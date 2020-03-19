@@ -59,34 +59,34 @@
 			</dl>
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="abc/questions-pya-continuity">Continuity plan for apprenticeship training</a></h2>
-			{% if data['aac-pya-continuity-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
-			{% if data['feedback-pya-continuity-policy'][0] %}<strong class="govuk-tag govuk-tag-negative">{{ data['feedback-pya-continuity-policy'].length }} clarification{% if data['feedback-pya-continuity-policy'].length > 1 %}s{% endif %}</strong>{% endif %}
+			{% if data['aac-abc-pya-continuity-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
+			{% if data['feedback-abc-pya-continuity-policy'][0] %}<strong class="govuk-tag govuk-tag-negative">{{ data['feedback-abc-pya-continuity-policy'].length }} clarification{% if data['feedback-abc-pya-continuity-policy'].length > 1 %}s{% endif %}</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="abc/questions-pya-equality">Equality and diversity policy</a></h2>
-			{% if data['aac-pya-equality-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
-			{% if data['feedback-pya-equality-policy'][0] %}<strong class="govuk-tag govuk-tag-negative">{{ data['feedback-pya-equality-policy'].length }} clarification{% if data['feedback-pya-equality-policy'].length > 1 %}s{% endif %}</strong>{% endif %}
+			{% if data['aac-abc-pya-equality-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
+			{% if data['feedback-abc-pya-equality-policy'][0] %}<strong class="govuk-tag govuk-tag-negative">{{ data['feedback-abc-pya-equality-policy'].length }} clarification{% if data['feedback-abc-pya-equality-policy'].length > 1 %}s{% endif %}</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="abc/questions-pya-safeguarding">Safeguarding and Prevent duty policy</a></h2>
-			{% if data['aac-pya-safeguarding-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
-			{% if (data['feedback-pya-safeguarding-policy'][0]) or 
-						(data['feedback-pya-safeguarding-responsible'][0]) or 
-						(data['feedback-pya-safeguarding-preventdutyincluded'][0]) or 
-						(data['feedback-pya-safeguarding-preventdutyupload'][0])
+			{% if data['aac-abc-pya-safeguarding-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
+			{% if (data['feedback-abc-pya-safeguarding-policy'][0]) or 
+						(data['feedback-abc-pya-safeguarding-responsible'][0]) or 
+						(data['feedback-abc-pya-safeguarding-preventdutyincluded'][0]) or 
+						(data['feedback-abc-pya-safeguarding-preventdutyupload'][0])
 			%}
 				{% set pya_safeguarding_clarify_count = 0 %}
-				{% if data['feedback-pya-safeguarding-policy'][0] %}
-					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-pya-safeguarding-policy'].length %}
+				{% if data['feedback-abc-pya-safeguarding-policy'][0] %}
+					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-abc-pya-safeguarding-policy'].length %}
 				{% endif %}
-				{% if data['feedback-pya-safeguarding-responsible'][0] %}
-					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-pya-safeguarding-responsible'].length %}
+				{% if data['feedback-abc-pya-safeguarding-responsible'][0] %}
+					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-abc-pya-safeguarding-responsible'].length %}
 				{% endif %}
-				{% if data['feedback-pya-safeguarding-preventdutyincluded'][0] %}
-					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-pya-safeguarding-preventdutyincluded'].length %}
+				{% if data['feedback-abc-pya-safeguarding-preventdutyincluded'][0] %}
+					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-abc-pya-safeguarding-preventdutyincluded'].length %}
 				{% endif %}
-				{% if data['feedback-pya-safeguarding-preventdutyupload'][0] %}
-					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-pya-safeguarding-preventdutyupload'].length %}
+				{% if data['feedback-abc-pya-safeguarding-preventdutyupload'][0] %}
+					{% set pya_safeguarding_clarify_count = pya_safeguarding_clarify_count + data['feedback-abc-pya-safeguarding-preventdutyupload'].length %}
 				{% endif %}
 
 				<strong class="govuk-tag govuk-tag-negative">{{ pya_safeguarding_clarify_count }} clarification{% if pya_safeguarding_clarify_count > 1 %}s{% endif %}</strong>
@@ -94,18 +94,18 @@
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="abc/questions-pya-healthandsafety">Health and safety policy</a></h2>
-			{% if data['aac-pya-healthandsafety-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
-			{% if (data['feedback-pya-healthandsafety-policy'][0]) or 
-						(data['feedback-pya-healthandsafety-responsible'][0]) or 
-						(data['feedback-pya-healthandsafety-preventdutyincluded'][0]) or 
-						(data['feedback-pya-healthandsafety-preventdutyupload'][0])
+			{% if data['aac-abc-pya-healthandsafety-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag-positive">Assessed</strong>{% endif %}
+			{% if (data['feedback-abc-pya-healthandsafety-policy'][0]) or 
+						(data['feedback-abc-pya-healthandsafety-responsible'][0]) or 
+						(data['feedback-abc-pya-healthandsafety-preventdutyincluded'][0]) or 
+						(data['feedback-abc-pya-healthandsafety-preventdutyupload'][0])
 			%}
 				{% set pya_healthandsafety_clarify_count = 0 %}
-				{% if data['feedback-pya-healthandsafety-policy'][0] %}
-					{% set pya_healthandsafety_clarify_count = pya_healthandsafety_clarify_count + data['feedback-pya-healthandsafety-policy'].length %}
+				{% if data['feedback-abc-pya-healthandsafety-policy'][0] %}
+					{% set pya_healthandsafety_clarify_count = pya_healthandsafety_clarify_count + data['feedback-abc-pya-healthandsafety-policy'].length %}
 				{% endif %}
-				{% if data['feedback-pya-healthandsafety-responsible'][0] %}
-					{% set pya_healthandsafety_clarify_count = pya_healthandsafety_clarify_count + data['feedback-pya-healthandsafety-responsible'].length %}
+				{% if data['feedback-abc-pya-healthandsafety-responsible'][0] %}
+					{% set pya_healthandsafety_clarify_count = pya_healthandsafety_clarify_count + data['feedback-abc-pya-healthandsafety-responsible'].length %}
 				{% endif %}
 				<strong class="govuk-tag govuk-tag-negative">{{ pya_healthandsafety_clarify_count }} clarification{% if pya_healthandsafety_clarify_count > 1 %}s{% endif %}</strong>
 			{% endif %}

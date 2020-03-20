@@ -190,11 +190,19 @@ module.exports = function (router) {
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/outcome-abc-confirm', function (req, res) {
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc-confirm-confirm')
+				if (req.session.data['aac-abc-outcome'] == "Pass") {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
+				} else {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc-confirm-confirm')
+				}
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/outcome-abc-confirm-confirm', function (req, res) {
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
+				if (req.session.data['aac-abc-outcome-check'] == "Yes") {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc')
+				} else {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-abc-confirm')
+				}
 			})
 
 
@@ -210,6 +218,35 @@ module.exports = function (router) {
 			res.redirect('/mvp-assessor/' + v + '/applications/tasklist-xyz-pya')
 		})
 
+	/***********************************
+	 * Assessor (XYZ) - PYA - Feedback *
+	 ***********************************/
+
+		router.post('/mvp-assessor/' + v + '/applications/xyz/feedback/pya-continuity', function (req, res) {
+			saveFeedback(req,'pya','continuity','policy','xyz');
+			req.session.data['feedback-count'] = req.session.data['feedback-count'] + 1
+			res.redirect('/mvp-assessor/' + v + '/applications/xyz/questions-pya-continuity')
+		})
+		router.post('/mvp-assessor/' + v + '/applications/xyz/feedback/pya-safeguarding-policy', function (req, res) {
+			saveFeedback(req,'pya','safeguarding','policy','xyz');
+			req.session.data['feedback-count'] = req.session.data['feedback-count'] + 1
+			res.redirect('/mvp-assessor/' + v + '/applications/xyz/questions-pya-safeguarding')
+		})
+
+		// (XYZ) DELETE FEEDBACK
+		
+			router.post('/mvp-assessor/' + v + '/applications/xyz/feedback/delete-pya-continuity-policy', function (req, res) {
+				req.session.data['feedback-xyz-pya-continuity-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-count'] = req.session.data['feedback-count'] - 1
+				res.redirect('/mvp-assessor/' + v + '/applications/xyz/feedback/pya-continuity')
+			})
+		
+			router.post('/mvp-assessor/' + v + '/applications/xyz/feedback/delete-pya-safeguarding-policy', function (req, res) {
+				req.session.data['feedback-xyz-pya-safeguarding-policy'].splice(req.session.data['feedbackid'],1)
+				req.session.data['feedback-count'] = req.session.data['feedback-count'] - 1
+				res.redirect('/mvp-assessor/' + v + '/applications/xyz/feedback/pya-safeguarding-policy')
+			})
+
 	/*************************
 	 * (XYZ) Confirm outcome *
 	 *************************/
@@ -219,11 +256,19 @@ module.exports = function (router) {
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/outcome-xyz-confirm', function (req, res) {
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz-confirm-confirm')
+				if (req.session.data['aac-xyz-outcome'] == "Pass") {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz')
+				} else {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz-confirm-confirm')
+				}
 			})
 		
 			router.post('/mvp-assessor/' + v + '/applications/outcome-xyz-confirm-confirm', function (req, res) {
-				res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz')
+				if (req.session.data['aac-xyz-outcome-check'] == "Yes") {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz')
+				} else {
+					res.redirect('/mvp-assessor/' + v + '/applications/outcome-xyz-confirm')
+				}
 			})
 
 			

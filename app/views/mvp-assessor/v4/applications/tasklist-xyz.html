@@ -45,7 +45,7 @@
 					<dd class="govuk-summary-list__value">Main</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Submitted date</dt>
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
 					<dd class="govuk-summary-list__value">10 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
@@ -56,9 +56,9 @@
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="tasklist-xyz-pya">Protecting your apprentices</a></h2>
 			{% if (data['aac-xyz-pya-continuity-complete'] == "Yes") and (data['aac-xyz-pya-safeguarding-complete'] == "Yes") %}
-				<strong class="govuk-tag govuk-tag-positive">Assessed</strong>
+				<strong class="govuk-tag govuk-tag--green">Assessed</strong>
 			{% elseif (data['aac-xyz-pya-continuity-complete'] == "Yes") or (data['aac-xyz-pya-safeguarding-complete'] == "Yes") %}
-				<strong class="govuk-tag">In progress</strong>
+				<strong class="govuk-tag govuk-tag--blue">In progress</strong>
 			{% endif %}
 			{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
 						(data['feedback-xyz-pya-safeguarding-policy'][0])
@@ -71,9 +71,9 @@
 					{% set pya_clarify_count = pya_clarify_count + data['feedback-xyz-pya-safeguarding-policy'].length %}
 				{% endif %}
 				<!--strong class="govuk-tag">Feedback added</strong-->
-				<strong class="govuk-tag govuk-tag-negative">{{ pya_clarify_count }} clarification{% if pya_clarify_count > 1 %}s{% endif %}</strong>
+				<strong class="govuk-tag govuk-tag--red">{{ pya_clarify_count }} clarification{% if pya_clarify_count > 1 %}s{% endif %}</strong>
 			{% endif %}
-			
+
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
 			{% if (data['aac-xyz-pya-continuity-complete'] == "Yes") and (data['aac-xyz-pya-safeguarding-complete'] == "Yes") %}
@@ -81,7 +81,7 @@
 				<form action="" method="post" class="form">
 					{{ govukButton({
 						classes: "govuk-!-margin-top-5",
-						text: "Decide application outcome"
+						text: "Confirm assessor outcome"
 					}) }}
 				</form>
 				

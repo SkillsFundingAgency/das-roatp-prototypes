@@ -25,7 +25,7 @@
 				href: "/mvp-assessor/v4/applications/abc/questions-pya-safeguarding"
 			},
 			{
-				text: "Fail this check"
+				text: "Add comments"
 			}
 		]
 	}) }}
@@ -36,7 +36,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Fail this check</h1>
+			<h1 class="govuk-heading-xl">Comments</h1>
 			<h2 class="govuk-heading-l">Safeguarding and Prevent duty policy</h2>
 		</div>
 	</div>
@@ -47,8 +47,8 @@
 			<table class="govuk-table govuk-!-margin-top-5">
 				<thead class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Answer</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Applicant’s answer</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
@@ -57,7 +57,7 @@
 							Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?
 							{{ govukDetails({
 								classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-2",
-								summaryText: "View question details",
+								summaryText: "View application guidance",
 								html: '<p class="govuk-body">This means your organisation&#39;s safeguarding policy includes how it will:</p>
 								<ul class=""govuk-list govuk-list--bullet"">
 									<li>have a legal responsibility to fulfil the Prevent duty statement</li>
@@ -80,7 +80,7 @@
 
 			{% set i = 0 %}
       {% if data['feedback-abc-pya-safeguarding-preventdutyincluded'][0] %}
-				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Your comments</h2>
 				{% for item in data['feedback-abc-pya-safeguarding-preventdutyincluded'] %}
 					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-safeguarding-preventdutyincluded'][i]['user'] }}</h3>
 					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-safeguarding-preventdutyincluded'][i]['dateadded'] }}</p>
@@ -88,7 +88,7 @@
 					<form action="delete-pya-safeguarding-preventdutyincluded" method="post" class="form">
 						<input name="feedbackid" type="hidden" value="{{i}}">
 						{{ govukButton({
-							text: "Delete note",
+							text: "Delete comments",
 							classes: "govuk-button--warning"
 						}) }}
 					</form>
@@ -101,15 +101,20 @@
 
 				<form action="" method="post" class="form">
 
-					<h2 class="govuk-heading-l govuk-!-margin-top-5">Add notes</h2>
-
-					{{ govukTextarea({
+					{{ govukCharacterCount({
 						name: "aac-abc-pya-safeguarding-preventdutyincluded-feedback",
-						id: "aac-abc-pya-safeguarding-preventdutyincluded-feedback"
+						id: "aac-abc-pya-safeguarding-preventdutyincluded-feedback",
+						maxwords: 275,
+						label: {
+							html: '<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-0">Enter your comments</h2>'
+						},
+						hint: {
+							text: "The applicant can use this information to change and resubmit their application."
+						}
 					}) }}
 
 					{{ govukButton({
-						text: "Add notes",
+						text: "Save and continue",
 						classes: "govuk-!-margin-right-4"
 					}) }}
 

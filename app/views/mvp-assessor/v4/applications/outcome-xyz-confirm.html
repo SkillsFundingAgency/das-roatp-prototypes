@@ -49,7 +49,7 @@
 					<dd class="govuk-summary-list__value">Main</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Submitted date</dt>
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
 					<dd class="govuk-summary-list__value">10 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
@@ -64,23 +64,18 @@
 	{% if data['feedback-count'] > 0 %}
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-full">
-
-				<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
-
-				<!--p class="govuk-body">[display questions with notes here]</p-->
+			
 				{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
 							(data['feedback-xyz-pya-safeguarding-policy'][0])
 				%}
-	
-					<h2 class="govuk-heading-l">Notes added</h2>
 
 					<h3 class="govuk-heading-m">Protecting your apprentices</h3>
 					<table class="govuk-table govuk-!-margin-top-5">
 						<thead class="govuk-table__body">
 							<tr class="govuk-table__row">
 								<th scope="row" class="govuk-table__header" style="vertical-align: top">Section</th>
-								<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
-								<th scope="row" class="govuk-table__header" style="vertical-align: top">Notes</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Comments</th>
 							</tr>
 						</thead>
 						<tbody class="govuk-table__body">
@@ -144,7 +139,7 @@
 					</table>
 				{% endif %}
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What do you want to do?</h2>
 
 			</div>
 		</div>
@@ -170,17 +165,14 @@
 						name: "aac-xyz-outcome",
 						items: [
 							{
-								value: "Request clarifications",
-								text: "Request clarifications",
-								checked: checked("aac-xyz-outcome", "Request clarifications"),
-								conditional: {
-									html: clarifyHtml
-								}
+								value: "Ask for clarification",
+								text: "Ask for clarification",
+								checked: checked("aac-xyz-outcome", "Ask for clarification")
 							},
 							{
-								value: "Fail",
-								text: "Fail",
-								checked: checked("aac-xyz-outcome", "Fail")
+								value: "Fail this application",
+								text: "Fail this application",
+								checked: checked("aac-xyz-outcome", "Fail this application")
 							}
 						]
 					}) }}
@@ -192,7 +184,7 @@
 				{% endif %}
 
 				{{ govukButton({
-					text: "Confirm outcome",
+					text: "Save and continue",
 					classes: "govuk-button__submit govuk-!-margin-top-5"
 				}) }}
 			

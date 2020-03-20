@@ -25,7 +25,7 @@
 				href: "/mvp-assessor/v4/applications/abc/questions-pya-safeguarding"
 			},
 			{
-				text: "Fail this check"
+				text: "Add comments"
 			}
 		]
 	}) }}
@@ -36,7 +36,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Fail this check</h1>
+			<h1 class="govuk-heading-xl">Comments</h1>
 			<h2 class="govuk-heading-l">Safeguarding and Prevent duty policy</h2>
 		</div>
 	</div>
@@ -47,8 +47,8 @@
 			<table class="govuk-table govuk-!-margin-top-5">
 				<thead class="govuk-table__body">
 					<tr class="govuk-table__row">
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
-						<th scope="row" class="govuk-table__header" style="vertical-align: top">Answer</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Applicant’s answer</th>
 					</tr>
 				</thead>
 				<tbody class="govuk-table__body">
@@ -57,7 +57,7 @@
 							Tell us who has overall responsibility for safeguarding in your organisation
 							{{ govukDetails({
 								classes: "govuk-!-margin-bottom-0",
-								summaryText: "View question details",
+								summaryText: "View application guidance",
 								html: '<p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding concerns.</p>
 								<p class="govuk-body">We’ll only contact them if there is a safeguarding concern.</p>'
 							}) }}
@@ -81,7 +81,7 @@
 
 			{% set i = 0 %}
       {% if data['feedback-abc-pya-safeguarding-responsible'][0] %}
-				<h2 class="govuk-heading-l govuk-!-margin-top-5">Notes</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Your comments</h2>
 				{% for item in data['feedback-abc-pya-safeguarding-responsible'] %}
 					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-safeguarding-responsible'][i]['user'] }}</h3>
 					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-safeguarding-responsible'][i]['dateadded'] }}</p>
@@ -89,7 +89,7 @@
 					<form action="delete-pya-safeguarding-responsible" method="post" class="form">
 						<input name="feedbackid" type="hidden" value="{{i}}">
 						{{ govukButton({
-							text: "Delete note",
+							text: "Delete comments",
 							classes: "govuk-button--warning"
 						}) }}
 					</form>
@@ -102,15 +102,20 @@
 
 				<form action="" method="post" class="form">
 
-					<h2 class="govuk-heading-l govuk-!-margin-top-5">Add notes</h2>
-
-					{{ govukTextarea({
+					{{ govukCharacterCount({
 						name: "aac-abc-pya-safeguarding-responsible-feedback",
-						id: "aac-abc-pya-safeguarding-responsible-feedback"
+						id: "aac-abc-pya-safeguarding-responsible-feedback",
+						maxwords: 275,
+						label: {
+							html: '<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-0">Enter your comments</h2>'
+						},
+						hint: {
+							text: "The applicant can use this information to change and resubmit their application."
+						}
 					}) }}
 
 					{{ govukButton({
-						text: "Add notes",
+						text: "Save and continue",
 						classes: "govuk-!-margin-right-4"
 					}) }}
 

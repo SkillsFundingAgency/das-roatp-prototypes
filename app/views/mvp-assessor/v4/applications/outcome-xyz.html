@@ -29,13 +29,16 @@
 		<div class="govuk-grid-column-two-thirds">
 
 			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
-				<h1 class="govuk-panel__title">Assessor outcome</h1>
+				<h1 class="govuk-panel__title">Assessor outcome saved</h1>
 				<div class="govuk-panel__body">
 					<strong>
-
-					{% if data['feedback-count'] == 0 %}Passed{% endif %}
-					{% if data['aac-xyz-outcome'] == "Request clarifications" %}Clarifications requested{% endif %}
-					{% if data['aac-xyz-outcome'] == "Fail" %}Failed{% endif %}
+						{% if data['aac-xyz-outcome'] == "Ask for clarification" %}
+							Ask for clarification
+						{% elseif data['aac-xyz-outcome'] == "Fail this application" %}
+							Fail
+						{% elseif data['aac-xyz-outcome'] == "Pass" %}
+							Pass
+						{% endif %}
 					</strong>
 				</div>
 			</div>

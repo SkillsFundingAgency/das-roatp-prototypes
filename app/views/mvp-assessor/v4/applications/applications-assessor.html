@@ -32,7 +32,7 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header">Submitted date</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted date</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Application status</th>
 				</tr>
 			</thead>
@@ -57,9 +57,9 @@
 										(data['aac-abc-pya-safeguarding-complete'] == "Yes") or
 										(data['aac-abc-pya-healthandsafety-complete'] == "Yes")
 							%}
-								<strong class="govuk-tag app-task-list__task-completed">In&nbsp;progress</strong>
+								<strong class="govuk-tag govuk-tag--blue">In&nbsp;progress</strong>
 							{% else %}
-								<strong class="govuk-tag app-task-list__task-positive">New</strong>
+								<strong class="govuk-tag govuk-tag--green">New</strong>
 							{% endif %}
 						</td>
 					</tr>
@@ -70,7 +70,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">APR00004</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">New</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">EXAM SNAP</td>
@@ -78,35 +78,8 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">APR00005</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__task-positive">New</strong></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">New</strong></td>
 				</tr>
-				{% if not data['aac-xyz-outcome'] %}
-					<tr class="govuk-table__row">
-						<td class="govuk-table__cell"><a href="tasklist-xyz">XYZ TRAINING</a></td>
-						<td class="govuk-table__cell">10959582</td>
-						<td class="govuk-table__cell">Main</td>
-						<td class="govuk-table__cell">APR00006</td>
-						<td class="govuk-table__cell">22 Oct 2019</td>
-						<td class="govuk-table__cell">
-							{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
-										(data['feedback-xyz-pya-equality-policy'][0]) or
-										(data['feedback-xyz-pya-safeguarding-policy'][0]) or 
-										(data['feedback-xyz-pya-safeguarding-responsible'][0]) or 
-										(data['feedback-xyz-pya-safeguarding-preventduty'][0]) or 
-										(data['feedback-xyz-pya-healthandsafety-policy'][0]) or 
-										(data['feedback-xyz-pya-healthandsafety-responsible'][0]) or
-										(data['aac-xyz-pya-continuity-complete'] == "Yes") or
-										(data['aac-xyz-pya-equality-complete'] == "Yes") or
-										(data['aac-xyz-pya-safeguarding-complete'] == "Yes") or
-										(data['aac-xyz-pya-healthandsafety-complete'] == "Yes")
-							%}
-								<strong class="govuk-tag app-task-list__task-completed">In&nbsp;progress</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-positive">Resubmitted</strong>
-							{% endif %}
-						</td>
-					</tr>
-				{% endif %}
 			</tbody>
 		</table>
 	{% endset -%}
@@ -119,11 +92,48 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header">Submitted date</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Clarification date</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Clarification sent</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Clarification received</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Status</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if (data['aac-xyz-outcome'] == "Ask for clarification") %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell">XYZ TRAINING</td>
+							<td class="govuk-table__cell">10959582</td>
+							<td class="govuk-table__cell">Main</td>
+							<td class="govuk-table__cell">APR00006</td>
+							<td class="govuk-table__cell">10 Oct 2019</td>
+							<td class="govuk-table__cell">23 Oct 2019</td>
+							<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow ">Pending</strong></td>
+							<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">With&nbsp;applicant</strong></td>
+						</tr>
+				{% else %}
+					{% if (data['aac-xyz-outcome'] != "Pass") and (data['aac-xyz-outcome'] != "Fail this application") %}
+						<tr class="govuk-table__row">
+							<td class="govuk-table__cell"><a href="tasklist-xyz">XYZ TRAINING</a></td>
+							<td class="govuk-table__cell">10959582</td>
+							<td class="govuk-table__cell">Main</td>
+							<td class="govuk-table__cell">APR00006</td>
+							<td class="govuk-table__cell">10 Oct 2019</td>
+							<td class="govuk-table__cell">12 Oct 2019</td>
+							<td class="govuk-table__cell">16 Oct 2019</td>
+							<td class="govuk-table__cell">
+								{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
+											(data['feedback-xyz-pya-safeguarding-policy'][0]) or 
+											(data['aac-xyz-pya-continuity-complete'] == "Yes") or
+											(data['aac-xyz-pya-safeguarding-complete'] == "Yes")
+								%}
+									<strong class="govuk-tag govuk-tag--blue">In&nbsp;progress</strong>
+								{% else %}
+									<strong class="govuk-tag govuk-tag--green">Clarified</strong>
+								{% endif %}
+							</td>
+						</tr>
+					{% endif %}
+				{% endif %}
 				{% if data['aac-abc-outcome'] == "Request clarifications" %}
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
@@ -131,16 +141,29 @@
 						<td class="govuk-table__cell">Main</td>
 						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">17 Oct 2019</td>
-						<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">Pending</strong></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">With&nbsp;applicant</strong></td>
 					</tr>
 				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">QUEST LEARNING</td>
+					<td class="govuk-table__cell">18090922</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR00688</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">15 Oct 2019</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow ">Pending</strong></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">With&nbsp;applicant</strong></td>
+				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">HOTGROUP</td>
 					<td class="govuk-table__cell">28876299</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">APR00851</td>
 					<td class="govuk-table__cell">12 Oct 2019</td>
-					<td class="govuk-table__cell">15 Oct 2019</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow ">Pending</strong></td>
+					<td class="govuk-table__cell"></td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">With&nbsp;PMO</strong></td>
 				</tr>
 			</tbody>
 		</table>
@@ -154,11 +177,31 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header">Outcome date</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted date</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Outcome made date</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Outcome</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				{% if (data['aac-xyz-outcome'] == "Pass") or (data['aac-xyz-outcome'] == "Fail this application") %}
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell">XYZ TRAINING LIMITED</td>
+						<td class="govuk-table__cell">12345678</td>
+						<td class="govuk-table__cell">Main</td>
+						<td class="govuk-table__cell">APR00001</td>
+						<td class="govuk-table__cell">10 Oct 2019</td>
+						<td class="govuk-table__cell">17 Oct 2019</td>
+						<td class="govuk-table__cell">
+							{% if data['aac-xyz-outcome'] == "Pass" %}
+								<strong class="govuk-tag govuk-tag--green">Pass</strong>
+							{% endif %}
+							{% if data['aac-xyz-outcome'] == "Fail this application" %}
+								<strong class="govuk-tag govuk-tag--red">Fail</strong>
+							{% endif %}
+							</strong>
+						</td>
+					</tr>
+				{% endif %}
 				{% if (data['aac-abc-outcome'] == "Pass") or (data['aac-abc-outcome'] == "Fail") %}
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
@@ -166,16 +209,14 @@
 						<td class="govuk-table__cell">Main</td>
 						<td class="govuk-table__cell">APR00001</td>
 						<td class="govuk-table__cell">17 Oct 2019</td>
+						<td class="govuk-table__cell">23 Oct 2019</td>
 						<td class="govuk-table__cell">
 							
 							{% if data['aac-abc-outcome'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% endif %}
-							{% if data['aac-abc-outcome'] == "Request clarifications" %}
-								<strong class="govuk-tag app-task-list__task-negative">Clarify</strong>
+								<strong class="govuk-tag govuk-tag--green">Pass</strong>
 							{% endif %}
 							{% if data['aac-abc-outcome'] == "Fail" %}
-								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+								<strong class="govuk-tag govuk-tag--red">Fail</strong>
 							{% endif %}
 							</strong>
 						</td>
@@ -187,8 +228,9 @@
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">APR00686</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
 					<td class="govuk-table__cell">
-						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						<strong class="govuk-tag govuk-tag--green">Pass</strong>
 					</td>
 				</tr>
 			</tbody>

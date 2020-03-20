@@ -28,7 +28,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Application outcome</h1>
+			<h1 class="govuk-heading-xl">Confirm assessor outcome</h1>
 		</div>
 	</div>
 
@@ -64,9 +64,6 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-full">
 
-				<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
-
-				<!--p class="govuk-body">[display questions with notes here]</p-->
 				{% if (data['feedback-abc-pya-continuity-policy'][0]) or 
 							(data['feedback-abc-pya-equality-policy'][0]) or
 							(data['feedback-abc-pya-safeguarding-policy'][0]) or 
@@ -76,16 +73,13 @@
 							(data['feedback-abc-pya-healthandsafety-policy'][0]) or 
 							(data['feedback-abc-pya-healthandsafety-responsible'][0]) 
 				%}
-	
-					<h2 class="govuk-heading-l">Notes added</h2>
-
 					<h3 class="govuk-heading-m">Protecting your apprentices</h3>
 					<table class="govuk-table govuk-!-margin-top-5">
 						<thead class="govuk-table__body">
 							<tr class="govuk-table__row">
 								<th scope="row" class="govuk-table__header" style="vertical-align: top">Section</th>
-								<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
-								<th scope="row" class="govuk-table__header" style="vertical-align: top">Notes</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Comments</th>
 							</tr>
 						</thead>
 						<tbody class="govuk-table__body">
@@ -149,7 +143,7 @@
 					</table>
 				{% endif %}
 
-				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What do you want to do?</h2>
 
 			</div>
 		</div>
@@ -175,29 +169,28 @@
 						name: "aac-abc-outcome",
 						items: [
 							{
-								value: "Request clarifications",
-								text: "Request clarifications",
-								checked: checked("aac-abc-outcome", "Request clarifications"),
-								conditional: {
-									html: clarifyHtml
-								}
+								value: "Ask for clarification",
+								text: "Ask for clarification",
+								checked: checked("aac-abc-outcome", "Ask for clarification")
 							},
 							{
-								value: "Fail",
-								text: "Fail",
-								checked: checked("aac-abc-outcome", "Fail")
+								value: "Fail this application",
+								text: "Fail this application",
+								checked: checked("aac-abc-outcome", "Fail this application")
 							}
 						]
 					}) }}
 
 				{% else %}
 					<input type="hidden" name="aac-abc-outcome" value="Pass">
-					<h2 class="govuk-heading-l">This application has been passed</h2>
-					<p class="govuk-body">No feedback has been requested.</p>
+					{{ govukWarningText({
+						text: "This application has passed and will go to governance.",
+						iconFallbackText: "Warning"
+					}) }}
 				{% endif %}
 
 				{{ govukButton({
-					text: "Confirm outcome",
+					text: "Save and continue",
 					classes: "govuk-button__submit govuk-!-margin-top-5"
 				}) }}
 			

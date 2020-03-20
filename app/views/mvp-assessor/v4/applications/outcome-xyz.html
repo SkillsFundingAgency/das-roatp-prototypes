@@ -14,7 +14,7 @@
 			},
 			{
 				text: "Application overview",
-				href: "/mvp-assessor/v4/applications/tasklist-abc"
+				href: "/mvp-assessor/v4/applications/tasklist-xyz"
 			},
 			{
 				text: "Application outcome"
@@ -32,11 +32,11 @@
 				<h1 class="govuk-panel__title">Assessor outcome saved</h1>
 				<div class="govuk-panel__body">
 					<strong>
-						{% if data['aac-abc-outcome'] == "Ask for clarification" %}
+						{% if data['aac-xyz-outcome'] == "Ask for clarification" %}
 							Ask for clarification
-						{% elseif data['aac-abc-outcome'] == "Fail this application" %}
+						{% elseif data['aac-xyz-outcome'] == "Fail this application" %}
 							Fail
-						{% elseif data['aac-abc-outcome'] == "Pass" %}
+						{% elseif data['aac-xyz-outcome'] == "Pass" %}
 							Pass
 						{% endif %}
 					</strong>

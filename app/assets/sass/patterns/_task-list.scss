@@ -54,6 +54,7 @@
   }
 }
 
+.app-task-list__task,
 .app-task-list__task-completed,
 .app-task-list__task-inprogress,
 .app-task-list__task-assessorinprogress,
@@ -110,6 +111,7 @@
 }
 
 
+
 .app-task-list__task-assessorinprogress {
   border: 1.5px solid #00823B;
   color: #00823B;
@@ -134,3 +136,43 @@
   margin-bottom: 0; 
   padding-top: 0;
 }
+
+
+// New tag styling from GDS (March 2020)
+
+  .govuk-tag--grey {
+    color: #454a4d;
+    background: #eff0f1;
+  }
+  .govuk-tag--green {
+    color: #005a30;
+    background: #cce2d8;
+  }
+  .govuk-tag--turquoise {
+    color: #10403c;
+    background: #bfe3e0;
+  }
+  .govuk-tag--blue {
+    color: #144e81;
+    background: #d2e2f1;
+  }
+  .govuk-tag--purple {
+    color: #3d2375;
+    background: #dbd5e9;
+  }
+  .govuk-tag--pink {
+    color: #80224d;
+    background: #f7d7e6;
+  }
+  .govuk-tag--red {
+      color: #942514;
+      background: #f6d7d2;
+  }
+  .govuk-tag--orange {
+    color: #6e3619;
+    background: #fcd6c3;
+  }
+  .govuk-tag--yellow {
+    color: #594d00;
+    background: #fff7bf;
+  }

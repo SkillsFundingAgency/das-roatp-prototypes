@@ -1,0 +1,208 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v4/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v4/applications/tasklist-xyz"
+			},
+			{
+				text: "Application outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Application outcome</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10959582</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">XYZ TRAINING</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Submitted date</dt>
+					<dd class="govuk-summary-list__value">10 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00006</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	{% if data['feedback-count'] > 0 %}
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-full">
+
+				<p class="govuk-body">{{data['feedback-count']}} check{% if data['feedback-count'] > 1 %}s have{% else %} has{% endif %} been failed.</p>
+
+				<!--p class="govuk-body">[display questions with notes here]</p-->
+				{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
+							(data['feedback-xyz-pya-safeguarding-policy'][0])
+				%}
+	
+					<h2 class="govuk-heading-l">Notes added</h2>
+
+					<h3 class="govuk-heading-m">Protecting your apprentices</h3>
+					<table class="govuk-table govuk-!-margin-top-5">
+						<thead class="govuk-table__body">
+							<tr class="govuk-table__row">
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Section</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Question</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Notes</th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							{% if data['aac-xyz-pya-continuity-policy-feedback'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Continuity plan for apprenticeship training</td>
+									<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-continuity-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['aac-xyz-pya-equality-policy-feedback'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Equality and diversity policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-equality-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-policy'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-responsible'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Tell us who has overall responsibility for safeguarding in your organisation</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-responsible-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-preventdutyincluded'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-preventdutyincluded-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-preventdutyupload'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s Prevent duty policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-preventdutyupload-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-healthandsafety-policy'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Health and safety policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s health and safety policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-healthandsafety-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-healthandsafety-responsible'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Health and safety policy</td>
+									<td class="govuk-table__cell">Tell us who has overall responsibility for health and safety in your organisation</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-healthandsafety-responsible-feedback'] }}</td>
+								</tr>
+							{% endif %}
+						</tbody>
+					</table>
+				{% endif %}
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome for this assessment?</h2>
+
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+		
+			<form action="" method="post" class="form">
+
+				{% if data['feedback-count'] > 0 %}
+
+					{% set clarifyHtml %}
+						<p>This will display a generic request for clarifications to the applicant when they re-open their application form.</p>
+					{% endset -%}
+
+					{% set failHtml %}
+						<p>This will inform the applicant that their application has failed.</p>
+					{% endset -%}
+
+					{{ govukRadios({
+						idPrefix: "aac-xyz-outcome",
+						name: "aac-xyz-outcome",
+						items: [
+							{
+								value: "Request clarifications",
+								text: "Request clarifications",
+								checked: checked("aac-xyz-outcome", "Request clarifications"),
+								conditional: {
+									html: clarifyHtml
+								}
+							},
+							{
+								value: "Fail",
+								text: "Fail",
+								checked: checked("aac-xyz-outcome", "Fail")
+							}
+						]
+					}) }}
+
+				{% else %}
+					<input type="hidden" name="aac-xyz-outcome" value="Pass">
+					<h2 class="govuk-heading-l">This application has been passed</h2>
+					<p class="govuk-body">No feedback has been requested.</p>
+				{% endif %}
+
+				{{ govukButton({
+					text: "Confirm outcome",
+					classes: "govuk-button__submit govuk-!-margin-top-5"
+				}) }}
+			
+			</form>
+
+			<p class="govuk-body govuk-!-margin-top-9"><a href="applications-assessor">Back to RoATP applications</a></p>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

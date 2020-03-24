@@ -1,0 +1,208 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v5/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v5/applications/tasklist-xyz"
+			},
+			{
+				text: "Application outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			{% if data['aac-xyz-outcome'] == "Ask for clarification" %}
+			<h1 class="govuk-heading-xl">Are you sure you want to ask for clarification?</h1>
+			{% endif %}
+			{% if data['aac-xyz-outcome'] == "Fail this application" %}
+			<h1 class="govuk-heading-xl">Are you sure you want to fail this application?</h1>
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10959582</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">XYZ TRAINING</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
+					<dd class="govuk-summary-list__value">10 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Clarification submitted date</dt>
+					<dd class="govuk-summary-list__value">22 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00006</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			{% if data['feedback-count'] > 0 %}
+
+				{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
+							(data['feedback-xyz-pya-equality-policy'][0]) or
+							(data['feedback-xyz-pya-safeguarding-policy'][0]) or 
+							(data['feedback-xyz-pya-safeguarding-responsible'][0]) or 
+							(data['feedback-xyz-pya-safeguarding-preventdutyincluded'][0]) or 
+							(data['feedback-xyz-pya-safeguarding-preventdutyupload'][0]) or 
+							(data['feedback-xyz-pya-healthandsafety-policy'][0]) or 
+							(data['feedback-xyz-pya-healthandsafety-responsible'][0]) 
+				%}
+
+					<h2 class="govuk-heading-l">Protecting your apprentices</h2>
+					<table class="govuk-table govuk-!-margin-top-5">
+						<thead class="govuk-table__body">
+							<tr class="govuk-table__row">
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Section</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+								<th scope="row" class="govuk-table__header" style="vertical-align: top">Comments</th>
+							</tr>
+						</thead>
+						<tbody class="govuk-table__body">
+							{% if data['aac-xyz-pya-continuity-policy-feedback'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Continuity plan for apprenticeship training</td>
+									<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-continuity-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['aac-xyz-pya-equality-policy-feedback'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Equality and diversity policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-equality-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-policy'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s equality and diversity policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-responsible'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Tell us who has overall responsibility for safeguarding in your organisation</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-responsible-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-preventdutyincluded'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-preventdutyincluded-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-safeguarding-preventdutyupload'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Safeguarding and Prevent duty policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s Prevent duty policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-safeguarding-preventdutyupload-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-healthandsafety-policy'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Health and safety policy</td>
+									<td class="govuk-table__cell">Upload your organisation’s health and safety policy</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-healthandsafety-policy-feedback'] }}</td>
+								</tr>
+							{% endif %}
+							{% if data['feedback-xyz-pya-healthandsafety-responsible'] %}
+								<tr class="govuk-table__row">
+									<td class="govuk-table__cell">Health and safety policy</td>
+									<td class="govuk-table__cell">Tell us who has overall responsibility for health and safety in your organisation</td>
+									<td class="govuk-table__cell">{{ data['aac-xyz-pya-healthandsafety-responsible-feedback'] }}</td>
+								</tr>
+							{% endif %}
+						</tbody>
+					</table>
+				{% endif %}
+			{% endif %}
+
+			<form action="" method="post" class="form">
+
+				{% if data['aac-xyz-outcome'] == "Ask for clarification" %}
+
+					{{ govukWarningText({
+						text: "The applicant can use this information to change and resubmit their application.",
+						iconFallbackText: "Warning"
+					}) }}
+
+				{% endif %}
+
+				{% if data['aac-xyz-outcome'] == "Fail this application" %}
+					
+					{{ govukWarningText({
+						text: "This application will fail and go to governance.",
+						iconFallbackText: "Warning"
+					}) }}
+
+				{% endif %}
+
+				{{ govukRadios({
+					idPrefix: "aac-xyz-outcome-check",
+					name: "aac-xyz-outcome-check",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes"
+						},
+						{
+							value: "No",
+							text: "No"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-button__submit govuk-!-margin-top-5"
+				}) }}
+
+			</form>
+
+			<p class="govuk-body govuk-!-margin-top-9"><a href="applications-assessor">Back to RoATP applications</a></p>
+
+		</div>
+	</div>
+
+
+{% endblock %}

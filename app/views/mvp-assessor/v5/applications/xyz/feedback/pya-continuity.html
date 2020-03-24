@@ -1,0 +1,134 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v5/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v5/applications/tasklist-xyz"
+			},
+			{
+				text: "Protecting your apprentices",
+				href: "/mvp-assessor/v5/applications/tasklist-xyz-pya"
+			},
+			{
+				text: "Continuity plan for apprenticeship training",
+				href: "/mvp-assessor/v5/applications/xyz/questions-pya-continuity"
+			},
+			{
+				text: "Add comments"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Comments</h1>
+			<h2 class="govuk-heading-l">Continuity plan for apprenticeship training</h2>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+		
+			<table class="govuk-table">
+				<thead class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							Upload your organisation’s continuity plan for apprenticeship training
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-2",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.<p>
+								<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>have different methods of communication</li>
+									<li>manage transportation needs</li>
+									<li>provide different operating locations (if needed)</li>
+									<li>back-up relevant business systems</li>
+									<li>back-up and restore data</li>
+									<li>have a list of emergency contacts - ESFA must be listed </li>
+								</ul>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell" style="vertical-align: top;"><a href="javascript:preventDefault();">xyz-continuity-plan.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			{% set i = 0 %}
+      {% if data['feedback-xyz-pya-continuity-policy'][0] %}
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">Your comments</h2>
+				{% for item in data['feedback-xyz-pya-continuity-policy'] %}
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-continuity-policy'][i]['user'] }}</h3>
+					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-continuity-policy'][i]['dateadded'] }}</p>
+					<p class="govuk-body govuk-!-margin-bottom-2">{{ data['feedback-xyz-pya-continuity-policy'][i]['feedback'] }}</p>
+					<form action="delete-pya-continuity-policy" method="post" class="form">
+						<input name="feedbackid" type="hidden" value="{{i}}">
+						{{ govukButton({
+							text: "Delete comments",
+							classes: "govuk-button--warning"
+						}) }}
+					</form>
+					{% set i = i + 1 %}
+				{% endfor %}
+        {% if data['feedback-xyz-pya-continuity-policy'].length == i %} 
+				<!--hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8"-->
+				{% endif %}
+			{% else %}
+
+				<form action="" method="post" class="form">
+
+					{{ govukTextarea({
+						name: "aac-xyz-pya-continuity-policy-feedback",
+						id: "aac-xyz-pya-continuity-policy-feedback",
+						label: {
+							html: '<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-0">Enter your comments</h2>'
+						},
+						hint: {
+							text: "The applicant can use this information to change and resubmit their application."
+						}
+					}) }}
+
+					{{ govukButton({
+						text: "Add comment",
+						classes: "govuk-!-margin-right-4"
+					}) }}
+
+				</form>
+
+			{% endif %}
+
+			<p class="govuk-!-margin-top-5"><a href="/mvp-assessor/v5/applications/xyz/questions-pya-continuity">Back to continuity plan for apprenticeship training</a></p>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

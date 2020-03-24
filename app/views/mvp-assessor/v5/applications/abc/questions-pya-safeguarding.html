@@ -1,0 +1,223 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v5/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v5/applications/tasklist-abc"
+			},
+			{
+				text: "Protecting your apprentices",
+				href: "/mvp-assessor/v5/applications/tasklist-abc-pya"
+			},
+			{
+				text: "Safeguarding and prevent duty policy"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Safeguarding and Prevent duty policy</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">12345678</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">ABC TRAINING LIMITED</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR00001</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+		
+			<table class="govuk-table govuk-!-margin-top-5">
+				<tbody class="govuk-table__body">
+
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top; width: 25%">Upload your organisation’s safeguarding policy</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							<p class="govuk-body"><a href="javascript:preventDefault();">abc-safeguarding-policy.pdf</a></p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>promote the policy</li>
+									<li>get commitment to the policy</li>
+									<li>train its employees in implementing the policy</li>
+									<li>protect its apprentices</li>
+									<li>prevent abuse towards its apprentices </li>
+									<li>have a way of raising, recording and investigating concerns </li>
+									<li>have a way of apprentices getting support or guidance </li>
+									<li>monitor its IT usage</li>
+								</ul>
+								<p class="govuk-body">Find out more about safeguarding in <a href="javascript:preventDefault();">the Care Act 2014 (opens in a new window or tab)</a>.</p>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top; width: 15%">
+							{% if data['feedback-abc-pya-safeguarding-policy'][0] %}
+							<a href="feedback/pya-safeguarding-policy">View or delete comments</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-policy">Add comments</a>
+							{% endif %}
+						</td>
+					</tr>
+
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;">Tell us who has overall responsibility for safeguarding in your organisation</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Full name</h3>
+							<p class="govuk-body">[First name] [Last name]</p>
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Email</h3>
+							<p class="govuk-body"><a href="javascript:preventDefault();">email@abc.com</a></p>
+							<h3 class="govuk-heading-s govuk-!-margin-bottom-1">Contact number</h3>
+							<p class="govuk-body">07123 456789</p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding concerns.</p>
+								<p class="govuk-body">We’ll only contact them if there is a safeguarding concern.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top;">
+							{% if data['feedback-abc-pya-safeguarding-responsible'][0] %}
+							<a href="feedback/pya-safeguarding-responsible">View or delete comments</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-responsible">Add comments</a>
+							{% endif %}
+						</td>
+					</tr>
+
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							<p class="govuk-body">No</p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">This means your organisation&#39;s safeguarding policy includes how it will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+									<li>protect apprentices and employees from radicalising influences</li>
+									<li>ensure apprentices and employees are resilient to extreme narratives</li>
+									<li>identify changes in behaviour of apprentices and employees</li>
+									<li>deal with any issues raised by apprentices or employees</li>
+								</ul>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top;">
+							{% if data['feedback-abc-pya-safeguarding-preventdutyincluded'][0] %}
+							<a href="feedback/pya-safeguarding-preventdutyincluded">View or delete comments</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-preventdutyincluded">Add comments</a>
+							{% endif %}
+						</td>
+					</tr>
+
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top;">Upload your organisation’s Prevent duty policy</th>
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							<p class="govuk-body"><a href="javascript:preventDefault();">abc-preventduty.pdf</a></p>
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>promote the policy</li>
+									<li>get commitment to the policy</li>
+									<li>train employees in implementing the policy </li>
+									<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+									<li>protect apprentices and employees from radicalising influences</li>
+									<li>ensure apprentices and employees are resilient to extreme narratives</li>
+									<li>identify changes in behaviour of apprentices and employees</li>
+									<li>deal with any issues raised by apprentices or employees</li>
+								</ul>
+								<p class="govuk-body">Find out more about <a href="javascript:preventDefault();">the Prevent duty (opens in a new window or tab)</a>.</p>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell govuk-table__cell--numeric" style="vertical-align: top;">
+							{% if data['feedback-abc-pya-safeguarding-preventdutyupload'][0] %}
+							<a href="feedback/pya-safeguarding-preventdutyupload">View or delete comments</a>
+							{% else %}
+							<a href="feedback/pya-safeguarding-preventdutyupload">Add comments</a>
+							{% endif %}
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">Is this assessment complete?</h2>
+				{{ govukRadios({
+					classes: "govuk-radios--inline",
+					idPrefix: "aac-abc-pya-safeguarding-complete",
+					name: "aac-abc-pya-safeguarding-complete",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes",
+							checked: checked("aac-abc-pya-safeguarding-complete", "Yes")
+						},
+						{
+							value: "No",
+							text: "No",
+							checked: checked("aac-abc-pya-safeguarding-complete", "No")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

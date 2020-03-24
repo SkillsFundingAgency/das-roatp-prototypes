@@ -92,7 +92,10 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
 					<td class="govuk-table__cell">29 Oct 2019</td>
-					<td class="govuk-table__cell">{{ data['oversight-abc'] }}</td>
+					<td class="govuk-table__cell">
+						{% if data['oversight-abc'] == "Successful application" %}Successful{% endif %}
+						{% if data['oversight-abc'] == "Unsuccessful application" %}Unsuccessful{% endif %}
+					</td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
@@ -102,7 +105,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">14 Oct 2019</td>
 					<td class="govuk-table__cell">26 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">Successful</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">FUTURE THINK</td>
@@ -111,7 +114,7 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">12 Oct 2019</td>
 					<td class="govuk-table__cell">23 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">Successful</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MOVING THE GRADE</td>
@@ -120,7 +123,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">12 Oct 2019</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
-					<td class="govuk-table__cell">Fail</td>
+					<td class="govuk-table__cell">Unsuccessful</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">ROCKET TRAINING</td>
@@ -129,7 +132,7 @@
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">11 Oct 2019</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">Pass</td>
+					<td class="govuk-table__cell">Successful</td>
 				</tr>
 			</tbody>
 		</table>

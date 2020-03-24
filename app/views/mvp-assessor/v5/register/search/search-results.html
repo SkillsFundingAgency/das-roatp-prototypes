@@ -1,0 +1,312 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/mvp-assessor/v5/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/mvp-assessor/v5/register/search/register"
+    },
+		{
+			text: "Search results"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">5 results found for '{{ data['staff-search'] }}'</h1>
+
+			{{ govukTable({
+				head: [
+					{ text: "Organisation name" },
+					{ text: "UKPRN" },
+					{ text: "Status" },
+					{ text: "" }
+				],
+				rows: [
+					[
+						{ text: "ABC Assessments" },
+						{ text: "1234567" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Awards (Removed)" },
+						{ text: "8839011" },
+						{ html: '<strong class="govuk-tag" style="background-color: #b10e1e;">Removed</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABS Secretaries Ltd" },
+						{ text: "9380331" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Training Ltd" },
+						{ text: "7738821"
+						},
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					],
+					[
+						{ text: "ABC Transport Ltd" },
+						{ text: "0927403" },
+						{ html: '<strong class="govuk-tag">Active</strong>' },
+						{
+							html: '<a href="detail">View</a>',
+							format: "numeric"
+						}
+					]
+				]
+			}) }}
+
+			<p class="govuk-body">The search results are limited to 5.<br><a href="register">Refine search</a></p>
+		</div>
+
+
+		<!--div class="govuk-grid-column-one-third">
+			
+			<ul class="govuk-list">
+					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1 selected-item">
+							<a href="#" class="govuk-!-font-weight-bold_">ABC Assessments</a><br>
+							<span class="block">UKPRN 1234567</span>
+					</li>
+					
+					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+							<a href="list-2">ABC Awards (Removed)</a><br>
+							<span class="block">UKPRN 8839011</span>
+					</li>
+					
+					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+							<a href="#">ABC Secretaries Ltd</a><br>
+							<span class="block">UKPRN 938033</span>
+					</li>
+					
+					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+							<a href="#">ABC Training Ltd</a><br>
+							<span class="block">UKPRN 7738821</span>
+					</li>
+					
+					<li class="govuk-section-break govuk-!-padding-left-2 govuk-!-padding-top-2 govuk-!-padding-bottom-1">
+							<a href="#">ABC Transport Ltd</a><br>
+							<span class="block">UKPRN 0927403</span>
+					</li>
+			</ul>
+			<div class="well govuk-body govuk-!-font-size-16 govuk-!-padding-2">
+					Results limited to 5<br>
+					<a class="block govuk-link govuk-link--no-visited-state" href="register?searchStr={{ searchStr }}">Refine search</a>
+			</div>
+
+		</div>
+		<div class="govuk-grid-column-two-thirds">
+
+			{{ govukSummaryList({
+				classes: "searchlist",
+				rows: [
+					{
+						key: {
+							text: "Legal name"
+						},
+						value: {
+							text: "ABC Assessments"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-legal-name",
+									text: "Change",
+									visuallyHiddenText: "legal name"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "UKPRN"
+						},
+						value: {
+							text: "1002266"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-ukprn",
+									text: "Change",
+									visuallyHiddenText: "UKPRN"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Status"
+						},
+						value: {
+							html: '<strong class="govuk-tag">Active</strong><br>Updated: 11 Jan 2019'
+						},
+						actions: {
+							items: [
+								{
+									href: "change-status",
+									text: "Change",
+									visuallyHiddenText: "status"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Type of provider"
+						},
+						value: {
+							text: "Main"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-provider",
+									text: "Change",
+									visuallyHiddenText: "type of provider"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Type of organisation"
+						},
+						value: {
+							text: "Higher Education Institute (HEI)"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-organisation-type",
+									text: "Change",
+									visuallyHiddenText: "type of organisation"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Company number"
+						},
+						value: {
+							text: "1893839"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-company-number",
+									text: "Change",
+									visuallyHiddenText: "company number"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Charity registration number"
+						},
+						value: {
+							text: "Not applicable"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-charity-number",
+									text: "Change",
+									visuallyHiddenText: "charity registration number"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Trading name"
+						},
+						value: {
+							text: "ABC Assessments Limited"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-trading-name",
+									text: "Change",
+									visuallyHiddenText: "trading name"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Parent company guarantee"
+						},
+						value: {
+							text: "Yes"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-parent-guarantee",
+									text: "Change",
+									visuallyHiddenText: "parent company guarantee"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Financial track record"
+						},
+						value: {
+							text: "No"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-financial-record",
+									text: "Change",
+									visuallyHiddenText: "financial track record"
+								}
+							]
+						}
+					}
+				]
+			}) }}
+
+		</div-->
+	</div>
+      
+{% endblock %}
+      

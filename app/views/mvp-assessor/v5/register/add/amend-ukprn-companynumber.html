@@ -1,0 +1,83 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_mvpgateway_v3.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/mvp-assessor/v5/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<form action="add-confirm" method="post" class="form">
+
+				{% set numberHtml %}
+					{{ govukInput({
+						id: "staff-add-companynumber",
+						name: "staff-add-companynumber",
+						type: "text",
+						classes: "govuk-!-width-two-thirds",
+						value: data['staff-add-companynumber'],
+						label: {
+							text: "Enter company number"
+						},
+						attributes: {
+							spellcheck: "false"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "staff-add-companynumber-conditional",
+					name: "staff-add-hascompanynumber",
+					fieldset: {
+						legend: {
+							text: "Does the organisation have a company number?",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend--xl"
+						}
+					},
+					items: [
+						{
+							value: "yes",
+							text: "Yes",
+							checked: checked("staff-add-hascompanynumber", "yes"),
+							conditional: {
+								html: numberHtml
+							}
+						},
+						{
+							value: "no",
+							checked: checked("staff-add-hascompanynumber", "no"),
+							text: "No"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Change"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

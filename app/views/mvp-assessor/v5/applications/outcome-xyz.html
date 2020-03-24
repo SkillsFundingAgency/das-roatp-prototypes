@@ -1,0 +1,53 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v5/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v5/applications/tasklist-xyz"
+			},
+			{
+				text: "Application outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">Assessor outcome saved</h1>
+				<div class="govuk-panel__body">
+					<strong>
+						{% if data['aac-xyz-outcome'] == "Ask for clarification" %}
+							Ask for clarification
+						{% elseif data['aac-xyz-outcome'] == "Fail this application" %}
+							Fail
+						{% elseif data['aac-xyz-outcome'] == "Pass" %}
+							Pass
+						{% endif %}
+					</strong>
+				</div>
+			</div>
+
+			<p class="govuk-body"><a href="applications-assessor">Back to RoATP applications</a></p>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

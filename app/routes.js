@@ -45,6 +45,7 @@ require('./routes/mvp-assessor/v1.js')(router);
 require('./routes/mvp-assessor/v2.js')(router);
 require('./routes/mvp-assessor/v3.js')(router);
 require('./routes/mvp-assessor/v4.js')(router);
+require('./routes/mvp-assessor/v5.js')(router);
 
 // Staff App
 require('./routes/staff-app/v2.js')(router);

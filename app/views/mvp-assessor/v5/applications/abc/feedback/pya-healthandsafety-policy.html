@@ -1,0 +1,134 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/mvp-assessor/v5/applications/applications-assessor"
+			},
+			{
+				text: "Application overview",
+				href: "/mvp-assessor/v5/applications/tasklist-abc"
+			},
+			{
+				text: "Protecting your apprentices",
+				href: "/mvp-assessor/v5/applications/tasklist-abc-pya"
+			},
+			{
+				text: "Health and safety policy",
+				href: "/mvp-assessor/v5/applications/abc/questions-pya-healthandsafety"
+			},
+			{
+				text: "Add comments"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Assessor</span>
+			<h1 class="govuk-heading-xl">Comments</h1>
+			<h2 class="govuk-heading-l">Health and safety policy</h2>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+		
+			<table class="govuk-table govuk-!-margin-top-5">
+				<thead class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Application question</th>
+						<th scope="row" class="govuk-table__header" style="vertical-align: top">Applicant’s answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell" style="vertical-align: top;">
+							Upload your organisation’s health and safety policy
+							{{ govukDetails({
+								classes: "govuk-!-margin-bottom-0 govuk-!-margin-top-2",
+								summaryText: "View application guidance",
+								html: '<p class="govuk-body">This must include how your organisation will:</p>
+								<ul class=""govuk-list govuk-list--bullet"">
+									<li>promote the policy </li>
+									<li>get commitment to the policy</li>
+									<li>train its employees in implementing the policy </li>
+									<li>cover apprentices in its care</li>
+									<li>have people who are responsible for health and safety </li>
+									<li>identify and manage health and safety concerns</li>
+									<li>have a procedure for accidents or ill health of apprentices</li>
+								</ul>
+								<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>'
+							}) }}
+						</td>
+						<td class="govuk-table__cell" style="vertical-align: top;"><a href="javascript:preventDefault();">abc-healthsafety-policy.pdf</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			{% set i = 0 %}
+      {% if data['feedback-abc-pya-healthandsafety-policy'][0] %}
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Your comments</h2>
+				{% for item in data['feedback-abc-pya-healthandsafety-policy'] %}
+					<h3 class="govuk-heading-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-healthandsafety-policy'][i]['user'] }}</h3>
+					<p class="govuk-body-s govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-healthandsafety-policy'][i]['dateadded'] }}</p>
+					<p class="govuk-body govuk-!-margin-bottom-2">{{ data['feedback-abc-pya-healthandsafety-policy'][i]['feedback'] }}</p>
+					<form action="delete-pya-healthandsafety-policy" method="post" class="form">
+						<input name="feedbackid" type="hidden" value="{{i}}">
+						{{ govukButton({
+							text: "Delete comments",
+							classes: "govuk-button--warning"
+						}) }}
+					</form>
+					{% set i = i + 1 %}
+				{% endfor %}
+        {% if data['feedback-abc-pya-healthandsafety-policy'].length == i %} 
+				<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-top-8">
+				{% endif %}
+			{% else %}
+
+				<form action="" method="post" class="form">
+
+					{{ govukTextarea({
+						name: "aac-abc-pya-healthandsafety-policy-feedback",
+						id: "aac-abc-pya-healthandsafety-policy-feedback",
+						label: {
+							html: '<h2 class="govuk-heading-l govuk-!-margin-top-9 govuk-!-margin-bottom-0">Enter your comments</h2>'
+						},
+						hint: {
+							text: "The applicant can use this information to change and resubmit their application."
+						}
+					}) }}
+
+					{{ govukButton({
+						text: "Save and continue",
+						classes: "govuk-!-margin-right-4"
+					}) }}
+
+				</form>
+
+			{% endif %}
+
+			<p class="govuk-!-margin-top-5"><a href="/mvp-assessor/v5/applications/abc/questions-pya-healthandsafety">Back to health and safety policy</a></p>
+
+		</div>
+	</div>
+
+	
+
+{% endblock %}

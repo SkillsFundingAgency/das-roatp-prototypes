@@ -63,6 +63,8 @@
 				<strong class="govuk-tag govuk-tag--green">Assessed</strong>
 			{% elseif (data['aac-xyz-pya-continuity-complete'] == "Yes") or (data['aac-xyz-pya-safeguarding-complete'] == "Yes") %}
 				<strong class="govuk-tag govuk-tag--blue">In progress</strong>
+			{% else %}
+				<strong class="govuk-tag govuk-tag--yellow">Answers updated</strong>
 			{% endif %}
 			{% if (data['feedback-xyz-pya-continuity-policy'][0]) or 
 						(data['feedback-xyz-pya-safeguarding-policy'][0])
@@ -77,8 +79,20 @@
 				<!--strong class="govuk-tag">Feedback added</strong-->
 				<strong class="govuk-tag govuk-tag--red">{{ pya_clarify_count }} comment{% if pya_clarify_count > 1 %}s{% endif %}</strong>
 			{% endif %}
-
 			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();">Readiness to engage</a></h2><strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();">Planning apprenticeship training</a></h2><strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();">Delivering apprenticeship training</a></h2><strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+			<h2 class="govuk-!-margin-bottom-2"><a href="javacript:preventDefault();">Evaluating apprenticeship training</a></h2><strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
 
 			{% if (data['aac-xyz-pya-continuity-complete'] == "Yes") and (data['aac-xyz-pya-safeguarding-complete'] == "Yes") %}
 			

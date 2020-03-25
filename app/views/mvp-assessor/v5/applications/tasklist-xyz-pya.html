@@ -63,12 +63,24 @@
 			</dl>
 
 			<h2 class="govuk-!-margin-bottom-2"><a href="xyz/questions-pya-continuity">Continuity plan for apprenticeship training</a></h2>
-			{% if data['aac-xyz-pya-continuity-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag--green">Assessed</strong>{% endif %}
+			{% if data['aac-xyz-pya-continuity-complete'] == "Yes" %}
+				<strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			{% else %}
+				<strong class="govuk-tag govuk-tag--yellow">Answer updated</strong>
+			{% endif %}
 			{% if data['feedback-xyz-pya-continuity-policy'][0] %}<strong class="govuk-tag govuk-tag--red">{{ data['feedback-xyz-pya-continuity-policy'].length }} comment{% if data['feedback-xyz-pya-continuity-policy'].length > 1 %}s{% endif %}</strong>{% endif %}
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+			<h2 class="govuk-!-margin-bottom-2"><a href="javascript:preventDefault();">Equality and diversity policy</a></h2>
+			<strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
 			<h2 class="govuk-!-margin-bottom-2"><a href="xyz/questions-pya-safeguarding">Safeguarding and Prevent duty policy</a></h2>
-			{% if data['aac-xyz-pya-safeguarding-complete'] == "Yes" %}<strong class="govuk-tag govuk-tag--green">Assessed</strong>{% endif %}
+			{% if data['aac-xyz-pya-safeguarding-complete'] == "Yes" %}
+				<strong class="govuk-tag govuk-tag--green">Assessed</strong>
+			{% else %}
+				<strong class="govuk-tag govuk-tag--yellow">Answer updated</strong>
+			{% endif %}
 			{% if (data['feedback-xyz-pya-safeguarding-policy'][0]) or 
 						(data['feedback-xyz-pya-safeguarding-responsible'][0]) or 
 						(data['feedback-xyz-pya-safeguarding-preventdutyincluded'][0]) or 
@@ -90,7 +102,10 @@
 
 				<strong class="govuk-tag govuk-tag--red">{{ pya_safeguarding_clarify_count }} comment{% if pya_safeguarding_clarify_count > 1 %}s{% endif %}</strong>
 			{% endif %}
+			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
+			<h2 class="govuk-!-margin-bottom-2"><a href="javascript:preventDefault();">Health and safety policy</a></h2>
+			<strong class="govuk-tag govuk-tag--green">Assessed</strong>
 			<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
 			<p class="govuk-!-margin-top-9"><a href="/mvp-assessor/v5/applications/tasklist-xyz">Back to application overview</a></p>

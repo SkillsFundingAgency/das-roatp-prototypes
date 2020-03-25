@@ -269,7 +269,17 @@ module.exports = function (router) {
 				req.session.data['mvp-gwv5-outcome-count'] = req.session.data['mvp-gwv5-outcome-count'] + 1
 				//res.redirect('/mvp-gateway/' + v + '/applications/applications-gateway#outcome')
 			}
-			res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/confirmation')
+			res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome-confirm')
+			//res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/confirmation')
+		})
+
+		router.post('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome-confirm', function (req, res) {
+			if (req.session.data['gw-abctraining-outcome-confirm'] == "Yes") {
+				res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/confirmation')
+			} else {
+				res.redirect('/mvp-gateway/' + v + '/applications/gateway/abctraining/outcome')
+
+			}
 		})
 
 

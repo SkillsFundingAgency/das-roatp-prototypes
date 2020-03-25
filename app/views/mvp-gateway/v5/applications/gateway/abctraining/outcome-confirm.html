@@ -1,0 +1,128 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v5.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v5/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v5/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v5/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Gateway outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Overall gateway outcome</span>
+			<h1 class="govuk-heading-xl">
+				{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
+					Are you sure you want to ask for clarification?
+				{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+					Are you sure you want to decline this application?
+				{% elseif data['gw-abctraining-outcome'] == "Pass this application" %}
+					Are you sure you want to pass this application?
+				{% endif %}
+			</h1>
+
+			<!--p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Provider route: Main
+			</p-->
+		
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			{% if data['gw-abctraining-outcome'] == "Pass this application" %}
+				{% if data['gw-abctraining-outcome-pass'] %}
+					<h2 class="govuk-heading-l govuk-!-margin-top-5">Comments</h2>
+					<p class="govuk-body">{{ data['gw-abctraining-outcome-pass'] }}</p>
+				{% endif %}
+			{% else %}
+				<h2 class="govuk-heading-l govuk-!-margin-top-5">Comments</h2>
+				{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
+					<p class="govuk-body">{{ data['gw-abctraining-outcome-clarify'] }}</p>
+				{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+					<p class="govuk-body">{{ data['gw-abctraining-outcome-decline'] }}</p>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+
+	<div class="govuk-grid-row govuk-!-margin-top-9">
+		<div class="govuk-grid-column-two-thirds">
+
+			{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
+
+				{{ govukWarningText({
+					text: " The applicant can use this information to change and resubmit their application.",
+					iconFallbackText: "Warning"
+				}) }}
+
+			{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+			
+				{{ govukWarningText({
+					text: "This application will be declined and go to governance.",
+					iconFallbackText: "Warning"
+				}) }}
+
+			{% elseif data['gw-abctraining-outcome'] == "Pass this application" %}
+			
+				{{ govukWarningText({
+					text: "This application will pass and go to governance.",
+					iconFallbackText: "Warning"
+				}) }}
+
+			{% endif %}
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-outcome-confirm",
+					name: "gw-abctraining-outcome-confirm",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes"
+						},
+						{
+							value: "No",
+							text: "No"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue"
+				}) }}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v5/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

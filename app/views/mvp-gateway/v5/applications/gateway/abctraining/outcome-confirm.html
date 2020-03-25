@@ -76,6 +76,7 @@
 			{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
 
 				{{ govukWarningText({
+					classes: "govuk-!-margin-top-9",
 					text: " The applicant can use this information to change and resubmit their application.",
 					iconFallbackText: "Warning"
 				}) }}
@@ -91,7 +92,6 @@
 			{% elseif data['gw-abctraining-outcome'] == "Pass this application" %}
 			
 				{{ govukWarningText({
-					classes: "govuk-!-margin-top-9",
 					text: "This application will pass and go to governance.",
 					iconFallbackText: "Warning"
 				}) }}

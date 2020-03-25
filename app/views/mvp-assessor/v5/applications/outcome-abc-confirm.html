@@ -28,7 +28,11 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
 			<span class="govuk-caption-m">Assessor</span>
-			<h1 class="govuk-heading-xl">Confirm assessor outcome</h1>
+				{% if data['feedback-count'] > 0 %}
+					<h1 class="govuk-heading-xl">Confirm assessor outcome</h1>
+				{% else %}
+					<h1 class="govuk-heading-xl">Application has passed</h1>
+				{% endif %}
 		</div>
 	</div>
 

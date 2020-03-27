@@ -1,0 +1,36 @@
+{% set currentpage = "task-list" %}
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  Application complete - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Application resubmitted",
+      html: "Your reference number<br><strong>APR000701</strong>"
+    }) }}
+
+    <p class="govuk-body"><br>We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">We have sent your resubmitted application to the RoATP application assessment teams.</p>
+    <p class="govuk-body">You will need to allow at least 12 weeks for us to process your application.</p>
+    <p class="govuk-body">It may take longer because this is a private beta service. We will send you an email when there’s an update with your application.</p>
+    <p class="govuk-body">Once your application’s assessed, your organisation will receive an outcome, a financial health grade and next steps.</p>
+    <p class="govuk-body">Find out more about <a href="javascript:preventDefault();">financial health grades (opens in a new window or tab)</a>.</p>
+    <p class="govuk-body">If you want to know more about how the teams currently assess applications, <a href="javascript:preventDefault();">read ‘section 7 what happens next’ (opens in a new window or tab)</a>. Some processes may differ, as this guidance is on the current Bravo service.</p>
+    <p class="govuk-body">If you have any questions, want to make a change or withdraw your application, email <a href="javascript:preventDefault();">roatp.support@education.gov.uk</a>.</p>
+    <p class="govuk-body"><a href="javascript:preventDefault();">What did you think of this service?</a> (takes 30 seconds)</p>
+
+  </div>
+</div>
+
+{% endblock %}

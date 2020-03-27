@@ -31,7 +31,7 @@
 				{% if data['feedback-count'] > 0 %}
 					<h1 class="govuk-heading-xl">Confirm assessor outcome</h1>
 				{% else %}
-					<h1 class="govuk-heading-xl">Application has passed</h1>
+					<h1 class="govuk-heading-xl">Application will be passed</h1>
 				{% endif %}
 		</div>
 	</div>
@@ -188,7 +188,7 @@
 				{% else %}
 					<input type="hidden" name="aac-abc-outcome" value="Pass">
 					{{ govukWarningText({
-						text: "This application has passed and will go to governance.",
+						text: "This application will be passed and will go to governance.",
 						iconFallbackText: "Warning"
 					}) }}
 				{% endif %}

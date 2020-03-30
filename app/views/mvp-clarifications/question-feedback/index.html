@@ -1,0 +1,58 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:preventDefault();"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Quality and standards in apprenticeship training</span>
+      
+    <h1 class="govuk-heading-l">How are these quality and high standards in apprenticeship training communicated to employees?</h1>
+
+    <p class="govuk-body clarifications">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pulvinar lacinia scelerisque. Sed quis venenatis justo, vitae varius enim. Etiam suscipit mattis rutrum. Etiam vitae euismod arcu.
+    </p>
+
+    <p class="govuk-body">Your answer should include how these expectations are:</p>
+      
+    <ul class="govuk-list govuk-list--bullet">
+      <li>transparent and available to all employees</li>
+      <li>communicated throughout your organisation - for example through training or official policies</li>
+      <li>maintained through regular feedback from employees</li>
+    </ul>
+
+    <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "example-question",
+          id: "example-question",
+          value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultrices lacinia leo, sollicitudin elementum neque. Nullam in blandit mauris. Aliquam vitae euismod risus. Aenean venenatis efficitur nibh quis pharetra. Vestibulum non orci eu mi semper laoreet. Morbi non erat sed tortor consequat tincidunt. Nam quam dolor, imperdiet eu neque sed, condimentum euismod nibh. Duis blandit risus mauris, ut efficitur lectus interdum facilisis. Aliquam at elit finibus, posuere tellus eget, pulvinar lectus. Vestibulum dignissim condimentum dolor, at scelerisque nibh dignissim eget. Fusce tempus sed massa in lobortis. Nulla id orci vel nisi ultrices egestas sit amet sit amet lacus. Integer vehicula purus at dui fringilla, eu placerat nibh eleifend. Nam dignissim erat eu iaculis consectetur. Suspendisse pellentesque augue vehicula nibh tristique dignissim. Nulla mattis, purus et tincidunt euismod, nisl lacus cursus metus, in mattis augue nulla eget dolor. In fringilla arcu non augue vestibulum, quis tincidunt dui feugiat. Phasellus at rutrum lorem. Etiam tempus orci in ultrices fermentum. Maecenas vel dolor rutrum, consequat ligula vitae, blandit metus. Cras imperdiet libero tempus, elementum est ac, placerat elit. Phasellus gravida sapien eu elementum pellentesque. Sed molestie, enim vitae convallis fermentum, dui mauris blandit lorem, nec ultricies lectus est nec lectus. In nec metus enim. Nunc sit amet pharetra eros. Curabitur in commodo magna.",
+          maxwords: 250
+        }) }}
+
+      {{ govukButton({
+        href: "",
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion"><a href="javascript:preventDefault();">Return to this question later</a></p>
+      
+      {% include "includes/v14/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

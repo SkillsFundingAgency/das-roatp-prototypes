@@ -22,3 +22,8 @@ All of the prototypes are versioned in such a way that we can historically trace
 9. Duplicate the relevant prototype folder (e.g. `app > views > [prototype name] > [version]`) and rename it with the next version number
 10. Do a search and replace on all files within the new prototype version folder on the version number (e.g. replace “v1” with “v2”)
 11. Add a new link to the new prototype on `app > views > index.html`
+
+## WARNING!
+This prototype is built on the GOV.UK Prototype Kit v8.12.0.
+It **MUST NOT** be updated to a newer version.
+Attempting to update the prototype kit will result in a number of breaking changes that will see the vast majority of the prototypes in this repository stop functioning as intended.

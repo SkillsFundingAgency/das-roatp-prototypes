@@ -401,6 +401,46 @@
               User research: 22nd to 23rd Jan 2020
             </span>
           </p>
+          <details class="govuk-details govuk-!-margin-left-5 govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Background information (README)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">The prototype was last updated in Jan 2020, at which point it was deemed that the functionality that we were designing in this version of the prototype was deemed to be 'non-MVS'.</p>
+              <p class="govuk-body">Due to both technological and time constraints placed upon the project at this point, many of the features required by the different assessment teams were de-scoped in order to deliver to deadlines.</p>
+              <p class="govuk-body">The features that this prototype demonstrates that have since been removed in the newer MVS versions (and therefore will not be delivered as the first release of the Private Beta phase) are:</p>
+              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Gateway</h4>
+              <p class="govuk-body-s">Accessed by signing in with no credentials</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Ability to view a read-only version of an application</li>
+                <li>Ability for a Gateway user to assign an application to themselves</li>
+                <li>Ability to select a question level yes/no to identify (for reporting and the applicant in case of requested clarifications) which questions require attention</li>
+                <li>Ability to assign an application already in progress to the user who is logged in</li>
+                <li>Ability to search applications by UKPRN or organisation name</li>
+              </ul>
+              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Assessor</h4>
+              <p class="govuk-body-s">Accessed by signing in with assessor@esfa.gov.uk email, no password</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Ability to view a read-only version of an application</li>
+                <li>Ability to assign yourself as an assessor of an application</li>
+                <li>Ability for two assessors to assign themselves to an application in order to carry out a blind assessment</li>
+                <li>Ability for an assessor to replace another specific assessor on an application in progress</li>
+                <li>An application will appear in the 'New' tab <b>IF</b> there is at least one assessor space available <b>AND</b> that you are not an assessor assigned to the application already</li>
+                <li>An application will appear in the 'In progress' tab <b>IF</b> you are the only assessor on the application <b>OR</b> both assessor spots are filled</li>
+                <li>An application will appear in the 'Moderation' tab <b>IF</b> both assessors have completed their blind assessments</li>
+                <li>The task list shown when clicking 'Moderate application' from the 'Moderation' tab will:
+                  <ul>
+                    <li>Display all sections that the assessor deals with, but the links will only be active on the sections on where at least one of the assessor had failed a question</li>
+                    <li>Any links where the blind assessments both agree on a pass will not be available to moderate</li>
+                    <li>Moderating a section will display the original question, the applicants answer, the guidance shown to the applicant in the apply journey, the outcome and comments of both blind assessments, and the ability to record an outcome to the moderation</li>
+                  </ul>
+                </li></li>
+                <li>An application will appear in the 'Clarifications' tab <b>IF</b> the outcome of the moderation process requires further information from the applicant</li>
+                <li>An application will appear in the 'Outcome' tab <b>IF</b> the moderation process results in a 'Fail' or a 'Pass'</li>
+                <li>Ability to search applications by UKPRN or organisation name</li>
+              </ul>
+            </div>
+          </details>
           <details class="govuk-details govuk-!-margin-left-5">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>

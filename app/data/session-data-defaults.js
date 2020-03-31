@@ -47,6 +47,12 @@ module.exports = {
   
     "q-ofsted-grade": "What Ofsted grade did your organisation get?",
 
+    /*
+    ============================================
+      Staff app variables for GW and AAC users
+    ============================================
+    */
+
     "aac-new-count": 4,
     "aac-inprogress-count": 4,
     "aac-moderation-count": 2,

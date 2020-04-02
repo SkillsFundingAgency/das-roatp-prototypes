@@ -1,0 +1,408 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v11.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v6/dashboard"
+			},
+			{
+				text: "RoATP applications"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">Gateway</span>
+			<h1 class="govuk-heading-xl">RoATP applications</h1>
+		</div>
+	</div>
+	
+	{% set newHtml %}
+		<h2 class="govuk-heading-l">New</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if not (data['gw-abctraining'] == "assigned") and not (data['gw-abctraining'] == "outcome")	%}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="gateway/assign-abctraining">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">RHINO APPS LIMITED</a></td>
+					<td class="govuk-table__cell">10082147</td>
+					<td class="govuk-table__cell">APR09851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">SUPPORTING PEOPLE ACHIEVING REAL CHOICE</a></td>
+					<td class="govuk-table__cell">10006054</td>
+					<td class="govuk-table__cell">APR00003</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">WESTMERIA COUNSELLING SERVICES</a></td>
+					<td class="govuk-table__cell">10066774</td>
+					<td class="govuk-table__cell">APR00742</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">THINK POD</a></td>
+					<td class="govuk-table__cell">72754360</td>
+					<td class="govuk-table__cell">APR00004</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">EXAM SNAP</a></td>
+					<td class="govuk-table__cell">77326034</td>
+					<td class="govuk-table__cell">APR00005</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">STELLA NOVA</a></td>
+					<td class="govuk-table__cell">54663720</td>
+					<td class="govuk-table__cell">APR00006</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set inprogressHtml %}
+		<h2 class="govuk-heading-l">In progress</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if (data['gw-abctraining'] == "assigned") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="gateway/tasklist-abctraining">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+				</tr>
+				{% endif %}
+<!--
+				{% if (data['gw-xyztraining'] == "assigned") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="gateway/tasklist-xyztraining">XYZ TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">98765432</td>
+					<td class="govuk-table__cell">APR00002</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+				</tr>
+				{% endif %}
+-->
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">LEVEL UP</a></td>
+					<td class="govuk-table__cell">22657489</td>
+					<td class="govuk-table__cell">APR00102</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">BOOK BOT</a></td>
+					<td class="govuk-table__cell">24535362</td>
+					<td class="govuk-table__cell">APR00097</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">KNOWTABLY</a></td>
+					<td class="govuk-table__cell">20098778</td>
+					<td class="govuk-table__cell">APR00013</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">MOVING THE GRADE</a></td>
+					<td class="govuk-table__cell">32118009</td>
+					<td class="govuk-table__cell">APR00187</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">ROCKET TRAINING</a></td>
+					<td class="govuk-table__cell">20888712</td>
+					<td class="govuk-table__cell">APR00231</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();" style="color: grey">SWING START</a></td>
+					<td class="govuk-table__cell">31109023</td>
+					<td class="govuk-table__cell">APR00122</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+	{% set clarifyHtml %}
+		<h2 class="govuk-heading-l">Clarifications</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Clarification sent to applicant date</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">BABCOCK TRAINING</td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR00454</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">5 Oct 2019</td>
+					<td class="govuk-table__cell">8 Oct 2019</td>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HYBRID TECHNICAL</td>
+					<td class="govuk-table__cell">20087456</td>
+					<td class="govuk-table__cell">APR00662</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">3 Oct 2019</td>
+					<td class="govuk-table__cell">6 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	{% endset -%}
+	
+	{% set outcomeHtml %}
+		<h2 class="govuk-heading-l">Gateway outcome</h2>
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Outcome date</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Outcome</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if (data['gw-abctraining-outcome'] == "Pass this application") or (data['gw-abctraining-outcome'] == "Decline this application") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ABC TRAINING LIMITED</td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">APR00001</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">
+						{% if data['gw-abctraining-outcome'] == "Pass this application" %}
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+							<strong class="govuk-tag app-task-list__task-negative">Decline</strong>
+						{% endif %}
+					</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">GEASON APPRENTICESHIPS</td>
+					<td class="govuk-table__cell">18664753</td>
+					<td class="govuk-table__cell">APR00561</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">23 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">FIVE ELMS PRIMARY SCHOOL</td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR00686</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">HOTGROUP</td>
+					<td class="govuk-table__cell">28876299</td>
+					<td class="govuk-table__cell">APR00851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">20 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">ABC AID</td>
+					<td class="govuk-table__cell">20098887</td>
+					<td class="govuk-table__cell">APR00334</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">
+						<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	{% endset -%}
+	
+	{% set searchHtml %}
+		<h2 class="govuk-heading-l">Search</h2>
+		<form action="" method="post" class="form form-search">
+			<div class="govuk-form-group">
+				<label class="govuk-label" for="staff-search">
+					Organisation name or UKPRN
+				</label>
+				<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text" value="">
+				<button class="govuk-button govuk-button-search" data-module="govuk-button">
+					Search
+				</button>
+			</div>
+		</form>
+	{% endset -%}
+	
+	{% set searchCompleteHtml %}
+		<h2 class="govuk-heading-l">Search</h2>
+		<form action="" method="post" class="form form-search">
+			<div class="govuk-form-group">
+				<label class="govuk-label" for="staff-search">
+					Organisation name or UKPRN
+				</label>
+				<input class="govuk-input govuk-input-search govuk-input--width-20" id="staff-search" name="staff-search" type="text" value="le">
+				<button class="govuk-button govuk-button-search" data-module="govuk-button" >
+					Search
+				</button>
+			</div>
+		</form>
+
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="ascending" class="govuk-table__header" scope="col">Organisation name</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Provider route</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Application stage</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Application submitted</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">LEACH ACADEMY</td>
+					<td class="govuk-table__cell">54638871</td>
+					<td class="govuk-table__cell">APR264</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Clarifications</td>
+					<td class="govuk-table__cell">15 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">LEAN FORWARD</td>
+					<td class="govuk-table__cell">41302443</td>
+					<td class="govuk-table__cell">APR3</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">New</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">LEASON APPRENTICESHIPS</td>
+					<td class="govuk-table__cell">10098981</td>
+					<td class="govuk-table__cell">APR264</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Completed</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>		
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">LEVEL UP</td>
+					<td class="govuk-table__cell">38878814</td>
+					<td class="govuk-table__cell">APR264</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">In progress</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+	
+<div class="shrinkit">
+	{{ govukTabs({
+		items: [
+			{
+				label: "New (" + data['mvp-gwv5-new-count'] + ")",
+				id: "new",
+				panel: {
+					html: newHtml
+				}
+			}, {
+				label: "In progress (" + data['mvp-gwv5-inprogress-count'] + ")",
+				id: "inprogress",
+				panel: {
+					html: inprogressHtml
+				}
+			}, {
+				label: "Clarifications (" + data['mvp-gwv5-clarify-count'] + ")",
+				id: "clarifications",
+				panel: {
+					html: clarifyHtml
+				}
+			}, {
+				label: "Gateway outcome (" + data['mvp-gwv5-outcome-count'] + ")",
+				id: "outcome",
+				panel: {
+					html: outcomeHtml
+				}
+			}
+		]
+	}) }}
+</div>
+      
+{% endblock %}

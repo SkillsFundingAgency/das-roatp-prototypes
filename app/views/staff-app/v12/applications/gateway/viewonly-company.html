@@ -1,0 +1,196 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v12/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v12/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">10053003</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Organisation name</dt>
+					<dd class="govuk-summary-list__value">SAFRAN LANDING SYSTEMS UK LTD</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application reference number</dt>
+					<dd class="govuk-summary-list__value">APR1</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dd class="govuk-summary-list__value">17 Oct 2019</dd>
+				</div>
+			</dl>
+
+			<ol class="app-task-list">
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">1. </span> Initial checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/initial/legal">Legal and address checks</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">2. </span> High risk checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<!--a href="viewonly/highrisk/organisation">The organisation</a-->
+								The organisation
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/highrisk/people">People in control</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Register checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/register/roatp">RoATP</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Register of training organisations
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/register/epao">Register of end-point assessment organisations</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/register/rort">Register of removed trustees</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">4. </span> Organisation checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/organisation/info/parent">Organisation information</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/organisation/type/type">Organisation type</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/organisation/experience/itt">Experience and accreditation</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">5. </span> Criminal and compliance checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/criminal/organisation/creditors">The organisation</a>
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="viewonly/criminal/people/convictions">People in control</a>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">6. </span> Submission checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Application permissions and checks
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								‘Commercial in confidence’ information
+							</span>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Terms and conditions (CoA’s)
+							</span>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">7. </span> Gateway outcome
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								Confirm gateway outcome
+							</span>
+						</li>
+					</ul>
+				</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}

@@ -1,0 +1,62 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v12/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v12/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/gateway/viewonly-company"
+			},
+			{
+				text: "Criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Check if the organisation has been removed from any charity register</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+			
+			<table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">Has your organisation been removed from any charity register?</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application answer</th>
+						<td class="govuk-table__cell">No</td>
+					</tr>
+				</tbody>
+			</table>
+
+      <p class="skipquestion" id="skipquestion"><a href="safeguarding">Next question</a></p>
+			<br><br>
+			<p><a href="/staff-app/v12/applications/gateway/viewonly-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

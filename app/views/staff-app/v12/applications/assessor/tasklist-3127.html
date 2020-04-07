@@ -70,7 +70,7 @@
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 							{% if data['aac-3127-pya-continuityplan'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -84,7 +84,7 @@
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 							{% if data['aac-3127-pya-equality'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -94,7 +94,7 @@
 							{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif (data['aac-3127-pya-safeguarding'] == "In progress") or (data['aac-3127-pya-safeguarding-responsible'] == "In progress") or (data['aac-3127-pya-prevent-responsible'] == "In progress") or (data['aac-3127-pya-prevent-upload'] == "In progress")  %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
 							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Fail") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
@@ -112,7 +112,7 @@
 							{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif (data['aac-3127-pya-healthandsafety'] == "In progress") or (data['aac-3127-pya-healthandsafety-responsible'] == "In progress") %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif (data['aac-3127-pya-healthandsafety'] == "Fail") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass")  %}
 							    <strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
 							{% elseif (data['aac-3127-pya-healthandsafety'] == "Fail") and (data['aac-3127-pya-healthandsafety-responsible'] == "Fail")  %}
@@ -130,7 +130,7 @@
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 							{% if data['aac-3127-pya-subcontractor'] == "In progress" %}
-								<strong class="govuk-tag app-task-list__task-assessorinprogress">In progress</strong>
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 					</ul>

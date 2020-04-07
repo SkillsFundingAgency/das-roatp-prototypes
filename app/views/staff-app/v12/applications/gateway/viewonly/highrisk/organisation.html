@@ -1,0 +1,60 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v12/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v12/applications/gateway/applications-view"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/gateway/viewonly-company"
+			},
+			{
+				text: "Experience and accreditation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation checks</span>
+			<h1 class="govuk-heading-xl">Organisation high risk check</h1>
+
+			<p class="govuk-body">
+				Legal name: SAFRAN LANDING SYSTEMS UK LTD<br>
+				UKPRN: 10053003
+			</p>
+
+			<p class="govuk-body">...</p>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m">What is the outcome of this check?</h3>
+			
+			<div class="sops">
+			</div>
+
+			<p><a href="/staff-app/v12/applications/gateway/viewonly-company">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

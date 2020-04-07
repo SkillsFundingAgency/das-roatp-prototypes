@@ -1,0 +1,70 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Re-assign application"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">
+					You’ve replaced 
+					{% if (data['aac-reassign'] == "aac-4102-assessor1") %}
+						Peter Waller
+					{% elseif (data['aac-reassign'] == "aac-4102-assessor2") %}
+						Jeff Simms
+					{% endif %}
+					on this application
+				</h1>
+			</div>
+
+			<h1 class="govuk-heading-xl">What do you want to do next?</h1>
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "aac-reassign-confirmation",
+					name: "aac-reassign-confirmation",
+					items: [
+						{
+							value: "Assess the remaining checks this application",
+							text: "Assess the remaining checks this application",
+							checked: checked("aac-reassign-confirmation", "Assess the remaining checks this application")
+						},
+						{
+							value: "Go back to RoATP applications",
+							text: "Go back to RoATP applications",
+							checked: checked("aac-reassign-confirmation", "Return to RoATP applications")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

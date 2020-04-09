@@ -9,7 +9,7 @@
 	{{ govukBreadcrumbs({
 		items: [
 			{
-				text: "RoATP applications",
+				text: "RoATP assessor applications",
 				href: "/staff-app/v12/applications/applications-assessor"
 			},
 			{
@@ -17,7 +17,7 @@
 				href: "/staff-app/v12/applications/assessor/tasklist-3127"
 			},
 			{
-				text: "Readiness to engage"
+				text: "Readiness to engage checks"
 			}
 		]
 	}) }}
@@ -28,133 +28,83 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Readiness to engage checks</span>
-			<h1 class="govuk-heading-xl">Check the organisation’s process to assess English and maths qualifications for apprentices</h1>
+			<h1 class="govuk-heading-xl">Process to assess English and maths</h1>
 
 			<p class="govuk-body">
+				UKPRN: 12345678<br>
 				Legal name: MY RECRUITMENT LIMITED<br>
-				UKPRN: 12345678
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
 			</p>
-			
-			<table class="govuk-table">
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Application question</th>
-						<td class="govuk-table__cell">What is your organisation’s process to assess English and maths qualifications for apprentices?</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Applicant’s answer</th>
-						<td class="govuk-table__cell"></td>
-					</tr>
-				</tbody>
-			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will review existing English and maths qualifications?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-mathsandenglish-review",
-				name: "aac-3127-rte-mathsandenglish-review",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-mathsandenglish-review", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-mathsandenglish-review", "No")
-					}
-				]
-			}) }}
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What is your organisation’s process for initial assessments to recognise prior learning?</th>
+                  <td class="govuk-table__cell">XXX XXX XXXXX XXXX XXXXX XXXXX XXXX</td>
+                </tr>
+              </tbody>
+            </table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will  measure these qualifications against entry level requirements for apprenticeships?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-mathsandenglish-measure",
-				name: "aac-3127-rte-mathsandenglish-measure",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-mathsandenglish-measure", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-mathsandenglish-measure", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will identify and analyse any learning gaps?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-mathsandenglish-analysegaps",
-				name: "aac-3127-rte-mathsandenglish-analysegaps",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-mathsandenglish-analysegaps", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-mathsandenglish-analysegaps", "No")
-					}
-				]
-			}) }}
-
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include how the organisation will identify no further learning requirements for English and maths?</h2>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-mathsandenglish-nofurther",
-				name: "aac-3127-rte-mathsandenglish-nofurther",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-mathsandenglish-nofurther", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-mathsandenglish-nofurther", "No")
-					}
-				]
-			}) }}
-			
-			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">Your answer must include how your organisation will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+			    <li>review existing English and maths qualifications</li>
+			    <li>measure these qualifications against entry level requirements for apprenticeships</li>
+			    <li>identify and analyse any learning gaps</li>
+			    <li>identify no further learning requirements for English and maths</li>
+            </ul>
+			</div>
+			</details>
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
-			
-				<div class="sops">
-					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
-					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
-				</div>
-				
+
 				{% set passHtml %}
 					{{ govukCharacterCount({
 						name: "aac-3127-rte-mathsandenglish-pass",
 						id: "aac-3127-rte-mathsandenglish-pass",
           	value: data['aac-3127-rte-mathsandenglish-pass'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
-				
+
 				{% set failHtml %}
 					{{ govukCharacterCount({
 						name: "aac-3127-rte-mathsandenglish-fail",
 						id: "aac-3127-rte-mathsandenglish-fail",
           	value: data['aac-3127-rte-mathsandenglish-fail'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inProgressHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-rte-mathsandenglish-inprogress",
+						id: "aac-3127-rte-mathsandenglish-inprogress",
+          	value: data['aac-3127-rte-mathsandenglish-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
@@ -166,6 +116,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("aac-3127-rte-mathsandenglish", "Pass")
 						},
 						{
@@ -175,6 +128,14 @@
 								html: failHtml
 							},
 							checked: checked("aac-3127-rte-mathsandenglish", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inProgressHtml
+							},
+							checked: checked("aac-3127-rte-mathsandenglish", "In progress")
 						}
 					]
 				}) }}
@@ -183,8 +144,6 @@
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"
 				}) }}
-        
-        <p class="skipquestion" id="skipquestion"><a href="javascript:preventDefault();">Return to this check later</a></p>
 
 			</form>
 

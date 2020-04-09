@@ -9,7 +9,7 @@
 	{{ govukBreadcrumbs({
 		items: [
 			{
-				text: "RoATP applications",
+				text: "RoATP assessor applications",
 				href: "/staff-app/v12/applications/applications-assessor"
 			},
 			{
@@ -46,10 +46,6 @@
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Application submitted date</dt>
 					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR3127</dd>
 				</div>
 			</dl>
 
@@ -91,32 +87,48 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
+							{% set safeguardingFails = 0 %}
+                            {% if (data['aac-3127-pya-safeguarding'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-safeguarding-responsible'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-prevent-responsible'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-prevent-upload'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
 							{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif (data['aac-3127-pya-safeguarding'] == "In progress") or (data['aac-3127-pya-safeguarding-responsible'] == "In progress") or (data['aac-3127-pya-prevent-responsible'] == "In progress") or (data['aac-3127-pya-prevent-upload'] == "In progress")  %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
-							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
+							{% elseif safeguardingFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
-							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Fail") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
-								<strong class="govuk-tag app-task-list__task-negative">2 Fails out of 4</strong>
-							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Fail") and (data['aac-3127-pya-prevent-responsible'] == "Fail") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
-								<strong class="govuk-tag app-task-list__task-negative">3 Fails out of 4</strong>
-							{% elseif (data['aac-3127-pya-safeguarding'] == "Fail") and (data['aac-3127-pya-safeguarding-responsible'] == "Fail") and (data['aac-3127-pya-prevent-responsible'] == "Fail") and (data['aac-3127-pya-prevent-upload'] == "Fail")  %}
-								<strong class="govuk-tag app-task-list__task-negative">4 Fails out of 4</strong>
+							{% elseif safeguardingFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ safeguardingFails }} Fails out of 4</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/pya/healthandsafety">Health and safety policy</a>
 							</span>
+							{% set healthAndSafetyFails = 0 %}
+                            {% if (data['aac-3127-pya-healthandsafety'] == "Fail") %}
+							{% set healthAndSafetyFails = healthAndSafetyFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-healthandsafety-responsible'] == "Fail") %}
+							{% set healthAndSafetyFails = healthAndSafetyFails + 1 %}
+							{% endif %}
 							{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif (data['aac-3127-pya-healthandsafety'] == "In progress") or (data['aac-3127-pya-healthandsafety-responsible'] == "In progress") %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
-							{% elseif (data['aac-3127-pya-healthandsafety'] == "Fail") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass")  %}
-							    <strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
-							{% elseif (data['aac-3127-pya-healthandsafety'] == "Fail") and (data['aac-3127-pya-healthandsafety-responsible'] == "Fail")  %}
-							    <strong class="govuk-tag app-task-list__task-negative">2 Fails out of 2</strong>
+							{% elseif healthAndSafetyFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
+							{% elseif healthAndSafetyFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ healthAndSafetyFails }} Fails out of 2</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -144,56 +156,118 @@
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/engage">Engaging with employers</a>
 							</span>
-							{% if (data['aac-3127-rte-engageresponsible']) and (data['aac-3127-rte-engage']) %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% elseif data['aac-3127-rte-engage'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% set engagingEmployersFails = 0 %}
+                            {% if (data['aac-3127-rte-engage'] == "Fail") %}
+							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-engagerelationships'] == "Fail") %}
+							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-engageresponsible-'] == "Fail") %}
+							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-engagepromote'] == "Fail") %}
+							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
+							{% endif %}
+							{% if (data['aac-3127-rte-engage'] == "Pass") and (data['aac-3127-rte-engagerelationships'] == "Pass") and (data['aac-3127-rte-engageresponsible'] == "Pass") and (data['aac-3127-rte-engagepromote'] == "Pass")  %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif (data['aac-3127-rte-engage'] == "In progress") or (data['aac-3127-rte-engagerelationships'] == "In progress") or (data['aac-3127-rte-engageresponsible'] == "In progress") or (data['aac-3127-rte-engagepromote'] == "In progress")  %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% elseif engagingEmployersFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
+							{% elseif engagingEmployersFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ engagingEmployersFails }} Fails out of 4</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/complaints">Complaints policy</a>
 							</span>
-							{% if data['aac-3127-rte-complaint'] and data['aac-3127-rte-complaintpolicy'] %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% elseif data['aac-3127-rte-complaint'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% set complaintsFails = 0 %}
+                            {% if (data['aac-3127-rte-complaint'] == "Fail") %}
+							{% set complaintsFails = complaintsFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-complaintpolicy'] == "Fail") %}
+							{% set complaintsFails = complaintsFails + 1 %}
+							{% endif %}
+							{% if (data['aac-3127-rte-complaint'] == "Pass") and (data['aac-3127-rte-complaintpolicy'] == "Pass") %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif (data['aac-3127-rte-complaint'] == "In progress") or (data['aac-3127-rte-complaintpolicy'] == "In progress") %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% elseif complaintsFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
+							{% elseif complaintsFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ complaintsFails }} Fails out of 2</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/contractsforservices">Contract for services template with employers</a>
 							</span>
-							{% if data['aac-3127-rte-contractforservices'] %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% if data['aac-3127-rte-contractforservices'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
+							{% if data['aac-3127-rte-contractforservices'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							{% if data['aac-3127-rte-contractforservices'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/commitment">Commitment statement template</a>
 							</span>
-							{% if data['aac-3127-rte-commitment'] %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+							{% if data['aac-3127-rte-commitment'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
+							{% if data['aac-3127-rte-commitment'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							{% if data['aac-3127-rte-commitment'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/process">Prior learning of apprentices</a>
 							</span>
-							{% if data['aac-3127-rte-process'] and data['aac-3127-rte-mathsandenglish'] %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% elseif data['aac-3127-rte-process'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% set priorLearningFails = 0 %}
+                            {% if (data['aac-3127-rte-process'] == "Fail") %}
+							{% set priorLearningFails = priorLearningFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-mathsandenglish'] == "Fail") %}
+							{% set priorLearningFails = priorLearningFails + 1 %}
+							{% endif %}
+							{% if (data['aac-3127-rte-process'] == "Pass") and (data['aac-3127-rte-mathsandenglish'] == "Pass") %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif (data['aac-3127-rte-process'] == "In progress") or (data['aac-3127-rte-mathsandenglish'] == "In progress") %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% elseif priorLearningFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
+							{% elseif priorLearningFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ priorLearningFails }} Fails out of 2</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="3127/rte/subcontractors">Working with subcontractors</a>
 							</span>
-							{% if data['aac-3127-rte-subcontractors'] and data['aac-3127-rte-subcontractorsdue'] %}
-								<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
-							{% elseif data['aac-3127-rte-subcontractors'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+							{% set subcontractorsFails = 0 %}
+                            {% if (data['aac-3127-rte-subcontractors'] == "Fail") %}
+							{% set subcontractorsFails = subcontractorsFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-rte-subcontractorsdue'] == "Fail") %}
+							{% set subcontractorsFails = subcontractorsFails + 1 %}
+							{% endif %}
+							{% if (data['aac-3127-rte-subcontractors'] == "Pass") and (data['aac-3127-rte-subcontractorsdue'] == "Pass") %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif (data['aac-3127-rte-subcontractors'] == "In progress") or (data['aac-3127-rte-subcontractorsdue'] == "In progress") %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% elseif subcontractorsFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
+							{% elseif subcontractorsFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ subcontractorsFails }} Fails out of 2</strong>
 							{% endif %}
 						</li>
 					</ul>
@@ -360,7 +434,7 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Confirm assessor outcome
+								Submit application for moderation
 							</span>
 							<!--{% if data['xxx'] %}
 								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>

@@ -9,7 +9,7 @@
 	{{ govukBreadcrumbs({
 		items: [
 			{
-				text: "RoATP applications",
+				text: "RoATP assessor applications",
 				href: "/staff-app/v12/applications/applications-assessor"
 			},
 			{
@@ -44,11 +44,7 @@
 					<dd class="govuk-summary-list__value">Main</dd>
 				</div>
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key" style="white-space: nowrap;">Application reference number</dt>
-					<dd class="govuk-summary-list__value">APR314</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Date application submitted</dt>
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
 					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
@@ -67,44 +63,63 @@
 							<span class="app-task-list__task-name">
 								<a href="pya/continuity">Continuity plan for apprenticeship training</a>
 							</span>
-							{% if data['aac-mod-pya-continuity'] == "Escalate" %}
-								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
-							{% elseif data['aac-mod-pya-continuity'] == "Pass" %}
+							{% if data['aac-3127-pya-continuityplan'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-pya-continuity'] == "Fail" %}
+							{% endif %}
+							{% if data['aac-3127-pya-continuityplan'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							{% if data['aac-3127-pya-continuityplan'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="pya/equality">Equality and diversity policy</a>
 							</span>
-							{% if data['aac-mod-pya-equality'] == "Escalate" %}
-								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
-							{% elseif data['aac-mod-pya-equality'] == "Pass" %}
+							{% if data['aac-3127-pya-equality'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-pya-equality'] == "Fail" %}
+							{% endif %}
+							{% if data['aac-3127-pya-equality'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							{% if data['aac-3127-pya-equality'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="pya/safeguarding">Safeguarding and Prevent duty policy</a>
 							</span>
-							{% if data['aac-mod-pya-safeguarding'] == "Escalate" %}
-								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
-							{% elseif data['aac-mod-pya-safeguarding'] == "Pass" %}
+							{% set safeguardingFails = 0 %}
+                            {% if (data['aac-3127-pya-safeguarding'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-safeguarding-responsible'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-prevent-responsible'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+                            {% if (data['aac-3127-pya-prevent-upload'] == "Fail") %}
+							{% set safeguardingFails = safeguardingFails + 1 %}
+							{% endif %}
+							{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-pya-safeguarding'] == "Fail" %}
-								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% elseif (data['aac-3127-pya-safeguarding'] == "In progress") or (data['aac-3127-pya-safeguarding-responsible'] == "In progress") or (data['aac-3127-pya-prevent-responsible'] == "In progress") or (data['aac-3127-pya-prevent-upload'] == "In progress")  %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% elseif safeguardingFails == 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
+							{% elseif safeguardingFails > 1 %}
+								<strong class="govuk-tag app-task-list__task-negative">{{ safeguardingFails }} Fails out of 4</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
 								<a href="pya/healthandsafety">Health and safety policy</a>
 							</span>
-							{% if data['aac-mod-pya-healthandsafety'] == "Escalate" %}
-								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% if data['aac-mod-pya-healthandsafety'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-next">In progress</strong>
 							{% elseif data['aac-mod-pya-healthandsafety'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif data['aac-mod-pya-healthandsafety'] == "Fail" %}
@@ -113,13 +128,12 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								Act as a subcontractor
-								<!--a href="pya/subcontractor">Act as a subcontractor</a-->
+								<a href="pya/subcontractor">Act as a subcontractor</a>
 							</span>
 							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							<!--
-							{% if data['aac-mod-pya-subcontractor'] == "Escalate" %}
-								<strong class="govuk-tag app-task-list__task-next">Escalated</strong>
+							{% if data['aac-mod-pya-subcontractor'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-next">In progress</strong>
 							{% elseif data['aac-mod-pya-subcontractor'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif data['aac-mod-pya-subcontractor'] == "Fail" %}

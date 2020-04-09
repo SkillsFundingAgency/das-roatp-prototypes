@@ -9,7 +9,7 @@
 	{{ govukBreadcrumbs({
 		items: [
 			{
-				text: "RoATP applications",
+				text: "RoATP assessor applications",
 				href: "/staff-app/v12/applications/applications-assessor"
 			},
 			{
@@ -17,7 +17,7 @@
 				href: "/staff-app/v12/applications/assessor/tasklist-3127"
 			},
 			{
-				text: "Readiness to engage"
+				text: "Readiness to engage checks"
 			}
 		]
 	}) }}
@@ -28,91 +28,86 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Readiness to engage checks</span>
-			<h1 class="govuk-heading-xl">The person who is responsible for managing relationships with employers</h1>
+			<h1 class="govuk-heading-xl">Overall responsibility for managing relationships with employers</h1>
 
 			<p class="govuk-body">
+				UKPRN: 12345678<br>
 				Legal name: MY RECRUITMENT LIMITED<br>
-				UKPRN: 12345678
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
 			</p>
-			
-			<table class="govuk-table">
-				<thead class="govuk-table__head">
-					<tr class="govuk-table__row">
-						<th scope="col" class="govuk-table__header">Application question</th>
-						<th scope="col" class="govuk-table__header">Applicant's answer</th>
-					</tr>
-				</thead>
-				<tbody class="govuk-table__body">
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Full name</th>
-						<td class="govuk-table__cell">XXXXX XXXXX</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Email</th>
-						<td class="govuk-table__cell">hello@organisation.co.uk</td>
-					</tr>
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">Contact number</th>
-						<td class="govuk-table__cell">07100003456</td>
-					</tr>
-				</tbody>
-			</table>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s answer include at least one of the following:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>find apprenticeship training</li>
-				<li>National Careers Services</li>
-				<li>other national branding</li>
-      </ul>
-			{{ govukRadios({
-				idPrefix: "aac-3127-rte-engageresponsible-include",
-				name: "aac-3127-rte-engageresponsible-include",
-				classes: "govuk-radios--inline",
-				items: [
-					{
-						value: "Yes",
-						text: "Yes",
-						checked: checked("aac-3127-rte-engageresponsible-include", "Yes")
-					},
-					{
-						value: "No",
-						text: "No",
-						checked: checked("aac-3127-rte-engageresponsible-include", "No")
-					}
-				]
-			}) }}
-			
-			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Full name</th>
+                  <td class="govuk-table__cell">Adam Smith</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Email</th>
+                  <td class="govuk-table__cell"><a href="mailto:abc@123.com">abc@123.com</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Contact number</th>
+                  <td class="govuk-table__cell">07000123456</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">This must be someone who has the overall responsibility and can make decisions independently.</p>
+			<p class="govuk-body">We’ll only contact them if there is a concern.</p>
+			</div>
+			</details>
 
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
-			
-				<div class="sops">
-					<p class="govuk-body">If you have selected ‘yes’ to the question above, pass this check.</p>
-					<p class="govuk-body">If you have selected ‘no’ to the question above, fail this check.</p>
-				</div>
-				
+
 				{% set passHtml %}
 					{{ govukCharacterCount({
 						name: "aac-3127-rte-engageresponsible-pass",
 						id: "aac-3127-rte-engageresponsible-pass",
           	value: data['aac-3127-rte-engageresponsible-pass'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
-				
+
 				{% set failHtml %}
 					{{ govukCharacterCount({
 						name: "aac-3127-rte-engageresponsible-fail",
 						id: "aac-3127-rte-engageresponsible-fail",
           	value: data['aac-3127-rte-engageresponsible-fail'],
-						maxlength: 750,
+						maxwords: 150,
 						label: {
 							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inProgressHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-rte-engageresponsible-inprogress",
+						id: "aac-3127-rte-engageresponsible-inprogress",
+          	value: data['aac-3127-rte-engageresponsible-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
 						}
 					}) }}
 				{% endset -%}
@@ -124,6 +119,9 @@
 						{
 							value: "Pass",
 							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
 							checked: checked("aac-3127-rte-engageresponsible", "Pass")
 						},
 						{
@@ -133,6 +131,14 @@
 								html: failHtml
 							},
 							checked: checked("aac-3127-rte-engageresponsible", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inProgressHtml
+							},
+							checked: checked("aac-3127-rte-engageresponsible", "In progress")
 						}
 					]
 				}) }}
@@ -141,8 +147,6 @@
 					text: "Save and continue",
 					classes: "govuk-!-margin-right-4"
 				}) }}
-        
-        <p class="skipquestion" id="skipquestion"><a href="javascript:preventDefault();">Return to this check later</a></p>
 
 			</form>
 

@@ -860,6 +860,8 @@ module.exports = function (router) {
     }
     else {
       req.session.data['apr3127'] = "submitted"
+      req.session.data['aac-inprogress-count'] = req.session.data['aac-inprogress-count'] - 1
+      req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] + 1
       res.redirect('/staff-app/' + v + '/applications/assessor/3127/submit/confirmation')
     }
   })
@@ -995,6 +997,9 @@ module.exports = function (router) {
       res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit')
     }
     else {
+      req.session.data['apr3127'] = "completed"
+      req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] - 1
+      req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
       res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')
     }
   })

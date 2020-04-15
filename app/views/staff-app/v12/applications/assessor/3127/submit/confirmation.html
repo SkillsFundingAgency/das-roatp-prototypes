@@ -1,0 +1,42 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Assessor outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+		
+			<div class="govuk-panel govuk-panel--confirmation  govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">
+					Assessor outcome saved
+				</h1>
+			</div>
+            <p>This application has moved to ‘moderation’.</p>
+			<p><a href="/staff-app/v12/applications/applications-assessor">Go to RoATP assessor applications</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

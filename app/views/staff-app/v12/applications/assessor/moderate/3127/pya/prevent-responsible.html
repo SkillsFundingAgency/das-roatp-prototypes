@@ -1,0 +1,162 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/assessor/moderate/tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices checks</span>
+			<h1 class="govuk-heading-xl">Safeguarding policy include Prevent duty policy</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Does your organisation’s safeguarding policy include its responsibilities towards the Prevent duty?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Safeguarding policy</th>
+                  <td class="govuk-table__cell"><a href="https://safeandsoundgroup.org.uk/safeguarding-policy/" target="_blank">myrecruitmentlimited-safeguarding-policy.pdf</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">This means your organisation's safeguarding policy includes how it will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>have a legal responsibility to fulfil the Prevent duty statement</li>
+				<li>protect apprentices and employees from radicalising influences</li>
+				<li>train its employees in implementing the policy</li>
+				<li>ensure apprentices and employees are resilient to extreme narratives</li>
+				<li>identify changes in behaviour of apprentices and employees</li>
+				<li>deal with any issues raised by apprentices or employees</li>
+			</ul>
+            <p>Find out about <a href="https://www.gov.uk/government/publications/prevent-duty-guidance" target="_blank" class="govuk-link">the Prevent duty (opens in a new window or tab)</a>.</p>
+			</div>
+			</details>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-pass",
+						id: "aac-3127-pya-prevent-responsible-pass",
+          	value: data['aac-3127-pya-prevent-responsible-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-fail",
+						id: "aac-3127-pya-prevent-responsible-fail",
+          	value: data['aac-3127-pya-prevent-responsible-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inProgressHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-pya-prevent-responsible-inprogress",
+						id: "aac-3127-pya-prevent-responsible-inprogress",
+          	value: data['aac-3127-pya-prevent-responsible-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-3127-pya-prevent-responsible-conditional",
+					name: "aac-3127-pya-prevent-responsible",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-3127-pya-prevent-responsible", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-3127-pya-prevent-responsible", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inProgressHtml
+							},
+							checked: checked("aac-3127-pya-prevent-responsible", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v12/applications/assessor/moderate/tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -13,7 +13,7 @@
 				href: "/staff-app/v12/applications/applications-assessor"
 			},
 			{
-				text: "Application moderation overview",
+				text: "Application assessment overview",
 				href: "/staff-app/v12/applications/assessor/moderate/tasklist"
 			},
 			{
@@ -28,7 +28,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Protecting your apprentices checks</span>
-			<h1 class="govuk-heading-xl">Health and safety policy</h1>
+			<h1 class="govuk-heading-xl">Continuity plan for apprenticeship training</h1>
 
 			<p class="govuk-body">
 				Legal name: MY RECRUITMENT LIMITED<br>
@@ -39,26 +39,24 @@
 				<tbody class="govuk-table__body">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Application question</th>
-						<td class="govuk-table__cell">Upload your organisation’s health and safety policy</td>
+						<td class="govuk-table__cell">Upload your organisation’s continuity plan for apprenticeship training</td>
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Applicant's answer</th>
-						<td class="govuk-table__cell"><a href="https://www.cygnethealth.co.uk/content/uploads/2017/03/Health-and-Safety-Policy.pdf" target="_blank">myrecruitmentlimited-healthandsafety.pdf</a></td>
+						<td class="govuk-table__cell"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/376381/Expecting_the_Unexpected_Reviewed.pdf" target="_blank">myrecruitmentlimited-continuity-plan.pdf</a></td>
 					</tr>
 				</tbody>
 			</table>
 
 			<p class="govuk-body">Check if the upload includes how the organisation will:</p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li>promote the policy</li>
-				<li>get commitment to the policy</li>
-				<li>train its employees in implementing the policy</li>
-				<li>cover apprentices in its care</li>
-				<li>have people who are responsible for health and safety</li>
-				<li>identify and manage health and safety concerns</li>
-				<li>have a procedure for accidents or ill health of apprentices</li>
+				<li>have different methods of communication</li>
+				<li>manage transportation needs</li>
+				<li>provide different operating locations (if needed)</li>
+				<li>back-up relevant business systems</li>
+				<li>back-up and restore data</li>
+				<li>have a list of emergency contacts - ESFA must be listed</li>
 			</ul>
-			<p class="govuk-body">The upload must also be specific to the organisation, apprentices and trainers and signed by a senior employee.</p>
 
 			<h2 class="govuk-heading-m">Outcome of blind assessor checks</h2>
 			<table class="govuk-table govuk-table__modoutcome">
@@ -78,7 +76,7 @@
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">Notes</th>
 						<td class="govuk-table__cell"></td>
-						<td class="govuk-table__cell">The upload doesn't include how the organisation will identify and manage health and safety concerns</td>
+						<td class="govuk-table__cell">The upload doesn't include how the organisation will back-up and restore data</td>
 					</tr>
 				</tbody>
 			</table>
@@ -89,9 +87,9 @@
 				
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-mod-pya-healthandsafety-pass",
-						id: "aac-mod-pya-healthandsafety-pass",
-          	value: data['aac-mod-pya-healthandsafety-pass'],
+						name: "aac-mod-pya-continuity-pass",
+						id: "aac-mod-pya-continuity-pass",
+          	value: data['aac-mod-pya-continuity-pass'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -101,9 +99,9 @@
 				
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-mod-pya-healthandsafety-fail",
-						id: "aac-mod-pya-healthandsafety-fail",
-          	value: data['aac-mod-pya-healthandsafety-fail'],
+						name: "aac-mod-pya-continuity-fail",
+						id: "aac-mod-pya-continuity-fail",
+          	value: data['aac-mod-pya-continuity-fail'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -113,9 +111,9 @@
 				
 				{% set escalateHtml %}
 					{{ govukCharacterCount({
-						name: "aac-mod-pya-healthandsafety-escalate",
-						id: "aac-mod-pya-healthandsafety-escalate",
-          	value: data['aac-mod-pya-healthandsafety-escalate'],
+						name: "aac-mod-pya-continuity-escalate",
+						id: "aac-mod-pya-continuity-escalate",
+          	value: data['aac-mod-pya-continuity-escalate'],
 						maxlength: 750,
 						label: {
 							text: "Add comments"
@@ -124,8 +122,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-mod-pya-healthandsafety-conditional",
-					name: "aac-mod-pya-healthandsafety",
+					idPrefix: "aac-mod-pya-continuity-conditional",
+					name: "aac-mod-pya-continuity",
 					items: [
 						{
 							value: "Pass",
@@ -133,7 +131,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-mod-pya-healthandsafety", "Pass")
+							checked: checked("aac-mod-pya-continuity", "Pass")
 						},
 						{
 							value: "Fail",
@@ -141,7 +139,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-mod-pya-healthandsafety", "Fail")
+							checked: checked("aac-mod-pya-continuity", "Fail")
 						},
 						{
 							value: "Escalate",
@@ -149,7 +147,7 @@
 							conditional: {
 								html: escalateHtml
 							},
-							checked: checked("aac-mod-pya-healthandsafety", "Escalate")
+							checked: checked("aac-mod-pya-continuity", "Escalate")
 						}
 					]
 				}) }}
@@ -163,7 +161,7 @@
 
 			</form>
 
-			<p><a href="/staff-app/v12/applications/assessor/tasklist-3127">Back to application assessment overview</a></p>
+			<p><a href="/staff-app/v12/applications/assessor/moderate/tasklist-3127">Back to application assessment overview</a></p>
 
 		</div>
 	</div>

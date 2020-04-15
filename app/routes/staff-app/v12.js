@@ -651,6 +651,47 @@ module.exports = function (router) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-4291')
 	})
 
+  router.get('/staff-app/' + v + '/applications/assessor/tasklist-3127-completed', function (req,res) {
+    req.session.data['aac-3127-pya-continuityplan'] = "Pass"
+    req.session.data['aac-3127-pya-equality'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-upload'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-upload'] = "Pass"
+    req.session.data['aac-3127-pya-healthandsafety'] = "Pass"
+    req.session.data['aac-3127-pya-healthandsafety-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-subcontractor'] = "Pass"
+    req.session.data['aac-3127-rte-engage'] = "Pass"
+    req.session.data['aac-3127-rte-engagerelationships'] = "Pass"
+    req.session.data['aac-3127-rte-engageresponsible'] = "Pass"
+    req.session.data['aac-3127-rte-engagepromote'] = "Pass"
+    req.session.data['aac-3127-rte-complaint'] = "Pass"
+    req.session.data['aac-3127-rte-complaintpolicy'] = "Pass"
+    req.session.data['aac-3127-rte-contractforservices'] = "Pass"
+    req.session.data['aac-3127-rte-commitment'] = "Pass"
+    req.session.data['aac-3127-rte-process'] = "Pass"
+    req.session.data['aac-3127-rte-mathsandenglish'] = "Pass"
+    req.session.data['aac-3127-rte-subcontractors'] = "Pass"
+    req.session.data['aac-3127-rte-subcontractorsdue'] = "Pass"
+    req.session.data['aac-3127-pat-contact'] = "Pass"
+    req.session.data['aac-3127-pat-deliver'] = "Pass"
+    req.session.data['aac-3127-pat-engage-awarding'] = "Pass"
+    req.session.data['aac-3127-pat-engage-epao'] = "Pass"
+    req.session.data['aac-3127-pat-ensuring'] = "Pass"
+    req.session.data['aac-3127-pat-ensuring-frameworks'] = "Pass"
+    req.session.data['aac-3127-pat-otj'] = "Pass"
+    req.session.data['aac-3127-pat-ratio'] = "Pass"
+    req.session.data['aac-3127-pat-recruit'] = "Pass"
+    req.session.data['aac-3127-pat-starts'] = "Pass"
+    req.session.data['aac-3127-pat-supported'] = "Pass"
+    req.session.data['aac-3127-pat-transition'] = "Pass"
+    req.session.data['aac-3127-pat-type'] = "Pass"
+    req.session.data['aac-3127-pat-wheretrained'] = "Pass"
+    res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+  })
+
 	// Protect your apprentices
 
 		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/continuityplan', function (req,res) {
@@ -809,6 +850,19 @@ module.exports = function (router) {
 			res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 		})
 
+//
+// SUBMIT FOR MODERATION
+//
+
+  router.post('/staff-app/' + v + '/applications/assessor/3127/submit/submit-confirm', function (req,res) {
+    if (req.session.data['aac-3127-outcome-confirm'] === 'No') {
+      res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+    }
+    else {
+      req.session.data['apr3127'] = "submitted"
+      res.redirect('/staff-app/' + v + '/applications/assessor/3127/submit/confirmation')
+    }
+  })
 
 	
 // 
@@ -870,24 +924,78 @@ module.exports = function (router) {
 	// ASSESSOR - MODERATION
 	//
 
-	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/continuity', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+  router.get('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127-completed', function (req,res) {
+    req.session.data['aac-mod-3127-pya-continuityplan'] = "Pass"
+    req.session.data['aac-3127-pya-continuityplan'] = "Pass"
+    req.session.data['aac-3127-pya-equality'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding'] = "Pass"
+    req.session.data['aac-3127-pya-safeguarding-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-upload'] = "Pass"
+    req.session.data['aac-3127-pya-prevent-upload'] = "Pass"
+    req.session.data['aac-3127-pya-healthandsafety'] = "Pass"
+    req.session.data['aac-3127-pya-healthandsafety-responsible'] = "Pass"
+    req.session.data['aac-3127-pya-subcontractor'] = "Pass"
+    req.session.data['aac-3127-rte-engage'] = "Pass"
+    req.session.data['aac-3127-rte-engagerelationships'] = "Pass"
+    req.session.data['aac-3127-rte-engageresponsible'] = "Pass"
+    req.session.data['aac-3127-rte-engagepromote'] = "Pass"
+    req.session.data['aac-3127-rte-complaint'] = "Pass"
+    req.session.data['aac-3127-rte-complaintpolicy'] = "Pass"
+    req.session.data['aac-3127-rte-contractforservices'] = "Pass"
+    req.session.data['aac-3127-rte-commitment'] = "Pass"
+    req.session.data['aac-3127-rte-process'] = "Pass"
+    req.session.data['aac-3127-rte-mathsandenglish'] = "Pass"
+    req.session.data['aac-3127-rte-subcontractors'] = "Pass"
+    req.session.data['aac-3127-rte-subcontractorsdue'] = "Pass"
+    req.session.data['aac-3127-pat-contact'] = "Pass"
+    req.session.data['aac-3127-pat-deliver'] = "Pass"
+    req.session.data['aac-3127-pat-engage-awarding'] = "Pass"
+    req.session.data['aac-3127-pat-engage-epao'] = "Pass"
+    req.session.data['aac-3127-pat-ensuring'] = "Pass"
+    req.session.data['aac-3127-pat-ensuring-frameworks'] = "Pass"
+    req.session.data['aac-3127-pat-otj'] = "Pass"
+    req.session.data['aac-3127-pat-ratio'] = "Pass"
+    req.session.data['aac-3127-pat-recruit'] = "Pass"
+    req.session.data['aac-3127-pat-starts'] = "Pass"
+    req.session.data['aac-3127-pat-supported'] = "Pass"
+    req.session.data['aac-3127-pat-transition'] = "Pass"
+    req.session.data['aac-3127-pat-type'] = "Pass"
+    req.session.data['aac-3127-pat-wheretrained'] = "Pass"
+    res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
+  })
+
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/continuityplan', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})
 
-	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/equality', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/equality', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})
 
-	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/safeguarding', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/safeguarding', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})
 
-	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/healthandsafety', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/healthandsafety', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})
 
-	router.post('/staff-app/' + v + '/applications/assessor/moderate/pya/subcontractor', function (req,res) {
-		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist')
+	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/subcontractor', function (req,res) {
+		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})
 
+  router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
+  })
+
+  router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm', function (req,res) {
+    if (req.session.data['aac-mod-3127-outcome-confirm'] === 'No') {
+      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit')
+    }
+    else {
+      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')
+    }
+  })
 }

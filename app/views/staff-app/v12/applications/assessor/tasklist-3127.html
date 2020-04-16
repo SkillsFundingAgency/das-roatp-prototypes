@@ -287,13 +287,9 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Supporting apprentices</a>
+								<a href="javascript:preventDefault();" style="color: grey;">Supporting apprentices</a>
 							</span>
-							{% if (data['aac-3127-pat-ensuring']) and (data['aac-3127-pat-engage-awarding']) %}
-								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-3127-pat-ensuring'] %}
-								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
-							{% endif %}
+                            <strong class="govuk-tag app-task-list__task-notrequired">Not required</strong>
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">

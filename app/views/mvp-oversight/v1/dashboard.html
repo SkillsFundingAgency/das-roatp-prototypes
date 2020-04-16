@@ -1,0 +1,29 @@
+{% set current_section = "dashboard" %}
+{% extends "layouts/layout_staff_v7.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">ESFA admin services</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h2 class="govuk-heading-l">RoATP application outcomes</h2>
+			<ul class="govuk-list govuk-list--nobullet">
+				<li><a href="list">Go to RoATP application outcomes</a></li>
+			</ul>
+		</div>
+	</div>
+      
+{% endblock %}
+      

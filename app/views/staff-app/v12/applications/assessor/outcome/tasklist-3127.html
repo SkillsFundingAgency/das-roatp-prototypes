@@ -1,0 +1,280 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">Application assessment overview</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+	
+			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">UKPRN</dt>
+					<dd class="govuk-summary-list__value">20098778</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Legal name</dt>
+					<dd class="govuk-summary-list__value">CHRYSALIS</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Provider route</dt>
+					<dd class="govuk-summary-list__value">Main</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application submitted date</dt>
+					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Assessors ?? or Moderator ??</dt>
+					<dd class="govuk-summary-list__value">Joan Smith and Martin Knowles</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Outcome date ???</dt>
+					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Outcome ??</dt>
+					<dd class="govuk-summary-list__value">Pass ?? Fail ??</dd>
+				</div>
+			</dl>
+
+			<ol class="app-task-list">
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">1. </span> Protecting your apprentices checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Equality and diversity policy</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Safeguarding and Prevent duty policy</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Health and safety policy</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Acting as a subcontractor</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">2. </span> Readiness to engage checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Engaging with employers</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Complaints policy</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Contract for services template with employers</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Commitment statement template</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Prior learning of apprentices</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Working with subcontractors</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">3. </span> Planning apprenticeship training checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Type of apprenticeship training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Supporting apprentices</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Forecasting starts</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Off the job training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault();">Where apprentices will be trained</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">4. </span> Delivering apprenticeship training checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Overall accountability for apprenticeships</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Management hierarchy for apprenticeships</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Quality and high standards in apprenticeship training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Developing and delivering training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Sectors and employee experience</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Policy for professional development of employees</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2 class="app-task-list__section">
+						<span class="app-task-list__section-number">5. </span> Evaluating apprenticeship training checks
+					</h2>
+					<ul class="app-task-list__items">
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Process for evaluating the quality of training delivered</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Evaluating the quality of apprenticeship training</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+						<li class="app-task-list__item">
+							<span class="app-task-list__task-name">
+								<a href="javascript:preventDefault()">Systems and processes to collect apprenticeship data</a>
+							</span>
+							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+						</li>
+					</ul>
+				</li>
+				<li>
+				</li>
+			</ol>
+
+		</div>
+	</div>
+      
+{% endblock %}
+
+{% if useAutoStoreData %}
+  {% block footer %}
+    {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          },
+          {
+            href: "tasklist-3127-completed",
+            text: "Complete all tasks"
+          }
+        ]
+      }
+    }) }}
+  {% endblock %}
+{% endif %}

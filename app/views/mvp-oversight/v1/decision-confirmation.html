@@ -24,13 +24,13 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-full">
-			<h1 class="govuk-heading-xl">What’s the overall outcome of this application?</h1>
+			<h1 class="govuk-heading-xl">Are you sure this is a {{ data['oversight-abc'] | lower }}?</h1>
 		</div>
 	</div>
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
-	
+
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>
@@ -56,27 +56,37 @@
 
 			<form action="" method="post" class="form">
 
-				<p class="govuk-body">We’ll send this outcome to the applicant.</p>
+				<p class="govuk-body">We’ll send the applicant:</p>
+				<ul class="govuk-list govuk-list--bullet">
+				    <li>an overall outcome</li>
+                    {% if data['oversight-abc'] == "Successful application" %}
+				    <li>a financial health grade</li>
+				    {% elseif data['oversight-abc'] == "Unsuccessful application" %}
+				    <li>their application showing which questions they failed</li>
+                    {% endif %}
+				    <li>their next steps</li>
+                </ul>
+                {% if data['oversight-abc'] == "Successful application" %}
+				<p class="govuk-body">We’ll also set this provider’s status as ‘on-boarding’ on the staff app.</p>
+                {% endif %}
 
 				{{ govukRadios({
-					name: "oversight-abc",
+					name: "oversight-abc-confirm",
 					items: [
 						{
-							value: "Successful application",
-							text: "Successful application",
-							checked: checked("oversight-abc", "Successful application")
+							value: "Yes",
+							text: "Yes"
 						},
 						{
-							value: "Unsuccessful application",
-							text: "Unsuccessful application",
-							checked: checked("oversight-abc", "Unsuccessful application")
+							value: "No",
+							text: "No"
 						}
 					]
 				}) }}
 
 				{{ govukButton({
 					classes: "govuk-!-margin-top-5",
-					text: "Save overall outcome"
+					text: "Save and continue"
 				}) }}
 
 			</form>

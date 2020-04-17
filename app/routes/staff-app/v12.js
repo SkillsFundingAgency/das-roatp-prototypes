@@ -689,6 +689,7 @@ module.exports = function (router) {
     req.session.data['aac-3127-pat-transition'] = "Pass"
     req.session.data['aac-3127-pat-type'] = "Pass"
     req.session.data['aac-3127-pat-wheretrained'] = "Pass"
+    req.session.data['aac-3127-dat-sectors'] = "Pass"
     res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
   })
 
@@ -826,6 +827,28 @@ module.exports = function (router) {
 	router.post('/staff-app/' + v + '/applications/assessor/3127/pat/where-trained', function (req,res) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
 	})
+
+  // DAT
+
+  // Sectors
+
+    router.post('/staff-app/' + v + '/applications/assessor/3127/dat/sectors-creative', function (req,res) {
+      res.redirect('/staff-app/' + v + '/applications/assessor/3127/dat/sectors-tasklist')
+    })
+
+    router.post('/staff-app/' + v + '/applications/assessor/3127/dat/sectors-digital', function (req,res) {
+      res.redirect('/staff-app/' + v + '/applications/assessor/3127/dat/sectors-tasklist')
+    })
+
+    router.get('/staff-app/' + v + '/applications/assessor/3127/dat/sectors-save', function (req,res) {
+      if (req.session.data['aac-3127-dat-sectors-creative'] === "Pass" && req.session.data['aac-3127-dat-sectors-digital'] === "Pass"){
+        req.session.data['aac-3127-dat-sectors'] = "Pass"
+      }
+      else {
+        req.session.data['aac-3127-dat-sectors'] = "Fail"
+      }
+      res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+    })
 
 
 	// Evaluating apprenticeship training
@@ -965,6 +988,7 @@ module.exports = function (router) {
     req.session.data['aac-3127-pat-transition'] = "Pass"
     req.session.data['aac-3127-pat-type'] = "Pass"
     req.session.data['aac-3127-pat-wheretrained'] = "Pass"
+    req.session.data['aac-3127-dat-sectors'] = "Pass"
     res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
   })
 

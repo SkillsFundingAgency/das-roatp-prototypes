@@ -336,10 +336,16 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Management hierarchy for apprenticeships</a>
+								<a href="3127/dat/management-hierarchy">Management hierarchy for apprenticeships</a>
 							</span>
-							{% if data['aac-3127-pat-wheretrained'] %}
+							{% if data['aac-3127-dat-management-hierarchy'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
+							{% if data['aac-3127-dat-management-hierarchy'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% endif %}
+							{% if data['aac-3127-dat-management-hierarchy'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
@@ -360,10 +366,13 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Sectors and employee experience</a>
+								<a href="3127/dat/sectors-tasklist">Sectors and employee experience</a>
 							</span>
-							{% if data['aac-3127-pat-wheretrained'] %}
+							{% if data['aac-3127-dat-sectors'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
+							{% if data['aac-3127-dat-sectors'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">

@@ -33,7 +33,8 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
 					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Assessors</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 1</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 2</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
@@ -44,7 +45,8 @@
 					<td class="govuk-table__cell">APR3127</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;">Martin Clarke<br><a href="assessor/assign-3127">Assign to me</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;">Martin Clarke<br></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="assessor/assign-3127">Assign to me</a></td>
 				</tr>
 				{% endif %}
 				{% if data['apr4291'] != "assigned" %}
@@ -55,6 +57,7 @@
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
 					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Assign to me</a></td>
+					<td class="govuk-table__cell" style="white-space: nowrap;"><a href="javascript:preventDefault()">Assign to me</a></td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
@@ -64,6 +67,7 @@
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">STELLA NOVA</td>
@@ -71,6 +75,7 @@
 					<td class="govuk-table__cell">APR6</td>
 					<td class="govuk-table__cell">Supporting</td>
 					<td class="govuk-table__cell">22 Oct 2019</td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
 					<td class="govuk-table__cell"><a href="javascript:preventDefault()">Assign to me</a></td>
 				</tr>
 			</tbody>
@@ -87,7 +92,8 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
 					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Assessors</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 1</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 2</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
@@ -98,7 +104,8 @@
 					<td class="govuk-table__cell">APR3127</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">Martin&nbsp;Clarke<br>Joan&nbsp;Smith</td>
+					<td class="govuk-table__cell">Martin&nbsp;Clarke</td>
+					<td class="govuk-table__cell">Joan&nbsp;Smith</td>
 				</tr>
 				{% endif %}
 				{% if data['apr4291'] == "assigned" %}
@@ -108,7 +115,8 @@
 					<td class="govuk-table__cell">APR4291</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">Joan Smith</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
@@ -117,7 +125,8 @@
 					<td class="govuk-table__cell">APR4102</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">17 Oct 2019</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;">{{ data['aac-4102-assessor1'] }}<br>{{ data['aac-4102-assessor2'] }}</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">BOOK BOT</td>
@@ -125,7 +134,8 @@
 					<td class="govuk-table__cell">APR97</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">16 Oct 2019</td>
-					<td class="govuk-table__cell">David&nbsp;Collins<br>Andy&nbsp;Walton</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">KNOWTABLY</td>
@@ -133,7 +143,8 @@
 					<td class="govuk-table__cell">APR13</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">14 Oct 2019</td>
-					<td class="govuk-table__cell">Gemma&nbsp;Firth<br>James&nbsp;Cooke</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell">MOVING THE GRADE</td>
@@ -141,7 +152,8 @@
 					<td class="govuk-table__cell">APR187</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">14 Oct 2019</td>
-					<td class="govuk-table__cell">Jessica&nbsp;Florence<br>David&nbsp;Jennings</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 			</tbody>
 		</table>
@@ -157,7 +169,8 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
 					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Date application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header">Assessors</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 1</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Assessor 2</th>
 					<th aria-sort="none" class="govuk-table__header" scope="col">Status</th>
 				</tr>
 			</thead>
@@ -169,7 +182,8 @@
 					<td class="govuk-table__cell">APR3127</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">Martin&nbsp;Clarke<br>Joan&nbsp;Smith</td>
+					<td class="govuk-table__cell">Martin&nbsp;Clarke</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell" style="white-space: nowrap">New</td>
 				</tr>
 				{% endif %}
@@ -179,7 +193,8 @@
 					<td class="govuk-table__cell">APR314</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;">Joan Smith<br>Martin Knowles</td>
+					<td class="govuk-table__cell">Martin&nbsp;Clarke</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell" style="white-space: nowrap">In moderation</td>
 				</tr>
 				<tr class="govuk-table__row">
@@ -188,8 +203,9 @@
 					<td class="govuk-table__cell">APR231</td>
 					<td class="govuk-table__cell">Employer</td>
 					<td class="govuk-table__cell">21 Oct 2019</td>
-					<td class="govuk-table__cell" style="white-space: nowrap;">Peter Holdsworth<br>Paul Etherington</td>
-					<td class="govuk-table__cell" style="white-space: nowrap">Waiting for assessor</td>
+					<td class="govuk-table__cell">Martin&nbsp;Clarke</td>
+					<td class="govuk-table__cell">Joan Smith</td>
+					<td class="govuk-table__cell">Waiting for assessor</td>
 				</tr>
 			</tbody>
 		</table>

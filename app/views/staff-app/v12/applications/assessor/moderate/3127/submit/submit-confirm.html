@@ -28,7 +28,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Assessor outcome</span>
-			<h1 class="govuk-heading-xl">Are you sure you want to pass this application?</h1>
+			<h1 class="govuk-heading-xl">Are you sure you want to {% if data['aac-mod-3127-outcome'] == 'Pass this application' %}pass{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}fail{%endif%} this application?</h1>
 
 			<form action="" method="post" class="form">
 			<p class="govuk-body">
@@ -38,10 +38,17 @@
 				Application submitted date: 18 Oct 2019
 			</p>
 
+			 {% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
 			    {{ govukWarningText({
 				    text: "This application will pass and go to governance.",
 				    iconFallbackText: "Warning"
 			    }) }}
+			 {% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
+			    {{ govukWarningText({
+				    text: "This application will fail and go to governance.",
+				    iconFallbackText: "Warning"
+			    }) }}
+			 {% endif %}
 
 				{{ govukRadios({
 					idPrefix: "aac-mod-3127-outcome-confirm",

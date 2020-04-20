@@ -30,7 +30,12 @@
 				</h1>
 				<div class="govuk-panel__body">
 					Outcome saved as:
-					<strong>Pass
+					<strong>
+					{% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
+					Pass
+					{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
+					Fail
+					{% endif %}
 					</strong>
 				</div>			</div>
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">

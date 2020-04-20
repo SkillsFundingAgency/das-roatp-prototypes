@@ -52,8 +52,11 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong>
+						{% if data['moderateFails'] > 0 %}
+						<td class="govuk-table__cell">{{data['moderateFails']}}</td>
+						{% else %}
 						<td class="govuk-table__cell">0</td>
-						</td>
+						{% endif %}
 					</tr>
  				</tbody>
 			</table>
@@ -68,11 +71,8 @@
           	value: data['aac-mod-3127-outcome-clarify'],
 						maxwords: 500,
 						label: {
-							text: "Enter your clarification comments"
-						},
-                        hint: {
-                            text: "The applicant can use this information to change and resubmit their application."
-                        }
+							text: "Enter your comments"
+						}
 					}) }}
 				{% endset -%}
 
@@ -100,10 +100,19 @@
 					}) }}
 				{% endset -%}
 
+				{% if data['moderateFails'] > 0 %}
 				{{ govukRadios({
 					idPrefix: "aac-mod-3127-outcome-conditional",
 					name: "aac-mod-3127-outcome",
 					items: [
+						{
+							value: "Pass this application",
+							text: "Pass this application",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Pass this application")
+						},
 						{
 							value: "Fail this application",
 							text: "Fail this application",
@@ -113,15 +122,39 @@
 							checked: checked("aac-mod-3127-outcome", "Fail this application")
 						},
 						{
+							value: "Ask for clarification",
+							text: "Ask for clarification",
+							conditional: {
+								html: askForClarificationHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Ask for clarification")
+						}
+					]
+				}) }}
+				{% else %}
+				{{ govukRadios({
+					idPrefix: "aac-mod-3127-outcome-conditional",
+					name: "aac-mod-3127-outcome",
+					items: [
+						{
 							value: "Pass this application",
 							text: "Pass this application",
 							conditional: {
 								html: passHtml
 							},
 							checked: checked("aac-mod-3127-outcome", "Pass this application")
+						},
+						{
+							value: "Fail this application",
+							text: "Fail this application",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Fail this application")
 						}
 					]
 				}) }}
+				{% endif %}
 
 				{{ govukButton({
 					text: "Save and continue",

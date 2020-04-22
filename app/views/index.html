@@ -80,8 +80,51 @@
 
       <h3 class="govuk-heading-m">RoATP Assessor Journey</h3>
 
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+            <a href="/staff-app/v12/">Public Beta - Staff App v12 - Assessor</a>
+            <strong class="govuk-tag govuk-tag-blue govuk-!-margin-left-2">WIP</strong>
+            <br>
+            <span class="govuk-caption-m">
+              Created on: 6th Apr 2020<br>
+              Last updated: 22nd Apr 2020<br>
+              User research:
+            </span>
+          </p>
+          <details class="govuk-details govuk-!-margin-left-5 govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Background information (README)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">The prototype was last updated in Apr 2020.</p>
+              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Assessor</h4>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Ability to assign yourself as an assessor of an application</li>
+                <li>Ability for two assessors to assign themselves to an application in order to carry out a blind assessment</li>
+                <li>An application will appear in the 'New' tab <b>IF</b> there is at least one assessor space available <b>AND</b> that you are not an assessor assigned to the application already</li>
+                <li>An application will appear in the 'In progress' tab <b>IF</b> you are the only assessor on the application <b>OR</b> both assessor spots are filled</li>
+                <li>An application will appear in the 'Moderation' tab <b>IF</b> both assessors have completed their blind assessments</li>
+                <li>The task list shown when clicking 'Moderate application' from the 'Moderation' tab will:
+                  <ul>
+                    <li>Display all sections that were available to the assessor, showing a pass / fail against sections which have a consensus reached by the two assessors. No watermark tag will be against sections which have disparity between the assessors.</li>
+                    <li>Moderating a section will display the original question, the applicants answer, the guidance shown to the applicant in the apply journey, the outcome and comments of both blind assessments, and the ability to record an outcome to the moderation</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details govuk-!-margin-left-5">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1511" target="_blank">APR-1511 - Assessor happy path</a></li>
+              </ul>
+            </div>
+          </details>
+
       <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-        <a href="/mvp-assessor/v5/" target="blank">MVS - Assessor Journey v5</a>
+        <a href="/mvp-assessor/v5/" target="blank">MVS - Private Beta - Assessor Journey v5</a>
         <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
         <br>
         <span class="govuk-caption-m">
@@ -325,54 +368,6 @@
           -->
         </span>
       </p>
-
-<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-      <h2 class="govuk-heading-l">Designs intended for Public Beta</h2>
-
-          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-            <a href="/staff-app/v12/">Staff App v12 - Gateway &amp; Assessor</a>
-            <strong class="govuk-tag govuk-tag-blue govuk-!-margin-left-2">WIP</strong>
-            <br>
-            <span class="govuk-caption-m">
-              Created on: 6th Apr 2020<br>
-              Last updated: 6th Apr 2020<br>
-              User research:
-            </span>
-          </p>
-          <details class="govuk-details govuk-!-margin-left-5 govuk-!-margin-bottom-0">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">Background information (README)</span>
-            </summary>
-            <div class="govuk-details__text">
-              <p class="govuk-body">The prototype was last updated in Apr 2020.</p>
-              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Assessor</h4>
-              <p class="govuk-body-s">Accessed by signing in with assessor@esfa.gov.uk email, no password</p>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>Ability to assign yourself as an assessor of an application</li>
-                <li>Ability for two assessors to assign themselves to an application in order to carry out a blind assessment</li>
-                <li>An application will appear in the 'New' tab <b>IF</b> there is at least one assessor space available <b>AND</b> that you are not an assessor assigned to the application already</li>
-                <li>An application will appear in the 'In progress' tab <b>IF</b> you are the only assessor on the application <b>OR</b> both assessor spots are filled</li>
-                <li>An application will appear in the 'Moderation' tab <b>IF</b> both assessors have completed their blind assessments</li>
-                <li>The task list shown when clicking 'Moderate application' from the 'Moderation' tab will:
-                  <ul>
-                    <li>Display all sections that were available to the assessor, showing a pass / fail against sections which have a consensus reached by the two assessors. No watermark tag will be against sections which have disparity between the assessors.</li>
-                    <li>Moderating a section will display the original question, the applicants answer, the guidance shown to the applicant in the apply journey, the outcome and comments of both blind assessments, and the ability to record an outcome to the moderation</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </details>
-          <details class="govuk-details govuk-!-margin-left-5">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
-            </summary>
-            <div class="govuk-details__text">
-              <ul class="govuk-list govuk-list--bullet">
-                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1511" target="_blank">APR-1511 - Assessor happy path</a></li>
-              </ul>
-            </div>
-          </details>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 

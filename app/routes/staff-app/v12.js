@@ -25,11 +25,7 @@ function govDateTime() {
 module.exports = function (router) {
 
 	router.post('/staff-app/' + v + '/esfa-sign-in', function (req, res) {
-		if (req.session.data['staff-email'] == "assessor@esfa.gov.uk"){
-			res.redirect('/staff-app/' + v + '/applications/applications-assessor')
-		} else {
-			res.redirect('/staff-app/' + v + '/dashboard')
-		}
+	  res.redirect('/staff-app/' + v + '/applications/applications-assessor')
 	})
 
 	// Training Provider Added

@@ -81,13 +81,13 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Equality and diversity policy</a>
 							</span>
-							{% if data['aac-mod-3127-pya-equality'] == "Pass" %}
+							{% if data['aac-3127-pya-equality'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-pya-equality'] == "Fail" %}
+							{% if data['aac-3127-pya-equality'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-pya-equality'] == "In progress" %}
+							{% if data['aac-3127-pya-equality'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
@@ -96,21 +96,21 @@
 								<a href="javascript:preventDefault();">Safeguarding and Prevent duty policy</a>
 							</span>
 							{% set safeguardingFails = 0 %}
-                            {% if (data['aac-mod-3127-pya-safeguarding'] == "Fail") %}
+                            {% if (data['aac-3127-pya-safeguarding'] == "Fail") %}
 							{% set safeguardingFails = safeguardingFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-pya-safeguarding-responsible'] == "Fail") %}
+                            {% if (data['aac-3127-pya-safeguarding-responsible'] == "Fail") %}
 							{% set safeguardingFails = safeguardingFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-pya-prevent-responsible'] == "Fail") %}
+                            {% if (data['aac-3127-pya-prevent-responsible'] == "Fail") %}
 							{% set safeguardingFails = safeguardingFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-pya-prevent-upload'] == "Fail") %}
+                            {% if (data['aac-3127-pya-prevent-upload'] == "Fail") %}
 							{% set safeguardingFails = safeguardingFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-pya-safeguarding'] == "Pass") and (data['aac-mod-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-mod-3127-pya-prevent-responsible'] == "Pass") and (data['aac-mod-3127-pya-prevent-upload'] == "Pass")  %}
+							{% if (data['aac-3127-pya-safeguarding'] == "Pass") and (data['aac-3127-pya-safeguarding-responsible'] == "Pass") and (data['aac-3127-pya-prevent-responsible'] == "Pass") and (data['aac-3127-pya-prevent-upload'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-pya-safeguarding'] == "In progress") or (data['aac-mod-3127-pya-safeguarding-responsible'] == "In progress") or (data['aac-mod-3127-pya-prevent-responsible'] == "In progress") or (data['aac-mod-3127-pya-prevent-upload'] == "In progress")  %}
+							{% elseif (data['aac-3127-pya-safeguarding'] == "In progress") or (data['aac-3127-pya-safeguarding-responsible'] == "In progress") or (data['aac-3127-pya-prevent-responsible'] == "In progress") or (data['aac-3127-pya-prevent-upload'] == "In progress")  %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif safeguardingFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
@@ -123,15 +123,15 @@
 								<a href="javascript:preventDefault();">Health and safety policy</a>
 							</span>
 							{% set healthAndSafetyFails = 0 %}
-                            {% if (data['aac-mod-3127-pya-healthandsafety'] == "Fail") %}
+                            {% if (data['aac-3127-pya-healthandsafety'] == "Fail") %}
 							{% set healthAndSafetyFails = healthAndSafetyFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-pya-healthandsafety-responsible'] == "Fail") %}
+                            {% if (data['aac-3127-pya-healthandsafety-responsible'] == "Fail") %}
 							{% set healthAndSafetyFails = healthAndSafetyFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-pya-healthandsafety'] == "Pass") and (data['aac-mod-3127-pya-healthandsafety-responsible'] == "Pass") %}
+							{% if (data['aac-3127-pya-healthandsafety'] == "Pass") and (data['aac-3127-pya-healthandsafety-responsible'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-pya-healthandsafety'] == "In progress") or (data['aac-mod-3127-pya-healthandsafety-responsible'] == "In progress") %}
+							{% elseif (data['aac-3127-pya-healthandsafety'] == "In progress") or (data['aac-3127-pya-healthandsafety-responsible'] == "In progress") %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif healthAndSafetyFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
@@ -143,13 +143,13 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Acting as a subcontractor</a>
 							</span>
-							{% if data['aac-mod-3127-pya-subcontractor'] == "Pass" %}
+							{% if data['aac-3127-pya-subcontractor'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-pya-subcontractor'] == "Fail" %}
+							{% if data['aac-3127-pya-subcontractor'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-pya-subcontractor'] == "In progress" %}
+							{% if data['aac-3127-pya-subcontractor'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
@@ -165,21 +165,21 @@
 								<a href="javascript:preventDefault();">Engaging with employers</a>
 							</span>
 							{% set engagingEmployersFails = 0 %}
-                            {% if (data['aac-mod-3127-rte-engage'] == "Fail") %}
+                            {% if (data['aac-3127-rte-engage'] == "Fail") %}
 							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-engagerelationships'] == "Fail") %}
+                            {% if (data['aac-3127-rte-engagerelationships'] == "Fail") %}
 							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-engageresponsible-'] == "Fail") %}
+                            {% if (data['aac-3127-rte-engageresponsible-'] == "Fail") %}
 							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-engagepromote'] == "Fail") %}
+                            {% if (data['aac-3127-rte-engagepromote'] == "Fail") %}
 							{% set engagingEmployersFails = engagingEmployersFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-rte-engage'] == "Pass") and (data['aac-mod-3127-rte-engagerelationships'] == "Pass") and (data['aac-mod-3127-rte-engageresponsible'] == "Pass") and (data['aac-mod-3127-rte-engagepromote'] == "Pass")  %}
+							{% if (data['aac-3127-rte-engage'] == "Pass") and (data['aac-3127-rte-engagerelationships'] == "Pass") and (data['aac-3127-rte-engageresponsible'] == "Pass") and (data['aac-3127-rte-engagepromote'] == "Pass")  %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-rte-engage'] == "In progress") or (data['aac-mod-3127-rte-engagerelationships'] == "In progress") or (data['aac-mod-3127-rte-engageresponsible'] == "In progress") or (data['aac-mod-3127-rte-engagepromote'] == "In progress")  %}
+							{% elseif (data['aac-3127-rte-engage'] == "In progress") or (data['aac-3127-rte-engagerelationships'] == "In progress") or (data['aac-3127-rte-engageresponsible'] == "In progress") or (data['aac-3127-rte-engagepromote'] == "In progress")  %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif engagingEmployersFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 4</strong>
@@ -192,15 +192,15 @@
 								<a href="javascript:preventDefault();">Complaints policy</a>
 							</span>
 							{% set complaintsFails = 0 %}
-                            {% if (data['aac-mod-3127-rte-complaint'] == "Fail") %}
+                            {% if (data['aac-3127-rte-complaint'] == "Fail") %}
 							{% set complaintsFails = complaintsFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-complaintpolicy'] == "Fail") %}
+                            {% if (data['aac-3127-rte-complaintpolicy'] == "Fail") %}
 							{% set complaintsFails = complaintsFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-rte-complaint'] == "Pass") and (data['aac-mod-3127-rte-complaintpolicy'] == "Pass") %}
+							{% if (data['aac-3127-rte-complaint'] == "Pass") and (data['aac-3127-rte-complaintpolicy'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-rte-complaint'] == "In progress") or (data['aac-mod-3127-rte-complaintpolicy'] == "In progress") %}
+							{% elseif (data['aac-3127-rte-complaint'] == "In progress") or (data['aac-3127-rte-complaintpolicy'] == "In progress") %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif complaintsFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
@@ -212,13 +212,13 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Contract for services template with employers</a>
 							</span>
-							{% if data['aac-mod-3127-rte-contractforservices'] == "Pass" %}
+							{% if data['aac-3127-rte-contractforservices'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-rte-contractforservices'] == "Fail" %}
+							{% if data['aac-3127-rte-contractforservices'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-rte-contractforservices'] == "In progress" %}
+							{% if data['aac-3127-rte-contractforservices'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
@@ -226,13 +226,13 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Commitment statement template</a>
 							</span>
-							{% if data['aac-mod-3127-rte-commitment'] == "Pass" %}
+							{% if data['aac-3127-rte-commitment'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-rte-commitment'] == "Fail" %}
+							{% if data['aac-3127-rte-commitment'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
-							{% if data['aac-mod-3127-rte-commitment'] == "In progress" %}
+							{% if data['aac-3127-rte-commitment'] == "In progress" %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% endif %}
 						</li>
@@ -241,15 +241,15 @@
 								<a href="javascript:preventDefault();">Prior learning of apprentices</a>
 							</span>
 							{% set priorLearningFails = 0 %}
-                            {% if (data['aac-mod-3127-rte-process'] == "Fail") %}
+                            {% if (data['aac-3127-rte-process'] == "Fail") %}
 							{% set priorLearningFails = priorLearningFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-mathsandenglish'] == "Fail") %}
+                            {% if (data['aac-3127-rte-mathsandenglish'] == "Fail") %}
 							{% set priorLearningFails = priorLearningFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-rte-process'] == "Pass") and (data['aac-mod-3127-rte-mathsandenglish'] == "Pass") %}
+							{% if (data['aac-3127-rte-process'] == "Pass") and (data['aac-3127-rte-mathsandenglish'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-rte-process'] == "In progress") or (data['aac-mod-3127-rte-mathsandenglish'] == "In progress") %}
+							{% elseif (data['aac-3127-rte-process'] == "In progress") or (data['aac-3127-rte-mathsandenglish'] == "In progress") %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif priorLearningFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
@@ -262,15 +262,15 @@
 								<a href="javascript:preventDefault();">Working with subcontractors</a>
 							</span>
 							{% set subcontractorsFails = 0 %}
-                            {% if (data['aac-mod-3127-rte-subcontractors'] == "Fail") %}
+                            {% if (data['aac-3127-rte-subcontractors'] == "Fail") %}
 							{% set subcontractorsFails = subcontractorsFails + 1 %}
 							{% endif %}
-                            {% if (data['aac-mod-3127-rte-subcontractorsdue'] == "Fail") %}
+                            {% if (data['aac-3127-rte-subcontractorsdue'] == "Fail") %}
 							{% set subcontractorsFails = subcontractorsFails + 1 %}
 							{% endif %}
-							{% if (data['aac-mod-3127-rte-subcontractors'] == "Pass") and (data['aac-mod-3127-rte-subcontractorsdue'] == "Pass") %}
+							{% if (data['aac-3127-rte-subcontractors'] == "Pass") and (data['aac-3127-rte-subcontractorsdue'] == "Pass") %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif (data['aac-mod-3127-rte-subcontractors'] == "In progress") or (data['aac-mod-3127-rte-subcontractorsdue'] == "In progress") %}
+							{% elseif (data['aac-3127-rte-subcontractors'] == "In progress") or (data['aac-3127-rte-subcontractorsdue'] == "In progress") %}
 								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% elseif subcontractorsFails == 1 %}
 								<strong class="govuk-tag app-task-list__task-negative">1 Fail out of 2</strong>
@@ -289,7 +289,7 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Type of apprenticeship training</a>
 							</span>
-							{% if data['aac-mod-3127-pat-type'] %}
+							{% if data['aac-3127-pat-type'] %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
 						</li>
@@ -303,9 +303,9 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Forecasting starts</a>
 							</span>
-							{% if (data['aac-mod-3127-pat-starts']) and (data['aac-mod-3127-pat-ratio']) %}
+							{% if (data['aac-3127-pat-starts']) and (data['aac-3127-pat-ratio']) %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-3127-pat-starts'] %}
+							{% elseif data['aac-3127-pat-starts'] %}
 								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
 							{% endif %}
 						</li>
@@ -313,9 +313,9 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Off the job training</a>
 							</span>
-							{% if (data['aac-mod-3127-pat-deliver']) and (data['aac-mod-3127-pat-otj']) %}
+							{% if (data['aac-3127-pat-deliver']) and (data['aac-3127-pat-otj']) %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-mod-3127-pat-deliver'] %}
+							{% elseif data['aac-3127-pat-deliver'] %}
 								<strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
 							{% endif %}
 						</li>
@@ -323,7 +323,7 @@
 							<span class="app-task-list__task-name">
 								<a href="javascript:preventDefault();">Where apprentices will be trained</a>
 							</span>
-							{% if data['aac-mod-3127-pat-wheretrained'] %}
+							{% if data['aac-3127-pat-wheretrained'] %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% endif %}
 						</li>

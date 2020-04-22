@@ -69,31 +69,23 @@
             </li>
         </ul>
       </li>
-      <li>
-        <h2 class="app-task-list__section">
-      		Save sectors and employees experience checks
-      	</h2>
-      	<ul class="app-task-list__items govuk-!-padding-left-0">
-      						<li class="app-task-list__item">
-      							{% if
-      							    not (data['aac-3127-dat-sectors-creative']                    ) or
-      							    not (data['aac-3127-dat-sectors-digital']                    ) or
-      							    (data['aac-3127-dat-sectors-creative'] == "In progress"                    ) or
-      							    (data['aac-3127-dat-sectors-digital'] == "In progress"                    )
-                                   %}
-      							<span class="app-task-list__task-name">
-      							Save and continue
-      							</span>
-      							{% else %}
-      							<span class="app-task-list__task-name">
-      								<a href="sectors-save">Save and continue</a>
-      							</span>
-                                  {% endif %}
-      						</li>
-      					</ul>
-      </li>
-    </ol>
 
+        {% if
+            not (data['aac-3127-dat-sectors-creative']                    ) or
+            not (data['aac-3127-dat-sectors-digital']                     ) or
+            (data['aac-3127-dat-sectors-creative'] == "In progress"       ) or
+            (data['aac-3127-dat-sectors-digital'] == "In progress"        )
+        %}
+        <p class="govuk-body">
+            <a href="javascript:preventDefault();" class="govuk-link--muted">Save and continue</a>
+        </p>
+        {% else %}
+        <p class="govuk-body">
+        	<a href="sectors-save">Save and continue</a>
+        </p>
+        {% endif %}
+
+            </ol>
 		</div>
 	</div>
 

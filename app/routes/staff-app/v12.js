@@ -850,6 +850,10 @@ module.exports = function (router) {
       res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
     })
 
+  router.post('/staff-app/' + v + '/applications/assessor/3127/dat/management-hierarchy', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
+  })
+
 
 	// Evaluating apprenticeship training
 	

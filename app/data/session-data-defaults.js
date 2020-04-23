@@ -55,7 +55,7 @@ module.exports = {
 
     "aac-new-count": 4,
     "aac-inprogress-count": 4,
-    "aac-moderation-count": 2,
+    "aac-moderation-count": 1,
     "aac-clarification-count": 3,
 
     "aac-loggedinas": "Joan Smith",

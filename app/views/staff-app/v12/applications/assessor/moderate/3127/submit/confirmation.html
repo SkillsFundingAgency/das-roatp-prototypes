@@ -35,9 +35,12 @@
 					Pass
 					{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
 					Fail
+					{% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
+					Clarification
 					{% endif %}
 					</strong>
-				</div>			</div>
+				</div>
+			</div>
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">UKPRN</dt>

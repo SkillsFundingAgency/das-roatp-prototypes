@@ -1031,10 +1031,8 @@ module.exports = function (router) {
     req.session.data['aac-mod-3127-pya-continuityplan'] = "Fail"
     req.session.data['aac-mod-3127-pya-equality'] = "Fail"
     req.session.data['aac-mod-3127-pya-safeguarding'] = "Pass"
-    req.session.data['aac-mod-3127-pya-safeguarding'] = "Pass"
     req.session.data['aac-mod-3127-pya-safeguarding-responsible'] = "Pass"
     req.session.data['aac-mod-3127-pya-prevent-responsible'] = "Pass"
-    req.session.data['aac-mod-3127-pya-prevent-upload'] = "Pass"
     req.session.data['aac-mod-3127-pya-prevent-upload'] = "Pass"
     req.session.data['aac-mod-3127-pya-healthandsafety'] = "Pass"
     req.session.data['aac-mod-3127-pya-healthandsafety-responsible'] = "Pass"
@@ -1090,7 +1088,12 @@ module.exports = function (router) {
 	})
 
   router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit', function (req,res) {
-    res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
+    if (req.session.data['aac-mod-3127-outcome'] === 'Ask for clarification') {
+      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/clarify/continuityplan')
+    }
+    else {
+      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
+    }
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm', function (req,res) {
@@ -1098,10 +1101,18 @@ module.exports = function (router) {
       res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit')
     }
     else {
-      req.session.data['apr3127'] = "completed"
-      req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] - 1
-      req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
-      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')
+      if (req.session.data['aac-mod-3127-outcome'] === 'Ask for clarification') {
+        req.session.data['apr3127'] = "clarification"
+        req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] - 1
+        req.session.data['aac-clarification-count'] = req.session.data['aac-clarification-count'] + 1
+        res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')
+      }
+      else {
+        req.session.data['apr3127'] = "completed"
+        req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] - 1
+        req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
+        res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')
+      }
     }
   })
 }

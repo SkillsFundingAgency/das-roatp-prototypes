@@ -1,0 +1,111 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/assessor/moderate/tasklist-3127"
+			},
+			{
+				text: "Assessor outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Assessor outcome</span>
+			<h1 class="govuk-heading-xl">Clarification for  'Equality and diversity policy'</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+            </div><div class="govuk-grid-column-full"><table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Upload your organisation’s equality and diversity policy</th>
+                  <td class="govuk-table__cell"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/376381/Expecting_the_Unexpected_Reviewed.pdf" target="_blank">myrecruitmentlimited-continuity-plan.pdf</a></td>
+                </tr>
+              </tbody>
+            </table></div><div class="govuk-grid-column-two-thirds">
+
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">This must include how your organisation will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>promote the policy</li>
+				<li>get engagement towards the policy</li>
+				<li>train its employees in implementing the policy</li>
+				<li>consider the policy when recruiting, delivering apprenticeship training and working with employers and apprentices</li>
+			</ul>
+			<p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+			</div>
+			</details>
+
+			<h2 class="govuk-heading-m">Outcome of moderation</h2>
+			</div><div class="govuk-grid-column-full"><table class="govuk-table govuk-table__modoutcome">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Martin Knowles</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Comments</th>
+						<td class="govuk-table__cell">The upload doesn't include the diversity policy.</td>
+					</tr>
+				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+			{{ govukCharacterCount({
+              name: "aac-clarify-3127-pya-equality",
+              id: "aac-clarify-3127-pya-equality",
+          	  value: data['aac-clarify-3127-pya-equality'],
+			  maxwords: 500,
+			  label: {
+                text: "Enter your clarification comments for the provider"
+			  },
+              hint: {
+                text: "The applicant can use this information to change and resubmit their application."
+              }
+			}) }}
+
+			<p><a class="govuk-button" href="../submit-confirm">Save and continue</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

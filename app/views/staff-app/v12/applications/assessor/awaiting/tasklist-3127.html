@@ -29,6 +29,11 @@
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
+
+		<div class="overdue">
+		<h2 class="govuk-heading-m">Overdue</h2>
+		<p>Overdue etc etc <a href="">change outcome</a></p>
+        </div>
 	
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">
@@ -49,10 +54,6 @@
 				</div>
 				<div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Clarification requested date ??</dt>
-					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
-				</div>
-				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key">Clarification made date ??</dt>
 					<dd class="govuk-summary-list__value">18 Oct 2019</dd>
 				</div>
 				<div class="govuk-summary-list__row">
@@ -77,15 +78,9 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="3127/pya/continuityplan">Continuity plan for apprenticeship training</a>
+								<a href="javascript:preventDefault();">Continuity plan for apprenticeship training</a>
 							</span>
-							{% if data['aac-clarify-3127-pya-continuityplan'] == "Pass" %}
-								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
-							{% elseif data['aac-clarify-3127-pya-continuityplan'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
-							{% else %}
-								<strong class="govuk-tag app-task-list__task-clarify">Clarified</strong>
-							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
@@ -285,7 +280,7 @@
 							</span>
 							{% else %}
 							<span class="app-task-list__task-name">
-								<a href="../clarify/3127/submit/submit">Confirm assessor outcome</a>
+								<a href="../awaiting/3127/submit/submit">Confirm assessor outcome</a>
 							</span>
                             {% endif %}
 						</li>

@@ -14,7 +14,7 @@
 			},
 			{
 				text: "Application assessment overview",
-				href: "/staff-app/v12/applications/assessor/clarify/tasklist-3127"
+				href: "/staff-app/v12/applications/assessor/awaiting/tasklist-3127"
 			},
 			{
 				text: "Protecting your apprentices checks"
@@ -28,7 +28,7 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Protecting your apprentices checks</span>
-			<h1 class="govuk-heading-xl">Prevent duty policy</h1>
+			<h1 class="govuk-heading-xl">Overall responsibility for safeguarding</h1>
 
 			<p class="govuk-body">
 				UKPRN: 12345678<br>
@@ -46,8 +46,16 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Upload your organisation’s Prevent duty policy</th>
-                  <td class="govuk-table__cell"><a href="https://safeandsoundgroup.org.uk/safeguarding-policy/" target="_blank">xxx-limited-prevent-duty-policy.pdf</a></td>
+                  <th scope="row" class="govuk-table__header">Full name</th>
+                  <td class="govuk-table__cell">Adam Smith</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Email</th>
+                  <td class="govuk-table__cell"><a href="mailto:abc@123.com">abc@123.com</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Contact number</th>
+                  <td class="govuk-table__cell">07000123456</td>
                 </tr>
               </tbody>
             </table></div><div class="govuk-grid-column-two-thirds">
@@ -59,19 +67,8 @@
                 </span>
               </summary>
             <div class="govuk-details__text">
-			<p class="govuk-body">This must include how your organisation will:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>promote the policy</li>
-				<li>get commitment to the policy</li>
-				<li>train employees in implementing the policy</li>
-				<li>have a legal responsibility to fulfil the Prevent duty statement</li>
-				<li>protect apprentices and employees from radicalising influences</li>
-				<li>ensure apprentices and employees are resilient to extreme narratives</li>
-				<li>identify changes in behaviour of apprentices and employees</li>
-				<li>deal with any issues raised by apprentices or employees</li>
-			</ul>
-            <p>Find out about <a href="https://www.gov.uk/government/publications/prevent-duty-guidance" target="_blank" class="govuk-link">the Prevent duty (opens in a new window or tab)</a>.</p>
-            <p>The file must be a PDF and smaller than 5MB.</p>
+			<p class="govuk-body">This must be someone who has the overall responsibility, relevant knowledge and skills to manage safeguarding concerns.</p>
+			<p class="govuk-body">We’ll only contact them if there is a safeguarding concern.</p>
 			</div>
 			</details>
 
@@ -81,9 +78,9 @@
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-prevent-upload-pass",
-						id: "aac-3127-pya-prevent-upload-pass",
-          	value: data['aac-3127-pya-prevent-upload-pass'],
+						name: "aac-3127-pya-safeguarding-responsible-pass",
+						id: "aac-3127-pya-safeguarding-responsible-pass",
+          	value: data['aac-3127-pya-safeguarding-responsible-pass'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -93,9 +90,9 @@
 
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-prevent-upload-fail",
-						id: "aac-3127-pya-prevent-upload-fail",
-          	value: data['aac-3127-pya-prevent-upload-fail'],
+						name: "aac-3127-pya-safeguarding-responsible-fail",
+						id: "aac-3127-pya-safeguarding-responsible-fail",
+          	value: data['aac-3127-pya-safeguarding-responsible-fail'],
 						maxwords: 150,
 						label: {
 							text: "Add comments"
@@ -105,9 +102,9 @@
 
 				{% set inProgressHtml %}
 					{{ govukCharacterCount({
-						name: "aac-3127-pya-prevent-upload-inprogress",
-						id: "aac-3127-pya-prevent-upload-inprogress",
-          	value: data['aac-3127-pya-prevent-upload-inprogress'],
+						name: "aac-3127-pya-safeguarding-responsible-inprogress",
+						id: "aac-3127-pya-safeguarding-responsible-inprogress",
+          	value: data['aac-3127-pya-safeguarding-responsible-inprogress'],
 						maxwords: 150,
 						label: {
 							text: "Add comments (optional)"
@@ -116,8 +113,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-3127-pya-prevent-upload-conditional",
-					name: "aac-3127-pya-prevent-upload",
+					idPrefix: "aac-3127-pya-safeguarding-responsible-conditional",
+					name: "aac-3127-pya-safeguarding-responsible",
 					items: [
 						{
 							value: "Pass",
@@ -125,7 +122,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-3127-pya-prevent-upload", "Pass")
+							checked: checked("aac-3127-pya-safeguarding-responsible", "Pass")
 						},
 						{
 							value: "Fail",
@@ -133,7 +130,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-3127-pya-prevent-upload", "Fail")
+							checked: checked("aac-3127-pya-safeguarding-responsible", "Fail")
 						},
 						{
 							divider: "or"
@@ -144,7 +141,7 @@
 							conditional: {
 								html: inProgressHtml
 							},
-							checked: checked("aac-3127-pya-prevent-upload", "In progress")
+							checked: checked("aac-3127-pya-safeguarding-responsible", "In progress")
 						}
 					]
 				}) }}

@@ -16,6 +16,12 @@
     padding: 1em;
 }
 
+.overdue {
+  margin: 1em 0 2em 0;
+  border: 0.25em solid govuk-colour('red');
+  padding: 1em;
+}
+
 .call-to-action/*,
 .sops*/ {
     margin: 2em 0;

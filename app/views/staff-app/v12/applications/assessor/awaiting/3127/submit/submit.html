@@ -62,9 +62,9 @@
 
 				{% set askForClarificationHtml %}
 					{{ govukCharacterCount({
-						name: "aac-clarify-3127-outcome-clarify",
-						id: "aac-clarify-3127-outcome-clarify",
-          	value: data['aac-clarify-3127-outcome-clarify'],
+						name: "aac-awaiting-3127-outcome-awaiting",
+						id: "aac-awaiting-3127-outcome-awaiting",
+          	value: data['aac-awaiting-3127-outcome-awaiting'],
 						maxwords: 500,
 						label: {
 							text: "Add internal comments (optional)"
@@ -74,9 +74,9 @@
 
 				{% set passHtml %}
 					{{ govukCharacterCount({
-						name: "aac-clarify-3127-outcome-pass",
-						id: "aac-clarify-3127-outcome-pass",
-          	value: data['aac-clarify-3127-outcome-pass'],
+						name: "aac-awaiting-3127-outcome-pass",
+						id: "aac-awaiting-3127-outcome-pass",
+          	value: data['aac-awaiting-3127-outcome-pass'],
 						maxwords: 500,
 						label: {
 							text: "Add comments (optional)"
@@ -86,9 +86,9 @@
 
 				{% set failHtml %}
 					{{ govukCharacterCount({
-						name: "aac-clarify-3127-outcome-fail",
-						id: "aac-clarify-3127-outcome-fail",
-          	value: data['aac-clarify-3127-outcome-fail'],
+						name: "aac-awaiting-3127-outcome-fail",
+						id: "aac-awaiting-3127-outcome-fail",
+          	value: data['aac-awaiting-3127-outcome-fail'],
 						maxwords: 500,
 						label: {
 							text: "Enter your comments"
@@ -97,8 +97,8 @@
 				{% endset -%}
 
 				{{ govukRadios({
-					idPrefix: "aac-clarify-3127-outcome-conditional",
-					name: "aac-clarify-3127-outcome",
+					idPrefix: "aac-awaiting-3127-outcome-conditional",
+					name: "aac-awaiting-3127-outcome",
 					items: [
 						{
 							value: "Pass this application",
@@ -106,7 +106,7 @@
 							conditional: {
 								html: passHtml
 							},
-							checked: checked("aac-clarify-3127-outcome", "Pass this application")
+							checked: checked("aac-awaiting-3127-outcome", "Pass this application")
 						},
 						{
 							value: "Fail this application",
@@ -114,7 +114,7 @@
 							conditional: {
 								html: failHtml
 							},
-							checked: checked("aac-clarify-3127-outcome", "Fail this application")
+							checked: checked("aac-awaiting-3127-outcome", "Fail this application")
 						}
 					]
 				}) }}

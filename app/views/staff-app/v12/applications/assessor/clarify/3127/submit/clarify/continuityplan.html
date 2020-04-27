@@ -107,7 +107,11 @@
               }
 			}) }}
 
+                {% if data['aac-clarify-3127-pya-equality'] == "Fail" %}
 			<p><a class="govuk-button" href="equality">Save and continue</a></p>
+                {% else %}
+			<p><a class="govuk-button" href="../submit-confirm">Save and continue</a></p>
+                {% endif %}
 
 		</div>
 	</div>

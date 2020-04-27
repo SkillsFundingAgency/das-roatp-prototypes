@@ -1096,6 +1096,7 @@ module.exports = function (router) {
     }
   })
 
+
   router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm', function (req,res) {
     if (req.session.data['aac-mod-3127-outcome-confirm'] === 'No') {
       res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit')
@@ -1120,16 +1121,53 @@ module.exports = function (router) {
     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
   })
 
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/equality', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
+  })
+
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit', function (req,res) {
+    if (req.session.data['aac-clarify-3127-outcome'] === 'Ask for clarification') {
+      if (req.session.data['aac-clarify-3127-pya-continuityplan'] === "Fail") {
+        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/continuityplan')
+      }
+      else {
+        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/equality')
+      }
+    }
+    else {
+      res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit-confirm')
+    }
+  })
+
+
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit-confirm', function (req,res) {
+    if (req.session.data['aac-clarify-3127-outcome-confirm'] === 'No') {
+      res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit')
+    }
+    else {
+      if (req.session.data['aac-clarify-3127-outcome'] === 'Ask for clarification') {
+        req.session.data['apr199'] = "clarification"
+        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/confirmation')
+      }
+      else {
+        req.session.data['apr199'] = "completed"
+        req.session.data['aac-clarification-count'] = req.session.data['aac-clarification-count'] - 1
+        req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
+        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/confirmation')
+      }
+    }
+  })
+
   router.post('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit', function (req,res) {
       res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit-confirm')
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit-confirm', function (req,res) {
-    if (req.session.data['aac-clarify-3127-outcome-confirm'] === 'No') {
+    if (req.session.data['aac-awaiting-3127-outcome-confirm'] === 'No') {
       res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit')
     }
     else {
-        req.session.data['apr3127'] = "completed"
+        req.session.data['apr264'] = "completed"
         req.session.data['aac-clarification-count'] = req.session.data['aac-clarification-count'] - 1
         req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
         res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/confirmation')

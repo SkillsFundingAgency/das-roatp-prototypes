@@ -228,6 +228,7 @@
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
 				{% endif %}
+				{% if data['apr199'] != "completed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/clarify/tasklist-3127">GUIDE AND GROW</a></td>
 					<td class="govuk-table__cell">21119876</td>
@@ -238,6 +239,7 @@
 					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Clarified</strong></td>
 				</tr>
+				{% endif %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FUTURE THINK</a></td>
 					<td class="govuk-table__cell">30098726</td>
@@ -248,6 +250,7 @@
 					<td class="govuk-table__cell">Peter Holdsworth</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
+				{% if data['apr264'] != "completed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">LEACH ACADEMY</a></td>
 					<td class="govuk-table__cell">19987865</td>
@@ -257,6 +260,7 @@
 					<td class="govuk-table__cell">28 Oct 2019</td>
 					<td class="govuk-table__cell">Peter Holdsworth</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Overdue</strong></td>
+				{% endif %}
 				</tr>
 			</tbody>
 		</table>

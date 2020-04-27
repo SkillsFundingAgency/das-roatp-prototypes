@@ -63,6 +63,10 @@
 					<dt class="govuk-summary-list__key">Clarification requested date</dt>
 					<dd class="govuk-summary-list__value">25 Jan 2020</dd>
 				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Clarification received date</dt>
+					<dd class="govuk-summary-list__value">30 Jan 2020</dd>
+				</div>
 			</dl>
 
 			<ol class="app-task-list">
@@ -79,15 +83,25 @@
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
 							{% elseif data['aac-clarify-3127-pya-continuityplan'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% elseif data['aac-clarify-3127-pya-continuityplan'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
 							{% else %}
 								<strong class="govuk-tag app-task-list__task-clarify">Clarified</strong>
 							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Equality and diversity policy</a>
+								<a href="3127/pya/equality">Equality and diversity policy</a>
 							</span>
+							{% if data['aac-clarify-3127-pya-equality'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-clarify-3127-pya-equality'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% elseif data['aac-clarify-3127-pya-equality'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">

@@ -28,11 +28,11 @@
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Assessor outcome</span>
-			<h1 class="govuk-heading-xl">Are you sure you want to {% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
+			<h1 class="govuk-heading-xl">Are you sure you want to {% if data['aac-awaiting-3127-outcome'] == 'Pass this application' %}
 			pass this application?
-			{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
+			{% elseif data['aac-awaiting-3127-outcome'] == 'Fail this application' %}
 			fail this application?
-			{% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
+			{% elseif data['aac-awaiting-3127-outcome'] == 'Ask for clarification' %}
 			ask for clarification?
 			{%endif%}</h1>
 
@@ -44,17 +44,17 @@
 				Application submitted date: 18 Oct 2019
 			</p>
 
-			 {% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
+			 {% if data['aac-awaiting-3127-outcome'] == 'Pass this application' %}
 			    {{ govukWarningText({
 				    text: "This application will pass and go to governance.",
 				    iconFallbackText: "Warning"
 			    }) }}
-			 {% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
+			 {% elseif data['aac-awaiting-3127-outcome'] == 'Fail this application' %}
 			    {{ govukWarningText({
 				    text: "This application will fail and go to governance.",
 				    iconFallbackText: "Warning"
 			    }) }}
-			 {% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
+			 {% elseif data['aac-awaiting-3127-outcome'] == 'Ask for clarification' %}
 			    {{ govukWarningText({
 				    text: "The applicant can use this information to change and resubmit their application.",
 				    iconFallbackText: "Warning"
@@ -63,8 +63,8 @@
 			 {% endif %}
 
 				{{ govukRadios({
-					idPrefix: "aac-mod-3127-outcome-confirm",
-					name: "aac-mod-3127-outcome-confirm",
+					idPrefix: "aac-awaiting-3127-outcome-confirm",
+					name: "aac-awaiting-3127-outcome-confirm",
 					classes: "govuk-radios--inline",
 					items: [
 						{

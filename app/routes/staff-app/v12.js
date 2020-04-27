@@ -1115,4 +1115,8 @@ module.exports = function (router) {
       }
     }
   })
+
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
+  })
 }

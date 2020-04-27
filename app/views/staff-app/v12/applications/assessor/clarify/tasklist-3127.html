@@ -277,18 +277,15 @@
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
 							{% if
-							    not (data['aac-mod-3127-pya-continuityplan']                    ) or
-							    not (data['aac-mod-3127-pya-subcontractor']                    ) or
-
-							    (data['aac-mod-3127-pya-continuityplan'] == "In progress"                    ) or
-							    (data['aac-mod-3127-pya-subcontractor'] == "In progress"                    )
+							    not (data['aac-clarify-3127-pya-continuityplan']                    ) or
+							    (data['aac-clarify-3127-pya-continuityplan'] == "In progress"       )
                              %}
 							<span class="app-task-list__task-name">
 								Confirm assessor outcome
 							</span>
 							{% else %}
 							<span class="app-task-list__task-name">
-								<a href="3127/submit/submit">Confirm assessor outcome</a>
+								<a href="../moderate/3127/submit/submit">Confirm assessor outcome</a>
 							</span>
                             {% endif %}
 						</li>

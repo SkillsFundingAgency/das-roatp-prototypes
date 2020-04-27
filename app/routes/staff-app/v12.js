@@ -1119,4 +1119,20 @@ module.exports = function (router) {
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan', function (req,res) {
     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
   })
+
+  router.post('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit', function (req,res) {
+      res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit-confirm')
+  })
+
+  router.post('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit-confirm', function (req,res) {
+    if (req.session.data['aac-clarify-3127-outcome-confirm'] === 'No') {
+      res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/submit')
+    }
+    else {
+        req.session.data['apr3127'] = "completed"
+        req.session.data['aac-clarification-count'] = req.session.data['aac-clarification-count'] - 1
+        req.session.data['aac-outcome-count'] = req.session.data['aac-outcome-count'] + 1
+        res.redirect('/staff-app/' + v + '/applications/assessor/awaiting/3127/submit/confirmation')
+    }
+  })
 }

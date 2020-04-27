@@ -31,13 +31,10 @@
 				<div class="govuk-panel__body">
 					Outcome saved as:
 					<strong>
-					{% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
+					{% if data['aac-clarify-3127-outcome'] == 'Pass this application' %}
 					Pass
-					{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
+					{% elseif data['aac-clarify-3127-outcome'] == 'Fail this application' %}
 					Fail
-					{% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
-					Clarification
-					{% endif %}
 					</strong>
 				</div>
 			</div>

@@ -109,7 +109,19 @@
           	value: data['aac-mod-3127-pya-subcontractor-fail'],
 						maxwords: 150,
 						label: {
-							text: "Add comments"
+							text: "Add internal comments"
+						}
+					}) }}
+					{{ govukCharacterCount({
+						name: "aac-mod-3127-pya-subcontractor-fail-feedback",
+						id: "aac-mod-3127-pya-subcontractor-fail-feedback",
+          	value: data['aac-mod-3127-pya-subcontractor-fail-feedback'],
+						maxwords: 150,
+						label: {
+							text: "Add external comments"
+						},
+						hint: {
+						    text: "The applicant can use this information to change and resubmit their application or view it as part of the overall outcome."
 						}
 					}) }}
 				{% endset -%}

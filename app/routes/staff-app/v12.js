@@ -1088,12 +1088,7 @@ module.exports = function (router) {
 	})
 
   router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit', function (req,res) {
-    if (req.session.data['aac-mod-3127-outcome'] === 'Ask for clarification') {
-      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/clarify/continuityplan')
-    }
-    else {
       res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
-    }
   })
 
 
@@ -1126,17 +1121,16 @@ module.exports = function (router) {
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit', function (req,res) {
-    if (req.session.data['aac-clarify-3127-outcome'] === 'Ask for clarification') {
-      if (req.session.data['aac-clarify-3127-pya-continuityplan'] === "Fail") {
-        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/continuityplan')
-      }
-      else {
-        res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/equality')
-      }
-    }
-    else {
-      res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit-confirm')
-    }
+    // if (req.session.data['aac-clarify-3127-outcome'] === 'Ask for clarification') {
+    //   if (req.session.data['aac-clarify-3127-pya-continuityplan'] === "Fail") {
+    //     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/continuityplan')
+    //   }
+    //   else {
+    //     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/clarify/equality')
+    //   }
+    // }
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit-confirm')
+
   })
 
 

@@ -1,0 +1,76 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Tell us who’s in control</span>
+      
+      <h1 class="govuk-heading-l">Who is your organisation’s trustee?</h1>
+
+      <p class="govuk-body">If your organisation has more than one trustee, you can add them later.</p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          classes: "govuk-input--width-20",
+          id: "org-trustee-name",
+          name: "org-trustee-name"
+        }) }}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="org-trustee-dob-hint" role="group">
+            <legend class="govuk-fieldset__legend">
+                Date of birth 
+            </legend>
+            <span id="org-trustee-dob-hint" class="govuk-hint">
+              For example, 12 1993
+            </span>
+            <div class="govuk-date-input" id="org-trustee-dob">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="org-trustee-dob-month" name="org-trustee-dob-month" type="number" pattern="[0-9]*">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="org-trustee-dob-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="org-trustee-dob-year" name="org-trustee-dob-year" type="number" pattern="[0-9]*">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      
+        {% include "includes/v15/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

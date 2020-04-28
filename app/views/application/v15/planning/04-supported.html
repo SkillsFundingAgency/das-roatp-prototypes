@@ -1,0 +1,54 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Supporting apprentices</span>
+
+      <h1 class="govuk-heading-l">How will your organisation ensure apprentices are supported during their apprenticeship training?</h1>
+
+      <p class="govuk-body">Your answer should include how your organisation will:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>support apprentices</li>
+        <li>have the right people in place to support apprentices</li>
+        <li>ensure apprentices have access to a mentor, coach and support network or support group</li>
+        <li>financially support apprentices - for example, providing funding agreement</li>
+      </ul>
+
+      <form action="" method="post" class="form">
+
+        {{ govukCharacterCount({
+          name: "plan-supported",
+          id: "plan-supported",
+          value: data['plan-supported'],
+          maxlength: 1500
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v15/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

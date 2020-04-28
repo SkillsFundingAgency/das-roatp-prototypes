@@ -1,0 +1,148 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Your organisation’s financial evidence</span>
+      <h1 class="govuk-heading-l">Financial evidence </h1>
+
+      <form action="" method="post" class="form">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-turnover">Enter your organisation’s total annual turnover for the last financial year</label>
+          <span id="fin-total-turnover-hint" class="govuk-hint">
+            You can find this on your organisation's ‘profit and loss statement’, ‘income and expenditure account’ or ‘statement of financial activities’.
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-turnover" name="fin-total-turnover" type="text" aria-describedby="fin-total-turnover-hint">
+        </div>
+        
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-deprecation">
+            Enter your organisation’s total depreciation and amortisation charges for the last financial year
+          </label>
+          <span id="fin-total-deprecation-hint" class="govuk-hint">
+            {% if data['org_ukprn'] == '12340301' %} <!-- Sole trader of partnership -->
+              <p class="govuk-hint">You can find this on your organisation’s ‘operating profit note to the accounts’. You’ll need to add up all the items under ‘expenditure’ and enter the total figure.</p>
+            {% else %}
+              <p class="govuk-hint">You can find this on your organisation’s ‘operating profit note to the accounts’. You’ll need to add up all the items under ‘note 2’ and enter the total figure.</p>
+            {% endif %}
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-deprecation" name="fin-total-deprecation" type="text" aria-describedby="fin-total-deprecation-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-profitloss">Enter your organisation’s profit or loss for the last financial year</label>
+          <span id="fin-total-profitloss-hint" class="govuk-hint">
+            <p class="govuk-hint">Profit or loss is the net amount earned after tax.</p>
+            {% if (data['org-ukprn'] == '12340101') or (data['org-ukprn'] == '12340102') or (data['org-ukprn'] == '12340103') or (data['org-ukprn'] == '12340201') %} <!-- If company -->
+              <p class="govuk-hint">You can find this on your organisation’s ‘profit and loss statement’.</p>
+            {% endif %}
+            {% if data['org-ukprn'] == '12340301' %} <!-- If sole trader -->
+              <p class="govuk-hint">You can find this under ‘net profit’ in your organisation accounts.</p>
+            {% endif %}
+            {% if (data['org-ukprn'] == '12340201') %} <!-- If company and charity -->
+              <p class="govuk-hint">You can find this under your organisation’s ‘profit and loss statement’ or under ‘net profit’ or ‘net movement in funds’ in its accounts.</p>
+            {% endif %}
+            {% if (data['org-ukprn'] == '12340202') or (data['org-ukprn'] == '12340203') %} <!-- If charity -->
+              <p class="govuk-hint">You can find this under ‘net profit’ or ‘net movement in funds’ in your organisation’s accounts.</p>
+            {% endif %}
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-profitloss" name="fin-total-profitloss" type="text" aria-describedby="fin-total-profitloss-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-dividends">Enter your organisation’s total dividends for the last financial year</label>
+          <span id="fin-total-dividends-hint" class="govuk-hint">
+            Your can find this on your organisation’s ‘notes to the accounts’. 
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-dividends" name="fin-total-dividends" type="text" aria-describedby="fin-total-dividends-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-currentassets">
+            Enter your organisation’s total current assets for the last financial year
+          </label>
+          <span id="fin-total-currentassets-hint" class="govuk-hint">
+            You can find this on your organisation’s ‘balance sheet’.
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-currentassets" name="fin-total-currentassets" type="text" aria-describedby="fin-total-currentassets-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-currentassets">
+            Enter your organisation’s total current assets for the last financial year
+          </label>
+          <span id="fin-total-currentassets-hint" class="govuk-hint">
+            You can find this on your organisation’s ‘balance sheet’.
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-currentassets" name="fin-total-currentassets" type="text" aria-describedby="fin-total-currentassets-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-deprecation">
+            Enter your organisation’s total borrowings for the last financial year
+          </label>
+          <span id="fin-total-deprecation-hint" class="govuk-hint">
+            <p class="govuk-hint govuk-!-margin-bottom-1">You will need to add up a total of:</p>
+            <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>bank overdraft</li>
+              <li>loans</li>
+              <li>amounts owed to directors - including director loans and director accounts</li>
+              <li>amounts owed to subsidiaries - if your organisation is part of a group</li>
+              <li>amounts due under finance leases or hire purchase contracts</li>
+            </ul>
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-deprecation" name="fin-total-deprecation" type="text" aria-describedby="fin-total-deprecation-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-netassets">
+            Enter your organisation’s net assets for the last financial year
+          </label>
+          <span id="fin-total-netassets-hint" class="govuk-hint">
+            {% if data['org_ukprn'] == '12340301' %}
+              <p class="govuk-hint">You can find this on your organisation’s ‘balance sheet’  under ‘the capital account balance’.</p>
+            {% else %}
+              <p class="govuk-hint">You can find this on your organisation’s ‘balance sheet’ under ‘the sum of all assets less all liabilities’.</p>
+            {% endif %}
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-netassets" name="fin-total-netassets" type="text" aria-describedby="fin-total-netassets-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="fin-total-intangible">
+            Enter your organisation’s total intangible assets for the last financial year
+          </label>
+          <span id="fin-total-intangible-hint" class="govuk-hint">
+            You can find this on your organisation’s ‘balance sheet’ under ‘fixed assets’ or ‘goodwill’.
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--currency" id="fin-total-intangible" name="fin-total-intangible" type="text" aria-describedby="fin-total-intangible-hint">
+        </div>
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+        
+        <p class="skipquestion" id="skipquestion"><a href="../task-list#section-financial">Return to this question later</a></p>
+      
+        {% include "includes/v15/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

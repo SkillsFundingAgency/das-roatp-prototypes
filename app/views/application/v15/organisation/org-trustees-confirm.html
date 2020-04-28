@@ -1,0 +1,70 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "org-trustees-dob3"
+  }) }}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Tell us who’s in control</span>
+        
+      <h1 class="govuk-heading-l">Confirm your organisation's trustees</h1>
+
+      <form action="" method="post" class="form">
+        
+        {{ govukTable({
+          firstCellIsHeader: false,
+          head: [
+            { text: "Name" },
+            { text: "Date of birth" },
+            { text: "" }
+          ],
+          rows: [
+            [
+              { text: "Kent Brockman" },
+              { text: data['org-trustee-dob1-monthname'] + " " + data['org-trustee-dob1-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ],
+            [
+              { text: "Nick Riviera" },
+              { text: data['org-trustee-dob2-monthname'] + " " + data['org-trustee-dob2-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ],
+            [
+              { text: "Julius Hibbert" },
+              { text: data['org-trustee-dob3-monthname'] + " " + data['org-trustee-dob3-year'] },
+              {
+                html: '<a href="#">Change</a>',
+                format: "numeric"
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="" method="post" class="form">
+        
+        <h1 class="govuk-heading-l">Confirm your organisation's details</h1>
+
+        <p class="gov-body">These are the details we found on UKRLP for UKPRN {{ data['org-ukprn'] }}.</p>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data['org-ukprn'] == "12340201") or (data['org-ukprn'] == "12340202") or (data['org-ukprn'] == "12340203") %}
+              YOUR CHARTITY NAME
+              {% elseif (data['org-ukprn'] == "12340301") %}
+              YOUR NAME
+              {% else %}
+              YOUR COMPANY NAME LTD
+              {% endif %}
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] == "12340101") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trading name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Your Trading Name
+            </dd>
+          </div>
+          {% endif %}
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 Romford Road<br>Wellington<br>Telford<br>Cv106 6BB
+            </dd>
+          </div>
+
+          {% if (data['org-ukprn'] != "12340102") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Website
+            </dt>
+            <dd class="govuk-summary-list__value">
+              yourcompanyname.co.uk
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] != "12340301") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sole trader or partnership
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] != "12340202") and (data['org-ukprn'] != "12340203") and (data['org-ukprn'] != "12340301") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              05731809
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] == "12340201") or (data['org-ukprn'] == "12340202") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Charity registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              4627822
+            </dd>
+          </div>
+          {% endif %}
+
+          {% if (data['org-ukprn'] == "12340203") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Charity registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SC527492
+            </dd>
+          </div>
+          {% endif %}
+
+        </dl>
+        
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if these details are wrong?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Contact the UKRLP helpdesk on 0345 202 1600 or<a href="mailto:helpdesk@ukrlp.co.uk">helpdesk@ukrlp.co.uk</a> to make changes.</p>
+            {% if (data['org-ukprn'] == "12340104") %}
+            <p>For parent company details, you can contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
+            {% endif %}
+            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Confirm and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

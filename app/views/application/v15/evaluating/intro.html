@@ -1,0 +1,49 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" class="form">
+
+      <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+      <h1 class="govuk-heading-l">Evaluating apprenticeship training</h1>
+
+      <p class="govuk-body">For this section, you’ll need to know:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your organisation’s process for evaluating the quality of training delivered</li>
+        <li>how your organisation’s made improvements using this process</li>
+        <li>if this process includes apprenticeship training</li>
+        <li>how your organisation evaluates the quality for apprenticeship training</li>
+        <li>how your organisation reviews this process </li>
+        <li>if your organisation has systems and processes to collect apprenticeship data</li>
+        <li>if your organisation has the resources to submit Individualised Learner Record (ILR)</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Before you submit this application</h1>
+      <p class="govuk-body">Before you submit this application you must have permission from:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your organisation to submit this application</li>
+        <li>everyone named in this application to use their details</li>
+      </ul>
+      <p><a class ="govuk-link" href="../task-list">Back to application overview </a></p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">What type of educational institute is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-education",
+        name: "org-type-education",
+        items: [
+          {
+            value: "National college",
+            text: "National college",
+            checked: checked("org-type-education", "National college")
+          },
+          {
+            value: "Academy",
+            text: "Academy",
+            checked: checked("org-type-education", "Academy")
+          },
+          {
+            value: "Multi-academy trust",
+            text: "Multi-academy trust",
+            checked: checked("org-type-education", "Multi-academy trust")
+          },
+          {
+            value: "School",
+            text: "School",
+            checked: checked("org-type-education", "School")
+          },
+          {
+            value: "Sixth form college",
+            text: "Sixth form college",
+            checked: checked("org-type-education", "Sixth form college")
+          },
+          {
+            value: "Higher education institute",
+            text: "Higher education institute",
+            checked: checked("org-type-education", "Higher education institute")
+          },
+          {
+            value: "General further education college",
+            text: "General further education college",
+            checked: checked("org-type-education", "General further education college")
+          },
+          {
+            value: "Further education institute",
+            text: "Further education institute",
+            checked: checked("org-type-education", "Further education institute")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v15/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

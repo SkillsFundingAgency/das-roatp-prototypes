@@ -1,0 +1,63 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+    <h1 class="govuk-heading-l">Financial health assessment</h1>
+
+    <p class="govuk-body">This section is to ensure your organisation’s financial performance and ability to meet ongoing financial commitments meet ESFA’s expectations.</p>
+
+    {% if data["org-parentcompany"] === "yes" %}
+      <p class="govuk-body">You'll need to:</p>      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>provide your organisation’s financial figures</li>
+        <li>upload your organisation’s full financial statements or management accounts</li>
+        <li>upload your UK ultimate parent company's consolidated financial statements or financial statements for its subsidiary companies</li>
+      </ul>
+      <p class="govuk-body">Based on your answers and uploads, your organisation will receive a financial health grade. </p>
+    {% else %}
+      <p class="govuk-body">You may need to:</p>      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>provide your organisation’s financial figures</li>
+        <li>upload your organisation’s full financial statements or management accounts</li>
+      </ul>
+      <p class="govuk-body">Based on these uploads, your organisation will receive a financial health grade.</p>
+    {% endif %}
+    
+    <p class="govuk-body">Find out more in <a href="https://www.gov.uk/government/publications/esfa-financial-health-assessment" target="_blank">ESFA’s financial health policy (opens in a new window or tab)</a>.</p>
+
+    {{ govukWarningText({
+      text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list#section-financial">Come back to this section later</a></p>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

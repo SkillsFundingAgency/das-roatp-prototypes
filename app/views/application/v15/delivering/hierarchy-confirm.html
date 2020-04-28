@@ -1,0 +1,63 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Management hierarchy</span>
+
+      <h1 class="govuk-heading-l">Confirm who’s in your organisation’s management hierarchy for apprenticeships</h1>
+      
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Name</th>
+            <th class="govuk-table__header" scope="col">Job role</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% set i = 0 %}
+        {% for person in data['del-hierarchy-person'] %}
+          {% if (person.name != '') %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">{{ person.name }}</td>
+              <td class="govuk-table__cell" scope="row">{{ person.job_role }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#">Change</a> &nbsp; <a href="hierarchy-remove-route?remove_hierarchy_id={{i}}">Remove</a></td>
+            </tr>
+            {% set i = i + 1 %}
+          {% endif %}
+        {% endfor %}
+        </tbody>
+      </table>
+
+      <p class="govuk_body"><a href="hierarchy-add">Add another person</a></p>
+
+      <form action="" method="post" class="form">
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+        {% include "includes/v15/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

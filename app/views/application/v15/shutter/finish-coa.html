@@ -1,0 +1,25 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">You do not agree to the terms and conditions of submitting an application</h1>
+      <p class="govuk-body">This means your organisation cannot apply to join the RoATP.</p>
+      <p class="govuk-body">If you want to change your answer, you can sign back in and submit your application. We will save it for 30 days - after this, we will delete it and you will need to start again.</p>
+      <p><a class ="govuk-link" href="#">Back to GOV.UK</a></p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Experience and accreditations</span>
+
+    <h1 class="govuk-heading-l">Does your organisation only intend to deliver the postgraduate teaching apprenticeship?</h1>
+    
+    <p class="govuk-body">The postgraduate teaching apprenticeship is an employment-based initial teacher training course leading to qualified teacher status.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "pro-postgrad",
+        name: "pro-postgrad",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("pro-postgrad", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("pro-postgrad", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v15/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

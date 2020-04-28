@@ -1,0 +1,57 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Are you sure you want to change your answers in the section?</h1>
+      <p class="govuk-body">Any changes to the answers provided in this section will require you to answer any following questions that may have already been answered again.</p>
+      <p class="govuk-body">Changing your answers in this section means that we may need to ask different questions throughout the rest of the application. As a result, you will have to complete all questions in the sections following on from the 'Your organisation; section again as all given answers will be deleted.</p>
+
+      <form action="" method="post" class="form">
+<!--
+        {{ govukRadios({
+          idPrefix: "org-selectedroute-employer",
+          name: "org-selectedroute-employer",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("org-selectedroute-employer", "Yes")
+            },
+            {
+              value: "No",
+              text: "No",
+                checked: checked("org-selectedroute-employer", "No")
+            }
+          ]
+        }) }}
+-->
+
+        
+        <input type="hidden" name="redir" id="redir" value="{{ data['from'] }}">
+
+        {{ govukButton({
+          text: "Restart application from this point",
+          classes: "govuk-button--warning govuk-!-margin-right-4 govuk-!-margin-bottom-9"
+        }) }}
+
+        <p class="govuk-body"><a href="task-list">Go back to the application overview</a></p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Developing and delivering training</span>
+      
+    <h1 class="govuk-heading-l">Sectors and employee experience</h1>
+
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">1. </span> Sectors
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="sectors">Choose your organisation’s sectors</a>
+            {% if data['del-sectors'] %}
+            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+            {% endif %}
+          </li>
+        </ul>
+      </li>
+      {% if data['del-sectors'] %}
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">2. </span> Add the most experienced employee for each sector
+        </h2>
+        {% set i = 0 %}
+        <ul class="app-task-list__items">
+          {% for sector in data['del-sectors'] %}
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="sectors-employee-add-route?current_sector_id={{i}}">{{ sector }}</a>
+              {% if (data['del-employee'][i]) and (data['del-employee'][i]['trainingduration']) %}
+                <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+              {% elseif (data['del-employee'][i]) %}
+                <strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+              {% endif %}
+            </li>
+            {% set i = i + 1 %}
+          {% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+    </ol>
+
+    {% if data['del-sectors'] %}
+
+      {{ govukButton({
+        href: "../task-list",
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-4"
+      }) }}
+    {% endif %}
+
+    <p class="skipquestion" id="skipquestion"><a href="../task-list">Return to this question later</a></p>
+
+    {% include "includes/v15/gethelp.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

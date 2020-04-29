@@ -1067,6 +1067,49 @@ module.exports = function (router) {
     res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
   })
 
+  router.get('/staff-app/' + v + '/applications/assessor/moderate/show-in-tab-view', function (req,res) {
+    req.session.data['apr3127'] = "submitted"
+    req.session.data['aac-inprogress-count'] = req.session.data['aac-inprogress-count'] - 1
+    req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] + 1
+    req.session.data['moderateFails'] = 2
+    req.session.data['aac-mod-3127-pya-equality'] = "Fail"
+    req.session.data['aac-mod-3127-pya-safeguarding'] = "Pass"
+    req.session.data['aac-mod-3127-pya-safeguarding-responsible'] = "Pass"
+    req.session.data['aac-mod-3127-pya-prevent-responsible'] = "Pass"
+    req.session.data['aac-mod-3127-pya-prevent-upload'] = "Pass"
+    req.session.data['aac-mod-3127-pya-healthandsafety'] = "Pass"
+    req.session.data['aac-mod-3127-pya-healthandsafety-responsible'] = "Pass"
+    req.session.data['aac-mod-3127-pya-subcontractor'] = "Pass"
+    req.session.data['aac-mod-3127-rte-engage'] = "Pass"
+    req.session.data['aac-mod-3127-rte-engagerelationships'] = "Pass"
+    req.session.data['aac-mod-3127-rte-engageresponsible'] = "Pass"
+    req.session.data['aac-mod-3127-rte-engagepromote'] = "Pass"
+    req.session.data['aac-mod-3127-rte-complaint'] = "Pass"
+    req.session.data['aac-mod-3127-rte-complaintpolicy'] = "Pass"
+    req.session.data['aac-mod-3127-rte-contractforservices'] = "Pass"
+    req.session.data['aac-mod-3127-rte-commitment'] = "Pass"
+    req.session.data['aac-mod-3127-rte-process'] = "Pass"
+    req.session.data['aac-mod-3127-rte-mathsandenglish'] = "Pass"
+    req.session.data['aac-mod-3127-rte-subcontractors'] = "Pass"
+    req.session.data['aac-mod-3127-rte-subcontractorsdue'] = "Pass"
+    req.session.data['aac-mod-3127-pat-contact'] = "Pass"
+    req.session.data['aac-mod-3127-pat-deliver'] = "Pass"
+    req.session.data['aac-mod-3127-pat-engage-awarding'] = "Pass"
+    req.session.data['aac-mod-3127-pat-engage-epao'] = "Pass"
+    req.session.data['aac-mod-3127-pat-ensuring'] = "Pass"
+    req.session.data['aac-mod-3127-pat-ensuring-frameworks'] = "Pass"
+    req.session.data['aac-mod-3127-pat-otj'] = "Pass"
+    req.session.data['aac-mod-3127-pat-ratio'] = "Pass"
+    req.session.data['aac-mod-3127-pat-recruit'] = "Pass"
+    req.session.data['aac-mod-3127-pat-starts'] = "Pass"
+    req.session.data['aac-mod-3127-pat-supported'] = "Pass"
+    req.session.data['aac-mod-3127-pat-transition'] = "Pass"
+    req.session.data['aac-mod-3127-pat-type'] = "Pass"
+    req.session.data['aac-mod-3127-pat-wheretrained'] = "Pass"
+    req.session.data['aac-mod-3127-dat-sectors'] = "Pass"
+    res.redirect('/staff-app/' + v + '/applications/applications-assessor')
+  })
+
 	router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/pya/continuityplan', function (req,res) {
 		res.redirect('/staff-app/' + v + '/applications/assessor/moderate/tasklist-3127')
 	})

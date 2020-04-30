@@ -25,6 +25,14 @@
 
 {% block content %}
 
+    {% set moderateFails = 0 %}
+    {% if data['aac-mod-3127-pya-continuityplan'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
+    {% if data['aac-mod-3127-pya-subcontractor'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
+
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
 			<span class="govuk-caption-m">Assessor outcome</span>
@@ -52,8 +60,8 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong>
-						{% if data['moderateFails'] > 0 %}
-						<td class="govuk-table__cell">{{data['moderateFails']}}</td>
+						{% if moderateFails > 0 %}
+						<td class="govuk-table__cell">{{moderateFails}}</td>
 						{% else %}
 						<td class="govuk-table__cell">0</td>
 						{% endif %}
@@ -100,7 +108,7 @@
 					}) }}
 				{% endset -%}
 
-				{% if data['moderateFails'] > 0 %}
+				{% if moderateFails > 0 %}
 				{{ govukRadios({
 					idPrefix: "aac-mod-3127-outcome-conditional",
 					name: "aac-mod-3127-outcome",

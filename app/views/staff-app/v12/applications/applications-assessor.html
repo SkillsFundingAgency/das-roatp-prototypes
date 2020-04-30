@@ -218,10 +218,10 @@
 			<tbody class="govuk-table__body">
 				<tr class="govuk-table__row">
 				{% if data['apr3127'] == "clarification" %}
-					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">MY RECRUITMENT LIMITED</a></td>
-					<td class="govuk-table__cell">21119876</td>
-					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">APR199</td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">MY RECRUITMENT LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR3127</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Apr 2020</td>
 					<td class="govuk-table__cell">Joan Smith</td>
@@ -232,7 +232,7 @@
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/clarify/tasklist-3127">GUIDE AND GROW</a></td>
 					<td class="govuk-table__cell">21119876</td>
-					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">APR199</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Nov 2019</td>
@@ -240,16 +240,18 @@
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Clarified</strong></td>
 				</tr>
 				{% endif %}
+                {% if data['apr264'] != "completed" %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FUTURE THINK</a></td>
+					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">FUTURE THINK</a></td>
 					<td class="govuk-table__cell">30098726</td>
-					<td class="govuk-table__cell">Supporting</td>
-					<td class="govuk-table__cell">APR202</td>
-					<td class="govuk-table__cell">16 Oct 2019</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR264</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">30 Oct 2019</td>
-					<td class="govuk-table__cell">Peter Holdsworth</td>
+					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
+				{% endif %}
 				<!--{% if data['apr264'] != "completed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">LEACH ACADEMY</a></td>
@@ -286,7 +288,7 @@
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();">GUIDE AND GROW</a></td>
 					<td class="govuk-table__cell">21119876</td>
 					<td class="govuk-table__cell">APR199</td>
-					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Apr 2020</td>
 				    {% if data['aac-clarify-3127-outcome'] == "Pass this application" %}
@@ -298,15 +300,15 @@
 				{% endif %}
 				{% if data['apr264'] == "completed" %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="javascript:preventDefault();">LEACH ACADEMY</a></td>
-					<td class="govuk-table__cell">21119876</td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FUTURE THINK</a></td>
+					<td class="govuk-table__cell">30098726</td>
 					<td class="govuk-table__cell">APR264</td>
-					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Apr 2020</td>
-				    {% if data['aac-awaiting-3127-outcome'] == "Pass" %}
+				    {% if data['aac-awaiting-3127-outcome'] == "Pass this application" %}
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
-				    {% elseif data['aac-awaiting-3127-outcome'] == "Fail" %}
+				    {% elseif data['aac-awaiting-3127-outcome'] == "Fail this application" %}
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
 				    {% endif %}
 				 </tr>
@@ -314,20 +316,20 @@
 				{% if data['apr3127'] == "completed" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/outcome/tasklist-3127">MY RECRUITMENT LIMITED</a></td>
-					<td class="govuk-table__cell">21119876</td>
+					<td class="govuk-table__cell">12345678</td>
 					<td class="govuk-table__cell">APR3127</td>
-					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Apr 2020</td>
-				    {% if data['aac-mod-3127-outcome'] == "Pass" %}
+				    {% if data['aac-mod-3127-outcome'] == "Pass this application" %}
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
-				    {% elseif data['aac-mod-3127-outcome'] == "Fail" %}
+				    {% elseif data['aac-mod-3127-outcome'] == "Fail this application" %}
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
 				    {% endif %}
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="assessor/outcome/tasklist-3127">HOTGROUP</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">HOTGROUP</a></td>
 					<td class="govuk-table__cell">28876299</td>
 					<td class="govuk-table__cell">APR851</td>
 					<td class="govuk-table__cell">Main</td>

@@ -1155,11 +1155,20 @@ module.exports = function (router) {
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan', function (req,res) {
+    req.session.data['aac-clarify-3127-pya-equality'] = "Pass"
     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/equality', function (req,res) {
     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
+  })
+
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/dat/management-hierarchy', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
+  })
+
+  router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/dat/sectors-digital', function (req,res) {
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/dat/sectors-tasklist')
   })
 
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/submit/submit', function (req,res) {

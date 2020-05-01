@@ -32,6 +32,12 @@
     {% if data['aac-clarify-3127-pya-equality'] == "Fail" %}
     {% set moderateFails = moderateFails + 1 %}
     {% endif %}
+    {% if data['aac-clarify-3127-dat-management-hierarchy'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
+    {% if data['aac-clarify-3127-dat-management-hierarchy'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
 
 	<div class="govuk-grid-row">
 		<div class="govuk-grid-column-two-thirds">
@@ -108,38 +114,6 @@
 					}) }}
 				{% endset -%}
 
-				{% if moderateFails > 0 %}
-				{{ govukRadios({
-					idPrefix: "aac-clarify-3127-outcome-conditional",
-					name: "aac-clarify-3127-outcome",
-					items: [
-						{
-							value: "Pass this application",
-							text: "Pass this application",
-							conditional: {
-								html: passHtml
-							},
-							checked: checked("aac-clarify-3127-outcome", "Pass this application")
-						},
-						{
-							value: "Fail this application",
-							text: "Fail this application",
-							conditional: {
-								html: failHtml
-							},
-							checked: checked("aac-clarify-3127-outcome", "Fail this application")
-						},
-						{
-							value: "Ask for clarification",
-							text: "Ask for clarification",
-							conditional: {
-								html: askForClarificationHtml
-							},
-							checked: checked("aac-clarify-3127-outcome", "Ask for clarification")
-						}
-					]
-				}) }}
-				{% else %}
 				{{ govukRadios({
 					idPrefix: "aac-clarify-3127-outcome-conditional",
 					name: "aac-clarify-3127-outcome",
@@ -162,7 +136,6 @@
 						}
 					]
 				}) }}
-				{% endif %}
 
 				{{ govukButton({
 					text: "Save and continue",

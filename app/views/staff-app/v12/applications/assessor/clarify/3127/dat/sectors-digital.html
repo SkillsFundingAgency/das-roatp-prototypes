@@ -1,0 +1,313 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v12.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v12/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v12/applications/assessor/clarify/tasklist-3127"
+			},
+			{
+				text: "Delivering apprenticeship training checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Delivering apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Employee experience in 'Digital' sector</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+            </div><div class="govuk-grid-column-full">
+            <h2 class="govuk-heading-m">Original answer</h2>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Full name</th>
+                  <td class="govuk-table__cell">Jon Jones</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Job role</th>
+                  <td class="govuk-table__cell">CEO</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Time in role</th>
+                  <td class="govuk-table__cell">2 years 3 months</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training in this sector?</th>
+                  <td class="govuk-table__cell">3 to 5 years</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Where did they gain this experience?</th>
+                  <td class="govuk-table__cell">XXXX XXXXXX XXXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Do they have any qualifications relating to this sector?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Tell us what qualifications they have</th>
+                  <td class="govuk-table__cell">XXXXX XXXXX XXXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Are they approved by awarding bodies to deliver training?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Names of awarding bodies</th>
+                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Do they have sector or trade body memberships?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Names of sector or trade bodies</th>
+                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What type of apprenticeship training have they delivered?</th>
+                  <td class="govuk-table__cell">Apprenticeship standards and frameworks</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">How have they delivered training to apprentices?</th>
+                  <td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-0">
+                  <li>Classroom-based training</li>
+                  <li>Coaching</li>
+                  <li>E-learning</li>
+                  </ul></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training to apprentices?</th>
+                  <td class="govuk-table__cell">3 to 5 years</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s the typical duration of training they have delivered to apprentices?</th>
+                  <td class="govuk-table__cell">6 to 12 months</td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="govuk-table govuk-table__modoutcome">
+			<h2 class="govuk-heading-m">Outcome of moderation</h2>
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Joan Smith</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Internal comments</th>
+						<td class="govuk-table__cell">Insufficient details</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">External comments</th>
+						<td class="govuk-table__cell">Insufficent details</td>
+					</tr>
+				</tbody>
+			</table>
+            <h2 class="govuk-heading-m">Clarified answer</h2>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Full name</th>
+                  <td class="govuk-table__cell">Jon Jones</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Job role</th>
+                  <td class="govuk-table__cell">CEO</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Time in role</th>
+                  <td class="govuk-table__cell">2 years 3 months</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training in this sector?</th>
+                  <td class="govuk-table__cell">3 to 5 years</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Where did they gain this experience?</th>
+                  <td class="govuk-table__cell">XXXX XXXXXX XXXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Do they have any qualifications relating to this sector?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Tell us what qualifications they have</th>
+                  <td class="govuk-table__cell">XXXXX XXXXX XXXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Are they approved by awarding bodies to deliver training?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Names of awarding bodies</th>
+                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Do they have sector or trade body memberships?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Names of sector or trade bodies</th>
+                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What type of apprenticeship training have they delivered?</th>
+                  <td class="govuk-table__cell">Apprenticeship standards and frameworks</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">How have they delivered training to apprentices?</th>
+                  <td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-0">
+                  <li>Classroom-based training</li>
+                  <li>Coaching</li>
+                  <li>E-learning</li>
+                  </ul></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training to apprentices?</th>
+                  <td class="govuk-table__cell">3 to 5 years</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">What’s the typical duration of training they have delivered to apprentices?</th>
+                  <td class="govuk-table__cell">6 to 12 months</td>
+                </tr>
+              </tbody>
+            </table>
+            </div><div class="govuk-grid-column-two-thirds">
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-dat-sectors-digital-pass",
+						id: "aac-clarify-3127-dat-sectors-digital-pass",
+          	value: data['aac-clarify-3127-dat-sectors-digital-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-dat-sectors-digital-fail",
+						id: "aac-clarify-3127-dat-sectors-digital-fail",
+          	value: data['aac-clarify-3127-dat-sectors-digital-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add internal comments"
+						}
+					}) }}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-dat-sectors-digital-fail-feedback",
+						id: "aac-clarify-3127-dat-sectors-digital-fail-feedback",
+          	value: data['aac-clarify-3127-dat-sectors-digital-fail-feedback'],
+						maxwords: 150,
+						label: {
+							text: "Add external comments"
+						},
+						hint: {
+						    text: "These comments will go to the applicant for clarification or feedback."
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inProgressHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-dat-sectors-digital-inprogress",
+						id: "aac-clarify-3127-dat-sectors-digital-inprogress",
+          	value: data['aac-clarify-3127-dat-sectors-digital-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-clarify-3127-dat-sectors-digital-conditional",
+					name: "aac-clarify-3127-dat-sectors-digital",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-clarify-3127-dat-sectors-digital", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-clarify-3127-dat-sectors-digital", "Fail")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inProgressHtml
+							},
+							checked: checked("aac-clarify-3127-dat-sectors-digital", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+
+		</div>
+	</div>
+
+{% endblock %}

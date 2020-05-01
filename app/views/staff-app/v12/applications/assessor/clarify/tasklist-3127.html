@@ -225,9 +225,17 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Management hierarchy for apprenticeships</a>
+								<a href="3127/dat/management-hierarchy">Management hierarchy for apprenticeships</a>
 							</span>
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% if data['aac-clarify-3127-dat-management-hierarchy'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-clarify-3127-dat-management-hierarchy'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% elseif data['aac-clarify-3127-dat-management-hierarchy'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-clarify">Clarified</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
@@ -243,9 +251,17 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault()">Sectors and employee experience</a>
+								<a href="3127/dat/sectors-tasklist">Sectors and employee experience</a>
 							</span>
-							<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% if data['aac-clarify-3127-dat-sectors-digital'] == "Pass" %}
+								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+							{% elseif data['aac-clarify-3127-dat-sectors-digital'] == "Fail" %}
+								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+							{% elseif data['aac-clarify-3127-dat-sectors-digital'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% else %}
+								<strong class="govuk-tag app-task-list__task-clarify">Clarified</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
@@ -288,7 +304,13 @@
 						<li class="app-task-list__item">
 							{% if
 							    not (data['aac-clarify-3127-pya-continuityplan']                    ) or
-							    (data['aac-clarify-3127-pya-continuityplan'] == "In progress"       )
+							    not (data['aac-clarify-3127-pya-equality']                          ) or
+							    not (data['aac-clarify-3127-dat-management-hierarchy']              ) or
+							    not (data['aac-clarify-3127-dat-sectors-digital']                   ) or
+							    (data['aac-clarify-3127-pya-continuityplan'] == "In progress"       ) or
+							    (data['aac-clarify-3127-pya-equality'] == "In progress"             ) or
+							    (data['aac-clarify-3127-dat-sectors-digital'] == "In progress"      ) or
+							    (data['aac-clarify-3127-dat-management-hierarchy'] == "In progress" )
                              %}
 							<span class="app-task-list__task-name">
 								Confirm assessor outcome

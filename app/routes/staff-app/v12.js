@@ -841,8 +841,11 @@ module.exports = function (router) {
       if (req.session.data['aac-3127-dat-sectors-creative'] === "Pass" && req.session.data['aac-3127-dat-sectors-digital'] === "Pass"){
         req.session.data['aac-3127-dat-sectors'] = "Pass"
       }
-      else {
+      if (req.session.data['aac-3127-dat-sectors-creative'] === "Fail" || req.session.data['aac-3127-dat-sectors-digital'] === "Fail"){
         req.session.data['aac-3127-dat-sectors'] = "Fail"
+      }
+      if (req.session.data['aac-3127-dat-sectors-creative'] === "In progress" || req.session.data['aac-3127-dat-sectors-digital'] === "In progress"){
+        req.session.data['aac-3127-dat-sectors'] = "In progress"
       }
       res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
     })

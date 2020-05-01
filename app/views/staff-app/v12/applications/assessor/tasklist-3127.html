@@ -374,6 +374,9 @@
 							{% if data['aac-3127-dat-sectors'] == "Fail" %}
 								<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
 							{% endif %}
+							{% if data['aac-3127-dat-sectors'] == "In progress" %}
+								<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+							{% endif %}
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">

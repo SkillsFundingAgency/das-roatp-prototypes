@@ -62,19 +62,9 @@
         </ul>
       </li>
 
-        {% if
-            not (data['aac-clarify-3127-dat-sectors-digital']                     ) or
-            (data['aac-clarify-3127-dat-sectors-digital'] == "In progress"        )
-        %}
-        <p class="govuk-body">
-            <a href="javascript:preventDefault();" class="govuk-link--muted">Save and continue</a>
-        </p>
-        {% else %}
         <p class="govuk-body">
         	<a href="../../tasklist-3127">Save and continue</a>
         </p>
-        {% endif %}
-
             </ol>
 		</div>
 	</div>

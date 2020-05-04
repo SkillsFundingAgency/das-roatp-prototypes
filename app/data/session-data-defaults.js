@@ -74,6 +74,5 @@ module.exports = {
     "mvp-gwv5-outcome-count": 4,
 
     "feedback-count": 0
-  
   }
   

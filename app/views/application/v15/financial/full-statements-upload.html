@@ -30,7 +30,27 @@
 
     <p class="govuk-body">Financial statements must be signed and filed with Companies House.</p>
 
-    <p class="govuk-body">The file must be a PDF and smaller than 5MB.</p>
+    <p class="govuk-body">You can upload a maximum of 4 files.</p>
+    <p class="govuk-body">Each file must be a PDF and smaller than 5MB.</p>
+
+     {% if (data['numOfStatements'] > 0) %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">File</th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% for i in range(data['numOfStatements']) %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">{{ data['financialStatements'] }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="full-statements-upload-remove">Remove</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+     {% endif %}
 
     <form action="" method="post" class="form">
     
@@ -46,6 +66,10 @@
         text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
         iconFallbackText: "Warning"
       }) }}
+
+     {% if (data['numOfStatements'] != 4) %}
+      <p><a href="full-statements-upload-add-another-file">Add another file</a></p>
+    {% endif %}
 
       {{ govukButton({
         text: "Save and continue",

@@ -38,7 +38,7 @@ function checkInspectionDate(d,m,y) {
 
 module.exports = function (router) {
 
-/***************
+  /***************
  *** Jump to ***
  ***************/
 	// Completed organisation section - main provider...
@@ -1888,6 +1888,22 @@ module.exports = function (router) {
 			}
 		}
 	})
+
+  // Full statements add another file
+
+  router.get('/application/' + v + '/financial/full-statements-upload-add-another-file', function (req, res) {
+    if (req.session.data['numOfStatements'] === undefined) {
+      req.session.data['numOfStatements'] = 0
+    }
+    req.session.data['numOfStatements'] = req.session.data['numOfStatements'] + 1
+    req.session.data['financialStatements'] = 'file.pdf'
+    res.redirect('/application/' + v + '/financial/full-statements-upload')
+  })
+
+  router.get('/application/' + v + '/financial/full-statements-upload-remove', function (req, res) {
+    req.session.data['numOfStatements'] = req.session.data['numOfStatements'] - 1
+    res.redirect('/application/' + v + '/financial/full-statements-upload')
+  })
 
 	// Full statements upload
 	router.post('/application/' + v + '/financial/full-statements-upload', function (req, res) {

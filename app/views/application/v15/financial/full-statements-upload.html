@@ -33,6 +33,11 @@
     <p class="govuk-body">You can upload a maximum of 4 files.</p>
     <p class="govuk-body">Each file must be a PDF and smaller than 5MB.</p>
 
+      {{ govukWarningText({
+        text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
+        iconFallbackText: "Warning"
+      }) }}
+
      {% if (data['numOfStatements'] > 0) %}
       <table class="govuk-table">
         <thead class="govuk-table__head">
@@ -62,15 +67,17 @@
         }
       }) }}
 
-      {{ govukWarningText({
-        text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
-        iconFallbackText: "Warning"
-      }) }}
+        {% if (data['numOfStatements'] >= 4) %}
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="javascript:preventDefault();">
+            Upload file
+        </a>
+        {% else %}
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="full-statements-upload-add-another-file">
+            Upload file
+        </a>
+        {% endif %}
 
-     {% if (data['numOfStatements'] != 4) %}
-      <p><a href="full-statements-upload-add-another-file">Add another file</a></p>
-    {% endif %}
-
+        <br>
       {{ govukButton({
         text: "Save and continue",
         classes: "govuk-!-margin-right-4"

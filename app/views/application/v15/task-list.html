@@ -585,6 +585,19 @@
             </li-->
             <li class="app-task-list__item">
               {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] == "employer") %}
+                <a class="app-task-list__task-name" href="planning/org-type-subtype" aria-describedby="plan-supporting">How your organisation will train apprentices</a>
+              {% else %}
+                How your organisation will train apprentices
+              {% endif %}
+              {% if data['tl_plan_subtype'] == "completed" %}
+                <strong class="govuk-tag app-task-list__task-completed" id="plan-supporting">Completed</strong>
+              {% endif %}
+              {% if (data['org-selectedroute'] != "employer") %}
+                <strong class="govuk-tag app-task-list__task-notrequired" id="plan-supporting">Not required</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_subtype'] == "completed") and (data['org-selectedroute'] == "employer") %}
                 <a class="app-task-list__task-name" href="planning/04-supported" aria-describedby="plan-supporting">Supporting apprentices</a>
               {% else %}
                 Supporting apprentices

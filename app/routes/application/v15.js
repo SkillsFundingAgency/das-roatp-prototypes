@@ -256,7 +256,9 @@ module.exports = function (router) {
 		req.session.data['tl_eval_training'] = "completed"
 		req.session.data['tl_fin_intro'] = "completed"
 		req.session.data['tl_fin_upload'] = "completed"
-		req.session.data['tl_finish_permission'] = "completed"
+		req.session.data['tl_fin_parent'] = "completed"
+    req.session.data['tl_ukparentcompany'] = "completed"
+    req.session.data['tl_finish_permission'] = "completed"
 		req.session.data['tl_finish_yourdetails'] = "completed"
 		req.session.data['tl_org_details'] = "completed"
 		req.session.data['tl_org_intro'] = "completed"
@@ -478,6 +480,7 @@ module.exports = function (router) {
 		req.session.data['tl_eval_intro'] = "completed"
 		req.session.data['tl_eval_training'] = "completed"
 		req.session.data['tl_fin_intro'] = "completed"
+		req.session.data['tl_fin_parent'] = "completed"
 		req.session.data['tl_fin_upload'] = "completed"
 		req.session.data['tl_finish_permission'] = "completed"
 		req.session.data['tl_finish_yourdetails'] = "completed"
@@ -485,6 +488,7 @@ module.exports = function (router) {
 		req.session.data['tl_org_intro'] = "completed"
 		req.session.data['tl_org_people'] = "completed"
 		req.session.data['tl_org_profile'] = "completed"
+		req.session.data['tl_ukparentcompany'] = "completed"
 		req.session.data['tl_org_type'] = "completed"
 		req.session.data['tl_plan_address'] = "completed"
 		req.session.data['tl_plan_contact'] = "completed"
@@ -1430,17 +1434,7 @@ module.exports = function (router) {
 			let org_orgtype_psb = req.session.data['org-type-psb']
 			let org_route = req.session.data['org-selectedroute']
 			req.session.data['exempt_fha'] = 'yes'
-
-			if (org_orgtype_psb) {
-				if (org_route === 'employer') {
-					res.redirect('/application/' + v + '/organisation/org-type-subtype')
-				} else {
-					res.redirect('/application/' + v + '/organisation/org-classification')
-				}
-			} else {
-				res.redirect('/application/' + v + '/organisation/error/org-type-psb')
-			}
-
+      res.redirect('/application/' + v + '/organisation/org-classification')
 		})
 
 		// Organisation type - Funded by
@@ -2476,10 +2470,15 @@ module.exports = function (router) {
 
 	// Plan to engage
 	router.post('/application/' + v + '/planning/03-engaging', function (req, res) {
-		//req.session.data['tl_plan_type'] = 'completed'
-		//res.redirect('/application/' + v + '/task-list#section-planning')
-		res.redirect('/application/' + v + '/planning/05-contact')
-	})	
+		req.session.data['tl_plan_type'] = 'completed'
+		res.redirect('/application/' + v + '/task-list#section-planning')
+		//res.redirect('/application/' + v + '/planning/04-supported')
+	})
+
+  router.post('/application/' + v + '/planning/org-type-subtype', function (req, res) {
+    req.session.data['tl_plan_subtype'] = 'completed'
+    res.redirect('/application/' + v + '/task-list#section-planning')
+  })
 
 	// Course directory contact
 	router.post('/application/' + v + '/planning/05-contact', function (req, res) {
@@ -2491,8 +2490,8 @@ module.exports = function (router) {
 	// Apprentices supported
 	router.post('/application/' + v + '/planning/04-supported', function (req, res) {
 		req.session.data['tl_plan_supporting'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-planning')
-		//res.redirect('/application/' + v + '/planning/05-contact')
+		//res.redirect('/application/' + v + '/task-list#section-planning')
+    res.redirect('/application/' + v + '/task-list#section-planning')
 	})
 
 	// Forecast - Starts

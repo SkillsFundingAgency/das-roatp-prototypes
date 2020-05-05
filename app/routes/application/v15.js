@@ -1847,7 +1847,6 @@ module.exports = function (router) {
   })
 
   router.post('/application/' + v + '/financial/org-type-psb', function (req, res) {
-    req.session.data['tl_fin'] = 'completed'
     res.redirect('/application/' + v + '/financial/org-classification')
   })
 
@@ -2101,13 +2100,15 @@ module.exports = function (router) {
 		// Parent company subsidiary upload
 		router.post('/application/' + v + '/financial/parentcompany-who-prepared', function (req, res) {
 			req.session.data['tl_fin_parent'] = 'completed'
+      req.session.data['tl_fin'] = 'completed'
 			res.redirect('/application/' + v + '/task-list#section-financial')
 		})
 
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
     req.session.data['tl_fin_upload'] = 'completed'
-		res.redirect('/application/' + v + '/task-list#section-financial')
+    req.session.data['tl_fin'] = 'completed'
+    res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
 

@@ -283,7 +283,9 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
+              {% elseif (data['exempt_fha'] == "yes") %}
                 <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
@@ -305,8 +307,10 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="declarations/people-intro" aria-describedby="dec-peopleintro">Introduction and what you'll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
@@ -353,8 +357,10 @@
 
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['exempt_aw'] != "yes") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="welfare/intro" aria-describedby="wel-intro">Introduction and what you'll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you'll need
               {% endif %}
@@ -454,8 +460,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="readiness/intro" aria-describedby="rte-intro">Introduction and what you’ll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
@@ -550,8 +558,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="planning/intro" aria-describedby="plan-intro">Introduction and what you’ll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
@@ -584,7 +594,7 @@
               {% endif %}
             </li-->
             <li class="app-task-list__item">
-              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] == "employer") %}
+              {% if (data['tl_plan_intro'] == "completed") and (data['org-selectedroute'] == "employer") %}
                 <a class="app-task-list__task-name" href="planning/org-type-subtype" aria-describedby="plan-supporting">How your organisation will train apprentices</a>
               {% else %}
                 How your organisation will train apprentices
@@ -597,7 +607,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_subtype'] == "completed") and (data['org-selectedroute'] == "employer") %}
+              {% if (data['tl_plan_intro'] == "completed") and (data['org-selectedroute'] == "employer") %}
                 <a class="app-task-list__task-name" href="planning/04-supported" aria-describedby="plan-supporting">Supporting apprentices</a>
               {% else %}
                 Supporting apprentices
@@ -610,7 +620,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] != "supporting") %}
+              {% if (data['tl_plan_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
                 <a class="app-task-list__task-name" href="planning/06-forecast-starts" aria-describedby="plan-forecasting">Forecasting starts</a>
               {% else %}
                 Forecasting starts
@@ -624,7 +634,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") and (data['org-selectedroute'] != "supporting") %}
+              {% if (data['tl_plan_intro'] == "completed") and (data['org-selectedroute'] != "supporting") %}
                 <a class="app-task-list__task-name" href="planning/10-otj-methods" aria-describedby="plan-offthejob">Off the job training</a>
               {% else %}
                 Off the job training
@@ -638,7 +648,7 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              {% if (data['tl_plan_intro'] == "completed") and (data['tl_plan_type'] == "completed") %}
+              {% if (data['tl_plan_intro'] == "completed") %}
                 <a class="app-task-list__task-name" href="planning/12-address" aria-describedby="plan-address">Where apprentices will be trained</a>
               {% else %}
                 Where apprentices will be trained
@@ -656,8 +666,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="delivering/intro" aria-describedby="del-intro">Introduction and what you’ll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}
@@ -746,8 +758,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['exempt_lm'] != "yes") and (data['tl_fin_upload'] == "completed") %}
+              {% if (data['tl_org_profile'] == "completed") and (data['exempt_lm'] != "yes") and (data['tl_fin'] == "completed") %}
                 <a class="app-task-list__task-name" href="evaluating/intro" aria-describedby="lm-intro">Introduction and what you’ll need</a>
+               {% elseif (data['exempt_fha'] == "yes") %}
+                <a class="app-task-list__task-name" href="declarations/intro" aria-describedby="dec-intro">Introduction and what you'll need</a>
               {% else %}
                 Introduction and what you’ll need
               {% endif %}

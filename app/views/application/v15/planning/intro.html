@@ -22,7 +22,7 @@
 
       <h1 class="govuk-heading-l">Planning apprenticeship training</h1>
 
-      {% if data['org-selectedroute'] == 'employer' %}
+      {% if data['org-selectedroute'] == 'supporting' %}
        <p>For this section, you’ll need to know what apprenticeship training your organisation will offer.</p>
       {% else %}
       <p class="govuk-body">For this section, you’ll need to know:</p>
@@ -31,8 +31,10 @@
         <li>what apprenticeship training your organisation will offer</li>
         <li>how your organisation will engage with end-point assessment organisations (EPAO’s) or awarding bodies</li>
         <li>who we can contact about those apprenticeships</li>
+      {% if data['org-selectedroute'] == 'employer' %}
         <li>how your organisation will train apprentices</li>
         <li>how your organisation will support apprentices</li>
+      {% endif %}
         <li>how many starts your organisation forecasts for the next 12 months</li>
         <li>if your organisation is ready to deliver against these forecasts</li>
         <li>if your organisation will recruit new staff against these forecasts</li>

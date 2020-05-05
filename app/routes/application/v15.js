@@ -1094,35 +1094,11 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/task-list#section-organisation')
 	})
 
-	/*** Parent company ***/
-		/*
-		router.get('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
-			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
-				req.session.data['redir_fromtasklist'] = 'org-parentcompany'
-				res.redirect('/application/' + v + '/changeorganswer-tasklist')
-			}
-		})*/
-
-	// Have a parent company?
-	router.post('/application/' + v + '/organisation/org-parentcompany', function (req, res) {
-		req.session.data['tl_org_details'] = 'inprogress'
-		if (req.session.data['org-parentcompany'] === 'Yes'){
-			res.redirect('/application/' + v + '/organisation/org-parentcompany-details')
-		} else {
-			res.redirect('/application/' + v + '/organisation/org-ico')
-		}
-	})
-
-	// Parent company details
-	router.post('/application/' + v + '/organisation/org-parentcompany-details', function (req, res) {
-		res.redirect('/application/' + v + '/organisation/org-ico')
-	})
-  
 	// ICO number?
 	router.post('/application/' + v + '/organisation/org-ico', function (req, res) {
 
 		let org_ico = req.session.data['org-ico']
-		
+
 		if (req.session.data['org-ukprn'] == "12340102"){
 			// Org has no website in UKRLP
 			res.redirect('/application/' + v + '/organisation/org-website')
@@ -1130,14 +1106,14 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/org-trading')
 		}
 	})
-	
+
 	// Legal status
 	router.post('/application/' + v + '/organisation/org-legalstatus', function (req, res) {
 
 		if (req.session.data['org-legalstatus']) {
-			if (req.session.data['org-legalstatus'] === 'Sole trader') { 
+			if (req.session.data['org-legalstatus'] === 'Sole trader') {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-sole')
-			} 
+			}
 			if (req.session.data['org-legalstatus'] === 'Partnership') {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership')
 			}
@@ -1172,10 +1148,10 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/organisation/org-type')
 		})
 
-	
+
 	/*** Partnership ***/
-	
-		// Partnership details 
+
+		// Partnership details
 		router.post('/application/' + v + '/organisation/org-legalstatus-partnership', function (req, res) {
 
 			var newPartner = {
@@ -1195,13 +1171,13 @@ module.exports = function (router) {
 				var firstPartner = false;
 			}
 			req.session.data['org-partners'].push(newPartner)
-			
+
 			if (firstPartner) {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership-choice')
 			} else {
 				res.redirect('/application/' + v + '/organisation/org-legalstatus-partnership-confirm')
 			}
-			
+
 		})
 
 		// Add partner choice
@@ -1215,11 +1191,11 @@ module.exports = function (router) {
 		router.post('/application/' + v + '/organisation/org-legalstatus-partnership-confirm', function (req, res) {
 			res.redirect('/application/' + v + '/organisation/org-type')
 		})
-	
-	
+
+
 	/*** Public body ***/
 
-		// Public body details 
+		// Public body details
 		router.post('/application/' + v + '/organisation/org-legalstatus-publicbody', function (req, res) {
 
 			var newPBPartner = {
@@ -1236,16 +1212,16 @@ module.exports = function (router) {
 				req.session.data['org-publicbodypartner'] = []
 			}
 			req.session.data['org-publicbodypartner'].push(newPBPartner)
-			
+
 			res.redirect('/application/' + v + '/organisation/org-legalstatus-publicbody-confirm')
-			
+
 		})
 
 		// Confirm partner details
 		router.post('/application/' + v + '/organisation/org-legalstatus-publicbody-confirm', function (req, res) {
 			res.redirect('/application/' + v + '/organisation/org-type')
 		})
-		
+
 
 	// Website
 	router.post('/application/' + v + '/organisation/org-website', function (req, res) {
@@ -1258,22 +1234,22 @@ module.exports = function (router) {
 
 	// Started trading date
 	router.post('/application/' + v + '/organisation/org-trading', function (req, res) {
-		
+
 		if (req.session.data['org-trading']) {
-			
+
 			if ( req.session.data['org-trading'] == "Less than 3 months" || req.session.data['org-trading'] == "Less than 12 months") {
 				res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
-				
+
 				if (req.session.data['org-ukprn'] == '12340301') {
 					res.redirect('/application/' + v + '/organisation/org-legalstatus')
 				} else {
 					res.redirect('/application/' + v + '/task-list#section-organisation')
 				}
 			}
-			
+
 		} else {
 			res.redirect('/application/' + v + '/organisation/error/org-trading')
 		}
@@ -1282,7 +1258,7 @@ module.exports = function (router) {
 
 
 	/*** People in control ***/
-	
+
 		// Missing people in control
 		router.post('/application/' + v + '/organisation/org-peopleincontrol-missing', function (req, res) {
 
@@ -1300,9 +1276,9 @@ module.exports = function (router) {
 				req.session.data['org-personincontrol-missing'] = []
 			}
 			req.session.data['org-personincontrol-missing'].push(newMissing)
-			
+
 			res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm')
-			
+
 		})
 
 		// Confirm missing people in control
@@ -1327,7 +1303,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/org-peopleincontrol-missing-confirm')
 			}
 		})
-		
+
 		// Confirm people in control
 		/*
 		router.get('/application/' + v + '/organisation/org-peopleincontrol', function (req, res) {
@@ -1344,7 +1320,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 			} else {
 				req.session.data['tl_org_people'] = 'completed'
-				req.session.data['tl_org_type'] = 'next'
+				req.session.data['tl_org_profile'] = 'next'
 				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 		})
@@ -1384,84 +1360,21 @@ module.exports = function (router) {
 			req.session.data['org-trustees'].push(newTrustee)
 
 			res.redirect('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare')
-			
+
 		})
-		
+
 		// Confirm trustees - Info from API plus manual DoB entry
 		router.post('/application/' + v + '/organisation/org-trustees-confirm', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
 			res.redirect('/application/' + v + '/task-list#section-organisation')
 		})
-		
+
 		// Confirm trustees - Manual entry
 		router.post('/application/' + v + '/organisation/org-trustees-confirm-fromdeclare', function (req, res) {
 			req.session.data['tl_org_people'] = 'completed'
 			req.session.data['tl_org_type'] = 'next'
 			res.redirect('/application/' + v + '/task-list#section-organisation')
-		})
-
-
-	/*** Organisation type ***/
-		/*
-		router.get('/application/' + v + '/organisation/org-type', function (req, res) {
-			if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
-				req.session.data['redir_fromtasklist'] = 'org-type'
-				res.redirect('/application/' + v + '/changeorganswer-tasklist')
-			}
-		})*/
-
-		// Organisation type
-		router.post('/application/' + v + '/organisation/org-type', function (req, res) {
-
-			let org_orgtype = req.session.data['org-type']
-			let org_route = req.session.data['org-selectedroute']
-
-			if (org_route === 'employer') {
-
-				if (org_orgtype === 'An educational institute'){
-					req.session.data['tl_org_type'] = 'inprogress'
-					res.redirect('/application/' + v + '/organisation/org-type-education')
-				} else if (org_orgtype === 'A public body') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					res.redirect('/application/' + v + '/organisation/org-type-psb')
-				} else if (org_orgtype === 'None of the above') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					res.redirect('/application/' + v + '/organisation/org-type-subtype')
-				} else {
-					res.redirect('/application/' + v + '/organisation/error/org-type')
-				}
-
-			} else {
-
-				if (org_orgtype === 'An educational institute') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					res.redirect('/application/' + v + '/organisation/org-type-education')
-				} else if (org_orgtype === 'An employer training apprentices in other organisations') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					req.session.data['tl_profile_ofsted'] = 'next'
-					req.session.data['exempt_fha'] = 'no'
-					res.redirect('/application/' + v + '/organisation/org-classification')
-				} else if (org_orgtype === 'A public body') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					req.session.data['exempt_fha'] = 'yes'
-					res.redirect('/application/' + v + '/organisation/org-type-psb')
-				} else if (org_orgtype === 'An apprenticeship training agency' || org_orgtype === 'An independent training providers' || org_orgtype === 'A group training association') {
-					req.session.data['tl_org_type'] = 'inprogress'
-					req.session.data['exempt_fha'] = 'no'
-
-					if (req.session.data['org-selectedroute'] === 'employer') {
-						res.redirect('/application/' + v + '/organisation/org-type-subtype')
-					} else {
-						res.redirect('/application/' + v + '/organisation/org-classification')
-					}
-
-				} else {
-					res.redirect('/application/' + v + '/organisation/error/org-type')
-				}
-
-			}
-
 		})
 
 		// Organisation type = Education
@@ -1471,8 +1384,8 @@ module.exports = function (router) {
 			let org_route = req.session.data['org-selectedroute']
 
 			if (
-				org_orgtype_edu === 'National college' || 
-				org_orgtype_edu === 'Sixth form college' || 
+				org_orgtype_edu === 'National college' ||
+				org_orgtype_edu === 'Sixth form college' ||
 				org_orgtype_edu === 'General further education college')
 			{
 				req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
@@ -1489,7 +1402,7 @@ module.exports = function (router) {
 			} else {
 				res.redirect('/application/' + v + '/organisation/error/org-type-education')
 			}
-			
+
 			res.redirect('/application/' + v + '/organisation/org-fundedby')
 
 		})
@@ -1560,7 +1473,7 @@ module.exports = function (router) {
 
 		// Organisation classification
 		router.post('/application/' + v + '/organisation/org-classification', function (req, res) {
-			
+
 			req.session.data['tl_org_profile'] = 'next'
 			req.session.data['tl_org_type'] = 'completed'
 			if (req.session.data['org-selectedroute'] == 'supporting') {
@@ -1581,6 +1494,10 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/changeorganswer-tasklist')
 			}
 		})*/
+
+  router.post('/application/' + v + '/organisation/pro-funded', function (req, res) {
+    res.redirect('/application/' + v + '/organisation/pro-itt')
+  })
 
 		// Profile - ITT accreditation
 		router.post('/application/' + v + '/organisation/pro-itt', function (req, res) {
@@ -1851,8 +1768,212 @@ module.exports = function (router) {
 	// Intro and what you'll need
 	router.post('/application/' + v + '/financial/intro', function (req, res) {
 		req.session.data['tl_fin_intro'] = 'completed'
+		req.session.data['tl_ukparentcompany'] = 'next'
 		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
+
+  /*** Parent company ***/
+  /*
+  router.get('/application/' + v + '/financial/org-parentcompany', function (req, res) {
+    if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+      req.session.data['redir_fromtasklist'] = 'org-parentcompany'
+      res.redirect('/application/' + v + '/changeorganswer-tasklist')
+    }
+  })*/
+
+  // Have a parent company?
+  router.post('/application/' + v + '/financial/org-parentcompany', function (req, res) {
+    req.session.data['tl_ukparentcompany'] = 'inprogress'
+    if (req.session.data['org-parentcompany'] === 'Yes'){
+      res.redirect('/application/' + v + '/financial/org-parentcompany-details')
+    } else {
+      req.session.data['tl_ukparentcompany'] = 'completed'
+      res.redirect('/application/' + v + '/task-list#section-financial')
+    }
+  })
+
+  // Parent company details
+  router.post('/application/' + v + '/financial/org-parentcompany-details', function (req, res) {
+    req.session.data['tl_ukparentcompany'] = 'completed'
+    res.redirect('/application/' + v + '/task-list#section-financial')
+  })
+
+  /*** Organisation type ***/
+  /*
+  router.get('/application/' + v + '/organisation/org-type', function (req, res) {
+    if (req.session.data['tl_org_profile'] == "completed" && req.session.data['redir'] != "true") {
+      req.session.data['redir_fromtasklist'] = 'org-type'
+      res.redirect('/application/' + v + '/changeorganswer-tasklist')
+    }
+  })*/
+
+  // Organisation type
+  router.post('/application/' + v + '/financial/org-type', function (req, res) {
+
+    let org_orgtype = req.session.data['org-type']
+    let org_route = req.session.data['org-selectedroute']
+
+    if (org_route === 'employer') {
+
+      if (org_orgtype === 'An educational institute'){
+        req.session.data['tl_org_type'] = 'inprogress'
+        res.redirect('/application/' + v + '/financial/org-type-education')
+      } else if (org_orgtype === 'A public body') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'yes'
+        res.redirect('/application/' + v + '/financial/org-type-psb')
+      } else if (org_orgtype === 'None of the above') {
+        req.session.data['tl_org_type'] = 'completed'
+        req.session.data['tl_fin_upload'] = 'next'
+        res.redirect('/application/' + v + '/task-list#section-financial')
+      }
+
+    } else {
+
+      if (org_orgtype === 'An educational institute') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        res.redirect('/application/' + v + '/financial/org-type-education')
+      } else if (org_orgtype === 'An employer') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'no'
+        res.redirect('/application/' + v + '/financial/org-classification')
+      } else if (org_orgtype === 'A public body') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'yes'
+        res.redirect('/application/' + v + '/financial/org-type-psb')
+      } else if (org_orgtype === 'An apprenticeship training agency' || org_orgtype === 'An independent training provider' || org_orgtype === 'A group training association') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'no'
+        res.redirect('/application/' + v + '/financial/org-classification')
+
+      }
+
+    }
+
+  })
+
+  router.post('/application/' + v + '/financial/org-type-psb', function (req, res) {
+    req.session.data['tl_fin'] = 'completed'
+    res.redirect('/application/' + v + '/financial/org-classification')
+  })
+
+  // Organisation type = Education
+  router.post('/application/' + v + '/financial/org-type-education', function (req, res) {
+
+    let org_orgtype_edu = req.session.data['org-type-education']
+    let org_route = req.session.data['org-selectedroute']
+
+    if (
+      org_orgtype_edu === 'National college' ||
+      org_orgtype_edu === 'Sixth form college' ||
+      org_orgtype_edu === 'General further education college')
+    {
+      req.session.data['org-fundedbytext'] = 'receiving funding from ESFA'
+    } else if (
+      org_orgtype_edu === 'Academy' ||
+      org_orgtype_edu === 'Multi-academy trust' ||
+      org_orgtype_edu === 'Further education institute')
+    {
+      req.session.data['org-fundedbytext'] = 'already registered with ESFA'
+    } else if (org_orgtype_edu === 'Higher education institute') {
+      req.session.data['org-fundedbytext'] = 'funded by the Office for Students'
+    }
+
+    if (
+      org_orgtype_edu === 'National college' ||
+      org_orgtype_edu === 'Sixth form college' ||
+      org_orgtype_edu === 'General further education college')
+    {
+      res.redirect('/application/' + v + '/financial/org-type-education-college')
+    }
+
+    else if (
+      org_orgtype_edu === 'Academy' ||
+      org_orgtype_edu === 'Multi-academy trust')
+    {
+      res.redirect('/application/' + v + '/financial/org-type-education-academy')
+    }
+
+    else if (
+      org_orgtype_edu === 'School')
+    {
+      res.redirect('/application/' + v + '/financial/org-type-education-school')
+    }
+
+    else if (
+      org_orgtype_edu === 'Higher education institute')
+    {
+      res.redirect('/application/' + v + '/financial/org-type-education-hei')
+    }
+
+    else if (
+      org_orgtype_edu === 'Further education institute')
+    {
+      req.session.data['tl_org_type'] = 'completed'
+      req.session.data['tl_fin_upload'] = 'next'
+      res.redirect('/application/' + v + '/task-list#section-financial')
+    }
+
+  })
+
+  router.post('/application/' + v + '/financial/org-type-education-school', function (req, res) {
+    if (
+      req.session.data['org-type-education-school'] === 'Free school')
+    {
+      res.redirect('/application/' + v + '/financial/org-type-education-free-school')
+    }
+    else {
+      res.redirect('/application/' + v + '/financial/org-classification')
+    }
+  })
+
+  router.post('/application/' + v + '/financial/org-type-education-free-school', function (req, res) {
+    if (req.session.data['org-type-education-free-school'] === 'Yes')
+    {
+      req.session.data['exempt_fha'] = 'yes'
+    }
+    res.redirect('/application/' + v + '/financial/org-classification')
+  })
+
+  router.post('/application/' + v + '/financial/org-type-education-college', function (req, res) {
+    if (req.session.data['org-type-education-college'] === 'Yes')
+    {
+      req.session.data['exempt_fha'] = 'yes'
+    }
+    res.redirect('/application/' + v + '/financial/org-classification')
+  })
+
+  router.post('/application/' + v + '/financial/org-type-education-academy', function (req, res) {
+    if (req.session.data['org-type-education-academy'] === 'Yes')
+    {
+      req.session.data['exempt_fha'] = 'yes'
+    }
+    res.redirect('/application/' + v + '/financial/org-classification')
+  })
+
+  router.post('/application/' + v + '/financial/org-type-education-hei', function (req, res) {
+    if (req.session.data['org-type-education-hei'] === 'Yes')
+    {
+      req.session.data['exempt_fha'] = 'yes'
+    }
+    res.redirect('/application/' + v + '/financial/org-classification')
+  })
+
+  // Organisation classification
+  router.post('/application/' + v + '/financial/org-classification', function (req, res) {
+
+    if (!req.session.data['exempt_fha']) {
+      req.session.data['tl_fin_upload'] = 'next'
+    }
+    if (req.session.data['exempt_fha'] == 'no') {
+      req.session.data['tl_fin_upload'] = 'next'
+    }
+    req.session.data['tl_org_type'] = 'completed'
+    res.redirect('/application/' + v + '/task-list#section-financial')
+
+
+  })
+
 
 	// Financial evidence - turnover
 	router.post('/application/' + v + '/financial/turnover', function (req, res) {
@@ -1937,6 +2058,13 @@ module.exports = function (router) {
 	// Who prepared statements
 	router.post('/application/' + v + '/financial/who-prepared', function (req, res) {
 		req.session.data['tl_fin_upload'] = 'completed'
+    if (req.session.data['org-parentcompany'] == "Yes") {
+      req.session.data['tl_fin_upload'] = 'completed'
+      req.session.data['tl_fin_parent'] = 'next'
+    }
+    else {
+      req.session.data['tl_fin'] = 'completed'
+    }
 		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 
@@ -1984,7 +2112,7 @@ module.exports = function (router) {
 
 	// Upload management accounts
 	router.post('/application/' + v + '/financial/upload-management', function (req, res) {
-		req.session.data['tl_fin_upload'] = 'completed'
+    req.session.data['tl_fin_upload'] = 'completed'
 		res.redirect('/application/' + v + '/task-list#section-financial')
 	})
 

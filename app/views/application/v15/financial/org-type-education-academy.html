@@ -16,27 +16,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">Organisation information</span>
+    <span class="govuk-caption-l">Describe your organisation</span>
         
-    <h1 class="govuk-heading-l">Does your organisation have an ultimate parent company in the UK?</h1>
-    
-    <p class="govuk-body">Your organisation will only have an ultimate parent company if it’s part of a group.</p><p>An ultimate parent company sits at the top of your organisation’s group and has the most responsibility.</p>
+    <h1 class="govuk-heading-l">Is your organisation registered and receiving funding from ESFA?</h1>
 
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "org-parentcompany",
-        name: "org-parentcompany",
+        idPrefix: "org-type-education-academy",
+        name: "org-type-education-academy",
         items: [
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("org-parentcompany", "Yes")
+            checked: checked("org-type-education-academy", "Yes")
           },
           {
             value: "No",
             text: "No",
-            checked: checked("org-parentcompany", "No")
+            checked: checked("org-type-education-academy", "No")
           }
         ]
       }) }}

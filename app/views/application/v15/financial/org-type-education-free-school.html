@@ -16,25 +16,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">Experience and accreditations</span>
-
-    <h1 class="govuk-heading-l">Is your organisation funded by the Office for Students?</h1>
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">Is your organisation registered and receiving funding from ESFA?</h1>
 
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-funded",
-        name: "pro-funded",
+        idPrefix: "org-type-education-free-school",
+        name: "org-type-education-free-school",
         items: [
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("pro-funded", "Yes")
+            checked: checked("org-type-education-free-school", "Yes")
           },
           {
             value: "No",
             text: "No",
-            checked: checked("pro-funded", "No")
+            checked: checked("org-type-education-free-school", "No")
           }
         ]
       }) }}

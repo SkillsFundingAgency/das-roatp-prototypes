@@ -96,6 +96,42 @@
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="assessor/3127/submit/confirmation">KNOWTABLY</a></td>
+					<td class="govuk-table__cell">20098778</td>
+					<td class="govuk-table__cell">APR13</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
+					<td class="govuk-table__cell">Joan&nbsp;Smith</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">MOVING THE GRADE</td>
+					<td class="govuk-table__cell">32118009</td>
+					<td class="govuk-table__cell">APR187</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">BOOK BOT</td>
+					<td class="govuk-table__cell">24535362</td>
+					<td class="govuk-table__cell">APR97</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">16 Oct 2019</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell">LEVEL UP</td>
+					<td class="govuk-table__cell">22657489</td>
+					<td class="govuk-table__cell">APR4102</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">David&nbsp;Collins</td>
+					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
+				</tr>
 				{% if data['apr3127'] == "assigned" %}
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="assessor/tasklist-3127">MY RECRUITMENT LIMITED</a></td>
@@ -118,42 +154,6 @@
 					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
 				</tr>
 				{% endif %}
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">LEVEL UP</td>
-					<td class="govuk-table__cell">22657489</td>
-					<td class="govuk-table__cell">APR4102</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">17 Oct 2019</td>
-					<td class="govuk-table__cell">David&nbsp;Collins</td>
-					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
-				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">BOOK BOT</td>
-					<td class="govuk-table__cell">24535362</td>
-					<td class="govuk-table__cell">APR97</td>
-					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">16 Oct 2019</td>
-					<td class="govuk-table__cell">David&nbsp;Collins</td>
-					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
-				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="assessor/3127/submit/confirmation">KNOWTABLY</a></td>
-					<td class="govuk-table__cell">20098778</td>
-					<td class="govuk-table__cell">APR13</td>
-					<td class="govuk-table__cell">Employer</td>
-					<td class="govuk-table__cell">14 Oct 2019</td>
-					<td class="govuk-table__cell">Joan&nbsp;Smith</td>
-					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
-				</tr>
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell">MOVING THE GRADE</td>
-					<td class="govuk-table__cell">32118009</td>
-					<td class="govuk-table__cell">APR187</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">14 Oct 2019</td>
-					<td class="govuk-table__cell">David&nbsp;Collins</td>
-					<td class="govuk-table__cell">Andy&nbsp;Walton</td>
-				</tr>
 			</tbody>
 		</table>
 	{% endset -%}
@@ -209,14 +209,26 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
-					<th aria-sort="ascending" scope="col" class="govuk-table__header" scope="col">Application submitted date</th>
-					<th aria-sort="none" class="govuk-table__header" scope="col">Clarification requested date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application submitted date</th>
+					<th aria-sort="descending" class="govuk-table__header" scope="col">Clarification requested date</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Moderator</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Status</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
 				<tr class="govuk-table__row">
+                {% if data['apr264'] != "completed" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">FUTURE THINK</a></td>
+					<td class="govuk-table__cell">30098726</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">APR264</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">30 Oct 2019</td>
+					<td class="govuk-table__cell">Joan Smith</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
+				</tr>
+				{% endif %}
 				{% if data['apr3127'] == "clarification" %}
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();">MY RECRUITMENT LIMITED</a></td>
 					<td class="govuk-table__cell">12345678</td>
@@ -238,18 +250,6 @@
 					<td class="govuk-table__cell">2 Nov 2019</td>
 					<td class="govuk-table__cell">Joan Smith</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Clarified</strong></td>
-				</tr>
-				{% endif %}
-                {% if data['apr264'] != "completed" %}
-				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">FUTURE THINK</a></td>
-					<td class="govuk-table__cell">30098726</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">APR264</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">30 Oct 2019</td>
-					<td class="govuk-table__cell">Joan Smith</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
 				{% endif %}
 				<!--{% if data['apr264'] != "completed" %}
@@ -277,8 +277,8 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">UKPRN</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application reference number</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Provider route</th>
-					<th aria-sort="ascending" class="govuk-table__header" scope="col">Application submitted</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Outcome made date</th>
+					<th aria-sort="none" class="govuk-table__header" scope="col">Application submitted</th>
+					<th aria-sort="descending" scope="col" class="govuk-table__header" scope="col">Outcome made date</th>
 					<th aria-sort="none" class="govuk-table__header" scope="col">Outcome</th>
 				</tr>
 			</thead>
@@ -329,12 +329,12 @@
 				</tr>
 				{% endif %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="javascript:preventDefault();">HOTGROUP</a></td>
-					<td class="govuk-table__cell">28876299</td>
-					<td class="govuk-table__cell">APR851</td>
-					<td class="govuk-table__cell">Main</td>
-					<td class="govuk-table__cell">18 Oct 2019</td>
-					<td class="govuk-table__cell">28 Nov 2019</td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FIVE ELMS PRIMARY SCHOOL</a></td>
+					<td class="govuk-table__cell">19987868</td>
+					<td class="govuk-table__cell">APR686</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">19 Oct 2019</td>
+					<td class="govuk-table__cell">30 Dec 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
@@ -356,15 +356,6 @@
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FIVE ELMS PRIMARY SCHOOL</a></td>
-					<td class="govuk-table__cell">19987868</td>
-					<td class="govuk-table__cell">APR686</td>
-					<td class="govuk-table__cell">Supporting</td>
-					<td class="govuk-table__cell">19 Oct 2019</td>
-					<td class="govuk-table__cell">30 Dec 2019</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
-				</tr>
-				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();">GEASON APPRENTICESHIPS</a></td>
 					<td class="govuk-table__cell">18664753</td>
 					<td class="govuk-table__cell">APR561</td>
@@ -372,6 +363,15 @@
 					<td class="govuk-table__cell">21 Oct 2019</td>
 					<td class="govuk-table__cell">30 Nov 2019</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">HOTGROUP</a></td>
+					<td class="govuk-table__cell">28876299</td>
+					<td class="govuk-table__cell">APR851</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">28 Nov 2019</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
 				</tr>
 				<tr class="govuk-table__row">
 					<td class="govuk-table__cell"><a href="javascript:preventDefault();">BABCOCK TRAINING</a></td>

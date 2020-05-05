@@ -1967,6 +1967,7 @@ module.exports = function (router) {
       req.session.data['tl_fin_upload'] = 'next'
     }
     req.session.data['tl_org_type'] = 'completed'
+    req.session.data['tl_fin'] = 'completed'
     res.redirect('/application/' + v + '/task-list#section-financial')
 
 

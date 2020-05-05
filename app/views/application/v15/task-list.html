@@ -248,10 +248,10 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="fin-evidence-status">Completed</strong>
               {% elseif data['tl_fin_upload'] == "inprogress" %}
                 <strong class="govuk-tag app-task-list__task-inprogress" id="fin-evidence-status">In progress</strong>
-              {% elseif data['tl_fin_upload'] == "next" %}
-                <strong class="govuk-tag app-task-list__task-next" id="org-type-status">Next</strong>
               {% elseif data['exempt_fha'] == "yes" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="fin-evidence-notrequired">Not required</strong>
+              {% elseif data['tl_fin_upload'] == "next" %}
+                <strong class="govuk-tag app-task-list__task-next" id="org-type-status">Next</strong>
               {% endif %}
             </li>
 

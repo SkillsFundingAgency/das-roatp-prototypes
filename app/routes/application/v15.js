@@ -43,17 +43,8 @@ module.exports = function (router) {
  ***************/
 	// Completed organisation section - main provider...
 	router.get('/application/' + v + '/jump/completedorgsection', function (req,res) {
-		req.session.data['exempt_fha'] = "no"
-		req.session.data['org-classification'] = ["None of the above"]
-		req.session.data['org-ico'] = "12345678"
-		req.session.data['org-parentcompany'] = "Yes"
-		req.session.data['org-parentcompany-name'] = "Parent Company Limited"
-		req.session.data['org-parentcompany-number'] = "89987987"
 		req.session.data['org-selectedroute'] = "main"
 		req.session.data['org-trading'] = "More than 23 months"
-		req.session.data['org-type'] = "An employer training apprentices in other organisations"
-		req.session.data['org-type-psb'] = "NHS Trust"
-		req.session.data['org-type-subtype'] = "In your organisation and connected companies or charities"
 		req.session.data['org-ukprn'] = "12340102"
 		req.session.data['org-website'] = "Yes"
 		req.session.data['org-website-address'] = "ourwebsite.com"
@@ -71,10 +62,33 @@ module.exports = function (router) {
 		req.session.data['tl_org_intro'] = "completed"
 		req.session.data['tl_org_people'] = "completed"
 		req.session.data['tl_org_profile'] = "completed"
-		req.session.data['tl_org_type'] = "completed"
 		req.session.data['tl_selectroute'] = "completed"
 		res.redirect('/application/' + v + '/task-list')
 	})
+
+  router.get('/application/' + v + '/jump/completedorgsection-employer', function (req,res) {
+    req.session.data['org-selectedroute'] = "employer"
+    req.session.data['org-trading'] = "More than 23 months"
+    req.session.data['org-ukprn'] = "12340102"
+    req.session.data['org-website'] = "Yes"
+    req.session.data['org-website-address'] = "ourwebsite.com"
+    req.session.data['pro-itt'] = "Yes"
+    req.session.data['pro-ofsted-apprenticeships'] = "No"
+    req.session.data['pro-ofsted-feskills'] = "Yes"
+    req.session.data['pro-ofsted-overall-date'] = "No"
+    req.session.data['pro-ofsted-overall-fundingmaintained'] = "No"
+    req.session.data['pro-ofsted-overall-grade'] = "Good"
+    req.session.data['pro-ofsted-overall-grademaintained'] = "Yes"
+    req.session.data['pro-ofsted-overall-shortinspection'] = "Yes"
+    req.session.data['pro-postgrad'] = "No"
+    req.session.data['signedin'] = "yes"
+    req.session.data['tl_org_details'] = "completed"
+    req.session.data['tl_org_intro'] = "completed"
+    req.session.data['tl_org_people'] = "completed"
+    req.session.data['tl_org_profile'] = "completed"
+    req.session.data['tl_selectroute'] = "completed"
+    res.redirect('/application/' + v + '/task-list')
+  })
 
 	// Application completed (including Finish section) - main provider...
 	router.get('/application/' + v + '/jump/completedapplicationmain', function (req,res) {

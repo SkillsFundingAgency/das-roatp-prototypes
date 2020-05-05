@@ -41,8 +41,6 @@
         Application overview
       </h1>
 
-      <p class="govuk-body">Make sure you have read <a href="index">the RoATP GOV.UK page (opens in a new window or tab)</a>.</p>
-      
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -595,9 +593,9 @@
             </li-->
             <li class="app-task-list__item">
               {% if (data['tl_plan_intro'] == "completed") and (data['org-selectedroute'] == "employer") %}
-                <a class="app-task-list__task-name" href="planning/org-type-subtype" aria-describedby="plan-supporting">How your organisation will train apprentices</a>
+                <a class="app-task-list__task-name" href="planning/org-type-subtype" aria-describedby="plan-supporting">Training apprentices</a>
               {% else %}
-                How your organisation will train apprentices
+                Training apprentices
               {% endif %}
               {% if data['tl_plan_subtype'] == "completed" %}
                 <strong class="govuk-tag app-task-list__task-completed" id="plan-supporting">Completed</strong>

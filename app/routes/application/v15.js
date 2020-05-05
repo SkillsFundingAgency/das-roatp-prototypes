@@ -1915,6 +1915,11 @@ module.exports = function (router) {
     {
       res.redirect('/application/' + v + '/financial/org-type-education-free-school')
     }
+    if (
+      req.session.data['org-type-education-school'] === 'Local Education Authority (LEA) school')
+    {
+      req.session.data['exempt_fha'] = 'yes'
+    }
     else {
       res.redirect('/application/' + v + '/financial/org-classification')
     }

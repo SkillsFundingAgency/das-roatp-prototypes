@@ -1796,6 +1796,7 @@ module.exports = function (router) {
       res.redirect('/application/' + v + '/financial/org-parentcompany-details')
     } else {
       req.session.data['tl_ukparentcompany'] = 'completed'
+      req.session.data['tl_org_type'] = 'next'
       res.redirect('/application/' + v + '/task-list#section-financial')
     }
   })
@@ -1803,6 +1804,7 @@ module.exports = function (router) {
   // Parent company details
   router.post('/application/' + v + '/financial/org-parentcompany-details', function (req, res) {
     req.session.data['tl_ukparentcompany'] = 'completed'
+    req.session.data['tl_org_type'] = 'next'
     res.redirect('/application/' + v + '/task-list#section-financial')
   })
 
@@ -1833,7 +1835,7 @@ module.exports = function (router) {
       } else if (org_orgtype === 'None of the above') {
         req.session.data['tl_org_type'] = 'completed'
         req.session.data['tl_fin_upload'] = 'next'
-        res.redirect('/application/' + v + '/task-list#section-financial')
+        res.redirect('/application/' + v + '/financial/org-classification')
       }
 
     } else {

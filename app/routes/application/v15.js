@@ -1935,6 +1935,7 @@ module.exports = function (router) {
       req.session.data['org-type-education-school'] === 'Local Education Authority (LEA) school')
     {
       req.session.data['exempt_fha'] = 'yes'
+      res.redirect('/application/' + v + '/financial/org-classification')
     }
     else {
       res.redirect('/application/' + v + '/financial/org-classification')

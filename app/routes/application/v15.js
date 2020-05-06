@@ -1256,7 +1256,8 @@ module.exports = function (router) {
 		if (req.session.data['org-trading']) {
 
 			if ( req.session.data['org-trading'] == "Less than 3 months" || req.session.data['org-trading'] == "Less than 12 months") {
-				res.redirect('/application/' + v + '/shutter/org-trading')
+			  res.redirect('/application/' + v + '/organisation/org-rail-franchise')
+			  //res.redirect('/application/' + v + '/shutter/org-trading')
 			} else {
 				req.session.data['tl_org_details'] = 'completed'
 				req.session.data['tl_org_people'] = 'next'
@@ -1273,6 +1274,17 @@ module.exports = function (router) {
 		}
 
 	})
+
+  router.post('/application/' + v + '/organisation/org-rail-franchise', function (req, res) {
+    if (req.session.data['org-rail-franchise'] === "Yes") {
+      req.session.data['tl_org_details'] = 'completed'
+      req.session.data['tl_org_people'] = 'next'
+      res.redirect('/application/' + v + '/task-list#section-organisation')
+    }
+    if (req.session.data['org-rail-franchise'] === "No") {
+      res.redirect('/application/' + v + '/shutter/org-trading')
+    }
+  })
 
 
 	/*** People in control ***/
@@ -1832,9 +1844,13 @@ module.exports = function (router) {
         req.session.data['tl_org_type'] = 'inprogress'
         req.session.data['exempt_fha'] = 'yes'
         res.redirect('/application/' + v + '/financial/org-type-psb')
+      } else if (org_orgtype === 'A rail franchise operator') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'yes'
+        res.redirect('/application/' + v + '/financial/org-classification')
       } else if (org_orgtype === 'None of the above') {
-        req.session.data['tl_org_type'] = 'completed'
-        req.session.data['tl_fin_upload'] = 'next'
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'no'
         res.redirect('/application/' + v + '/financial/org-classification')
       }
 
@@ -1851,6 +1867,10 @@ module.exports = function (router) {
         req.session.data['tl_org_type'] = 'inprogress'
         req.session.data['exempt_fha'] = 'yes'
         res.redirect('/application/' + v + '/financial/org-type-psb')
+      } else if (org_orgtype === 'A rail franchise operator') {
+        req.session.data['tl_org_type'] = 'inprogress'
+        req.session.data['exempt_fha'] = 'yes'
+        res.redirect('/application/' + v + '/financial/org-classification')
       } else if (org_orgtype === 'An apprenticeship training agency' || org_orgtype === 'An independent training provider' || org_orgtype === 'A group training association') {
         req.session.data['tl_org_type'] = 'inprogress'
         req.session.data['exempt_fha'] = 'no'

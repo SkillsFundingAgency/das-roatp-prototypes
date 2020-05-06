@@ -250,13 +250,11 @@
                 <strong class="govuk-tag app-task-list__task-inprogress" id="fin-evidence-status">In progress</strong>
               {% elseif data['exempt_fha'] == "yes" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="fin-evidence-notrequired">Not required</strong>
-              {% elseif data['tl_fin_upload'] == "next" %}
-                <strong class="govuk-tag app-task-list__task-next" id="org-type-status">Next</strong>
               {% endif %}
             </li>
 
             <li class="app-task-list__item">
-              {% if (data['tl_org_profile'] == "completed") and (data['tl_fin_upload'] == "completed") and data['org-parentcompany'] == "Yes" %}
+              {% if (data['tl_org_profile'] == "completed") and (data['tl_org_type'] == "completed") and data['exempt_fha'] != "yes" and data['org-parentcompany'] == "Yes" %}
                 <a class="app-task-list__task-name" href="financial/parentcompany" aria-describedby="fin-parentcompany">Your UK ultimate parent company’s financial evidence</a>
               {% else %}
                 Your UK ultimate parent company’s financial evidence
@@ -267,8 +265,6 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="fin-parentcompany">Completed</strong>
               {% elseif data['exempt_fha'] == "yes" or data['org-parentcompany'] == "No" %}
                 <strong class="govuk-tag app-task-list__task-notrequired" id="fin-parentcompany-notrequired">Not required</strong>
-              {% elseif data['tl_fin_parent'] == "next" %}
-                <strong class="govuk-tag app-task-list__task-next" id="fin-parentcompany">Next</strong>
               {% endif %}
             </li>
 

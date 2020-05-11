@@ -42,22 +42,38 @@
           name: "del-hierarchy-role"
         }) }}
 
-        {{ govukInput({
-          label: {
-            text: "Time in role"
-          },
-          classes: "govuk-input--width-20",
-          id: "del-hierarchy-timeinrole",
-          name: "del-hierarchy-timeinrole"
-        }) }}
+        <div class="govuk-form-group ">
+            <p class="govuk-label">Time in role</p>
+            <span class="govuk-hint" id="dob-hint">
+                For example, 3 02
+            </span>
+            <div class="govuk-date-input" id="timeInRole">
+                <div class="govuk-date-input__item">
+                    <div class="govuk-form-group" sfa-validation-for="TimeInRoleYears">
+                        <label class="govuk-label govuk-date-input__label" for="TimeInRoleYears">Years</label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="TimeInRoleYears" name="TimeInRoleYears" type="number" pattern="[0-9]*" sfa-validation-for="TimeInRoleYears">
+                    </div>
+                </div>
+                <div class="govuk-date-input__item">
+                    <div class="govuk-form-group" sfa-validation-for="TimeInRoleMonths">
+                        <label class="govuk-label govuk-date-input__label" for="TimeInRoleMonths">Months</label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " id="TimeInRoleMonths" name="TimeInRoleMonths" type="number" pattern="[0-9]*" sfa-validation-for="TimeInRoleMonths">
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         {% set orgfundingHtml %}
-        {{ govukInput({
+        {{ govukTextarea({
           id: "del-hierarchy-orgfunding-name",
           name: "del-hierarchy-orgfunding-name",
           classes: "govuk-input--width-20",
           label: {
-            text: "Enter the organisation’s name"
+            text: "Enter the names of these organisations"
+          },
+          hint: {
+            text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
           }
         }) }}
         {% endset -%}
@@ -67,7 +83,7 @@
           name: "del-hierarchy-orgfunding",
           fieldset: {
             legend: {
-              text: "Is this person part of another organisation that receives funding from ESFA?",
+              text: "Is this person part of any other organisations?",
               isPageHeading: false
             }
           },
@@ -86,41 +102,6 @@
               checked: checked("del-hierarchy-orgfunding", "No")
             }
           ]
-        }) }}
-
-        {{ govukRadios({
-          idPrefix: "del-hierarchy-subcontractorfunding",
-          name: "del-hierarchy-subcontractorfunding",
-          fieldset: {
-            legend: {
-              text: "Is this person a subcontractor who receives funding from ESFA?",
-              isPageHeading: false
-            }
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes",
-              checked: checked("del-hierarchy-subcontractorfunding", "Yes")
-            },
-            {
-              value: "No",
-              text: "No",
-              checked: checked("del-hierarchy-subcontractorfunding", "No")
-            }
-          ]
-        }) }}
-
-        {{ govukInput({
-          label: {
-            text: "Who do they report to?"
-          },
-          hint: {
-            text: "You’ll need to include their full name and job role."
-          },
-          classes: "govuk-input--width-20",
-          id: "del-hierarchy-reportto",
-          name: "del-hierarchy-reportto"
         }) }}
 
         {{ govukButton({

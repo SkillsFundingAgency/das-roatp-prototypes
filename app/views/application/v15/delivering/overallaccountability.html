@@ -16,13 +16,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">Team responsible for developing and delivering training</span>
+    <span class="govuk-caption-l">Overall accountability for apprenticeships</span>
           
     <h1 class="govuk-heading-l">Tell us who has overall accountability for apprenticeships in your organisation</h1>
     
     <p class="govuk-body">This must be someone who’s accountable for the overall management and governance of apprenticeships.</p>
     
-    <p class="govuk-body">We’ll only contact them if there is an issue.</p>
+    <p class="govuk-body">We will contact them for all apprenticeship related concerns, issues or queries after your organisation joins the RoATP.</p>
 
     <form action="" method="post" class="form">
 
@@ -60,6 +60,46 @@
         name: "del-developdeliver-overallaccountability-number",
         value: data['del-developdeliver-overallaccountability-number']
       }) }}
+
+        {% set orgfundingHtml %}
+        {{ govukTextarea({
+          id: "del-developdeliver-overallaccountability-org",
+          name: "del-developdeliver-overallaccountability-org",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter the names of these organisations"
+          },
+          hint: {
+            text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-overallaccountability-name",
+          name: "del-developdeliver-overallaccountability-name",
+          fieldset: {
+            legend: {
+              text: "Is this person part of any other organisations?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-overallaccountability-name", "Yes"),
+              conditional: {
+                html: orgfundingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-overallaccountability-name", "No")
+            }
+          ]
+        }) }}
 
       {{ govukButton({
         text: "Save and continue",

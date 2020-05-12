@@ -2783,7 +2783,7 @@ module.exports = function (router) {
 		delete req.session.data['del-employee-sectorexperience-detail']
 		delete req.session.data['del-employee-overallexperience']
 
-		res.redirect('/application/' + v + '/delivering/sectors-employee-qualifications')
+		res.redirect('/application/' + v + '/delivering/sectors-employee-trainingdelivered')
 		
 	})
 

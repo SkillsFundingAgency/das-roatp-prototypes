@@ -26,7 +26,7 @@
           {{ govukCharacterCount({
             name: "del-employee-sectorexperience-detail",
             id: "del-employee-sectorexperience-detail",
-            maxlength: 1500,
+            maxwords: 275,
             label: {
               text: "Where did they gain this experience?"
             }
@@ -37,7 +37,7 @@
           {{ govukCharacterCount({
             name: "del-employee-sectorexperience-detail",
             id: "del-employee-sectorexperience-detail",
-            maxlength: 1500,
+            maxwords: 275,
             label: {
               text: "Where did they gain this experience?"
             }
@@ -48,7 +48,7 @@
           {{ govukCharacterCount({
             name: "del-employee-sectorexperience-detail",
             id: "del-employee-sectorexperience-detail",
-            maxlength: 1500,
+            maxwords: 275,
             label: {
               text: "Where did they gain this experience?"
             }
@@ -59,9 +59,20 @@
           {{ govukCharacterCount({
             name: "del-employee-sectorexperience-detail",
             id: "del-employee-sectorexperience-detail",
-            maxlength: 1500,
+            maxwords: 275,
             label: {
               text: "Where did they gain this experience?"
+            }
+          }) }}
+        {% endset -%}
+
+        {% set expQualsHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-qualifications-detail",
+            id: "del-employee-qualifications-detail",
+            maxwords: 275,
+            label: {
+              text: "Tell us what qualifications they have"
             }
           }) }}
         {% endset -%}
@@ -117,39 +128,97 @@
         }) }}
 
         {{ govukRadios({
-          idPrefix: "del-employee-overallexperience",
-          name: "del-employee-overallexperience",
+          idPrefix: "del-employee-qualifications",
+          name: "del-employee-qualifications",
           fieldset: {
             legend: {
               classes: "govuk-fieldset__legend--m",
-              text: "What’s their overall experience in this sector?"
+              text: "Do they have any qualifications relating to this sector?"
             }
           },
           items: [
             {
-              value: "Less than a year",
-              text: "Less than a year",
-              checked: checked("del-employee-overallexperience", "Less than a year")
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: expQualsHtml
+              }
             },
             {
-              value: "One to 2 years",
-              text: "One to 2 years",
-              checked: checked("del-employee-overallexperience", "One to 2 years")
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% set expAwardingHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-awarding-detail",
+            id: "del-employee-awarding-detail",
+            maxwords: 275,
+            label: {
+              text: "Names of awarding bodies"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-awarding",
+          name: "del-employee-awarding",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "Are they approved by awarding bodies to deliver training?"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: expAwardingHtml
+              }
             },
             {
-              value: "3 to 5 years",
-              text: "3 to 5 years",
-              checked: checked("del-employee-overallexperience", "3 to 5 years")
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% set expMembershipsHtml %}
+          {{ govukCharacterCount({
+            name: "del-employee-memberships-detail",
+            id: "del-employee-memberships-detail",
+            maxwords: 275,
+            label: {
+              text: "Names of sector or trade bodies"
+            }
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-employee-memberships",
+          name: "del-employee-memberships",
+          fieldset: {
+            legend: {
+              classes: "govuk-fieldset__legend--m",
+              text: "Do they have sector or trade body memberships?"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-employee-memberships", "Yes"),
+              conditional: {
+                html: expMembershipsHtml
+              }
             },
             {
-              value: "Over 5 years",
-              text: "Over 5 years",
-              checked: checked("del-employee-overallexperience", "Over 5 years")
-            },
-            {
-              value: "No experience",
-              text: "No experience",
-              checked: checked("del-employee-overallexperience", "No experience")
+              value: "No",
+              text: "No",
+              checked: checked("del-employee-memberships", "No")
             }
           ]
         }) }}

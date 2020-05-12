@@ -34,6 +34,46 @@
         value: data['del-developdeliver-overallmanager']
       }) }}
 
+        {% set orgfundingHtml %}
+        {{ govukTextarea({
+          id: "del-developdeliver-overallmanager-org",
+          name: "del-developdeliver-overallmanager-org",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter the names of all these organisations"
+          },
+          hint: {
+            text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-overallmanager-otherorg",
+          name: "del-developdeliver-overallmanager-otherorg",
+          fieldset: {
+            legend: {
+              text: "Is this person part of any other organisations?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-overallmanager-otherorg", "Yes"),
+              conditional: {
+                html: orgfundingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-overallmanager-otherorg", "No")
+            }
+          ]
+        }) }}
+
       {% if data["org-selectedroute"] == "supporting" %}
 
         <h2 class="govuk-heading-m">Do they have at least 3 months experience in developing and delivering training?</h2>

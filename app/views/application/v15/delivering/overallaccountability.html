@@ -67,7 +67,7 @@
           name: "del-developdeliver-overallaccountability-org",
           classes: "govuk-input--width-20",
           label: {
-            text: "Enter the names of these organisations"
+            text: "Enter the names of all these organisations"
           },
           hint: {
             text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
@@ -76,8 +76,8 @@
         {% endset -%}
 
         {{ govukRadios({
-          idPrefix: "del-developdeliver-overallaccountability-name",
-          name: "del-developdeliver-overallaccountability-name",
+          idPrefix: "del-developdeliver-overallaccountability-otherorg",
+          name: "del-developdeliver-overallaccountability-otherorg",
           fieldset: {
             legend: {
               text: "Is this person part of any other organisations?",
@@ -88,7 +88,7 @@
             {
               value: "Yes",
               text: "Yes",
-              checked: checked("del-developdeliver-overallaccountability-name", "Yes"),
+              checked: checked("del-developdeliver-overallaccountability-otherorg", "Yes"),
               conditional: {
                 html: orgfundingHtml
               }
@@ -96,7 +96,7 @@
             {
               value: "No",
               text: "No",
-              checked: checked("del-developdeliver-overallaccountability-name", "No")
+              checked: checked("del-developdeliver-overallaccountability-otherorg", "No")
             }
           ]
         }) }}

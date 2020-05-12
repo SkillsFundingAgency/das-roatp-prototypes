@@ -68,6 +68,46 @@
           </fieldset>
         </div>
 
+        {% set orgfundingHtml %}
+        {{ govukTextarea({
+          id: "del-developdeliver-sectors-org",
+          name: "del-developdeliver-sectors-org",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter the names of all these organisations"
+          },
+          hint: {
+            text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-sectors-otherorg",
+          name: "del-developdeliver-sectors-otherorg",
+          fieldset: {
+            legend: {
+              text: "Is this person part of any other organisations?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-sectors-otherorg", "Yes"),
+              conditional: {
+                html: orgfundingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-sectors-otherorg", "No")
+            }
+          ]
+        }) }}
+
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-4"

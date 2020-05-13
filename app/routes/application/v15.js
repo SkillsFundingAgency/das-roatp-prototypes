@@ -2716,7 +2716,7 @@ module.exports = function (router) {
 
 	// Select sector to which they will add an employee
 	router.get('/application/' + v + '/delivering/sectors-employee-add-route', function (req, res) {
-		res.redirect('/application/' + v + '/delivering/sectors-employee-add')
+		res.redirect('/application/' + v + '/delivering/sectors-starts')
 	})
 
 	router.get('/application/' + v + '/delivering/sectors-employee-remove-route', function (req, res) {
@@ -2731,7 +2731,16 @@ module.exports = function (router) {
 		res.redirect('/application/' + v + '/delivering/sectors-employees')
 	})
 
-	// Add employee to sector
+  // Number of starts
+  router.post('/application/' + v + '/delivering/sectors-starts', function (req, res) {
+    res.redirect('/application/' + v + '/delivering/sectors-number-of-employees')
+  })
+
+  router.post('/application/' + v + '/delivering/sectors-number-of-employees', function (req, res) {
+    res.redirect('/application/' + v + '/delivering/sectors-employee-add')
+  })
+
+  // Add employee to sector
 	router.post('/application/' + v + '/delivering/sectors-employee-add', function (req, res) {
 
 		// Create new employee for selected sector

@@ -1,0 +1,50 @@
+{% extends "layouts/layout_application_v15.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v15
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Sectors and employee experience</span>
+
+      <h1 class="govuk-heading-l">
+      How many employees will deliver training in the '{{ data['del-sectors'][ data['current_sector_id'] ] }}' sector?
+      </h1>
+
+      <form action="" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Enter number of employees"
+          },
+          classes: "govuk-input--width-4",
+          id: "del-sectors-employees",
+          name: "del-sectors-employees",
+          value: [ data['current_sector_id'] ]['employees']
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-4"
+        }) }}
+
+        <!--p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p-->
+      
+        {% include "includes/v15/gethelp.html" %}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

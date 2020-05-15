@@ -18,23 +18,23 @@
 
     <span class="govuk-caption-l">Experience and accreditations</span>
 
-    <h1 class="govuk-heading-l">Has your organisation had a monitoring visit in further education and skills?</h1>
+    <h1 class="govuk-heading-l">Has your organisation had 2 consecutive monitoring visits with the grade 'insufficient progress’?</h1>
 
     <form action="" method="post" class="form">
 
       {{ govukRadios({
-        idPrefix: "pro-monitoring-visit",
-        name: "pro-monitoring-visit",
+        idPrefix: "pro-consecutive-visits",
+        name: "pro-consecutive-visits",
         items: [
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("pro-monitoring-visit", "Yes")
+            checked: checked("pro-consecutive-visits", "Yes")
           },
           {
             value: "No",
             text: "No",
-            checked: checked("pro-monitoring-visit", "No")
+            checked: checked("pro-consecutive-visits", "No")
           }
         ]
       }) }}

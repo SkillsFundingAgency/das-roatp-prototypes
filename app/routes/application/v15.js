@@ -1572,11 +1572,38 @@ module.exports = function (router) {
 
 		// Profile - Monitoring visit
 		router.post('/application/' + v + '/organisation/pro-monitoring-visit', function (req, res) {
-			req.session.data['tl_org_profile'] = 'completed'
-			res.redirect('/application/' + v + '/task-list#section-organisation')
+		  if (req.session.data['pro-monitoring-visit'] == "Yes") {
+        res.redirect('/application/' + v + '/organisation/pro-consecutive-visits')
+      }
+		  else {
+        req.session.data['tl_org_profile'] = 'completed'
+        res.redirect('/application/' + v + '/task-list#section-organisation')
+      }
 		})
 
-		// Profile - Ofsted inspection for apprentices
+  // Profile - Consecutive visits
+  router.post('/application/' + v + '/organisation/pro-consecutive-visits', function (req, res) {
+    if (req.session.data['pro-consecutive-visits'] == "Yes") {
+      res.redirect('/application/' + v + '/organisation/pro-recent-visit')
+    }
+    else {
+      req.session.data['tl_org_profile'] = 'completed'
+      res.redirect('/application/' + v + '/task-list#section-organisation')
+    }
+  })
+
+  // Profile - Recent visits
+  router.post('/application/' + v + '/organisation/pro-recent-visit', function (req, res) {
+    if (req.session.data['pro-recent-visit'] == "Yes") {
+      res.redirect('/application/' + v + '/shutter/organisation/pro-insufficient-grade')
+    }
+    else {
+      req.session.data['tl_org_profile'] = 'completed'
+      res.redirect('/application/' + v + '/task-list#section-organisation')
+    }
+  })
+
+  // Profile - Ofsted inspection for apprentices
 		router.post('/application/' + v + '/organisation/pro-ofsted-apprenticeships', function (req, res) {
 			if (req.session.data['pro-ofsted-apprenticeships']) {
 				if (req.session.data['pro-ofsted-apprenticeships'] == "Yes") {

@@ -1,0 +1,215 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Evaluating apprenticeship training checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Evaluating apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Check how the organisation made improvements using its process for evaluating the quality of training delivered</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			</div><div class="govuk-grid-column-full"><table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">How has your organisation made improvements using its process for evaluating the quality of training delivered?</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant’s answer</th>
+						<td class="govuk-table__cell"></td>
+					</tr>
+				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's example include how the issue was identified?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-processimprovements-identified",
+				name: "aac-3127-eat-processimprovements-identified",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-processimprovements-identified", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-processimprovements-identified", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's example include what improvements were made?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-processimprovements-made",
+				name: "aac-3127-eat-processimprovements-made",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-processimprovements-made", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-processimprovements-made", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant’s example include who was involved in implementing the improvements?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-processimprovements-implementing",
+				name: "aac-3127-eat-processimprovements-implementing",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-processimprovements-implementing", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-processimprovements-implementing", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's example include what the overall outcome was?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-processimprovements-outcome",
+				name: "aac-3127-eat-processimprovements-outcome",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-processimprovements-outcome", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-processimprovements-outcome", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's example include how success was measured?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-processimprovements-measured",
+				name: "aac-3127-eat-processimprovements-measured",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-processimprovements-measured", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-processimprovements-measured", "No")
+					}
+				]
+			}) }}
+			
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
+					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-eat-processimprovements-pass",
+						id: "aac-3127-eat-processimprovements-pass",
+          	value: data['aac-3127-eat-processimprovements-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-eat-processimprovements-fail",
+						id: "aac-3127-eat-processimprovements-fail",
+          	value: data['aac-3127-eat-processimprovements-fail'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-3127-eat-processimprovements-conditional",
+					name: "aac-3127-eat-processimprovements",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("aac-3127-eat-processimprovements", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-3127-eat-processimprovements", "Fail")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+
+
+			</form>
+
+
+
+		</div>
+	</div>
+
+{% endblock %}

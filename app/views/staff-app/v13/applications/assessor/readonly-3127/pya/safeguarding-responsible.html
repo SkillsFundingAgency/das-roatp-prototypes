@@ -1,0 +1,76 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/readonly-tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-tag govuk-!-font-size-19" style="background-color: black;">Read only</span><br><br>
+			<span class="govuk-caption-m">Protecting your apprentices</span>
+			<h1 class="govuk-heading-xl">The person who has overall responsibility for safeguarding in the organisation</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Application question</th>
+						<th scope="col" class="govuk-table__header">Applicant's answer</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Full name</th>
+						<td class="govuk-table__cell">XXXXX XXXXX</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Email</th>
+						<td class="govuk-table__cell"><a href="" target="_blank">hello@organisation.co.uk</a></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Contact number</th>
+						<td class="govuk-table__cell">07100003456</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<form action="" method="post" class="form">
+
+				{{ govukButton({
+					text: "Continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v13/applications/assessor/readonly-tasklist-3127">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

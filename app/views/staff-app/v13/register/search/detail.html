@@ -1,0 +1,237 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "RoATP dashboard",
+      href: "/staff-app/v13/dashboard"
+    },
+    {
+      text: "Search for existing apprenticeship training providers",
+			href: "/staff-app/v13/register/search/register"
+    },
+		{
+			text: "Search results",
+			href: "#"
+		},
+		{
+			text: "Details"
+		}
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-l">Search for existing apprenticeship training providers</span>
+			<h1 class="govuk-heading-xl">Details for ABC Assessments</h1>
+		</div>
+		<div class="govuk-grid-column-full">
+
+			{{ govukSummaryList({
+				classes: "searchlist",
+				rows: [
+					{
+						key: {
+							text: "Legal name"
+						},
+						value: {
+							text: "ABC Assessments"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-legal-name",
+									text: "Change",
+									visuallyHiddenText: "legal name"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "UKPRN"
+						},
+						value: {
+							text: "1234567"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-ukprn",
+									text: "Change",
+									visuallyHiddenText: "UKPRN"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Status"
+						},
+						value: {
+							html: '<strong class="govuk-tag">Active</strong> Updated: 11 Jan 2019'
+						},
+						actions: {
+							items: [
+								{
+									href: "change-status",
+									text: "Change",
+									visuallyHiddenText: "status"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Type of provider"
+						},
+						value: {
+							text: "Main"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-provider",
+									text: "Change",
+									visuallyHiddenText: "type of provider"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Type of organisation"
+						},
+						value: {
+							text: "Higher Education Institute (HEI)"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-organisation-type",
+									text: "Change",
+									visuallyHiddenText: "type of organisation"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Company number"
+						},
+						value: {
+							text: "1893839"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-company-number",
+									text: "Change",
+									visuallyHiddenText: "company number"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Charity registration number"
+						},
+						value: {
+							text: "Not applicable"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-charity-number",
+									text: "Change",
+									visuallyHiddenText: "charity registration number"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Trading name"
+						},
+						value: {
+							text: "ABC Assessments Limited"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-trading-name",
+									text: "Change",
+									visuallyHiddenText: "trading name"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Parent company guarantee"
+						},
+						value: {
+							text: "Yes"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-parent-guarantee",
+									text: "Change",
+									visuallyHiddenText: "parent company guarantee"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Financial track record"
+						},
+						value: {
+							text: "No"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-financial-record",
+									text: "Change",
+									visuallyHiddenText: "financial track record"
+								}
+							]
+						}
+					},
+					{
+						key: {
+							text: "Application determined date"
+						},
+						value: {
+							text: "03 Jun 2019"
+						},
+						actions: {
+							items: [
+								{
+									href: "change-determined",
+									text: "Change",
+									visuallyHiddenText: "application determined date"
+								}
+							]
+						}
+					}
+				]
+			}) }}
+
+		</div>
+	</div>
+      
+{% endblock %}
+      

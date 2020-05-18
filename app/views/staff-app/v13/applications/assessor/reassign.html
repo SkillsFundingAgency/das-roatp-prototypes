@@ -1,0 +1,67 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Re-assign application"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<h1 class="govuk-heading-xl">Who do you want to replace on this application?</h1>
+
+			<p class="govuk-body">
+				Application reference number: APR4102<br>
+				Legal name: LEVEL UP<br>
+				UKPRN: 22657489<br>
+			</p>
+
+			<p class="govuk-body">This means you will reassign this application to yourself and will need to do the remaining assessor checks.</p>
+
+			<form action="" method="post" class="form">
+
+				{{ govukRadios({
+					idPrefix: "aac-reassign",
+					name: "aac-reassign",
+					items: [
+						{
+							value: "aac-4102-assessor1",
+							text: "Peter Waller",
+							checked: checked("aac-reassign", "aac-4102-assessor1")
+						},
+						{
+							value: "aac-4102-assessor2",
+							text: "Jeff Simms",
+							checked: checked("aac-reassign", "aac-4102-assessor2")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/staff-app/v13/applications/applications-assessor#inprogress">Back to RoATP applications</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Delivering apprenticeship training checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Delivering apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Sectors and employee experience</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+			
+            <ol class="app-task-list">
+      <li>
+      <h2 class="app-task-list__section">
+            Sectors
+      </h2>
+        <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Creative and design</a>
+					<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+            </li>
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="sectors-digital">Digital</a>
+				{% if data['aac-clarify-3127-dat-sectors-digital'] == "Pass" %}
+					<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
+				{% elseif data['aac-clarify-3127-dat-sectors-digital'] == "Fail" %}
+					<strong class="govuk-tag app-task-list__task-negative">Fail</strong>
+				{% elseif data['aac-clarify-3127-dat-sectors-digital'] == "In progress" %}
+					<strong class="govuk-tag app-task-list__task-completed">In progress</strong>
+				{% else %}
+					<strong class="govuk-tag app-task-list__task-clarify">Clarified</strong>
+				{% endif %}
+            </li>
+        </ul>
+      </li>
+
+        <p class="govuk-body">
+        	<a href="../../tasklist-3127">Save and continue</a>
+        </p>
+            </ol>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Blind assessment complete"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+		
+			<div class="govuk-panel govuk-panel--confirmation  govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">
+					Blind assessment complete
+				</h1>
+			</div>
+            <p>This application will move to ‘moderation’ once both blind assessments are complete.</p>
+			<p><a href="/staff-app/v13/applications/applications-assessor">Go to RoATP assessor applications</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

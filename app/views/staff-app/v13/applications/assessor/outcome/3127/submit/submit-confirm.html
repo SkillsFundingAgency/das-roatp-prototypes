@@ -1,0 +1,71 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/moderate/tasklist-3127"
+			},
+			{
+				text: "Confirm assessor outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Ready for moderation</span>
+			<h1 class="govuk-heading-xl">Are you sure you want to pass this application?</h1>
+
+			<form action="" method="post" class="form">
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+			    {{ govukWarningText({
+				    text: "This application will pass and go to governance.",
+				    iconFallbackText: "Warning"
+			    }) }}
+
+				{{ govukRadios({
+					idPrefix: "aac-mod-3127-outcome-confirm",
+					name: "aac-mod-3127-outcome-confirm",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes"
+						},
+						{
+							value: "No",
+							text: "No"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

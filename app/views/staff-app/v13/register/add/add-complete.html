@@ -1,0 +1,36 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v13/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+          titleText: data['staff-add-orgname'] + " has been added to the register"
+      }) }}
+      <br>
+      <p class="govuk-body"><a href="../../dashboard">Back to staff dashboard</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

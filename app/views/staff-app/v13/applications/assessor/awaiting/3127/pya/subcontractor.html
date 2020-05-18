@@ -1,0 +1,114 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/awaiting/tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices checks</span>
+			<h1 class="govuk-heading-xl">Acting as a subcontractor </h1>
+
+			<p class="govuk-body">
+				UKPRN: 30098726<br>
+				Legal name: FUTURE THINK<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+            </div><div class="govuk-grid-column-full"><table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">When acting as a subcontractor, will your organisation follow its lead provider’s policies and plans?</th>
+                  <td class="govuk-table__cell">Yes</td>
+                </tr>
+              </tbody>
+            </table></div><div class="govuk-grid-column-two-thirds">
+
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">Your organisation has an obligation to follow its lead provider’s policies and plans if asked by them.</p>
+			</div>
+			</details>
+
+			<h2 class="govuk-heading-m">Outcome of blind assessor checks</h2>
+			</div><div class="govuk-grid-column-full"><table class="govuk-table govuk-table__modoutcome">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Joan Smith</th>
+						<th class="govuk-table__header">Martin Knowles</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Comments</th>
+						<td class="govuk-table__cell"></td>
+						<td class="govuk-table__cell"></td>
+					</tr>
+				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+			<h2 class="govuk-heading-m">Outcome of moderator checks</h2>
+			</div><div class="govuk-grid-column-full"><table class="govuk-table govuk-table__modoutcome">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Martin Knowles</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Internal comments</th>
+						<td class="govuk-table__cell"></td>
+					</tr>
+				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+			<p><a class="govuk-button" href="/staff-app/v13/applications/assessor/awaiting/tasklist-3127">Continue</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

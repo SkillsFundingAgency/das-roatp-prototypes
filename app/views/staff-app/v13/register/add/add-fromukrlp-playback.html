@@ -1,0 +1,84 @@
+{% set current_section = "register" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP dashboard",
+				href: "/staff-app/v13/dashboard"
+			},
+			{
+				text: "Add a new training provider"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+            
+			<span class="govuk-caption-l">Add a new training provider</span>
+			<h1 class="govuk-heading-xl">Organisation’s details</h1>
+			<p>These are the details we found on UKRLP for 11110001.</p>
+
+			{{ govukSummaryList({
+				rows: [
+					{
+						key: {
+							text: "Legal name"
+						},
+						value: {
+							text: data['staff-add-orgname']
+						}
+					},
+					{
+						key: {
+							text: "Trading name"
+						},
+						value: {
+							text: "Not applicable"
+						}
+					},
+					{
+						key: {
+							text: "Company number"
+						},
+						value: {
+							text: data['staff-add-companynumber']
+						}
+					},
+					{
+						key: {
+							text: "Charity registration number"
+						},
+						value: {
+							text: "Not applicable"
+						}
+					}
+				]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue",
+				href: "add-fromukrlp-route",
+				classes: "govuk-!-margin-right-1"
+			}) }}
+		
+			{{ govukButton({
+				text: "Try again",
+				href: "add-ukprn",
+				classes: "govuk-button--secondary"
+			}) }}
+		</div>
+	</div>
+      
+{% endblock %}
+      

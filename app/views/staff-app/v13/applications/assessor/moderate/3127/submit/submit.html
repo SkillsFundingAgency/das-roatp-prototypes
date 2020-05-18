@@ -1,0 +1,179 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/moderate/tasklist-3127"
+			},
+			{
+				text: "Assessor outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+    {% set moderateFails = 0 %}
+    {% if data['aac-mod-3127-pya-continuityplan'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
+    {% if data['aac-mod-3127-pya-subcontractor'] == "Fail" %}
+    {% set moderateFails = moderateFails + 1 %}
+    {% endif %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Assessor outcome</span>
+			<h1 class="govuk-heading-xl">What is the outcome for this application?</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: MY RECRUITMENT LIMITED<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+			</div><div class="govuk-grid-column-full"><table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header" width=70%">Outcome</th>
+						<th scope="col" class="govuk-table__header">Count</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Pass</strong></td>
+						<td class="govuk-table__cell">87
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong>
+						{% if moderateFails > 0 %}
+						<td class="govuk-table__cell">{{moderateFails}}</td>
+						{% else %}
+						<td class="govuk-table__cell">0</td>
+						{% endif %}
+					</tr>
+ 				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+
+			<form action="" method="post" class="form">
+
+				{% set askForClarificationHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-3127-outcome-clarify",
+						id: "aac-mod-3127-outcome-clarify",
+          	value: data['aac-mod-3127-outcome-clarify'],
+						maxwords: 150,
+						label: {
+							text: "Add internal comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-3127-outcome-pass",
+						id: "aac-mod-3127-outcome-pass",
+          	value: data['aac-mod-3127-outcome-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add internal comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-mod-3127-outcome-fail",
+						id: "aac-mod-3127-outcome-fail",
+          	value: data['aac-mod-3127-outcome-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add internal comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{% if moderateFails > 0 %}
+				{{ govukRadios({
+					idPrefix: "aac-mod-3127-outcome-conditional",
+					name: "aac-mod-3127-outcome",
+					items: [
+						{
+							value: "Pass this application",
+							text: "Pass this application",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Pass this application")
+						},
+						{
+							value: "Fail this application",
+							text: "Fail this application",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Fail this application")
+						},
+						{
+							value: "Ask for clarification",
+							text: "Ask for clarification",
+							conditional: {
+								html: askForClarificationHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Ask for clarification")
+						}
+					]
+				}) }}
+				{% else %}
+				{{ govukRadios({
+					idPrefix: "aac-mod-3127-outcome-conditional",
+					name: "aac-mod-3127-outcome",
+					items: [
+						{
+							value: "Pass this application",
+							text: "Pass this application",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Pass this application")
+						},
+						{
+							value: "Fail this application",
+							text: "Fail this application",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-mod-3127-outcome", "Fail this application")
+						}
+					]
+				}) }}
+				{% endif %}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+
+
+		</div>
+	</div>
+
+{% endblock %}

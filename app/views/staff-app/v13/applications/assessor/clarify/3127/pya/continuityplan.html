@@ -1,0 +1,216 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/clarify/tasklist-3127"
+			},
+			{
+				text: "Protecting your apprentices checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Protecting your apprentices checks</span>
+			<h1 class="govuk-heading-xl">Continuity plan for apprenticeship training</h1>
+
+			<p class="govuk-body">
+				UKPRN: 21119876<br>
+				Legal name: GUIDE AND GROW<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+            </div><div class="govuk-grid-column-full">
+            <h2 class="govuk-heading-m">Original answer</h2>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Upload your organisation’s continuity plan for apprenticeship training</th>
+                  <td class="govuk-table__cell"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/376381/Expecting_the_Unexpected_Reviewed.pdf" target="_blank">myrecruitmentlimited-continuity-plan.pdf</a></td>
+                </tr>
+              </tbody>
+            </table>
+			<table class="govuk-table govuk-table__modoutcome">
+			<h2 class="govuk-heading-m">Outcome of moderation</h2>
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header"></th>
+						<th class="govuk-table__header">Joan Smith</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Outcome</th>
+						<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-negative">Fail</strong></td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Internal comments</th>
+						<td class="govuk-table__cell">The upload doesn't include how the organisation will back-up and restore data</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">External comments</th>
+						<td class="govuk-table__cell">The upload doesn't include how the organisation will back-up and restore data</td>
+					</tr>
+				</tbody>
+			</table>
+            <h2 class="govuk-heading-m">Clarified answer</h2>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Application question</th>
+                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Upload your organisation’s continuity plan for apprenticeship training</th>
+                  <td class="govuk-table__cell"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/376381/Expecting_the_Unexpected_Reviewed.pdf" target="_blank">myrecruitmentlimited-continuity-plan.pdf</a></td>
+                </tr>
+              </tbody>
+            </table>
+            </div><div class="govuk-grid-column-two-thirds">
+
+            <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View application guidance
+                </span>
+              </summary>
+            <div class="govuk-details__text">
+			<p class="govuk-body">A continuity plan for apprenticeship training shows how your organisation will continue to deliver in case of a significant event.</p>
+			<p class="govuk-body">This must include how your organisation will:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>have different methods of communication</li>
+				<li>manage transportation needs</li>
+				<li>provide different operating locations (if needed)</li>
+				<li>back-up relevant business systems</li>
+				<li>back-up and restore data</li>
+				<li>have a list of emergency contacts - ESFA must be listed</li>
+			</ul>
+
+			<p>The file must be a PDF and smaller than 5MB.</p>
+			</div>
+			</details>
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-pya-continuityplan-pass",
+						id: "aac-clarify-3127-pya-continuityplan-pass",
+          	value: data['aac-clarify-3127-pya-continuityplan-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-pya-continuityplan-fail",
+						id: "aac-clarify-3127-pya-continuityplan-fail",
+          	value: data['aac-clarify-3127-pya-continuityplan-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add internal comments"
+						}
+					}) }}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-pya-continuityplan-fail-feedback",
+						id: "aac-clarify-3127-pya-continuityplan-fail-feedback",
+          	value: data['aac-clarify-3127-pya-continuityplan-fail-feedback'],
+						maxwords: 150,
+						label: {
+							text: "Add external comments"
+						},
+						hint: {
+						    text: "These comments will go to the applicant for clarification or feedback."
+						}
+					}) }}
+				{% endset -%}
+
+				{% set inProgressHtml %}
+					{{ govukCharacterCount({
+						name: "aac-clarify-3127-pya-continuityplan-inprogress",
+						id: "aac-clarify-3127-pya-continuityplan-inprogress",
+          	value: data['aac-clarify-3127-pya-continuityplan-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-clarify-3127-pya-continuityplan-conditional",
+					name: "aac-clarify-3127-pya-continuityplan",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("aac-clarify-3127-pya-continuityplan", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-clarify-3127-pya-continuityplan", "Fail")
+						},
+						{
+							divider: "or"
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inProgressHtml
+							},
+							checked: checked("aac-clarify-3127-pya-continuityplan", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+
+
+		</div>
+	</div>
+
+{% endblock %}

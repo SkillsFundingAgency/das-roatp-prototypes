@@ -1,0 +1,90 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/clarify/tasklist-3127"
+			},
+			{
+				text: "Assessor outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Assessor outcome</span>
+			<h1 class="govuk-heading-xl">Are you sure you want to {% if data['aac-clarify-3127-outcome'] == 'Pass this application' %}
+			pass this application?
+			{% elseif data['aac-clarify-3127-outcome'] == 'Fail this application' %}
+			fail this application?
+			{% elseif data['aac-clarify-3127-outcome'] == 'Ask for clarification' %}
+			ask for clarification?
+			{%endif%}</h1>
+
+			<form action="" method="post" class="form">
+			<p class="govuk-body">
+				UKPRN: 21119876<br>
+				Legal name: GUIDE AND GROW<br>
+				Provider route: Main<br>
+				Application submitted date: 18 Oct 2019
+			</p>
+
+			 {% if data['aac-clarify-3127-outcome'] == 'Pass this application' %}
+			    {{ govukWarningText({
+				    text: "This application will pass and go to governance.",
+				    iconFallbackText: "Warning"
+			    }) }}
+			 {% elseif data['aac-clarify-3127-outcome'] == 'Fail this application' %}
+			    {{ govukWarningText({
+				    text: "This application will fail and go to governance.",
+				    iconFallbackText: "Warning"
+			    }) }}
+			 {% elseif data['aac-clarify-3127-outcome'] == 'Ask for clarification' %}
+			    {{ govukWarningText({
+				    text: "The applicant will use your external comments to clarify their answers.",
+				    iconFallbackText: "Warning"
+			    }) }}
+
+			 {% endif %}
+
+				{{ govukRadios({
+					idPrefix: "aac-clarify-3127-outcome-confirm",
+					name: "aac-clarify-3127-outcome-confirm",
+					classes: "govuk-radios--inline",
+					items: [
+						{
+							value: "Yes",
+							text: "Yes"
+						},
+						{
+							value: "No",
+							text: "No"
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue"
+				}) }}
+
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,196 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "RoATP assessor applications",
+				href: "/staff-app/v13/applications/applications-assessor"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/staff-app/v13/applications/assessor/tasklist-3127"
+			},
+			{
+				text: "Evaluating apprenticeship training checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Evaluating apprenticeship training checks</span>
+			<h1 class="govuk-heading-xl">Check the organisation’s process for evaluating the quality of training delivered</h1>
+
+			<p class="govuk-body">
+				Legal name: MY RECRUITMENT LIMITED<br>
+				UKPRN: 12345678
+			</p>
+			
+			</div><div class="govuk-grid-column-full"><table class="govuk-table">
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Application question</th>
+						<td class="govuk-table__cell">What is your organisation’s process for evaluating the quality of training delivered?</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<th class="govuk-table__header">Applicant’s answer</th>
+						<td class="govuk-table__cell"></td>
+					</tr>
+				</tbody>
+			</table></div><div class="govuk-grid-column-two-thirds">
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's answer include how the organisation responds and acts on feedback from employers and learners?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-process-feedback",
+				name: "aac-3127-eat-process-feedback",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-process-feedback", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-process-feedback", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's answer include how the organisation continuously improves training?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-process-improves",
+				name: "aac-3127-eat-process-improves",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-process-improves", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-process-improves", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's answer include how the organisation identifies and addresses poor training outcomes?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-process-poor",
+				name: "aac-3127-eat-process-poor",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-process-poor", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-process-poor", "No")
+					}
+				]
+			}) }}
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-9" id="realtime">Does the applicant's answer include how the organisation uses key performance indicators to measure the quality of training?</h2>
+			{{ govukRadios({
+				idPrefix: "aac-3127-eat-process-kpi",
+				name: "aac-3127-eat-process-kpi",
+				classes: "govuk-radios--inline",
+				items: [
+					{
+						value: "Yes",
+						text: "Yes",
+						checked: checked("aac-3127-eat-process-kpi", "Yes")
+					},
+					{
+						value: "No",
+						text: "No",
+						checked: checked("aac-3127-eat-process-kpi", "No")
+					}
+				]
+			}) }}
+
+			<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+			<form action="" method="post" class="form">
+
+				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
+			
+				<div class="sops">
+					<p class="govuk-body">If you have selected ‘yes’ to all of the questions above, pass this check.</p>
+					<p class="govuk-body">If you have selected ‘no’ to any of the questions above, fail this check.</p>
+				</div>
+				
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-eat-process-pass",
+						id: "aac-3127-eat-process-pass",
+          	value: data['aac-3127-eat-process-pass'],
+						maxlength: 750,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "aac-3127-eat-process-fail",
+						id: "aac-3127-eat-process-fail",
+          	value: data['aac-3127-eat-process-fail'],
+						maxlength: 750,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "aac-3127-eat-process-conditional",
+					name: "aac-3127-eat-process",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							checked: checked("aac-3127-eat-process", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("aac-3127-eat-process", "Fail")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+
+
+			</form>
+
+
+
+		</div>
+	</div>
+
+{% endblock %}

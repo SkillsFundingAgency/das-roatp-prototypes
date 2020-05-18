@@ -73,6 +73,11 @@ module.exports = {
     "mvp-gwv5-clarify-count": 2,
     "mvp-gwv5-outcome-count": 4,
 
+  "mvp-gwv6-new-count": 7,
+  "mvp-gwv6-inprogress-count": 6,
+  "mvp-gwv6-clarify-count": 2,
+  "mvp-gwv6-outcome-count": 4,
+
     "feedback-count": 0
   }
   

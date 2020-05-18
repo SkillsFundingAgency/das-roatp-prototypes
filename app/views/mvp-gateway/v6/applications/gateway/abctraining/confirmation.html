@@ -1,0 +1,53 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v6/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v6/applications/applications-gateway"
+			},
+			{
+				text: "Gateway outcome"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+		
+			<div class="govuk-panel govuk-panel--confirmation  govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">
+					Gateway outcome saved
+				</h1>
+				<div class="govuk-panel__body">
+					<strong>
+					{% if data['gw-abctraining-outcome'] == "Ask for clarification" %}
+						Ask for clarification
+					{% elseif data['gw-abctraining-outcome'] == "Decline this application" %}
+						Decline
+					{% elseif data['gw-abctraining-outcome'] == "Pass this application" %}
+						Pass
+					{% endif %}
+					</strong>
+				</div>
+			</div>
+
+			<p><a href="/mvp-gateway/v6/applications/applications-gateway">Go to RoATP applications</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

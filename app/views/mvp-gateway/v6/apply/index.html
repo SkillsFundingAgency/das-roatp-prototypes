@@ -1,0 +1,320 @@
+{% extends "layouts/layout_application_v14.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v14
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!--div class="govuk-grid-column-two-thirds"-->
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        Application overview
+      </h1>
+  
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-!-margin-top-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Organisation name</dt>
+          <dd class="govuk-summary-list__value">YOUR COMPANY NAME LTD</dd>
+          <!--dd class="govuk-summary-list__actions"></dd-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">UKPRN</dt>
+          <dd class="govuk-summary-list__value">12345678</dd>
+          <!--dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="javascript:preventDefault();">
+              Change<span class="govuk-visually-hidden"> UKPRN</span>
+            </a>
+          </dd-->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Provider route</dt>
+          <dd class="govuk-summary-list__value">Main </dd>
+          <!--dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="javascript:preventDefault();">
+              Change<span class="govuk-visually-hidden"> provider route</span>
+            </a>
+          </dd-->
+        </div>
+      </dl>
+
+      <!--div class="call-to-action"-->
+      <h2 class="govuk-heading-l">You need to clarify some of your answers</h2>
+      <p class="govuk-body">Once you’ve clarified your answers, we may ask you further application questions.</p> 
+      <p class="govuk-body">All sections must have a ‘completed’ tag next to them before you can resubmit your application.</p>
+      <p class="govuk-body">You have 5 working days to clarify your answers and resubmit your application.</p>
+
+      <p class="govuk-body clarifications">
+        1. Your organisation<br>
+        Section: Experience and accreditation<br>
+        Feedback: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      </p>
+      <!--/div-->
+      
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section" id="section-organisation">
+            <span class="app-task-list__section-number">1. </span> Your organisation
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Introduction and what you'll need</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Organisation information</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Tell us who’s in control</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Describe your organisation</a>
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="javascript:preventDefault();">Experience and accreditations</a>
+              <strong class="govuk-tag govuk-tag--yellow app-task-list__task-completed">Clarify</strong>
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-financial">
+            <span class="app-task-list__section-number">2. </span> Financial health assessment
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you'll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Your organisation’s financial evidence
+              <strong class="govuk-tag app-task-list__task-completed" id="fin-evidence-status">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-declarations">
+            <span class="app-task-list__section-number">3. </span> Criminal and compliance checks
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you'll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Checks on your organisation
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Introduction and what you'll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Checks on who’s in control of your organisation
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-welfare">
+            <span class="app-task-list__section-number">4. </span>Protecting your apprentices
+          </h2>
+
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you'll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Equality and diversity policy
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Safeguarding and Prevent duty policy
+              <strong class="govuk-tag app-task-list__task-completed" id="wel-safeguarding">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Health and safety policy
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-readiness">
+            <span class="app-task-list__section-number">5. </span> Readiness to engage
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you’ll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Engaging with employers
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Complaints policy
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Contract for services template
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Commitment statement template
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Prior learning of apprentices
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Working with subcontractors
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-planning">
+            <span class="app-task-list__section-number">6. </span> Planning apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you’ll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Type of apprenticeship training
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Supporting apprentices
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Forecasting starts
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Off the job training
+              <strong class="govuk-tag app-task-list__task-completed" id="plan-offthejob">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Where apprentices will be trained
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-delivering">
+            <span class="app-task-list__section-number">7. </span> Delivering apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you’ll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li> 
+            <li class="app-task-list__item">
+              Overall accountability for apprenticeships
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Management hierarchy for apprenticeships
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Quality and high standards in apprenticeship training
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Developing and delivering training
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Sectors and employee experience
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Policy for professional development of employees
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-evaluating">
+            <span class="app-task-list__section-number">8. </span> Evaluating apprenticeship training
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Introduction and what you’ll need
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li> 
+            <li class="app-task-list__item">
+              Process for evaluating the quality of training delivered
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Evaluating the quality of apprenticeship training
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Systems and processes to collect apprenticeship data
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Using Individualised Learner Record
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section" id="section-finish">
+            <span class="app-task-list__section-number">9. </span> Finish
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              Your details and permissions
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              ‘Commercial in confidence’ information
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              Terms and conditions
+              <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <!--a class="app-task-list__task-name" href="resubmit"-->Resubmit application<!--/a-->
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+{% endblock %}

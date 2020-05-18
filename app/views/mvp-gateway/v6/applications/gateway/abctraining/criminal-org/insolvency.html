@@ -1,0 +1,147 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v6/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v6/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v6/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Organisation's criminal and compliance checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Organisation's criminal and compliance checks</span>
+			<h1 class="govuk-heading-xl">Subject to insolvency or winding up proceedings in the last 3 years check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED
+			</p>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+
+			<dl class="govuk-summary-list">
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Application question</dt>
+					<dd class="govuk-summary-list__value">Has your organisation or any of its partner organisations been subject to insolvency or winding up proceedings in the last 3 years?</dd>
+				</div>
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">Applicant's answer</dt>
+					<dd class="govuk-summary-list__value">No</dd>
+				</div>
+			</dl>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<form action="" method="post" class="form">
+
+				<h3 class="govuk-heading-m govuk-!-margin-top-5">What is the outcome of this check?</h3>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-insolvency-pass",
+						id: "gw-abctraining-criminalorg-insolvency-pass",
+          	value: data['gw-abctraining-criminalorg-insolvency-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-insolvency-fail",
+						id: "gw-abctraining-criminalorg-insolvency-fail",
+          	value: data['gw-abctraining-criminalorg-insolvency-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-criminalorg-insolvency-inprogress",
+						id: "gw-abctraining-criminalorg-insolvency-inprogress",
+          	value: data['gw-abctraining-criminalorg-insolvency-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-criminalorg-insolvency-conditional",
+					name: "gw-abctraining-criminalorg-insolvency",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-insolvency", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-insolvency", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-criminalorg-insolvency", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v6/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,187 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v6/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v6/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v6/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "People in control"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">People in control checks</span>
+			<h1 class="govuk-heading-xl">People in control check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<h2 class="govuk-heading-l">Company directors</h2>
+			<table class="govuk-table govuk-!-margin-bottom-9">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Submitted application</th>
+						<th scope="col" class="govuk-table__header">Companies House</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">BOUVIER, Jacqueline (Feb 1955)</td>
+						<td class="govuk-table__cell">BOUVIER, Jacqueline (Feb 1955)</td>
+						</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">POWELL, Herbert (May 1963)</td>
+						<td class="govuk-table__cell">POWELL, Herbert (May 1963)</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">POWERS, Ruth (May 1957)</td>
+						<td class="govuk-table__cell">POWERS, Ruth (May 1957)</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">VAN HOUTEN, Kirk (Mar 1960)</td>
+						<td class="govuk-table__cell">VAN HOUTEN, Kirk (Mar 1960)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h2 class="govuk-heading-l">People with significant control (PSCs)</h2>
+			<table class="govuk-table">
+				<thead class="govuk-table__head">
+					<tr class="govuk-table__row">
+						<th scope="col" class="govuk-table__header">Submitted application</th>
+						<th scope="col" class="govuk-table__header">Companies House</th>
+					</tr>
+				</thead>
+				<tbody class="govuk-table__body">
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">BOUVIER, Jacqueline (Feb 1955)</td>
+						<td class="govuk-table__cell">BOUVIER, Jacqueline (Feb 1955)</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">POWELL, Herbert (May 1963)</td>
+						<td class="govuk-table__cell">POWELL, Herbert (May 1963)</td>
+					</tr>
+					<tr class="govuk-table__row">
+						<td scope="row" class="govuk-table__cell">ACME LIMITED</td>
+						<td class="govuk-table__cell">ACME LIMITED</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<h3 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h3>
+
+			<form action="" method="post" class="form">
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-pass",
+						id: "gw-abctraining-people-people-pass",
+          	value: data['gw-abctraining-people-people-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-fail",
+						id: "gw-abctraining-people-people-fail",
+          	value: data['gw-abctraining-people-people-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set inprogressHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-people-people-inprogress",
+						id: "gw-abctraining-people-people-inprogress",
+          	value: data['gw-abctraining-people-people-inprogress'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-people-people-conditional",
+					name: "gw-abctraining-people-people",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-people-people", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("gw-abctraining-people-people", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							conditional: {
+								html: inprogressHtml
+							},
+							checked: checked("gw-abctraining-people-people", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+        
+			</form>
+
+			<p><a href="/mvp-gateway/v6/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

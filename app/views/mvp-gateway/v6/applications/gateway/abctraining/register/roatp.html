@@ -1,0 +1,141 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvpgateway_v6.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-gateway/v6/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-gateway/v6/applications/applications-gateway"
+			},
+			{
+				text: "Application assessment overview",
+				href: "/mvp-gateway/v6/applications/gateway/tasklist-abctraining"
+			},
+			{
+				text: "Register checks"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+			<span class="govuk-caption-m">Register checks</span>
+			<h1 class="govuk-heading-xl">RoATP check</h1>
+
+			<p class="govuk-body">
+				UKPRN: 12345678<br>
+				Legal name: ABC TRAINING LIMITED<br>
+				Type of organisation: Company<br>
+				Application submitted on: 17 Oct 2019<br>
+				Sources checked on: 27 Nov 2019
+			</p>
+
+			<form action="" method="post" class="form">
+
+				<table class="govuk-table">
+					<thead class="govuk-table__head">
+						<tr class="govuk-table__row">
+							<th scope="col" class="govuk-table__header">Source</th>
+							<th scope="col" class="govuk-table__header">Status</th>
+						</tr>
+					</thead>
+					<tbody class="govuk-table__body">
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application data</td>
+							<td class="govuk-table__cell">On the RoATP</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">Submitted application data</td>
+							<td class="govuk-table__cell">Changed provider route from [EXISTING PROVIDER ROUTE] to [NEW PROVIDER ROUTE</td>
+						</tr>
+						<tr class="govuk-table__row">
+							<td class="govuk-table__header">RoATP</td>
+							<td class="govuk-table__cell">
+								Removed from the RoATP<br>
+								[PROVIDER ROUTE]<br>
+								[DATE]<br>
+								[REASON]
+							</td>
+						</tr>
+					</tbody>
+				</table>				
+				
+				<h2 class="govuk-heading-l govuk-!-margin-top-9">What is the outcome of this check?</h2>
+
+				{% set passHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-register-roatp-pass",
+						id: "gw-abctraining-register-roatp-pass",
+          	value: data['gw-abctraining-register-roatp-pass'],
+						maxwords: 150,
+						label: {
+							text: "Add comments (optional)"
+						}
+					}) }}
+				{% endset -%}
+				
+				{% set failHtml %}
+					{{ govukCharacterCount({
+						name: "gw-abctraining-register-roatp-fail",
+						id: "gw-abctraining-register-roatp-fail",
+          	value: data['gw-abctraining-register-roatp-fail'],
+						maxwords: 150,
+						label: {
+							text: "Add comments"
+						}
+					}) }}
+				{% endset -%}
+
+				{{ govukRadios({
+					idPrefix: "gw-abctraining-register-roatp-conditional",
+					name: "gw-abctraining-register-roatp",
+					items: [
+						{
+							value: "Pass",
+							text: "Pass",
+							conditional: {
+								html: passHtml
+							},
+							checked: checked("gw-abctraining-register-roatp", "Pass")
+						},
+						{
+							value: "Fail",
+							text: "Fail",
+							conditional: {
+								html: failHtml
+							},
+							checked: checked("gw-abctraining-register-roatp", "Fail")
+						},
+						{
+							value: "In progress",
+							text: "In progress",
+							checked: checked("gw-abctraining-register-roatp", "In progress")
+						}
+					]
+				}) }}
+
+				{{ govukButton({
+					text: "Save and continue",
+					classes: "govuk-!-margin-right-4"
+				}) }}
+
+			</form>
+
+			<p><a href="/mvp-gateway/v6/applications/gateway/tasklist-abctraining">Back to application assessment overview</a></p>
+
+		</div>
+	</div>
+
+{% endblock %}

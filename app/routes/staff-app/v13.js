@@ -1138,7 +1138,7 @@ module.exports = function (router) {
 	})
 
   router.post('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit', function (req,res) {
-      res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
+    res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/submit-confirm')
   })
 
 

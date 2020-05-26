@@ -56,11 +56,12 @@
 			    }) }}
 			 {% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
 			    {{ govukWarningText({
-				    text: "The applicant will use your external comments to clarify their answers.",
+				    text: "CONTENT ABOUT SENDING AN EMAIL TO THE PROVIDER.",
 				    iconFallbackText: "Warning"
 			    }) }}
 
 			 {% endif %}
+
 
 				{{ govukRadios({
 					idPrefix: "aac-mod-3127-outcome-confirm",

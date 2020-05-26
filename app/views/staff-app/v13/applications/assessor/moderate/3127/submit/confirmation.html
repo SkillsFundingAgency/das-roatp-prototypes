@@ -25,12 +25,7 @@
 		<div class="govuk-grid-column-two-thirds">
 		
 			<div class="govuk-panel govuk-panel--confirmation  govuk-!-margin-bottom-9">
-				<h1 class="govuk-panel__title">
-					Assessor outcome saved
-				</h1>
-				<div class="govuk-panel__body">
-					Outcome saved as:
-					<strong>
+				<h1 class="govuk-panel__title">Outcome saved as:
 					{% if data['aac-mod-3127-outcome'] == 'Pass this application' %}
 					Pass
 					{% elseif data['aac-mod-3127-outcome'] == 'Fail this application' %}
@@ -38,8 +33,7 @@
 					{% elseif data['aac-mod-3127-outcome'] == 'Ask for clarification' %}
 					Clarification
 					{% endif %}
-					</strong>
-				</div>
+				</h1>
 			</div>
 			<dl class="govuk-summary-list govuk-summary-list--overview govuk-!-margin-bottom-9">
 				<div class="govuk-summary-list__row">

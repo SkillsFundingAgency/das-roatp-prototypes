@@ -38,7 +38,7 @@
 			</p>
 
               </div><div class="govuk-grid-column-full">
-              <h2 class="govuk-heading-m">Original answer</h2>
+              <h2 class="govuk-heading-m govuk-!-padding-top-6">Original answer</h2>
               <table class="govuk-table">
                 <thead class="govuk-table__head">
                   <tr class="govuk-table__row">
@@ -66,8 +66,8 @@
                     </tr>
                 </tbody>
               </table>
+			<h2 class="govuk-heading-m govuk-!-padding-top-6">Outcome of moderation</h2>
 			<table class="govuk-table govuk-table__modoutcome">
-			<h2 class="govuk-heading-m">Outcome of moderation</h2>
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header"></th>
@@ -85,47 +85,28 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">External comments</th>
-						<td class="govuk-table__cell">No apprenticeship specific individuals included</td>
+						<td class="govuk-table__cell">Insufficient details</td>
 					</tr>
 				</tbody>
 			</table>
-            <h2 class="govuk-heading-m">Clarified answer</h2>
-              <table class="govuk-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Name</th>
-                    <th class="govuk-table__header" scope="col">Job role</th>
-                    <th class="govuk-table__header" scope="col">Time in role</th>
-                    <th class="govuk-table__header" scope="col" style="width: 25%;">Is this person part of another organisation that receives funding directly from ESFA or as a subcontractor?</th>
-                    <th class="govuk-table__header" scope="col" style="width: 25%;">Enter the organisation’s name</th>
-                  </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" scope="row">Jon Jones</td>
-                      <td class="govuk-table__cell" scope="row">CEO</td>
-                      <td class="govuk-table__cell" scope="row">2 years 3 months</td>
-                      <td class="govuk-table__cell" scope="row">Yes</td>
-                      <td class="govuk-table__cell" scope="row">ABC Training LTD</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" scope="row">Ronald McDonald</td>
-                      <td class="govuk-table__cell" scope="row">CFO</td>
-                      <td class="govuk-table__cell" scope="row">2 years 3 months</td>
-                      <td class="govuk-table__cell" scope="row">No</td>
-                      <td class="govuk-table__cell">Not applicable</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell" scope="row">Steven Smith</td>
-                      <td class="govuk-table__cell" scope="row">Head of Apprenticeships</td>
-                      <td class="govuk-table__cell" scope="row">4 years 5 months</td>
-                      <td class="govuk-table__cell" scope="row">No</td>
-                      <td class="govuk-table__cell">Not applicable</td>
-                    </tr>
-                </tbody>
-              </table>
-              </div><div class="govuk-grid-column-two-thirds">
+            </div><div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m govuk-!-padding-top-6">Applicant's response for clarification</h2>
 
+            {{ govukTextarea({
+              name: "clarified-answer",
+              id: "clarified-answer",
+              label: {
+                text: "Enter applicant's response"
+              }
+            }) }}
+
+            {{ govukFileUpload({
+              id: "file-upload-1",
+              name: "file-upload-1",
+              label: {
+                text: "Upload a file (optional)"
+              }
+            }) }}
 			<form action="" method="post" class="form">
 
 				<h2 class="govuk-heading-m govuk-!-margin-top-9">What is the outcome of this check?</h2>
@@ -161,7 +142,7 @@
 							text: "Add external comments"
 						},
 						hint: {
-						    text: "These comments will go to the applicant for clarification or feedback."
+						    text: "The applicant will see these comments as part of overall outcome."
 						}
 					}) }}
 				{% endset -%}

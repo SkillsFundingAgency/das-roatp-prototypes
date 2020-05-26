@@ -38,7 +38,7 @@
 			</p>
 
             </div><div class="govuk-grid-column-full">
-            <h2 class="govuk-heading-m">Original answer</h2>
+            <h2 class="govuk-heading-m govuk-!-padding-top-6">Original answer</h2>
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -53,8 +53,8 @@
                 </tr>
               </tbody>
             </table>
+			<h2 class="govuk-heading-m govuk-!-padding-top-6">Outcome of moderation</h2>
 			<table class="govuk-table govuk-table__modoutcome">
-			<h2 class="govuk-heading-m">Outcome of moderation</h2>
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header"></th>
@@ -72,26 +72,30 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">External comments</th>
-						<td class="govuk-table__cell">The upload doesn't include how the organisation will back-up and restore data</td>
+						<td class="govuk-table__cell">Insufficient details</td>
 					</tr>
 				</tbody>
 			</table>
-            <h2 class="govuk-heading-m">Clarified answer</h2>
-            <table class="govuk-table">
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">Application question</th>
-                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Upload your organisation’s continuity plan for apprenticeship training</th>
-                  <td class="govuk-table__cell"><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/376381/Expecting_the_Unexpected_Reviewed.pdf" target="_blank">myrecruitmentlimited-continuity-plan.pdf</a></td>
-                </tr>
-              </tbody>
-            </table>
             </div><div class="govuk-grid-column-two-thirds">
+
+            <h2 class="govuk-heading-m govuk-!-padding-top-6">Applicant's response for clarification</h2>
+
+
+            {{ govukTextarea({
+              name: "clarified-answer",
+              id: "clarified-answer",
+              label: {
+                text: "Enter applicant's response"
+              }
+            }) }}
+
+            {{ govukFileUpload({
+              id: "file-upload-1",
+              name: "file-upload-1",
+              label: {
+                text: "Upload a file (optional)"
+              }
+            }) }}
 
             <details class="govuk-details">
             <summary class="govuk-details__summary">
@@ -150,7 +154,7 @@
 							text: "Add external comments"
 						},
 						hint: {
-						    text: "These comments will go to the applicant for clarification or feedback."
+						    text: "The applicant will see these comments as part of overall outcome."
 						}
 					}) }}
 				{% endset -%}

@@ -212,21 +212,19 @@
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Application submitted date</th>
 					<th aria-sort="descending" class="govuk-table__header" scope="col">Clarification requested date</th>
 					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Moderator</th>
-					<th aria-sort="none" scope="col" class="govuk-table__header" scope="col">Status</th>
 				</tr>
 			</thead>
 			<tbody class="govuk-table__body">
 				<tr class="govuk-table__row">
                 {% if data['apr264'] != "completed" %}
 				<tr class="govuk-table__row">
-					<td class="govuk-table__cell"><a href="assessor/awaiting/tasklist-3127">FUTURE THINK</a></td>
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FUTURE THINK</a></td>
 					<td class="govuk-table__cell">30098726</td>
 					<td class="govuk-table__cell">Main</td>
 					<td class="govuk-table__cell">APR264</td>
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">30 Oct 2019</td>
 					<td class="govuk-table__cell">Joan Smith</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
 				{% endif %}
 				{% if data['apr3127'] == "clarification" %}
@@ -237,7 +235,6 @@
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Apr 2020</td>
 					<td class="govuk-table__cell">Joan Smith</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-awaiting">With applicant</strong></td>
 				</tr>
 				{% endif %}
 				{% if data['apr199'] != "completed" %}
@@ -249,7 +246,6 @@
 					<td class="govuk-table__cell">18 Oct 2019</td>
 					<td class="govuk-table__cell">2 Nov 2019</td>
 					<td class="govuk-table__cell">Joan Smith</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag-positive">Clarified</strong></td>
 				</tr>
 				{% endif %}
 				<!--{% if data['apr264'] != "completed" %}
@@ -408,7 +404,7 @@
 					html: moderationHtml
 				}
 			}, {
-				label: "Clarifications (" + data['aac-clarification-count'] + ")",
+				label: "Clarification (" + data['aac-clarification-count'] + ")",
 				id: "clarification",
 				panel: {
 					html: clarificationHtml

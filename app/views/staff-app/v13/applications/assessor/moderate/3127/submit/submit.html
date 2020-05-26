@@ -73,11 +73,10 @@
 			<form action="" method="post" class="form">
 
 				{% set askForClarificationHtml %}
-					{{ govukCharacterCount({
+					{{ govukTextarea({
 						name: "aac-mod-3127-outcome-clarify",
 						id: "aac-mod-3127-outcome-clarify",
           	value: data['aac-mod-3127-outcome-clarify'],
-						maxwords: 150,
 						label: {
 							text: "Add internal comments (optional)"
 						}

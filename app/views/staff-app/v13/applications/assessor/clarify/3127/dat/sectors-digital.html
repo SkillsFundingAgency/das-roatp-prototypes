@@ -38,7 +38,7 @@
 			</p>
 
             </div><div class="govuk-grid-column-full">
-            <h2 class="govuk-heading-m">Original answer</h2>
+            <h2 class="govuk-heading-m govuk-!-padding-top-6">Original answer</h2>
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -129,8 +129,8 @@
                 </tr>
               </tbody>
             </table>
+			<h2 class="govuk-heading-m govuk-!-padding-top-6">Outcome of moderation</h2>
 			<table class="govuk-table govuk-table__modoutcome">
-			<h2 class="govuk-heading-m">Outcome of moderation</h2>
 				<thead class="govuk-table__head">
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header"></th>
@@ -148,94 +148,28 @@
 					</tr>
 					<tr class="govuk-table__row">
 						<th class="govuk-table__header">External comments</th>
-						<td class="govuk-table__cell">Insufficent details</td>
+						<td class="govuk-table__cell">Insufficient details</td>
 					</tr>
 				</tbody>
 			</table>
-            <h2 class="govuk-heading-m">Clarified answer</h2>
-            <table class="govuk-table">
-              <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">Application question</th>
-                  <th scope="col" class="govuk-table__header">Applicant's answer</th>
-                </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Full name</th>
-                  <td class="govuk-table__cell">Jon Jones</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Job role</th>
-                  <td class="govuk-table__cell">CEO</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Time in role</th>
-                  <td class="govuk-table__cell">2 years 3 months</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Is this person part of any other organisations?</th>
-                  <td class="govuk-table__cell">No</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Enter the names of all these organisations</th>
-                  <td class="govuk-table__cell">Not applicable</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training in this sector?</th>
-                  <td class="govuk-table__cell">3 to 5 years</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Where did they gain this experience?</th>
-                  <td class="govuk-table__cell">XXXX XXXXXX XXXXXX</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Do they have any qualifications relating to this sector?</th>
-                  <td class="govuk-table__cell">Yes</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Tell us what qualifications they have</th>
-                  <td class="govuk-table__cell">XXXXX XXXXX XXXXXX</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Are they approved by awarding bodies to deliver training?</th>
-                  <td class="govuk-table__cell">Yes</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Names of awarding bodies</th>
-                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Do they have sector or trade body memberships?</th>
-                  <td class="govuk-table__cell">Yes</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Names of sector or trade bodies</th>
-                  <td class="govuk-table__cell">XXXX XXXXX XXXXX</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">What type of apprenticeship training have they delivered?</th>
-                  <td class="govuk-table__cell">Apprenticeship standards and frameworks</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">How have they delivered training to apprentices?</th>
-                  <td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-0">
-                  <li>Classroom-based training</li>
-                  <li>Coaching</li>
-                  <li>E-learning</li>
-                  </ul></td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">What’s their experience of delivering training to apprentices?</th>
-                  <td class="govuk-table__cell">3 to 5 years</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">What’s the typical duration of training they have delivered to apprentices?</th>
-                  <td class="govuk-table__cell">6 to 12 months</td>
-                </tr>
-              </tbody>
-            </table>
             </div><div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m govuk-!-padding-top-6">Applicant's response for clarification</h2>
+
+            {{ govukTextarea({
+              name: "clarified-answer",
+              id: "clarified-answer",
+              label: {
+                text: "Enter applicant's response"
+              }
+            }) }}
+
+            {{ govukFileUpload({
+              id: "file-upload-1",
+              name: "file-upload-1",
+              label: {
+                text: "Upload a file (optional)"
+              }
+            }) }}
 
 			<form action="" method="post" class="form">
 
@@ -272,7 +206,7 @@
 							text: "Add external comments"
 						},
 						hint: {
-						    text: "These comments will go to the applicant for clarification or feedback."
+						    text: "The applicant will see these comments as part of overall outcome."
 						}
 					}) }}
 				{% endset -%}

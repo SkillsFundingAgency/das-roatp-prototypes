@@ -1350,7 +1350,7 @@ module.exports = function (router) {
 				res.redirect('/application/' + v + '/organisation/org-trustees-declare')
 			} else {
 				req.session.data['tl_org_people'] = 'completed'
-				req.session.data['tl_org_profile'] = 'next'
+				req.session.data['tl_org_type'] = 'next'
 				res.redirect('/application/' + v + '/task-list#section-organisation')
 			}
 		})
@@ -1834,17 +1834,16 @@ module.exports = function (router) {
     if (req.session.data['org-parentcompany'] === 'Yes'){
       res.redirect('/application/' + v + '/financial/org-parentcompany-details')
     } else {
-      req.session.data['tl_ukparentcompany'] = 'completed'
-      req.session.data['tl_org_type'] = 'next'
-      res.redirect('/application/' + v + '/task-list#section-financial')
+      req.session.data['tl_org_details'] = 'completed'
+      req.session.data['tl_org_people'] = 'next'
+      res.redirect('/application/' + v + '/task-list#section-organisation')
     }
   })
 
   // Parent company details
   router.post('/application/' + v + '/financial/org-parentcompany-details', function (req, res) {
     req.session.data['tl_ukparentcompany'] = 'completed'
-    req.session.data['tl_org_type'] = 'next'
-    res.redirect('/application/' + v + '/task-list#section-financial')
+    res.redirect('/application/' + v + '/organisation/org-ico')
   })
 
   /*** Organisation type ***/
@@ -1967,7 +1966,7 @@ module.exports = function (router) {
     {
       req.session.data['tl_org_type'] = 'completed'
       req.session.data['tl_fin_upload'] = 'next'
-      res.redirect('/application/' + v + '/task-list#section-financial')
+      res.redirect('/application/' + v + '/task-list#section-organisation')
     }
 
   })
@@ -2032,7 +2031,7 @@ module.exports = function (router) {
     }
     req.session.data['tl_org_type'] = 'completed'
     req.session.data['tl_fin'] = 'completed'
-    res.redirect('/application/' + v + '/task-list#section-financial')
+    res.redirect('/application/' + v + '/task-list#section-organisation')
 
 
   })

@@ -1162,6 +1162,11 @@ module.exports = function (router) {
     }
   })
 
+  router.get('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan-remove', function (req,res) {
+    req.session.data['file-upload-1'] = null
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan')
+  })
+
   router.post('/staff-app/' + v + '/applications/assessor/clarify/3127/pya/continuityplan', function (req,res) {
     req.session.data['aac-clarify-3127-pya-equality'] = "Pass"
     res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')

@@ -33,17 +33,18 @@
         name: "createLastname"
       }) }}
 
-      {{ govukInput({
-        label: {
-          text: "Email address"
-        },
-        hint: {
-          text: "We’ll use this to send you a confirmation email"
-        },
-        classes: "govuk-!-width-two-thirds",
-        id: "createEmail",
-        name: "createEmail"
-      }) }}
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Email address
+        </label>
+        <p class="govuk-hint">We’ll use this email address:</p>
+        <ul class="govuk-hint govuk-list govuk-list--bullet">
+            <li>to send you a confirmation email about your account</li>
+            <li>for all communication to do with your RoATP application</li>
+        </ul>
+        <input class="govuk-input govuk-!-width-two-thirds" id="createEmail" name="createEmail" type="text">
+      </div>
+
 
       {{ govukButton({
         text: "Confirm"

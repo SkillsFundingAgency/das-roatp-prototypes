@@ -19,32 +19,7 @@
       <h1 class="govuk-heading-l">An application already exists for the UKPRN {{ data['org-ukprn'] }}</h1>
       <p class="govuk-body">To continue with the application, <a href="../signoutsignin">sign in</a> using the account details that were used to start the application.</p>
       <p class="govuk-body">If you think this is wrong, contact us on 0370 2670001 or fill out the <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=/en&cancelRedirectLink=/en&consentMessage=yes">service desk form</a>.</p>
-			
-      <details class="govuk-details govuk-details--gethelp" id="gethelp">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Get help
-          </span>
-        </summary>
-        <div class="govuk-details__text govuk-!-padding-bottom-0">
-          <div id="gethelp_content">
-            <p class="govuk-body">Do not include any personal or financial information.</p>
-            {{ govukCharacterCount({
-              name: "gethelp",
-              id: "gethelp",
-              maxlength: 250,
-              label: {
-                text: "What do you need help with?"
-              }
-            }) }}
-            <p class="govuk-body">We’ll try to respond within 3 working days of receiving this.</p>
-            <button class="govuk-button" data-module="govuk-button" id="gethelp_submit" onclick='document.getElementById("gethelp_content").innerHTML = "<h3>Successfully sent</h3 class=\"govuk-heading-s\"><p>We&apos;ll try to respond within 3 working days of receiving this.</p><p>We&apos;ll send an email to the email address you used to sign in.</p><p>If you do not receive an email, check your junk folder or try again.</p>"'>
-              Send question
-            </button>
-          </div>
-        </div>
-      </details>
-
+{% include "includes/v15/gethelp.html" %}
     </div>
   </div>
 

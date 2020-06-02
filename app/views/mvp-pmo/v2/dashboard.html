@@ -1,0 +1,27 @@
+{% set current_section = "dashboard" %}
+{% extends "layouts/layout_mvpgateway_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<h1 class="govuk-heading-xl">PMO dashboard</h1>
+		</div>
+	</div>
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-one-half">
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-5"><a href="javascript:preventDefault();" style="color: grey">EPAO financial</a></h2>
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-5"><a href="roatp/list">RoATP financial</a></h2>
+		</div>
+	</div>
+      
+{% endblock %}
+      

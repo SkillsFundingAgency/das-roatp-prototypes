@@ -1,0 +1,53 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvppmo_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-pmo/v2/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-pmo/v2/roatp/list"
+			},
+			{
+				text: "Financial health evaluation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+	<!--div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">PMO</span>
+			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+		</div>
+	</div-->
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">Financial health assessment completed</h1>
+				<div class="govuk-panel__body">
+					Outcome saved as: <strong>{{ data['pmo-xyz'] }}</strong>
+				</div>
+			</div>
+
+			<p class="govuk-body"><a href="list">Go to RoATP financial applications</a></p>
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

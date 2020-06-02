@@ -26,6 +26,7 @@ require('./routes/mvp-oversight/v1.js')(router);
 
 // MVP PMO
 require('./routes/mvp-pmo/v1.js')(router);
+require('./routes/mvp-pmo/v2.js')(router);
 
 // Clarify applicant journey from Gateway
 require('./routes/clarify-gw/v1.js')(router);

@@ -1,0 +1,290 @@
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvppmo_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-pmo/v2/applications/applications-list"
+			},
+			{
+				text: "RoATP applications"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% if data['pmo-abc'] == "Outstanding" %}
+{% set pmoAbc = "Outstanding" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Good" %}
+{% set pmoAbc = "Good" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Satisfactory" %}
+{% set pmoAbc = "Satisfactory" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Inadequate" %}
+{% set pmoAbc = "Inadequate" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Exempt" %}
+{% set pmoAbc = "Exempt" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Ask for clarification" %}
+{% set pmoAbc = "Clarification" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Fail this application" %}
+{% set pmoAbc = "Fail" %}
+{% endif %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">PMO</span>
+			<h1 class="govuk-heading-xl">RoATP applications</h1>
+		</div>
+	</div>
+	
+	{% set applicationsHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Declared in application</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Current status</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if not data['pmo-abc'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="abc-setinprogress">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Not exempt</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">
+						{% if data['pmo-abc-status'] == 'inprogress' %}
+						<strong class="govuk-tag govuk-tag-completed" style="white-space: nowrap;">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag-positive">New</strong>
+						{% endif %}
+					</td>
+				</tr>
+				{% endif %}
+				{% if not data['pmo-xyz'] %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">XYZ LEARNING</a></td>
+					<td class="govuk-table__cell">10987654</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">Exempt</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">
+						{% if data['pmo-xyz-status'] == 'inprogress' %}
+						<strong class="govuk-tag govuk-tag-completed" style="white-space: nowrap">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag-positive">New</strong>
+						{% endif %}
+					</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{% set clarificationsHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Application submitted</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Clarification sent</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if data['pmo-abc'] == "Ask for clarification" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="abc-evaluation">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+				</tr>
+				{% endif %}
+				{% if data['pmo-xyz'] == "Ask for clarification" %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="xyz-evaluation">XYZ LEARNING</a></td>
+					<td class="govuk-table__cell">10987654</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">22 Oct 2019</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">KNOWTABLY</a></td>
+					<td class="govuk-table__cell">10776351</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">21 Oct 2019</td>
+					<td class="govuk-table__cell">23 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">CHRYSALIS</a></td>
+					<td class="govuk-table__cell">12110997</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">23 Oct 2019</td>
+					<td class="govuk-table__cell">25 Oct 2019</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">EDUSPHERE</a></td>
+					<td class="govuk-table__cell">11098793</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">24 Oct 2019</td>
+					<td class="govuk-table__cell">26 Oct 2019</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+	{% set outcomeHtml %}
+		<table class="govuk-table">
+			<thead class="govuk-table__head">
+				<tr class="govuk-table__row">
+					<th aria-sort="none" scope="col" class="govuk-table__header">Organisation name</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">UKPRN</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Provider route</th>
+					<th aria-sort="ascending" scope="col" class="govuk-table__header">Outcome date</th>
+					<th aria-sort="none" scope="col" class="govuk-table__header">Outcome</th>
+				</tr>
+			</thead>
+			<tbody class="govuk-table__body">
+				{% if (data['pmo-abc']) and not (data['pmo-abc'] == "Ask for clarification") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">ABC TRAINING LIMITED</a></td>
+					<td class="govuk-table__cell">12345678</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">17 Oct 2019</td>
+					<td class="govuk-table__cell">{{ pmoAbc }}</td>
+				</tr>
+				{% endif %}
+				{% if (data['pmo-xyz']) and not (data['pmo-xyz'] == "Clarification") %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">XYZ LEARNING</a></td>
+					<td class="govuk-table__cell">10987654</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">18 Oct 2019</td>
+					<td class="govuk-table__cell">{{ data['pmo-xyz'] }}</td>
+				</tr>
+				{% endif %}
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">SCHOOL SOURCE</a></td>
+					<td class="govuk-table__cell">10776392</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">14 Oct 2019</td>
+					<td class="govuk-table__cell">Exempt</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">FUTURE THINK</a></td>
+					<td class="govuk-table__cell">10652842</td>
+					<td class="govuk-table__cell">Employer</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Satisfactory</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">MOVING THE GRADE</a></td>
+					<td class="govuk-table__cell">10234173</td>
+					<td class="govuk-table__cell">Main</td>
+					<td class="govuk-table__cell">12 Oct 2019</td>
+					<td class="govuk-table__cell">Outstanding</td>
+				</tr>
+				<tr class="govuk-table__row">
+					<td class="govuk-table__cell"><a href="javascript:preventDefault();">ROCKET TRAINING</a></td>
+					<td class="govuk-table__cell">10882394</td>
+					<td class="govuk-table__cell">Supporting</td>
+					<td class="govuk-table__cell">11 Oct 2019</td>
+					<td class="govuk-table__cell">Inadequate</td>
+				</tr>
+			</tbody>
+		</table>
+	{% endset -%}
+
+<div class="shrinkit">
+	{{ govukTabs({
+		items: [
+			{
+				label: "Applications",
+				id: "applications",
+				panel: {
+					html: applicationsHtml
+				}
+			},
+			{
+				label: "Clarifications",
+				id: "clarifications",
+				panel: {
+					html: clarificationsHtml
+				}
+			},
+			{
+				label: "Outcome",
+				id: "outcome",
+				panel: {
+					html: outcomeHtml
+				}
+			}
+		]
+	}) }}
+</div>
+      
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[0]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[1]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[2]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[3]
+			]
+		});
+
+		new MOJFrontend.SortableTable({
+			table: [
+				$('table')[4]
+			]
+		});
+
+	</script>
+
+{% endblock %}

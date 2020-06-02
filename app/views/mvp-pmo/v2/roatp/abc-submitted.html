@@ -1,0 +1,91 @@
+
+{% set current_section = "applications" %}
+{% extends "layouts/layout_mvppmo_v2.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+		items: [
+			{
+				text: "Dashboard",
+				href: "/mvp-pmo/v2/dashboard"
+			},
+			{
+				text: "RoATP applications",
+				href: "/mvp-pmo/v2/roatp/list"
+			},
+			{
+				text: "Financial health evaluation"
+			}
+		]
+	}) }}
+{% endblock %}
+
+{% if data['pmo-abc'] == "Outstanding" %}
+{% set pmoAbc = "Outstanding" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Good" %}
+{% set pmoAbc = "Good" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Satisfactory" %}
+{% set pmoAbc = "Satisfactory" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Inadequate" %}
+{% set pmoAbc = "Inadequate" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Exempt" %}
+{% set pmoAbc = "Exempt" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Ask for clarification" %}
+{% set pmoAbc = "Clarification" %}
+{% endif %}
+
+{% if data['pmo-abc'] == "Fail this application" %}
+{% set pmoAbc = "Fail" %}
+{% endif %}
+
+{% block content %}
+
+	<!--div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<span class="govuk-caption-m">PMO</span>
+			<h1 class="govuk-heading-xl">Financial health evaluation</h1>
+		</div>
+	</div-->
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+			<div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-9">
+				<h1 class="govuk-panel__title">Financial health assessment saved as:</h1>
+				<div class="govuk-panel__body">
+					<strong>{{ pmoAbc }}</strong>
+				</div>
+			</div>
+
+<!--	
+			{% if data['pmo-abc'] == "Clarification" %}
+				<p class="govuk-body">You can view previous evaluations with clarifications, including this one, in the <a href="list#clarifications">Clarifications</a>
+			{% else %}
+				<p class="govuk-body">You can view previous evaluations, including this one in the <a href="list#outcome">Outcomes</a>
+			{% endif %}
+			area.</p>
+			<h2 class="govuk-heading-l govuk-!-margin-top-5">What do you want to do next?</h2>
+-->
+
+			<p class="govuk-body"><a href="list">Go to RoATP financial applications</a></p>
+		
+		</div>
+	</div>
+
+	
+
+{% endblock %}

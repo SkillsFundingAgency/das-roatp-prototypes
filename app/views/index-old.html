@@ -7,33 +7,316 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full"><h1 class="govuk-heading-l">RoATP design history and prototypes</h1></div>
-    <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m">Introduction to RoATP</h2>
-      <p>The register of apprenticeship training providers is a list of organisations that are eligible to receive government funding to train apprentices.</p>
-      <p>Our vision is to create a seamless provider journey from application to assessment to on-boarding, by improving user experience, centralising apprenticeship provider data and integrating RoATP into the broader apprenticeship service.</p>
-      <p>We are responsible for bringing the Provider journey into the apprenticeship service from joining the register (RoATP) to their ongoing management and engagement with downstream teams & systems.</p>
-    </div>
-      <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m">Design artefacts</h2>
-      <div class="govuk-inset-text">
-      <ul class="govuk-list govuk-list--bullet">
-      <li><a href="https://miro.com/app/board/o9J_krAWhlg=/">High level apply MVS flow</a></li>
-      <li><a href="https://drive.google.com/drive/folders/1hvKUGEI23kzFi8pDO9VNDDNJ3w9uC7Q7?usp=sharing">Apply logical business flows</a></li>
-      <li><a href="https://app.diagrams.net/?page-id=gLnM37zdQKOebfXMr9yp#G1Sb7ODxxVo2S_XnOXnaZhkzmPK0Q1ZQaN">Assessor MVS user flow diagram</a></li>
-      <li><a href="https://app.diagrams.net/?page-id=fsKo9-0QnCm-j1IeZC7q#G1Sb7ODxxVo2S_XnOXnaZhkzmPK0Q1ZQaN">Assessor post-MVS user flow diagram</a></li>
-      <li><a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1091699000/RoATP+User+Research">RoATP user research library</a></li>
-      <li><a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1191248054/RoATP+User+Needs">RoATP user needs</a></li>
-      </ul>
-      </div>
-      </div>
-    <div class="govuk-grid-column-full govuk-!-margin-top-4">
-      <h2 class="govuk-heading-m">Prototypes</h2>
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">RoATP Prototypes</h1>
 
-     {% set applyMVS %}
+      <h2 class="govuk-heading-l">Recent prototypes</h2>
+
+      <h3 class="govuk-heading-m">RoATP Gateway Journey</h3>
+
+      <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <a href="/mvp-gateway/v6/" target="blank">MVS - Gateway Journey v6</a>
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
+        <!--strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">FOR TESTING</strong-->
+        <br>
+        <span class="govuk-caption-m">
+          <!--Handling a resubmitted application<br-->
+          Created on: 18th May 2020
+          <!--
+          <br>User research: 22nd to 23rd Jan 2020
+          -->
+        </span>
+      </p>
+      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Gateway quick links
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/mvp-gateway/v6-setup" target="blank">Jump to completed gateway assessment</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="govuk-details govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed (-)</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+          </ul>
+        </div>
+      </details>
+
+      <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <a href="/mvp-gateway/v5/" target="blank">MVS - Gateway Journey v5</a>
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
+        <!--strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">FOR TESTING</strong-->
+        <br>        
+        <span class="govuk-caption-m">
+          <!--Handling a resubmitted application<br-->
+          Created on: 3rd Mar 2020
+          <!--
+          <br>User research: 22nd to 23rd Jan 2020
+          -->
+        </span>
+      </p>
+      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Gateway quick links
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/mvp-gateway/v5-setup" target="blank">Jump to completed gateway assessment</a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="govuk-details govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed (2)</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1328" target="_blank">APR-1328 Gateway clarifications in Apply</a></li>
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1472" target="_blank">APR-1472 GW - Updates to split out criminal and compliance checks</a></li>
+          </ul>
+        </div>
+      </details>
+
+      <h3 class="govuk-heading-m">RoATP PMO Journey</h3>
+
+      <p class="govuk-body govuk-!-margin-left-5">
+        <a href="/mvp-pmo/v2/index" target="blank">MVS - PMO Journey v2</a>
+        <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
+        <!--br>
+        <a href="/mvp-gateway/v4-setup" target="blank">Jump to completed gateway assessment</a><br-->
+        <span class="govuk-caption-m">
+          <!--Handling a resubmitted application<br-->
+          Created on: 29th May 2020
+          <!--
+          <br>User research: 22nd to 23rd Jan 2020
+          -->
+        </span>
+      </p>
+
+      <p class="govuk-body govuk-!-margin-left-5">
+        <a href="/mvp-pmo/v1/index" target="blank">MVS - PMO Journey v1</a>
+        <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
+        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-left-2">TESTED</strong>
+        <!--br>
+        <a href="/mvp-gateway/v4-setup" target="blank">Jump to completed gateway assessment</a><br-->
+        <span class="govuk-caption-m">
+          <!--Handling a resubmitted application<br-->
+          Created on: 27th Feb 2020
+          <!--
+          <br>User research: 22nd to 23rd Jan 2020
+          -->
+        </span>
+      </p>
+      <details class="govuk-details govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1410" target="_blank">APR-1410 FHA - Add required questions for PMO (Private beta)</a></li>
+          </ul>
+        </div>
+      </details>
+
+      <h3 class="govuk-heading-m">RoATP Assessor Journey</h3>
+
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+            <a href="/staff-app/v13/">Public Beta - Staff App v13 - Assessor</a>
+            <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
+            <br>
+            <span class="govuk-caption-m">
+              Created on: 18th May 2020<br>
+              User research:
+            </span>
+          </p>
+          <details class="govuk-details govuk-!-margin-left-5">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (-)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+              </ul>
+            </div>
+          </details>
+
+          <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+            <a href="/staff-app/v12/">Public Beta - Staff App v12 - Assessor</a>
+            <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">WITH DEV</strong>
+            <br>
+            <span class="govuk-caption-m">
+              Created on: 6th Apr 2020<br>
+              Last updated: 28nd Apr 2020<br>
+              User research:
+            </span>
+          </p>
+          <details class="govuk-details govuk-!-margin-left-5 govuk-!-margin-bottom-0">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Background information (README)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">The prototype was last updated in Apr 2020.</p>
+              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Assessor</h4>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Ability to assign yourself as an assessor of an application</li>
+                <li>Ability for two assessors to assign themselves to an application in order to carry out a blind assessment</li>
+                <li>An application will appear in the 'New' tab <b>IF</b> there is at least one assessor space available <b>AND</b> that you are not an assessor assigned to the application already</li>
+                <li>An application will appear in the 'In progress' tab <b>IF</b> you are the only assessor on the application <b>OR</b> both assessor spots are filled</li>
+                <li>When an assessment is in the 'In progress' tab, it will remain there until both assessors complete their blind assessment. However, when an assessor has completed their blind assessment but the other assessor has not, the link to the application will take them back to the confirmation page they saw when they submitted their assessment checks.</li>
+                <li>An application will appear in the 'Moderation' tab <b>IF</b> both assessors have completed their blind assessments</li>
+                <li>The task list shown when clicking 'Moderate application' from the 'Moderation' tab will:
+                  <ul>
+                    <li>Display all sections that were available to the assessor, showing a pass / fail against sections which have a consensus reached by the two assessors. No watermark tag will be against sections which have disparity between the assessors.</li>
+                    <li>Moderating a section will display the original question, the applicants answer, the guidance shown to the applicant in the apply journey, the outcome and comments of both blind assessments, and the ability to record an outcome to the moderation</li>
+                  </ul>
+                </li>
+                <li>When 'failing' a question in 'moderate, the assessor must give an internal comment and an external comment (for use for clarification feedback or for provider feedback post-oversight).</li>
+                <li>When a clarification has been sent, it shows as 'with applicant' and the assessor can change the overall outcome of the application at any point - but they should only do so when a clarification has not been received. For MVS, we aren't building a overdue flag in the service to know when the application has been with the applicant for longer than 5 working days.</li>
+                <li>When a clarification comes back from the provider, the assessor can see the clarified questions, with a view of the previous answer, the new answer and the internal and external comment that was logged. They can also change the outcome on any other questions, and send an overall outcome for the application when they have reviewed all clarified questions, where they can pass / fail / ask for clarification (again).</li>
+              </ul>
+            </div>
+          </details>
+          <details class="govuk-details govuk-!-margin-left-5">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">Jira tickets addressed (2)</span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1511" target="_blank">APR-1511 - Assessor happy path</a></li>
+                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1555" target="_blank">APR-1555 - Assessor unhappy path</a></li>
+              </ul>
+            </div>
+          </details>
+
+
+      <h3 class="govuk-heading-m">RoATP Oversight Journey</h3>
+
+      <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <a href="/mvp-oversight/v1/" target="blank">MVS - Oversight Journey v1</a>
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
+        <!--strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">FOR TESTING</strong-->
+        <br>
+        <!--a href="/mvp-gateway/v5-setup" target="blank">Jump to completed assessor assessment</a><br-->
+        <span class="govuk-caption-m">
+          <!--Handling a resubmitted application<br-->
+          Created on: 10th Mar 2020
+          <!--
+          <br>User research: 22nd to 23rd Jan 2020
+          -->
+        </span>
+      </p>
+      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Associated apply journey links (after sign in)
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/mvp-oversight/v1/apply/pass" target="blank">Application passed by Oversight</a></li>
+          </ul>
+        </div>
+      </details> 
+      <details class="govuk-details govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1470" target="_blank">APR-1470 Oversight role</a></li>
+          </ul>
+        </div>
+      </details>
+
+      <h3 class="govuk-heading-m">RoATP Application Journey</h3>
+
+      <p class="govuk-body govuk-!-margin-left-5">
+        <a href="https://pp-apply.apprenticeships.education.gov.uk/" target="_blank">Apply journey in Pre-production environment</a> 
+        <strong class="govuk-tag govuk-tag--purple govuk-!-margin-left-2">As live</strong>
+        <span class="govuk-caption-m">Please use this link if you want to experience what is currently in the live RoATP service.<br>This is not a prototype.</span>
+      </p>
+
+      <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <a href="/application/v14" target="_blank">Application journey v14 - Sectors - PRIVATE BETA</a>
+        <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
+        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-left-2">tested</strong>
+        <span class="govuk-caption-m">
+          <!--Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v13" target="_blank">24th to 25th Oct 2019</a><br>-->
+          Created on: 9th Jan 2020
+        </span>
+      </p>
+      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Quick links
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/application/v14/jump/sectors">Jump to Sectors</a></li>
+            <li><a href="/application/v14/jump/completedapplicationmain">Jump to 'Finish - Terms and conditions'</a></li>
+          </ul>
+        </div>
+      </details> 
+      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Scenarios set with UKPRN
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>12340101 - Organisation with all possible details from UKRLP</li>
+            <li>12340102 - Organisation has no website or trading name on UKRLP</li>
+            <li>12340103 - Organisation has no directors listed</li>
+          </ul>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>12340201 - Charity with a company number</li>
+            <li>12340202 - Charity without a company number</li>
+            <li>12340203 - Charity (not a company) with no trustees listed</li>
+          </ul>
+          <ul class="govuk-list govuk-list--bullet">
+            <li style="margin-bottom: 0;">12340301 - Not a company (e.g. Sole trader, partnership, or PSB/SI)</li>
+          </ul>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>12340401 - Organisation is inactive on UKRLP</li>
+            <li>12340402 - Organisation is already on the register</li>
+            <li>12340403 - Incorporation date less than 12 months ago (3 months for supporting)</li>
+            <li>12340404 - Organisation removed from the register</li>
+          </ul>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>12340405 - Organisation already on register as a supporting provider</li>
+            <li>12340406 - Application already submitted for UKPRN (APR-770)</li>
+            <li>12340407 - Application - pre-submission In-progress (APR-771)</li>
+          </ul>
+        </div>
+      </details>
+      <details class="govuk-details govuk-!-margin-left-5">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
+        </summary>
+        <div class="govuk-details__text">
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1187" target="_blank">APR-1187 Apply DAT - sectors re-visited</a></li>
+          </ul>
+        </div>
+      </details>
+
       <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
         <a href="/application/v15" target="_blank">Application journey v15 - Decoupling GW and PMO, rail franchise & multiple file on financial statement - PUBLIC BETA</a>
+        <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
+        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
         <span class="govuk-caption-m">
+          <!--Research findings: <a href="https://skillsfundingagency.atlassian.net/wiki/spaces/NDL/pages/1160937779/Application+Journey+Alpha+Findings#ApplicationJourneyAlphaFindings-App_v13" target="_blank">24th to 25th Oct 2019</a><br>-->
           Created on: 28th Apr 2020
         </span>
       </p>
@@ -104,189 +387,8 @@
           </ul>
         </div>
       </details>
-     {% endset -%}
 
-     {% set gatewayMVS %}
-           <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-             <a href="/mvp-gateway/v6/" target="blank">MVS - Gateway Journey v6</a>
-             <span class="govuk-caption-m">
-               Created on: 18th May 2020
-             </span>
-           </p>
-           <details class="govuk-details govuk-!-margin-left-5">
-             <summary class="govuk-details__summary">
-               <span class="govuk-details__summary-text">
-                 Gateway quick links
-               </span>
-             </summary>
-             <div class="govuk-details__text">
-               <ul class="govuk-list govuk-list--bullet">
-                 <li><a href="/mvp-gateway/v6-setup" target="blank">Jump to completed gateway assessment</a></li>
-               </ul>
-             </div>
-           </details>
-
-           <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-             <a href="/mvp-gateway/v5/" target="blank">MVS - Gateway Journey v5</a>
-             <span class="govuk-caption-m">
-               Created on: 3rd Mar 2020
-             </span>
-           </p>
-           <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-             <summary class="govuk-details__summary">
-               <span class="govuk-details__summary-text">
-                 Gateway quick links
-               </span>
-             </summary>
-             <div class="govuk-details__text">
-               <ul class="govuk-list govuk-list--bullet">
-                 <li><a href="/mvp-gateway/v5-setup" target="blank">Jump to completed gateway assessment</a></li>
-               </ul>
-             </div>
-           </details>
-           <details class="govuk-details govuk-!-margin-left-5">
-             <summary class="govuk-details__summary">
-               <span class="govuk-details__summary-text">Jira tickets addressed (2)</span>
-             </summary>
-             <div class="govuk-details__text">
-               <ul class="govuk-list govuk-list--bullet">
-                 <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1328" target="_blank">APR-1328 Gateway clarifications in Apply</a></li>
-                 <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1472" target="_blank">APR-1472 GW - Updates to split out criminal and compliance checks</a></li>
-               </ul>
-             </div>
-           </details>
-     {% endset -%}
-
-     {% set pmoMVS %}
-      <p class="govuk-body govuk-!-margin-left-5">
-        <a href="/mvp-pmo/v2/index" target="blank">MVS - PMO Journey v2</a>
-        <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
-        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
-        <!--br>
-        <a href="/mvp-gateway/v4-setup" target="blank">Jump to completed gateway assessment</a><br-->
-        <span class="govuk-caption-m">
-          <!--Handling a resubmitted application<br-->
-          Created on: 29th May 2020
-          <!--
-          <br>User research: 22nd to 23rd Jan 2020
-          -->
-        </span>
-      </p>
-
-      <p class="govuk-body govuk-!-margin-left-5">
-        <a href="/mvp-pmo/v1/index" target="blank">MVS - PMO Journey v1</a>
-        <span class="govuk-caption-m">
-          Created on: 27th Feb 2020
-        </span>
-      </p>
-      <details class="govuk-details govuk-!-margin-left-5">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1410" target="_blank">APR-1410 FHA - Add required questions for PMO (Private beta)</a></li>
-          </ul>
-        </div>
-      </details>
-     {% endset -%}
-
-     {% set assessorMVS %}
-          <p class="govuk-body govuk-!-margin-left-5">
-            <a href="/staff-app/v13/">Public Beta - Staff App v13 - Assessor</a>
-            <span class="govuk-caption-m">
-              Created on: 18th May 2020
-            </span>
-          </p>
-
-          <p class="govuk-body govuk-!-margin-left-5">
-            <a href="/staff-app/v12/">Public Beta - Staff App v12 - Assessor</a>
-            <span class="govuk-caption-m">
-              Created on: 6th Apr 2020<br>
-              Last updated: 28nd Apr 2020<br>
-            </span>
-          </p>
-          <details class="govuk-details govuk-!-margin-left-5 govuk-!-margin-bottom-0">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">Background information (README)</span>
-            </summary>
-            <div class="govuk-details__text">
-              <p class="govuk-body">The prototype was last updated in Apr 2020.</p>
-              <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Assessor</h4>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>Ability to assign yourself as an assessor of an application</li>
-                <li>Ability for two assessors to assign themselves to an application in order to carry out a blind assessment</li>
-                <li>An application will appear in the 'New' tab <b>IF</b> there is at least one assessor space available <b>AND</b> that you are not an assessor assigned to the application already</li>
-                <li>An application will appear in the 'In progress' tab <b>IF</b> you are the only assessor on the application <b>OR</b> both assessor spots are filled</li>
-                <li>When an assessment is in the 'In progress' tab, it will remain there until both assessors complete their blind assessment. However, when an assessor has completed their blind assessment but the other assessor has not, the link to the application will take them back to the confirmation page they saw when they submitted their assessment checks.</li>
-                <li>An application will appear in the 'Moderation' tab <b>IF</b> both assessors have completed their blind assessments</li>
-                <li>The task list shown when clicking 'Moderate application' from the 'Moderation' tab will:
-                  <ul>
-                    <li>Display all sections that were available to the assessor, showing a pass / fail against sections which have a consensus reached by the two assessors. No watermark tag will be against sections which have disparity between the assessors.</li>
-                    <li>Moderating a section will display the original question, the applicants answer, the guidance shown to the applicant in the apply journey, the outcome and comments of both blind assessments, and the ability to record an outcome to the moderation</li>
-                  </ul>
-                </li>
-                <li>When 'failing' a question in 'moderate, the assessor must give an internal comment and an external comment (for use for clarification feedback or for provider feedback post-oversight).</li>
-                <li>When a clarification has been sent, it shows as 'with applicant' and the assessor can change the overall outcome of the application at any point - but they should only do so when a clarification has not been received. For MVS, we aren't building a overdue flag in the service to know when the application has been with the applicant for longer than 5 working days.</li>
-                <li>When a clarification comes back from the provider, the assessor can see the clarified questions, with a view of the previous answer, the new answer and the internal and external comment that was logged. They can also change the outcome on any other questions, and send an overall outcome for the application when they have reviewed all clarified questions, where they can pass / fail / ask for clarification (again).</li>
-              </ul>
-            </div>
-          </details>
-          <details class="govuk-details govuk-!-margin-left-5">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">Jira tickets addressed (2)</span>
-            </summary>
-            <div class="govuk-details__text">
-              <ul class="govuk-list govuk-list--bullet">
-                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1511" target="_blank">APR-1511 - Assessor happy path</a></li>
-                <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1555" target="_blank">APR-1555 - Assessor unhappy path</a></li>
-              </ul>
-            </div>
-          </details>
-     {% endset -%}
-
-     {% set oversightMVS %}
-      <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-        <a href="/mvp-oversight/v1/" target="blank">MVS - Oversight Journey v1</a>
-        <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong>
-        <!--strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">FOR TESTING</strong-->
-        <br>
-        <!--a href="/mvp-gateway/v5-setup" target="blank">Jump to completed assessor assessment</a><br-->
-        <span class="govuk-caption-m">
-          <!--Handling a resubmitted application<br-->
-          Created on: 10th Mar 2020
-          <!--
-          <br>User research: 22nd to 23rd Jan 2020
-          -->
-        </span>
-      </p>
-      <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Associated apply journey links (after sign in)
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="/mvp-oversight/v1/apply/pass" target="blank">Application passed by Oversight</a></li>
-          </ul>
-        </div>
-      </details>
-      <details class="govuk-details govuk-!-margin-left-5">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Jira tickets addressed (1)</span>
-        </summary>
-        <div class="govuk-details__text">
-          <ul class="govuk-list govuk-list--bullet">
-            <li><a href="https://skillsfundingagency.atlassian.net/browse/APR-1470" target="_blank">APR-1470 Oversight role</a></li>
-          </ul>
-        </div>
-      </details>
-     {% endset -%}
-
-     {% set archivedPrototypes %}
-
-     <h3 id="clarifications-in-apply" class="govuk-heading-m">RoATP Clarifications in Apply Journeys</h3>
+      <h3 id="clarifications-in-apply" class="govuk-heading-m">RoATP Clarifications in Apply Journeys</h3>
 
       <h4 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-left-5">Clarifications in Apply v3</h4>
       <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
@@ -332,7 +434,7 @@
         </li>
       </ul>
 
-
+      
       <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
         <a href="https://jas40871.invisionapp.com/public/share/WT126RRO7Q#/screens/476840329" target="blank">Clarifications from PMO and Assessor (InVision)</a>
         <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
@@ -369,6 +471,10 @@
           -->
         </span>
       </p>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l">Archived prototypes</h2>
 
       <h3 class="govuk-heading-m">RoATP Assessor Journeys</h3>
 
@@ -533,7 +639,7 @@
           </ul>
         </div>
       </details>
-
+          
 
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
@@ -676,7 +782,7 @@
         </div>
       </details>
 
-
+          
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
@@ -684,7 +790,7 @@
 
       <ul class="govuk-list govuk-list--bullet">
         <li class="govuk-!-margin-bottom-4">
-
+      
           <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
             <a href="/application/v13">Application journey v13</a>
             <!--strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">WIP</strong-->
@@ -707,7 +813,7 @@
                 <li><a href="/application/v13/jump/cya">Jump to 'Check your answers' (single page)</a></li>
               </ul>
             </div>
-          </details>
+          </details>      
           <details class="govuk-details govuk-!-margin-bottom-0 govuk-!-margin-left-5">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
@@ -1365,7 +1471,7 @@
             </div>
           </details>
         </li>
-
+        
         <li class="govuk-!-margin-bottom-4">
           <p class="govuk-body govuk-!-margin-bottom-0 govuk-!-margin-left-5">
             <a href="/application/v2">Application journey v2</a>
@@ -1435,7 +1541,7 @@
             </div>
           </details>
         </li>
-
+        
         <li class="govuk-!-margin-bottom-4">
           <a href="/application/v1">Application journey v1</a>
           <strong class="govuk-tag govuk-tag--grey govuk-!-margin-left-2">TESTED</strong>
@@ -1749,65 +1855,5 @@
 
     </div>
 </div>
-
-
-     {% endset -%}
-
-
-
-    {{ govukAccordion({
-      id: "accordion-default",
-      items: [
-        {
-          heading: {
-            text: "Apply to join RoATP"
-          },
-          content: {
-            html: applyMVS
-          }
-        },
-        {
-          heading: {
-            text: "Gateway service"
-          },
-          content: {
-            html: gatewayMVS
-          }
-        },
-        {
-          heading: {
-            text: "PMO financial health service"
-          },
-          content: {
-            html: pmoMVS
-          }
-        },
-        {
-          heading: {
-            text: "Assessor service"
-          },
-          content: {
-            html: assessorMVS
-          }
-        },
-        {
-          heading: {
-            text: "Oversight service"
-          },
-          content: {
-            html: oversightMVS
-          }
-        },
-        {
-          heading: {
-            text: "Archived prototypes"
-          },
-          content: {
-            html: archivedPrototypes
-          }
-        }
-      ]
-    }) }}
-
 
 {% endblock %}

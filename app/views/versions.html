@@ -1,0 +1,224 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK RoATP Prototypes
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">What's left to do?</h1>
+<p style="width: 66%">Below is detailed what is 'left to do' for the different RoATP services (application & internal services). The requirements are split out into two columns, one for what needs to be delivered for MVS, and the other for post MVS.</p>
+<table class="govuk-table govuk-!-margin-top-8">
+  <caption class="govuk-table__caption govuk-heading-m">Application journey</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS - public beta</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS +1</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">New Ofsted requirement - 2 consecutive ‘insufficient progress’ rules</td>
+      <td class="govuk-table__cell">New policy requirements - Rail franchise exemptions</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Clarifications - email template</td>
+      <td class="govuk-table__cell">Clarifications - in service</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">2 in 12 month eligibility rule</td>
+      <td class="govuk-table__cell">2 in 12 month eligibility rule - In service auto-lookup</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Re-fresh cached API data - calls are made again when a user returns from making changes at CH/CC</td>
+      <td class="govuk-table__cell">GOV.UK content updated - eligibility requirements</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Change UKPRN journey</td>
+      <td class="govuk-table__cell">CoAs - review maintenance within service</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Returning AS Login user journey</td>
+      <td class="govuk-table__cell">Revisit journey for all people in control manual entry when only 1 source returns data</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">AS Login content</td>
+      <td class="govuk-table__cell">New question requirements-add anti-fraud questions to: Overall Accountable for apprenticeship, Manager for training team, Most experience per sector, All people in control</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Management hierarchy - support anti-fraud process</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Additional questions in DAT section - sectors</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">GOV.UK content - main RoATP page, becoming an ATP, Removal from RoATP x 2, evaluation process, Conditions of Acceptance (CoA’s), CSV page and overall application guidance (PDF)</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table govuk-!-margin-top-8">
+  <caption class="govuk-table__caption govuk-heading-m">Gateway journey</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS - public beta</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS +1</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Unhappy path</td>
+      <td class="govuk-table__cell">Clarifications in service</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">clarifications - offline</td>
+      <td class="govuk-table__cell">Search functionality</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">decline/reject/fail/withdrawn status</td>
+      <td class="govuk-table__cell">Filter by assessor</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Clarification mailbox and template</td>
+      <td class="govuk-table__cell">Tab pagination</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessor name</td>
+      <td class="govuk-table__cell">Ability for assessors to change application User id(applicant)</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Applications dynamic count</td>
+      <td class="govuk-table__cell">Updated assessment SOP</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Column sort</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment SOP</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table govuk-!-margin-top-8">
+  <caption class="govuk-table__caption govuk-heading-m">Assessor journey</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS - public beta</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS +1</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment</td>
+      <td class="govuk-table__cell">Clarifications in service</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Protecting/Planning/Readiness/Delivering/Evaluating</td>
+      <td class="govuk-table__cell">Moderation auto outcomes for like outcomes</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Happy path & unhappy path</td>
+      <td class="govuk-table__cell">Search functionality</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Dynamic assessment</td>
+      <td class="govuk-table__cell">Tab pagination</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessor name</td>
+      <td class="govuk-table__cell">Filter by assessor</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Column sort</td>
+      <td class="govuk-table__cell">Additional anti-fraud questions</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Application dynamic count</td>
+      <td class="govuk-table__cell">Updated assessment SOP</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment SOP</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table govuk-!-margin-top-8">
+  <caption class="govuk-table__caption govuk-heading-m">PMO journey</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS - public beta</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS +1</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment</td>
+      <td class="govuk-table__cell">Clarifications in service</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Financial health assessment</td>
+      <td class="govuk-table__cell">Search functionality</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Happy path & unhappy path</td>
+      <td class="govuk-table__cell">Display User name</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Dynamic assessment</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Application dynamic count</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Clarifications - offline and template</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Overall outcome - grade</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment SOP</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="govuk-table govuk-!-margin-top-8">
+  <caption class="govuk-table__caption govuk-heading-m">Oversight journey</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS - public beta</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">MVS +1</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Read only view of applications</td>
+      <td class="govuk-table__cell">Fitness for funding flag</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">User/assessor name</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Appeal outcome</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Assessment SOP</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+{% endblock %}

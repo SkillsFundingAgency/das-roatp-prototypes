@@ -126,7 +126,7 @@
             {% if (data['org-ukprn'] == "12340104") %}
             <p>For parent company details, you can contact Companies House to <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">change these details (opens in a new window or tab)</a>.</p>
             {% endif %}
-            <p>After your changes have been confirmed, sign back in to continue with this application.</p>
+            <p>After you've changed your details, you'll need to sign in and continue with the application.</p>
           </div>
         </details>
 
@@ -134,7 +134,9 @@
           text: "Confirm and continue",
           classes: "govuk-!-margin-right-1"
         }) }}
-{% include "includes/v15/gethelp.html" %}
+        <p><a href="#">Sign out</a></p>
+
+        {% include "includes/v15/gethelp.html" %}
       </form>
     </div>
   </div>

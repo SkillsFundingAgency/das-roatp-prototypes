@@ -91,7 +91,7 @@
 						</li>
 						<li class="app-task-list__item">
 							<span class="app-task-list__task-name">
-								<a href="javascript:preventDefault();">Equality and diversity policy</a>
+								<a href="3127/pya/equality">Equality and diversity policy</a>
 							</span>
 							{% if data['aac-clarify-3127-pya-equality'] == "Pass" %}
 								<strong class="govuk-tag app-task-list__task-positive">Pass</strong>
@@ -304,7 +304,7 @@
 				</li>
 				<li>
 					<h2 class="app-task-list__section">
-						<span class="app-task-list__section-number">6. </span> Assessor outcome
+						<span class="app-task-list__section-number">6. </span> Moderation outcome
 					</h2>
 					<ul class="app-task-list__items">
 						<li class="app-task-list__item">
@@ -319,11 +319,11 @@
 							    (data['aac-clarify-3127-dat-management-hierarchy'] == "In progress" )
                              %}
 							<span class="app-task-list__task-name">
-								Confirm assessor outcome
+								Confirm moderation outcome
 							</span>
 							{% else %}
 							<span class="app-task-list__task-name">
-								<a href="../clarify/3127/submit/submit">Confirm assessor outcome</a>
+								<a href="../clarify/3127/submit/submit">Confirm moderation outcome</a>
 							</span>
                             {% endif %}
 						</li>
@@ -348,6 +348,10 @@
           {
             href: "/prototype-admin/clear-data",
             text: "Clear data"
+          },
+          {
+            href: "clarify-3127-completed",
+            text: "Complete all"
           }
         ]
       }

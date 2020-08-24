@@ -691,6 +691,14 @@ module.exports = function (router) {
     res.redirect('/staff-app/' + v + '/applications/assessor/tasklist-3127')
   })
 
+  router.get('/staff-app/' + v + '/applications/assessor/clarify/clarify-3127-completed', function (req,res) {
+    req.session.data['aac-clarify-3127-pya-continuityplan'] = "Pass"
+    req.session.data['aac-clarify-3127-pya-equality'] = "Pass"
+    req.session.data['aac-clarify-3127-dat-sectors-digital'] = "Pass"
+    req.session.data['aac-clarify-3127-dat-management-hierarchy'] = "Pass"
+    res.redirect('/staff-app/' + v + '/applications/assessor/clarify/tasklist-3127')
+  })
+
 	// Protect your apprentices
 
 		router.post('/staff-app/' + v + '/applications/assessor/3127/pya/continuityplan', function (req,res) {

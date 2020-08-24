@@ -1157,6 +1157,7 @@ module.exports = function (router) {
     else {
       if (req.session.data['aac-mod-3127-outcome'] === 'Ask for clarification') {
         req.session.data['apr3127'] = "clarification"
+        req.session.data['aac-clarify-3127-pya-equality'] = "Pass"
         req.session.data['aac-moderation-count'] = req.session.data['aac-moderation-count'] - 1
         req.session.data['aac-clarification-count'] = req.session.data['aac-clarification-count'] + 1
         res.redirect('/staff-app/' + v + '/applications/assessor/moderate/3127/submit/confirmation')

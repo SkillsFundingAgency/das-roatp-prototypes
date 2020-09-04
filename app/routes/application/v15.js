@@ -1007,6 +1007,12 @@ module.exports = function (router) {
 			res.redirect('/application/' + v + '/shutter/ukprn-onregister')
 		} else if (org_ukprn === '12340403') { // Incorporation date less than 12 months ago (3 months for supporting)
 			res.redirect('/application/' + v + '/shutter/incorporation')
+    } else if (org_ukprn === '12340410') { // Can apply once more
+      res.redirect('/application/' + v + '/shutter/applying-second-time-in-twelve-months')
+    } else if (org_ukprn === '12340411') { // Failed 2 in 12 months
+      res.redirect('/application/' + v + '/shutter/applied-twice-in-twelve-months')
+    } else if (org_ukprn === '12340412') { // Failed and appealing
+      res.redirect('/application/' + v + '/shutter/appealing')
 		} else if (org_ukprn === '12340404') { // Removed from register
 			res.redirect('/application/' + v + '/shutter/removed')
 		} else if (org_ukprn === '12340405') { // Organisation already on register as a supporting provider

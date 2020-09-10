@@ -23,30 +23,24 @@
     <h2 class="govuk-heading-m">What happens next</h2>
     <p class="govuk-body">If your organisation is already on the RoATP, <a href="https://www.gov.uk/guidance/meeting-new-application-requirements-and-removal-from-register-of-apprenticeship-training-providers-roatp" target="_blank">view the exit policy</a> or <a href="https://www.gov.uk/guidance/meeting-new-application-requirements-and-removal-from-register-of-apprenticeship-training-providers-roatp#what-happens-if-a-provider-is-accepted-onto-roatp-after-being-removed" target="_blank">find out what happens if you’re successful when you apply again</a>.</p>
 
-    <p class="govuk-body">Organisations can only apply twice within a 12-month period from the date of their first application. To reapply, you’ll need to <a href="govuk-main-page">start a new application</a>.</p>
+    <p class="govuk-body">Organisations can only apply twice within a 12-month period from the date of their first application. To reapply, you’ll need to <a href="../v16">start a new application</a>.</p>
     <h2 class="govuk-heading-m">Check which questions you failed</h2>
     <p class="govuk-body">You should review your answers and any feedback before you start a new application.</p>
+    </div>
+    <div class="govuk-grid-column-full">
 
     {{ govukTable({
       firstCellIsHeader: true,
       head: [
         {
-          text: "Question failed"
+          text: "Section"
         },
         {
-          text: "Feedback comment",
+          text: "Feedback",
           classes: "govuk-!-width-one-third"
         }
       ],
       rows: [
-        [
-          {
-            text: "Health and safety policy"
-          },
-          {
-            text: "Insufficient details"
-          }
-        ],
         [
           {
             text: "Safeguarding policy"
@@ -57,7 +51,7 @@
         ],
         [
           {
-            text: "Equality and diversity policy"
+            text: "Overall responsibility for safeguarding"
           },
           {
             text: "Insufficient details"
@@ -65,7 +59,7 @@
         ],
         [
           {
-            text: "Contract for services template with employers"
+            text: "Engaging with employers to deliver apprenticeship training to employees"
           },
           {
             text: "Insufficient details"
@@ -73,7 +67,23 @@
         ],
         [
           {
-            text: "Organisation’s process for initial assessments to recognise prior learning?"
+            text: "Managing relationship with employers"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Promote apprenticeships to employers"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Management hierarchy for apprenticeships"
           },
           {
             text: "Insufficient details"

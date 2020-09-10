@@ -1,0 +1,25 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">An application has been submitted for the UKPRN {{ data['org-ukprn'] }}</h1>
+      <p class="govuk-body">To check the progress of this application, <a href="../signoutsignin">sign in</a> using the account details that were used to start the application.</p>
+{% include "includes/v16/gethelp.html" %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,1547 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+      
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          YOUR COMPANY NAME LTD
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% if (data['org-ukprn'] == "12340101") %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Trading name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Your Trading Name
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UKPRN
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-ukprn'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change-ukprn">
+            Change<span class="govuk-visually-hidden"> UKPRN</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Provider route
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-selectedroute'] | capitalize }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change-route">
+            Change<span class="govuk-visually-hidden"> provider route</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h2 class="govuk-heading-l">1. Your organisation</h2>
+    
+    <h3 class="govuk-heading-m">Organisation information</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Parent company
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['org-parentcompany'] == "Yes" %}
+            {{ data['org-parentcompany-name'] }} ({{ data['org-parentcompany-number'] }})
+          {% else %}
+            {{ data['org-parentcompany'] | capitalize }}
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-parentcompany">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          ICO registration number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-ico'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-ico">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Trading for
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-trading'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-trading">Change</a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">Tell us who's in control</h3>
+
+    {% include "../../includes/directors-pscs.html" %}
+    <br>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+  
+    <h3 class="govuk-heading-m">Describe your organisation</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Organisation type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['org-type'] }}
+          {% if (data['org-type'] == "An educational institute") %}
+            {% if (data['org-type-education'] == "School") %}
+              ({{ data['org-type-education-school'] }})
+            {% else %}
+              ({{ data['org-type-education'] }})
+            {% endif %}
+          {% elseif (data['org-type'] == "A public body") %}
+            <br>({{ data['org-type-psb'] }})
+          {% endif %}
+          {{ data['org-fundedbytext'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="organisation/org-type">Change</a>
+        </dd>
+      </div>
+      {% if (data['org-classification']) and (data['org-classification'] != "None of the above") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set i = 0 %}
+            {% if (data['org-classification'] | length > 1) %}
+              {% for item in data['org-classification'] %}
+                {% set i = i + 1 %}{% if (i == data['org-classification'] | length) %}and {% endif %}
+                {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['org-classification'] | length > 2) and(i < data['org-classification'] | length) %}, {% endif %}
+              {% endfor %}
+            {% else %}
+              {{data['org-classification']}}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/org-classification">Change</a>
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+
+    <h3 class="govuk-heading-m">Experience and accreditations</h3>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+
+      {% if data['org-selectedroute'] == "supporting" %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            In the last 12 months, has your organisation delivered apprenticeship training as a subcontractor?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-subcontractor'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-subcontractor">Change</a>
+          </dd>
+        </div>
+
+      {% else %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Offer initial teacher training
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-itt'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-itt">Change</a>
+          </dd>
+        </div>
+        {% if (data['pro-postgrad']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Post graduate teaching apprenticeships only
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-postgrad'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-postgrad">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Full Ofsted inspection in further education and skills?</dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['pro-ofsted-feskills'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="organisation/pro-ofsted-feskills">Change</a>
+          </dd>
+        </div>
+        {% if (data['pro-monitoring-visit']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation had a monitoring visit for apprenticeships in further education and skills?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-monitoring-visit'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-monitoring-visit">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-apprenticeships']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Was your organisation awarded a grade for apprenticeships in this Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-apprenticeships-grade']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What grade did your organisation get for apprenticeships in this full Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships-grade">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-apprenticeships-date']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did your organisation get this grade within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-apprenticeships-date'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-apprenticeships-date">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-grade']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What grade did your organisation get for overall effectiveness in this full Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-grade'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-grade">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-date']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did your organisation get this grade within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-date'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-date">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-shortinspection']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation had a short Ofsted inspection within the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-shortinspection'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-shortinspection">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-grademaintained']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation maintained the grade it got in its full Ofsted inspection in its short Ofsted inspection?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-grademaintained'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-grademaintained">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if (data['pro-ofsted-overall-fundingmaintained']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Has your organisation maintained funding from an education agency since getting this grade?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['pro-ofsted-overall-fundingmaintained'] | capitalize }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="organisation/pro-ofsted-overall-fundingmaintained">Change</a>
+            </dd>
+          </div>
+        {% endif %}
+
+      {% endif %}
+
+    </dl>
+
+
+<!-- Financial health assessment -->
+
+    {% if data['exempt_fha'] == "no" %}
+
+      <h2 class="govuk-heading-l">2. Financial health assessment</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Does your organisation have full financial statements covering the last 12 months?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['fin-fullstatements'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/full-statements">Change</a>
+          </dd>
+        </div>
+
+        {% if data['fin-fullstatements'] == "yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full financial statements
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/full-statements-upload">Change</a>
+          </dd>
+        </div>
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Management accounts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/incomplete-statements-upload">Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Financial projections
+          </dt>
+          <dd class="govuk-summary-list__value">
+            '<a href="#">filename.pdf</a>' uploaded
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/incomplete-statements-upload">Change</a>
+          </dd>
+        </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Who prepared your organisation’s financial evidence?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set i = 0 %}
+            {% for item in data['fin-whoprepared'] %}
+              {% set i = i + 1 %}
+              {% if (i == data['fin-whoprepared'] | length) %}and {% endif %}
+              {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['fin-whoprepared'] | length > 2) and(i < data['fin-whoprepared'] | length) %}, {% endif %}
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="financial/who-prepared">Change</a>
+          </dd>
+        </div>
+
+      </dl>
+
+    {% endif %}
+
+
+<!-- Criminal and compliance checks -->
+
+    <h2 class="govuk-heading-l">3. Criminal and compliance checks</h2>
+
+    <h3 class="govuk-heading-m">Checks on your organisation</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have any composition with creditors?
+        </dt>
+        <dd class="govuk-summary-list__value">
+        {{ data['dec-org-debt'] | capitalize }}{% if data['dec-org-debt'] == "Yes" %}. {{ data['dec-org-debt-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-debt">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation failed to pay back funds in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-repayfunding'] | capitalize }}{% if data['dec-org-repayfunding'] == "Yes" %}. {{ data['dec-org-repayfunding-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-repay-funding">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation had a contract terminated early by a public body in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-contractterminated'] | capitalize }}{% if data['dec-org-contractterminated'] == "Yes" %}. {{ data['dec-org-contractterminated-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-contract-terminated">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation had early withdrawal from a contract with a public body in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-withdrawncontract'] | capitalize }}{% if data['dec-org-withdrawncontract'] == "Yes" %}. {{ data['dec-org-withdrawncontract-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-withdrawn-contract">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation been removed from the Register of Training Organisations (RoTO) in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-roto'] | capitalize }}{% if data['dec-org-roto'] == "Yes" %}. {{ data['dec-org-roto-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-roto">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation had funding removed from any education bodies in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-fundingremoved'] | capitalize }}{% if data['dec-org-fundingremoved'] == "Yes" %}. {{ data['dec-org-fundingremoved-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-funding-removed">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation been removed from any professional or trade registers in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-traderegister'] | capitalize }}{% if data['dec-org-traderegister'] == "Yes" %}. {{ data['dec-org-traderegister-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-trade-register">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation had involuntary withdrawal from Initial Teacher Training accreditation in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-ittwithdrawal'] | capitalize }}{% if data['dec-org-ittwithdrawal'] == "Yes" %}. {{ data['dec-org-ittwithdrawal-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-itt-withdrawal">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation been investigated due to safeguarding issues in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-safeguarding'] | capitalize }}{% if data['dec-org-safeguarding'] == "Yes" %}. {{ data['dec-org-safeguarding-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-safeguarding">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has your organisation been investigated due to whistleblowing issues in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-org-whistleblowing'] | capitalize }}{% if data['dec-org-whistleblowing'] == "Yes" %}. {{ data['dec-org-whistleblowing-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/org-whistleblowing">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Checks on who’s in control of your organisation</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation had any criminal convictions in the last 5 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-convictions'] | capitalize }}{% if data['dec-people-convictions'] == "Yes" %}. {{ data['dec-people-convictions-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/people-convictions">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation failed to pay back funds in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-repayfunding'] | capitalize }}{% if data['dec-people-repayfunding'] == "Yes" %}. {{ data['dec-people-repayfunding-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-repay-funding">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation been investigated for fraud or irregularities in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-fraud'] | capitalize }}{% if data['dec-people-fraud'] == "Yes" %}. {{ data['dec-people-fraud-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-fraud">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does anyone who's in control of your organisation have any ongoing investigations for fraud or irregularities?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-fraudongoing'] | capitalize }}{% if data['dec-people-fraudongoing'] == "Yes" %}. {{ data['dec-people-fraudongoing-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-fraud-ongoing">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation had a contract terminated by a public body in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-contractterminated'] | capitalize }}{% if data['dec-people-contractterminated'] == "Yes" %}. {{ data['dec-people-contractterminated-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-contract-terminated">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation had an early withdrawal from a contract with a public body in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-withdrawncontract'] | capitalize }}{% if data['dec-people-withdrawncontract'] == "Yes" %}. {{ data['dec-people-withdrawncontract-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-withdrawn-contract">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation breached tax payments or social security contributions in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-taxpayments'] | capitalize }}{% if data['dec-people-taxpayments'] == "Yes" %}. {{ data['dec-people-taxpayments-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-tax-payments">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation been removed from any charity register?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-charityregister'] | capitalize }}{% if data['dec-people-charityregister'] == "Yes" %}. {{ data['dec-people-charityregister-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-charity-registered">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Is anyone who's in control of your organisation on the Register of Removed Trustees?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-trusteeregister'] | capitalize }}{% if data['dec-people-trusteeregister'] == "Yes" %}. {{ data['dec-people-trusteeregister-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-trustee-register">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation been made bankrupt in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-bankrupt'] | capitalize }}{% if data['dec-people-bankrupt'] == "Yes" %}. {{ data['dec-people-bankrupt-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-bankrupt">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has anyone who’s in control of your organisation been subject to insolvency or winding up proceedings in the last 3 years?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['dec-people-insolvency'] | capitalize }}{% if data['dec-people-insolvency'] == "Yes" %}. {{ data['dec-people-insolvency-detail'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="declarations/poeple-insolvency">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+<!-- Protecting your apprentices -->
+
+    <h2 class="govuk-heading-l">4. Protecting your apprentices</h2>
+
+    <h3 class="govuk-heading-m">Continuity plan for apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Continuity plan for apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/upload-continuity">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Equality and diversity policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Equality and diversity policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/upload-diversity">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Safeguarding policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Safeguarding policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/upload-safeguarding">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall responsibility for safeguarding in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['wel-safeguardingresponsible-name'] }}
+          {% if data['wel-safeguardingresponsible-email'] != "" %}<br>{{ data['wel-safeguardingresponsible-email'] }}{% endif %}
+          {% if data['wel-safeguardingresponsible-tel'] != "" %}<br>{{ data['wel-safeguardingresponsible-tel'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/safeguarding">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Prevent duty policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Prevent duty policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/upload-preventduty">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Health and safety policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Health and safety policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/upload-healthandsafety">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall responsibility for health and safety in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['wel-healthandsafetyresponsible-name'] }}
+          {% if data['wel-healthandsafetyresponsible-email'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-email'] }}{% endif %}
+          {% if data['wel-healthandsafetyresponsible-tel'] != "" %}<br>{{ data['wel-healthandsafetyresponsible-tel'] }}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="welfare/healthandsafety-details">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+<!-- Readiness to engage -->
+
+    <h2 class="govuk-heading-l">5. Readiness to engage</h2>
+
+    <h3 class="govuk-heading-m">Engaging with employers</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      {% if data['org-selectedroute'] != "employer" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Has your organisation engaged with employers to deliver apprenticeship training to their employees?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['rte-engaged'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="readiness/engaged">Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How will your organisation manage its relationships with employers?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['rte-relationships'] }}
+          </dd>   <dd class="govuk-summary-list__actions">
+            <a href="readiness/relationships">Change</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Does your organisation have anyone who’s responsible for managing relationships with employers?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['rte-managingrelationships'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="readiness/managing-relationships-detail">Change</a>
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+
+    <h3 class="govuk-heading-m">Complaints policy</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Complaints policy
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/upload-complaints">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Contract for services template</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contract for services template with employers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/upload-contractforservices">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Commitment statement template</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Commitment statement template
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/upload-commitmentstatement">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Prior learning of apprentices</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Process for initial assessments to recognise prior learning?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-priorlearning'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/prior-learning-assessments">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Process to assess English and maths qualifications for apprentices?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-assessenglishmaths'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/assess-english-maths">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Working with subcontractors</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation expect to use subcontractors in the first 12 months of joining RoATP?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['rte-usesubcontractors'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="readiness/use-subcontractors">Change</a>
+        </dd>
+      </div>
+      {% if data['rte-usesubcontractors'] == "Yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How will your organisation engage with subcontractors?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['rte-engage-subcontractors'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="readiness/manage-subcontractors">Change</a>
+          </dd>
+        </div>
+      {% endif %}
+    </dl>
+
+
+<!-- Planning apprenticeship training -->
+
+    <h2 class="govuk-heading-l">6. Planning apprenticeship training</h2>
+
+    
+    <h3 class="govuk-heading-m">Type of apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What type of apprenticeship training will your organisation offer?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% set len = data['plan-type'] | length %}
+          {% for item in data['plan-type'] %}
+            {% if (i == 1) %}
+              and {{ data['plan-type'][i] | lower }}
+            {% else %}
+              {{ data['plan-type'][i] }}
+            {% endif %}
+            {% set i = i + 1 %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/01-type">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How does your organisation plan to engage and work with awarding bodies?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-engaging'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/03-engaging">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Course directory contact
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-contact-name'] }}<br>
+          {{ data['plan-contact-email'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/05-contact">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <!-- SUPPORTING APPRENTICES - TO DO -->
+
+    <h3 class="govuk-heading-m">Forecasting starts</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How many starts does your organisation forecasts in the first 12 months of joining RoATP?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-starts'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/06-forecast-starts">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          When will your organisation be ready to deliver training against these forecasts?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-readytodeliver'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/07-forecast-readytodeliver">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Will your organisation recruit new staff to deliver training against these forecasts?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-newstaff'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/08-forecast-newstaff">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the typical ratio of the staff who deliver training to the learners?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-forecast-ratio'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/09-forecast-ratio">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    
+    <h3 class="govuk-heading-m">Off the job training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What teaching methods will your organisation use to deliver 20% off the job training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% for item in data['plan-otj-method'] %}
+            {% set i = i + 1 %}
+            {% if (i == data['plan-otj-method'] | length) %}and {% endif %}
+            {% if (i == 1) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (data['plan-otj-method'] | length > 2) and(i < data['plan-otj-method'] | length) %}, {% endif %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/10-otj-methods">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will your organisation ensure 20% off the job training is relevant to specific apprenticeship
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-otj-relevant'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/11-otj-relevant">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Where apprentices will be trained</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the main address apprentices will be trained?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['plan-address-line1'] }}
+          {{ data['plan-address-line2'] }}
+          {% if (data['plan-address-town'] != "") %}<br>{% endif %}
+          {{ data['plan-address-town'] }}
+          {% if (data['plan-address-county'] != "") %}<br>{% endif %}
+          {{ data['plan-address-county'] }}
+          {% if (data['plan-address-postcode'] != "") %}<br>{% endif %}
+          {{ data['plan-address-postcode'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="planning/12-address">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+<!-- Delivering apprenticeship training -->
+
+    <h2 class="govuk-heading-l">7. Delivering apprenticeship training</h2>
+
+    <h3 class="govuk-heading-m">Overall accountability for apprenticeships</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who has overall accountability for apprenticeships in your organisation
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallaccountability-name'] }}<br>
+          {{ data['del-developdeliver-overallaccountability-email'] }}<br>
+          {{ data['del-developdeliver-overallaccountability-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/overallaccountability">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Management hierarchy for apprenticeships<a href="#" class="roatp_changeanswers">Change answers</a></h3>
+    <div class="govuk-accordion govuk-accordion--roatpcya" data-module="accordion" id="accordion-default">
+      {% set i = 0 %}
+      {% for person in data['del-hierarchy-person'] %}
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
+                {{data['del-hierarchy-person'][i]['name']}}
+              </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
+            <dl class="govuk-summary-list govuk-summary-list--roatpcya">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Job role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['job_role']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Time in role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['time_in_role']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this person part of another organisation that receives funding from ESFA?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['org_funding']}}
+                  {% if (data['del-hierarchy-person'][i]['org_funding_name'] != "") %}
+                  ({{data['del-hierarchy-person'][i]['org_funding_name']}})
+                  {% endif %}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Is this person a subcontractor who receives funding from ESFA?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['subcontractor_funding']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Reports to
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-hierarchy-person'][i]['report_to']}}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {% set i = i + 1 %}
+      {% endfor %}
+    </div>
+    
+    <h3 class="govuk-heading-m">Quality and standards in apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Have your management hierarchy documented their expectations for quality and high standards in apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/expectations">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Management hierarchy’s expectations for quality and high standards in apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/expectations-upload">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Tell us who’s responsible for maintaining quality and high standards in apprenticeship training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations-responsible-name'] }}<br>
+          {{ data['del-expectations-responsible-email'] }}<br>
+          {{ data['del-expectations-responsible-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/expectations-responsible">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will these quality and high standards in apprenticeship training communicated to employees?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-expectations-comminicated'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/expectations-communicated">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Developing and delivering training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have a team responsible for developing and delivering training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/developdeliver">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who have the team worked with to develop and deliver training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-workedwith'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/developdeliver-workedwith">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How did the team work with employers to develop and deliver training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-howworkedwith'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/developdeliver-howworkedwith">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who’s the overall manager for this team
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallmanager'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/developdeliver-overallmanager">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How much experience do they have in developing and delivering training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-developdeliver-overallmanager-experience'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/developdeliver-overallmanager">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Sectors and employee experience</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-3 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What sectors will your organisation offer apprenticeship training in?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% set i = 0 %}
+          {% for item in data['del-sectors'] %}
+            {% if (i+1 == data['del-sectors'] | length) %}and {% endif %}
+            {% if (i == 0) %}{{ item }}{% else %}{{ item|lower }}{% endif %}{% if (i+1 < data['del-sectors'] | length) %}, {% endif %}
+            {% set i = i + 1 %}
+          {% endfor %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/sectors">Change</a>
+        </dd>
+      </div>
+    </dl>
+    
+    <h4 class="govuk-heading-s govuk-!-margin-bottom-0">Most experienced employees in sectors<a href="#" class="roatp_changeanswers">Change answers</a></h4>
+    <div class="govuk-accordion govuk-accordion--roatpcyaemployees" data-module="accordion" id="accordion-default">
+      {% set i = 0 %}
+      {% for person in data['del-employee'] %}
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <button type="button" id="accordion-default-heading-{{i}}" aria-controls="accordion-default-content-{{i}}" class="govuk-accordion__section-button govuk-!-font-size-19" aria-expanded="false">
+                {{data['del-employee'][i]['name']}} ({{data['del-sectors'][i]}})
+              </button><span class="govuk-accordion__icon" aria-hidden="true"></span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-{{i}}" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-{{i}}">
+            <dl class="govuk-summary-list govuk-summary-list--roatpcya">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Job role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-employee'][i]['job_role']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Time in role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['del-employee'][i]['timeinrole_years']}} years {{data['del-employee'][i]['timeinrole_months']}} months
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {% set i = i + 1 %}
+      {% endfor %}
+    </div>
+
+    <h3 class="govuk-heading-m govuk-!-margin-top-9">Policy for professional development of employees</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Your organisation’s policy for professional development of employees
+        </dt>
+        <dd class="govuk-summary-list__value">
+          '<a href="#">filename.pdf</a>' uploaded
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/development-upload">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Example of how your policy for professional development of employees is implemented
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-development-implemented'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/development-implemented">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Example of how your policy for professional development of employees is reflected in teaching and training
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['del-development-reflected'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="delivering/development-reflected">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+<!-- Evaluating training -->
+
+    <h2 class="govuk-heading-l">8. Evaluating training</h2>
+
+    <h3 class="govuk-heading-m">Process for evaluating the quality of training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Your organisation’s process for evaluating the quality of training delivered
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-training'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/training">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How has your organisation used its process for evaluating the quality of training to identify and make improvements?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-training-improvements'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/training-improvements">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Process of evaluating the quality of apprenticeship training</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation’s process for evaluating the quality of training delivered include apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-apprenticeships'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/apprenticeships">Change</a>
+        </dd>
+      </div>
+      {% if data['eval-apprenticeships'] == "No" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will your organisation evaluate the quality of apprenticeship training?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-apprenticeships-how'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/apprenticeships-how">Change</a>
+        </dd>
+      </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How will your organisation review its process for evaluating the quality of training delivered?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-review'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/review">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Systems and processes to collect data</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have systems and processes in place to collect apprenticeship data?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-collectdata'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/collectdata">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">Using Individualised Learner Record systems</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Does your organisation have the resources to use the Individualised Learner Record system (ILR)?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['eval-ilr'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="evaluating/ilr">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+<!-- Finish -->
+
+    <h2 class="govuk-heading-l">9. Finish</h2>
+
+    <h3 class="govuk-heading-m">Your details and permissions</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Your contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['end-yourdetails-name'] }}<br>
+          {{ data['end-yourdetails-email'] }}<br>
+          {{ data['end-yourdetails-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="finish/yourdetails">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          I have permission from my organisation to submit this application
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['end-permission-submit'] %}Yes{% else %}No{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="finish/yourdetails">Change</a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          I have permission from everyone named in this application to use their details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['end-permission-named'] %}Yes{% else %}No{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="finish/yourdetails">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+    <h3 class="govuk-heading-m">About this application</h3>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-summary-list--roatpcya">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Is any of the information in this application ‘commercial in confidence’?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['end-permission-commercial'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="finish/permission-commercial">Change</a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <h2 class="govuk-heading-m">Now submit your application</h2>
+
+    <p class="govuk-body">{{ data['end-yourdetails-name'] }} is submitting this application on behalf of 	YOUR COMPANY NAME LTD and confirms that, to the best of their knowledge, the details provided are correct.</p>
+    <p class="govuk-body">You will not be able to view your application once it’s been submitted.</p>
+
+    <form action="" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Accept and send",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+    
+    </form>
+{% include "includes/v16/gethelp.html" %}
+  </div>
+</div>
+
+{% endblock %}

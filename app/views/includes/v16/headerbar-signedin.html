@@ -1,0 +1,76 @@
+  {{ govukHeader({
+    homepageUrl: "#",
+    serviceName: serviceName,
+    serviceUrl: "#"
+  }) }}
+  
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "beta"
+      },
+      html: 'This is a new service - your <a href="#">feedback</a> will helps us to improve it.'
+    }) }}
+  </div>
+  
+  <div class="govuk-phase-banner govuk-width-container" style="padding: 0;">
+    <nav>
+      <ul id="navigation" class="roatp__navigation " aria-label="Top Level Navigation">
+      {{signedin}}
+
+        {% if data['application_status'] == "dashboard" %}
+            <li class="roatp__navigation-item roatp__navigation-item--active">
+              <a class="govuk-header__link" href="/application/v16/dashboard">
+                Application overview
+              </a>
+            </li>
+        {% elseif data['application_status'] == "sent" %}
+            <li class="roatp__navigation-item roatp__navigation-item--active">
+              <a class="govuk-header__link" href="/application/v16/application-complete">
+                Application overview
+              </a>
+            </li>
+        {% else %}
+          {% if (data['signedin'] == "yes") and (data['org-ukprn']) and (data['org-selectedroute']) %}
+            {% if currentpage == "task-list" %}
+              <li class="roatp__navigation-item roatp__navigation-item--active">
+            {% else %}
+              <li class="roatp__navigation-item">
+            {% endif %}
+                <a class="govuk-header__link" href="/application/v16/task-list">
+                  Application overview
+                </a>
+              </li>
+          {% else %}
+            <li class="roatp__navigation-item roatp__navigation-item--inactive">
+              <span class="govuk-header__link">Application overview</span>
+            </li>
+          {% endif %}
+        {% endif %}
+        <!--li class="roatp__navigation-item">
+          <a class="govuk-header__link" href="#">
+            View all questions
+          </a>
+        </li-->
+        <li class="roatp__navigation-item">
+          <a class="govuk-header__link" href="#">
+            Your messages (0)
+          </a>
+        </li>
+        {% if (data['signedin'] == "yes") and (data['org-ukprn'] == "") %}
+        <li class="roatp__navigation-item roatp__navigation-signout">
+          <a class="govuk-header__link" href="#">
+            Sign out
+          </a>
+        </li>
+        {% endif %}
+        {% if (data['signedin'] == "yes") and (data['org-ukprn'] != "") %}
+        <li class="roatp__navigation-item roatp__navigation-signout">
+          <a class="govuk-header__link" href="/application/v16/signout">
+            S{% if not (data['application_status']) %}ave and s{% endif %}ign out
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>

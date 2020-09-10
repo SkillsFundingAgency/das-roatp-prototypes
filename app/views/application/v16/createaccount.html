@@ -1,0 +1,58 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  Sign in - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Create an account to use the RoATP service</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "First name"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "createFirstname",
+        name: "createFirstname"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Last name"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "createLastname",
+        name: "createLastname"
+      }) }}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="event-name">
+          Email address
+        </label>
+        <p class="govuk-hint">We’ll use this email address:</p>
+        <ul class="govuk-hint govuk-list govuk-list--bullet">
+            <li>to send you a confirmation email about your account</li>
+            <li>for all communication to do with your RoATP application</li>
+        </ul>
+        <input class="govuk-input govuk-!-width-two-thirds" id="createEmail" name="createEmail" type="text">
+      </div>
+
+
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

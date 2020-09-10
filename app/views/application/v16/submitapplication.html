@@ -1,0 +1,91 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Submit application on behalf of YOUR COMPANY NAME LTD</h1>
+
+    <p class="govuk-body">Before you submit your application, you must check that all your answers and file uploads are correct.</p>
+    <p class="govuk-body">You can check your answers and file uploads by going into each section on your <a href="/application/v16/task-list">application overview</a>.</p>
+    <p class="govuk-body">You will not be able to view them once you submit your application.</p>
+    <p class="govuk-body">If your answers or file uploads are unclear, we may ask for clarification. If they are misleading or inaccurate, we may fail your application.</p>
+    <p class="govuk-body">We will send all communication about this application to <a href="javascript:preventDefault();">hello@hello.co.uk</a>.</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>clarification requests on answers or file uploads</li>
+        <li>overall outcome of the application</li>
+        <li>general and post application queries</li>
+    </ul>
+
+    {{ govukCheckboxes({
+      idPrefix: "submitconfirm-1",
+      name: "submitconfirm-1",
+      classes: "govuk-checkboxes--small",
+      items: [
+        {
+          value: "confirm",
+          text: "I confirm that all my answers and file uploads are true and accurate to the best of my knowledge."
+        }
+      ]
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: "submitconfirm-2",
+      name: "submitconfirm-2",
+      classes: "govuk-checkboxes--small",
+      items: [
+        {
+          value: "confirm",
+          text: "I understand that if I do not reply to a clarification within 5 working days, my application may fail."
+        }
+      ]
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: "submitconfirm-3",
+      name: "submitconfirm-3",
+      classes: "govuk-checkboxes--small",
+      items: [
+        {
+          value: "confirm",
+          text: "I understand that all communication about this application will be sent to hello@hello.co.uk."
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      href: "application-complete",
+      text: "Submit application",
+      disabled: true,
+      classes: "govuk-!-margin-right-4 govuk-button__submit"
+    }) }}
+{% include "includes/v16/gethelp.html" %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+	<script>
+    $( "#submitconfirm-3-1" ).on( "change", function() {
+      var $this = $(".govuk-button__submit");
+      if ($this.hasClass('govuk-button--disabled')) {
+        $this.removeAttr('disabled');
+        $this.removeClass('govuk-button--disabled');
+      } else {
+        $this.attr('disabled', 'disabled');
+        $this.addClass('govuk-button--disabled');
+      }
+    });
+  </script>
+
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">An application already exists for the UKPRN {{ data['org-ukprn'] }}</h1>
+      <p class="govuk-body">To continue with the application, <a href="../signoutsignin">sign in</a> using the account details that were used to start the application.</p>
+      <p class="govuk-body">If you think this is wrong, contact us on 0370 2670001 or fill out the <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=/en&cancelRedirectLink=/en&consentMessage=yes">service desk form</a>.</p>
+{% include "includes/v16/gethelp.html" %}
+    </div>
+  </div>
+
+{% endblock %}

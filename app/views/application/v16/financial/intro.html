@@ -1,0 +1,54 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Introduction and what you'll need</span>
+
+    <h1 class="govuk-heading-l">Financial health assessment</h1>
+
+    <p class="govuk-body">This section is to ensure your organisation’s financial performance and ability to meet ongoing financial commitments meet ESFA’s expectations.</p>
+
+      <p class="govuk-body">You may need to provide your organisation’s:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>financial figures</li>
+        <li>full financial statements or management accounts</li>
+      </ul>
+
+      <p class="govuk-body">Based on your answers and uploads, your organisation will receive a financial health grade.</p>
+
+    <p class="govuk-body">Find out more about <a href="https://www.gov.uk/government/publications/esfa-financial-health-assessment" target="_blank">ESFA financial health assessment (opens in a new window or tab)</a>.</p>
+
+    {{ govukWarningText({
+      text: "Financial statements must not be abbreviated, filleted or for a micro entity.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    <form action="" method="post" class="form">
+
+      {{ govukButton({
+        text: "Continue with this section",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="govuk-body"><a href="../task-list#section-financial">Come back to this section later</a></p>
+      
+    </form>
+{% include "includes/v16/gethelp.html" %}
+  </div>
+</div>
+
+{% endblock %}

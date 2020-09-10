@@ -18,3 +18,7 @@ $govuk-global-styles: true;
 @import "patterns/roatp-navigation";
 
 @import "patterns/roatp-assess";
+
+.panel-failure {
+  background: $govuk-error-colour;
+}

@@ -1,0 +1,55 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Organisation information</span>
+        
+    <h1 class="govuk-heading-l">Is your organisation a rail franchise operator?</h1>
+
+    <p>This means your organisation has a rail franchise license and can act on behalf of the Department for Transport.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-rail-franchise",
+        name: "org-rail-franchise",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("org-rail-franchise", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("org-rail-franchise", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

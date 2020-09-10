@@ -1,0 +1,26 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">You're applying to join the register of apprenticeship training providers for the second time</h1>
+      <p class="govuk-body">Your application on 1 January 2020 was unsuccessful. You can reapply now, but if you're unsuccessful you will not be able to apply again until 1 January 2021.</p>
+      <p class="govuk-body">This is because you can only apply to join the register of apprenticeship training providers twice within a 12-month period.</p>
+      <p><a class ="govuk-button" href="../ukprn-confirmdetails">Continue</a></p>
+      {% include "includes/v16/gethelp.html" %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">How would you describe your organisation?</h1>
+
+    <p class="govuk-hint">Select all that apply.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukCheckboxes({
+        idPrefix: "org-classification",
+        name: "org-classification",
+        items: [
+          {
+            value: "A public service mutual",
+            text: "A public service mutual",
+            hint: {
+              text: "An organisation that’s left the public sector but still delivers public services."
+            },
+            checked: checked("org-classification", "A public service mutual")
+          },
+          {
+            value: "A sheltered workshop",
+            text: "A sheltered workshop",
+            hint: {
+              text: "An organisation that provides employment opportunities for people who are developmentally, physically, or mentally impaired."
+            },
+            checked: checked("org-classification", "A sheltered workshop")
+          },
+          {
+            value: "A small or medium enterprise (SME)",
+            text: "A small or medium enterprise (SME)",
+            hint: {
+              html: 'As explained by the <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en" target="_blank">European Commission (opens in a new window or tab)</a>.'
+            },
+            checked: checked("org-classification", "A small or medium enterprise (SME)")
+          },
+          {
+            value: "A third sector organisation",
+            text: "A third sector organisation",
+            hint: {
+              text: "An organisation that does voluntary or community work. For example, a charity."
+            },
+            checked: checked("org-classification", "A third sector organisation")
+          },
+          {
+            value: "None of the above",
+            text: "None of the above",
+            checked: checked("org-classification", "None of the above")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">Is your organisation monitored and supported by the Office of Students (OfS)?</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "org-type-education-hei",
+        name: "org-type-education-hei",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: checked("org-type-education-hei", "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: checked("org-type-education-hei", "No")
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

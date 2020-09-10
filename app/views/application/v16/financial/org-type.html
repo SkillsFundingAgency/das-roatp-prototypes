@@ -1,0 +1,111 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Describe your organisation</span>
+        
+    <h1 class="govuk-heading-l">What is your organisation?</h1>
+
+    <form action="" method="post" class="form">
+
+      {% if (data['org-selectedroute'] == "employer") %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "An educational institute",
+            text: "An educational institute",
+            checked: checked("org-type", "education")
+          },
+          {
+            value: "A public body",
+            text: "A public body",
+            checked: checked("org-type", "A public body")
+          },
+          {
+            value: "A rail franchise operator",
+            text: "A rail franchise operator",
+            checked: checked("org-type", "A rail franchise operator")
+          },
+          {
+            value: "None of the above",
+            text: "None of the above",
+            checked: checked("org-type", "None of the above")
+          }
+        ]
+      }) }}
+
+      {% else %}
+
+      {{ govukRadios({
+        idPrefix: "org-type",
+        name: "org-type",
+        items: [
+          {
+            value: "An educational institute",
+            text: "An educational institute",
+            checked: checked("org-type", "An educational institute")
+          },
+          {
+            value: "An employer",
+            text: "An employer",
+            checked: checked("org-type", "An employer")
+          },
+          {
+            value: "A public body",
+            text: "A public body",
+            checked: checked("org-type", "A public body")
+          },
+          {
+            value: "An apprenticeship training agency",
+            text: "An apprenticeship training agency",
+            checked: checked("org-type-training", "An apprenticeship training agency")
+          },
+          {
+            value: "An independent training provider",
+            text: "An independent training provider",
+            checked: checked("org-type-training", "An independent training provider")
+          },
+          {
+            value: "A group training association",
+            text: "A group training association",
+            checked: checked("org-type-training", "A group training association")
+          },
+          {
+            value: "A rail franchise operator",
+            text: "A rail franchise operator",
+            checked: checked("org-type", "A rail franchise operator")
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

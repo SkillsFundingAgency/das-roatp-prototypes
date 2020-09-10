@@ -1,0 +1,54 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  Sign in - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Sign in to use the RoATP service</h1>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "signin-email",
+        name: "signin-email",
+        type: "email"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Password"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "signin-password",
+        name: "signin-password",
+        type: "password"
+      }) }}
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="createaccount">Create an account</a></p>
+
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <p class="govuk-body"><a href="forgottenpassword">I have forgotten my password</a></p>
+
+  </div>
+</div>
+
+{% endblock %}

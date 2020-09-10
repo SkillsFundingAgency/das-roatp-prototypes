@@ -20,6 +20,7 @@ require('./routes/application/v12.js')(router);
 require('./routes/application/v13.js')(router);
 require('./routes/application/v14.js')(router);
 require('./routes/application/v15.js')(router);
+require('./routes/application/v16.js')(router);
 
 // MVP Oversight
 require('./routes/mvp-oversight/v1.js')(router);

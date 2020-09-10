@@ -1,0 +1,67 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Developing and delivering training</span>
+      
+    <h1 class="govuk-heading-l">Sectors and employee experience</h1>
+
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">1. </span> Your organisation's sectors
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="sectors">Choose sectors</a>
+            {% if data['del-sectors'] %}
+            <strong class="govuk-tag app-task-list__task-completed" id="eligibility-completed">Completed</strong>
+            {% endif %}
+          </li>
+        </ul>
+      </li>
+      {% if data['del-sectors'] %}
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number">2. </span> Delivering training in sectors
+        </h2>
+        {% set i = 0 %}
+        <ul class="app-task-list__items">
+          {% for sector in data['del-sectors'] %}
+            <li class="app-task-list__item">
+              <a class="app-task-list__task-name" href="sectors-employee-add-route?current_sector_id={{i}}">{{ sector }}</a>
+              {% if (data['del-employee'][i]) and (data['del-employee'][i]['trainingduration']) %}
+                <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+              {% elseif (data['del-employee'][i]) %}
+                <strong class="govuk-tag app-task-list__task-inprogress">In progress</strong>
+              {% endif %}
+            </li>
+            {% set i = i + 1 %}
+          {% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+    </ol>
+
+    <p><a href="../task-list">Go to application overview</a></p>
+
+    {% include "includes/v16/gethelp.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

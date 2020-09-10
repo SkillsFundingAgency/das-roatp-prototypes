@@ -1,0 +1,93 @@
+{% set currentpage = "task-list" %}
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  Application complete - RoATP Organisation Prototype
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Application unsuccessful",
+      classes: "panel-failure"
+    }) }}
+
+    <p class="govuk-body govuk-!-margin-top-6">We have sent you a confirmation email. Check the email to find out how to appeal the decision or make a complaint.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">If your organisation is already on the RoATP, <a href="https://www.gov.uk/guidance/meeting-new-application-requirements-and-removal-from-register-of-apprenticeship-training-providers-roatp" target="_blank">view the exit policy</a> or <a href="https://www.gov.uk/guidance/meeting-new-application-requirements-and-removal-from-register-of-apprenticeship-training-providers-roatp#what-happens-if-a-provider-is-accepted-onto-roatp-after-being-removed" target="_blank">find out what happens if you’re successful when you apply again</a>.</p>
+
+    <p class="govuk-body">Organisations can only apply twice within a 12-month period from the date of their first application. To reapply, you’ll need to <a href="govuk-main-page">start a new application</a>.</p>
+    <h2 class="govuk-heading-m">Check which questions you failed</h2>
+    <p class="govuk-body">You should review your answers and any feedback before you start a new application.</p>
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Question failed"
+        },
+        {
+          text: "Feedback comment",
+          classes: "govuk-!-width-one-third"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Health and safety policy"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Safeguarding policy"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Equality and diversity policy"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Contract for services template with employers"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ],
+        [
+          {
+            text: "Organisation’s process for initial assessments to recognise prior learning?"
+          },
+          {
+            text: "Insufficient details"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+
+    <p class="govuk-body"><a href="#">What did you think of this service? (takes 30 seconds)</a></p>
+{% include "includes/v16/gethelp.html" %}
+  </div>
+</div>
+
+{% endblock %}

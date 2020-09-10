@@ -1,0 +1,56 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl">Change UKPRN</h1>
+
+    <p class="govuk-body">If you change your UKPRN, you will have to restart your application. This is because the information we get from UKRLP determines which questions we ask you.</p>
+
+    <p class="govuk-body">If you do not provide the correct UKPRN, we may fail your application.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukRadios({
+        idPrefix: "change-ukprn",
+        name: "change-ukprn",
+        fieldset: {
+          legend: {
+            text: "Are you sure you want to change your UKPRN?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+{% include "includes/v16/gethelp.html" %}
+    </form>
+
+  </div>
+{% endblock %}

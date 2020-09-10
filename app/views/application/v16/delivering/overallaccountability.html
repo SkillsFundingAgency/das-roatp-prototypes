@@ -1,0 +1,117 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Overall accountability for apprenticeships</span>
+          
+    <h1 class="govuk-heading-l">Tell us who has overall accountability for apprenticeships in your organisation</h1>
+    
+    <p class="govuk-body">This must be someone who’s accountable for the overall management and governance of apprenticeships.</p>
+    
+    <p class="govuk-body">We will contact them for all apprenticeship related concerns, issues or queries after your organisation joins the RoATP.</p>
+
+    <form action="" method="post" class="form">
+
+      {{ govukInput({
+        label: {
+          text: "Full name"
+        },
+        classes: "govuk-input--width-20",
+        id: "del-developdeliver-overallaccountability-name",
+        name: "del-developdeliver-overallaccountability-name",
+        value: data['del-developdeliver-overallaccountability-name']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email"
+        },
+        type: "email",
+        autocomplete: "email",
+        classes: "govuk-input--width-20",
+        id: "del-developdeliver-overallaccountability-email",
+        email: "del-developdeliver-overallaccountability-email",
+        value: data['del-developdeliver-overallaccountability-email'],
+        attributes: {
+          spellcheck: "false"
+        }
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Contact number"
+        },
+        classes: "govuk-input--width-20",
+        id: "del-developdeliver-overallaccountability-number",
+        name: "del-developdeliver-overallaccountability-number",
+        value: data['del-developdeliver-overallaccountability-number']
+      }) }}
+
+        {% set orgfundingHtml %}
+        {{ govukTextarea({
+          id: "del-developdeliver-overallaccountability-org",
+          name: "del-developdeliver-overallaccountability-org",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Enter the names of all these organisations"
+          },
+          hint: {
+            text: "You also need to include which of these organisations may receive funding directly from ESFA or as a subcontractor."
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "del-developdeliver-overallaccountability-otherorg",
+          name: "del-developdeliver-overallaccountability-otherorg",
+          fieldset: {
+            legend: {
+              text: "Is this person part of any other organisations?",
+              isPageHeading: false
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("del-developdeliver-overallaccountability-otherorg", "Yes"),
+              conditional: {
+                html: orgfundingHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked("del-developdeliver-overallaccountability-otherorg", "No")
+            }
+          ]
+        }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1"
+      }) }}
+
+      <p class="skipquestion" id="skipquestion"><a href="">Return to this question later</a></p>
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

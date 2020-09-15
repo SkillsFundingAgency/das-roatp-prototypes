@@ -9,34 +9,160 @@
 {% endblock %}
 
 {% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">Staff dashboard</h1>
+        </div>
+    </div>
 
-	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-full">
-			<span class="govuk-caption-m">Gateway, Manage RoATP, Reporting</span>
-			<h1 class="govuk-heading-xl">RoATP dashboard</h1>
-		</div>
-	</div>
+    <!-- RoATP PMO -->
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half" id="roatp-financial-review">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                RoATP financial applications
+            </h2>
+            <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Assess applications and view outcomes
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /RoATP PMO -->
 
-	<div class="govuk-grid-row">
-		<div class="govuk-grid-column-one-half">
-			<h2 class="govuk-heading-l">RoATP applications</h2>
-      <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
-			<ul class="govuk-list govuk-list--nobullet">
-				<li><a href="applications/applications-gateway">View RoATP applications</a></li>
-			</ul>
-		</div>
-		<div class="govuk-grid-column-one-half">
-			<h2 class="govuk-heading-l">Manage the RoATP</h2>
-			<ul class="govuk-list govuk-list--nobullet">
-				<li><a href="register/search/register">Search for existing apprenticeship training providers </a></li>
-				<li><a href="register/add/add-ukprn">Add a new training provider</a></li>
-			</ul>
-			<h2 class="govuk-heading-l">Reporting</h2>
-			<ul class="govuk-list govuk-list--nobullet">
-				<li><a href="#">Download list of apprenticeship training providers</a></li>
-			</ul>
-		</div>
-	</div>
-      
+    <!-- RoATP assessor -->
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                RoATP assessor applications
+            </h2>
+            <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Go to RoATP assessor applications
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /RoATP assessor -->
+
+    <!-- RoATP oversight -->
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half" id="roatp-application-oversight">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                RoATP application outcomes
+            </h2>
+            <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Go to RoATP application outcomes
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /RoATP oversight -->
+
+    <!-- RoATP gateway assessor -->
+    <div class="govuk-grid-row" id="roatp-gateway-review">
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                RoATP gateway applications
+            </h2>
+            <p class="govuk-body">Assess new applications, view current applications and send clarifications.</p>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Go to RoATP gateway applications
+                    </a>
+                </li>
+            </ul>
+            <p></p>
+        </div>
+    </div>
+    <!-- /RoATP gateway assessor -->
+
+    <!-- /RoATP gateway -->
+    <div class="govuk-grid-row" id="register-of-apprenticeship-training-providers">
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                Manage the RoATP
+            </h2>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Search for an apprenticeship training provider
+                    </a>
+                </li>
+                <li>
+                    <a class="govuk-link" href="#">
+                        Add a new apprenticeship training provider
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                Reporting
+            </h2>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">
+                        Download list of apprenticeship training providers
+                    </a>
+                </li>
+                <li>
+                    <a class="govuk-link" href="reporting/application-data">
+                        Download application data
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /RoATP gateway -->
+
+
+    <div class="govuk-grid-row">
+
+        </div>
+        <div class="govuk-grid-row">
+
+        </div>
+        <div class="govuk-grid-row">
+
+        </div>
+        <div class="govuk-grid-row">
+
+        </div>
+        <div class="govuk-grid-row">
+
+        </div>
+        <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half" id="registered-epaos">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                Registered EPAOs
+            </h2>
+            <p class="govuk-body">Search, view and edit organisations that are currently live on the Register.</p>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">Search</a>
+                </li>
+                <li sfa-show-for-roles="EPA,EPC">
+                    <a class="govuk-link" href="#">Add</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+    </div>
 {% endblock %}
       

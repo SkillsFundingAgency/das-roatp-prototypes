@@ -1,0 +1,91 @@
+{% set current_section = "dashboard" %}
+{% extends "layouts/layout_staff_v13.html" %}
+
+{% block pageTitle %}
+  ESFA Staff App
+{% endblock %}
+
+{% block head %}
+<link href="https://das-at-frnt-end.azureedge.net/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/stylesheets/lib/flatpickr/das-datepicker.css">
+  <link rel="stylesheet" href="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/stylesheets/application.css">
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Download application data report</h1>
+        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                Report date range
+                            </legend>
+                            <span class="field-validation-valid govuk-error-message error" data-valmsg-for="FromDate" data-valmsg-replace="true" id="error-message-FromDate"></span>
+                            <span class="field-validation-valid govuk-error-message error" data-valmsg-for="ToDate" data-valmsg-replace="true" id="error-message-ToDate"></span>
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-third">
+                                    <label class="govuk-label js-hidden" for="FromDate">
+                                        Date from
+                                    </label>
+                                    <span id="FromDate-hint" class="govuk-hint js-hidden">For example, 2020-05-15</span>
+                                    <div class="flatpickr--input-group js-flatpickr-from">
+                                        <input class="govuk-input flatpickr-input js-flatpickr-from-input" type="text" placeholder="From:" autocomplete="off" aria-describedby="FromDate-hint" data-input="" data-val="true" data-val-required="Enter a matching report 'from' date" id="FromDate" name="FromDate" value="">
+                                        <a class="flatpickr__input-button" title="toggle" data-toggle="">
+                                        <svg version="1.1" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="m492 352c11.046 0 20-8.954 20-20v-212c0-44.112-35.888-80-80-80h-26v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-91v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-90v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-25c-44.112 0-80 35.888-80 80v312c0 44.112 35.888 80 80 80h352c44.112 0 80-35.888 80-80 0-11.046-8.954-20-20-20s-20 8.954-20 20c0 22.056-17.944 40-40 40h-352c-22.056 0-40-17.944-40-40v-312c0-22.056 17.944-40 40-40h25v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h90v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h91v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h26c22.056 0 40 17.944 40 40v212c0 11.046 8.954 20 20 20z"></path>
+                                            <circle cx="125" cy="210" r="20"></circle>
+                                            <circle cx="299" cy="210" r="20"></circle>
+                                            <circle cx="386" cy="210" r="20"></circle>
+                                            <circle cx="125" cy="297" r="20"></circle>
+                                            <circle cx="125" cy="384" r="20"></circle>
+                                            <circle cx="212" cy="210" r="20"></circle>
+                                            <circle cx="212" cy="297" r="20"></circle>
+                                            <circle cx="212" cy="384" r="20"></circle>
+                                            <circle cx="299" cy="297" r="20"></circle>
+                                            <circle cx="386" cy="297" r="20"></circle>
+                                            <circle cx="299" cy="384" r="20"></circle>
+                                        </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="govuk-grid-column-one-third">
+                                    <label class="govuk-label js-hidden" for="ToDate">
+                                        Date to
+                                    </label>
+                                    <span id="ToDate-hint" class="govuk-hint js-hidden">For example, 2020-06-25</span>
+                                    <div class="flatpickr--input-group js-flatpickr-to">
+                                        <input class="govuk-input flatpickr-input js-flatpickr-to-input" type="text" placeholder="To:" autocomplete="off" aria-describedby="ToDate-hint" data-input="" data-val="true" data-val-required="Enter a matching report 'to' date" id="ToDate" name="ToDate" value="">
+                                        <a class="flatpickr__input-button" title="toggle" data-toggle="">
+                                        <svg version="1.1" viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="m492 352c11.046 0 20-8.954 20-20v-212c0-44.112-35.888-80-80-80h-26v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-91v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-90v-20c0-11.046-8.954-20-20-20s-20 8.954-20 20v20h-25c-44.112 0-80 35.888-80 80v312c0 44.112 35.888 80 80 80h352c44.112 0 80-35.888 80-80 0-11.046-8.954-20-20-20s-20 8.954-20 20c0 22.056-17.944 40-40 40h-352c-22.056 0-40-17.944-40-40v-312c0-22.056 17.944-40 40-40h25v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h90v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h91v20c0 11.046 8.954 20 20 20s20-8.954 20-20v-20h26c22.056 0 40 17.944 40 40v212c0 11.046 8.954 20 20 20z"></path>
+                                            <circle cx="125" cy="210" r="20"></circle>
+                                            <circle cx="299" cy="210" r="20"></circle>
+                                            <circle cx="386" cy="210" r="20"></circle>
+                                            <circle cx="125" cy="297" r="20"></circle>
+                                            <circle cx="125" cy="384" r="20"></circle>
+                                            <circle cx="212" cy="210" r="20"></circle>
+                                            <circle cx="212" cy="297" r="20"></circle>
+                                            <circle cx="212" cy="384" r="20"></circle>
+                                            <circle cx="299" cy="297" r="20"></circle>
+                                            <circle cx="386" cy="297" r="20"></circle>
+                                            <circle cx="299" cy="384" r="20"></circle>
+                                        </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/javascript/lib/flatpickr/flatpickr-4.6.3-modified.js"></script>
+<script src="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/javascript/das-datepicker.js"></script>
+{% endblock %}
+
+      

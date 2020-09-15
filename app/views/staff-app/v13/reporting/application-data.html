@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block head %}
-<link href="https://das-at-frnt-end.azureedge.net/css/main.css" rel="stylesheet">
+  <link href="https://das-at-frnt-end.azureedge.net/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/stylesheets/lib/flatpickr/das-datepicker.css">
   <link rel="stylesheet" href="https://pp-apprentice-support-admin.apprenticeships.education.gov.uk/stylesheets/application.css">
   {% include "includes/head.html" %}
@@ -18,8 +18,16 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Download application data report</h1>
-        <fieldset class="govuk-fieldset">
+        <h1 class="govuk-heading-xl">Download the RoATP application report</h1>
+        <p>You can download a report for all moderated applications. The report includes the:</p>
+        <ul class="govuk-list govuk-list--bullet">
+        <li>application date and reference ID</li>
+        <li>UKPRN and whether the organisation is already on the RoATP</li>
+        <li>organisation’s legal name</li>
+        <li>application route</li>
+        <li>outcome from gateway, assessor, financial health and overall moderation</li>
+        </ul>
+        <fieldset class="govuk-fieldset govuk-!-margin-bottom-6">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                                 Report date range
                             </legend>
@@ -78,6 +86,10 @@
                                 </div>
                             </div>
                         </fieldset>
+
+        {{ govukButton({
+          text: "Download report"
+        }) }}
 
     </div>
 </div>

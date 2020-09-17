@@ -1,0 +1,52 @@
+{% extends "layouts/layout_application_v16.html" %}
+
+{% block pageTitle %}
+  RoATP Application Prototype v16
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Have you applied to join more than twice in the past 12 months?</h1>
+
+    <form method="post" class="form">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-radios govuk-radios--inline">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="twice-in-twelve-months" name="two-in-twelve-months" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="twice-in-twelve-months">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="twice-in-twelve-months-2" name="two-in-twelve-months" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="twice-in-twelve-months-2">
+              No
+            </label>
+          </div>
+        </div>
+        </fieldset>
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-right-1 govuk-!-margin-top-6"
+      }) }}
+      
+      {% include "includes/v16/gethelp.html" %}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

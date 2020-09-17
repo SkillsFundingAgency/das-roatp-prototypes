@@ -1029,8 +1029,18 @@ module.exports = function (router) {
 
 	// Confirm company details
 	router.post('/application/' + v + '/ukprn-confirmdetails', function (req, res) {
-		res.redirect('/application/' + v + '/select-route')
+		res.redirect('/application/' + v + '/two-in-twelve-months')
 	})
+
+  router.post('/application/' + v + '/two-in-twelve-months', function (req, res) {
+    if (req.session.data['two-in-twelve-months'] == "yes") {
+      res.redirect('/application/' + v + '/shutter/applied-twice-in-twelve-months')
+    }
+    else {
+      res.redirect('/application/' + v + '/select-route')
+    }
+  })
+
 
 	// Organisation already on register as a supporting provider
 	router.post('/application/' + v + '/ukprn-onregister', function (req, res) {

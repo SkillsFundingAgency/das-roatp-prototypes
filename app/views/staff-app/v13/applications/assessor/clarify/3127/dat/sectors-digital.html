@@ -146,10 +146,6 @@
 						<th class="govuk-table__header">Internal comments</th>
 						<td class="govuk-table__cell">Insufficient details</td>
 					</tr>
-					<tr class="govuk-table__row">
-						<th class="govuk-table__header">External comments</th>
-						<td class="govuk-table__cell">Insufficient details</td>
-					</tr>
 				</tbody>
 			</table>
             </div><div class="govuk-grid-column-two-thirds">
@@ -195,18 +191,6 @@
 						maxwords: 150,
 						label: {
 							text: "Add internal comments"
-						}
-					}) }}
-					{{ govukCharacterCount({
-						name: "aac-clarify-3127-dat-sectors-digital-fail-feedback",
-						id: "aac-clarify-3127-dat-sectors-digital-fail-feedback",
-          	value: data['aac-clarify-3127-dat-sectors-digital-fail-feedback'],
-						maxwords: 150,
-						label: {
-							text: "Add external comments"
-						},
-						hint: {
-						    text: "The applicant will see these comments in their overall outcome."
 						}
 					}) }}
 				{% endset -%}
